@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# tidyBdE <img src="man/figures/logo.png" align="right" width="120" />
+# tidyBdE <img src="man/figures/logo.png" align="right" width="120"/>
 
 <!-- badges: start -->
 
@@ -146,13 +146,15 @@ bde_series_load("SOME ID", update_cache = TRUE)
 
 ## Another R packages for downloading Spanish open data
 
-Other useful packages that provides access to Spanish open data: -
-[**opendataes**](https://ropenspain.github.io/opendataes/): A package
-that downloads data from the <https://datos.gob.es> API. -
-[**MicroDatosEs**](https://github.com/rOpenSpain/MicroDatosEs): A
-package that process microdata provided by Spanish statistical agencies
-(mostly, INE). - [**CatastRo**](https://github.com/rOpenSpain/CatastRo):
-A package that queries to query Sede electrónica del Catastro API.
+Other useful packages that provides access to Spanish open data:
+
+-   [**opendataes**](https://ropenspain.github.io/opendataes/): A
+    package that downloads data from the <https://datos.gob.es> API.
+-   [**MicroDatosEs**](https://github.com/rOpenSpain/MicroDatosEs): A
+    package that process microdata provided by Spanish statistical
+    agencies (mostly, INE).
+-   [**CatastRo**](https://github.com/rOpenSpain/CatastRo): A package
+    that queries to query Sede electrónica del Catastro API.
 
 ## Disclaimer
 
