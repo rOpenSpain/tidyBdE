@@ -108,25 +108,15 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyBdE/">tidyBdE</a></span><span class="op">)</span>
 
-<span class="co"># Search USD on "TC" (exchange rate) catalog</span>
-<span class="va">XR_USD</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bde_catalog_search.html">bde_catalog_search</a></span><span class="op">(</span><span class="st">"USD"</span>, catalog<span class="op">=</span><span class="st">"TC"</span><span class="op">)</span>
+<span class="co"># Search GBP on "TC" (exchange rate) catalog</span>
+<span class="va">XR_GBP</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bde_catalog_search.html">bde_catalog_search</a></span><span class="op">(</span><span class="st">"GBP"</span>, catalog <span class="op">=</span> <span class="st">"TC"</span><span class="op">)</span>
 
-<span class="va">XR_USD</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">5</span><span class="op">)</span><span class="op">]</span>
-<span class="co">#&gt; # A tibble: 21 x 2</span>
-<span class="co">#&gt;    Numero_secuencial Descripcion_de_la_serie                                    </span>
-<span class="co">#&gt;                &lt;dbl&gt; &lt;chr&gt;                                                      </span>
-<span class="co">#&gt;  1            573234 Tipo de cambio. Dólares estadounidenses por euro (USD/EUR)~</span>
-<span class="co">#&gt;  2            315361 Tipo de cambio. Pesos argentinos por dólar estadounidense ~</span>
-<span class="co">#&gt;  3           1504154 Tipo de cambio. Bolivianos de Bolivia por dólar estadounid~</span>
-<span class="co">#&gt;  4            335874 Tipo de cambio. Pesos colombianos por dólar estadounidense~</span>
-<span class="co">#&gt;  5            335879 Tipo de cambio. Pesos chilenos por dólar estadounidense (C~</span>
-<span class="co">#&gt;  6           1504126 Tipo de cambio. Pesos dominicanos por dólar estadounidense~</span>
-<span class="co">#&gt;  7           1504127 Tipo de cambio. Quetzales guatemaltecos por dólar estadoun~</span>
-<span class="co">#&gt;  8           1504128 Tipo de cambio. Córdobas nicaragüenses por dólar estadouni~</span>
-<span class="co">#&gt;  9            335877 Tipo de cambio. Guaraníes paraguayos por dólar estadounide~</span>
-<span class="co">#&gt; 10            335876 Tipo de cambio. Nuevos soles peruanos por dólar estadounid~</span>
-<span class="co">#&gt; # ... with 11 more rows</span></code></pre></div>
-<p>Now, we can load the series for the USD/EUR exchange rate using the sequential number reference (<code>Numero_Secuencial</code>) as:</p>
+<span class="va">XR_GBP</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">5</span><span class="op">)</span><span class="op">]</span>
+<span class="co">#&gt; # A tibble: 1 x 2</span>
+<span class="co">#&gt;   Numero_secuencial Descripcion_de_la_serie                                     </span>
+<span class="co">#&gt;               &lt;dbl&gt; &lt;chr&gt;                                                       </span>
+<span class="co">#&gt; 1            573214 Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos ~</span></code></pre></div>
+<p>Now, we can load the series for the GBP/EUR exchange rate using the sequential number reference (<code>Numero_Secuencial</code>) as:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Load tidyverse for better handling</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
@@ -139,18 +129,26 @@
 <span class="co">#&gt; x dplyr::filter() masks stats::filter()</span>
 <span class="co">#&gt; x dplyr::lag()    masks stats::lag()</span>
 
-<span class="va">time_series</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span><span class="fl">573234</span>, series_label <span class="op">=</span> <span class="st">"EUR_USD_XR"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">"2010-01-01"</span> <span class="op">&amp;</span> <span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">"2015-12-31"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<span class="va">time_series</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span><span class="fl">573214</span>, series_label <span class="op">=</span> <span class="st">"EUR_GBP_XR"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">"2010-01-01"</span> <span class="op">&amp;</span> <span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">"2020-12-31"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">drop_na</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>The package also provides a custom <code>ggplot2</code> theme based on the publications of BdE:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="fu">ggplot</span><span class="op">(</span><span class="va">time_series</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">EUR_USD_XR</span><span class="op">)</span>, colour <span class="op">=</span> <span class="fu"><a href="reference/bde_vivid_pal.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"EUR/USD Exchange Rate (2010-2015)"</span>,
-       subtitle <span class="op">=</span> <span class="st">"%"</span>,
-       caption <span class="op">=</span> <span class="st">"Source: BdE"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="reference/theme_bde.html">theme_bde</a></span><span class="op">(</span><span class="op">)</span> </code></pre></div>
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">time_series</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">EUR_GBP_XR</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span>colour <span class="op">=</span> <span class="fu"><a href="reference/bde_vivid_pal.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"gam"</span>, colour <span class="op">=</span> <span class="fu"><a href="reference/bde_vivid_pal.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>
+    title <span class="op">=</span> <span class="st">"EUR/GBP Exchange Rate (2010-2020)"</span>,
+    subtitle <span class="op">=</span> <span class="st">"%"</span>,
+    caption <span class="op">=</span> <span class="st">"Source: BdE"</span>
+  <span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_vline</span><span class="op">(</span>
+    xintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2016-06-23"</span><span class="op">)</span>,
+    linetype <span class="op">=</span> <span class="st">"dotted"</span>
+  <span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="reference/theme_bde.html">theme_bde</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; `geom_smooth()` using formula 'y ~ s(x, bs = "cs")'</span></code></pre></div>
 <p><img src="reference/figures/README-chart-1.png" width="100%"></p>
 <p>The package provides also several “shortcut” functions for a selection of the most relevant macroeconomic series, so there is no need to look for them in advance:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -166,9 +164,11 @@
 
 <span class="fu">ggplot</span><span class="op">(</span><span class="va">plotseries</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">values</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>color <span class="op">=</span> <span class="va">label</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Spanish Economic Indicators (2010-2019)"</span>,
-       subtitle <span class="op">=</span> <span class="st">"%"</span>,
-       caption <span class="op">=</span> <span class="st">"Source: BdE"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>
+    title <span class="op">=</span> <span class="st">"Spanish Economic Indicators (2010-2019)"</span>,
+    subtitle <span class="op">=</span> <span class="st">"%"</span>,
+    caption <span class="op">=</span> <span class="st">"Source: BdE"</span>
+  <span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="reference/theme_bde.html">theme_bde</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="reference/bde_vivid_pal.html">bde_scale_color_vivid</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-macroseries-1.png" width="100%"></p>
