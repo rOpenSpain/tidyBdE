@@ -40,27 +40,17 @@ The basic entry point for searching time-series are the catalogs,
 ``` r
 library(tidyBdE)
 
-# Search USD on "TC" (exchange rate) catalog
-XR_USD <- bde_catalog_search("USD", catalog="TC")
+# Search GBP on "TC" (exchange rate) catalog
+XR_GBP <- bde_catalog_search("GBP", catalog = "TC")
 
-XR_USD[c(2,5)]
-#> # A tibble: 21 x 2
-#>    Numero_secuencial Descripcion_de_la_serie                                    
-#>                <dbl> <chr>                                                      
-#>  1            573234 Tipo de cambio. Dólares estadounidenses por euro (USD/EUR)~
-#>  2            315361 Tipo de cambio. Pesos argentinos por dólar estadounidense ~
-#>  3           1504154 Tipo de cambio. Bolivianos de Bolivia por dólar estadounid~
-#>  4            335874 Tipo de cambio. Pesos colombianos por dólar estadounidense~
-#>  5            335879 Tipo de cambio. Pesos chilenos por dólar estadounidense (C~
-#>  6           1504126 Tipo de cambio. Pesos dominicanos por dólar estadounidense~
-#>  7           1504127 Tipo de cambio. Quetzales guatemaltecos por dólar estadoun~
-#>  8           1504128 Tipo de cambio. Córdobas nicaragüenses por dólar estadouni~
-#>  9            335877 Tipo de cambio. Guaraníes paraguayos por dólar estadounide~
-#> 10            335876 Tipo de cambio. Nuevos soles peruanos por dólar estadounid~
-#> # ... with 11 more rows
+XR_GBP[c(2, 5)]
+#> # A tibble: 1 x 2
+#>   Numero_secuencial Descripcion_de_la_serie                                     
+#>               <dbl> <chr>                                                       
+#> 1            573214 Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos ~
 ```
 
-Now, we can load the series for the USD/EUR exchange rate using the
+Now, we can load the series for the GBP/EUR exchange rate using the
 sequential number reference (`Numero_Secuencial`) as:
 
 ``` r
@@ -75,8 +65,8 @@ library(tidyverse)
 #> x dplyr::filter() masks stats::filter()
 #> x dplyr::lag()    masks stats::lag()
 
-time_series <- bde_series_load(573234, series_label = "EUR_USD_XR") %>%
-  filter(Date >= "2010-01-01" & Date <= "2015-12-31") %>%
+time_series <- bde_series_load(573214, series_label = "EUR_GBP_XR") %>%
+  filter(Date >= "2010-01-01" & Date <= "2020-12-31") %>%
   drop_na()
 ```
 
@@ -85,12 +75,20 @@ publications of BdE:
 
 ``` r
 
-ggplot(time_series) +
-  geom_line(aes(x = Date, y = EUR_USD_XR), colour = bde_vivid_pal()(1)) +
-  labs(title = "EUR/USD Exchange Rate (2010-2015)",
-       subtitle = "%",
-       caption = "Source: BdE") +
-  theme_bde() 
+ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
+  geom_line(colour = bde_vivid_pal()(1)) +
+  geom_smooth(method = "gam", colour = bde_vivid_pal()(2)[2]) +
+  labs(
+    title = "EUR/GBP Exchange Rate (2010-2020)",
+    subtitle = "%",
+    caption = "Source: BdE"
+  ) +
+  geom_vline(
+    xintercept = as.Date("2016-06-23"),
+    linetype = "dotted"
+  ) +
+  theme_bde()
+#> `geom_smooth()` using formula 'y ~ s(x, bs = "cs")'
 ```
 
 <img src="man/figures/README-chart-1.png" width="100%" />
@@ -112,9 +110,11 @@ plotseries <- bind_rows(gdp, UnempRate) %>%
 
 ggplot(plotseries, aes(x = Date, y = values)) +
   geom_line(aes(color = label)) +
-  labs(title = "Spanish Economic Indicators (2010-2019)",
-       subtitle = "%",
-       caption = "Source: BdE") +
+  labs(
+    title = "Spanish Economic Indicators (2010-2019)",
+    subtitle = "%",
+    caption = "Source: BdE"
+  ) +
   theme_bde() +
   bde_scale_color_vivid()
 ```

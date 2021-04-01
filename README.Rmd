@@ -12,6 +12,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   warning = FALSE,
+  tidy = "styler",
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
@@ -56,23 +57,23 @@ The basic entry point for searching time-series are the catalogs,
 ```{r search}
 library(tidyBdE)
 
-# Search USD on "TC" (exchange rate) catalog
-XR_USD <- bde_catalog_search("USD", catalog="TC")
+# Search GBP on "TC" (exchange rate) catalog
+XR_GBP <- bde_catalog_search("GBP", catalog="TC")
 
-XR_USD[c(2,5)]
+XR_GBP[c(2,5)]
 
 
 ```
 
-Now, we can load the series for the USD/EUR exchange rate using the
+Now, we can load the series for the GBP/EUR exchange rate using the
 sequential number reference (`Numero_Secuencial`) as:
 
 ```{r find}
 # Load tidyverse for better handling
 library(tidyverse)
 
-time_series <- bde_series_load(573234, series_label = "EUR_USD_XR") %>%
-  filter(Date >= "2010-01-01" & Date <= "2015-12-31") %>%
+time_series <- bde_series_load(573214, series_label = "EUR_GBP_XR") %>%
+  filter(Date >= "2010-01-01" & Date <= "2020-12-31") %>%
   drop_na()
 
 ```
@@ -83,11 +84,14 @@ publications of BdE:
 ```{r chart, fig.asp=0.7}
 
 
-ggplot(time_series) +
-  geom_line(aes(x = Date, y = EUR_USD_XR), colour = bde_vivid_pal()(1)) +
-  labs(title = "EUR/USD Exchange Rate (2010-2015)",
+ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
+  geom_line( colour = bde_vivid_pal()(1)) +
+  geom_smooth(method = "gam", colour = bde_vivid_pal()(2)[2]) +
+  labs(title = "EUR/GBP Exchange Rate (2010-2020)",
        subtitle = "%",
        caption = "Source: BdE") +
+  geom_vline(xintercept = as.Date("2016-06-23"), 
+             linetype = "dotted") + 
   theme_bde() 
 
 ```
