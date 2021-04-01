@@ -33,10 +33,11 @@ g <- ggplot(PIB_merge, aes(x = Date, y = PIB_perc)) +
   theme(
     legend.position = "none",
     line = element_line(size = 0.2)
-  )
+  ) +
+  theme_transparent()
 
 
-font_add_google("Roboto", "roboto")
+#font_add_google("Roboto", "roboto")
 showtext_auto()
 
 
@@ -45,8 +46,9 @@ sticker(
   g,
   package = "tidyBdE",
   filename = "man/figures/logo.png",
-  p_y = 1.45,
+  p_y = 1.43,
   p_family = "roboto",
+  p_fontface = "bold",
   p_color = "#993300",
   h_fill = "grey95",
   h_color = "#993300",
@@ -54,6 +56,5 @@ sticker(
   s_height = 1,
   p_size = 30,
   s_x = 1.01,
-  s_y = 0.75
-  # dpi = 600
+  s_y = 0.75,
 )
