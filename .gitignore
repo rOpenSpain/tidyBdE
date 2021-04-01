@@ -37,3 +37,13 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+tidyBdE.Rcheck/
+tidyBdE*.tar.gz
+tidyBdE*.tgz
+inst/doc
+doc
+Meta
+CRAN-RELEASE
+cran-comments.md
+revdep

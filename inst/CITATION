@@ -1,0 +1,16 @@
+citHeader("To cite tidyBdE in publications use:")
+
+year = format(Sys.time(), "%Y")
+vers = paste('R package version', meta$Version)
+url = 'https://dieghernan.github.io/tidyBdE/'
+
+citEntry(
+  ,
+  entry = 'manual',
+  title = paste('tidyBdE:', meta$Title),
+  author = "D. H. Herrero",
+  year = year,
+  note = vers,
+  url = url,
+  textVersion = paste0('D. H. Herrero (', year, '). tidyBdE: ', meta$Title, '. ', vers)
+)

@@ -1,0 +1,21 @@
+---
+title: "Get Started with `tidyBdE`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Get Started with `tidyBdE`}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## [COMING SOON]
+
+```{r setup}
+library(tidyBdE)
+```
