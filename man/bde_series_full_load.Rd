@@ -17,7 +17,7 @@ bde_series_full_load(
 }
 \arguments{
 \item{series_csv}{csv file of a series, as defined in the field
-\code{Nombre_del_archivo_con_los_valores_de_la_serie} of the corresponding
+\verb{Nombre del archivo con los valores de la serie} of the corresponding
 catalog. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 
 \item{parse_dates}{Logical. If TRUE the dates would be parsed using

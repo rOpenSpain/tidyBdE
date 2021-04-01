@@ -9,7 +9,7 @@
 #' @encoding UTF-8
 #'
 #' @param series_code a numeric value or vector with time-series code(s), as
-#'   defined in the field `Número_secuencial` of the corresponding
+#'   defined in the field `Número secuencial` of the corresponding
 #'   series. See [bde_catalog_load()].
 #'
 #' @param series_label Optional. Character vector or value. Allows to specify a
@@ -179,7 +179,7 @@ bde_series_load <- function(series_code,
 #' @encoding UTF-8
 #'
 #' @param series_csv csv file of a series, as defined in the field
-#'   `Nombre_del_archivo_con_los_valores_de_la_serie` of the corresponding
+#'   `Nombre del archivo con los valores de la serie` of the corresponding
 #'   catalog. See [bde_catalog_load()].
 #'
 #' @inheritParams bde_catalog_load
@@ -291,14 +291,14 @@ bde_series_full_load <-
     meta_serie <- serie_load[seq_len(6), ]
 
     # Add FUENTE and NOTAS
-    source <-
+    source_notes <-
       serie_load[serie_load[[1]] %in% c("FUENTE", "NOTAS"), ]
 
     if (extract_metadata) {
       return(meta_serie)
     }
 
-    meta_serie <- dplyr::bind_rows(meta_serie, source)
+    meta_serie <- dplyr::bind_rows(meta_serie, source_notes)
 
     # Data: the rest of lines
     data_serie <- serie_load[-seq_len(6), ]

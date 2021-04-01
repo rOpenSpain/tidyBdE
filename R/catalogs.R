@@ -28,15 +28,15 @@
 #' @details
 #' Accepted values for `catalog` are:
 #'
-#' | CODE | PUBLICATION                               | UPDATE FREQUENCY | FREQUENCY OF THE PUBLICATION |
-#' |------|-------------------------------------------|------------------|------------------------------|
-#' | BE   | Statistical Bulletin                      | Daily            | Monthly                      |
-#' | CF   | Financial Accounts of the Spanish Economy | Quarterly        | Annual                       |
-#' | IE   | Economic Indicators                       | Daily            | Monthly                      |
-#' | SI   | Summary Indicators                        | Daily            | Daily                        |
-#' | TC   | Exchange Rates                            | Daily            | Daily                        |
-#' | TI   | Interest Rates                            | Daily            | Daily                        |
-#' | PB   | Bank Lending Survey                       | Quarterly        | Quarterly                    |
+#' | CODE | PUBLICATION                               | UPDATE FREQUENCY | FREQUENCY  |
+#' |------|-------------------------------------------|------------------|------------|
+#' | BE   | Statistical Bulletin                      | Daily            | Monthly    |
+#' | CF   | Financial Accounts of the Spanish Economy | Quarterly        | Annual     |
+#' | IE   | Economic Indicators                       | Daily            | Monthly    |
+#' | SI   | Summary Indicators                        | Daily            | Daily      |
+#' | TC   | Exchange Rates                            | Daily            | Daily      |
+#' | TI   | Interest Rates                            | Daily            | Daily      |
+#' | PB   | Bank Lending Survey                       | Quarterly        | Quarterly  |
 #'
 #' Use "ALL" as a shorthand for updating all the catalogs at a glance.
 #'
@@ -167,15 +167,15 @@ bde_catalog_load <-
 #' @details
 #' Accepted values for `catalog` are:
 #'
-#' | CODE | PUBLICATION                               | UPDATE FREQUENCY | FREQUENCY OF THE PUBLICATION |
-#' |------|-------------------------------------------|------------------|------------------------------|
-#' | BE   | Statistical Bulletin                      | Daily            | Monthly                      |
-#' | CF   | Financial Accounts of the Spanish Economy | Quarterly        | Annual                       |
-#' | IE   | Economic Indicators                       | Daily            | Monthly                      |
-#' | SI   | Summary Indicators                        | Daily            | Daily                        |
-#' | TC   | Exchange Rates                            | Daily            | Daily                        |
-#' | TI   | Interest Rates                            | Daily            | Daily                        |
-#' | PB   | Bank Lending Survey                       | Quarterly        | Quarterly                    |
+#' | CODE | PUBLICATION                               | UPDATE FREQUENCY | FREQUENCY  |
+#' |------|-------------------------------------------|------------------|------------|
+#' | BE   | Statistical Bulletin                      | Daily            | Monthly    |
+#' | CF   | Financial Accounts of the Spanish Economy | Quarterly        | Annual     |
+#' | IE   | Economic Indicators                       | Daily            | Monthly    |
+#' | SI   | Summary Indicators                        | Daily            | Daily      |
+#' | TC   | Exchange Rates                            | Daily            | Daily      |
+#' | TI   | Interest Rates                            | Daily            | Daily      |
+#' | PB   | Bank Lending Survey                       | Quarterly        | Quarterly  |
 #'
 #' Use "ALL" as a shorthand for updating all the catalogs at a glance.
 #'

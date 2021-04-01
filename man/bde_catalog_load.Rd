@@ -39,7 +39,7 @@ Load the time-series catalogs provided by BdE.
 }
 \details{
 Accepted values for \code{catalog} are:\tabular{llll}{
-   CODE \tab PUBLICATION \tab UPDATE FREQUENCY \tab FREQUENCY OF THE PUBLICATION \cr
+   CODE \tab PUBLICATION \tab UPDATE FREQUENCY \tab FREQUENCY \cr
    BE \tab Statistical Bulletin \tab Daily \tab Monthly \cr
    CF \tab Financial Accounts of the Spanish Economy \tab Quarterly \tab Annual \cr
    IE \tab Economic Indicators \tab Daily \tab Monthly \cr

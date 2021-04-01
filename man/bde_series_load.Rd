@@ -18,7 +18,7 @@ bde_series_load(
 }
 \arguments{
 \item{series_code}{a numeric value or vector with time-series code(s), as
-defined in the field \code{Número_secuencial} of the corresponding
+defined in the field \verb{Número secuencial} of the corresponding
 series. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 
 \item{series_label}{Optional. Character vector or value. Allows to specify a
