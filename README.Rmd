@@ -17,6 +17,11 @@ knitr::opts_chunk$set(
 # tidyBdE <img src="man/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/dieghernan/tidyBdE/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/tidyBdE/actions/workflows/check-full.yaml)
+[![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/tidybde/badge)](https://www.codefactor.io/repository/github/dieghernan/tidybde)
+![GitHub R package version](https://img.shields.io/github/r-package/v/dieghernan/tidyBdE?label=dev)
+[![codecov](https://codecov.io/gh/dieghernan/tidyBdE/branch/main/graph/badge.svg)](https://codecov.io/gh/dieghernan/tidyBdE)
+
 <!-- badges: end -->
 
 **tidyBdE** is a API package that helps to retrieve data from [Banco de España](hhttps://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html). 
