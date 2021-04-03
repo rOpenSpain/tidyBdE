@@ -16,10 +16,13 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png" />
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png" />
 
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
@@ -45,9 +48,14 @@
 
 
 
+<!-- Hugo Universal -->
+<link href="style.violet.css" rel="stylesheet">
+
+<!-- rOpenSpain -->
+<link href="ropenspain.css" rel="stylesheet">
 
 <meta property="og:title" content="GNU General Public License" />
-<meta property="og:image" content="/logo.png" />
+<meta property="og:image" content="https://ropenspain.github.io/tidyBdE/logo.png" />
 
 
 
@@ -62,6 +70,16 @@
 <![endif]-->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CW2RTVRRVF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CW2RTVRRVF');
+</script>
+
 
   </head>
 
@@ -71,20 +89,16 @@
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+      <button type="button" class="navbar-toggle collapsed btn-template-main" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <i class="fa fa-align-justify"></i>
       </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">tidyBdE</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
+      <span class="navbar-brand" id="ROS-navbar-brand">
+      <a class="navbar-link ROS-black" href="index.html"><img src="logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo">tidyBdE</a> <span class="version label label-default hidden-xs" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
       </span>
     </div>
-
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="index.html">
     <span class="fas fa-home fa-lg"></span>
@@ -100,25 +114,24 @@
 <li>
   <a href="news/index.html">Changelog</a>
 </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/dieghernan/tidyBdE/">
+  <a href="https://github.com/rOpenSpain/tidyBdE/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
       
-    </div><!--/.nav-collapse -->
+    </div>  <!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
+
 
       
 
       </header>
 
-<div class="row">
+      <div class="row">
   <div class="contents col-md-9">
     <div class="page-header">
       <h1>GNU General Public License</h1>
@@ -360,18 +373,43 @@
 
 
 
-      <footer>
-      <div class="copyright">
-  <p>Developed by Diego H. Herrero.</p>
+
+      <footer id="footer">
+	<div class="container">
+		<div class="col-md-3 col-sm-6 col-md-offset-1">
+			<h4 data-toc-skip>About tidyBdE</h4>
+			Developed by Diego H. Herrero, part of the <span class="ROS-light">rOpenSpain</span> project.
+			<hr class="hidden-md hidden-lg hidden-sm">
+		</div>
+		<div class="col-md-3 col-sm-6 col-md-offset-4">
+			<h4 data-toc-skip>About <img src="ROS-logo.png" alt="ROpenSpain Logo" height="24"><span class="ROS-light"> rOpenSpain</span></h4>
+			<a href="https://ropenspain.es/"><span class="ROS-light">rOpenSpain</span></a> is a community of R enthusiasts whose ultimate goal is to create high-quality R packages for data mining public spanish open sources.
+			<hr class="hidden-md hidden-lg hidden-sm">
+		</div>
+	</div>
+</footer>
+<div id="copyright">
+	<div class="container">
+		<div class="col-md-12">
+			<p class="pull-left">
+			Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.
+			</p>
+			<p class="pull-right">
+			Template by <a href="https://bootstrapious.com/snippets">Bootstrapious </a>.
+			Ported to pkgdown by <a href="https://github.com/dieghernan/">dieghernan</a>.
+			</p>
+		</div>
+	</div>
 </div>
 
-<div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
-</div>
+<!-- ropenspain -->
+<script src="ropenspain.js"></script>
 
-      </footer>
+
+
+
    </div>
-
+   
   
 
 
