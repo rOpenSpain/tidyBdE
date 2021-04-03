@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{bde_catalog_search}
 \alias{bde_catalog_search}
-\title{Update BdE catalogs}
+\title{Search BdE catalogs}
 \usage{
 bde_catalog_search(pattern, ...)
 }

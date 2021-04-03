@@ -238,7 +238,7 @@ bde_catalog_update <-
     }
   }
 
-#' Update BdE catalogs
+#' Search BdE catalogs
 #'
 #' @export
 #'

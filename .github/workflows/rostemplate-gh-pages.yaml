@@ -3,11 +3,11 @@ on:
     branches:
       - main
       - master
-      
-name: pkgdown-gh-pages
+
+name: rostemplate-gh-pages
 
 jobs:
-  pkgdown-gh-pages:
+  rostemplate-gh-pages:
     runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -21,6 +21,7 @@ jobs:
       - name: Query dependencies
         run: |
           install.packages('remotes')
+          install.packages('devtools')
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
@@ -35,7 +36,8 @@ jobs:
       - name: Install dependencies
         run: |
           remotes::install_deps(dependencies = TRUE)
-          install.packages("pkgdown", type = "binary")
+          remotes::install_github("ropenspain/rostemplate", dependencies = TRUE, force = TRUE)
+
         shell: Rscript {0}
 
       - name: Install package
@@ -45,4 +47,4 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          Rscript -e 'pkgdown::deploy_to_branch(new_process = FALSE)'
+          Rscript -e 'pkgdown::deploy_to_branch(new_process = FALSE, clean = TRUE)'

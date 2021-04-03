@@ -1,0 +1,41 @@
+url: https://ropenspain.github.io/tidyBdE/
+
+
+reference:
+  - title: "Catalogs"
+    desc: Tools for working with BdE catalogs.
+    contents:
+      - has_concept("catalog")
+
+  - title: "Series"
+    desc: Tools for working with BdE series.
+    contents:
+      - has_concept("series")
+      
+  - title: "BdE Indicators"
+    desc: Selected macroeconomic indicators of Spain.
+    contents:
+      - has_concept("indicators")
+
+  - title: "Plot utils"
+    desc: Complementary functions for plotting with `ggplot2`.
+    contents:
+      - has_concept("bde_plot")
+
+  - title: Utils
+    contents:
+      - has_concept("utils")
+
+  - title: "About the package"
+    contents:
+      - tidyBdE-package
+
+figures:
+  fig.width: 7.3
+  fig.retina: 2
+
+template:
+  package: rostemplate
+  params:
+    ganalytics: 'G-CW2RTVRRVF'
+

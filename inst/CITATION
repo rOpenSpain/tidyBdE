@@ -2,7 +2,7 @@ citHeader("To cite tidyBdE in publications use:")
 
 year = format(Sys.time(), "%Y")
 vers = paste('R package version', meta$Version)
-url = 'https://dieghernan.github.io/tidyBdE/'
+url = 'https://ropenspain.github.io/tidyBdE/'
 
 citEntry(
   ,

@@ -18,9 +18,9 @@ Tools to download data series from 'Banco de España' ('BdE') on
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://dieghernan.github.io/tidyBdE/}
-  \item \url{https://github.com/dieghernan/tidyBdE}
-  \item Report bugs at \url{https://github.com/dieghernan/tidyBdE/issues}
+  \item \url{https://ropenspain.github.io/tidyBdE/}
+  \item \url{https://github.com/rOpenSpain/tidyBdE}
+  \item Report bugs at \url{https://github.com/rOpenSpain/tidyBdE/issues}
 }
 
 }

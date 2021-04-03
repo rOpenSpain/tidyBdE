@@ -5,11 +5,10 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/dieghernan/tidyBdE/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/tidyBdE/actions/workflows/check-full.yaml)
-[![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/tidybde/badge)](https://www.codefactor.io/repository/github/dieghernan/tidybde)
+[![R-CMD-check](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml)
 ![GitHub R package
-version](https://img.shields.io/github/r-package/v/dieghernan/tidyBdE?label=dev)
-[![codecov](https://codecov.io/gh/dieghernan/tidyBdE/branch/main/graph/badge.svg)](https://codecov.io/gh/dieghernan/tidyBdE)
+version](https://img.shields.io/github/r-package/v/ropenspain/tidyBdE?label=dev)
+[![codecov](https://codecov.io/gh/ropenspain/tidyBdE/branch/main/graph/badge.svg)](https://codecov.io/gh/ropenspain/tidyBdE)
 
 <!-- badges: end -->
 
@@ -25,7 +24,7 @@ You can install the developing version of **tidyBdE** with:
 
 ``` r
 library(remotes)
-install_github("dieghernan/tidyBdE")
+install_github("ropenspain/tidyBdE")
 ```
 
 ## Examples
