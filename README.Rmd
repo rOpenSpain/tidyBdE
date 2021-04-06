@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   warning = FALSE,
-  tidy = "styler",
+  tidy = 'styler',
   dev = "ragg_png",
   fig.path = "man/figures/README-",
   out.width = "100%"
@@ -147,7 +147,7 @@ GDP <- bde_series_load(
                    "Construction",
                    "Services",
                    "Total")
-  )
+)
 
 
 # Manipulate data - tidyverse style
@@ -173,7 +173,8 @@ GDP_all <- GDP %>%
 
 
 ggplot(data = GDP_all, aes(x = Date,
-                           y = value, fill = serie)) +
+                           y = value, 
+                           fill = serie)) +
   geom_bar(position = "stack",
            stat = "identity",
            alpha = 0.8) +

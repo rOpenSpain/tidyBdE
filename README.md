@@ -177,7 +177,8 @@ GDP_all <- GDP %>%
 
 ggplot(data = GDP_all, aes(
   x = Date,
-  y = value, fill = serie
+  y = value,
+  fill = serie
 )) +
   geom_bar(
     position = "stack",
