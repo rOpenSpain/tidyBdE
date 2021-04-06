@@ -37,7 +37,7 @@ g <- ggplot(PIB_merge, aes(x = Date, y = PIB_perc)) +
   theme_transparent()
 
 
-#font_add_google("Roboto", "roboto")
+# font_add_google("Roboto", "roboto")
 showtext_auto()
 
 

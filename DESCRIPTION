@@ -15,7 +15,6 @@ Description: Tools to download data series from 'Banco de España' ('BdE') on
     'Banco de España'.
 License: GPL (>= 3)
 Encoding: UTF-8
-LazyData: true
 BugReports: https://github.com/rOpenSpain/tidyBdE/issues
 URL: https://ropenspain.github.io/tidyBdE/, https://github.com/rOpenSpain/tidyBdE
 Roxygen: list(markdown = TRUE)
