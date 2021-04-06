@@ -13,6 +13,7 @@ knitr::opts_chunk$set(
   comment = "#>",
   warning = FALSE,
   tidy = "styler",
+  dev = "ragg_png",
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
