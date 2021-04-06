@@ -43,7 +43,7 @@ tidyBdE*.tar.gz
 tidyBdE*.tgz
 inst/doc
 doc
-devel
+dev
 docs
 Meta
 CRAN-RELEASE

@@ -86,6 +86,12 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
     xintercept = as.Date("2016-06-23"),
     linetype = "dotted"
   ) +
+  geom_label(aes(
+    x = as.Date("2016-06-23"),
+    y = .95,
+    label = "Brexit"
+  )) +
+  coord_cartesian(ylim = c(0.7, 1)) +
   theme_bde()
 #> `geom_smooth()` using formula 'y ~ s(x, bs = "cs")'
 ```
