@@ -9,6 +9,9 @@ theme_bde(...)
 \arguments{
 \item{...}{Ignored.}
 }
+\value{
+A \code{\link[ggplot2:theme]{ggplot2::theme()}}.
+}
 \description{
 A custom \code{ggplot2} theme based on the publications of BdE.
 }

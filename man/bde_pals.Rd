@@ -5,6 +5,10 @@
 \alias{bde_scale_colour_vivid}
 \alias{bde_scale_color_vivid}
 \alias{bde_scale_fill_vivid}
+\alias{bde_rose_pal}
+\alias{bde_scale_colour_rose}
+\alias{bde_scale_color_rose}
+\alias{bde_scale_fill_rose}
 \title{BdE colour palettes}
 \usage{
 bde_vivid_pal(...)
@@ -14,16 +18,31 @@ bde_scale_colour_vivid(...)
 bde_scale_color_vivid(...)
 
 bde_scale_fill_vivid(...)
+
+bde_rose_pal(...)
+
+bde_scale_colour_rose(...)
+
+bde_scale_color_rose(...)
+
+bde_scale_fill_rose(...)
 }
 \arguments{
 \item{...}{Further arguments of the functions.}
 }
+\value{
+A palette of colors.
+}
 \description{
-Custom \code{ggplot2} theme based on the publications of BdE.
+Custom palettes based on the publications of BdE.
 }
 \examples{
 
-scales::show_col(bde_vivid_pal()(6))
+# BdE vivid pal
+scales::show_col(bde_vivid_pal()(6), labels = FALSE)
+
+# BdE rose pal
+scales::show_col(bde_rose_pal()(6), labels = FALSE)
 }
 \seealso{
 \code{\link[=theme_bde]{theme_bde()}}

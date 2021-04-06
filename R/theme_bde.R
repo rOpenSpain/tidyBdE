@@ -6,6 +6,8 @@
 #'
 #' @export
 #'
+#' @return A [`ggplot2::theme()`].
+#'
 #' @param ... Ignored.
 #'
 #' @seealso [`ggplot2::theme()`]

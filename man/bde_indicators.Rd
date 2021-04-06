@@ -43,6 +43,9 @@ the \code{cache_dir}.}
 metadata of the requested series.}
   }}
 }
+\value{
+A tibble with the required series.
+}
 \description{
 Set of helper functions for downloading some of the most relevant
 macroeconomic indicators of Spain.

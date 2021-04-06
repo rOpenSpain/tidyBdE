@@ -126,6 +126,77 @@ ggplot(plotseries, aes(x = Date, y = values)) +
 
 <img src="man/figures/README-macroseries-1.png" width="100%" />
 
+Two custom palettes, based on the used by BdE on some publications are
+available:
+
+``` r
+# Load GDP Series
+
+GDP <- bde_series_load(
+  series_code = c(
+    3777251,
+    3777265,
+    3777259,
+    3777269,
+    3777060
+  ),
+  series_label = c(
+    "Agriculture",
+    "Industry",
+    "Construction",
+    "Services",
+    "Total"
+  )
+)
+
+
+# Manipulate data - tidyverse style
+
+GDP_all <- GDP %>%
+  # Filter dates
+  filter(Date <= "2020-12-31") %>%
+  # Create 'Other' column and convert Date to year
+  mutate(
+    Other = Total - rowSums(across(Agriculture:Services)),
+    Date = as.numeric(format(Date, format = "%Y"))
+  ) %>%
+  # Sum by year
+  group_by(Date) %>%
+  summarise_at(vars(-group_cols()), sum) %>%
+  # Create percentage
+  relocate(Total, .after = Other) %>%
+  mutate(across(Agriculture:Other, ~ .x / Total)) %>%
+  # Move cols to rows for plotting
+  select(-Total) %>%
+  pivot_longer(Agriculture:Other,
+    names_to = "serie",
+    values_to = "value"
+  )
+
+
+
+ggplot(data = GDP_all, aes(
+  x = Date,
+  y = value, fill = serie
+)) +
+  geom_bar(
+    position = "stack",
+    stat = "identity",
+    alpha = 0.8
+  ) +
+  bde_scale_fill_rose() +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bde() +
+  labs(
+    title = "Spain: Gross domestic product by industry",
+    subtitle = "%",
+    caption = "Source: BdE"
+  )
+```
+
+<img src="man/figures/README-gdp-1.png" width="100%" />
+
 ### A note on caching
 
 You can use **tidyBdE** to create your own local repository at a given
@@ -138,7 +209,7 @@ options(bde_cache_dir = "./path/to/location")
 When this option is set, **tidyBdE** would look for the cached file and
 it will load it, speeding up the process.
 
-It is possible to update the data (i.e. after every monthly or quaterly
+It is possible to update the data (i.e. after every monthly or quarterly
 data release) with the following command:
 
 ``` r
