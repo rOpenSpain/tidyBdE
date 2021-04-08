@@ -5,25 +5,39 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/tidyBdE)](https://CRAN.R-project.org/package=tidyBdE)
+[![CRAN
+results](https://cranchecks.info/badges/worst/tidyBdE)](https://cran.r-project.org/web/checks/check_results_tidyBdE.html)
 [![R-CMD-check](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml)
 ![GitHub R package
 version](https://img.shields.io/github/r-package/v/ropenspain/tidyBdE?label=dev)
 [![codecov](https://codecov.io/gh/ropenspain/tidyBdE/branch/main/graph/badge.svg)](https://codecov.io/gh/ropenspain/tidyBdE)
+![GitHub R package
+version](https://img.shields.io/github/r-package/v/ropenspain/tidyBdE?color=blue&label=dev%20version)
 
 <!-- badges: end -->
 
-**tidyBdE** is a API package that helps to retrieve data from [Banco de
+**tidyBdE** is an API package that helps to retrieve data from [Banco de
 España](https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html).
 The data is provided as [tibble](https://tibble.tidyverse.org/) and the
 package tries to guess the format of every time-series (dates,
-characters and numbers)
+characters and numbers).
 
 ## Installation
+
+Install **tidyBdE** from
+[**CRAN**](https://CRAN.R-project.org/package=tidyBdE):
+
+``` r
+install.packages("tidyBdE")
+```
 
 You can install the developing version of **tidyBdE** with:
 
 ``` r
 library(remotes)
+
 install_github("ropenspain/tidyBdE")
 ```
 
@@ -33,8 +47,8 @@ Banco de España (**BdE**) provides several time-series, either produced
 by the institution itself or compiled for another sources, as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
-The basic entry point for searching time-series are the catalogs,
-(*indexes*) of information:
+The basic entry point for searching time-series are the catalogs
+(*indexes*) of information. You can search any series by name:
 
 ``` r
 library(tidyBdE)
@@ -49,8 +63,13 @@ XR_GBP[c(2, 5)]
 #> 1            573214 Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos ~
 ```
 
-Now, we can load the series for the GBP/EUR exchange rate using the
-sequential number reference (`Numero_Secuencial`) as:
+**Note that BdE files are only provided in Spanish, for the time
+being**, the organism is working on the English version. By now, search
+terms should be provided in Spanish in order to get search results.
+
+After we have found our series, we can load the series for the GBP/EUR
+exchange rate using the sequential number reference
+(`Numero_Secuencial`) as:
 
 ``` r
 # Load tidyverse for better handling
@@ -73,7 +92,6 @@ The package also provides a custom `ggplot2` theme based on the
 publications of BdE:
 
 ``` r
-
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_vivid_pal()(1)) +
   geom_smooth(method = "gam", colour = bde_vivid_pal()(2)[2]) +
@@ -121,13 +139,13 @@ ggplot(plotseries, aes(x = Date, y = values)) +
     caption = "Source: BdE"
   ) +
   theme_bde() +
-  bde_scale_color_vivid()
+  bde_scale_color_vivid() # Custom palette on the package
 ```
 
 <img src="man/figures/README-macroseries-1.png" width="100%" />
 
 Two custom palettes, based on the used by BdE on some publications are
-available:
+available. See an example using `bde_scale_fill_rose()`:
 
 ``` r
 # Load GDP Series
@@ -185,7 +203,7 @@ ggplot(data = GDP_all, aes(
     stat = "identity",
     alpha = 0.8
   ) +
-  bde_scale_fill_rose() +
+  bde_scale_fill_rose() + # Custom palette on the package
   scale_x_continuous(expand = c(0, 0)) +
   scale_y_continuous(expand = c(0, 0)) +
   theme_bde() +
@@ -207,16 +225,17 @@ local directory passing the following option:
 options(bde_cache_dir = "./path/to/location")
 ```
 
-When this option is set, **tidyBdE** would look for the cached file and
-it will load it, speeding up the process.
+When this option is set, **tidyBdE** would look for the cached file on
+the `bde_cache_dir` directory and it will load it, speeding up the
+process.
 
 It is possible to update the data (i.e. after every monthly or quarterly
-data release) with the following command:
+data release) with the following commands:
 
 ``` r
 bde_catalog_update()
 
-# On specific series use the option update_cache = TRUE
+# On most of the functions using the option update_cache = TRUE
 
 bde_series_load("SOME ID", update_cache = TRUE)
 ```
@@ -231,7 +250,10 @@ Other useful packages that provides access to Spanish open data:
     package that process microdata provided by Spanish statistical
     agencies (mostly, INE).
 -   [**CatastRo**](https://github.com/rOpenSpain/CatastRo): A package
-    that queries to query Sede electrónica del Catastro API.
+    that queries Sede electrónica del Catastro API.
+-   [**mapSpain**](https://ropenspain.github.io/opendataes/): For
+    downloading geospatial information from Instituto Geográfico
+    Nacional (IGN) and creating maps of Spain.
 
 ## Disclaimer
 
