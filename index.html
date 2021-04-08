@@ -50,7 +50,7 @@
       <i class="fa fa-align-justify"></i>
       </button>
       <span class="navbar-brand" id="ROS-navbar-brand">
-      <a class="navbar-link ROS-black" href="index.html"><img src="logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo">tidyBdE</a> <span class="version label label-default hidden-xs" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+      <a class="navbar-link ROS-black" href="index.html"><img src="logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo">tidyBdE</a> <span class="version label label-default hidden-xs" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
       </span>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -92,21 +92,25 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p><strong>tidyBdE</strong> is a API package that helps to retrieve data from <a href="https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html">Banco de España</a>. The data is provided as <a href="https://tibble.tidyverse.org/">tibble</a> and the package tries to guess the format of every time-series (dates, characters and numbers)</p>
+<p><strong>tidyBdE</strong> is an API package that helps to retrieve data from <a href="https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html">Banco de España</a>. The data is provided as <a href="https://tibble.tidyverse.org/">tibble</a> and the package tries to guess the format of every time-series (dates, characters and numbers).</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the developing version of <strong>tidyBdE</strong> with:</p>
+<p>Install <strong>tidyBdE</strong> from <a href="https://CRAN.R-project.org/package=tidyBdE"><strong>CRAN</strong></a>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyBdE"</span><span class="op">)</span></code></pre></div>
+<p>You can install the developing version of <strong>tidyBdE</strong> with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org">remotes</a></span><span class="op">)</span>
+
 <span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"ropenspain/tidyBdE"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="examples" class="section level2">
 <h2 class="hasAnchor">
 <a href="#examples" class="anchor"></a>Examples</h2>
 <p>Banco de España (<strong>BdE</strong>) provides several time-series, either produced by the institution itself or compiled for another sources, as <a href="https://ec.europa.eu/eurostat">Eurostat</a> or <a href="https://www.ine.es/">INE</a>.</p>
-<p>The basic entry point for searching time-series are the catalogs, (<em>indexes</em>) of information:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<p>The basic entry point for searching time-series are the catalogs (<em>indexes</em>) of information. You can search any series by name:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ropenspain.github.io/tidyBdE/">tidyBdE</a></span><span class="op">)</span>
 
 <span class="co"># Search GBP on "TC" (exchange rate) catalog</span>
@@ -117,8 +121,9 @@
 <span class="co">#&gt;   Numero_secuencial Descripcion_de_la_serie                                     </span>
 <span class="co">#&gt;               &lt;dbl&gt; &lt;chr&gt;                                                       </span>
 <span class="co">#&gt; 1            573214 Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos ~</span></code></pre></div>
-<p>Now, we can load the series for the GBP/EUR exchange rate using the sequential number reference (<code>Numero_Secuencial</code>) as:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<p><strong>Note that BdE files are only provided in Spanish, for the time being</strong>, the organism is working on the English version. By now, search terms should be provided in Spanish in order to get search results.</p>
+<p>After we have found our series, we can load the series for the GBP/EUR exchange rate using the sequential number reference (<code>Numero_Secuencial</code>) as:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Load tidyverse for better handling</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="co">#&gt; -- Attaching packages --------------------------------------- tidyverse 1.3.0 --</span>
@@ -134,9 +139,8 @@
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">"2010-01-01"</span> <span class="op">&amp;</span> <span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">"2020-12-31"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">drop_na</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>The package also provides a custom <code>ggplot2</code> theme based on the publications of BdE:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="fu">ggplot</span><span class="op">(</span><span class="va">time_series</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">EUR_GBP_XR</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">time_series</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">EUR_GBP_XR</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_line</span><span class="op">(</span>colour <span class="op">=</span> <span class="fu"><a href="reference/bde_vivid_pal.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"gam"</span>, colour <span class="op">=</span> <span class="fu"><a href="reference/bde_vivid_pal.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">labs</span><span class="op">(</span>
@@ -158,7 +162,7 @@
 <span class="co">#&gt; `geom_smooth()` using formula 'y ~ s(x, bs = "cs")'</span></code></pre></div>
 <p><img src="reference/figures/README-chart-1.png" width="100%"></p>
 <p>The package provides also several “shortcut” functions for a selection of the most relevant macroeconomic series, so there is no need to look for them in advance:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gdp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bde_ind_gdp_var.html">bde_ind_gdp_var</a></span><span class="op">(</span><span class="st">"values"</span><span class="op">)</span>
 <span class="va">gdp</span><span class="op">$</span><span class="va">label</span> <span class="op">&lt;-</span> <span class="st">"GDP YoY"</span>
 
@@ -177,10 +181,10 @@
     caption <span class="op">=</span> <span class="st">"Source: BdE"</span>
   <span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="reference/theme_bde.html">theme_bde</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="reference/bde_vivid_pal.html">bde_scale_color_vivid</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="reference/bde_vivid_pal.html">bde_scale_color_vivid</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Custom palette on the package</span></code></pre></div>
 <p><img src="reference/figures/README-macroseries-1.png" width="100%"></p>
-<p>Two custom palettes, based on the used by BdE on some publications are available:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<p>Two custom palettes, based on the used by BdE on some publications are available. See an example using <code><a href="reference/bde_vivid_pal.html">bde_scale_fill_rose()</a></code>:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Load GDP Series</span>
 
 <span class="va">GDP</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span>
@@ -236,7 +240,7 @@
     stat <span class="op">=</span> <span class="st">"identity"</span>,
     alpha <span class="op">=</span> <span class="fl">0.8</span>
   <span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="reference/bde_vivid_pal.html">bde_scale_fill_rose</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="reference/bde_vivid_pal.html">bde_scale_fill_rose</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="co"># Custom palette on the package</span>
   <span class="fu">scale_x_continuous</span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">scale_y_continuous</span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="reference/theme_bde.html">theme_bde</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -250,14 +254,14 @@
 <h3 class="hasAnchor">
 <a href="#a-note-on-caching" class="anchor"></a>A note on caching</h3>
 <p>You can use <strong>tidyBdE</strong> to create your own local repository at a given local directory passing the following option:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>bde_cache_dir <span class="op">=</span> <span class="st">"./path/to/location"</span><span class="op">)</span></code></pre></div>
-<p>When this option is set, <strong>tidyBdE</strong> would look for the cached file and it will load it, speeding up the process.</p>
-<p>It is possible to update the data (i.e. after every monthly or quarterly data release) with the following command:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>bde_cache_dir <span class="op">=</span> <span class="st">"./path/to/location"</span><span class="op">)</span></code></pre></div>
+<p>When this option is set, <strong>tidyBdE</strong> would look for the cached file on the <code>bde_cache_dir</code> directory and it will load it, speeding up the process.</p>
+<p>It is possible to update the data (i.e. after every monthly or quarterly data release) with the following commands:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/bde_catalog_update.html">bde_catalog_update</a></span><span class="op">(</span><span class="op">)</span>
 
-<span class="co"># On specific series use the option update_cache = TRUE</span>
+<span class="co"># On most of the functions using the option update_cache = TRUE</span>
 
 <span class="fu"><a href="reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span><span class="st">"SOME ID"</span>, update_cache <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 </div>
@@ -272,7 +276,9 @@
 <li>
 <a href="https://github.com/rOpenSpain/MicroDatosEs"><strong>MicroDatosEs</strong></a>: A package that process microdata provided by Spanish statistical agencies (mostly, INE).</li>
 <li>
-<a href="https://github.com/rOpenSpain/CatastRo"><strong>CatastRo</strong></a>: A package that queries to query Sede electrónica del Catastro API.</li>
+<a href="https://github.com/rOpenSpain/CatastRo"><strong>CatastRo</strong></a>: A package that queries Sede electrónica del Catastro API.</li>
+<li>
+<a href="https://ropenspain.github.io/opendataes/"><strong>mapSpain</strong></a>: For downloading geospatial information from Instituto Geográfico Nacional (IGN) and creating maps of Spain.</li>
 </ul>
 </div>
 <div id="disclaimer" class="section level2">
@@ -287,6 +293,8 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=tidyBdE">https://​cloud.r-project.org/​package=tidyBdE</a>
+</li>
 <li>Browse source code at <br><a href="https://github.com/rOpenSpain/tidyBdE/">https://​github.com/​rOpenSpain/​tidyBdE/​</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/rOpenSpain/tidyBdE/issues">https://​github.com/​rOpenSpain/​tidyBdE/​issues</a>
@@ -316,6 +324,8 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=tidyBdE"><img src="https://www.r-pkg.org/badges/version/tidyBdE" alt="CRAN status"></a></li>
+<li><a href="https://cran.r-project.org/web/checks/check_results_tidyBdE.html"><img src="https://cranchecks.info/badges/worst/tidyBdE" alt="CRAN results"></a></li>
 <li><a href="https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml"><img src="https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://codecov.io/gh/ropenspain/tidyBdE"><img src="https://codecov.io/gh/ropenspain/tidyBdE/branch/main/graph/badge.svg" alt="codecov"></a></li>
 </ul>
