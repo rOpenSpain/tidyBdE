@@ -10,11 +10,9 @@ status](https://www.r-pkg.org/badges/version/tidyBdE)](https://CRAN.R-project.or
 [![CRAN
 results](https://cranchecks.info/badges/worst/tidyBdE)](https://cran.r-project.org/web/checks/check_results_tidyBdE.html)
 [![R-CMD-check](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml)
-![GitHub R package
-version](https://img.shields.io/github/r-package/v/ropenspain/tidyBdE?label=dev)
 [![codecov](https://codecov.io/gh/ropenspain/tidyBdE/branch/main/graph/badge.svg)](https://codecov.io/gh/ropenspain/tidyBdE)
 ![GitHub R package
-version](https://img.shields.io/github/r-package/v/ropenspain/tidyBdE?color=blue&label=dev%20version)
+version](https://img.shields.io/github/r-package/v/ropenspain/tidyBdE?label=dev)
 
 <!-- badges: end -->
 
