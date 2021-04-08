@@ -47,7 +47,7 @@ bde_scale_fill_vivid <- function(...) {
 #' @rdname bde_pals
 #' @export
 bde_rose_pal <- function(...) {
-  pal <- c("#b7365c", "#cb6e8a", "#db9aad", "#0a50a1", "#5385bd", "#6b86a4")
+  pal <- c("#b7365c", "#cb6e8a", "#db9aad", "#0a50a1", "#5385bd", "#89AEDA")
   return(scales::manual_pal(pal))
 }
 
