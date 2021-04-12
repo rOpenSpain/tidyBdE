@@ -2,7 +2,7 @@ citHeader("To cite tidyBdE in publications use:")
 
 year = format(Sys.time(), "%Y")
 vers = paste('R package version', meta$Version)
-url = 'https://ropenspain.github.io/tidyBdE/'
+url = 'https://CRAN.R-project.org/package=tidyBdE'
 
 citEntry(
   ,
@@ -11,6 +11,6 @@ citEntry(
   author = "D. H. Herrero",
   year = year,
   note = vers,
+  doi = '10.5281/zenodo.4673496',
   url = url,
-  textVersion = paste0('D. H. Herrero (', year, '). tidyBdE: ', meta$Title, '. ', vers)
-)
+  textVersion = paste0('D. H. Herrero (', year, '). tidyBdE: ', meta$Title, '. ', vers, '. https://doi.org/10.5281/zenodo.4673496. Package url: ', url))
