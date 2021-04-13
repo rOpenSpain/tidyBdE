@@ -182,7 +182,7 @@
   ],
   "releaseNotes": "https://github.com/rOpenSpain/tidyBdE/blob/master/NEWS.md",
   "readme": "https://github.com/rOpenSpain/tidyBdE/blob/main/README.md",
-  "fileSize": "11630.165KB",
+  "fileSize": "11630.544KB",
   "contIntegration": "https://codecov.io/gh/ropenspain/tidyBdE",
   "keywords": [
     "r-package",
@@ -201,8 +201,11 @@
         }
       ],
       "name": "tidyBdE: ",
-      "url": "https://ropenspain.github.io/tidyBdE/",
-      "description": "R package version "
+      "identifier": "10.5281/zenodo.4673496",
+      "url": "https://CRAN.R-project.org/package=tidyBdE",
+      "description": "R package version ",
+      "@id": "https://doi.org/10.5281/zenodo.4673496",
+      "sameAs": "https://doi.org/10.5281/zenodo.4673496"
     }
   ]
 }
