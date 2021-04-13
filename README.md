@@ -13,7 +13,8 @@ results](https://cranchecks.info/badges/worst/tidyBdE)](https://cran.r-project.o
 [![codecov](https://codecov.io/gh/ropenspain/tidyBdE/branch/main/graph/badge.svg)](https://codecov.io/gh/ropenspain/tidyBdE)
 ![GitHub R package
 version](https://img.shields.io/github/r-package/v/ropenspain/tidyBdE?label=dev)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4673496-blue)](https://doi.org/10.5281/zenodo.4673496)
+[![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.4673496-blue)](https://doi.org/10.5281/zenodo.4673496)
+[![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/tidyBdE?color=blue)](https://cran.r-project.org/package=tidyBdE)
 <!-- badges: end -->
 
 **tidyBdE** is an API package that helps to retrieve data from [Banco de
