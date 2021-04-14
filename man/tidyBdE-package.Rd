@@ -27,5 +27,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Diego H. Herrero \email{dev.dieghernan@gmail.com} (\href{https://orcid.org/0000-0001-8457-4658}{ORCID}) [copyright holder]
 
+Other contributors:
+\itemize{
+  \item Banco de España (for the data.) [copyright holder]
+}
+
 }
 \keyword{internal}
