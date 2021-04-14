@@ -250,7 +250,7 @@ Other useful packages that provides access to Spanish open data:
     agencies (mostly, INE).
 -   [**CatastRo**](https://github.com/rOpenSpain/CatastRo): A package
     that queries Sede electrónica del Catastro API.
--   [**mapSpain**](https://ropenspain.github.io/opendataes/): For
+-   [**mapSpain**](https://ropenspain.github.io/mapSpain/): For
     downloading geospatial information from Instituto Geográfico
     Nacional (IGN) and creating maps of Spain.
 

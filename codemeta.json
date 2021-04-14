@@ -44,6 +44,10 @@
       "familyName": "H. Herrero",
       "email": "dev.dieghernan@gmail.com",
       "@id": "https://orcid.org/0000-0001-8457-4658"
+    },
+    {
+      "@type": "Organization",
+      "name": "Banco de España"
     }
   ],
   "funder": {},
@@ -182,7 +186,7 @@
   ],
   "releaseNotes": "https://github.com/rOpenSpain/tidyBdE/blob/master/NEWS.md",
   "readme": "https://github.com/rOpenSpain/tidyBdE/blob/main/README.md",
-  "fileSize": "11630.544KB",
+  "fileSize": "11632.26KB",
   "contIntegration": "https://codecov.io/gh/ropenspain/tidyBdE",
   "keywords": [
     "r-package",

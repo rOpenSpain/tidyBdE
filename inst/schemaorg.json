@@ -8,13 +8,19 @@
       },
       "codeRepository": "https://github.com/rOpenSpain/tidyBdE",
       "contributor": {},
-      "copyrightHolder": {
-        "id": "https://orcid.org/0000-0001-8457-4658",
-        "type": "Person",
-        "email": "dev.dieghernan@gmail.com",
-        "familyName": "H. Herrero",
-        "givenName": "Diego"
-      },
+      "copyrightHolder": [
+        {
+          "id": "https://orcid.org/0000-0001-8457-4658",
+          "type": "Person",
+          "email": "dev.dieghernan@gmail.com",
+          "familyName": "H. Herrero",
+          "givenName": "Diego"
+        },
+        {
+          "type": "Organization",
+          "name": "Banco de España"
+        }
+      ],
       "description": "Tools to download data series from 'Banco de España' ('BdE') on \n    'tibble' format. 'Banco de España' is the national central bank \n    and, within the framework of the Single Supervisory Mechanism ('SSM'), the \n    supervisor of the Spanish banking system along with the European Central \n    Bank. This package is in no way sponsored endorsed or administered by \n    'Banco de España'.",
       "funder": {},
       "license": "https://spdx.org/licenses/GPL-3.0",

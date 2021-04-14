@@ -35,7 +35,6 @@ Banco de España (**BdE**) provides several time-series, either produced by the
 institution itself or compiled for another sources, as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
-
 The basic entry point for searching time-series are the catalogs (*indexes*) of
 information. You can search any series by name:
 
