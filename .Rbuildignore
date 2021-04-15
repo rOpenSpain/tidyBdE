@@ -13,3 +13,6 @@
 ^cran-comments\.md$
 ^CRAN-RELEASE$
 ^codemeta\.json$
+^tidyBdE\.Rcheck$
+^tidyBdE.*\.tar\.gz$
+^tidyBdE.*\.tgz$
