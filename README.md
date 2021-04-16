@@ -6,14 +6,12 @@
 <!-- badges: start -->
 
 [![rOS-badge](https://ropenspain.github.io/rostemplate/reference/figures/ropenspain-badge.svg)](https://ropenspain.es/)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/tidyBdE)](https://CRAN.R-project.org/package=tidyBdE)
-[![CRAN
-results](https://cranchecks.info/badges/worst/tidyBdE)](https://cran.r-project.org/web/checks/check_results_tidyBdE.html)
+[![CRAN-status](https://www.r-pkg.org/badges/version/tidyBdE)](https://CRAN.R-project.org/package=tidyBdE)
+[![CRAN-results](https://cranchecks.info/badges/worst/tidyBdE)](https://cran.r-project.org/web/checks/check_results_tidyBdE.html)
+[![On-CRAN](https://www.r-pkg.org/badges/ago/tidyBdE)](https://cran.r-project.org/web/checks/check_results_tidyBdE.html)
 [![R-CMD-check](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml)
 [![codecov](https://codecov.io/gh/ropenspain/tidyBdE/branch/main/graph/badge.svg)](https://codecov.io/gh/ropenspain/tidyBdE)
-![GitHub R package
-version](https://img.shields.io/github/r-package/v/ropenspain/tidyBdE?label=dev)
+![GitHub-version](https://img.shields.io/github/r-package/v/ropenspain/tidyBdE?label=dev)
 [![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.4673496-blue)](https://doi.org/10.5281/zenodo.4673496)
 [![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/tidyBdE?color=blue)](https://cran.r-project.org/package=tidyBdE)
 
@@ -146,7 +144,29 @@ ggplot(plotseries, aes(x = Date, y = values)) +
 <img src="man/figures/README-macroseries-1.png" width="100%" />
 
 Two custom palettes, based on the used by BdE on some publications are
-available. See an example using `bde_scale_fill_rose()`:
+available.
+
+``` r
+opar <- par(no.readonly = TRUE)
+
+par(mfrow = c(1, 2))
+scales::show_col(bde_rose_pal()(6))
+title("bde_rose_pal()")
+scales::show_col(bde_vivid_pal()(6))
+title("bde_vivid_pal()")
+```
+
+<img src="man/figures/README-palettes-1.png" width="100%" />
+
+``` r
+par(opar)
+```
+
+Those palettes can be applied to a `ggplot2` using some custom utils
+included on the package (see
+`help("bde_vivid_pal", package = "tidyBdE")`).
+
+Here you can find an example using `bde_scale_fill_rose()`:
 
 ``` r
 # Load GDP Series
