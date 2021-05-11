@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BdE colour palettes — bde_vivid_pal • tidyBdE</title>
+<title>BdE scales for ggplot2. — scale_color_bde_d • tidyBdE</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -54,8 +54,9 @@
 <!-- rOpenSpain -->
 <link href="../ropenspain.css" rel="stylesheet">
 
-<meta property="og:title" content="BdE colour palettes — bde_vivid_pal" />
-<meta property="og:description" content="Custom palettes based on the publications of BdE." />
+<meta property="og:title" content="BdE scales for ggplot2. — scale_color_bde_d" />
+<meta property="og:description" content="Scales to be used with the ggplot2 package. Discrete palettes are named
+as scale_*_bde_d while continuous palettes are named scale_*_bde_c." />
 <meta property="og:image" content="https://ropenspain.github.io/tidyBdE/logo.png" />
 
 
@@ -135,55 +136,43 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>BdE colour palettes</h1>
-    <small class="dont-index">Source: <a href='https://github.com/rOpenSpain/tidyBdE/blob/master/R/pals_bde.R'><code>R/pals_bde.R</code></a></small>
-    <div class="hidden name"><code>bde_pals.Rd</code></div>
+    <h1>BdE scales for <code>ggplot2</code>.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/rOpenSpain/tidyBdE/blob/master/R/scales.R'><code>R/scales.R</code></a></small>
+    <div class="hidden name"><code>scales_bde.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Custom palettes based on the publications of BdE.</p>
+    <p>Scales to be used with the <code>ggplot2</code> package. Discrete palettes are named
+as <code>scale_*_bde_d</code> while continuous palettes are named <code>scale_*_bde_c</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>bde_vivid_pal</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>scale_color_bde_d</span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>"bde_vivid_pal"</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>bde_scale_colour_vivid</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
+<span class='fu'>scale_fill_bde_d</span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>"bde_vivid_pal"</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>bde_scale_color_vivid</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
+<span class='fu'>scale_color_bde_c</span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>"bde_vivid_pal"</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>bde_scale_fill_vivid</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
-
-<span class='fu'>bde_rose_pal</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
-
-<span class='fu'>bde_scale_colour_rose</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
-
-<span class='fu'>bde_scale_color_rose</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
-
-<span class='fu'>bde_scale_fill_rose</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
+<span class='fu'>scale_fill_bde_c</span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>"bde_vivid_pal"</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>palette</th>
+      <td><p>Name of the BdE palette to apply. One of "bde_vivid_pal",
+"bde_rose_pal". See <code><a href='bde_vivid_pal.html'>bde_vivid_pal()</a></code> for details.</p></td>
+    </tr>
+    <tr>
       <th>...</th>
-      <td><p>Further arguments of the functions.</p></td>
+      <td><p>Further arguments of <code><a href='https://ggplot2.tidyverse.org/reference/discrete_scale.html'>ggplot2::discrete_scale()</a></code> or
+<code><a href='https://ggplot2.tidyverse.org/reference/continuous_scale.html'>ggplot2::continuous_scale()</a></code></p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>A palette of colors.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='theme_bde.html'>theme_bde()</a></code></p></div>
+    <div class='dont-index'><p><code><a href='bde_vivid_pal.html'>bde_vivid_pal()</a></code></p></div>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'># BdE vivid pal</span>
-<span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/show_col.html'>show_col</a></span><span class='op'>(</span><span class='fu'>bde_vivid_pal</span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>6</span><span class='op'>)</span>, labels <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-</div><div class='img'><img src='bde_pals-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># BdE rose pal</span>
-<span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/show_col.html'>show_col</a></span><span class='op'>(</span><span class='fu'>bde_rose_pal</span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>6</span><span class='op'>)</span>, labels <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-</div><div class='img'><img src='bde_pals-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

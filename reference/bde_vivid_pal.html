@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BdE ggplot2 theme — theme_bde • tidyBdE</title>
+<title>BdE colour palettes — bde_vivid_pal • tidyBdE</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -54,8 +54,8 @@
 <!-- rOpenSpain -->
 <link href="../ropenspain.css" rel="stylesheet">
 
-<meta property="og:title" content="BdE ggplot2 theme — theme_bde" />
-<meta property="og:description" content="A custom ggplot2 theme based on the publications of BdE." />
+<meta property="og:title" content="BdE colour palettes — bde_vivid_pal" />
+<meta property="og:description" content="Custom palettes based on the publications of BdE." />
 <meta property="og:image" content="https://ropenspain.github.io/tidyBdE/logo.png" />
 
 
@@ -135,65 +135,43 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>BdE <code>ggplot2</code> theme</h1>
-    <small class="dont-index">Source: <a href='https://github.com/rOpenSpain/tidyBdE/blob/master/R/theme_bde.R'><code>R/theme_bde.R</code></a></small>
-    <div class="hidden name"><code>theme_bde.Rd</code></div>
+    <h1>BdE colour palettes</h1>
+    <small class="dont-index">Source: <a href='https://github.com/rOpenSpain/tidyBdE/blob/master/R/bde_pals.R'><code>R/bde_pals.R</code></a></small>
+    <div class="hidden name"><code>bde_vivid_pal.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A custom <code>ggplot2</code> theme based on the publications of BdE.</p>
+    <p>Custom palettes based on the publications of BdE.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>theme_bde</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>bde_vivid_pal</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>bde_rose_pal</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>Ignored.</p></td>
+      <td><p>Further arguments of the functions.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code><a href='https://ggplot2.tidyverse.org/reference/theme.html'>ggplot2::theme()</a></code>.</p>
+    <p>A palette of colors.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://ggplot2.tidyverse.org/reference/theme.html'>ggplot2::theme()</a></code></p></div>
+    <div class='dont-index'><p><code><a href='theme_bde.html'>theme_bde()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>── <span style='font-weight: bold;'>Attaching packages</span><span> ─────────────────────────────────────── tidyverse 1.3.1 ──</span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> </span><span style='color: #0000BB;'>ggplot2</span><span> 3.3.3     </span><span style='color: #00BB00;'>✔</span><span> </span><span style='color: #0000BB;'>purrr  </span><span> 0.3.4</span>
-#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> </span><span style='color: #0000BB;'>tibble </span><span> 3.1.1     </span><span style='color: #00BB00;'>✔</span><span> </span><span style='color: #0000BB;'>dplyr  </span><span> 1.0.6</span>
-#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> </span><span style='color: #0000BB;'>tidyr  </span><span> 1.1.3     </span><span style='color: #00BB00;'>✔</span><span> </span><span style='color: #0000BB;'>stringr</span><span> 1.4.0</span>
-#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> </span><span style='color: #0000BB;'>readr  </span><span> 1.4.0     </span><span style='color: #00BB00;'>✔</span><span> </span><span style='color: #0000BB;'>forcats</span><span> 0.5.1</span></div><div class='output co'>#&gt; <span class='message'>── </span><span style='font-weight: bold;'>Conflicts</span><span> ────────────────────────────────────────── tidyverse_conflicts() ──</span>
-#&gt; <span class='message'></span><span style='color: #BB0000;'>✖</span><span> </span><span style='color: #0000BB;'>dplyr</span><span>::</span><span style='color: #00BB00;'>filter()</span><span> masks </span><span style='color: #0000BB;'>stats</span><span>::filter()</span>
-#&gt; <span class='message'></span><span style='color: #BB0000;'>✖</span><span> </span><span style='color: #0000BB;'>dplyr</span><span>::</span><span style='color: #00BB00;'>lag()</span><span>    masks </span><span style='color: #0000BB;'>stats</span><span>::lag()</span></div><div class='input'>
-<span class='va'>series_TC</span> <span class='op'>&lt;-</span> <span class='fu'><a href='bde_series_full_load.html'>bde_series_full_load</a></span><span class='op'>(</span><span class='st'>"TC_1_1.csv"</span><span class='op'>)</span>
-
-<span class='va'>series_TC</span> <span class='op'>&lt;-</span> <span class='va'>series_TC</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>]</span>
-
-<span class='va'>series_TC_pivot</span> <span class='op'>&lt;-</span> <span class='va'>series_TC</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span>
-    <span class='va'>Date</span> <span class='op'>&gt;=</span> <span class='st'>"2020-01-01"</span> <span class='op'>&amp;</span> <span class='va'>Date</span> <span class='op'>&lt;=</span> <span class='st'>"2020-12-31"</span>,
-    <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>series_TC</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
-  <span class='op'>)</span>
-
-<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>series_TC_pivot</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"x"</span>, <span class='st'>"y"</span><span class='op'>)</span>
-
-<span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>series_TC_pivot</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span>, y <span class='op'>=</span> <span class='va'>y</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>geom_line</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>0.8</span>, color <span class='op'>=</span> <span class='fu'><a href='bde_vivid_pal.html'>bde_vivid_pal</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>labs</span><span class='op'>(</span>
-    title <span class='op'>=</span> <span class='st'>"Title"</span>,
-    subtitle <span class='op'>=</span> <span class='st'>"Some metric"</span>,
-    caption <span class='op'>=</span> <span class='st'>"Bank of Spain"</span>
-  <span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>theme_bde</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='img'><img src='theme_bde-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># }</span>
-
-</div></span></pre>
+    <pre class="examples"><div class='input'>
+<span class='co'># BdE vivid pal</span>
+<span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/show_col.html'>show_col</a></span><span class='op'>(</span><span class='fu'>bde_vivid_pal</span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>6</span><span class='op'>)</span>, labels <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='img'><img src='bde_vivid_pal-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># BdE rose pal</span>
+<span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/show_col.html'>show_col</a></span><span class='op'>(</span><span class='fu'>bde_rose_pal</span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>6</span><span class='op'>)</span>, labels <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='img'><img src='bde_vivid_pal-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
