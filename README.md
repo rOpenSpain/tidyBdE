@@ -73,14 +73,6 @@ exchange rate using the sequential number reference
 ``` r
 # Load tidyverse for better handling
 library(tidyverse)
-#> ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──
-#> ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
-#> ✓ tibble  3.1.0     ✓ dplyr   1.0.5
-#> ✓ tidyr   1.1.3     ✓ stringr 1.4.0
-#> ✓ readr   1.4.0     ✓ forcats 0.5.1
-#> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-#> x dplyr::filter() masks stats::filter()
-#> x dplyr::lag()    masks stats::lag()
 
 time_series <- bde_series_load(573214, series_label = "EUR_GBP_XR") %>%
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") %>%
@@ -138,7 +130,7 @@ ggplot(plotseries, aes(x = Date, y = values)) +
     caption = "Source: BdE"
   ) +
   theme_bde() +
-  bde_scale_color_vivid() # Custom palette on the package
+  scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
 ```
 
 <img src="man/figures/README-macroseries-1.png" width="100%" />
@@ -164,9 +156,7 @@ par(opar)
 
 Those palettes can be applied to a `ggplot2` using some custom utils
 included on the package (see
-`help("bde_vivid_pal", package = "tidyBdE")`).
-
-Here you can find an example using `bde_scale_fill_rose()`:
+`help("scale_color_bde_d", package = "tidyBdE")`).
 
 ``` r
 # Load GDP Series
@@ -224,7 +214,7 @@ ggplot(data = GDP_all, aes(
     stat = "identity",
     alpha = 0.8
   ) +
-  bde_scale_fill_rose() + # Custom palette on the package
+  scale_fill_bde_d(palette = "bde_rose_pal") + # Custom palette on the package
   scale_x_continuous(expand = c(0, 0)) +
   scale_y_continuous(expand = c(0, 0)) +
   theme_bde() +

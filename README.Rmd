@@ -85,7 +85,7 @@ provided in Spanish in order to get search results.
 After we have found our series, we can load the series for the GBP/EUR exchange
 rate using the sequential number reference (`Numero_Secuencial`) as:
 
-```{r find}
+```{r find, message=FALSE}
 
 # Load tidyverse for better handling
 library(tidyverse)
@@ -141,7 +141,7 @@ ggplot(plotseries, aes(x = Date, y = values)) +
        subtitle = "%",
        caption = "Source: BdE") +
   theme_bde() +
-  bde_scale_color_vivid() # Custom palette on the package
+  scale_color_bde_d(palette="bde_vivid_pal") # Custom palette on the package
 
 ```
 
@@ -163,9 +163,7 @@ par(opar)
 ```
 
 Those palettes can be applied to a `ggplot2` using some custom utils included on
-the package (see `help("bde_vivid_pal", package = "tidyBdE")`).
-
-Here you can find an example using `bde_scale_fill_rose()`:
+the package (see `help("scale_color_bde_d", package = "tidyBdE")`).
 
 ```{r gdp}
 # Load GDP Series
@@ -212,7 +210,7 @@ ggplot(data = GDP_all, aes(x = Date,
   geom_bar(position = "stack",
            stat = "identity",
            alpha = 0.8) +
-  bde_scale_fill_rose() + # Custom palette on the package
+  scale_fill_bde_d(palette="bde_rose_pal") + # Custom palette on the package
   scale_x_continuous(expand = c(0, 0)) +
   scale_y_continuous(expand = c(0, 0)) +
   theme_bde() +

@@ -49,3 +49,5 @@ Meta
 CRAN-RELEASE
 cran-comments.md
 revdep
+/doc/
+/Meta/
