@@ -74,7 +74,7 @@ bde_parse_dates <- function(dates_to_parse) {
       dateformat[j] <- NA
     } else if (nchar(s2) == 4) {
       # This is just year, add day, month
-      dateformat[j] <- paste0("0112", s2)
+      dateformat[j] <- paste0("3112", s2)
     } else if (nchar(s2) == 6) {
       # Month Year, add day
       dateformat[j] <- paste0("01", s2)
