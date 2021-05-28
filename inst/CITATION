@@ -13,4 +13,4 @@ citEntry(
   note = vers,
   doi = '10.5281/zenodo.4673496',
   url = url,
-  textVersion = paste0('D. H. Herrero (', year, '). tidyBdE: ', meta$Title, '. ', vers, '. https://doi.org/10.5281/zenodo.4673496. Package url: ', url))
+  textVersion = paste0('Herrero, D. H. (', year, '). tidyBdE: ', meta$Title, '. ', vers, '. https://doi.org/10.5281/zenodo.4673496. Package url: ', url))

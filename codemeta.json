@@ -20,7 +20,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.3 (2020-10-10)",
+  "runtimePlatform": "R version 4.1.0 (2021-05-18)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -186,7 +186,7 @@
   ],
   "releaseNotes": "https://github.com/rOpenSpain/tidyBdE/blob/master/NEWS.md",
   "readme": "https://github.com/rOpenSpain/tidyBdE/blob/main/README.md",
-  "fileSize": "11632.26KB",
+  "fileSize": "0KB",
   "contIntegration": "https://codecov.io/gh/ropenspain/tidyBdE",
   "keywords": [
     "r-package",
