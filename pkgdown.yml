@@ -3,7 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   tidyBdE: tidyBdE.html
-last_built: 2021-05-25T21:36Z
+last_built: 2021-05-28T14:41Z
 urls:
   reference: https://ropenspain.github.io/tidyBdE//reference
   article: https://ropenspain.github.io/tidyBdE//articles
