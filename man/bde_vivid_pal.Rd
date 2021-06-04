@@ -3,7 +3,7 @@
 \name{bde_vivid_pal}
 \alias{bde_vivid_pal}
 \alias{bde_rose_pal}
-\title{BdE colour palettes}
+\title{BdE color palettes}
 \usage{
 bde_vivid_pal(...)
 

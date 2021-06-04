@@ -59,7 +59,7 @@ XR_GBP[c(2, 5)]
 #> # A tibble: 1 x 2
 #>   Numero_secuencial Descripcion_de_la_serie                                     
 #>               <dbl> <chr>                                                       
-#> 1            573214 Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos …
+#> 1            573214 Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos ~
 ```
 
 **Note that BdE files are only provided in Spanish, for the time

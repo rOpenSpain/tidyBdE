@@ -40,7 +40,7 @@
 #' @note
 #' This function tries to coerce the columns to numbers. For some series a
 #' warning may be displayed if the parser fails. You can override the default
-#' behaviour with `parse_numeric = FALSE`
+#' behavior with `parse_numeric = FALSE`
 #'
 #' @seealso [bde_series_full_load()], [bde_catalog_load()],
 #' [bde_catalog_search()]
@@ -196,7 +196,7 @@ bde_series_load <- function(series_code,
 #' @note
 #' This function tries to coerce the columns to numbers. For some series a
 #' warning may be displayed if the parser fails. You can override the default
-#' behaviour with `parse_numeric = FALSE`
+#' behavior with `parse_numeric = FALSE`
 #'
 #' @examples
 #' \donttest{

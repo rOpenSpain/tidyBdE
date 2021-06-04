@@ -13,7 +13,7 @@
 #' @param dates_to_parse Dates to parse
 #'
 #' @note
-#' This function is taylored for the date formatting used on this package, so
+#' This function is tailored for the date formatting used on this package, so
 #' it may fail if it is used for another datasets. See examples for checking
 #' which formats would be considered.
 #'

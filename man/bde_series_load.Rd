@@ -65,7 +65,7 @@ several aliases. If you need to search by alias it is recommended to use
 \note{
 This function tries to coerce the columns to numbers. For some series a
 warning may be displayed if the parser fails. You can override the default
-behaviour with \code{parse_numeric = FALSE}
+behavior with \code{parse_numeric = FALSE}
 }
 \examples{
 \donttest{

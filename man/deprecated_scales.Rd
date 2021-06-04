@@ -25,7 +25,7 @@ bde_scale_fill_rose(...)
 \item{...}{Ignored}
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}. These scales are deprecated in favour of
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}. These scales are deprecated in favor of
 \code{\link[=scale_color_bde_d]{scale_color_bde_d()}} and similar functions, in order to align the naming
 with the current practices (see \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}) and
 similar functions).

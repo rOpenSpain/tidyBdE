@@ -1,4 +1,4 @@
-#' BdE colour palettes
+#' BdE color palettes
 #'
 #' Custom palettes based on the publications of BdE.
 #'

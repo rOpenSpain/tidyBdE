@@ -1,7 +1,7 @@
 #' @title Scales for `ggplot2`
 #'
 #' @description
-#' `r lifecycle::badge("deprecated")`. These scales are deprecated in favour of
+#' `r lifecycle::badge("deprecated")`. These scales are deprecated in favor of
 #' [scale_color_bde_d()] and similar functions, in order to align the naming
 #' with the current practices (see [ggplot2::scale_fill_viridis_c()]) and
 #' similar functions).

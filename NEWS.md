@@ -1,4 +1,4 @@
-# tidyBdE (development version)
+# tidyBdE 0.1.1
 
 -   Add vignette to package
 -   Color adjustment on `bde_rose_pal()`: Now hcl spectrum is more consistent between roses and blues according to `colorspace::specplot()`.
