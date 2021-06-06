@@ -11,7 +11,7 @@ reference:
     desc: Tools for working with BdE series.
     contents:
       - has_concept("series")
-      
+
   - title: "BdE Indicators"
     desc: Selected macroeconomic indicators of Spain.
     contents:
