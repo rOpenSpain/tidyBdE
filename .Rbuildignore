@@ -17,3 +17,4 @@
 ^tidyBdE\.Rcheck$
 ^tidyBdE.*\.tar\.gz$
 ^tidyBdE.*\.tgz$
+^vignettes/tidyBdE\.Rmd\.orig$
