@@ -1,4 +1,4 @@
-# tidyBdE (development version)
+# tidyBdE 0.1.2
 
 -  Precompile vignette.
 -  Better handling of errors, according to CRAN rules.

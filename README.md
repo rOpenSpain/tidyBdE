@@ -255,8 +255,6 @@ bde_series_load("SOME ID", update_cache = TRUE)
 
 Other useful packages that provides access to Spanish open data:
 
--   [**opendataes**](https://ropenspain.github.io/opendataes/): A
-    package that downloads data from the <https://datos.gob.es> API.
 -   [**MicroDatosEs**](https://github.com/rOpenSpain/MicroDatosEs): A
     package that process microdata provided by Spanish statistical
     agencies (mostly, INE).
