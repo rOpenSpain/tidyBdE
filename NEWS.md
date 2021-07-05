@@ -1,5 +1,9 @@
 # tidyBdE (development version)
 
+-  Precompile vignette.
+-  Better handling of errors, according to CRAN rules.
+-  Changed some examples.
+
 # tidyBdE 0.1.1
 
 -   Add vignette to package

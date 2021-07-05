@@ -173,10 +173,11 @@ bde_hlp_download <- function(url, local_file, verbose) {
 
   # On warning stop the execution
   if (isTRUE(err_dwnload)) {
-    stop("tidyBdE> Execution halted.", call. = FALSE)
+    message("tidyBdE> Corrupted file")
+    return(FALSE)
     # nocov end
   } else {
-    return(invisible())
+    return(TRUE)
   }
 }
 

@@ -253,11 +253,15 @@ bde_series_full_load <-
 
     # If no serie is found, update
     if (update_cache || isFALSE(file.exists(local_file))) {
-      bde_hlp_download(
+      result <- bde_hlp_download(
         url = full_url,
         local_file = local_file,
         verbose = verbose
       )
+
+      if (isFALSE(result)) {
+        return(invisible())
+      }
     } else {
       if (verbose) {
         message(
@@ -266,6 +270,15 @@ bde_series_full_load <-
         )
       }
     }
+
+
+    # Catch error
+    r <- readLines(local_file)
+    if (length(r) == 0) {
+      message("File ", local_file, " not valid")
+      return(invisible())
+    }
+
 
     # Serie load
     serie_load <-

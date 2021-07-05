@@ -2,7 +2,7 @@ run_tests <-
   length(unclass(utils::packageVersion("tidyBdE"))[[1]]) > 3
 
 # Test load series all----
-expect_error(bde_series_full_load("aa"))
+expect_null(bde_series_full_load("aa"))
 
 if (run_tests) {
   expect_message(bde_series_full_load("TI_1_1.csv",

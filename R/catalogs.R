@@ -84,12 +84,24 @@ bde_catalog_load <-
 
       # If no catalog is found or requested, update
       if (update_cache || isFALSE(file.exists(catalog_file))) {
-        bde_catalog_update(
+        result <- bde_catalog_update(
           catalog = cat_ind,
           cache_dir = cache_dir,
           verbose = verbose
         )
+
+        if (isFALSE(result)) {
+          return(invisible())
+        }
       }
+
+      # Catch error
+      r <- readLines(catalog_file)
+      if (length(r) == 0) {
+        message("File ", catalog_file, " not valid")
+        return(invisible())
+      }
+
 
       catalog_load <-
         read.csv2(
@@ -230,11 +242,12 @@ bde_catalog_update <-
       local_file <- file.path(cache_dir, catalog_file)
 
       # Download
-      bde_hlp_download(
+      result <- bde_hlp_download(
         url = full_url,
         local_file = local_file,
         verbose = verbose
       )
+      return(result)
     }
   }
 
