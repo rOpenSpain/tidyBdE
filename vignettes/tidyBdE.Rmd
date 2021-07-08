@@ -147,7 +147,7 @@ GDP_all <- GDP %>%
   summarise_at(vars(-group_cols()), sum) %>%
   # Create percentage
   relocate(Total, .after = Other) %>%
-  mutate(across(Agriculture:Other, ~ .x / Total)) %>%
+  mutate(across(Agriculture:Other, ~ .x * 100 / Total)) %>%
   # Move cols to rows for plotting
   select(-Total) %>%
   pivot_longer(Agriculture:Other,
