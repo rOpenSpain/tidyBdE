@@ -23,7 +23,7 @@ library(dplyr)
 
 col <- tidyBdE::bde_rose_pal()(1)
 date <- Sys.Date()
-ny <- as.numeric(format(date, format = "%Y")) - 4
+ny <- as.numeric(format(date, format = "%Y")) - 3
 nd <- as.Date(paste0(ny, "-01-01"))
 
 br <- seq(nd, Sys.Date(), "6 months")
