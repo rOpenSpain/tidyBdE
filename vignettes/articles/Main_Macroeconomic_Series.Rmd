@@ -2,7 +2,7 @@
 title: "Main Macroeconomic Series"
 output:
   html_document:
-    toc: true
+    toc: yes
     toc_depth: 2
 ---
 
@@ -29,10 +29,39 @@ nd <- as.Date(paste0(ny, "-01-01"))
 br <- seq(nd, Sys.Date(), "6 months")
 ```
 
-
 ## GDP of Spain
 
-Year-on-year variation:
+### Overall (quaterly values)
+
+```{r echo=FALSE}
+dataset <- bde_series_load(3777060, "data") %>%
+  filter(Date >= nd)
+
+l <- dataset[nrow(dataset), ]
+
+ggplot(dataset, aes(x = Date, y = data)) +
+  geom_line(color = col) +
+  geom_text(
+    data = l,
+    size = 3,
+    aes(label = paste(x = prettyNum(data, big.mark = " "), "\n", format(Date, "%b-%Y")))
+  ) +
+  scale_y_continuous(labels = scales::label_number()) +
+  labs(
+    title = "GDP of Spain",
+    subtitle = "million €",
+    caption = "Source: BdE"
+  ) +
+  scale_x_date(
+    date_labels = "%b-%Y",
+    breaks = br
+  ) +
+  theme_bde()
+```
+
+
+### Year-on-year variation
+
 
 ```{r echo=FALSE}
 
@@ -54,6 +83,45 @@ ggplot(dataset, aes(x = Date, y = data)) +
     subtitle = "%",
     caption = "Source: BdE"
   ) +
+  scale_x_date(
+    date_labels = "%b-%Y",
+    breaks = br
+  ) +
+  theme_bde()
+```
+
+### GDP per capita
+
+```{r echo=FALSE}
+
+pop <- bde_series_load(3078287, "pop")
+PIB <- bde_series_load(3777060, "data")
+PIB$LastY <- PIB$data + lag(PIB$data, 1) + lag(PIB$data, 2) + lag(PIB$data, 3)
+
+PIB <- left_join(PIB, pop, by = "Date")
+
+PIB <- PIB %>% mutate(data = 1000 * LastY / pop)
+
+dataset <- PIB %>%
+  select(Date, data) %>%
+  filter(Date >= nd)
+
+
+l <- dataset[nrow(dataset), ]
+
+ggplot(dataset, aes(x = Date, y = data)) +
+  geom_line(color = col) +
+  geom_text(
+    data = l,
+    size = 3,
+    aes(label = paste(x = prettyNum(data, big.mark = " "), "€\n", format(Date, "%b-%Y")))
+  ) +
+  labs(
+    title = "GDP per capita of Spain",
+    subtitle = "€",
+    caption = "Source: BdE"
+  ) +
+  scale_y_continuous(labels = scales::label_number()) +
   scale_x_date(
     date_labels = "%b-%Y",
     breaks = br
