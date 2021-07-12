@@ -4,7 +4,7 @@ on:
       - main
       - master
   schedule:
-      - cron:  '0 22 * * 15'
+      - cron:  '0 22 15 * *'
 name: rostemplate-gh-pages
 
 jobs:
