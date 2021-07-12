@@ -1,8 +1,11 @@
+# tidyBdE (development version)
+-   Add series index article.
+
 # tidyBdE 0.1.2
 
--  Precompile vignette.
--  Better handling of errors, according to CRAN rules.
--  Changed some examples.
+-   Precompile vignette.
+-   Better handling of errors, according to CRAN rules.
+-   Changed some examples.
 
 # tidyBdE 0.1.1
 
