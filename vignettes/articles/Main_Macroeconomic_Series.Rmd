@@ -58,10 +58,12 @@ ggplot(dataset, aes(x = Date, y = data)) +
   ) +
   theme_bde()
 ```
+
+
 ### GDP by industry (quarterly)
 
 ```{r echo=FALSE}
-library(tidyverse)
+library(tidyr)
 
 dataset_init <- bde_series_load(
   series_code = c(
