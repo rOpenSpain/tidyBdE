@@ -25,7 +25,7 @@ below):
 library(tidyBdE)
 library(tidyverse)
 
-series <- bde_catalog_load() %>% slice(1:10)
+series <- bde_catalog_load()
 
 
 # Clean
@@ -46,7 +46,9 @@ reactable(series_clean,
   searchable = TRUE,
   showPageSizeOptions = TRUE,
   striped = TRUE,
-  paginationType = "jump"
+  paginationType = "jump",
+  defaultPageSize = 5,
+  compact = TRUE
 )
 
 
