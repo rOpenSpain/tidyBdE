@@ -1,0 +1,153 @@
+---
+title: "Main Macroeconomic Series"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+---
+
+This article shows the evolution of selected economic indicators of 
+Spain, based on the information provided by [Banco de España](https://www.bde.es/).
+
+Last update: **`r format(Sys.Date(),"%d-%B-%Y")`**.
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(tidyBdE)
+library(ggplot2)
+library(dplyr)
+
+col <- tidyBdE::bde_rose_pal()(1)
+date <- Sys.Date()
+ny <- as.numeric(format(date, format = "%Y")) - 4
+nd <- as.Date(paste0(ny, "-01-01"))
+
+br <- seq(nd, Sys.Date(), "6 months")
+```
+
+
+## GDP of Spain
+
+Year-on-year variation:
+
+```{r echo=FALSE}
+
+dataset <- bde_ind_gdp_var(series_label = "data") %>%
+  filter(Date >= nd)
+
+
+l <- dataset[nrow(dataset), ]
+
+ggplot(dataset, aes(x = Date, y = data)) +
+  geom_line(color = col) +
+  geom_text(
+    data = l,
+    size = 3,
+    aes(label = paste(x = data, "\n", format(Date, "%b-%Y")))
+  ) +
+  labs(
+    title = "GDP of Spain (year-on-year variation)",
+    subtitle = "%",
+    caption = "Source: BdE"
+  ) +
+  scale_x_date(
+    date_labels = "%b-%Y",
+    breaks = br
+  ) +
+  theme_bde()
+```
+
+## Unemployment Rate
+
+
+```{r echo=FALSE}
+
+dataset <- bde_ind_unemployment_rate(series_label = "data") %>%
+  filter(Date >= nd)
+
+
+l <- dataset[nrow(dataset), ]
+
+ggplot(dataset, aes(x = Date, y = data)) +
+  geom_line(color = col) +
+  geom_text(
+    data = l,
+    size = 3,
+    aes(label = paste(x = data, "\n", format(Date, "%b-%Y")))
+  ) +
+  labs(
+    title = "Unemployment Rate",
+    subtitle = "%",
+    caption = "Source: BdE"
+  ) +
+  scale_x_date(
+    date_labels = "%b-%Y",
+    breaks = br
+  ) +
+  theme_bde()
+```
+
+
+## Consumer Price Index
+
+
+```{r echo=FALSE}
+
+dataset <- bde_ind_cpi_var(series_label = "data") %>%
+  filter(Date >= nd)
+
+
+l <- dataset[nrow(dataset), ]
+
+ggplot(dataset, aes(x = Date, y = data)) +
+  geom_line(color = col) +
+  geom_text(
+    data = l,
+    size = 3,
+    aes(label = paste(x = data, "\n", format(Date, "%b-%Y")))
+  ) +
+  labs(
+    title = "Consumer Price Index",
+    subtitle = "%",
+    caption = "Source: BdE"
+  ) +
+  scale_x_date(
+    date_labels = "%b-%Y",
+    breaks = br
+  ) +
+  theme_bde()
+```
+
+## Monthly Euribor
+
+
+```{r echo=FALSE}
+
+dataset <- bde_ind_euribor_12m_monthly(series_label = "data") %>%
+  filter(Date >= nd)
+
+
+l <- dataset[nrow(dataset), ]
+
+ggplot(dataset, aes(x = Date, y = data)) +
+  geom_line(color = col) +
+  geom_text(
+    data = l,
+    size = 3,
+    aes(label = paste(x = data, "\n", format(Date, "%b-%Y")))
+  ) +
+  labs(
+    title = "Euribor 12 months (monthly)",
+    subtitle = "%",
+    caption = "Source: BdE"
+  ) +
+  scale_x_date(
+    date_labels = "%b-%Y",
+    breaks = br
+  ) +
+  theme_bde()
+```
