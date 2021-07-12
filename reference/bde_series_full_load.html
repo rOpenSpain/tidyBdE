@@ -104,7 +104,7 @@ extracting specific time-series.
       <i class="fa fa-align-justify"></i>
       </button>
       <span class="navbar-brand" id="ROS-navbar-brand">
-      <a class="navbar-link ROS-black" href="../index.html"><img src="../logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo">tidyBdE</a> <span class="version label label-default hidden-xs" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+      <a class="navbar-link ROS-black" href="../index.html"><img src="../logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo">tidyBdE</a> <span class="version label label-default hidden-xs" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2.9000</span>
       </span>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -120,6 +120,18 @@ extracting specific time-series.
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/articles/Series-Index.html">Series Index</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -240,7 +252,7 @@ behavior with <code>parse_numeric = FALSE</code></p>
 #&gt; <span style='color: #BCBCBC;'>6</span> <span style='color: #949494;'>"</span>FRE… <span style='color: #949494;'>"</span>DIARIA<span style='color: #949494;'>"</span> <span style='color: #949494;'>"</span>DIARIA<span style='color: #949494;'>"</span> <span style='color: #949494;'>"</span>DIARIA<span style='color: #949494;'>"</span> <span style='color: #949494;'>"</span>DIARIA<span style='color: #949494;'>"</span> <span style='color: #949494;'>"</span>DIARIA<span style='color: #949494;'>"</span> <span style='color: #949494;'>"</span>DIARIA<span style='color: #949494;'>"</span> <span style='color: #949494;'>"</span>DIARIA<span style='color: #949494;'>"</span> <span style='color: #949494;'>"</span>DIARIA<span style='color: #949494;'>"</span> </div><div class='input'>
 <span class='co'># Data</span>
 <span class='fu'>bde_series_full_load</span><span class='op'>(</span><span class='st'>"TI_1_1.csv"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 11,377 x 9</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 11,380 x 9</span>
 #&gt;    Date       TI_1_1.1 TI_1_1.2 TI_1_1.3 TI_1_1.4 TI_1_1.5 TI_1_1.7 TI_1_1.9
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
 #&gt; <span style='color: #BCBCBC;'> 1</span> 1990-05-14       <span style='color: #BB0000;'>NA</span>     14.6     14.6       <span style='color: #BB0000;'>NA</span>       <span style='color: #BB0000;'>NA</span>       <span style='color: #BB0000;'>NA</span>       <span style='color: #BB0000;'>NA</span>
@@ -253,7 +265,7 @@ behavior with <code>parse_numeric = FALSE</code></p>
 #&gt; <span style='color: #BCBCBC;'> 8</span> 1990-05-21       <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>       <span style='color: #BB0000;'>NA</span>         <span style='color: #BB0000;'>NA</span>       <span style='color: #BB0000;'>NA</span>       <span style='color: #BB0000;'>NA</span>       <span style='color: #BB0000;'>NA</span>
 #&gt; <span style='color: #BCBCBC;'> 9</span> 1990-05-22       <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>       <span style='color: #BB0000;'>NA</span>         <span style='color: #BB0000;'>NA</span>       <span style='color: #BB0000;'>NA</span>       <span style='color: #BB0000;'>NA</span>       <span style='color: #BB0000;'>NA</span>
 #&gt; <span style='color: #BCBCBC;'>10</span> 1990-05-23       <span style='color: #BB0000;'>NA</span>     14.6     14.6       <span style='color: #BB0000;'>NA</span>       <span style='color: #BB0000;'>NA</span>       <span style='color: #BB0000;'>NA</span>       <span style='color: #BB0000;'>NA</span>
-#&gt; <span style='color: #949494;'># … with 11,367 more rows, and 1 more variable: TI_1_1.10 &lt;dbl&gt;</span></div><div class='input'><span class='co'># }</span>
+#&gt; <span style='color: #949494;'># … with 11,370 more rows, and 1 more variable: TI_1_1.10 &lt;dbl&gt;</span></div><div class='input'><span class='co'># }</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
