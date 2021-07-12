@@ -31,7 +31,7 @@ br <- seq(nd, Sys.Date(), "6 months")
 
 ## GDP of Spain
 
-### Overall (quaterly values)
+### Overall (quarterly values)
 
 ```{r echo=FALSE}
 dataset <- bde_series_load(3777060, "data") %>%
@@ -58,7 +58,71 @@ ggplot(dataset, aes(x = Date, y = data)) +
   ) +
   theme_bde()
 ```
+### GDP by industry (quarterly)
 
+```{r echo=FALSE}
+library(tidyverse)
+
+dataset_init <- bde_series_load(
+  series_code = c(
+    3777251,
+    3777265,
+    3777259,
+    3777269,
+    3777060
+  ),
+  series_label = c(
+    "Agriculture",
+    "Industry",
+    "Construction",
+    "Services",
+    "Total"
+  )
+) %>%
+  filter(Date >= nd)
+
+
+# Manipulate data - tidyverse style
+
+dataset <- dataset_init %>%
+  # Create 'Other' column and convert Date to year
+  mutate(
+    Other = Total - rowSums(across(Agriculture:Services))
+  ) %>%
+  select(-Total) %>%
+  pivot_longer(Agriculture:Other,
+    names_to = "serie",
+    values_to = "data"
+  )
+
+
+l <- dataset[nrow(dataset), ]
+
+ggplot(data = dataset, aes(
+  x = Date,
+  y = data,
+  fill = serie
+)) +
+  geom_bar(
+    position = "stack",
+    stat = "identity",
+    alpha = 0.8
+  ) +
+  scale_fill_bde_d(palette = "bde_rose_pal") + # Custom palette on the package
+  scale_x_date(
+    date_labels = "%b-%Y",
+    breaks = br
+  ) +
+  scale_y_continuous(labels = scales::label_number()) +
+  theme_bde() +
+  labs(
+    title = "Spain: Gross domestic product by industry",
+    subtitle = "million €",
+    caption = "Source: BdE"
+  )
+
+rm(list = c("dataset", "dataset_init"))
+```
 
 ### Year-on-year variation
 
