@@ -161,7 +161,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ```{r echo=FALSE}
 
 pop <- bde_ind_population(series_label = "pop")
-PIB <- bde_ind_gdp_var(series_label = "data")
+PIB <- bde_ind_gdp_quarterly(series_label = "data")
 
 PIB$LastY <- PIB$data + lag(PIB$data, 1) + lag(PIB$data, 2) + lag(PIB$data, 3)
 
