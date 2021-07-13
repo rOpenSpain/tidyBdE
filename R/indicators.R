@@ -108,3 +108,31 @@ bde_ind_ibex <- function(series_label = "IBEX_index_month", ...) {
 
   return(econom_ind)
 }
+
+
+#' @rdname bde_indicators
+#'
+#' @export
+bde_ind_gdp_quarterly <- function(series_label = "GDP_quarterly_value", ...) {
+  seq_num <- 3777060
+
+  econom_ind <-
+    bde_series_load(seq_num, series_label = series_label, ...)
+  econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
+
+  return(econom_ind)
+}
+
+
+#' @rdname bde_indicators
+#'
+#' @export
+bde_ind_population <- function(series_label = "Population_Spain", ...) {
+  seq_num <- 3078287
+
+  econom_ind <-
+    bde_series_load(seq_num, series_label = series_label, ...)
+  econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
+
+  return(econom_ind)
+}

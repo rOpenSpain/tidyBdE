@@ -13,7 +13,7 @@ if (run_tests) {
     cache_dir = file.path(tempdir(), "aa"),
     verbose = TRUE
   ))
-  
+
   expect_silent(bde_catalog_load("ALL"))
 }
 
@@ -24,12 +24,13 @@ expect_error(bde_catalog_update("aa"))
 
 if (run_tests) {
   expect_message(bde_catalog_update("TC",
-                                    cache_dir = tempdir(),
-                                    verbose = TRUE))
+    cache_dir = tempdir(),
+    verbose = TRUE
+  ))
   expect_silent(bde_catalog_update("ALL", cache_dir = tempdir()))
   expect_silent(bde_catalog_update("TC", cache_dir = tempdir()))
   expect_silent(bde_catalog_update("CF", cache_dir = tempdir()))
-  
+
   # Testing options cache dir
   init_cache_dir <- getOption("bde_cache_dir")
   options(bde_cache_dir = file.path(tempdir(), "test"))
@@ -54,13 +55,15 @@ parsed <- bde_parse_dates(testdates)
 
 expect_equal(class(parsed), "Date")
 
-would_parse <- c("02 FEB2019",
-                 "MAR 2020",
-                 "ENE2020",
-                 "2020",
-                 "12-1993",
-                 "01-02-2014",
-                 "31/12/2009")
+would_parse <- c(
+  "02 FEB2019",
+  "MAR 2020",
+  "ENE2020",
+  "2020",
+  "12-1993",
+  "01-02-2014",
+  "31/12/2009"
+)
 
 parsed_ok <- bde_parse_dates(would_parse)
 expect_false(anyNA(parsed_ok))

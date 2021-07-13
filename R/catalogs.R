@@ -28,15 +28,25 @@
 #' @details
 #' Accepted values for `catalog` are:
 #'
-#' | CODE | PUBLICATION                               | UPDATE FREQUENCY | FREQUENCY  |
-#' |------|-------------------------------------------|------------------|------------|
-#' | BE   | Statistical Bulletin                      | Daily            | Monthly    |
-#' | CF   | Financial Accounts of the Spanish Economy | Quarterly        | Annual     |
-#' | IE   | Economic Indicators                       | Daily            | Monthly    |
-#' | SI   | Summary Indicators                        | Daily            | Daily      |
-#' | TC   | Exchange Rates                            | Daily            | Daily      |
-#' | TI   | Interest Rates                            | Daily            | Daily      |
-#' | PB   | Bank Lending Survey                       | Quarterly        | Quarterly  |
+#' ```{r, echo=FALSE}
+#'
+#' t <- tibble::tribble(
+#' ~CODE, ~PUBLICATION, ~UPDATEFREQUENCY, ~FREQUENCY,
+#' "BE", "Statistical Bulletin", "Daily", "Monthly",
+#' "CF", "Financial Accounts of the Spanish Economy", "Quarterly", "Annual",
+#' "IE", "Economic Indicators", "Daily", "Monthly",
+#' "SI", "Summary Indicators", "Daily", "Daily",
+#' "TC", "Exchange Rates", "Daily", "Daily",
+#' "TI", "Interest Rates", "Daily", "Daily",
+#' "PB", "Bank Lending Survey", "Quarterly", "Quarterly",
+#' )
+#'
+#' names(t) <- c("CODE","PUBLICATION", "UPDATE FREQUENCY", "FREQUENCY")
+#'
+#' knitr::kable(t)
+#'
+#'
+#' ```
 #'
 #' Use "ALL" as a shorthand for updating all the catalogs at a glance.
 #'
@@ -115,7 +125,25 @@ bde_catalog_load <-
       # Convert names
       # Hard-coded, problematic on checks because UTF-8 values
       # Some OS would fail if this workaround is not used
-      names_catalog <- c("Nombre_de_la_serie", "Numero_secuencial", "Alias_de_la_serie", "Nombre_del_archivo_con_los_valores_de_la_serie", "Descripcion_de_la_serie", "Tipo_de_variable", "Codigo_de_unidades", "Exponente", "Numero_de_decimales", "Descripcion_de_unidades_y_exponente", "Frecuencia_de_la_serie", "Fecha_de_la_primera_observacion", "Fecha_de_la_ultima_observacion", "Numero_de_observaciones", "Titulo_de_la_serie", "Fuente", "Notas")
+      names_catalog <- c(
+        "Nombre_de_la_serie",
+        "Numero_secuencial",
+        "Alias_de_la_serie",
+        "Nombre_del_archivo_con_los_valores_de_la_serie",
+        "Descripcion_de_la_serie",
+        "Tipo_de_variable",
+        "Codigo_de_unidades",
+        "Exponente",
+        "Numero_de_decimales",
+        "Descripcion_de_unidades_y_exponente",
+        "Frecuencia_de_la_serie",
+        "Fecha_de_la_primera_observacion",
+        "Fecha_de_la_ultima_observacion",
+        "Numero_de_observaciones",
+        "Titulo_de_la_serie",
+        "Fuente",
+        "Notas"
+      )
 
       # Rename and delete first row
       names(catalog_load) <- names_catalog
@@ -179,15 +207,24 @@ bde_catalog_load <-
 #' @details
 #' Accepted values for `catalog` are:
 #'
-#' | CODE | PUBLICATION                               | UPDATE FREQUENCY | FREQUENCY  |
-#' |------|-------------------------------------------|------------------|------------|
-#' | BE   | Statistical Bulletin                      | Daily            | Monthly    |
-#' | CF   | Financial Accounts of the Spanish Economy | Quarterly        | Annual     |
-#' | IE   | Economic Indicators                       | Daily            | Monthly    |
-#' | SI   | Summary Indicators                        | Daily            | Daily      |
-#' | TC   | Exchange Rates                            | Daily            | Daily      |
-#' | TI   | Interest Rates                            | Daily            | Daily      |
-#' | PB   | Bank Lending Survey                       | Quarterly        | Quarterly  |
+#' ```{r, echo=FALSE}
+#'
+#' t <- tibble::tribble(
+#' ~CODE, ~PUBLICATION, ~UPDATEFREQUENCY, ~FREQUENCY,
+#' "BE", "Statistical Bulletin", "Daily", "Monthly",
+#' "CF", "Financial Accounts of the Spanish Economy", "Quarterly", "Annual",
+#' "IE", "Economic Indicators", "Daily", "Monthly",
+#' "SI", "Summary Indicators", "Daily", "Daily",
+#' "TC", "Exchange Rates", "Daily", "Daily",
+#' "TI", "Interest Rates", "Daily", "Daily",
+#' "PB", "Bank Lending Survey", "Quarterly", "Quarterly",
+#' )
+#'
+#' names(t) <- c("CODE","PUBLICATION", "UPDATE FREQUENCY", "FREQUENCY")
+#'
+#' knitr::kable(t)#'
+#'
+#' ```
 #'
 #' Use "ALL" as a shorthand for updating all the catalogs at a glance.
 #'

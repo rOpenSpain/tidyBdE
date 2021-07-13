@@ -34,7 +34,7 @@ br <- seq(nd, Sys.Date(), "6 months")
 ### Overall (quarterly values)
 
 ```{r echo=FALSE}
-dataset <- bde_series_load(3777060, "data") %>%
+dataset <- bde_ind_gdp_var(series_label = "data") %>%
   filter(Date >= nd)
 
 l <- dataset[nrow(dataset), ]
@@ -160,8 +160,9 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ```{r echo=FALSE}
 
-pop <- bde_series_load(3078287, "pop")
-PIB <- bde_series_load(3777060, "data")
+pop <- bde_ind_population(series_label = "pop")
+PIB <- bde_ind_gdp_var(series_label = "data")
+
 PIB$LastY <- PIB$data + lag(PIB$data, 1) + lag(PIB$data, 2) + lag(PIB$data, 3)
 
 PIB <- left_join(PIB, pop, by = "Date")
@@ -283,5 +284,39 @@ ggplot(dataset, aes(x = Date, y = data)) +
     date_labels = "%b-%Y",
     breaks = br
   ) +
+  theme_bde()
+```
+
+
+## Population
+
+```{r echo=FALSE}
+
+dataset <- bde_ind_population(series_label = "data") %>%
+  filter(Date >= nd)
+
+
+l <- dataset[nrow(dataset), ]
+
+ggplot(dataset, aes(x = Date, y = data)) +
+  geom_line(color = col) +
+  geom_text(
+    data = l,
+    size = 3,
+    aes(label = paste(
+      x = prettyNum(data, big.mark = " "),
+      "\n", format(Date, "%b-%Y")
+    ))
+  ) +
+  labs(
+    title = "Population of Spain",
+    subtitle = "thousands",
+    caption = "Source: BdE"
+  ) +
+  scale_x_date(
+    date_labels = "%b-%Y",
+    breaks = br
+  ) +
+  scale_y_continuous(labels = scales::label_number()) +
   theme_bde()
 ```

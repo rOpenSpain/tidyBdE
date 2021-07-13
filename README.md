@@ -40,6 +40,19 @@ library(remotes)
 install_github("ropenspain/tidyBdE")
 ```
 
+Alternatively, you can install the developing version of `tidyBdE` using
+the [r-universe](https://ropenspain.r-universe.dev/ui#builds):
+
+``` r
+# Enable this universe
+options(repos = c(
+    ropenspain = 'https://ropenspain.r-universe.dev',
+    CRAN = 'https://cloud.r-project.org'))
+
+# Install tidyBdE
+install.packages('tidyBdE')
+```
+
 ## Examples
 
 Banco de España (**BdE**) provides several time-series, either produced
@@ -59,7 +72,7 @@ XR_GBP[c(2, 5)]
 #> # A tibble: 1 x 2
 #>   Numero_secuencial Descripcion_de_la_serie                                     
 #>               <dbl> <chr>                                                       
-#> 1            573214 Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos ~
+#> 1            573214 Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos …
 ```
 
 **Note that BdE files are only provided in Spanish, for the time
@@ -268,3 +281,26 @@ Other useful packages that provides access to Spanish open data:
 
 This package is in no way sponsored endorsed or administered by Banco de
 España.
+
+## Citation
+
+``` r
+citation("tidyBdE")
+#> 
+#> To cite tidyBdE in publications use:
+#> 
+#>   Herrero, D. H. (2021). tidyBdE: Download Data from Bank of Spain. R
+#>   package version 0.1.2.9000. https://doi.org/10.5281/zenodo.4673496.
+#>   Package url: https://CRAN.R-project.org/package=tidyBdE
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {tidyBdE: Download Data from Bank of Spain},
+#>     author = {D. H. Herrero},
+#>     year = {2021},
+#>     note = {R package version 0.1.2.9000},
+#>     doi = {10.5281/zenodo.4673496},
+#>     url = {https://CRAN.R-project.org/package=tidyBdE},
+#>   }
+```

@@ -38,22 +38,25 @@ bde_scale_fill_vivid <- function(...) {
 #' @keywords internal
 #'
 #' @export
-bde_scale_colour_rose <- function(...) {
+bde_scale_colour_rose <- function(...) { # nocov start
   lifecycle::deprecate_stop("0.1.0.9000", "bde_scale_colour_rose()", "scale_color_bde_d()")
+  # nocov end
 }
 
 #' @rdname deprecated_scales
 #' @keywords internal
 #'
 #' @export
-bde_scale_color_rose <- function(...) {
+bde_scale_color_rose <- function(...) { # nocov start
   lifecycle::deprecate_stop("0.1.0.9000", "bde_scale_color_rose()", "scale_color_bde_d()")
+  # nocov end
 }
 
 #' @rdname deprecated_scales
 #' @keywords internal
 #'
 #' @export
-bde_scale_fill_rose <- function(...) {
+bde_scale_fill_rose <- function(...) { # nocov start
   lifecycle::deprecate_stop("0.1.0.9000", "bde_scale_fill_rose()", "scale_fill_bde_d()")
+  # nocov end
 }

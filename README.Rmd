@@ -54,6 +54,21 @@ library(remotes)
 install_github("ropenspain/tidyBdE")
 ```
 
+Alternatively, you can install the developing version of `tidyBdE` using the
+[r-universe](https://ropenspain.r-universe.dev/ui#builds):
+
+```r
+
+# Enable this universe
+options(repos = c(
+    ropenspain = 'https://ropenspain.r-universe.dev',
+    CRAN = 'https://cloud.r-project.org'))
+
+# Install tidyBdE
+install.packages('tidyBdE')
+
+```
+
 ## Examples
 
 Banco de España (**BdE**) provides several time-series, either produced by the
@@ -270,3 +285,9 @@ Other useful packages that provides access to Spanish open data:
 ## Disclaimer
 
 This package is in no way sponsored endorsed or administered by Banco de España.
+
+## Citation
+
+```{r}
+citation("tidyBdE")
+```
