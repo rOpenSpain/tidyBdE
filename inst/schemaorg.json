@@ -21,7 +21,7 @@
           "name": "Banco de España"
         }
       ],
-      "description": "Tools to download data series from 'Banco de España' ('BdE') on \n    'tibble' format. 'Banco de España' is the national central bank \n    and, within the framework of the Single Supervisory Mechanism ('SSM'), the \n    supervisor of the Spanish banking system along with the European Central \n    Bank. This package is in no way sponsored endorsed or administered by \n    'Banco de España'.",
+      "description": "Tools to download data series from 'Banco de España' ('BdE')\n    on 'tibble' format. 'Banco de España' is the national central bank\n    and, within the framework of the Single Supervisory Mechanism ('SSM'),\n    the supervisor of the Spanish banking system along with the European\n    Central Bank. This package is in no way sponsored endorsed or\n    administered by 'Banco de España'.",
       "funder": {},
       "license": "https://spdx.org/licenses/GPL-3.0",
       "name": "tidyBdE: Download Data from Bank of Spain",
@@ -37,7 +37,7 @@
         "url": "https://cran.r-project.org"
       },
       "runtimePlatform": "R version 4.1.0 (2021-05-18)",
-      "version": "0.1.2"
+      "version": "0.1.2.9000"
     },
     {
       "id": "https://doi.org/10.5281/zenodo.4673496",
