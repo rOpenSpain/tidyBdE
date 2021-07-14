@@ -222,7 +222,7 @@ bde_catalog_load <-
 #'
 #' names(t) <- c("CODE","PUBLICATION", "UPDATE FREQUENCY", "FREQUENCY")
 #'
-#' knitr::kable(t)#'
+#' knitr::kable(t)
 #'
 #' ```
 #'
