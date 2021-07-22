@@ -24,6 +24,7 @@ knitr::opts_chunk$set(
 [![rOS-badge](https://ropenspain.github.io/rostemplate/reference/figures/ropenspain-badge.svg)](https://ropenspain.es/)
 [![CRAN-status](https://www.r-pkg.org/badges/version/tidyBdE)](https://CRAN.R-project.org/package=tidyBdE)
 [![CRAN-results](https://cranchecks.info/badges/worst/tidyBdE)](https://cran.r-project.org/web/checks/check_results_tidyBdE.html)
+[![r-universe](https://ropenspain.r-universe.dev/badges/tidyBdE)](https://ropenspain.r-universe.dev/)
 [![On-CRAN](https://www.r-pkg.org/badges/ago/tidyBdE)](https://cran.r-project.org/web/checks/check_results_tidyBdE.html)
 [![R-CMD-check](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml)
 [![codecov](https://codecov.io/gh/ropenspain/tidyBdE/branch/main/graph/badge.svg)](https://codecov.io/gh/ropenspain/tidyBdE)
@@ -103,7 +104,6 @@ library(tidyverse)
 time_series <- bde_series_load(573214, series_label = "EUR_GBP_XR") %>%
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") %>%
   drop_na()
-
 ```
 
 The package also provides a custom `ggplot2` theme based on the publications of
@@ -173,7 +173,6 @@ scales::show_col(bde_vivid_pal()(6))
 title("bde_vivid_pal()")
 
 par(opar)
-
 ```
 
 Those palettes can be applied to a `ggplot2` using some custom utils included on

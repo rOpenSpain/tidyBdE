@@ -7,6 +7,7 @@
 #' similar functions).
 #'
 #' @rdname deprecated_scales
+#' @name deprecated_scales
 #' @keywords internal
 #'
 #' @param ... Ignored
@@ -17,6 +18,7 @@ bde_scale_colour_vivid <- function(...) {
 }
 
 #' @rdname deprecated_scales
+#' @name deprecated_scales
 #' @keywords internal
 #'
 #' @export
@@ -26,6 +28,7 @@ bde_scale_color_vivid <- function(...) {
 
 
 #' @rdname deprecated_scales
+#' @name deprecated_scales
 #' @keywords internal
 #'
 #' @export
@@ -35,6 +38,7 @@ bde_scale_fill_vivid <- function(...) {
 
 
 #' @rdname deprecated_scales
+#' @name deprecated_scales
 #' @keywords internal
 #'
 #' @export
@@ -44,6 +48,7 @@ bde_scale_colour_rose <- function(...) { # nocov start
 }
 
 #' @rdname deprecated_scales
+#' @name deprecated_scales
 #' @keywords internal
 #'
 #' @export
@@ -53,6 +58,7 @@ bde_scale_color_rose <- function(...) { # nocov start
 }
 
 #' @rdname deprecated_scales
+#' @name deprecated_scales
 #' @keywords internal
 #'
 #' @export

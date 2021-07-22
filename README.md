@@ -8,6 +8,7 @@
 [![rOS-badge](https://ropenspain.github.io/rostemplate/reference/figures/ropenspain-badge.svg)](https://ropenspain.es/)
 [![CRAN-status](https://www.r-pkg.org/badges/version/tidyBdE)](https://CRAN.R-project.org/package=tidyBdE)
 [![CRAN-results](https://cranchecks.info/badges/worst/tidyBdE)](https://cran.r-project.org/web/checks/check_results_tidyBdE.html)
+[![r-universe](https://ropenspain.r-universe.dev/badges/tidyBdE)](https://ropenspain.r-universe.dev/)
 [![On-CRAN](https://www.r-pkg.org/badges/ago/tidyBdE)](https://cran.r-project.org/web/checks/check_results_tidyBdE.html)
 [![R-CMD-check](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml)
 [![codecov](https://codecov.io/gh/ropenspain/tidyBdE/branch/main/graph/badge.svg)](https://codecov.io/gh/ropenspain/tidyBdE)
@@ -72,7 +73,7 @@ XR_GBP[c(2, 5)]
 #> # A tibble: 1 x 2
 #>   Numero_secuencial Descripcion_de_la_serie                                     
 #>               <dbl> <chr>                                                       
-#> 1            573214 Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos …
+#> 1            573214 Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos ~
 ```
 
 **Note that BdE files are only provided in Spanish, for the time

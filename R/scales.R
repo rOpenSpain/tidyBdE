@@ -13,6 +13,8 @@
 #'
 #' @rdname scales_bde
 #'
+#' @name scales_bde
+#'
 #' @param palette Name of the BdE palette to apply. One of "bde_vivid_pal",
 #'   "bde_rose_pal". See [bde_vivid_pal()] for details.
 #'
@@ -41,6 +43,7 @@ scale_color_bde_d <- function(palette = "bde_vivid_pal",
 }
 
 #' @rdname scales_bde
+#' @name scales_bde
 #' @export
 scale_fill_bde_d <- function(palette = "bde_vivid_pal",
                              ...) { # nocov start
@@ -65,6 +68,7 @@ scale_fill_bde_d <- function(palette = "bde_vivid_pal",
 
 
 #' @rdname scales_bde
+#' @name scales_bde
 #' @export
 scale_color_bde_c <- function(palette = "bde_vivid_pal",
                               ...) { # nocov start
@@ -88,6 +92,7 @@ scale_color_bde_c <- function(palette = "bde_vivid_pal",
 }
 
 #' @rdname scales_bde
+#' @name scales_bde
 #' @export
 scale_fill_bde_c <- function(palette = "bde_vivid_pal",
                              ...) { # nocov start

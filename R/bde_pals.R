@@ -4,7 +4,8 @@
 #'
 #' @concept bde_plot
 #'
-#' @rdname bde_vivid_pal
+#' @rdname bde_pals
+#' @name bde_pals
 #'
 #' @return A palette of colors.
 #'
@@ -27,7 +28,8 @@ bde_vivid_pal <- function(...) { # nocov start
   # nocov end
 }
 
-#' @rdname bde_vivid_pal
+#' @rdname bde_pals
+#' @name bde_pals
 #' @export
 bde_rose_pal <- function(...) { # nocov start
   pal <- c("#b7365c", "#cb6e8a", "#db9aad", "#0a50a1", "#5385bd", "#89AEDA")
