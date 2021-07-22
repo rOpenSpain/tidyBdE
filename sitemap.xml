@@ -16,6 +16,9 @@
     <loc>https://ropenspain.github.io/tidyBdE//reference/bde_indicators.html</loc>
   </url>
   <url>
+    <loc>https://ropenspain.github.io/tidyBdE//reference/bde_pals.html</loc>
+  </url>
+  <url>
     <loc>https://ropenspain.github.io/tidyBdE//reference/bde_parse_dates.html</loc>
   </url>
   <url>
@@ -23,9 +26,6 @@
   </url>
   <url>
     <loc>https://ropenspain.github.io/tidyBdE//reference/bde_series_load.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE//reference/bde_vivid_pal.html</loc>
   </url>
   <url>
     <loc>https://ropenspain.github.io/tidyBdE//reference/deprecated_scales.html</loc>

@@ -147,7 +147,7 @@
 <span class="co">#&gt; # A tibble: 1 x 2</span>
 <span class="co">#&gt;   Numero_secuencial Descripcion_de_la_serie                                     </span>
 <span class="co">#&gt;               &lt;dbl&gt; &lt;chr&gt;                                                       </span>
-<span class="co">#&gt; 1            573214 Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos …</span></code></pre></div>
+<span class="co">#&gt; 1            573214 Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos ~</span></code></pre></div>
 <p><strong>Note that BdE files are only provided in Spanish, for the time being</strong>, the organism is working on the English version. By now, search terms should be provided in Spanish in order to get search results.</p>
 <p>After we have found our series, we can load the series for the GBP/EUR exchange rate using the sequential number reference (<code>Numero_Secuencial</code>) as:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -160,8 +160,8 @@
 <p>The package also provides a custom <code>ggplot2</code> theme based on the publications of BdE:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">time_series</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">EUR_GBP_XR</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_line</span><span class="op">(</span>colour <span class="op">=</span> <span class="fu"><a href="reference/bde_vivid_pal.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"gam"</span>, colour <span class="op">=</span> <span class="fu"><a href="reference/bde_vivid_pal.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span>colour <span class="op">=</span> <span class="fu"><a href="reference/bde_pals.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"gam"</span>, colour <span class="op">=</span> <span class="fu"><a href="reference/bde_pals.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">labs</span><span class="op">(</span>
     title <span class="op">=</span> <span class="st">"EUR/GBP Exchange Rate (2010-2020)"</span>,
     subtitle <span class="op">=</span> <span class="st">"%"</span>,
@@ -200,21 +200,21 @@
     caption <span class="op">=</span> <span class="st">"Source: BdE"</span>
   <span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="reference/theme_bde.html">theme_bde</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="reference/scale_color_bde_d.html">scale_color_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_vivid_pal"</span><span class="op">)</span> <span class="co"># Custom palette on the package</span></code></pre></div>
+  <span class="fu"><a href="reference/scales_bde.html">scale_color_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_vivid_pal"</span><span class="op">)</span> <span class="co"># Custom palette on the package</span></code></pre></div>
 <p><img src="reference/figures/README-macroseries-1.png" width="100%"></p>
 <p>Two custom palettes, based on the used by BdE on some publications are available.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">opar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>no.readonly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-<span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/show_col.html">show_col</a></span><span class="op">(</span><span class="fu"><a href="reference/bde_vivid_pal.html">bde_rose_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/show_col.html">show_col</a></span><span class="op">(</span><span class="fu"><a href="reference/bde_pals.html">bde_rose_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/title.html">title</a></span><span class="op">(</span><span class="st">"bde_rose_pal()"</span><span class="op">)</span>
-<span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/show_col.html">show_col</a></span><span class="op">(</span><span class="fu"><a href="reference/bde_vivid_pal.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/show_col.html">show_col</a></span><span class="op">(</span><span class="fu"><a href="reference/bde_pals.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/title.html">title</a></span><span class="op">(</span><span class="st">"bde_vivid_pal()"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-palettes-1.png" width="100%"></p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span><span class="va">opar</span><span class="op">)</span></code></pre></div>
-<p>Those palettes can be applied to a <code>ggplot2</code> using some custom utils included on the package (see <code><a href="reference/scale_color_bde_d.html">help("scale_color_bde_d", package = "tidyBdE")</a></code>).</p>
+<p>Those palettes can be applied to a <code>ggplot2</code> using some custom utils included on the package (see <code><a href="reference/scales_bde.html">help("scale_color_bde_d", package = "tidyBdE")</a></code>).</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Load GDP Series</span>
 
@@ -271,7 +271,7 @@
     stat <span class="op">=</span> <span class="st">"identity"</span>,
     alpha <span class="op">=</span> <span class="fl">0.8</span>
   <span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="reference/scale_color_bde_d.html">scale_fill_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_rose_pal"</span><span class="op">)</span> <span class="op">+</span> <span class="co"># Custom palette on the package</span>
+  <span class="fu"><a href="reference/scales_bde.html">scale_fill_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_rose_pal"</span><span class="op">)</span> <span class="op">+</span> <span class="co"># Custom palette on the package</span>
   <span class="fu">scale_x_continuous</span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">scale_y_continuous</span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="reference/theme_bde.html">theme_bde</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -380,6 +380,7 @@
 <li><a href="https://ropenspain.es/"><img src="https://ropenspain.github.io/rostemplate/reference/figures/ropenspain-badge.svg" alt="rOS-badge"></a></li>
 <li><a href="https://CRAN.R-project.org/package=tidyBdE"><img src="https://www.r-pkg.org/badges/version/tidyBdE" alt="CRAN-status"></a></li>
 <li><a href="https://cran.r-project.org/web/checks/check_results_tidyBdE.html"><img src="https://cranchecks.info/badges/worst/tidyBdE" alt="CRAN-results"></a></li>
+<li><a href="https://ropenspain.r-universe.dev/"><img src="https://ropenspain.r-universe.dev/badges/tidyBdE" alt="r-universe"></a></li>
 <li><a href="https://cran.r-project.org/web/checks/check_results_tidyBdE.html"><img src="https://www.r-pkg.org/badges/ago/tidyBdE" alt="On-CRAN"></a></li>
 <li><a href="https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml"><img src="https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://codecov.io/gh/ropenspain/tidyBdE"><img src="https://codecov.io/gh/ropenspain/tidyBdE/branch/main/graph/badge.svg" alt="codecov"></a></li>
