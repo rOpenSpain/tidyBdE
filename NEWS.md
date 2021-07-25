@@ -2,6 +2,7 @@
 -   Add series index article.
 -   Add new series: `bde_ind_gdp_quarterly()`, `bde_ind_population()`.
 -   Improve package coverage and docs.
+-   Move tests to `testthat`.
 
 
 # tidyBdE 0.1.2
