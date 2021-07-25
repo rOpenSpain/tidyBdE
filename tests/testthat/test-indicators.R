@@ -1,10 +1,5 @@
+test_that("Indicators", {
 
-
-run_tests <-
-  length(unclass(utils::packageVersion("tidyBdE"))[[1]]) > 3
-
-
-if (run_tests) {
   # Test indicators----
   expect_silent(bde_ind_gdp_var())
   expect_silent(bde_ind_unemployment_rate())
@@ -14,4 +9,4 @@ if (run_tests) {
   expect_silent(bde_ind_ibex())
   expect_silent(bde_ind_gdp_quarterly())
   expect_silent(bde_ind_population())
-}
+})
