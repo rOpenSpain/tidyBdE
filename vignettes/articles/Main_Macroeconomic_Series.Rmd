@@ -1,5 +1,6 @@
 ---
 title: "Main Macroeconomic Series"
+date: `r format(Sys.Date(),"%d-%B-%Y")`
 output:
   html_document:
     toc: yes
