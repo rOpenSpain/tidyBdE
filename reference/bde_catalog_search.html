@@ -206,7 +206,7 @@ the search.</p>
 <span class='co'># !! PIB [es] == GDP [en]</span>
 
 <span class='fu'>bde_catalog_search</span><span class='op'>(</span><span class='st'>"PIB"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 479 x 17</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 479 × 17</span>
 #&gt;    Nombre_de_la_serie    Numero_secuencial Alias_de_la_ser… Nombre_del_archivo_…
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                 <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>               
 #&gt; <span style='color: #BCBCBC;'> 1</span> DSPC102016WB11000_ES… 2665111           BE_1_1.7         BE0101.csv          
@@ -227,7 +227,7 @@ the search.</p>
 #&gt; <span style='color: #949494;'>#   Titulo_de_la_serie &lt;chr&gt;, Fuente &lt;chr&gt;, Notas &lt;chr&gt;</span></div><div class='input'>
 <span class='co'># More complex - Single</span>
 <span class='fu'>bde_catalog_search</span><span class='op'>(</span><span class='st'>"Francia(.*)PIB"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 5 x 17</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 5 × 17</span>
 #&gt;   Nombre_de_la_serie  Numero_secuencial Alias_de_la_ser… Nombre_del_archivo_con…
 #&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                  
 #&gt; <span style='color: #BCBCBC;'>1</span> DTNSEC2010_S0000P_… 2563958           BE_1_6.8         BE0106.csv             
@@ -243,7 +243,7 @@ the search.</p>
 #&gt; <span style='color: #949494;'>#   Titulo_de_la_serie &lt;chr&gt;, Fuente &lt;chr&gt;, Notas &lt;chr&gt;</span></div><div class='input'>
 <span class='co'># Even more complex - Double</span>
 <span class='fu'>bde_catalog_search</span><span class='op'>(</span><span class='st'>"Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 15 x 17</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 15 × 17</span>
 #&gt;    Nombre_de_la_serie  Numero_secuencial Alias_de_la_ser… Nombre_del_archivo_co…
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                 
 #&gt; <span style='color: #BCBCBC;'> 1</span> DTNSEC2010_S0000P_… 2563953           BE_1_6.3         BE0106.csv            
@@ -272,7 +272,7 @@ the search.</p>
 <span class='co'># Note that this series (sequential code) appears on several tables</span>
 
 <span class='fu'>bde_catalog_search</span><span class='op'>(</span><span class='st'>"^3779313$"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 x 17</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 17</span>
 #&gt;   Nombre_de_la_serie   Numero_secuenci… Alias_de_la_ser… Nombre_del_archivo_con…
 #&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                  
 #&gt; <span style='color: #BCBCBC;'>1</span> DSPC102016VB1QB00_S… 3779313          BE_2_1.19        BE0201.csv             
