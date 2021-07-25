@@ -32,21 +32,22 @@ br <- seq(nd, Sys.Date(), "6 months")
 
 ## GDP of Spain
 
-### Overall (quarterly values)
+### Aggregated (last  4 quarters)
 
 ```{r echo=FALSE}
-dataset <- bde_ind_gdp_quarterly(series_label = "data") %>%
-  filter(Date >= nd)
+dataset <- bde_ind_gdp_quarterly(series_label = "data")
+
+dataset$LastY <- dataset$data + lag(dataset$data, 1) + lag(dataset$data, 2) + lag(dataset$data, 3)
+
+dataset <- dataset %>%
+  filter(Date >= nd) %>%
+  mutate(data = LastY) %>%
+  select(-LastY)
 
 l <- dataset[nrow(dataset), ]
 
 ggplot(dataset, aes(x = Date, y = data)) +
-  geom_line(color = col) +
-  geom_text(
-    data = l,
-    size = 3,
-    aes(label = paste(x = prettyNum(data, big.mark = " "), "\n", format(Date, "%b-%Y")))
-  ) +
+  geom_bar(fill = col, stat = "identity") +
   scale_y_continuous(labels = scales::label_number()) +
   labs(
     title = "GDP of Spain",
