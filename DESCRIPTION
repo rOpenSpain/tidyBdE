@@ -25,7 +25,6 @@ Depends:
 Imports: 
     dplyr (>= 0.7.0),
     ggplot2 (>= 3.3.0),
-    lifecycle (>= 1.0.0),
     readr (>= 1.0.0),
     scales (>= 1.1.0),
     tibble (>= 3.0.0),
