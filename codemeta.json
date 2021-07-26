@@ -213,7 +213,12 @@
     "macroeconomics",
     "r",
     "rstats",
-    "bde"
+    "bde",
+    "cran",
+    "series-data",
+    "spain",
+    "ropenspain",
+    "ggplot2"
   ],
   "citation": [
     {

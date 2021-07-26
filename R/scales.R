@@ -11,6 +11,8 @@
 #'
 #' @export
 #'
+#' @return A `ggplot2` color scale.
+#'
 #' @rdname scales_bde
 #'
 #' @name scales_bde
