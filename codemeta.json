@@ -147,19 +147,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "lifecycle",
-      "name": "lifecycle",
-      "version": ">= 1.0.0",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=lifecycle"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
       "version": ">= 1.0.0",
@@ -205,8 +192,8 @@
   ],
   "releaseNotes": "https://github.com/rOpenSpain/tidyBdE/blob/master/NEWS.md",
   "readme": "https://github.com/rOpenSpain/tidyBdE/blob/main/README.md",
-  "fileSize": "0KB",
-  "contIntegration": "https://codecov.io/gh/ropenspain/tidyBdE",
+  "fileSize": "569.737KB",
+  "contIntegration": ["https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml", "https://codecov.io/gh/ropenspain/tidyBdE"],
   "keywords": [
     "r-package",
     "api",
