@@ -192,7 +192,7 @@
   ],
   "releaseNotes": "https://github.com/rOpenSpain/tidyBdE/blob/master/NEWS.md",
   "readme": "https://github.com/rOpenSpain/tidyBdE/blob/main/README.md",
-  "fileSize": "565.992KB",
+  "fileSize": "569.749KB",
   "contIntegration": ["https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml", "https://codecov.io/gh/ropenspain/tidyBdE"],
   "keywords": [
     "r-package",

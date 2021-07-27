@@ -19,3 +19,4 @@
 ^tidyBdE.*\.tgz$
 ^vignettes/tidyBdE\.Rmd\.orig$
 ^vignettes/articles$
+^_pkgdown\.yaml$
