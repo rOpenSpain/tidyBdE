@@ -42,13 +42,13 @@ tries to guess the format of every time-series (dates, characters and numbers).
 
 Install **tidyBdE** from [**CRAN**](https://CRAN.R-project.org/package=tidyBdE):
 
-``` r
+```{r, eval = FALSE}
 install.packages("tidyBdE")
 ```
 
 You can install the developing version of **tidyBdE** with:
 
-``` r
+```{r, eval = FALSE}
 library(remotes)
 
 install_github("ropenspain/tidyBdE")
@@ -57,16 +57,16 @@ install_github("ropenspain/tidyBdE")
 Alternatively, you can install the developing version of `tidyBdE` using the
 [r-universe](https://ropenspain.r-universe.dev/ui#builds):
 
-```r
+```{r, eval = FALSE}
 
 # Enable this universe
 options(repos = c(
-    ropenspain = 'https://ropenspain.r-universe.dev',
-    CRAN = 'https://cloud.r-project.org'))
+  ropenspain = "https://ropenspain.r-universe.dev",
+  CRAN = "https://cloud.r-project.org"
+))
 
 # Install tidyBdE
-install.packages('tidyBdE')
-
+install.packages("tidyBdE")
 ```
 
 ## Examples
@@ -259,7 +259,7 @@ When this option is set, **tidyBdE** would look for the cached file on the
 It is possible to update the data (i.e. after every monthly or quarterly data
 release) with the following commands:
 
-``` r
+```{r, eval = FALSE}
 bde_catalog_update()
 
 # On most of the functions using the option update_cache = TRUE
