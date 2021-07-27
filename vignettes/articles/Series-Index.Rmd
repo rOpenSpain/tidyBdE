@@ -50,8 +50,6 @@ reactable(series_clean,
   defaultPageSize = 5,
   compact = TRUE
 )
-
-
 ```
 
 <h2 id="example">Example</h2>
@@ -68,6 +66,4 @@ series_example <- bde_series_load(2357793, "Unemployment Rate")
 
 # Visualize
 series_example
-
-
 ```
