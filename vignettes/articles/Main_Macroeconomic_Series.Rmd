@@ -47,7 +47,8 @@ dataset <- dataset %>%
 l <- dataset[nrow(dataset), ]
 
 ggplot(dataset, aes(x = Date, y = data)) +
-  geom_line(color = col) +
+  geom_bar(fill = col, stat = "identity") + 
+  coord_cartesian(ylim = c(800, 1400)*1000) +
   scale_y_continuous(labels = scales::label_number()) +
   labs(
     title = "GDP of Spain",
