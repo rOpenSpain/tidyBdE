@@ -47,7 +47,7 @@ dataset <- dataset %>%
 l <- dataset[nrow(dataset), ]
 
 ggplot(dataset, aes(x = Date, y = data)) +
-  geom_bar(fill = col, stat = "identity") +
+  geom_line(color = col) +
   scale_y_continuous(labels = scales::label_number()) +
   labs(
     title = "GDP of Spain",
