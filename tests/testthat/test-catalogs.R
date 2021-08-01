@@ -1,5 +1,10 @@
 test_that("Catalogs", {
 
+skip_if_not(
+    tidyBdE:::bde_check_access(),
+    "Skipping... BdE not reachable."
+  )
+
   # Test load catalogs----
   expect_error(bde_catalog_load("aa"))
   expect_error(bde_catalog_search("xxxxxxx", catalog = "IE"))

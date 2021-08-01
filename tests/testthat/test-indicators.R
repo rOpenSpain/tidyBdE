@@ -1,5 +1,10 @@
 test_that("Indicators", {
 
+skip_if_not(
+    tidyBdE:::bde_check_access(),
+    "Skipping... BdE not reachable."
+  )
+
   # Test indicators----
   expect_silent(bde_ind_gdp_var())
   expect_silent(bde_ind_unemployment_rate())
