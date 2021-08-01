@@ -276,7 +276,6 @@ bde_check_access <- function() {
 #' @examples
 #'
 #' bde_hlp_return_null()
-#'
 #' @noRd
 bde_hlp_return_null <- function() {
   # nocov start

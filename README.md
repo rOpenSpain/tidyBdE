@@ -75,10 +75,10 @@ library(tidyBdE)
 XR_GBP <- bde_catalog_search("GBP", catalog = "TC")
 
 XR_GBP[c(2, 5)]
-#> # A tibble: 1 x 2
+#> # A tibble: 1 × 2
 #>   Numero_secuencial Descripcion_de_la_serie                                     
 #>               <dbl> <chr>                                                       
-#> 1            573214 Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos ~
+#> 1            573214 Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos …
 ```
 
 **Note that BdE files are only provided in Spanish, for the time
@@ -301,7 +301,7 @@ citation("tidyBdE")
 #> To cite tidyBdE in publications use:
 #> 
 #>   Herrero, D. H. (2021). tidyBdE: Download Data from Bank of Spain. R
-#>   package version 0.1.2.9010. https://doi.org/10.5281/zenodo.4673496.
+#>   package version 0.1.2.9011. https://doi.org/10.5281/zenodo.4673496.
 #>   Package url: https://CRAN.R-project.org/package=tidyBdE
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -310,7 +310,7 @@ citation("tidyBdE")
 #>     title = {tidyBdE: Download Data from Bank of Spain},
 #>     author = {D. H. Herrero},
 #>     year = {2021},
-#>     note = {R package version 0.1.2.9010},
+#>     note = {R package version 0.1.2.9011},
 #>     doi = {10.5281/zenodo.4673496},
 #>     url = {https://CRAN.R-project.org/package=tidyBdE},
 #>   }

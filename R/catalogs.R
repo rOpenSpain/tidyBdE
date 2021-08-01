@@ -73,12 +73,12 @@ bde_catalog_load <-
       is.logical(parse_dates),
       is.logical(update_cache)
     )
-    
-    
+
+
     # nocov start
-    if(!bde_check_access()){
-    tbl <- bde_hlp_return_null()
-    return(tbl)
+    if (!bde_check_access()) {
+      tbl <- bde_hlp_return_null()
+      return(tbl)
     }
     # nocov end
 
@@ -254,9 +254,9 @@ bde_catalog_update <-
     )
 
     # nocov start
-    if(!bde_check_access()){
-    tbl <- bde_hlp_return_null()
-    return(tbl)
+    if (!bde_check_access()) {
+      tbl <- bde_hlp_return_null()
+      return(tbl)
     }
     # nocov end
 
@@ -356,13 +356,13 @@ bde_catalog_search <- function(pattern, ...) {
   if (missing(pattern) || is.null(pattern) || is.na(pattern)) {
     stop("`pattern` should be a character.")
   }
-  
-      # nocov start
-    if(!bde_check_access()){
+
+  # nocov start
+  if (!bde_check_access()) {
     tbl <- bde_hlp_return_null()
     return(tbl)
-    }
-    # nocov end
+  }
+  # nocov end
 
   # Extract info
   catalog_search <- bde_catalog_load(...)
