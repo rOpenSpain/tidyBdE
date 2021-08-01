@@ -1,6 +1,5 @@
 test_that("Indicators", {
-
-skip_if_not(
+  skip_if_not(
     tidyBdE:::bde_check_access(),
     "Skipping...  BdE not reachable."
   )
