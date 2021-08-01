@@ -279,7 +279,7 @@ bde_check_access <- function() {
 #' @noRd
 bde_hlp_return_null <- function() {
   # nocov start
-  message("Returning an empty tibble")
+  message("Offline. Returning an empty tibble")
   tbl <- tibble::tibble(x = NULL)
   return(tbl)
   # nocov end
