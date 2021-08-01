@@ -271,10 +271,14 @@ bde_check_access <- function() {
 
 
 #' Return empty tibble
+#' @return a tibble.
 #'
-#' @param x ignored
+#' @examples
+#'
+#' bde_hlp_return_null()
+#'
 #' @noRd
-bde_hlp_return_null <- function(x=NULL) {
+bde_hlp_return_null <- function() {
   # nocov start
   message("Returning an empty tibble")
   tbl <- tibble::tibble(x = NULL)

@@ -91,6 +91,13 @@ bde_series_load <- function(series_code,
   if (length(series_code) != length(series_label)) {
     stop("`series_label` and `series_code` should have the same length")
   }
+  
+      # nocov start
+    if(!bde_check_access()){
+    tbl <- bde_hlp_return_null()
+    return(tbl)
+    }
+    # nocov end
 
   # Lookup on catalogs
   all_catalogs <- bde_catalog_load(
@@ -227,7 +234,14 @@ bde_series_full_load <-
 
     pp <- substr(series_csv, 1, 2)
 
-
+    # nocov start
+    if(!bde_check_access()){
+    tbl <- bde_hlp_return_null()
+    return(tbl)
+    }
+    # nocov end
+    
+    
     # Get cache dir
     cache_dir <-
       bde_hlp_cachedir(
