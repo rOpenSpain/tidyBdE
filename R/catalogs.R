@@ -73,6 +73,14 @@ bde_catalog_load <-
       is.logical(parse_dates),
       is.logical(update_cache)
     )
+    
+    
+    # nocov start
+    if(!bde_check_access()){
+    tbl <- bde_hlp_return_null()
+    return(tbl)
+    }
+    # nocov end
 
     # Get cache dir
     cache_dir <-
@@ -245,9 +253,18 @@ bde_catalog_update <-
       is.logical(verbose)
     )
 
+    # nocov start
+    if(!bde_check_access()){
+    tbl <- bde_hlp_return_null()
+    return(tbl)
+    }
+    # nocov end
+
+
     # Get cache dir
     cache_dir <-
       bde_hlp_cachedir(cache_dir = cache_dir, verbose = verbose)
+
 
 
     # Loop and download
@@ -339,6 +356,13 @@ bde_catalog_search <- function(pattern, ...) {
   if (missing(pattern) || is.null(pattern) || is.na(pattern)) {
     stop("`pattern` should be a character.")
   }
+  
+      # nocov start
+    if(!bde_check_access()){
+    tbl <- bde_hlp_return_null()
+    return(tbl)
+    }
+    # nocov end
 
   # Extract info
   catalog_search <- bde_catalog_load(...)
