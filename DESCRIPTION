@@ -1,6 +1,6 @@
 Package: tidyBdE
 Title: Download Data from Bank of Spain
-Version: 0.1.2.9000
+Version: 0.1.2.9010
 Authors@R: 
     c(person(given = "Diego",
              family = "H. Herrero",
