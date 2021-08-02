@@ -47,7 +47,6 @@ Alternatively, you can install the developing version of `tidyBdE` using
 the [r-universe](https://ropenspain.r-universe.dev/ui#builds):
 
 ``` r
-
 # Enable this universe
 options(repos = c(
   ropenspain = "https://ropenspain.r-universe.dev",
@@ -68,17 +67,16 @@ The basic entry point for searching time-series are the catalogs
 (*indexes*) of information. You can search any series by name:
 
 ``` r
-
 library(tidyBdE)
 
 # Search GBP on "TC" (exchange rate) catalog
 XR_GBP <- bde_catalog_search("GBP", catalog = "TC")
 
 XR_GBP[c(2, 5)]
-#> # A tibble: 1 × 2
+#> # A tibble: 1 x 2
 #>   Numero_secuencial Descripcion_de_la_serie                                     
 #>               <dbl> <chr>                                                       
-#> 1            573214 Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos …
+#> 1            573214 Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos ~
 ```
 
 **Note that BdE files are only provided in Spanish, for the time
@@ -90,7 +88,6 @@ exchange rate using the sequential number reference
 (`Numero_Secuencial`) as:
 
 ``` r
-
 # Load tidyverse for better handling
 library(tidyverse)
 
@@ -103,7 +100,6 @@ The package also provides a custom `ggplot2` theme based on the
 publications of BdE:
 
 ``` r
-
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_vivid_pal()(1)) +
   geom_smooth(method = "gam", colour = bde_vivid_pal()(2)[2]) +
@@ -133,7 +129,6 @@ of the most relevant macroeconomic series, so there is no need to look
 for them in advance:
 
 ``` r
-
 gdp <- bde_ind_gdp_var("values")
 gdp$label <- "GDP YoY"
 
@@ -161,7 +156,6 @@ Two custom palettes, based on the used by BdE on some publications are
 available.
 
 ``` r
-
 opar <- par(no.readonly = TRUE)
 
 par(mfrow = c(1, 2))
@@ -174,13 +168,12 @@ title("bde_vivid_pal()")
 <img src="man/figures/README-palettes-1.png" width="100%" />
 
 ``` r
-
 par(opar)
 ```
 
 Those palettes can be applied to a `ggplot2` using some custom utils
-included on the package (see `help("scale_color_bde_d", package =
-"tidyBdE")`).
+included on the package (see
+`help("scale_color_bde_d", package = "tidyBdE")`).
 
 ``` r
 # Load GDP Series
@@ -279,12 +272,12 @@ bde_series_load("SOME ID", update_cache = TRUE)
 
 Other useful packages that provides access to Spanish open data:
 
-  - [**MicroDatosEs**](https://github.com/rOpenSpain/MicroDatosEs): A
+-   [**MicroDatosEs**](https://github.com/rOpenSpain/MicroDatosEs): A
     package that process microdata provided by Spanish statistical
     agencies (mostly, INE).
-  - [**CatastRo**](https://github.com/rOpenSpain/CatastRo): A package
+-   [**CatastRo**](https://github.com/rOpenSpain/CatastRo): A package
     that queries Sede electrónica del Catastro API.
-  - [**mapSpain**](https://ropenspain.github.io/mapSpain/): For
+-   [**mapSpain**](https://ropenspain.github.io/mapSpain/): For
     downloading geospatial information from Instituto Geográfico
     Nacional (IGN) and creating maps of Spain.
 

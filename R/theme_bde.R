@@ -18,24 +18,27 @@
 #'
 #' series_TC <- bde_series_full_load("TC_1_1.csv")
 #'
-#' series_TC <- series_TC[c(1, 2)]
+#' # If download was OK then plot
+#' if (nrow(series_TC) > 0) {
+#'   series_TC <- series_TC[c(1, 2)]
 #'
-#' series_TC_pivot <- series_TC %>%
-#'   filter(
-#'     Date >= "2020-01-01" & Date <= "2020-12-31",
-#'     !is.na(series_TC[[2]])
-#'   )
+#'   series_TC_pivot <- series_TC %>%
+#'     filter(
+#'       Date >= "2020-01-01" & Date <= "2020-12-31",
+#'       !is.na(series_TC[[2]])
+#'     )
 #'
-#' names(series_TC_pivot) <- c("x", "y")
+#'   names(series_TC_pivot) <- c("x", "y")
 #'
-#' ggplot(series_TC_pivot, aes(x = x, y = y)) +
-#'   geom_line(size = 0.8, color = bde_vivid_pal()(1)) +
-#'   labs(
-#'     title = "Title",
-#'     subtitle = "Some metric",
-#'     caption = "Bank of Spain"
-#'   ) +
-#'   theme_bde()
+#'   ggplot(series_TC_pivot, aes(x = x, y = y)) +
+#'     geom_line(size = 0.8, color = bde_vivid_pal()(1)) +
+#'     labs(
+#'       title = "Title",
+#'       subtitle = "Some metric",
+#'       caption = "Bank of Spain"
+#'     ) +
+#'     theme_bde()
+#' }
 #' }
 #'
 theme_bde <- function(...) {
