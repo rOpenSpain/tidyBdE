@@ -48,7 +48,8 @@ reactable(series_clean,
   striped = TRUE,
   paginationType = "jump",
   defaultPageSize = 5,
-  compact = TRUE
+  compact = TRUE,
+  elementId = "bde-series"
 )
 ```
 
