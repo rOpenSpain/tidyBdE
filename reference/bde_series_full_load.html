@@ -60,8 +60,8 @@
 
 The series name is a positional code showing the location of the table. For
 example, table be_6_1 represents the Table 1, Chapter 6 of the
-Statistical Bulletin. Although it is a unique value, it is subject to
-change (i.e. a new table is inserted before).
+Statistical Bulletin (&quot;BE&quot;). Although it is a unique value, it is subject
+to change (i.e. a new table is inserted before).
 For that reason, the function bde_series_load() is more suitable for
 extracting specific time-series.
 " />
@@ -104,7 +104,7 @@ extracting specific time-series.
       <i class="fa fa-align-justify"></i>
       </button>
       <span class="navbar-brand" id="ROS-navbar-brand">
-      <a class="navbar-link ROS-black" href="../index.html"><img src="../logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo">tidyBdE</a> <span class="version label label-default hidden-xs" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2.9011</span>
+      <a class="navbar-link ROS-black" href="../index.html"><img src="../logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo">tidyBdE</a> <span class="version label label-default hidden-xs" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -170,8 +170,8 @@ extracting specific time-series.
 
 <p>The series name is a positional code showing the location of the table. For
 example, table <strong>be_6_1</strong> represents the Table 1, Chapter 6 of the
-Statistical Bulletin. Although it is a unique value, it is subject to
-change (i.e. a new table is inserted before).</p>
+Statistical Bulletin ("BE"). Although it is a unique value, it is subject
+to change (i.e. a new table is inserted before).</p>
 <p>For that reason, the function <code><a href='bde_series_load.html'>bde_series_load()</a></code> is more suitable for
 extracting specific time-series.</p>
 
@@ -198,13 +198,13 @@ catalog. See <code><a href='bde_catalog_load.html'>bde_catalog_load()</a></code>
     </tr>
     <tr>
       <th>parse_dates</th>
-      <td><p>Logical. If TRUE the dates would be parsed using
+      <td><p>Logical. If <code>TRUE</code> the dates would be parsed using
 <code><a href='bde_parse_dates.html'>bde_parse_dates()</a></code>.</p></td>
     </tr>
     <tr>
       <th>parse_numeric</th>
-      <td><p>Logical. If TRUE the columns would be parsed to double
-(numeric) values. See Note.</p></td>
+      <td><p>Logical. If <code>TRUE</code> the columns would be parsed to
+double (numeric) values. See Note.</p></td>
     </tr>
     <tr>
       <th>cache_dir</th>
@@ -213,7 +213,7 @@ via options with <code><a href='https://rdrr.io/r/base/options.html'>options(bde
     </tr>
     <tr>
       <th>update_cache</th>
-      <td><p>Logical. If TRUE the requested file would be updated on
+      <td><p>Logical. If <code>TRUE</code> the requested file would be updated on
 the <code>cache_dir</code>.</p></td>
     </tr>
     <tr>
@@ -222,7 +222,7 @@ the <code>cache_dir</code>.</p></td>
     </tr>
     <tr>
       <th>extract_metadata</th>
-      <td><p>Logical TRUE/FALSE. On TRUE the output is the
+      <td><p>Logical <code>TRUE/FALSE</code>. On <code>TRUE</code> the output is the
 metadata of the requested series.</p></td>
     </tr>
     </table>
