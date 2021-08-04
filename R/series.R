@@ -1,10 +1,11 @@
 #' Load a single BdE time-series.
 #'
+#' Load a single time-series provided by BdE.
+#'
 #' @export
 #'
 #' @concept series
 #'
-#' @description Load a single time-series provided by BdE.
 #'
 #' @encoding UTF-8
 #'
@@ -166,9 +167,6 @@ bde_series_load <- function(series_code,
 #'
 #' @export
 #'
-#' @concept series
-#'
-#' @seealso [bde_series_load()]
 #'
 #' @description
 #' Load a full time-series file provided by BdE.
@@ -177,11 +175,15 @@ bde_series_load <- function(series_code,
 #'
 #' The series name is a positional code showing the location of the table. For
 #' example, table **be_6_1** represents the Table 1, Chapter 6 of the
-#' Statistical Bulletin. Although it is a unique value, it is subject to
-#' change (i.e. a new table is inserted before).
+#' Statistical Bulletin ("BE"). Although it is a unique value, it is subject
+#' to change (i.e. a new table is inserted before).
 #'
 #' For that reason, the function [bde_series_load()] is more suitable for
 #' extracting specific time-series.
+#'
+#' @concept series
+#'
+#' @seealso [bde_series_load()]
 #'
 #' @encoding UTF-8
 #'
@@ -191,10 +193,10 @@ bde_series_load <- function(series_code,
 #'
 #' @inheritParams bde_catalog_load
 #'
-#' @param parse_numeric Logical. If TRUE the columns would be parsed to double
-#'   (numeric) values. See Note.
+#' @param parse_numeric Logical. If `TRUE` the columns would be parsed to
+#'   double (numeric) values. See Note.
 #'
-#' @param extract_metadata Logical TRUE/FALSE. On TRUE the output is the
+#' @param extract_metadata Logical `TRUE/FALSE`. On `TRUE` the output is the
 #'   metadata of the requested series.
 #'
 #' @return A tibble with a field "Date" and the alias of the fields series as

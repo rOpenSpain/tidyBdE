@@ -5,7 +5,8 @@
 #' Scales to be used with the `ggplot2` package. Discrete palettes are named
 #' as `scale_*_bde_d` while continuous palettes are named `scale_*_bde_c`.
 #'
-#' @seealso [bde_vivid_pal()]
+#' @seealso [bde_vivid_pal()], [ggplot2::discrete_scale()],
+#'   [ggplot2::continuous_scale()]
 #'
 #' @concept bde_plot
 #'
@@ -21,7 +22,7 @@
 #'   "bde_rose_pal". See [bde_vivid_pal()] for details.
 #'
 #' @param ... Further arguments of [ggplot2::discrete_scale()] or
-#'   [ggplot2::continuous_scale()]
+#'   [ggplot2::continuous_scale()].
 #'
 scale_color_bde_d <- function(palette = "bde_vivid_pal",
                               ...) { # nocov start

@@ -25,21 +25,21 @@ series. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 custom label for the series extracted. It should have the same length than
 \code{series_code}.}
 
-\item{parse_dates}{Logical. If TRUE the dates would be parsed using
+\item{parse_dates}{Logical. If \code{TRUE} the dates would be parsed using
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
 
-\item{parse_numeric}{Logical. If TRUE the columns would be parsed to double
-(numeric) values. See Note.}
+\item{parse_numeric}{Logical. If \code{TRUE} the columns would be parsed to
+double (numeric) values. See Note.}
 
 \item{cache_dir}{A path to a cache directory. The directory can also be set
 via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 
-\item{update_cache}{Logical. If TRUE the requested file would be updated on
+\item{update_cache}{Logical. If \code{TRUE} the requested file would be updated on
 the \code{cache_dir}.}
 
 \item{verbose}{Logical, display information useful for debugging.}
 
-\item{extract_metadata}{Logical TRUE/FALSE. On TRUE the output is the
+\item{extract_metadata}{Logical \code{TRUE/FALSE}. On \code{TRUE} the output is the
 metadata of the requested series.}
 }
 \value{
@@ -47,8 +47,6 @@ A tibble with a field "Date" and the \code{series_code} of the series as
 described on the catalogs. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
 }
 \description{
-Load a single time-series provided by BdE.
-
 The series alias is a positional code showing the location (column and/or
 row) of the series in the table. However, although it is unique, it is not
 a good candidate to be used as the series ID, as it is subject to change.
@@ -61,6 +59,9 @@ will remain unchanged throughout the series' lifetime.
 Note that a single series could be used on different tables, so it can have
 several aliases. If you need to search by alias it is recommended to use
 \code{\link[=bde_series_full_load]{bde_series_full_load()}}.
+}
+\details{
+Load a single time-series provided by BdE.
 }
 \note{
 This function tries to coerce the columns to numbers. For some series a

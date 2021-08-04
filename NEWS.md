@@ -1,9 +1,10 @@
-# tidyBdE (development version)
+# tidyBdE 0.2.0
 -   Add series index article.
 -   Add new series: `bde_ind_gdp_quarterly()`, `bde_ind_population()`.
 -   Improve package coverage and docs.
 -   Move tests to `testthat`.
-
+-   The following scales have been removed: `bde_scale_colour_vivid()`, `bde_scale_color_vivid()`, `bde_scale_fill_vivid()`, `bde_scale_colour_rose()`, `bde_scale_color_rose()` `bde_scale_fill_rose()`. Use `scale_color_bde_c()` 
+instead.
 
 # tidyBdE 0.1.2
 

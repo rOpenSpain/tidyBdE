@@ -22,8 +22,8 @@
 #'
 #' @details
 #' This functions are convenient wrappers of [bde_series_load()] referencing
-#' specific series. Use `verbose = TRUE/extract_metadata = TRUE` to see the
-#' specification and the source.
+#' specific series. Use `verbose = TRUE, extract_metadata = TRUE` options
+#' to see the specification and the source.
 #'
 #' @examples
 #' \donttest{

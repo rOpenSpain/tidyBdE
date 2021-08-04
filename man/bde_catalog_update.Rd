@@ -20,7 +20,7 @@ via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 \item{verbose}{Logical, display information useful for debugging.}
 }
 \value{
-Silent. Downloads the catalog file(s) to the local machine.
+None Downloads the catalog file(s) to the local machine.
 }
 \description{
 Update the time-series catalogs provided by BdE.

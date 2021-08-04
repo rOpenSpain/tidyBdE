@@ -20,13 +20,13 @@ bde_catalog_load(
 \item{catalog}{A single value indicating the catalogs to be updated
 or "ALL" as a shorthand. See Details}
 
-\item{parse_dates}{Logical. If TRUE the dates would be parsed using
+\item{parse_dates}{Logical. If \code{TRUE} the dates would be parsed using
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
 
 \item{cache_dir}{A path to a cache directory. The directory can also be set
 via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 
-\item{update_cache}{Logical. If TRUE the requested file would be updated on
+\item{update_cache}{Logical. If \code{TRUE} the requested file would be updated on
 the \code{cache_dir}.}
 
 \item{verbose}{Logical, display information useful for debugging.}

@@ -1,12 +1,11 @@
 #' Load BdE catalogs
 #'
+#' Load the time-series catalogs provided by BdE.
 #' @export
 #'
 #' @concept catalog
 #'
 #' @encoding UTF-8
-#'
-#' @description Load the time-series catalogs provided by BdE.
 #'
 #' @return A tibble
 #'
@@ -17,10 +16,10 @@
 #' @param catalog A single value indicating the catalogs to be updated
 #'   or "ALL" as a shorthand. See Details
 #'
-#' @param parse_dates Logical. If TRUE the dates would be parsed using
+#' @param parse_dates Logical. If `TRUE` the dates would be parsed using
 #'  [bde_parse_dates()].
 #'
-#' @param update_cache Logical. If TRUE the requested file would be updated on
+#' @param update_cache Logical. If `TRUE` the requested file would be updated on
 #'  the `cache_dir`.
 #'
 #' @inheritParams bde_catalog_update
@@ -194,15 +193,15 @@ bde_catalog_load <-
 
 #' Update BdE catalogs
 #'
+#' Update the time-series catalogs provided by BdE.
+#'
 #' @export
 #'
 #' @concept catalog
 #'
 #' @encoding UTF-8
 #'
-#' @description Update the time-series catalogs provided by BdE.
-#'
-#' @return Silent. Downloads the catalog file(s) to the local machine.
+#' @return None Downloads the catalog file(s) to the local machine.
 #'
 #' @source [Time-series bulk data download](https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html)
 #'
@@ -307,12 +306,11 @@ bde_catalog_update <-
 
 #' Search BdE catalogs
 #'
+#' Search for keywords on the time-series catalogs.
+#'
 #' @export
 #'
 #' @concept catalog
-#'
-#' @description
-#' Search for keywords on the time-series catalogs.
 #'
 #' @return A tibble with the results of the query.
 #'
@@ -327,11 +325,11 @@ bde_catalog_update <-
 #' Spanish, for the time being. Therefore search terms should be provided
 #' in Spanish as well in order to get search results.
 #'
-#' This function uses [`grep()`][base::grep()] function for finding matches on
+#' This function uses [base::grep()] function for finding matches on
 #' the catalogs. You can pass [regular expressions][base::grep()] to broaden
 #' the search.
 #'
-#' @seealso [bde_catalog_load()], [`grep()`][base::grep()]
+#' @seealso [bde_catalog_load()], [base::grep()]
 #'
 #' @examples
 #' \donttest{

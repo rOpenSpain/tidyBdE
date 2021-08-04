@@ -20,21 +20,21 @@ bde_series_full_load(
 \verb{Nombre del archivo con los valores de la serie} of the corresponding
 catalog. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 
-\item{parse_dates}{Logical. If TRUE the dates would be parsed using
+\item{parse_dates}{Logical. If \code{TRUE} the dates would be parsed using
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
 
-\item{parse_numeric}{Logical. If TRUE the columns would be parsed to double
-(numeric) values. See Note.}
+\item{parse_numeric}{Logical. If \code{TRUE} the columns would be parsed to
+double (numeric) values. See Note.}
 
 \item{cache_dir}{A path to a cache directory. The directory can also be set
 via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 
-\item{update_cache}{Logical. If TRUE the requested file would be updated on
+\item{update_cache}{Logical. If \code{TRUE} the requested file would be updated on
 the \code{cache_dir}.}
 
 \item{verbose}{Logical, display information useful for debugging.}
 
-\item{extract_metadata}{Logical TRUE/FALSE. On TRUE the output is the
+\item{extract_metadata}{Logical \code{TRUE/FALSE}. On \code{TRUE} the output is the
 metadata of the requested series.}
 }
 \value{
@@ -47,8 +47,8 @@ Load a full time-series file provided by BdE.
 
 The series name is a positional code showing the location of the table. For
 example, table \strong{be_6_1} represents the Table 1, Chapter 6 of the
-Statistical Bulletin. Although it is a unique value, it is subject to
-change (i.e. a new table is inserted before).
+Statistical Bulletin ("BE"). Although it is a unique value, it is subject
+to change (i.e. a new table is inserted before).
 
 For that reason, the function \code{\link[=bde_series_load]{bde_series_load()}} is more suitable for
 extracting specific time-series.

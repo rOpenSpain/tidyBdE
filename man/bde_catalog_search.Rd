@@ -15,9 +15,9 @@ bde_catalog_search(pattern, ...)
   \describe{
     \item{\code{catalog}}{A single value indicating the catalogs to be updated
 or "ALL" as a shorthand. See Details}
-    \item{\code{parse_dates}}{Logical. If TRUE the dates would be parsed using
+    \item{\code{parse_dates}}{Logical. If \code{TRUE} the dates would be parsed using
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
-    \item{\code{update_cache}}{Logical. If TRUE the requested file would be updated on
+    \item{\code{update_cache}}{Logical. If \code{TRUE} the requested file would be updated on
 the \code{cache_dir}.}
     \item{\code{cache_dir}}{A path to a cache directory. The directory can also be set
 via options with \code{options(bde_cache_dir = "path/to/dir")}.}
@@ -35,7 +35,7 @@ Search for keywords on the time-series catalogs.
 Spanish, for the time being. Therefore search terms should be provided
 in Spanish as well in order to get search results.
 
-This function uses \code{\link[base:grep]{grep()}} function for finding matches on
+This function uses \code{\link[base:grep]{base::grep()}} function for finding matches on
 the catalogs. You can pass \link[base:grep]{regular expressions} to broaden
 the search.
 }
@@ -60,6 +60,6 @@ bde_catalog_search("^3779313$")
 }
 }
 \seealso{
-\code{\link[=bde_catalog_load]{bde_catalog_load()}}, \code{\link[base:grep]{grep()}}
+\code{\link[=bde_catalog_load]{bde_catalog_load()}}, \code{\link[base:grep]{base::grep()}}
 }
 \concept{catalog}
