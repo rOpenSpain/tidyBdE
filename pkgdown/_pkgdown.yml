@@ -36,6 +36,7 @@ template:
     ganalytics: 'G-CW2RTVRRVF'
   opengraph:
     twitter:
+      site: '@rOpenSpain'
       creator: "@dhernangomez"
       card: summary_large_image
 
