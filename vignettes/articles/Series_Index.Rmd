@@ -1,5 +1,6 @@
 ---
 title: "Series Index"
+date: "`r Sys.Date()`"
 ---
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
@@ -20,6 +21,9 @@ Use the sequential number to load a single series (see [Example](#example)
 below):
 
 ```{r setup, echo=FALSE, warning = FALSE, message=FALSE}
+
+# Set locale in Spanish so accents and special characters shows up
+Sys.setlocale (category = "LC_ALL", locale = "Spanish")
 
 
 library(tidyBdE)
