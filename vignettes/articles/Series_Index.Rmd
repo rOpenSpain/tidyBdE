@@ -23,7 +23,7 @@ below):
 ```{r setup, echo=FALSE, warning = FALSE, message=FALSE}
 
 # Set locale in Spanish so accents and special characters shows up
-Sys.setlocale (category = "LC_ALL", locale = "Spanish")
+Sys.setlocale(category = "LC_ALL", locale = "Spanish")
 
 
 library(tidyBdE)
