@@ -124,7 +124,7 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   theme_bde()
 ```
 
-<img src="chart-1.png" title="plot of chunk chart" alt="plot of chunk chart" width="100%" height="60%" />
+<img src="chart-1.png" title="plot of chunk chart" alt="plot of chunk chart" width="100%" />
 
 The package provides also several "shortcut" functions for a selection of the
 most relevant macroeconomic series, so there is no need to look for them in
@@ -154,7 +154,7 @@ ggplot(plotseries, aes(x = Date, y = values)) +
   scale_color_bde_d() # Custom palette on the package
 ```
 
-<img src="macroseries-1.png" title="plot of chunk macroseries" alt="plot of chunk macroseries" width="100%" height="60%" />
+<img src="macroseries-1.png" title="plot of chunk macroseries" alt="plot of chunk macroseries" width="100%" />
 
 ### Custom palettes
 
@@ -229,7 +229,7 @@ ggplot(data = GDP_all, aes(
   )
 ```
 
-<img src="gdp-1.png" title="plot of chunk gdp" alt="plot of chunk gdp" width="100%" height="60%" />
+<img src="gdp-1.png" title="plot of chunk gdp" alt="plot of chunk gdp" width="100%" />
 
 ## A note on caching
 
