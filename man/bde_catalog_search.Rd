@@ -8,20 +8,22 @@
 bde_catalog_search(pattern, ...)
 }
 \arguments{
-\item{pattern}{regex pattern to search See Details and Examples.}
+\item{pattern}{\code{\link[base:grep]{regex}}  pattern to search See
+\strong{Details} and \strong{Examples}.}
 
 \item{...}{
   Arguments passed on to \code{\link[=bde_catalog_load]{bde_catalog_load}}
   \describe{
     \item{\code{catalog}}{A single value indicating the catalogs to be updated
-or "ALL" as a shorthand. See Details}
+or \code{"ALL"} as a shorthand. See \strong{Details}.}
     \item{\code{parse_dates}}{Logical. If \code{TRUE} the dates would be parsed using
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
     \item{\code{update_cache}}{Logical. If \code{TRUE} the requested file would be updated on
 the \code{cache_dir}.}
     \item{\code{cache_dir}}{A path to a cache directory. The directory can also be set
 via options with \code{options(bde_cache_dir = "path/to/dir")}.}
-    \item{\code{verbose}}{Logical, display information useful for debugging.}
+    \item{\code{verbose}}{Logical \code{TRUE} or \code{FALSE}, display information useful for
+debugging.}
   }}
 }
 \value{
@@ -35,8 +37,8 @@ Search for keywords on the time-series catalogs.
 Spanish, for the time being. Therefore search terms should be provided
 in Spanish as well in order to get search results.
 
-This function uses \code{\link[base:grep]{base::grep()}} function for finding matches on
-the catalogs. You can pass \link[base:grep]{regular expressions} to broaden
+This function uses \code{\link[base:regex]{base::regex()}} function for finding matches on
+the catalogs. You can pass \link[base:regex]{regular expressions} to broaden
 the search.
 }
 \examples{
@@ -60,6 +62,6 @@ bde_catalog_search("^3779313$")
 }
 }
 \seealso{
-\code{\link[=bde_catalog_load]{bde_catalog_load()}}, \code{\link[base:grep]{base::grep()}}
+\code{\link[=bde_catalog_load]{bde_catalog_load()}}, \code{\link[base:regex]{base::regex()}}
 }
 \concept{catalog}

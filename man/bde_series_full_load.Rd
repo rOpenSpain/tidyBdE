@@ -24,7 +24,7 @@ catalog. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
 
 \item{parse_numeric}{Logical. If \code{TRUE} the columns would be parsed to
-double (numeric) values. See Note.}
+double (numeric) values. See \strong{Note}.}
 
 \item{cache_dir}{A path to a cache directory. The directory can also be set
 via options with \code{options(bde_cache_dir = "path/to/dir")}.}
@@ -32,7 +32,8 @@ via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 \item{update_cache}{Logical. If \code{TRUE} the requested file would be updated on
 the \code{cache_dir}.}
 
-\item{verbose}{Logical, display information useful for debugging.}
+\item{verbose}{Logical \code{TRUE} or \code{FALSE}, display information useful for
+debugging.}
 
 \item{extract_metadata}{Logical \code{TRUE/FALSE}. On \code{TRUE} the output is the
 metadata of the requested series.}
@@ -43,6 +44,8 @@ described on the catalogs. See \code{\link[=bde_catalog_load]{bde_catalog_load()
 }
 \description{
 Load a full time-series file provided by BdE.
+}
+\details{
 \subsection{About BdE file naming}{
 
 The series name is a positional code showing the location of the table. For

@@ -35,6 +35,9 @@ template:
   params:
     ganalytics: 'G-CW2RTVRRVF'
   opengraph:
+    image:
+      src: https://ropenspain.github.io/tidyBdE/reference/figures/README-chart-1.png
+      alt: "tidyBdE R package"
     twitter:
       site: '@rOpenSpain'
       creator: "@dhernangomez"

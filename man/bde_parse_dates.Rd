@@ -17,8 +17,8 @@ Tries to parse strings representing dates using \code{\link[=as.Date]{as.Date()}
 }
 \note{
 This function is tailored for the date formatting used on this package, so
-it may fail if it is used for another datasets. See examples for checking
-which formats would be considered.
+it may fail if it is used for another datasets. See \strong{Examples} for
+checking which formats would be considered.
 }
 \examples{
 # Formats parsed

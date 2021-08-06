@@ -30,16 +30,18 @@ test_that("Indicators", {
 
 
   # Test load series ----
-  expect_error(bde_series_load("aa"))
+  expect_warning(expect_error(bde_series_load("aa")))
   expect_error(bde_series_load(12345678910))
   expect_error(bde_series_load(c(573234, 573214), series_label = c(1, NA)))
   expect_error(bde_series_load(c(573234, 573214), series_label = c("1", "1")))
-  expect_error(bde_series_load(c(573234, 573234), series_label = c("a", "b")))
+  expect_error(bde_series_load(573234, series_label = c("a", "b")))
 
 
   expect_silent(bde_series_load(c(573234, 573214), series_label = c("a", "b")))
 
   expect_silent(bde_series_load(573234, series_label = "a"))
+  expect_silent(bde_series_load("573234", series_label = "a"))
+  expect_warning(bde_series_load(c("573234", "a")))
   expect_silent(bde_series_load(573234, series_label = NULL))
   expect_silent(bde_series_load(573234, extract_metadata = TRUE))
   expect_message(bde_series_load(573234, verbose = TRUE))

@@ -6,11 +6,11 @@
 #'
 #' @export
 #'
-#' @return A [`ggplot2::theme()`].
+#' @return A [ggplot2::theme()].
 #'
 #' @param ... Ignored.
 #'
-#' @seealso [`ggplot2::theme()`]
+#' @seealso [ggplot2::theme()]
 #'
 #' @examples
 #' \donttest{

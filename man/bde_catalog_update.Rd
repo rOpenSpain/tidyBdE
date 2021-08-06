@@ -12,12 +12,13 @@ bde_catalog_update(catalog = "ALL", cache_dir = NULL, verbose = FALSE)
 }
 \arguments{
 \item{catalog}{A vector of characters indicating the catalogs to be updated
-or "ALL" as a shorthand. See Details}
+or \code{"ALL"} as a shorthand. See \strong{Details}.}
 
 \item{cache_dir}{A path to a cache directory. The directory can also be set
 via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 
-\item{verbose}{Logical, display information useful for debugging.}
+\item{verbose}{Logical \code{TRUE} or \code{FALSE}, display information useful for
+debugging.}
 }
 \value{
 None Downloads the catalog file(s) to the local machine.
@@ -38,7 +39,7 @@ Accepted values for \code{catalog} are:\tabular{llll}{
 }
 
 
-Use "ALL" as a shorthand for updating all the catalogs at a glance.
+Use \code{"ALL"} as a shorthand for updating all the catalogs at a glance.
 }
 \examples{
 \donttest{

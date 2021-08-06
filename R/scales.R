@@ -19,7 +19,7 @@
 #' @name scales_bde
 #'
 #' @param palette Name of the BdE palette to apply. One of "bde_vivid_pal",
-#'   "bde_rose_pal". See [bde_vivid_pal()] for details.
+#'   "bde_rose_pal". See [bde_pals()] for details.
 #'
 #' @param ... Further arguments of [ggplot2::discrete_scale()] or
 #'   [ggplot2::continuous_scale()].

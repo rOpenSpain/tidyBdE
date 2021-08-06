@@ -5,7 +5,6 @@
 #' @concept bde_plot
 #'
 #' @rdname bde_pals
-#' @name bde_pals
 #'
 #' @return A palette of colors.
 #'

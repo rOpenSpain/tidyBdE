@@ -32,6 +32,8 @@ Sys.setlocale(category = "LC_ALL", locale = "Spanish")
 Use the sequential number to load a single series (see [Example](#example) 
 below):
 
+## Series index
+
 ```{r reactable, echo=FALSE, warning = FALSE, message=FALSE}
 
 library(tidyBdE)
@@ -65,9 +67,11 @@ reactable(series_clean,
 )
 ```
 
-<h2 id="example">Example</h2>
 
-For searchin and extracting a specific serie, see the full workflow:
+
+## Example
+
+For searching and extracting a specific serie, see the full workflow:
 
 ```{r example}
 

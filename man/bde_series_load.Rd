@@ -17,9 +17,9 @@ bde_series_load(
 )
 }
 \arguments{
-\item{series_code}{a numeric value or vector with time-series code(s), as
-defined in the field \verb{Número secuencial} of the corresponding
-series. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
+\item{series_code}{a numeric (or coercible with \code{\link[base:double]{base::as.double()}} value
+or vector with time-series code(s), as defined in the field
+\verb{Número secuencial} of the corresponding series. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 
 \item{series_label}{Optional. Character vector or value. Allows to specify a
 custom label for the series extracted. It should have the same length than
@@ -29,7 +29,7 @@ custom label for the series extracted. It should have the same length than
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
 
 \item{parse_numeric}{Logical. If \code{TRUE} the columns would be parsed to
-double (numeric) values. See Note.}
+double (numeric) values. See \strong{Note}.}
 
 \item{cache_dir}{A path to a cache directory. The directory can also be set
 via options with \code{options(bde_cache_dir = "path/to/dir")}.}
@@ -37,7 +37,8 @@ via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 \item{update_cache}{Logical. If \code{TRUE} the requested file would be updated on
 the \code{cache_dir}.}
 
-\item{verbose}{Logical, display information useful for debugging.}
+\item{verbose}{Logical \code{TRUE} or \code{FALSE}, display information useful for
+debugging.}
 
 \item{extract_metadata}{Logical \code{TRUE/FALSE}. On \code{TRUE} the output is the
 metadata of the requested series.}

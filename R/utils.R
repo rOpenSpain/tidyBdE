@@ -1,10 +1,10 @@
 #' Parse dates
 #'
+#' Tries to parse strings representing dates using [as.Date()]
+#'
 #' @export
 #'
 #' @concept utils
-#'
-#' @description Tries to parse strings representing dates using [as.Date()]
 #'
 #' @return A class "Date" object.
 #'
@@ -14,8 +14,8 @@
 #'
 #' @note
 #' This function is tailored for the date formatting used on this package, so
-#' it may fail if it is used for another datasets. See examples for checking
-#' which formats would be considered.
+#' it may fail if it is used for another datasets. See **Examples** for
+#' checking which formats would be considered.
 #'
 #' @examples
 #' # Formats parsed
