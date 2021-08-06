@@ -14,13 +14,13 @@ start_time <- Sys.time()
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
+  tidy = "styler",
   warning = FALSE,
   message = FALSE,
-  fig.width = 6, 
+  dpi = 300,
+  dev = "ragg_png",
   fig.path = "./",
-  fig.height = 4,
-  out.width = "100%",
-  out.height = "60%"
+  out.width = "100%"
 )
 
 ```
@@ -39,14 +39,22 @@ institution itself or compiled for another sources, as
 The basic entry point for searching time-series are the catalogs (*indexes*) of
 information. You can search any series by name:
 
-```{r search}
+```{r search, message = FALSE}
 
 library(tidyBdE)
+
+# Load tidyverse for better handling
+library(tidyverse)
+
 
 # Search GBP on "TC" (exchange rate) catalog
 XR_GBP <- bde_catalog_search("GBP", catalog="TC")
 
-XR_GBP[c(2,5)]
+XR_GBP %>% 
+  select(Numero_secuencial, Descripcion_de_la_serie) %>%
+  # To table on document 
+  knitr::kable()
+  
 
 ```
 
@@ -57,12 +65,27 @@ provided in Spanish in order to get search results.
 After we have found our series, we can load the series for the GBP/EUR exchange
 rate using the sequential number reference (`Numero_Secuencial`) as:
 
-```{r find, message=FALSE}
+```{r find}
 
-# Load tidyverse for better handling
-library(tidyverse)
+seq_number <- XR_GBP %>%
+  # First record
+  slice(1) %>%
+  # Get id
+  select(Numero_secuencial) %>%
+  # Convert to num
+  as.double()
 
-time_series <- bde_series_load(573214, series_label = "EUR_GBP_XR") %>%
+
+seq_number
+
+# We can check the metadata of the series
+seq_number %>% 
+  bde_series_load(extract_metadata = TRUE) %>%
+ # To nice table for the vignette
+  knitr::kable()
+
+
+time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") %>%
   drop_na()
 
@@ -184,7 +207,7 @@ ggplot(data = GDP_all, aes(x = Date,
 You can use **tidyBdE** to create your own local repository at a given local
 directory passing the following option:
 
-``` r
+```{r, eval=FALSE}
 options(bde_cache_dir = "./path/to/location")
 ```
 
@@ -194,7 +217,7 @@ When this option is set, **tidyBdE** would look for the cached file on the
 It is possible to update the data (i.e. after every monthly or quarterly data
 release) with the following commands:
 
-``` r
+```{r, eval=FALSE}
 bde_catalog_update()
 
 # On most of the functions using the option update_cache = TRUE

@@ -6,6 +6,8 @@ date: "`r Sys.Date()`"
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
+  message = FALSE,
+  warning = FALSE,
   comment = "#>"
 )
 
@@ -17,14 +19,20 @@ if (isFALSE(requireNamespace("reactable", quietly = TRUE))) {
 The following table shows the series available on the catalog (Last update: 
 **`r format(Sys.Date(),"%d-%B-%Y")`**).
 
+```{r set_locale, warning=FALSE, comment=FALSE, include=FALSE}
+
+# Set locale in Spanish so accents and special characters shows up
+# This is useful with GHA if running on windows
+
+Sys.setlocale(category = "LC_ALL", locale = "Spanish")
+```
+
+
+
 Use the sequential number to load a single series (see [Example](#example) 
 below):
 
-```{r setup, echo=FALSE, warning = FALSE, message=FALSE}
-
-# Set locale in Spanish so accents and special characters shows up
-Sys.setlocale(category = "LC_ALL", locale = "Spanish")
-
+```{r reactable, echo=FALSE, warning = FALSE, message=FALSE}
 
 library(tidyBdE)
 library(tidyverse)
@@ -59,16 +67,44 @@ reactable(series_clean,
 
 <h2 id="example">Example</h2>
 
-For loading a single series (i.e. `2357793`) run the following code:
+For searchin and extracting a specific serie, see the full workflow:
 
 ```{r example}
 
 library(tidyBdE)
+library(tidyverse)
 
-# Unemployment_Rate
-series_example <- bde_series_load(2357793, "Unemployment Rate")
+# GDP France
+fr <- bde_catalog_search("Francia(.*)PIB")
 
+# Show table on vignette
+fr %>%
+  select(Numero_secuencial, Descripcion_de_la_serie) %>%
+  knitr::kable()
 
-# Visualize
-series_example
+# In this case we want to extract the first serie
+# See tidyverse style
+
+fr %>%
+  # Select id
+  select(Numero_secuencial) %>%
+  # of first obs
+  slice(1) %>%
+  # convert to number
+  as.double() %>%
+  # And load it
+  bde_series_load()
+
+# See the metadata
+fr %>%
+  # Select id
+  select(Numero_secuencial) %>%
+  # of first obs
+  slice(1) %>%
+  # convert to number
+  as.double() %>%
+  # And load the metadata
+  bde_series_load(extract_metadata = TRUE) %>%
+  # To table on the vignette
+  knitr::kable()
 ```

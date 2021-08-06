@@ -81,14 +81,21 @@ institution itself or compiled for another sources, as
 The basic entry point for searching time-series are the catalogs (*indexes*) of
 information. You can search any series by name:
 
-```{r search}
+```{r search, message=FALSE}
 
 library(tidyBdE)
+
+# Load tidyverse for better handling
+library(tidyverse)
+
 
 # Search GBP on "TC" (exchange rate) catalog
 XR_GBP <- bde_catalog_search("GBP", catalog = "TC")
 
-XR_GBP[c(2, 5)]
+XR_GBP %>%
+  select(Numero_secuencial, Descripcion_de_la_serie) %>%
+  # To table on document
+  knitr::kable()
 ```
 
 **Note that BdE files are only provided in Spanish, for the time being**, the
@@ -98,12 +105,21 @@ provided in Spanish in order to get search results.
 After we have found our series, we can load the series for the GBP/EUR exchange
 rate using the sequential number reference (`Numero_Secuencial`) as:
 
-```{r find, message=FALSE}
+```{r find}
 
-# Load tidyverse for better handling
-library(tidyverse)
 
-time_series <- bde_series_load(573214, series_label = "EUR_GBP_XR") %>%
+seq_number <- XR_GBP %>%
+  # First record
+  slice(1) %>%
+  # Get id
+  select(Numero_secuencial) %>%
+  # Convert to num
+  as.double()
+
+
+seq_number
+
+time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") %>%
   drop_na()
 ```
