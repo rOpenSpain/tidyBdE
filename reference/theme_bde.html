@@ -56,7 +56,8 @@
 
 <meta property="og:title" content="BdE ggplot2 theme — theme_bde" />
 <meta property="og:description" content="A custom ggplot2 theme based on the publications of BdE." />
-<meta property="og:image" content="https://ropenspain.github.io/tidyBdE/logo.png" />
+<meta property="og:image" content="https://ropenspain.github.io/tidyBdE/reference/figures/README-chart-1.png" />
+<meta property="og:image:alt" content="tidyBdE R package" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@dhernangomez" />
 <meta name="twitter:site" content="@rOpenSpain" />
@@ -98,7 +99,7 @@
       <i class="fa fa-align-justify"></i>
       </button>
       <span class="navbar-brand" id="ROS-navbar-brand">
-      <a class="navbar-link ROS-black" href="../index.html"><img src="../logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo">tidyBdE</a> <span class="version label label-default hidden-xs" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+      <a class="navbar-link ROS-black" href="../index.html"><img src="../logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo">tidyBdE</a> <span class="version label label-default hidden-xs" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
       </span>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -204,7 +205,7 @@
   <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>series_TC_pivot</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"x"</span>, <span class='st'>"y"</span><span class='op'>)</span>
 
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>series_TC_pivot</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span>, y <span class='op'>=</span> <span class='va'>y</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-    <span class='fu'>geom_line</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>0.8</span>, color <span class='op'>=</span> <span class='fu'><a href='bde_pals.html'>bde_vivid_pal</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+    <span class='fu'>geom_line</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>0.8</span>, color <span class='op'>=</span> <span class='fu'><a href='bde_vivid_pal.html'>bde_vivid_pal</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
     <span class='fu'>labs</span><span class='op'>(</span>
       title <span class='op'>=</span> <span class='st'>"Title"</span>,
       subtitle <span class='op'>=</span> <span class='st'>"Some metric"</span>,

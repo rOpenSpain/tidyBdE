@@ -56,7 +56,8 @@
 
 <meta property="og:title" content="Load BdE catalogs — bde_catalog_load" />
 <meta property="og:description" content="Load the time-series catalogs provided by BdE." />
-<meta property="og:image" content="https://ropenspain.github.io/tidyBdE/logo.png" />
+<meta property="og:image" content="https://ropenspain.github.io/tidyBdE/reference/figures/README-chart-1.png" />
+<meta property="og:image:alt" content="tidyBdE R package" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@dhernangomez" />
 <meta name="twitter:site" content="@rOpenSpain" />
@@ -98,7 +99,7 @@
       <i class="fa fa-align-justify"></i>
       </button>
       <span class="navbar-brand" id="ROS-navbar-brand">
-      <a class="navbar-link ROS-black" href="../index.html"><img src="../logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo">tidyBdE</a> <span class="version label label-default hidden-xs" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+      <a class="navbar-link ROS-black" href="../index.html"><img src="../logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo">tidyBdE</a> <span class="version label label-default hidden-xs" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
       </span>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -176,7 +177,7 @@
     <tr>
       <th>catalog</th>
       <td><p>A single value indicating the catalogs to be updated
-or "ALL" as a shorthand. See Details</p></td>
+or <code>"ALL"</code> as a shorthand. See <strong>Details</strong>.</p></td>
     </tr>
     <tr>
       <th>parse_dates</th>
@@ -195,7 +196,8 @@ the <code>cache_dir</code>.</p></td>
     </tr>
     <tr>
       <th>verbose</th>
-      <td><p>Logical, display information useful for debugging.</p></td>
+      <td><p>Logical <code>TRUE</code> or <code>FALSE</code>, display information useful for
+debugging.</p></td>
     </tr>
     </table>
 
@@ -220,7 +222,7 @@ the <code>cache_dir</code>.</p></td>
 
 
 
-<p>Use "ALL" as a shorthand for updating all the catalogs at a glance.</p>
+<p>Use <code>"ALL"</code> as a shorthand for updating all the catalogs at a glance.</p>
 <p>If the requested catalog is not cached <code><a href='bde_catalog_update.html'>bde_catalog_update()</a></code> is invoked.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -229,7 +231,7 @@ the <code>cache_dir</code>.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
 <span class='fu'>bde_catalog_load</span><span class='op'>(</span><span class='st'>"TI"</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpM7SUhR</span></div><div class='output co'>#&gt; <span class='message'>tidyBdE&gt; Cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\RtmpM7SUhR</span></div><div class='output co'>#&gt; <span class='message'>tidyBdE&gt; Updating catalogs: TI</span></div><div class='output co'>#&gt; <span class='message'>tidyBdE&gt; Downloading file from https://www.bde.es/webbde/es/estadis/infoest/series/catalogo_ti.csv</span>
+</div><div class='output co'>#&gt; <span class='message'>tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpKySFDc</span></div><div class='output co'>#&gt; <span class='message'>tidyBdE&gt; Cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\RtmpKySFDc</span></div><div class='output co'>#&gt; <span class='message'>tidyBdE&gt; Updating catalogs: TI</span></div><div class='output co'>#&gt; <span class='message'>tidyBdE&gt; Downloading file from https://www.bde.es/webbde/es/estadis/infoest/series/catalogo_ti.csv</span>
 #&gt; <span class='message'></span></div><div class='output co'>#&gt; <span class='message'>tidyBdE&gt; Parsing dates</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 68 x 17</span>
 #&gt;    Nombre_de_la_serie Numero_secuencial Alias_de_la_serie Nombre_del_archivo_co~
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                 

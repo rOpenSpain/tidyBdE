@@ -57,7 +57,8 @@
 <meta property="og:title" content="Relevant Indicators of Spain — bde_ind_gdp_var" />
 <meta property="og:description" content="Set of helper functions for downloading some of the most relevant
 macroeconomic indicators of Spain." />
-<meta property="og:image" content="https://ropenspain.github.io/tidyBdE/logo.png" />
+<meta property="og:image" content="https://ropenspain.github.io/tidyBdE/reference/figures/README-chart-1.png" />
+<meta property="og:image:alt" content="tidyBdE R package" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@dhernangomez" />
 <meta name="twitter:site" content="@rOpenSpain" />
@@ -99,7 +100,7 @@ macroeconomic indicators of Spain." />
       <i class="fa fa-align-justify"></i>
       </button>
       <span class="navbar-brand" id="ROS-navbar-brand">
-      <a class="navbar-link ROS-black" href="../index.html"><img src="../logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo">tidyBdE</a> <span class="version label label-default hidden-xs" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+      <a class="navbar-link ROS-black" href="../index.html"><img src="../logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo">tidyBdE</a> <span class="version label label-default hidden-xs" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
       </span>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -195,12 +196,13 @@ custom label for the series extracted. It should have the same length than
     <dt><code>parse_dates</code></dt><dd><p>Logical. If <code>TRUE</code> the dates would be parsed using
 <code><a href='bde_parse_dates.html'>bde_parse_dates()</a></code>.</p></dd>
     <dt><code>parse_numeric</code></dt><dd><p>Logical. If <code>TRUE</code> the columns would be parsed to
-double (numeric) values. See Note.</p></dd>
+double (numeric) values. See <strong>Note</strong>.</p></dd>
     <dt><code>cache_dir</code></dt><dd><p>A path to a cache directory. The directory can also be set
 via options with <code><a href='https://rdrr.io/r/base/options.html'>options(bde_cache_dir = "path/to/dir")</a></code>.</p></dd>
     <dt><code>update_cache</code></dt><dd><p>Logical. If <code>TRUE</code> the requested file would be updated on
 the <code>cache_dir</code>.</p></dd>
-    <dt><code>verbose</code></dt><dd><p>Logical, display information useful for debugging.</p></dd>
+    <dt><code>verbose</code></dt><dd><p>Logical <code>TRUE</code> or <code>FALSE</code>, display information useful for
+debugging.</p></dd>
     <dt><code>extract_metadata</code></dt><dd><p>Logical <code>TRUE/FALSE</code>. On <code>TRUE</code> the output is the
 metadata of the requested series.</p></dd>
   
