@@ -1,17 +1,11 @@
 {
-  "@context": [
-    "https://doi.org/10.5063/schema/codemeta-2.0",
-    "http://schema.org"
-  ],
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "tidyBdE",
   "description": "Tools to download data series from 'Banco de España' ('BdE')\n    on 'tibble' format. 'Banco de España' is the national central bank\n    and, within the framework of the Single Supervisory Mechanism ('SSM'),\n    the supervisor of the Spanish banking system along with the European\n    Central Bank. This package is in no way sponsored endorsed or\n    administered by 'Banco de España'.",
   "name": "tidyBdE: Download Data from Bank of Spain",
   "codeRepository": "https://github.com/rOpenSpain/tidyBdE",
-  "relatedLink": [
-    "https://ropenspain.github.io/tidyBdE/",
-    "https://CRAN.R-project.org/package=tidyBdE"
-  ],
+  "relatedLink": "https://ropenspain.github.io/tidyBdE/",
   "issueTracker": "https://github.com/rOpenSpain/tidyBdE/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
   "version": "0.2.0",
@@ -36,7 +30,6 @@
       "@id": "https://orcid.org/0000-0001-8457-4658"
     }
   ],
-  "contributor": {},
   "copyrightHolder": [
     {
       "@type": "Person",
@@ -50,7 +43,6 @@
       "name": "Banco de España"
     }
   ],
-  "funder": {},
   "maintainer": [
     {
       "@type": "Person",
@@ -112,14 +104,14 @@
       "sameAs": "https://CRAN.R-project.org/package=tidyverse"
     }
   ],
-  "softwareRequirements": [
-    {
+  "softwareRequirements": {
+    "1": {
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
       "version": ">= 3.6.0"
     },
-    {
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
@@ -132,7 +124,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=dplyr"
     },
-    {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "ggplot2",
       "name": "ggplot2",
@@ -145,7 +137,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=ggplot2"
     },
-    {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
@@ -158,7 +150,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readr"
     },
-    {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "scales",
       "name": "scales",
@@ -171,7 +163,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=scales"
     },
-    {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
@@ -184,30 +176,15 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
-    {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
-    }
-  ],
-  "releaseNotes": "https://github.com/rOpenSpain/tidyBdE/blob/master/NEWS.md",
-  "readme": "https://github.com/rOpenSpain/tidyBdE/blob/main/README.md",
-  "fileSize": "631.495KB",
-  "contIntegration": ["https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml", "https://codecov.io/gh/ropenspain/tidyBdE"],
-  "developmentStatus": "https://www.repostatus.org/#active",
-  "keywords": [
-    "r-package",
-    "api",
-    "macroeconomics",
-    "r",
-    "rstats",
-    "bde",
-    "cran",
-    "series-data",
-    "spain",
-    "ropenspain",
-    "ggplot2"
-  ],
+    },
+    "SystemRequirements": null
+  },
+  "isPartOf": "https://ropenspain.es/",
+  "fileSize": "737.379KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -226,6 +203,5 @@
       "@id": "https://doi.org/10.5281/zenodo.4673496",
       "sameAs": "https://doi.org/10.5281/zenodo.4673496"
     }
-  ],
-  "isPartOf": "https://ropenspain.es/"
+  ]
 }
