@@ -184,7 +184,7 @@
     "SystemRequirements": null
   },
   "isPartOf": "https://ropenspain.es/",
-  "fileSize": "1071.179KB",
+  "fileSize": "1071.074KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -199,7 +199,6 @@
       "name": "tidyBdE: ",
       "identifier": "10.5281/zenodo.4673496",
       "url": "https://CRAN.R-project.org/package=tidyBdE",
-      "description": "R package version ",
       "@id": "https://doi.org/10.5281/zenodo.4673496",
       "sameAs": "https://doi.org/10.5281/zenodo.4673496"
     }

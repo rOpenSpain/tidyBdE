@@ -318,9 +318,9 @@ citation("tidyBdE")
 #> 
 #> To cite tidyBdE in publications use:
 #> 
-#>   Herrero, D. H. (2021). tidyBdE: Download Data from Bank of Spain. R
-#>   package version 0.2.0.9000. https://doi.org/10.5281/zenodo.4673496.
-#>   Package url: https://CRAN.R-project.org/package=tidyBdE
+#>   Herrero, D. H. (2021). tidyBdE: Download Data from Bank of Spain.
+#>   https://doi.org/10.5281/zenodo.4673496. Package url:
+#>   https://CRAN.R-project.org/package=tidyBdE
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -328,7 +328,6 @@ citation("tidyBdE")
 #>     title = {tidyBdE: Download Data from Bank of Spain},
 #>     author = {D. H. Herrero},
 #>     year = {2021},
-#>     note = {R package version 0.2.0.9000},
 #>     doi = {10.5281/zenodo.4673496},
 #>     url = {https://CRAN.R-project.org/package=tidyBdE},
 #>   }
