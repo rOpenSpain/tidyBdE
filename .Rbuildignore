@@ -20,3 +20,4 @@
 ^vignettes/tidyBdE\.Rmd\.orig$
 ^vignettes/articles$
 ^_pkgdown\.yaml$
+^CITATION\.cff$
