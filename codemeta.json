@@ -185,7 +185,7 @@
   },
   "applicationCategory": "Macroeconomics",
   "isPartOf": "https://ropenspain.es/",
-  "fileSize": "1071.591KB",
+  "fileSize": "1052.714KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -193,7 +193,7 @@
       "author": [
         {
           "@type": "Person",
-          "givenName": ["D.", "H."],
+          "givenName": ["Diego", "H."],
           "familyName": "Herrero"
         }
       ],
