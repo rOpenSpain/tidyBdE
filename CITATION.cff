@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "To cite package 'tidyBdE' in publications use:"
+authors:
+- family-names: "Herrero"
+  given-names: "D. H."
+  orcid: "https://orcid.org/0000-0001-8457-4658"
+title: "tidyBdE"
+doi: 10.5281/zenodo.4673496
+repository-code: "https://github.com/rOpenSpain/tidyBdE"
+url: https://ropenspain.github.io/tidyBdE/
+license: GPL-3.0-or-later
+abstract: "Tools to download data series from Banco de España (BdE)"
