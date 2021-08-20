@@ -107,10 +107,24 @@ seq_number <- XR_GBP %>%
   # Convert to num
   as.double()
 
+# Load metadata
+bde_series_load(seq_number, extract_metadata = TRUE) %>%
+  # To table on the vignette
+  knitr::kable()
+```
 
-seq_number
-#> [1] 573214
+| Date                        | 573214                                                             |
+| :-------------------------- | :----------------------------------------------------------------- |
+| NOMBRE DE LA SERIE          | DTCCBCEGBPEUR.B                                                    |
+| NÚMERO SECUENCIAL           | 573214                                                             |
+| ALIAS DE LA SERIE           | TC\_1\_1.4                                                         |
+| DESCRIPCIÓN DE LA SERIE     | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+| DESCRIPCIÓN DE LAS UNIDADES | Libras esterlinas por Euro                                         |
+| FRECUENCIA                  | LABORABLE                                                          |
 
+``` r
+
+# Extract series
 time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") %>%
   drop_na()
