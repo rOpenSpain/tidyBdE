@@ -6,7 +6,7 @@ Authors@R:
              family = "H. Herrero",
              role = c("aut", "cre", "cph"),
              email = "dev.dieghernan@gmail.com",
-             comment = c(ORCID = "0000-0001-8457-4658")),
+             comment = c(ORCID = "0000-0001-8457-4658", affiliation = "rOpenSpain")),
       person(given = "Banco de España",
              role = "cph",
              comment = "for the data."))
