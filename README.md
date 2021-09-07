@@ -43,8 +43,8 @@ library(remotes)
 install_github("ropenspain/tidyBdE")
 ```
 
-Alternatively, you can install the developing version of `tidyBdE` using
-the [r-universe](https://ropenspain.r-universe.dev/ui#builds):
+Alternatively, you can install the developing version of **tidyBdE**
+using the [r-universe](https://ropenspain.r-universe.dev/ui#builds):
 
 ``` r
 
@@ -332,7 +332,7 @@ citation("tidyBdE")
 #> 
 #> To cite the 'tidyBdE' package in publications use:
 #> 
-#>   Herrero, D. H. (2021). tidyBdE: Download Data from Bank of Spain. R
+#>   Herrero, D. H. (2021). tidyBdE: Download Data from Bank of Spain R
 #>   package. http://doi.org/10.5281/zenodo.4673496
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -341,6 +341,7 @@ citation("tidyBdE")
 #>     title = {tidyBdE: Download Data from Bank of Spain},
 #>     author = {Diego H. Herrero},
 #>     year = {2021},
+#>     note = {R package version 0.2.0.9000},
 #>     url = {https://ropenspain.github.io/tidyBdE/},
 #>     doi = {10.5281/zenodo.4673496},
 #>   }

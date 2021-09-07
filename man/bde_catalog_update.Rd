@@ -46,4 +46,8 @@ Use \code{"ALL"} as a shorthand for updating all the catalogs at a glance.
 bde_catalog_update("TI", verbose = TRUE)
 }
 }
+\seealso{
+Other catalog: 
+\code{\link{bde_catalog_load}()}
+}
 \concept{catalog}

@@ -33,5 +33,9 @@ as \verb{scale_*_bde_d} while continuous palettes are named \verb{scale_*_bde_c}
 \seealso{
 \code{\link[=bde_vivid_pal]{bde_vivid_pal()}}, \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}},
 \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}
+
+Other bde_plot: 
+\code{\link{bde_pals}},
+\code{\link{theme_bde}()}
 }
 \concept{bde_plot}

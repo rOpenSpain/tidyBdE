@@ -91,7 +91,10 @@ bde_series_load(c(573234, 573214),
 
 }
 \seealso{
-\code{\link[=bde_series_full_load]{bde_series_full_load()}}, \code{\link[=bde_catalog_load]{bde_catalog_load()}},
+\code{\link[=bde_catalog_load]{bde_catalog_load()}},
 \code{\link[=bde_catalog_search]{bde_catalog_search()}}
+
+Other series: 
+\code{\link{bde_series_full_load}()}
 }
 \concept{series}
