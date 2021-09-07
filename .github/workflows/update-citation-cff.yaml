@@ -47,8 +47,8 @@ jobs:
           # Mind the indentation!
 
           cff_write(keys = list(
-                            message="To cite package 'mapSpain' in publications use:",
-                            doi = "10.5281/zenodo.4318024"
+                            message="To cite package 'tidyBdE' in publications use:",
+                            doi = "10.5281/zenodo.4673496"
                             )
                           )
 
