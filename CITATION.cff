@@ -1,9 +1,10 @@
 cff-version: 1.2.0
-message: If you use this software, please cite it using these metadata.
+message: 'To cite package ''mapSpain'' in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'tidyBdE: Download Data from Bank of Spain'
 version: 0.2.0.9000
+doi: 10.5281/zenodo.4318024
 abstract: Tools to download data series from 'Banco de España' ('BdE') on 'tibble'
   format. 'Banco de España' is the national central bank and, within the framework
   of the Single Supervisory Mechanism ('SSM'), the supervisor of the Spanish banking
