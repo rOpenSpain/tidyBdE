@@ -72,6 +72,7 @@ bde_series_full_load("TI_1_1.csv")
 }
 }
 \seealso{
-\code{\link[=bde_series_load]{bde_series_load()}}
+Other series: 
+\code{\link{bde_series_load}()}
 }
 \concept{series}

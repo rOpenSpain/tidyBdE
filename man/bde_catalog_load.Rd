@@ -61,6 +61,7 @@ bde_catalog_load("TI", verbose = TRUE)
 }
 }
 \seealso{
-\code{\link[=bde_catalog_update]{bde_catalog_update()}}
+Other catalog: 
+\code{\link{bde_catalog_update}()}
 }
 \concept{catalog}

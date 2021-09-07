@@ -47,5 +47,9 @@ if (nrow(series_TC) > 0) {
 }
 \seealso{
 \code{\link[ggplot2:theme]{ggplot2::theme()}}
+
+Other bde_plot: 
+\code{\link{bde_pals}},
+\code{\link{scales_bde}}
 }
 \concept{bde_plot}

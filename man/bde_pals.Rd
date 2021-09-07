@@ -28,6 +28,8 @@ scales::show_col(bde_vivid_pal()(6), labels = FALSE)
 scales::show_col(bde_rose_pal()(6), labels = FALSE)
 }
 \seealso{
-\code{\link[=theme_bde]{theme_bde()}}
+Other bde_plot: 
+\code{\link{scales_bde}},
+\code{\link{theme_bde}()}
 }
 \concept{bde_plot}

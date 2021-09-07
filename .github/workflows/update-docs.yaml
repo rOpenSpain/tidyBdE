@@ -32,16 +32,13 @@ jobs:
             ropenspain/rostemplate
           needs: website
 
-      - name: Install package
-        run: |
-          devtools::install()
-
-        shell: Rscript {0}
-
       - name: Update docs
         run: |
           
-          pkgdev::update_docs()
+          pkgdev::update_docs(keys = list(
+                            message="To cite package 'tidyBdE' in publications use:",
+                            doi = "10.5281/zenodo.4673496"
+                            ))
 
         shell: Rscript {0}
 

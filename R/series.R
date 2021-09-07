@@ -4,7 +4,7 @@
 #'
 #' @export
 #'
-#' @concept series
+#' @family series
 #'
 #'
 #' @encoding UTF-8
@@ -43,7 +43,7 @@
 #' warning may be displayed if the parser fails. You can override the default
 #' behavior with `parse_numeric = FALSE`
 #'
-#' @seealso [bde_series_full_load()], [bde_catalog_load()],
+#' @seealso [bde_catalog_load()],
 #' [bde_catalog_search()]
 #'
 #' @examples
@@ -182,9 +182,8 @@ bde_series_load <- function(series_code,
 #'
 #' @export
 #'
-#' @concept series
+#' @family series
 #'
-#' @seealso [bde_series_load()]
 #'
 #' @encoding UTF-8
 #'

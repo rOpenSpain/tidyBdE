@@ -3,13 +3,12 @@
 #' Load the time-series catalogs provided by BdE.
 #' @export
 #'
-#' @concept catalog
+#' @family catalog
 #'
 #' @encoding UTF-8
 #'
 #' @return A tibble
 #'
-#' @seealso [bde_catalog_update()]
 #'
 #' @source [Time-series bulk data download](https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html)
 #'
@@ -197,7 +196,7 @@ bde_catalog_load <-
 #'
 #' @export
 #'
-#' @concept catalog
+#' @family catalog
 #'
 #' @encoding UTF-8
 #'

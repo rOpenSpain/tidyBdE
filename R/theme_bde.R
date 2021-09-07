@@ -2,7 +2,7 @@
 #'
 #' A custom `ggplot2` theme based on the publications of BdE.
 #'
-#' @concept bde_plot
+#' @family bde_plot
 #'
 #' @export
 #'

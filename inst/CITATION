@@ -6,10 +6,12 @@ url = 'https://ropenspain.github.io/tidyBdE/'
 citEntry(
   ,
   entry = 'manual',
-  title = paste('tidyBdE:', 'Download Data from Bank of Spain'),
-  author = "Diego H. Herrero",
+  title = paste('tidyBdE:', meta$Title),
+  author = person(given = "Diego H.",
+                  family = "Herrero"),
   year = year,
+  note = vers,
   url = url,
   doi = '10.5281/zenodo.4673496',
-  textVersion = paste0('Herrero, D. H. (', year, '). tidyBdE: Download Data from Bank of Spain. ', 'R package. ', 'http://doi.org/10.5281/zenodo.4673496')
+  textVersion = paste0('Herrero, D. H. (', year, '). tidyBdE: ', meta$Title, ' R package. ', 'http://doi.org/10.5281/zenodo.4673496')
 )

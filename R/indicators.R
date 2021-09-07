@@ -8,7 +8,7 @@
 #'
 #' @export
 #'
-#' @concept indicators
+#' @family indicators
 #'
 #' @encoding UTF-8
 #'
