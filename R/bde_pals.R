@@ -2,7 +2,7 @@
 #'
 #' Custom palettes based on the publications of BdE.
 #'
-#' @concept bde_plot
+#' @family bde_plot
 #'
 #' @rdname bde_pals
 #' @name bde_pals
@@ -13,7 +13,7 @@
 #'
 #' @param ... Further arguments of the functions.
 #'
-#' @seealso [theme_bde()]
+#'
 #'
 #' @examples
 #'

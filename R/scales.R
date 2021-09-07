@@ -8,7 +8,7 @@
 #' @seealso [bde_vivid_pal()], [ggplot2::discrete_scale()],
 #'   [ggplot2::continuous_scale()]
 #'
-#' @concept bde_plot
+#' @family bde_plot
 #'
 #' @export
 #'

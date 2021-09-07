@@ -57,7 +57,7 @@ library(remotes)
 install_github("ropenspain/tidyBdE")
 ```
 
-Alternatively, you can install the developing version of `tidyBdE` using the
+Alternatively, you can install the developing version of **tidyBdE** using the
 [r-universe](https://ropenspain.r-universe.dev/ui#builds):
 
 ```{r, eval = FALSE}
@@ -184,6 +184,7 @@ ggplot(plotseries, aes(x = Date, y = values)) +
 
 
 ### Palettes 
+
 Two custom palettes, based on the used by BdE on some publications are
 available.
 
