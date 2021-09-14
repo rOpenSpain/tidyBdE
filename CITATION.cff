@@ -25,7 +25,7 @@ preferred-citation:
   type: manual
   title: 'tidyBdE: Download Data from Bank of Spain'
   authors:
-  - family-names: ' H. Herrero'
+  - family-names: H. Herrero
     given-names: Diego
   year: '2021'
   url: https://ropenspain.github.io/tidyBdE/
