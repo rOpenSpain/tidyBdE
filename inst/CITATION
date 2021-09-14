@@ -8,7 +8,7 @@ citEntry(
   entry = 'manual',
   title = paste('tidyBdE:', meta$Title),
   author = person(given = "Diego",
-                  family = " H. Herrero"),
+                  family = "H. Herrero"),
   year = year,
   note = vers,
   url = url,
