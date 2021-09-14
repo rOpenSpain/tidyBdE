@@ -1,6 +1,6 @@
 # -----------------------------------------------------------
 # CITATION file created with {cffr} R package, v0.0.0.9000
-# Source code: https://github.com/dieghernan/cffR
+# See also: https://dieghernan.github.io/cffr/
 # -----------------------------------------------------------
  
 cff-version: 1.2.0
@@ -25,8 +25,8 @@ preferred-citation:
   type: manual
   title: 'tidyBdE: Download Data from Bank of Spain'
   authors:
-  - family-names: Herrero
-    given-names: Diego H.
+  - family-names: ' H. Herrero'
+    given-names: Diego
   year: '2021'
   url: https://ropenspain.github.io/tidyBdE/
   doi: 10.5281/zenodo.4673496
