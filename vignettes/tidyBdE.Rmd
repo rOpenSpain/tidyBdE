@@ -25,7 +25,6 @@ information. You can search any series by name:
 
 
 ```r
-
 library(tidyBdE)
 
 # Load tidyverse for better handling
@@ -56,7 +55,6 @@ rate using the sequential number reference (`Numero_Secuencial`) as:
 
 
 ```r
-
 seq_number <- XR_GBP %>%
   # First record
   slice(1) %>%
@@ -68,7 +66,6 @@ seq_number <- XR_GBP %>%
 
 seq_number
 #> [1] 573214
-
 # We can check the metadata of the series
 seq_number %>%
   bde_series_load(extract_metadata = TRUE) %>%
@@ -88,8 +85,6 @@ seq_number %>%
 |FRECUENCIA                  |LABORABLE                                                          |
 
 ```r
-
-
 time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") %>%
   drop_na()
@@ -102,7 +97,6 @@ BdE:
 
 
 ```r
-
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_vivid_pal()(1)) +
   geom_smooth(method = "gam", colour = bde_vivid_pal()(2)[2]) +
@@ -132,7 +126,6 @@ advance:
 
 
 ```r
-
 gdp <- bde_ind_gdp_var("values")
 gdp$label <- "GDP YoY"
 

@@ -1,3 +1,8 @@
+# -----------------------------------------------------------
+# CITATION file created with {cffr} R package, v0.0.0.9000
+# Source code: https://github.com/dieghernan/cffR
+# -----------------------------------------------------------
+ 
 cff-version: 1.2.0
 message: 'To cite package ''tidyBdE'' in publications use:'
 type: software
@@ -16,6 +21,15 @@ authors:
   email: dev.dieghernan@gmail.com
   orcid: https://orcid.org/0000-0001-8457-4658
   affiliation: rOpenSpain
+preferred-citation:
+  type: manual
+  title: 'tidyBdE: Download Data from Bank of Spain'
+  authors:
+  - family-names: Herrero
+    given-names: Diego H.
+  year: '2021'
+  url: https://ropenspain.github.io/tidyBdE/
+  doi: 10.5281/zenodo.4673496
 repository-code: https://github.com/rOpenSpain/tidyBdE
 url: https://ropenspain.github.io/tidyBdE/
 contact:
