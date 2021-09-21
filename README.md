@@ -329,7 +329,7 @@ citation("tidyBdE")
 #> 
 #>   @Manual{,
 #>     title = {tidyBdE: Download Data from Bank of Spain},
-#>     author = {Diego H. Herrero},
+#>     author = {Diego {H. Herrero}},
 #>     year = {2021},
 #>     note = {R package version 0.2.0.9000},
 #>     url = {https://ropenspain.github.io/tidyBdE/},

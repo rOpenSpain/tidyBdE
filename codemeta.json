@@ -185,7 +185,7 @@
   },
   "applicationCategory": "Macroeconomics",
   "isPartOf": "https://ropenspain.es/",
-  "fileSize": "894.913KB",
+  "fileSize": "894.915KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -193,8 +193,8 @@
       "author": [
         {
           "@type": "Person",
-          "givenName": "Diego H.",
-          "familyName": "Herrero"
+          "givenName": "Diego",
+          "familyName": "H. Herrero"
         }
       ],
       "name": "tidyBdE: Download Data from Bank of Spain",
