@@ -1,6 +1,6 @@
 # -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.0.0.9000
-# Source code: https://github.com/dieghernan/cffR
+# CITATION file created with {cffr} R package, v0.0.1.9003
+# See also: https://dieghernan.github.io/cffr/
 # -----------------------------------------------------------
  
 cff-version: 1.2.0
@@ -30,6 +30,7 @@ preferred-citation:
   year: '2021'
   url: https://ropenspain.github.io/tidyBdE/
   doi: 10.5281/zenodo.4673496
+repository: https://CRAN.R-project.org/package=tidyBdE
 repository-code: https://github.com/rOpenSpain/tidyBdE
 url: https://ropenspain.github.io/tidyBdE/
 contact:

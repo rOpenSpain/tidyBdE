@@ -1,15 +1,12 @@
 Package: tidyBdE
 Title: Download Data from Bank of Spain
 Version: 0.2.0.9000
-Authors@R: 
-    c(person(given = "Diego",
-             family = "H. Herrero",
-             role = c("aut", "cre", "cph"),
-             email = "dev.dieghernan@gmail.com",
-             comment = c(ORCID = "0000-0001-8457-4658", affiliation = "rOpenSpain")),
-      person(given = "Banco de España",
-             role = "cph",
-             comment = "for the data."))
+Authors@R: c(
+    person("Diego", "H. Herrero", , "dev.dieghernan@gmail.com", role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0000-0001-8457-4658", affiliation = "rOpenSpain")),
+    person("Banco de España", role = "cph",
+           comment = "for the data.")
+  )
 Description: Tools to download data series from 'Banco de España' ('BdE')
     on 'tibble' format. 'Banco de España' is the national central bank
     and, within the framework of the Single Supervisory Mechanism ('SSM'),
