@@ -120,7 +120,8 @@
 <p>Banco de España (<strong>BdE</strong>) provides several time-series, either produced by the institution itself or compiled for another sources, as <a href="https://ec.europa.eu/eurostat">Eurostat</a> or <a href="https://www.ine.es/">INE</a>.</p>
 <p>The basic entry point for searching time-series are the catalogs (<em>indexes</em>) of information. You can search any series by name:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ropenspain.github.io/tidyBdE/">tidyBdE</a></span><span class="op">)</span>
+<code class="sourceCode R">
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ropenspain.github.io/tidyBdE/">tidyBdE</a></span><span class="op">)</span>
 
 <span class="co"># Load tidyverse for better handling</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
@@ -146,7 +147,8 @@
 <p><strong>Note that BdE files are only provided in Spanish, for the time being</strong>, the organism is working on the English version. By now, search terms should be provided in Spanish in order to get search results.</p>
 <p>After we have found our series, we can load the series for the GBP/EUR exchange rate using the sequential number reference (<code>Numero_Secuencial</code>) as:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">seq_number</span> <span class="op">&lt;-</span> <span class="va">XR_GBP</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R">
+<span class="va">seq_number</span> <span class="op">&lt;-</span> <span class="va">XR_GBP</span> <span class="op">%&gt;%</span>
   <span class="co"># First record</span>
   <span class="fu">slice</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="co"># Get id</span>
@@ -157,6 +159,7 @@
 
 <span class="va">seq_number</span>
 <span class="co">#&gt; [1] 573214</span>
+
 <span class="co"># We can check the metadata of the series</span>
 <span class="va">seq_number</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span>extract_metadata <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -199,7 +202,9 @@
 </tbody>
 </table>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">time_series</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span><span class="va">seq_number</span>, series_label <span class="op">=</span> <span class="st">"EUR_GBP_XR"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R">
+
+<span class="va">time_series</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span><span class="va">seq_number</span>, series_label <span class="op">=</span> <span class="st">"EUR_GBP_XR"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">"2010-01-01"</span> <span class="op">&amp;</span> <span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">"2020-12-31"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">drop_na</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
@@ -208,7 +213,8 @@
 <a href="#plot-series" class="anchor"></a>Plot series</h2>
 <p>The package also provides a custom <code>ggplot2</code> theme based on the publications of BdE:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">time_series</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">EUR_GBP_XR</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+<code class="sourceCode R">
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">time_series</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">EUR_GBP_XR</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_line</span><span class="op">(</span>colour <span class="op">=</span> <span class="fu"><a href="../reference/bde_pals.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"gam"</span>, colour <span class="op">=</span> <span class="fu"><a href="../reference/bde_pals.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">labs</span><span class="op">(</span>
@@ -230,7 +236,8 @@
 <p><img src="chart-1.png" title="plot of chunk chart" alt="plot of chunk chart" width="100%"></p>
 <p>The package provides also several “shortcut” functions for a selection of the most relevant macroeconomic series, so there is no need to look for them in advance:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">gdp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bde_ind_gdp_var.html">bde_ind_gdp_var</a></span><span class="op">(</span><span class="st">"values"</span><span class="op">)</span>
+<code class="sourceCode R">
+<span class="va">gdp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bde_ind_gdp_var.html">bde_ind_gdp_var</a></span><span class="op">(</span><span class="st">"values"</span><span class="op">)</span>
 <span class="va">gdp</span><span class="op">$</span><span class="va">label</span> <span class="op">&lt;-</span> <span class="st">"GDP YoY"</span>
 
 <span class="va">UnempRate</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bde_ind_gdp_var.html">bde_ind_unemployment_rate</a></span><span class="op">(</span><span class="st">"values"</span><span class="op">)</span>
