@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Relevant Indicators of Spain — bde_ind_gdp_var • tidyBdE</title>
+<title>Relevant Indicators of Spain — bde_indicators • tidyBdE</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -54,7 +54,7 @@
 <!-- rOpenSpain -->
 <link href="../ropenspain.css" rel="stylesheet">
 
-<meta property="og:title" content="Relevant Indicators of Spain — bde_ind_gdp_var" />
+<meta property="og:title" content="Relevant Indicators of Spain — bde_indicators" />
 <meta property="og:description" content="Set of helper functions for downloading some of the most relevant
 macroeconomic indicators of Spain." />
 <meta property="og:image" content="https://ropenspain.github.io/tidyBdE/reference/figures/README-chart-1.png" />
@@ -100,7 +100,7 @@ macroeconomic indicators of Spain." />
       <i class="fa fa-align-justify"></i>
       </button>
       <span class="navbar-brand" id="ROS-navbar-brand">
-      <a class="navbar-link ROS-black" href="../index.html"><img src="../logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo">tidyBdE</a> <span class="version label label-default hidden-xs" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
+      <a class="navbar-link ROS-black" href="../index.html"><img src="../logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo">tidyBdE</a> <span class="version label label-default hidden-xs" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -156,7 +156,7 @@ macroeconomic indicators of Spain." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Relevant Indicators of Spain</h1>
-    <small class="dont-index">Source: <a href='https://github.com/rOpenSpain/tidyBdE/blob/master/R/indicators.R'><code>R/indicators.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/rOpenSpain/tidyBdE/blob/main/R/indicators.R'><code>R/indicators.R</code></a></small>
     <div class="hidden name"><code>bde_indicators.Rd</code></div>
     </div>
 
@@ -224,21 +224,21 @@ to see the specification and the source.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='fu'>bde_ind_euribor_12m_monthly</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 248 x 2</span>
-#&gt;    Date       Euribor_12M_Monthly
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>                   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span> 2001-01-01                4.57
-#&gt; <span style='color: #BCBCBC;'> 2</span> 2001-02-01                4.59
-#&gt; <span style='color: #BCBCBC;'> 3</span> 2001-03-01                4.47
-#&gt; <span style='color: #BCBCBC;'> 4</span> 2001-04-01                4.48
-#&gt; <span style='color: #BCBCBC;'> 5</span> 2001-05-01                4.52
-#&gt; <span style='color: #BCBCBC;'> 6</span> 2001-06-01                4.31
-#&gt; <span style='color: #BCBCBC;'> 7</span> 2001-07-01                4.31
-#&gt; <span style='color: #BCBCBC;'> 8</span> 2001-08-01                4.11
-#&gt; <span style='color: #BCBCBC;'> 9</span> 2001-09-01                3.77
-#&gt; <span style='color: #BCBCBC;'>10</span> 2001-10-01                3.37
-#&gt; <span style='color: #949494;'># ... with 238 more rows</span></div><div class='input'><span class='co'># }</span>
+<span class='fu'>bde_ind_gdp_var</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 102 x 2</span>
+#&gt;    Date       GDP_YoY
+#&gt;    <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span> 1996-03-01    2.4 
+#&gt; <span style='color: #BCBCBC;'> 2</span> 1996-06-01    2.52
+#&gt; <span style='color: #BCBCBC;'> 3</span> 1996-09-01    2.98
+#&gt; <span style='color: #BCBCBC;'> 4</span> 1996-12-01    2.75
+#&gt; <span style='color: #BCBCBC;'> 5</span> 1997-03-01    3.18
+#&gt; <span style='color: #BCBCBC;'> 6</span> 1997-06-01    3.35
+#&gt; <span style='color: #BCBCBC;'> 7</span> 1997-09-01    3.69
+#&gt; <span style='color: #BCBCBC;'> 8</span> 1997-12-01    4.57
+#&gt; <span style='color: #BCBCBC;'> 9</span> 1998-03-01    4.42
+#&gt; <span style='color: #BCBCBC;'>10</span> 1998-06-01    4.65
+#&gt; <span style='color: #949494;'># ... with 92 more rows</span></div><div class='input'><span class='co'># }</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

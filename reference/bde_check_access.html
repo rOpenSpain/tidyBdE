@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BdE color palettes — bde_pals • tidyBdE</title>
+<title>Check access to BdE — bde_check_access • tidyBdE</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -54,8 +54,9 @@
 <!-- rOpenSpain -->
 <link href="../ropenspain.css" rel="stylesheet">
 
-<meta property="og:title" content="BdE color palettes — bde_pals" />
-<meta property="og:description" content="Custom palettes based on the publications of BdE." />
+<meta property="og:title" content="Check access to BdE — bde_check_access" />
+<meta property="og:description" content="Check if R has access to resources at
+https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html." />
 <meta property="og:image" content="https://ropenspain.github.io/tidyBdE/reference/figures/README-chart-1.png" />
 <meta property="og:image:alt" content="tidyBdE R package" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -154,45 +155,32 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>BdE color palettes</h1>
-    <small class="dont-index">Source: <a href='https://github.com/rOpenSpain/tidyBdE/blob/main/R/bde_pals.R'><code>R/bde_pals.R</code></a></small>
-    <div class="hidden name"><code>bde_pals.Rd</code></div>
+    <h1>Check access to BdE</h1>
+    <small class="dont-index">Source: <a href='https://github.com/rOpenSpain/tidyBdE/blob/main/R/utils.R'><code>R/utils.R</code></a></small>
+    <div class="hidden name"><code>bde_check_access.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Custom palettes based on the publications of BdE.</p>
+    <p>Check if R has access to resources at
+<a href='https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html'>https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html</a>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>bde_vivid_pal</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>bde_check_access</span><span class='op'>(</span><span class='op'>)</span></pre>
 
-<span class='fu'>bde_rose_pal</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
-
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>...</th>
-      <td><p>Further arguments of the functions.</p></td>
-    </tr>
-    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A palette of colors.</p>
+    <p>a logical.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other bde_plot: 
-<code><a href='scales_bde.html'>scales_bde</a></code>,
-<code><a href='theme_bde.html'>theme_bde</a>()</code></p></div>
+    <div class='dont-index'><p>Other utils: 
+<code><a href='bde_parse_dates.html'>bde_parse_dates</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'># BdE vivid pal</span>
-<span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/show_col.html'>show_col</a></span><span class='op'>(</span><span class='fu'>bde_vivid_pal</span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>6</span><span class='op'>)</span>, labels <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-</div><div class='img'><img src='bde_pals-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># BdE rose pal</span>
-<span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/show_col.html'>show_col</a></span><span class='op'>(</span><span class='fu'>bde_rose_pal</span><span class='op'>(</span><span class='op'>)</span><span class='op'>(</span><span class='fl'>6</span><span class='op'>)</span>, labels <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-</div><div class='img'><img src='bde_pals-2.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+<span class='fu'>bde_check_access</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='co'># }</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
