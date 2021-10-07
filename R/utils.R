@@ -161,15 +161,36 @@ bde_hlp_download <- function(url, local_file, verbose) {
     ),
     # nocov start
     warning = function(e) {
-      message(
-        "tidyBdE> URL \n ",
-        url,
-        "\nnot reachable.\n\n",
-        "If you think this is a bug consider opening an issue"
-      )
       return(TRUE)
     }
   )
+
+  # Try again if not working
+  # This time display a message
+
+  # nocov start
+  if (isTRUE(err_dwnload)) {
+    if (verbose) message("tidyBdE> Trying again")
+
+    err_dwnload <- tryCatch(
+      download.file(url,
+        local_file,
+        quiet = isFALSE(verbose),
+        mode = "wb"
+      ),
+      # nocov start
+      warning = function(e) {
+        message(
+          "tidyBdE> URL \n ",
+          url,
+          "\nnot reachable.\n\n",
+          "If you think this is a bug consider opening an issue"
+        )
+        return(TRUE)
+      }
+    )
+  }
+  # nocov end
 
   # On warning stop the execution
   if (isTRUE(err_dwnload)) {
@@ -246,8 +267,9 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
 #' @family utils
 #'
 #' @examples
-#'
+#' \donttest{
 #' bde_check_access()
+#' }
 #' @export
 bde_check_access <- function() {
   url <- paste0(

@@ -1,4 +1,4 @@
-# tidyBdE (development version)
+# tidyBdE 0.2.1
 
 -   Update docs and vignettes.
 -   `bde_series_load()` now tries to coerce characters to numeric.

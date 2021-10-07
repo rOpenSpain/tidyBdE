@@ -44,7 +44,7 @@
 #' behavior with `parse_numeric = FALSE`
 #'
 #' @seealso [bde_catalog_load()],
-#' [bde_catalog_search()]
+#' [bde_catalog_search()], [bde_indicators()]
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{

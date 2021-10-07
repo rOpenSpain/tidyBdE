@@ -5,6 +5,7 @@
 #' macroeconomic indicators of Spain.
 #'
 #' @rdname bde_indicators
+#' @name bde_indicators
 #'
 #' @export
 #'

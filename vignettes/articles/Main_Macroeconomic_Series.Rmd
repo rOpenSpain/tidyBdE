@@ -39,7 +39,8 @@ br <- seq(nd, Sys.Date(), "6 months")
 ```{r echo=FALSE}
 dataset <- bde_ind_gdp_quarterly(series_label = "data")
 
-dataset$LastY <- dataset$data + lag(dataset$data, 1) + lag(dataset$data, 2) + lag(dataset$data, 3)
+dataset$LastY <- dataset$data + lag(dataset$data, 1) +
+  lag(dataset$data, 2) + lag(dataset$data, 3)
 
 dataset <- dataset %>%
   filter(Date >= nd) %>%
@@ -147,7 +148,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
   geom_text(
     data = l,
     size = 3,
-    aes(label = paste(x = data, "\n", format(Date, "%b-%Y")))
+    aes(label = paste(x = data, "%\n", format(Date, "%b-%Y")))
   ) +
   labs(
     title = "GDP of Spain (year-on-year variation)",
@@ -170,7 +171,7 @@ PIB <- bde_ind_gdp_quarterly(series_label = "data")
 
 PIB$LastY <- PIB$data + lag(PIB$data, 1) + lag(PIB$data, 2) + lag(PIB$data, 3)
 
-PIB <- left_join(PIB, pop, by = "Date")
+PIB <- inner_join(PIB, pop, by = "Date")
 
 PIB <- PIB %>% mutate(data = 1000 * LastY / pop)
 
@@ -217,7 +218,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
   geom_text(
     data = l,
     size = 3,
-    aes(label = paste(x = data, "\n", format(Date, "%b-%Y")))
+    aes(label = paste(x = data, "%\n", format(Date, "%b-%Y")))
   ) +
   labs(
     title = "Unemployment Rate",
@@ -248,7 +249,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
   geom_text(
     data = l,
     size = 3,
-    aes(label = paste(x = data, "\n", format(Date, "%b-%Y")))
+    aes(label = paste(x = data, "%\n", format(Date, "%b-%Y")))
   ) +
   labs(
     title = "Consumer Price Index",
@@ -265,7 +266,9 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ## Monthly Euribor
 
 
-```{r echo=FALSE}
+Not available due to inconsistencies on the original data.
+
+```{r echo=FALSE, eval=FALSE}
 
 dataset <- bde_ind_euribor_12m_monthly(series_label = "data") %>%
   filter(Date >= nd)
@@ -278,7 +281,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
   geom_text(
     data = l,
     size = 3,
-    aes(label = paste(x = data, "\n", format(Date, "%b-%Y")))
+    aes(label = paste(x = data, "%\n", format(Date, "%b-%Y")))
   ) +
   labs(
     title = "Euribor 12 months (monthly)",

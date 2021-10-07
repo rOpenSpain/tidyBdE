@@ -14,8 +14,9 @@ Check if R has access to resources at
 \url{https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html}.
 }
 \examples{
-
+\donttest{
 bde_check_access()
+}
 }
 \seealso{
 Other utils: 

@@ -1,6 +1,9 @@
 url: https://ropenspain.github.io/tidyBdE/
 
 
+repo:
+  branch: main
+
 reference:
   - title: "Catalogs"
     desc: Tools for working with BdE catalogs.
