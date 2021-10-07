@@ -42,12 +42,15 @@ Accepted values for \code{catalog} are:\tabular{llll}{
 Use \code{"ALL"} as a shorthand for updating all the catalogs at a glance.
 }
 \examples{
+\dontshow{if (bde_check_access()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 bde_catalog_update("TI", verbose = TRUE)
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other catalog: 
-\code{\link{bde_catalog_load}()}
+\code{\link{bde_catalog_load}()},
+\code{\link{bde_catalog_search}()}
 }
 \concept{catalog}

@@ -3,6 +3,7 @@
 export(bde_catalog_load)
 export(bde_catalog_search)
 export(bde_catalog_update)
+export(bde_check_access)
 export(bde_ind_cpi_var)
 export(bde_ind_euribor_12m_daily)
 export(bde_ind_euribor_12m_monthly)

@@ -37,10 +37,6 @@
       "familyName": "H. Herrero",
       "email": "dev.dieghernan@gmail.com",
       "@id": "https://orcid.org/0000-0001-8457-4658"
-    },
-    {
-      "@type": "Organization",
-      "name": "Banco de España"
     }
   ],
   "maintainer": [
@@ -185,7 +181,7 @@
   },
   "applicationCategory": "Macroeconomics",
   "isPartOf": "https://ropenspain.es/",
-  "fileSize": "895.422KB",
+  "fileSize": "897.137KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

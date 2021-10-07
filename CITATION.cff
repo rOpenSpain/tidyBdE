@@ -4,7 +4,7 @@
 # -----------------------------------------------------------
  
 cff-version: 1.2.0
-message: 'To cite package ''tidyBdE'' in publications use:'
+message: 'To cite package "tidyBdE" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'tidyBdE: Download Data from Bank of Spain'

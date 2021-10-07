@@ -46,7 +46,7 @@
 #' @seealso [bde_catalog_load()],
 #' [bde_catalog_search()]
 #'
-#' @examples
+#' @examplesIf bde_check_access()
 #' \donttest{
 #' # Metadata
 #' bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
@@ -146,9 +146,28 @@ bde_series_load <- function(series_code,
       update_cache = update_cache,
       verbose = verbose,
       extract_metadata = extract_metadata
-    )[c("Date", alias_serie)]
+    )
 
+
+    if (!(alias_serie %in% names(serie_file))) {
+      if (verbose) {
+        message(
+          "tidyBdE> ",
+          "Serie with alias '",
+          alias_serie,
+          "' not available on ",
+          csv_file_name, ". ",
+          "Returning col with NA"
+        )
+      }
+
+      serie_file <- serie_file["Date"]
+      serie_file <- tibble::add_column(serie_file, x = NA)
+    } else {
+      serie_file <- serie_file[c("Date", alias_serie)]
+    }
     names(serie_file) <- c("Date", as.character(series_label[i]))
+
 
     # Append to final object
     if (!exists("collate_data")) {
@@ -207,7 +226,7 @@ bde_series_load <- function(series_code,
 #' warning may be displayed if the parser fails. You can override the default
 #' behavior with `parse_numeric = FALSE`
 #'
-#' @examples
+#' @examplesIf bde_check_access()
 #' \donttest{
 #' # Metadata
 #' bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)

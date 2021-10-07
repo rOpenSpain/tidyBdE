@@ -16,6 +16,7 @@ A \code{\link[ggplot2:theme]{ggplot2::theme()}}.
 A custom \code{ggplot2} theme based on the publications of BdE.
 }
 \examples{
+\dontshow{if (bde_check_access()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 library(tidyverse)
 
@@ -43,7 +44,7 @@ if (nrow(series_TC) > 0) {
     theme_bde()
 }
 }
-
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \code{\link[ggplot2:theme]{ggplot2::theme()}}

@@ -47,7 +47,6 @@ Alternatively, you can install the developing version of **tidyBdE**
 using the [r-universe](https://ropenspain.r-universe.dev/ui#builds):
 
 ``` r
-
 # Enable this universe
 options(repos = c(
   ropenspain = "https://ropenspain.r-universe.dev",
@@ -68,7 +67,6 @@ The basic entry point for searching time-series are the catalogs
 (*indexes*) of information. You can search any series by name:
 
 ``` r
-
 library(tidyBdE)
 
 # Load tidyverse for better handling
@@ -85,7 +83,7 @@ XR_GBP %>%
 ```
 
 | Numero\_secuencial | Descripcion\_de\_la\_serie                                         |
-| -----------------: | :----------------------------------------------------------------- |
+|-------------------:|:-------------------------------------------------------------------|
 |             573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
 
 **Note that BdE files are only provided in Spanish, for the time
@@ -97,7 +95,6 @@ exchange rate using the sequential number reference
 (`Numero_Secuencial`) as:
 
 ``` r
-
 
 seq_number <- XR_GBP %>%
   # First record
@@ -114,7 +111,7 @@ bde_series_load(seq_number, extract_metadata = TRUE) %>%
 ```
 
 | Date                        | 573214                                                             |
-| :-------------------------- | :----------------------------------------------------------------- |
+|:----------------------------|:-------------------------------------------------------------------|
 | NOMBRE DE LA SERIE          | DTCCBCEGBPEUR.B                                                    |
 | NÚMERO SECUENCIAL           | 573214                                                             |
 | ALIAS DE LA SERIE           | TC\_1\_1.4                                                         |
@@ -123,7 +120,6 @@ bde_series_load(seq_number, extract_metadata = TRUE) %>%
 | FRECUENCIA                  | LABORABLE                                                          |
 
 ``` r
-
 # Extract series
 time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") %>%
@@ -136,7 +132,6 @@ The package also provides a custom `ggplot2` theme based on the
 publications of BdE:
 
 ``` r
-
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_vivid_pal()(1)) +
   geom_smooth(method = "gam", colour = bde_vivid_pal()(2)[2]) +
@@ -166,7 +161,6 @@ of the most relevant macroeconomic series, so there is no need to look
 for them in advance:
 
 ``` r
-
 gdp <- bde_ind_gdp_var("values")
 gdp$label <- "GDP YoY"
 
@@ -197,22 +191,20 @@ available.
 
 ``` r
 
-
 scales::show_col(bde_rose_pal()(6))
 ```
 
 <img src="man/figures/README-palettes-1.png" width="100%" />
 
 ``` r
-
 scales::show_col(bde_vivid_pal()(6))
 ```
 
 <img src="man/figures/README-palettes-2.png" width="100%" />
 
 Those palettes can be applied to a `ggplot2` using some custom utils
-included on the package (see `help("scale_color_bde_d", package =
-"tidyBdE")`).
+included on the package (see
+`help("scale_color_bde_d", package = "tidyBdE")`).
 
 ``` r
 # Load GDP Series
@@ -311,12 +303,12 @@ bde_series_load("SOME ID", update_cache = TRUE)
 
 Other useful packages that provides access to Spanish open data:
 
-  - [**MicroDatosEs**](https://github.com/rOpenSpain/MicroDatosEs): A
+-   [**MicroDatosEs**](https://github.com/rOpenSpain/MicroDatosEs): A
     package that process microdata provided by Spanish statistical
     agencies (mostly, INE).
-  - [**CatastRo**](https://github.com/rOpenSpain/CatastRo): A package
+-   [**CatastRo**](https://github.com/rOpenSpain/CatastRo): A package
     that queries Sede electrónica del Catastro API.
-  - [**mapSpain**](https://ropenspain.github.io/mapSpain/): For
+-   [**mapSpain**](https://ropenspain.github.io/mapSpain/): For
     downloading geospatial information from Instituto Geográfico
     Nacional (IGN) and creating maps of Spain.
 
@@ -332,8 +324,10 @@ citation("tidyBdE")
 #> 
 #> To cite the 'tidyBdE' package in publications use:
 #> 
-#>   Herrero, D. H. (2021). tidyBdE: Download Data from Bank of Spain R
-#>   package. http://doi.org/10.5281/zenodo.4673496
+#> H. Herrero D (2021). _tidyBdE: Download Data from Bank of Spain_. doi:
+#> 10.5281/zenodo.4673496 (URL: https://doi.org/10.5281/zenodo.4673496), R
+#> package version 0.2.0.9000, <URL:
+#> https://ropenspain.github.io/tidyBdE/>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 

@@ -1,8 +1,6 @@
 test_that("Indicators", {
-  skip_if_not(
-    tidyBdE:::bde_check_access(),
-    "Skipping...  BdE not reachable."
-  )
+  skip_on_cran()
+  skip_if_bde_offline()
 
   # Test load series all----
   expect_null(bde_series_full_load("aa"))

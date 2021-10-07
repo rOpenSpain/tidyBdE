@@ -70,6 +70,7 @@ warning may be displayed if the parser fails. You can override the default
 behavior with \code{parse_numeric = FALSE}
 }
 \examples{
+\dontshow{if (bde_check_access()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 # Metadata
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
@@ -88,7 +89,7 @@ bde_series_load(c(573234, 573214),
   verbose = TRUE, extract_metadata = FALSE
 )
 }
-
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \code{\link[=bde_catalog_load]{bde_catalog_load()}},

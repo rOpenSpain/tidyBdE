@@ -12,7 +12,7 @@
 #'
 #' @seealso [ggplot2::theme()]
 #'
-#' @examples
+#' @examplesIf bde_check_access()
 #' \donttest{
 #' library(tidyverse)
 #'

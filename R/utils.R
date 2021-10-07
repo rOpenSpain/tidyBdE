@@ -4,7 +4,7 @@
 #'
 #' @export
 #'
-#' @concept utils
+#' @family utils
 #'
 #' @return A class "Date" object.
 #'
@@ -243,10 +243,12 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
 #'
 #' @return a logical.
 #'
+#' @family utils
+#'
 #' @examples
 #'
 #' bde_check_access()
-#' @noRd
+#' @export
 bde_check_access <- function() {
   url <- paste0(
     "https://www.bde.es/webbde/es/",
@@ -269,6 +271,20 @@ bde_check_access <- function() {
   # nocov end
 }
 
+#' Skip tests
+#' @noRd
+skip_if_bde_offline <- function() {
+  # nocov start
+  if (bde_check_access()) {
+    return(invisible(TRUE))
+  }
+
+  if (requireNamespace("testthat", quietly = TRUE)) {
+    testthat::skip("tidyBdE> BdE API not reachable")
+  }
+  return(invisible())
+  # nocov end
+}
 
 #' Return empty tibble
 #' @return a tibble.
@@ -277,9 +293,9 @@ bde_check_access <- function() {
 #'
 #' bde_hlp_return_null()
 #' @noRd
-bde_hlp_return_null <- function() {
+bde_hlp_return_null <- function(msg = "Offline. Returning an empty tibble") {
   # nocov start
-  message("Offline. Returning an empty tibble")
+  message(paste0("tidyBdE> ", msg))
   tbl <- tibble::tibble(x = NULL)
   return(tbl)
   # nocov end

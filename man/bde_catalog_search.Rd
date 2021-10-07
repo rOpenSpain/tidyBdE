@@ -42,6 +42,7 @@ the catalogs. You can pass \link[base:regex]{regular expressions} to broaden
 the search.
 }
 \examples{
+\dontshow{if (bde_check_access()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 # Simple search (needs to be in Spanish)
 # !! PIB [es] == GDP [en]
@@ -60,8 +61,13 @@ bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 
 bde_catalog_search("^3779313$")
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \code{\link[=bde_catalog_load]{bde_catalog_load()}}, \code{\link[base:regex]{base::regex()}}
+
+Other catalog: 
+\code{\link{bde_catalog_load}()},
+\code{\link{bde_catalog_update}()}
 }
 \concept{catalog}

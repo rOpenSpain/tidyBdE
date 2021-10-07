@@ -63,9 +63,11 @@ specific series. Use \verb{verbose = TRUE, extract_metadata = TRUE} options
 to see the specification and the source.
 }
 \examples{
+\dontshow{if (bde_check_access()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
-bde_ind_euribor_12m_monthly()
+bde_ind_gdp_var()
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \code{\link[=bde_series_load]{bde_series_load()}}, \code{\link[=bde_catalog_search]{bde_catalog_search()}}

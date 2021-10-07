@@ -25,9 +25,9 @@
 #' specific series. Use `verbose = TRUE, extract_metadata = TRUE` options
 #' to see the specification and the source.
 #'
-#' @examples
+#' @examplesIf bde_check_access()
 #' \donttest{
-#' bde_ind_euribor_12m_monthly()
+#' bde_ind_gdp_var()
 #' }
 bde_ind_gdp_var <- function(series_label = "GDP_YoY", ...) {
 

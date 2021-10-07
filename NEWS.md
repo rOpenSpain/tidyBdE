@@ -2,6 +2,8 @@
 
 -   Update docs and vignettes.
 -   `bde_series_load()` now tries to coerce characters to numeric.
+-   Improve messages when inconsistencies between catalog and series.
+-   Export `bde_check_access()`.
 
 
 # tidyBdE 0.2.0

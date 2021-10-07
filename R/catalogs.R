@@ -50,7 +50,7 @@
 #'
 #' If the requested catalog is not cached [bde_catalog_update()] is invoked.
 #'
-#' @examples
+#' @examplesIf bde_check_access()
 #' \donttest{
 #' bde_catalog_load("TI", verbose = TRUE)
 #' }
@@ -236,7 +236,7 @@ bde_catalog_load <-
 #'
 #' Use `"ALL"` as a shorthand for updating all the catalogs at a glance.
 #'
-#' @examples
+#' @examplesIf bde_check_access()
 #' \donttest{
 #' bde_catalog_update("TI", verbose = TRUE)
 #' }
@@ -311,7 +311,7 @@ bde_catalog_update <-
 #'
 #' @export
 #'
-#' @concept catalog
+#' @family  catalog
 #'
 #' @return A tibble with the results of the query.
 #'
@@ -333,7 +333,7 @@ bde_catalog_update <-
 #'
 #' @seealso [bde_catalog_load()], [base::regex()]
 #'
-#' @examples
+#' @examplesIf bde_check_access()
 #' \donttest{
 #' # Simple search (needs to be in Spanish)
 #' # !! PIB [es] == GDP [en]

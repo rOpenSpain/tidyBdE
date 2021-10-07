@@ -63,6 +63,7 @@ warning may be displayed if the parser fails. You can override the default
 behavior with \code{parse_numeric = FALSE}
 }
 \examples{
+\dontshow{if (bde_check_access()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 # Metadata
 bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
@@ -70,6 +71,7 @@ bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
 # Data
 bde_series_full_load("TI_1_1.csv")
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other series: 
