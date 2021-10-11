@@ -30,8 +30,8 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml)
 [![codecov](https://codecov.io/gh/ropenspain/tidyBdE/branch/main/graph/badge.svg)](https://codecov.io/gh/ropenspain/tidyBdE)
 [![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.4673496-blue)](https://doi.org/10.5281/zenodo.4673496)
-[![Project Status: Active – The project has reached a stable, usable
-state and is being actively
+[![Project Status: Active – The project has reached a stable, usable state and
+is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 <!-- badges: end -->
@@ -182,8 +182,7 @@ ggplot(plotseries, aes(x = Date, y = values)) +
   scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
 ```
 
-
-### Palettes 
+### Palettes
 
 Two custom palettes, based on the used by BdE on some publications are
 available.

@@ -83,7 +83,7 @@ bde_ind_euribor_12m_monthly <-
     }
     # nocov end
 
-    seq_num <- 2737989
+    seq_num <- 587853
 
     econom_ind <-
       bde_series_load(seq_num, series_label = series_label, ...)

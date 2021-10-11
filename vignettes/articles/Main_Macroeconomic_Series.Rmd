@@ -7,8 +7,8 @@ output:
     toc_depth: 2
 ---
 
-This article shows the evolution of selected economic indicators of 
-Spain, based on the information provided by [Banco de España](https://www.bde.es/).
+This article shows the evolution of selected economic indicators of Spain, based
+on the information provided by [Banco de España](https://www.bde.es/).
 
 Last update: **`r format(Sys.Date(),"%d-%B-%Y")`**.
 
@@ -34,7 +34,7 @@ br <- seq(nd, Sys.Date(), "6 months")
 
 ## GDP of Spain
 
-### Aggregated (last  4 quarters)
+### Aggregated (last 4 quarters)
 
 ```{r echo=FALSE}
 dataset <- bde_ind_gdp_quarterly(series_label = "data")
@@ -64,7 +64,6 @@ ggplot(dataset, aes(x = Date, y = data)) +
   ) +
   theme_bde()
 ```
-
 
 ### GDP by industry (quarterly)
 
@@ -133,7 +132,6 @@ rm(list = c("dataset", "dataset_init"))
 ```
 
 ### Year-on-year variation
-
 
 ```{r echo=FALSE}
 
@@ -204,7 +202,6 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ## Unemployment Rate
 
-
 ```{r echo=FALSE}
 
 dataset <- bde_ind_unemployment_rate(series_label = "data") %>%
@@ -232,9 +229,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
   theme_bde()
 ```
 
-
 ## Consumer Price Index
-
 
 ```{r echo=FALSE}
 
@@ -265,10 +260,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ## Monthly Euribor
 
-
-Not available due to inconsistencies on the original data.
-
-```{r echo=FALSE, eval=FALSE}
+```{r echo=FALSE}
 
 dataset <- bde_ind_euribor_12m_monthly(series_label = "data") %>%
   filter(Date >= nd)
@@ -294,7 +286,6 @@ ggplot(dataset, aes(x = Date, y = data)) +
   ) +
   theme_bde()
 ```
-
 
 ## Population
 

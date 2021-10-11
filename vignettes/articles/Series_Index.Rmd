@@ -11,12 +11,9 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
-if (isFALSE(requireNamespace("reactable", quietly = TRUE))) {
-  install.packages("reactable")
-}
 ```
 
-The following table shows the series available on the catalog (Last update: 
+The following table shows the series available on the catalog (Last update:
 **`r format(Sys.Date(),"%d-%B-%Y")`**).
 
 ```{r set_locale, warning=FALSE, comment=FALSE, include=FALSE}
@@ -27,9 +24,7 @@ The following table shows the series available on the catalog (Last update:
 Sys.setlocale(category = "LC_ALL", locale = "Spanish")
 ```
 
-
-
-Use the sequential number to load a single series (see [Example](#example) 
+Use the sequential number to load a single series (see [Example](#example)
 below):
 
 ## Series index
@@ -67,9 +62,7 @@ reactable(series_clean,
 )
 ```
 
-
-
-## Example
+## Example {#example}
 
 For searching and extracting a specific serie, see the full workflow:
 

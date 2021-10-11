@@ -82,9 +82,9 @@ XR_GBP %>%
   knitr::kable()
 ```
 
-| Numero\_secuencial | Descripcion\_de\_la\_serie                                         |
-|-------------------:|:-------------------------------------------------------------------|
-|             573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+| Numero_secuencial | Descripcion_de_la_serie                                            |
+|------------------:|:-------------------------------------------------------------------|
+|            573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
 
 **Note that BdE files are only provided in Spanish, for the time
 being**, the organism is working on the English version. By now, search
@@ -114,7 +114,7 @@ bde_series_load(seq_number, extract_metadata = TRUE) %>%
 |:----------------------------|:-------------------------------------------------------------------|
 | NOMBRE DE LA SERIE          | DTCCBCEGBPEUR.B                                                    |
 | NÚMERO SECUENCIAL           | 573214                                                             |
-| ALIAS DE LA SERIE           | TC\_1\_1.4                                                         |
+| ALIAS DE LA SERIE           | TC_1\_1.4                                                          |
 | DESCRIPCIÓN DE LA SERIE     | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
 | DESCRIPCIÓN DE LAS UNIDADES | Libras esterlinas por Euro                                         |
 | FRECUENCIA                  | LABORABLE                                                          |
@@ -326,7 +326,8 @@ citation("tidyBdE")
 #> 
 #> H. Herrero D (2021). _tidyBdE: Download Data from Bank of Spain_. doi:
 #> 10.5281/zenodo.4673496 (URL: https://doi.org/10.5281/zenodo.4673496), R
-#> package version 0.2.1, <URL: https://ropenspain.github.io/tidyBdE/>.
+#> package version 0.2.1.9000, <URL:
+#> https://ropenspain.github.io/tidyBdE/>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -334,7 +335,7 @@ citation("tidyBdE")
 #>     title = {tidyBdE: Download Data from Bank of Spain},
 #>     author = {Diego {H. Herrero}},
 #>     year = {2021},
-#>     note = {R package version 0.2.1},
+#>     note = {R package version 0.2.1.9000},
 #>     url = {https://ropenspain.github.io/tidyBdE/},
 #>     doi = {10.5281/zenodo.4673496},
 #>   }
