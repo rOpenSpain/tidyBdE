@@ -10,7 +10,6 @@ knitr::opts_chunk$set(
   warning = FALSE,
   comment = "#>"
 )
-
 ```
 
 The following table shows the series available on the catalog (Last update:
