@@ -164,7 +164,7 @@ bde_hlp_download <- function(url, local_file, verbose) {
       return(TRUE)
     }
   )
-
+  # nocov end
   # Try again if not working
   # This time display a message
 
