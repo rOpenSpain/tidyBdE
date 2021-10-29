@@ -327,24 +327,20 @@ España.
 
 ## Citation
 
-``` r
-citation("tidyBdE")
-#> 
-#> To cite the 'tidyBdE' package in publications use:
-#> 
-#> H. Herrero D (2021). _tidyBdE: Download Data from Bank of Spain_. doi:
-#> 10.5281/zenodo.4673496 (URL: https://doi.org/10.5281/zenodo.4673496), R
-#> package version 0.2.1.9000, <URL:
-#> https://ropenspain.github.io/tidyBdE/>.
-#> 
-#> A BibTeX entry for LaTeX users is
-#> 
-#>   @Manual{,
-#>     title = {tidyBdE: Download Data from Bank of Spain},
-#>     author = {Diego {H. Herrero}},
-#>     year = {2021},
-#>     note = {R package version 0.2.1.9000},
-#>     url = {https://ropenspain.github.io/tidyBdE/},
-#>     doi = {10.5281/zenodo.4673496},
-#>   }
-```
+To cite the ‘tidyBdE’ package in publications use:
+
+H. Herrero D (2021). *tidyBdE: Download Data from Bank of Spain*. doi:
+10.5281/zenodo.4673496 (URL: <https://doi.org/10.5281/zenodo.4673496>),
+R package version 0.2.1.9000, \<URL:
+<https://ropenspain.github.io/tidyBdE/>\>.
+
+A BibTeX entry for LaTeX users is
+
+    #> @Manual{,
+    #>   title = {tidyBdE: Download Data from Bank of Spain},
+    #>   author = {Diego {H. Herrero}},
+    #>   year = {2021},
+    #>   note = {R package version 0.2.1.9000},
+    #>   url = {https://ropenspain.github.io/tidyBdE/},
+    #>   doi = {10.5281/zenodo.4673496},
+    #> }
