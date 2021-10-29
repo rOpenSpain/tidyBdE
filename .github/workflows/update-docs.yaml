@@ -37,10 +37,7 @@ jobs:
       - name: Update docs
         run: |
           
-          pkgdev::update_docs(keys = list(
-                            message="To cite package 'tidyBdE' in publications use:",
-                            doi = "10.5281/zenodo.4673496"
-                            ))
+          pkgdev::update_docs()
 
         shell: Rscript {0}
 
