@@ -307,6 +307,14 @@ This package is in no way sponsored endorsed or administered by Banco de España
 
 ## Citation
 
-```{r}
-citation("tidyBdE")
+```{r echo=FALSE, results='asis'}
+print(citation("tidyBdE"), bibtex = FALSE)
 ```
+
+
+A BibTeX entry for LaTeX users is 
+
+```{r echo=FALSE}
+toBibtex(citation("tidyBdE"))
+```
+
