@@ -12,16 +12,44 @@
 #'
 #' @param dates_to_parse Dates to parse
 #'
-#' @note
+#' @description
 #' This function is tailored for the date formatting used on this package, so
 #' it may fail if it is used for another datasets. See **Examples** for
 #' checking which formats would be considered.
 #'
+#' ## Date Formats
+#'
+#' ```{r, echo=FALSE}
+#'
+#' dates <- tibble::tribble(
+#'   ~FREQUENCY, ~FORMAT, ~EXAMPLES,
+#'   "**Daily / Business day**", "DD MMMMYYYY", "*02 FEB2019*",
+#'   "**Monthly**", "MMM YYYY", "*MAR 2020*",
+#'   "**Quarterly**", paste(
+#'     "MMM YYYY, where MMM is the first ",
+#'     "or the last month of the",
+#'     "quarter, depending on the value of",
+#'     "its variable OBSERVED."
+#'   ),
+#'   "For the first quarter of 2020: *ENE 2020, MAR 2020*",
+#'   "**Half-yearly**", paste(
+#'     "MMM YYYY, where MMM is the first or the last month",
+#'     "of the halfyear period, depending on the value of its",
+#'     "variable OBSERVED."
+#'   ),
+#'   "For the first half of 2020: *ENE 2020, JUN 2020*",
+#'   "**Annual**", "YYYY", "*2020*"
+#' )
+#' names(dates) <- paste0("**", names(dates), "**")
+#'
+#' knitr::kable(dates)
+#' ```
+#'
 #' @examples
 #' # Formats parsed
 #' would_parse <- c(
-#'   "02 FEB2019", "MAR 2020", "ENE2020", "2020",
-#'   "12-1993", "01-02-2014", "01/02/1990"
+#'   "02 FEB2019", "15 ABR 1890", "MAR 2020", "ENE2020",
+#'   "2020", "12-1993", "01-02-2014", "01/02/1990"
 #' )
 #'
 #' parsed_ok <- bde_parse_dates(would_parse)
@@ -194,7 +222,6 @@ bde_hlp_download <- function(url, local_file, verbose) {
 
   # On warning stop the execution
   if (isTRUE(err_dwnload)) {
-    message("tidyBdE> Corrupted file")
     return(FALSE)
     # nocov end
   } else {
@@ -255,58 +282,6 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
   return(tbl)
 }
 
-#' Check access to BdE
-#'
-#'
-#' @description
-#' Check if R has access to resources at
-#' <https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html>.
-#'
-#' @return a logical.
-#'
-#' @family utils
-#'
-#' @examples
-#' \donttest{
-#' bde_check_access()
-#' }
-#' @export
-bde_check_access <- function() {
-  url <- paste0(
-    "https://www.bde.es/webbde/es/",
-    "estadis/infoest/series/catalogo_ie.csv"
-  )
-  # nocov start
-  access <-
-    tryCatch(
-      download.file(url, destfile = tempfile(), quiet = TRUE),
-      warning = function(e) {
-        return(FALSE)
-      }
-    )
-
-  if (isFALSE(access)) {
-    return(FALSE)
-  } else {
-    return(TRUE)
-  }
-  # nocov end
-}
-
-#' Skip tests
-#' @noRd
-skip_if_bde_offline <- function() {
-  # nocov start
-  if (bde_check_access()) {
-    return(invisible(TRUE))
-  }
-
-  if (requireNamespace("testthat", quietly = TRUE)) {
-    testthat::skip("tidyBdE> BdE API not reachable")
-  }
-  return(invisible())
-  # nocov end
-}
 
 #' Return empty tibble
 #' @return a tibble.

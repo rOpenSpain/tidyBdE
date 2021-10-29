@@ -40,20 +40,25 @@ Load the time-series catalogs provided by BdE.
 }
 \details{
 Accepted values for \code{catalog} are:\tabular{llll}{
-   CODE \tab PUBLICATION \tab UPDATE FREQUENCY \tab FREQUENCY \cr
-   BE \tab Statistical Bulletin \tab Daily \tab Monthly \cr
-   CF \tab Financial Accounts of the Spanish Economy \tab Quarterly \tab Annual \cr
-   IE \tab Economic Indicators \tab Daily \tab Monthly \cr
-   SI \tab Summary Indicators \tab Daily \tab Daily \cr
-   TC \tab Exchange Rates \tab Daily \tab Daily \cr
-   TI \tab Interest Rates \tab Daily \tab Daily \cr
-   PB \tab Bank Lending Survey \tab Quarterly \tab Quarterly \cr
+   \strong{CODE} \tab \strong{PUBLICATION} \tab \strong{UPDATE FREQUENCY} \tab \strong{FREQUENCY} \cr
+   \strong{BE} \tab Statistical Bulletin \tab Daily \tab Monthly \cr
+   \strong{CF} \tab Financial Accounts of the Spanish Economy \tab Quarterly \tab Annual \cr
+   \strong{IE} (see \strong{Note}) \tab Economic Indicators \tab Daily \tab Monthly \cr
+   \strong{SI} \tab Summary Indicators \tab Daily \tab Daily \cr
+   \strong{TC} \tab Exchange Rates \tab Daily \tab Daily \cr
+   \strong{TI} \tab Interest Rates \tab Daily \tab Daily \cr
+   \strong{PB} \tab Bank Lending Survey \tab Quarterly \tab Quarterly \cr
 }
 
 
 Use \code{"ALL"} as a shorthand for updating all the catalogs at a glance.
 
 If the requested catalog is not cached \code{\link[=bde_catalog_update]{bde_catalog_update()}} is invoked.
+}
+\note{
+From 1 July 2021, the contents of the publication Economic Indicators will
+gradually be migrated to the Statistical Bulletin. From June 2022, the
+Economic Indicators section will no longer be available.
 }
 \examples{
 \dontshow{if (bde_check_access()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

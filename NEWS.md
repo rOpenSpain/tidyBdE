@@ -1,4 +1,4 @@
-# tidyBdE (development version)
+# tidyBdE 0.2.2
 
 -   BdE starts migrating "Indicadores Económicos" (Economic Indicators) series
     to the Statistical Bulletin (more info
@@ -7,6 +7,8 @@
     So far, these series has been updated:
 
     -   `bde_ind_euribor_12m_monthly()`: New series code is `587853`.
+
+-   Update docs and examples.
 
 # tidyBdE 0.2.1
 

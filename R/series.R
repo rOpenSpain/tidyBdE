@@ -148,7 +148,7 @@ bde_series_load <- function(series_code,
       extract_metadata = extract_metadata
     )
 
-
+    # nocov start
     if (!(alias_serie %in% names(serie_file))) {
       if (verbose) {
         message(
@@ -163,6 +163,7 @@ bde_series_load <- function(series_code,
 
       serie_file <- serie_file["Date"]
       serie_file <- tibble::add_column(serie_file, x = NA)
+      # nocov end
     } else {
       serie_file <- serie_file[c("Date", alias_serie)]
     }

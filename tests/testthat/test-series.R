@@ -1,4 +1,6 @@
 test_that("Indicators", {
+  expect_error(bde_series_load())
+
   skip_on_cran()
   skip_if_bde_offline()
 

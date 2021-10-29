@@ -13,18 +13,28 @@ bde_parse_dates(dates_to_parse)
 A class "Date" object.
 }
 \description{
-Tries to parse strings representing dates using \code{\link[=as.Date]{as.Date()}}
-}
-\note{
 This function is tailored for the date formatting used on this package, so
 it may fail if it is used for another datasets. See \strong{Examples} for
 checking which formats would be considered.
+\subsection{Date Formats}{\tabular{lll}{
+   \strong{FREQUENCY} \tab \strong{FORMAT} \tab \strong{EXAMPLES} \cr
+   \strong{Daily / Business day} \tab DD MMMMYYYY \tab \emph{02 FEB2019} \cr
+   \strong{Monthly} \tab MMM YYYY \tab \emph{MAR 2020} \cr
+   \strong{Quarterly} \tab MMM YYYY, where MMM is the first  or the last month of the quarter, depending on the value of its variable OBSERVED. \tab For the first quarter of 2020: \emph{ENE 2020, MAR 2020} \cr
+   \strong{Half-yearly} \tab MMM YYYY, where MMM is the first or the last month of the halfyear period, depending on the value of its variable OBSERVED. \tab For the first half of 2020: \emph{ENE 2020, JUN 2020} \cr
+   \strong{Annual} \tab YYYY \tab \emph{2020} \cr
+}
+
+}
+}
+\details{
+Tries to parse strings representing dates using \code{\link[=as.Date]{as.Date()}}
 }
 \examples{
 # Formats parsed
 would_parse <- c(
-  "02 FEB2019", "MAR 2020", "ENE2020", "2020",
-  "12-1993", "01-02-2014", "01/02/1990"
+  "02 FEB2019", "15 ABR 1890", "MAR 2020", "ENE2020",
+  "2020", "12-1993", "01-02-2014", "01/02/1990"
 )
 
 parsed_ok <- bde_parse_dates(would_parse)

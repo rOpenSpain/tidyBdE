@@ -23,6 +23,11 @@
 #'
 #' @inheritParams bde_catalog_update
 #'
+#' @note
+#'  From 1 July 2021, the contents of the publication Economic Indicators will
+#'  gradually be migrated to the Statistical Bulletin. From June 2022, the
+#'  Economic Indicators section will no longer be available.
+#'
 #' @details
 #' Accepted values for `catalog` are:
 #'
@@ -30,16 +35,18 @@
 #'
 #' t <- tibble::tribble(
 #' ~CODE, ~PUBLICATION, ~UPDATEFREQUENCY, ~FREQUENCY,
-#' "BE", "Statistical Bulletin", "Daily", "Monthly",
-#' "CF", "Financial Accounts of the Spanish Economy", "Quarterly", "Annual",
-#' "IE", "Economic Indicators", "Daily", "Monthly",
-#' "SI", "Summary Indicators", "Daily", "Daily",
-#' "TC", "Exchange Rates", "Daily", "Daily",
-#' "TI", "Interest Rates", "Daily", "Daily",
-#' "PB", "Bank Lending Survey", "Quarterly", "Quarterly",
+#' "**BE**", "Statistical Bulletin", "Daily", "Monthly",
+#' "**CF**", "Financial Accounts of the Spanish Economy", "Quarterly", "Annual",
+#' "**IE** (see **Note**)", "Economic Indicators", "Daily", "Monthly",
+#' "**SI**", "Summary Indicators", "Daily", "Daily",
+#' "**TC**", "Exchange Rates", "Daily", "Daily",
+#' "**TI**", "Interest Rates", "Daily", "Daily",
+#' "**PB**", "Bank Lending Survey", "Quarterly", "Quarterly",
 #' )
 #'
-#' names(t) <- c("CODE","PUBLICATION", "UPDATE FREQUENCY", "FREQUENCY")
+#' names(t) <- paste0("**",
+#'   c("CODE","PUBLICATION", "UPDATE FREQUENCY", "FREQUENCY"),
+#'   "**")
 #'
 #' knitr::kable(t)
 #'

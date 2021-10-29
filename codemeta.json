@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/rOpenSpain/tidyBdE",
   "issueTracker": "https://github.com/rOpenSpain/tidyBdE/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.2.1.9000",
+  "version": "0.2.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -181,7 +181,7 @@
   },
   "applicationCategory": "Macroeconomics",
   "isPartOf": "https://ropenspain.es/",
-  "fileSize": "895.454KB",
+  "fileSize": "902.396KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -196,7 +196,7 @@
       "name": "tidyBdE: Download Data from Bank of Spain",
       "identifier": "10.5281/zenodo.4673496",
       "url": "https://ropenspain.github.io/tidyBdE/",
-      "description": "R package version 0.2.1.9000",
+      "description": "R package version 0.2.2",
       "@id": "https://doi.org/10.5281/zenodo.4673496",
       "sameAs": "https://doi.org/10.5281/zenodo.4673496"
     }
