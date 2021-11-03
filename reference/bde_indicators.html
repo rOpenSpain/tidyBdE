@@ -198,7 +198,7 @@ custom label for the series extracted. It should have the same length than
     <dt><code>parse_numeric</code></dt><dd><p>Logical. If <code>TRUE</code> the columns would be parsed to
 double (numeric) values. See <strong>Note</strong>.</p></dd>
     <dt><code>cache_dir</code></dt><dd><p>A path to a cache directory. The directory can also be set
-via options with <code><a href='https://rdrr.io/r/base/options.html'>options(bde_cache_dir = "path/to/dir")</a></code>.</p></dd>
+via options with <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
     <dt><code>update_cache</code></dt><dd><p>Logical. If <code>TRUE</code> the requested file would be updated on
 the <code>cache_dir</code>.</p></dd>
     <dt><code>verbose</code></dt><dd><p>Logical <code>TRUE</code> or <code>FALSE</code>, display information useful for
@@ -223,23 +223,24 @@ to see the specification and the source.</p>
     <div class='dont-index'><p><code><a href='bde_series_load.html'>bde_series_load()</a></code>, <code><a href='bde_catalog_search.html'>bde_catalog_search()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='fu'>bde_ind_gdp_var</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 102 x 2</span>
-#&gt;    Date       GDP_YoY
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span> 1996-03-01    2.4 
-#&gt; <span style='color: #BCBCBC;'> 2</span> 1996-06-01    2.52
-#&gt; <span style='color: #BCBCBC;'> 3</span> 1996-09-01    2.98
-#&gt; <span style='color: #BCBCBC;'> 4</span> 1996-12-01    2.75
-#&gt; <span style='color: #BCBCBC;'> 5</span> 1997-03-01    3.18
-#&gt; <span style='color: #BCBCBC;'> 6</span> 1997-06-01    3.35
-#&gt; <span style='color: #BCBCBC;'> 7</span> 1997-09-01    3.69
-#&gt; <span style='color: #BCBCBC;'> 8</span> 1997-12-01    4.57
-#&gt; <span style='color: #BCBCBC;'> 9</span> 1998-03-01    4.42
-#&gt; <span style='color: #BCBCBC;'>10</span> 1998-06-01    4.65
-#&gt; <span style='color: #949494;'># ... with 92 more rows</span></div><div class='input'><span class='co'># }</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'><span class='fu'>bde_ind_gdp_var</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 102 x 2</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Date       GDP_YoY</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> 1996-03-01    2.4 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> 1996-06-01    2.52</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> 1996-09-01    2.98</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> 1996-12-01    2.75</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> 1997-03-01    3.18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> 1997-06-01    3.35</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> 1997-09-01    3.69</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> 1997-12-01    4.57</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> 1998-03-01    4.42</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> 1998-06-01    4.65</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># ... with 92 more rows</span></span>
+<span class='r-in'><span class='co'># }</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -187,7 +187,7 @@ or <code>"ALL"</code> as a shorthand. See <strong>Details</strong>.</p></td>
     <tr>
       <th>cache_dir</th>
       <td><p>A path to a cache directory. The directory can also be set
-via options with <code><a href='https://rdrr.io/r/base/options.html'>options(bde_cache_dir = "path/to/dir")</a></code>.</p></td>
+via options with <code>options(bde_cache_dir = "path/to/dir")</code>.</p></td>
     </tr>
     <tr>
       <th>update_cache</th>
@@ -236,29 +236,35 @@ Economic Indicators section will no longer be available.</p>
 <code><a href='bde_catalog_update.html'>bde_catalog_update</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='fu'>bde_catalog_load</span><span class='op'>(</span><span class='st'>"TI"</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpGSvXEi</span></div><div class='output co'>#&gt; <span class='message'>tidyBdE&gt; Cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\RtmpGSvXEi</span></div><div class='output co'>#&gt; <span class='message'>tidyBdE&gt; Updating catalogs: TI</span></div><div class='output co'>#&gt; <span class='message'>tidyBdE&gt; Downloading file from https://www.bde.es/webbde/es/estadis/infoest/series/catalogo_ti.csv</span>
-#&gt; <span class='message'></span></div><div class='output co'>#&gt; <span class='message'>tidyBdE&gt; Parsing dates</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 68 x 17</span>
-#&gt;    Nombre_de_la_serie Numero_secuencial Alias_de_la_serie Nombre_del_archivo_co~
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                 
-#&gt; <span style='color: #BCBCBC;'> 1</span> D_DTFK01A0                   1<span style='text-decoration: underline;'>654</span>131 TI_1_1.1          TI_1_1.csv            
-#&gt; <span style='color: #BCBCBC;'> 2</span> D_DTFK03A0                   1<span style='text-decoration: underline;'>654</span>132 TI_1_1.2          TI_1_1.csv            
-#&gt; <span style='color: #BCBCBC;'> 3</span> D_DTFK02A0                   1<span style='text-decoration: underline;'>654</span>133 TI_1_1.3          TI_1_1.csv            
-#&gt; <span style='color: #BCBCBC;'> 4</span> D_DNBBBP72                    <span style='text-decoration: underline;'>903</span>705 TI_1_1.4          TI_1_1.csv            
-#&gt; <span style='color: #BCBCBC;'> 5</span> D_DBEI00AJ00F                1<span style='text-decoration: underline;'>589</span>846 TI_1_1.5          TI_1_1.csv            
-#&gt; <span style='color: #BCBCBC;'> 6</span> D_DBEA00AJ00F                1<span style='text-decoration: underline;'>589</span>850 TI_1_1.7          TI_1_1.csv            
-#&gt; <span style='color: #BCBCBC;'> 7</span> D_DNBBBA72                    <span style='text-decoration: underline;'>581</span>532 TI_1_1.9          TI_1_1.csv            
-#&gt; <span style='color: #BCBCBC;'> 8</span> D_DNBBBB72                    <span style='text-decoration: underline;'>581</span>533 TI_1_1.10         TI_1_1.csv            
-#&gt; <span style='color: #BCBCBC;'> 9</span> D_DE721006                   1<span style='text-decoration: underline;'>654</span>134 TI_1_2.1          TI_1_2.csv            
-#&gt; <span style='color: #BCBCBC;'>10</span> D_DE722706                     <span style='text-decoration: underline;'>58</span>233 TI_1_2.2          TI_1_2.csv            
-#&gt; <span style='color: #949494;'># ... with 58 more rows, and 13 more variables: Descripcion_de_la_serie &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   Tipo_de_variable &lt;chr&gt;, Codigo_de_unidades &lt;chr&gt;, Exponente &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   Numero_de_decimales &lt;dbl&gt;, Descripcion_de_unidades_y_exponente &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   Frecuencia_de_la_serie &lt;chr&gt;, Fecha_de_la_primera_observacion &lt;date&gt;,</span>
-#&gt; <span style='color: #949494;'>#   Fecha_de_la_ultima_observacion &lt;date&gt;, Numero_de_observaciones &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   Titulo_de_la_serie &lt;chr&gt;, Fuente &lt;chr&gt;, Notas &lt;chr&gt;</span></div><div class='input'><span class='co'># }</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'><span class='fu'>bde_catalog_load</span><span class='op'>(</span><span class='st'>"TI"</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpiqxlJu</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> tidyBdE&gt; Cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\RtmpiqxlJu</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> tidyBdE&gt; Updating catalogs: TI</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> tidyBdE&gt; Downloading file from https://www.bde.es/webbde/es/estadis/infoest/series/catalogo_ti.csv</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> tidyBdE&gt; Parsing dates</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 68 x 17</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Nombre_de_la_serie Numero_secuencial Alias_de_la_serie Nombre_del_archivo_co~</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> D_DTFK01A0                   1<span style='text-decoration: underline;'>654</span>131 TI_1_1.1          TI_1_1.csv            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> D_DTFK03A0                   1<span style='text-decoration: underline;'>654</span>132 TI_1_1.2          TI_1_1.csv            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> D_DTFK02A0                   1<span style='text-decoration: underline;'>654</span>133 TI_1_1.3          TI_1_1.csv            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> D_DNBBBP72                    <span style='text-decoration: underline;'>903</span>705 TI_1_1.4          TI_1_1.csv            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> D_DBEI00AJ00F                1<span style='text-decoration: underline;'>589</span>846 TI_1_1.5          TI_1_1.csv            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> D_DBEA00AJ00F                1<span style='text-decoration: underline;'>589</span>850 TI_1_1.7          TI_1_1.csv            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> D_DNBBBA72                    <span style='text-decoration: underline;'>581</span>532 TI_1_1.9          TI_1_1.csv            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> D_DNBBBB72                    <span style='text-decoration: underline;'>581</span>533 TI_1_1.10         TI_1_1.csv            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> D_DE721006                   1<span style='text-decoration: underline;'>654</span>134 TI_1_2.1          TI_1_2.csv            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> D_DE722706                     <span style='text-decoration: underline;'>58</span>233 TI_1_2.2          TI_1_2.csv            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># ... with 58 more rows, and 13 more variables: Descripcion_de_la_serie &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   Tipo_de_variable &lt;chr&gt;, Codigo_de_unidades &lt;chr&gt;, Exponente &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   Numero_de_decimales &lt;dbl&gt;, Descripcion_de_unidades_y_exponente &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   Frecuencia_de_la_serie &lt;chr&gt;, Fecha_de_la_primera_observacion &lt;date&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   Fecha_de_la_ultima_observacion &lt;date&gt;, Numero_de_observaciones &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   Titulo_de_la_serie &lt;chr&gt;, Fuente &lt;chr&gt;, Notas &lt;chr&gt;</span></span>
+<span class='r-in'><span class='co'># }</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
