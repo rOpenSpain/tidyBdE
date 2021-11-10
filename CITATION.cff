@@ -4,7 +4,7 @@
 # -----------------------------------------------------------
  
 cff-version: 1.2.0
-message: 'To cite package ''tidyBdE'' in publications use:'
+message: 'To cite package "tidyBdE" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'tidyBdE: Download Data from Bank of Spain'
@@ -39,3 +39,15 @@ contact:
   email: dev.dieghernan@gmail.com
   orcid: https://orcid.org/0000-0001-8457-4658
   affiliation: rOpenSpain
+keywords:
+- api
+- bde
+- cran
+- ggplot2
+- macroeconomics
+- r
+- r-package
+- ropenspain
+- rstats
+- series-data
+- spain
