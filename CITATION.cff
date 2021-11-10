@@ -1,10 +1,10 @@
 # -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.0.1.9004
-# See also: https://dieghernan.github.io/cffr/
+# CITATION file created with {cffr} R package, v0.1.1
+# See also: https://docs.ropensci.org/cffr/
 # -----------------------------------------------------------
  
 cff-version: 1.2.0
-message: 'To cite package "tidyBdE" in publications use:'
+message: 'To cite package ''tidyBdE'' in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'tidyBdE: Download Data from Bank of Spain'
