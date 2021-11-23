@@ -1,17 +1,14 @@
 year <- format(Sys.time(), "%Y")
-vers <- paste("R package version", meta$Version)
-url <- "https://ropenspain.github.io/tidyBdE/"
 
 bibentry(
   "Manual",
   header = "To cite the 'tidyBdE' package in publications use:",
   title = paste("tidyBdE:", meta$Title),
-  author = person(
-    given = "Diego",
-    family = "H. Herrero"
-  ),
   year = year,
-  note = vers,
-  url = url,
-  doi = "10.5281/zenodo.4673496"
+  version = meta$Version,
+  author = person("Diego","H. Herrero"),
+  note = paste("R package version", meta$Version),
+  doi = "10.5281/zenodo.4673496",
+  url = unlist(strsplit(meta$URL, ","))[1],
+  abstract = meta$Description
 )
