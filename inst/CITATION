@@ -1,4 +1,5 @@
 year <- format(Sys.time(), "%Y")
+abs <- trimws(gsub("\\s+", " ", meta$Description))
 
 bibentry(
   "Manual",
@@ -10,5 +11,5 @@ bibentry(
   note = paste("R package version", meta$Version),
   doi = "10.5281/zenodo.4673496",
   url = unlist(strsplit(meta$URL, ","))[1],
-  abstract = meta$Description
+  abstract = abs
 )
