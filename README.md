@@ -214,75 +214,6 @@ Those palettes can be applied to a `ggplot2` using some custom utils
 included on the package (see `help("scale_color_bde_d", package =
 "tidyBdE")`).
 
-``` r
-# Load GDP Series
-
-GDP <- bde_series_load(
-  series_code = c(
-    3777251,
-    3777265,
-    3777259,
-    3777269,
-    3777060
-  ),
-  series_label = c(
-    "Agriculture",
-    "Industry",
-    "Construction",
-    "Services",
-    "Total"
-  )
-)
-
-
-# Manipulate data - tidyverse style
-
-GDP_all <- GDP %>%
-  # Filter dates
-  filter(Date <= "2020-12-31") %>%
-  # Create 'Other' column and convert Date to year
-  mutate(
-    Other = Total - rowSums(across(Agriculture:Services)),
-    Date = as.numeric(format(Date, format = "%Y"))
-  ) %>%
-  # Sum by year
-  group_by(Date) %>%
-  summarise_at(vars(-group_cols()), sum) %>%
-  # Create percentage
-  relocate(Total, .after = Other) %>%
-  mutate(across(Agriculture:Other, ~ .x * 100 / Total)) %>%
-  # Move cols to rows for plotting
-  select(-Total) %>%
-  pivot_longer(Agriculture:Other,
-    names_to = "serie",
-    values_to = "value"
-  )
-
-
-
-ggplot(data = GDP_all, aes(
-  x = Date,
-  y = value,
-  fill = serie
-)) +
-  geom_bar(
-    position = "stack",
-    stat = "identity",
-    alpha = 0.8
-  ) +
-  scale_fill_bde_d(palette = "bde_rose_pal") + # Custom palette on the package
-  scale_x_continuous(expand = c(0, 0)) +
-  scale_y_continuous(expand = c(0, 0)) +
-  theme_bde() +
-  labs(
-    title = "Spain: Gross domestic product by industry",
-    subtitle = "%",
-    caption = "Source: BdE"
-  )
-```
-
-<img src="man/figures/README-gdp-1.png" width="100%" />
-
 ### A note on caching
 
 You can use **tidyBdE** to create your own local repository at a given
@@ -338,9 +269,11 @@ A BibTeX entry for LaTeX users is
 
     #> @Manual{,
     #>   title = {tidyBdE: Download Data from Bank of Spain},
-    #>   author = {Diego {H. Herrero}},
     #>   year = {2021},
+    #>   version = {0.2.2},
+    #>   author = {Diego {H. Herrero}},
     #>   note = {R package version 0.2.2},
-    #>   url = {https://ropenspain.github.io/tidyBdE/},
     #>   doi = {10.5281/zenodo.4673496},
+    #>   url = {https://ropenspain.github.io/tidyBdE/},
+    #>   abstract = {Tools to download data series from 'Banco de España' ('BdE') on 'tibble' format. 'Banco de España' is the national central bank and, within the framework of the Single Supervisory Mechanism ('SSM'), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by 'Banco de España'.},
     #> }
