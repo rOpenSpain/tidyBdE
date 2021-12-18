@@ -198,7 +198,9 @@ scales::show_col(bde_vivid_pal()(6))
 Those palettes can be applied to a `ggplot2` using some custom utils included on
 the package (see `help("scale_color_bde_d", package = "tidyBdE")`).
 
-```{r gdp}
+```{r gdp, include = FALSE, eval = FALSE }
+
+# Error on source, not run
 # Load GDP Series
 
 GDP <- bde_series_load(
@@ -314,7 +316,7 @@ print(citation("tidyBdE"), bibtex = FALSE)
 
 A BibTeX entry for LaTeX users is 
 
-```{r echo=FALSE}
+```{r echo=FALSE, message = ''}
 toBibtex(citation("tidyBdE"))
 ```
 
