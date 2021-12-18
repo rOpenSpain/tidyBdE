@@ -247,7 +247,7 @@ print(citation("tidyBdE"), bibtex = FALSE)
 
 A BibTeX entry for LaTeX users is 
 
-```{r echo=FALSE, message = ''}
+```{r echo=FALSE, comment=''}
 toBibtex(citation("tidyBdE"))
 ```
 
