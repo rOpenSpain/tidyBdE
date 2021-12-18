@@ -67,7 +67,9 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ### GDP by industry (quarterly)
 
-```{r echo=FALSE}
+Currently not available
+
+```{r echo=FALSE, eval=FALSE}
 library(tidyr)
 
 dataset_init <- bde_series_load(
