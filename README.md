@@ -267,13 +267,13 @@ R package version 0.2.2, \<URL:
 
 A BibTeX entry for LaTeX users is
 
-    #> @Manual{,
-    #>   title = {tidyBdE: Download Data from Bank of Spain},
-    #>   year = {2021},
-    #>   version = {0.2.2},
-    #>   author = {Diego {H. Herrero}},
-    #>   note = {R package version 0.2.2},
-    #>   doi = {10.5281/zenodo.4673496},
-    #>   url = {https://ropenspain.github.io/tidyBdE/},
-    #>   abstract = {Tools to download data series from 'Banco de España' ('BdE') on 'tibble' format. 'Banco de España' is the national central bank and, within the framework of the Single Supervisory Mechanism ('SSM'), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by 'Banco de España'.},
-    #> }
+    @Manual{,
+      title = {tidyBdE: Download Data from Bank of Spain},
+      year = {2021},
+      version = {0.2.2},
+      author = {Diego {H. Herrero}},
+      note = {R package version 0.2.2},
+      doi = {10.5281/zenodo.4673496},
+      url = {https://ropenspain.github.io/tidyBdE/},
+      abstract = {Tools to download data series from 'Banco de España' ('BdE') on 'tibble' format. 'Banco de España' is the national central bank and, within the framework of the Single Supervisory Mechanism ('SSM'), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by 'Banco de España'.},
+    }
