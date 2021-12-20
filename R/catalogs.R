@@ -193,6 +193,12 @@ bde_catalog_load <-
       }
     }
 
+
+    # Error, this table is not available although it is on
+    # catalogs
+
+    final_catalog <- final_catalog[final_catalog$Nombre_del_archivo_con_los_valores_de_la_serie != "BE230C.csv", ]
+
     return(final_catalog)
   }
 

@@ -198,6 +198,73 @@ scales::show_col(bde_vivid_pal()(6))
 Those palettes can be applied to a `ggplot2` using some custom utils included on
 the package (see `help("scale_color_bde_d", package = "tidyBdE")`).
 
+```{r gdp}
+# Load GDP Series
+
+GDP <- bde_series_load(
+  series_code = c(
+    3777251,
+    3777265,
+    3777259,
+    3777269,
+    3777060
+  ),
+  series_label = c(
+    "Agriculture",
+    "Industry",
+    "Construction",
+    "Services",
+    "Total"
+  )
+)
+
+
+# Manipulate data - tidyverse style
+
+GDP_all <- GDP %>%
+  # Filter dates
+  filter(Date <= "2020-12-31") %>%
+  # Create 'Other' column and convert Date to year
+  mutate(
+    Other = Total - rowSums(across(Agriculture:Services)),
+    Date = as.numeric(format(Date, format = "%Y"))
+  ) %>%
+  # Sum by year
+  group_by(Date) %>%
+  summarise_at(vars(-group_cols()), sum) %>%
+  # Create percentage
+  relocate(Total, .after = Other) %>%
+  mutate(across(Agriculture:Other, ~ .x * 100 / Total)) %>%
+  # Move cols to rows for plotting
+  select(-Total) %>%
+  pivot_longer(Agriculture:Other,
+    names_to = "serie",
+    values_to = "value"
+  )
+
+
+
+ggplot(data = GDP_all, aes(
+  x = Date,
+  y = value,
+  fill = serie
+)) +
+  geom_bar(
+    position = "stack",
+    stat = "identity",
+    alpha = 0.8
+  ) +
+  scale_fill_bde_d(palette = "bde_rose_pal") + # Custom palette on the package
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bde() +
+  labs(
+    title = "Spain: Gross domestic product by industry",
+    subtitle = "%",
+    caption = "Source: BdE"
+  )
+```
+
 ### A note on caching
 
 You can use **tidyBdE** to create your own local repository at a given local
@@ -244,10 +311,8 @@ This package is in no way sponsored endorsed or administered by Banco de España
 print(citation("tidyBdE"), bibtex = FALSE)
 ```
 
+A BibTeX entry for LaTeX users is
 
-A BibTeX entry for LaTeX users is 
-
-```{r echo=FALSE, comment=''}
+```{r echo=FALSE}
 toBibtex(citation("tidyBdE"))
 ```
-

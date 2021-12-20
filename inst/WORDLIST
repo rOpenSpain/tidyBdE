@@ -8,6 +8,7 @@ DOI
 DTCCBCEGBPEUR
 Datos
 Descripcion
+Económicos
 España
 Euribor
 Eurostat
@@ -17,8 +18,11 @@ Geográfico
 Herrero
 IGN
 INE
+Indicadores
 Instituto
 LABORABLE
+MMM
+MMMMYYYY
 MicroDatosEs
 NOMBRE
 Nacional
@@ -32,6 +36,7 @@ SSM
 Sede
 Tipo
 UNIDADES
+YYYY
 bde
 cambio
 codecov
@@ -44,13 +49,18 @@ doi
 electrónica
 esterlinas
 geospatial
+github
+halfyear
 hcl
 https
+io
 mapSpain
 microdata
 por
 rOS
+ropenspain
 secuencial
 serie
 tibble
+tidyBdE’
 zenodo
