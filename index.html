@@ -459,8 +459,19 @@
   </aside>
 </div>
 
-
-   </div>
+<script>
+  var homeall = document.getElementsByTagName("h1");
+  var banner = document.createElement('div');
+  banner.innerHTML = '<a href="https://ropenspain.es/" id="ROS-heading-breadcrumbs">' +
+        '<div class="text-center" id="ROS-partof">' +
+          '<p>Part of <img src="ROS-logo.png" alt="rOpenSpain-Logo" id="homelogoxs"> rOpenSpain </p>' +
+        '</div></a>'
+  if (homeall.length > 0) {
+	  home = homeall[0];
+	  home.insertBefore(banner,home.firstChild);
+  }
+</script>
+</div>
 
   <!-- ropenspain rostemplate -->
 <footer id="footer"><div class="container">
