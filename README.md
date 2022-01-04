@@ -329,7 +329,7 @@ España.
 
 To cite the ‘tidyBdE’ package in publications use:
 
-H. Herrero D (2021). *tidyBdE: Download Data from Bank of Spain*. doi:
+H. Herrero D (2022). *tidyBdE: Download Data from Bank of Spain*. doi:
 10.5281/zenodo.4673496 (URL: <https://doi.org/10.5281/zenodo.4673496>),
 R package version 0.2.2, \<URL:
 <https://ropenspain.github.io/tidyBdE/>\>.
@@ -338,7 +338,7 @@ A BibTeX entry for LaTeX users is
 
     #> @Manual{,
     #>   title = {tidyBdE: Download Data from Bank of Spain},
-    #>   year = {2021},
+    #>   year = {2022},
     #>   version = {0.2.2},
     #>   author = {Diego {H. Herrero}},
     #>   note = {R package version 0.2.2},
