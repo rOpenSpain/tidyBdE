@@ -58,7 +58,7 @@
     
     <img src="logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo"><a class="navbar-brand me-2" href="index.html">tidyBdE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -124,8 +124,7 @@
 <span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ropenspain/tidyBdE"</span><span class="op">)</span></code></pre></div>
 <p>Alternatively, you can install the developing version of <strong>tidyBdE</strong> using the <a href="https://ropenspain.r-universe.dev/ui#builds" class="external-link">r-universe</a>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="co"># Enable this universe</span>
+<code class="sourceCode R"><span class="co"># Enable this universe</span>
 <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
   ropenspain <span class="op">=</span> <span class="st">"https://ropenspain.r-universe.dev"</span>,
   CRAN <span class="op">=</span> <span class="st">"https://cloud.r-project.org"</span>
@@ -140,8 +139,7 @@
 <p>Banco de España (<strong>BdE</strong>) provides several time-series, either produced by the institution itself or compiled for another sources, as <a href="https://ec.europa.eu/eurostat" class="external-link">Eurostat</a> or <a href="https://www.ine.es/" class="external-link">INE</a>.</p>
 <p>The basic entry point for searching time-series are the catalogs (<em>indexes</em>) of information. You can search any series by name:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropenspain.github.io/tidyBdE/">tidyBdE</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropenspain.github.io/tidyBdE/">tidyBdE</a></span><span class="op">)</span>
 
 <span class="co"># Load tidyverse for better handling</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span>
@@ -168,7 +166,6 @@
 <p>After we have found our series, we can load the series for the GBP/EUR exchange rate using the sequential number reference (<code>Numero_Secuencial</code>) as:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-
 <span class="va">seq_number</span> <span class="op">&lt;-</span> <span class="va">XR_GBP</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="co"># First record</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
@@ -218,8 +215,7 @@
 </tbody>
 </table>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="co"># Extract series</span>
+<code class="sourceCode R"><span class="co"># Extract series</span>
 <span class="va">time_series</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span><span class="va">seq_number</span>, series_label <span class="op">=</span> <span class="st">"EUR_GBP_XR"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">"2010-01-01"</span> <span class="op">&amp;</span> <span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">"2020-12-31"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
@@ -228,8 +224,7 @@
 </h3>
 <p>The package also provides a custom <code>ggplot2</code> theme based on the publications of BdE:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">time_series</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">EUR_GBP_XR</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">time_series</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">EUR_GBP_XR</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="fu"><a href="reference/bde_pals.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html" class="external-link">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"gam"</span>, colour <span class="op">=</span> <span class="fu"><a href="reference/bde_pals.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>
@@ -252,8 +247,7 @@
 <p><img src="reference/figures/README-chart-1.png" width="100%"></p>
 <p>The package provides also several “shortcut” functions for a selection of the most relevant macroeconomic series, so there is no need to look for them in advance:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="va">gdp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bde_indicators.html">bde_ind_gdp_var</a></span><span class="op">(</span><span class="st">"values"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">gdp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bde_indicators.html">bde_ind_gdp_var</a></span><span class="op">(</span><span class="st">"values"</span><span class="op">)</span>
 <span class="va">gdp</span><span class="op">$</span><span class="va">label</span> <span class="op">&lt;-</span> <span class="st">"GDP YoY"</span>
 
 <span class="va">UnempRate</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bde_indicators.html">bde_ind_unemployment_rate</a></span><span class="op">(</span><span class="st">"values"</span><span class="op">)</span>
@@ -280,90 +274,22 @@
 <p>Two custom palettes, based on the used by BdE on some publications are available.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-
 <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/show_col.html" class="external-link">show_col</a></span><span class="op">(</span><span class="fu"><a href="reference/bde_pals.html">bde_rose_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-palettes-1.png" width="100%"></p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/show_col.html" class="external-link">show_col</a></span><span class="op">(</span><span class="fu"><a href="reference/bde_pals.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/show_col.html" class="external-link">show_col</a></span><span class="op">(</span><span class="fu"><a href="reference/bde_pals.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-palettes-2.png" width="100%"></p>
 <p>Those palettes can be applied to a <code>ggplot2</code> using some custom utils included on the package (see <code><a href="reference/scales_bde.html">help("scale_color_bde_d", package = "tidyBdE")</a></code>).</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Load GDP Series</span>
-
-<span class="va">GDP</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span>
-  series_code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
-    <span class="fl">3777251</span>,
-    <span class="fl">3777265</span>,
-    <span class="fl">3777259</span>,
-    <span class="fl">3777269</span>,
-    <span class="fl">3777060</span>
-  <span class="op">)</span>,
-  series_label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
-    <span class="st">"Agriculture"</span>,
-    <span class="st">"Industry"</span>,
-    <span class="st">"Construction"</span>,
-    <span class="st">"Services"</span>,
-    <span class="st">"Total"</span>
-  <span class="op">)</span>
-<span class="op">)</span>
-
-
-<span class="co"># Manipulate data - tidyverse style</span>
-
-<span class="va">GDP_all</span> <span class="op">&lt;-</span> <span class="va">GDP</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="co"># Filter dates</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">"2020-12-31"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="co"># Create 'Other' column and convert Date to year</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>
-    Other <span class="op">=</span> <span class="va">Total</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowSums</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="va">Agriculture</span><span class="op">:</span><span class="va">Services</span><span class="op">)</span><span class="op">)</span>,
-    Date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">Date</span>, format <span class="op">=</span> <span class="st">"%Y"</span><span class="op">)</span><span class="op">)</span>
-  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="co"># Sum by year</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">Date</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html" class="external-link">summarise_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_cols.html" class="external-link">group_cols</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>, <span class="va">sum</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="co"># Create percentage</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html" class="external-link">relocate</a></span><span class="op">(</span><span class="va">Total</span>, .after <span class="op">=</span> <span class="va">Other</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="va">Agriculture</span><span class="op">:</span><span class="va">Other</span>, <span class="op">~</span> <span class="va">.x</span> <span class="op">*</span> <span class="fl">100</span> <span class="op">/</span> <span class="va">Total</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="co"># Move cols to rows for plotting</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Total</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span><span class="va">Agriculture</span><span class="op">:</span><span class="va">Other</span>,
-    names_to <span class="op">=</span> <span class="st">"serie"</span>,
-    values_to <span class="op">=</span> <span class="st">"value"</span>
-  <span class="op">)</span>
-
-
-
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">GDP_all</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>
-  x <span class="op">=</span> <span class="va">Date</span>,
-  y <span class="op">=</span> <span class="va">value</span>,
-  fill <span class="op">=</span> <span class="va">serie</span>
-<span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span>
-    position <span class="op">=</span> <span class="st">"stack"</span>,
-    stat <span class="op">=</span> <span class="st">"identity"</span>,
-    alpha <span class="op">=</span> <span class="fl">0.8</span>
-  <span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="reference/scales_bde.html">scale_fill_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_rose_pal"</span><span class="op">)</span> <span class="op">+</span> <span class="co"># Custom palette on the package</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="reference/theme_bde.html">theme_bde</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>
-    title <span class="op">=</span> <span class="st">"Spain: Gross domestic product by industry"</span>,
-    subtitle <span class="op">=</span> <span class="st">"%"</span>,
-    caption <span class="op">=</span> <span class="st">"Source: BdE"</span>
-  <span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-gdp-1.png" width="100%"></p>
 </div>
 <div class="section level3">
 <h3 id="a-note-on-caching">A note on caching<a class="anchor" aria-label="anchor" href="#a-note-on-caching"></a>
 </h3>
 <p>You can use <strong>tidyBdE</strong> to create your own local repository at a given local directory passing the following option:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>bde_cache_dir <span class="op">=</span> <span class="st">"./path/to/location"</span><span class="op">)</span></code></pre></div>
 <p>When this option is set, <strong>tidyBdE</strong> would look for the cached file on the <code>bde_cache_dir</code> directory and it will load it, speeding up the process.</p>
 <p>It is possible to update the data (i.e. after every monthly or quarterly data release) with the following commands:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/bde_catalog_update.html">bde_catalog_update</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="co"># On most of the functions using the option update_cache = TRUE</span>
@@ -393,18 +319,18 @@
 <h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
 </h2>
 <p>To cite the ‘tidyBdE’ package in publications use:</p>
-<p>H. Herrero D (2022). <em>tidyBdE: Download Data from Bank of Spain</em>. doi: 10.5281/zenodo.4673496 (URL: <a href="https://doi.org/10.5281/zenodo.4673496" class="external-link uri">https://doi.org/10.5281/zenodo.4673496</a>), R package version 0.2.2, &lt;URL: <a href="https://ropenspain.github.io/tidyBdE/" class="uri">https://ropenspain.github.io/tidyBdE/</a>&gt;.</p>
+<p>H. Herrero D (2022). <em>tidyBdE: Download Data from Bank of Spain</em>. doi: 10.5281/zenodo.4673496 (URL: <a href="https://doi.org/10.5281/zenodo.4673496" class="external-link uri">https://doi.org/10.5281/zenodo.4673496</a>), R package version 0.2.2.9000, &lt;URL: <a href="https://ropenspain.github.io/tidyBdE/" class="uri">https://ropenspain.github.io/tidyBdE/</a>&gt;.</p>
 <p>A BibTeX entry for LaTeX users is</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">#&gt; @Manual{,</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="co">#&gt;   title = {tidyBdE: Download Data from Bank of Spain},</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="co">#&gt;   year = {2022},</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="co">#&gt;   version = {0.2.2},</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="co">#&gt;   author = {Diego {H. Herrero}},</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a><span class="co">#&gt;   note = {R package version 0.2.2},</span></span>
-<span id="cb14-7"><a href="#cb14-7"></a><span class="co">#&gt;   doi = {10.5281/zenodo.4673496},</span></span>
-<span id="cb14-8"><a href="#cb14-8"></a><span class="co">#&gt;   url = {https://ropenspain.github.io/tidyBdE/},</span></span>
-<span id="cb14-9"><a href="#cb14-9"></a><span class="co">#&gt;   abstract = {Tools to download data series from 'Banco de España' ('BdE') on 'tibble' format. 'Banco de España' is the national central bank and, within the framework of the Single Supervisory Mechanism ('SSM'), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by 'Banco de España'.},</span></span>
-<span id="cb14-10"><a href="#cb14-10"></a><span class="co">#&gt; }</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">#&gt; @Manual{,</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="co">#&gt;   title = {tidyBdE: Download Data from Bank of Spain},</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="co">#&gt;   year = {2022},</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="co">#&gt;   version = {0.2.2.9000},</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co">#&gt;   author = {Diego {H. Herrero}},</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="co">#&gt;   note = {R package version 0.2.2.9000},</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="co">#&gt;   doi = {10.5281/zenodo.4673496},</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="co">#&gt;   url = {https://ropenspain.github.io/tidyBdE/},</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a><span class="co">#&gt;   abstract = {Tools to download data series from 'Banco de España' ('BdE') on 'tibble' format. 'Banco de España' is the national central bank and, within the framework of the Single Supervisory Mechanism ('SSM'), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by 'Banco de España'.},</span></span>
+<span id="cb13-10"><a href="#cb13-10"></a><span class="co">#&gt; }</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">

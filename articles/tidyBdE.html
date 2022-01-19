@@ -48,7 +48,7 @@
     
     <img src="../logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo"><a class="navbar-brand me-2" href="../index.html">tidyBdE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -249,87 +249,16 @@
   <span class="fu"><a href="../reference/theme_bde.html">theme_bde</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="../reference/scales_bde.html">scale_color_bde_d</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Custom palette on the package</span></code></pre></div>
 <p><img src="macroseries-1.png" title="plot of chunk macroseries" alt="plot of chunk macroseries" width="100%"></p>
-<div class="section level3">
-<h3 id="custom-palettes">Custom palettes<a class="anchor" aria-label="anchor" href="#custom-palettes"></a>
-</h3>
-<p>Two custom palettes, based on the used by BdE on some publications are available:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Load GDP Series</span>
-
-<span class="va">GDP</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span>
-  series_code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
-    <span class="fl">3777251</span>,
-    <span class="fl">3777265</span>,
-    <span class="fl">3777259</span>,
-    <span class="fl">3777269</span>,
-    <span class="fl">3777060</span>
-  <span class="op">)</span>,
-  series_label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
-    <span class="st">"Agriculture"</span>,
-    <span class="st">"Industry"</span>,
-    <span class="st">"Construction"</span>,
-    <span class="st">"Services"</span>,
-    <span class="st">"Total"</span>
-  <span class="op">)</span>
-<span class="op">)</span>
-
-
-<span class="co"># Manipulate data - tidyverse style</span>
-
-<span class="va">GDP_all</span> <span class="op">&lt;-</span> <span class="va">GDP</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="co"># Filter dates</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">"2020-12-31"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="co"># Create 'Other' column and convert Date to year</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>
-    Other <span class="op">=</span> <span class="va">Total</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowSums</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="va">Agriculture</span><span class="op">:</span><span class="va">Services</span><span class="op">)</span><span class="op">)</span>,
-    Date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="va">Date</span>, format <span class="op">=</span> <span class="st">"%Y"</span><span class="op">)</span><span class="op">)</span>
-  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="co"># Sum by year</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">Date</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html" class="external-link">summarise_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_cols.html" class="external-link">group_cols</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>, <span class="va">sum</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="co"># Create percentage</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html" class="external-link">relocate</a></span><span class="op">(</span><span class="va">Total</span>, .after <span class="op">=</span> <span class="va">Other</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="va">Agriculture</span><span class="op">:</span><span class="va">Other</span>, <span class="op">~</span> <span class="va">.x</span> <span class="op">*</span> <span class="fl">100</span> <span class="op">/</span> <span class="va">Total</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="co"># Move cols to rows for plotting</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Total</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span><span class="va">Agriculture</span><span class="op">:</span><span class="va">Other</span>,
-    names_to <span class="op">=</span> <span class="st">"serie"</span>,
-    values_to <span class="op">=</span> <span class="st">"value"</span>
-  <span class="op">)</span>
-
-
-
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">GDP_all</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>
-  x <span class="op">=</span> <span class="va">Date</span>,
-  y <span class="op">=</span> <span class="va">value</span>,
-  fill <span class="op">=</span> <span class="va">serie</span>
-<span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span>
-    position <span class="op">=</span> <span class="st">"stack"</span>,
-    stat <span class="op">=</span> <span class="st">"identity"</span>,
-    alpha <span class="op">=</span> <span class="fl">0.8</span>
-  <span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="../reference/scales_bde.html">scale_fill_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_rose_pal"</span><span class="op">)</span> <span class="op">+</span> <span class="co"># Custom palette on the package</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="../reference/theme_bde.html">theme_bde</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>
-    title <span class="op">=</span> <span class="st">"Spain: Gross domestic product by industry"</span>,
-    subtitle <span class="op">=</span> <span class="st">"%"</span>,
-    caption <span class="op">=</span> <span class="st">"Source: BdE"</span>
-  <span class="op">)</span></code></pre></div>
-<p><img src="gdp-1.png" title="plot of chunk gdp" alt="plot of chunk gdp" width="100%"></p>
-</div>
 </div>
 <div class="section level2">
 <h2 id="a-note-on-caching">A note on caching<a class="anchor" aria-label="anchor" href="#a-note-on-caching"></a>
 </h2>
 <p>You can use <strong>tidyBdE</strong> to create your own local repository at a given local directory passing the following option:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>bde_cache_dir <span class="op">=</span> <span class="st">"./path/to/location"</span><span class="op">)</span></code></pre></div>
 <p>When this option is set, <strong>tidyBdE</strong> would look for the cached file on the <code>bde_cache_dir</code> directory and it will load it, speeding up the process.</p>
 <p>It is possible to update the data (i.e. after every monthly or quarterly data release) with the following commands:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/bde_catalog_update.html">bde_catalog_update</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="co"># On most of the functions using the option update_cache = TRUE</span>
