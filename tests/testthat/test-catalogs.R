@@ -50,5 +50,4 @@ test_that("Catalogs", {
 test_that("Fully Deprecation of Series", {
   expect_error(bde_catalog_update("IE", cache_dir = tempdir()))
   expect_error(bde_catalog_update("CF", cache_dir = tempdir()))
-  
 })
