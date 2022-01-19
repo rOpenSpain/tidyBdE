@@ -21,3 +21,4 @@
 ^vignettes/articles$
 ^_pkgdown\.yaml$
 ^CITATION\.cff$
+^CRAN-SUBMISSION$
