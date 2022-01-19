@@ -1,5 +1,5 @@
 # -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.2.0
+# CITATION file created with {cffr} R package, v0.2.1
 # See also: https://docs.ropensci.org/cffr/
 # -----------------------------------------------------------
  
@@ -8,7 +8,7 @@ message: 'To cite package "tidyBdE" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'tidyBdE: Download Data from Bank of Spain'
-version: 0.2.2.9000
+version: 0.2.3
 doi: 10.5281/zenodo.4673496
 abstract: Tools to download data series from 'Banco de España' ('BdE') on 'tibble'
   format. 'Banco de España' is the national central bank and, within the framework
@@ -31,8 +31,8 @@ preferred-citation:
     orcid: https://orcid.org/0000-0001-8457-4658
     affiliation: rOpenSpain
   year: '2022'
-  version: 0.2.2.9000
-  notes: R package version 0.2.2.9000
+  version: 0.2.3
+  notes: R package version 0.2.3
   doi: 10.5281/zenodo.4673496
   url: https://ropenspain.github.io/tidyBdE/
   abstract: Tools to download data series from 'Banco de España' ('BdE') on 'tibble'
@@ -64,6 +64,7 @@ keywords:
 references:
 - type: software
   title: 'R: A Language and Environment for Statistical Computing'
+  notes: Depends
   authors:
   - name: R Core Team
   location:
@@ -73,9 +74,10 @@ references:
   institution:
     name: R Foundation for Statistical Computing
   version: '>= 3.6.0'
-  notes: Depends
 - type: software
-  title: 'dplyr: A Grammar of Data Manipulation'
+  title: dplyr
+  abstract: 'dplyr: A Grammar of Data Manipulation'
+  notes: Imports
   authors:
   - family-names: Wickham
     given-names: Hadley
@@ -90,10 +92,12 @@ references:
     given-names: Kirill
     orcid: https://orcid.org/0000-0002-1416-3412
   year: '2022'
-  notes: Imports
+  url: https://CRAN.R-project.org/package=dplyr
   version: '>= 0.7.0'
 - type: software
-  title: 'ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics'
+  title: ggplot2
+  abstract: 'ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics'
+  notes: Imports
   authors:
   - family-names: Wickham
     given-names: Hadley
@@ -123,10 +127,12 @@ references:
     given-names: Dewey
     orcid: https://orcid.org/0000-0002-9415-4582
   year: '2022'
-  notes: Imports
+  url: https://CRAN.R-project.org/package=ggplot2
   version: '>= 3.3.0'
 - type: software
-  title: 'readr: Read Rectangular Text Data'
+  title: readr
+  abstract: 'readr: Read Rectangular Text Data'
+  notes: Imports
   authors:
   - family-names: Wickham
     given-names: Hadley
@@ -138,10 +144,12 @@ references:
     email: jenny@rstudio.com
     orcid: https://orcid.org/0000-0002-6983-2759
   year: '2022'
-  notes: Imports
+  url: https://CRAN.R-project.org/package=readr
   version: '>= 1.0.0'
 - type: software
-  title: 'scales: Scale Functions for Visualization'
+  title: scales
+  abstract: 'scales: Scale Functions for Visualization'
+  notes: Imports
   authors:
   - family-names: Wickham
     given-names: Hadley
@@ -149,10 +157,12 @@ references:
   - family-names: Seidel
     given-names: Dana
   year: '2022'
-  notes: Imports
+  url: https://CRAN.R-project.org/package=scales
   version: '>= 1.1.0'
 - type: software
-  title: 'tibble: Simple Data Frames'
+  title: tibble
+  abstract: 'tibble: Simple Data Frames'
+  notes: Imports
   authors:
   - family-names: Müller
     given-names: Kirill
@@ -161,10 +171,12 @@ references:
     given-names: Hadley
     email: hadley@rstudio.com
   year: '2022'
-  notes: Imports
+  url: https://CRAN.R-project.org/package=tibble
   version: '>= 3.0.0'
 - type: software
-  title: 'R: A Language and Environment for Statistical Computing'
+  title: utils
+  abstract: 'R: A Language and Environment for Statistical Computing'
+  notes: Imports
   authors:
   - name: R Core Team
   location:
@@ -173,19 +185,21 @@ references:
   url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
-  notes: Imports
 - type: software
-  title: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
+  title: knitr
+  abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
+  notes: Suggests
   authors:
   - family-names: Xie
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
   year: '2022'
-  notes: Suggests
-  url: https://yihui.org/knitr/
+  url: https://CRAN.R-project.org/package=knitr
 - type: software
-  title: 'rmarkdown: Dynamic Documents for R'
+  title: rmarkdown
+  abstract: 'rmarkdown: Dynamic Documents for R'
+  notes: Suggests
   authors:
   - family-names: Allaire
     given-names: JJ
@@ -220,22 +234,26 @@ references:
     email: rich@rstudio.com
     orcid: https://orcid.org/0000-0003-3925-190X
   year: '2022'
-  notes: Suggests
+  url: https://CRAN.R-project.org/package=rmarkdown
 - type: software
-  title: 'testthat: Unit Testing for R'
+  title: testthat
+  abstract: 'testthat: Unit Testing for R'
+  notes: Suggests
   authors:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@rstudio.com
   year: '2022'
-  notes: Suggests
+  url: https://CRAN.R-project.org/package=testthat
   version: '>= 3.0.0'
 - type: software
-  title: 'tidyverse: Easily Install and Load the ''Tidyverse'''
+  title: tidyverse
+  abstract: 'tidyverse: Easily Install and Load the ''Tidyverse'''
+  notes: Suggests
   authors:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@rstudio.com
   year: '2022'
-  notes: Suggests
+  url: https://CRAN.R-project.org/package=tidyverse
   version: '>= 1.3.0'

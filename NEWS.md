@@ -1,4 +1,4 @@
-# tidyBdE (development version)
+# tidyBdE 0.2.3
 
 -   The followings catalogs has been deprecated on the API, package updated
     accordingly:
