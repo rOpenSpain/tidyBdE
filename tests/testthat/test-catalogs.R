@@ -30,7 +30,6 @@ test_that("Catalogs", {
   ))
   expect_silent(bde_catalog_update("ALL", cache_dir = tempdir()))
   expect_silent(bde_catalog_update("TC", cache_dir = tempdir()))
-  expect_silent(bde_catalog_update("CF", cache_dir = tempdir()))
 
   # Testing options cache dir
   init_cache_dir <- getOption("bde_cache_dir")
@@ -48,10 +47,8 @@ test_that("Catalogs", {
   expect_silent(bde_catalog_search("Euro", catalog = "TC"))
 })
 
-test_that("Fully Deprecation of Economic Indicators", {
-  # Fully Deprecation of Economic Indicators----
-  skip_on_cran()
-  skip_if_bde_offline()
-  # This would tell me when it is broken
-  expect_silent(bde_catalog_update("IE", cache_dir = tempdir()))
+test_that("Fully Deprecation of Series", {
+  expect_error(bde_catalog_update("IE", cache_dir = tempdir()))
+  expect_error(bde_catalog_update("CF", cache_dir = tempdir()))
+  
 })

@@ -28,14 +28,12 @@ Update the time-series catalogs provided by BdE.
 }
 \details{
 Accepted values for \code{catalog} are:\tabular{llll}{
-   CODE \tab PUBLICATION \tab UPDATE FREQUENCY \tab FREQUENCY \cr
-   BE \tab Statistical Bulletin \tab Daily \tab Monthly \cr
-   CF \tab Financial Accounts of the Spanish Economy \tab Quarterly \tab Annual \cr
-   IE \tab Economic Indicators \tab Daily \tab Monthly \cr
-   SI \tab Summary Indicators \tab Daily \tab Daily \cr
-   TC \tab Exchange Rates \tab Daily \tab Daily \cr
-   TI \tab Interest Rates \tab Daily \tab Daily \cr
-   PB \tab Bank Lending Survey \tab Quarterly \tab Quarterly \cr
+   \strong{CODE} \tab \strong{PUBLICATION} \tab \strong{UPDATE FREQUENCY} \tab \strong{FREQUENCY} \cr
+   \strong{BE} \tab Statistical Bulletin \tab Daily \tab Monthly \cr
+   \strong{SI} \tab Summary Indicators \tab Daily \tab Daily \cr
+   \strong{TC} \tab Exchange Rates \tab Daily \tab Daily \cr
+   \strong{TI} \tab Interest Rates \tab Daily \tab Daily \cr
+   \strong{PB} \tab Bank Lending Survey \tab Quarterly \tab Quarterly \cr
 }
 
 
