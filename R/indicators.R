@@ -127,7 +127,7 @@ bde_ind_cpi_var <-
     }
     # nocov end
 
-    seq_num <- 2973313
+    seq_num <- 4144807
 
     econom_ind <-
       bde_series_load(seq_num, series_label = series_label, ...)

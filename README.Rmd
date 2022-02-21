@@ -7,13 +7,14 @@ output: github_document
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  warning = FALSE,
   tidy = "styler",
-  dev = "ragg_png",
+  comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%",
-  dpi = 300
+  warning = FALSE,
+  message = FALSE,
+  dev = "ragg_png",
+  dpi = 300,
+  out.width = "100%"
 )
 ```
 

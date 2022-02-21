@@ -41,3 +41,4 @@ revdep
 /Meta/
 docs/
 CRAN-SUBMISSION
+.github/pkg.lock

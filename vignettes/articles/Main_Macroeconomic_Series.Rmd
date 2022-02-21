@@ -15,14 +15,20 @@ Last update: **`r format(Sys.Date(),"%d-%B-%Y")`**.
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
+  tidy = "styler",
   comment = "#>",
+  warning = FALSE,
   message = FALSE,
-  warning = FALSE
+  dev = "ragg_png",
+  dpi = 300,
+  out.width = "100%"
 )
 
 library(tidyBdE)
 library(ggplot2)
 library(dplyr)
+library(tidyr)
+
 
 col <- tidyBdE::bde_rose_pal()(1)
 date <- Sys.Date()
@@ -37,7 +43,8 @@ br <- seq(nd, Sys.Date(), "6 months")
 ### Aggregated (last 4 quarters)
 
 ```{r echo=FALSE}
-dataset <- bde_ind_gdp_quarterly(series_label = "data")
+dataset <- bde_ind_gdp_quarterly(series_label = "data") %>%
+  drop_na()
 
 dataset$LastY <- dataset$data + lag(dataset$data, 1) +
   lag(dataset$data, 2) + lag(dataset$data, 3)
@@ -70,7 +77,8 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ```{r echo=FALSE}
 
 dataset <- bde_ind_gdp_var(series_label = "data") %>%
-  filter(Date >= nd)
+  filter(Date >= nd) %>%
+  drop_na()
 
 
 l <- dataset[nrow(dataset), ]
@@ -109,7 +117,8 @@ PIB <- PIB %>% mutate(data = 1000 * LastY / pop)
 
 dataset <- PIB %>%
   select(Date, data) %>%
-  filter(Date >= nd)
+  filter(Date >= nd) %>%
+  drop_na()
 
 
 l <- dataset[nrow(dataset), ]
@@ -139,7 +148,8 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ```{r echo=FALSE}
 
 dataset <- bde_ind_unemployment_rate(series_label = "data") %>%
-  filter(Date >= nd)
+  filter(Date >= nd) %>%
+  drop_na()
 
 
 l <- dataset[nrow(dataset), ]
@@ -168,7 +178,8 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ```{r echo=FALSE}
 
 dataset <- bde_ind_cpi_var(series_label = "data") %>%
-  filter(Date >= nd)
+  filter(Date >= nd) %>%
+  drop_na()
 
 
 l <- dataset[nrow(dataset), ]
@@ -197,7 +208,8 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ```{r echo=FALSE}
 
 dataset <- bde_ind_euribor_12m_monthly(series_label = "data") %>%
-  filter(Date >= nd)
+  filter(Date >= nd) %>%
+  drop_na()
 
 
 l <- dataset[nrow(dataset), ]
@@ -226,7 +238,8 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ```{r echo=FALSE}
 
 dataset <- bde_ind_population(series_label = "data") %>%
-  filter(Date >= nd)
+  filter(Date >= nd) %>%
+  drop_na()
 
 
 l <- dataset[nrow(dataset), ]
