@@ -139,8 +139,135 @@
 </table>
 <p><strong>Note that BdE files are only provided in Spanish, for the time being</strong>, the organism is working on the English version. By now, search terms should be provided in Spanish in order to get search results.</p>
 <p>After we have found our series, we can load the series for the GBP/EUR exchange rate using the sequential number reference (<code>Numero_Secuencial</code>) as:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">seq_number</span> <span class="op">&lt;-</span> <span class="va">XR_GBP</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="co"># First record</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="co"># Get id</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Numero_secuencial</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="co"># Convert to num</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/double.html" class="external-link">as.double</a></span><span class="op">(</span><span class="op">)</span>
+
+
+<span class="va">seq_number</span>
+<span class="co">#&gt; [1] 573214</span>
+
+<span class="co"># We can check the metadata of the series</span>
+<span class="va">seq_number</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="../reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span>extract_metadata <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="co"># To nice table for the vignette</span>
+  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<table class="table">
+<colgroup>
+<col width="29%">
+<col width="70%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Date</th>
+<th align="left">573214</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">NOMBRE DE LA SERIE</td>
+<td align="left">DTCCBCEGBPEUR.B</td>
+</tr>
+<tr class="even">
+<td align="left">NÚMERO SECUENCIAL</td>
+<td align="left">573214</td>
+</tr>
+<tr class="odd">
+<td align="left">ALIAS DE LA SERIE</td>
+<td align="left">TC_1_1.4</td>
+</tr>
+<tr class="even">
+<td align="left">DESCRIPCIÓN DE LA SERIE</td>
+<td align="left">Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios</td>
+</tr>
+<tr class="odd">
+<td align="left">DESCRIPCIÓN DE LAS UNIDADES</td>
+<td align="left">Libras esterlinas por Euro</td>
+</tr>
+<tr class="even">
+<td align="left">FRECUENCIA</td>
+<td align="left">LABORABLE</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+
+<span class="va">time_series</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span><span class="va">seq_number</span>, series_label <span class="op">=</span> <span class="st">"EUR_GBP_XR"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">"2010-01-01"</span> <span class="op">&amp;</span> <span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">"2020-12-31"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
-  </main>
+<div class="section level2">
+<h2 id="plot-series">Plot series<a class="anchor" aria-label="anchor" href="#plot-series"></a>
+</h2>
+<p>The package also provides a custom <code>ggplot2</code> theme based on the publications of BdE:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">time_series</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">EUR_GBP_XR</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="fu"><a href="../reference/bde_pals.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html" class="external-link">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"gam"</span>, colour <span class="op">=</span> <span class="fu"><a href="../reference/bde_pals.html">bde_vivid_pal</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>
+    title <span class="op">=</span> <span class="st">"EUR/GBP Exchange Rate (2010-2020)"</span>,
+    subtitle <span class="op">=</span> <span class="st">"%"</span>,
+    caption <span class="op">=</span> <span class="st">"Source: BdE"</span>
+  <span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html" class="external-link">geom_vline</a></span><span class="op">(</span>
+    xintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2016-06-23"</span><span class="op">)</span>,
+    linetype <span class="op">=</span> <span class="st">"dotted"</span>
+  <span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_label</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>
+    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2016-06-23"</span><span class="op">)</span>,
+    y <span class="op">=</span> <span class="fl">.95</span>,
+    label <span class="op">=</span> <span class="st">"Brexit"</span>
+  <span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html" class="external-link">coord_cartesian</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="../reference/theme_bde.html">theme_bde</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p><img src="chart-1.png" title="plot of chunk chart" alt="plot of chunk chart" width="100%"></p>
+<p>The package provides also several “shortcut” functions for a selection of the most relevant macroeconomic series, so there is no need to look for them in advance:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">gdp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bde_indicators.html">bde_ind_gdp_var</a></span><span class="op">(</span><span class="st">"values"</span><span class="op">)</span>
+<span class="va">gdp</span><span class="op">$</span><span class="va">label</span> <span class="op">&lt;-</span> <span class="st">"GDP YoY"</span>
+
+<span class="va">UnempRate</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bde_indicators.html">bde_ind_unemployment_rate</a></span><span class="op">(</span><span class="st">"values"</span><span class="op">)</span>
+<span class="va">UnempRate</span><span class="op">$</span><span class="va">label</span> <span class="op">&lt;-</span> <span class="st">"Unemployment Rate"</span>
+
+<span class="va">plotseries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html" class="external-link">bind_rows</a></span><span class="op">(</span><span class="va">gdp</span>, <span class="va">UnempRate</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">"2010-01-01"</span> <span class="op">&amp;</span> <span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">"2019-12-31"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">plotseries</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">values</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">label</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>
+    title <span class="op">=</span> <span class="st">"Spanish Economic Indicators (2010-2019)"</span>,
+    subtitle <span class="op">=</span> <span class="st">"%"</span>,
+    caption <span class="op">=</span> <span class="st">"Source: BdE"</span>
+  <span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="../reference/theme_bde.html">theme_bde</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="../reference/scales_bde.html">scale_color_bde_d</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Custom palette on the package</span></code></pre></div>
+<p><img src="macroseries-1.png" title="plot of chunk macroseries" alt="plot of chunk macroseries" width="100%"></p>
+</div>
+<div class="section level2">
+<h2 id="a-note-on-caching">A note on caching<a class="anchor" aria-label="anchor" href="#a-note-on-caching"></a>
+</h2>
+<p>You can use <strong>tidyBdE</strong> to create your own local repository at a given local directory passing the following option:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>bde_cache_dir <span class="op">=</span> <span class="st">"./path/to/location"</span><span class="op">)</span></code></pre></div>
+<p>When this option is set, <strong>tidyBdE</strong> would look for the cached file on the <code>bde_cache_dir</code> directory and it will load it, speeding up the process.</p>
+<p>It is possible to update the data (i.e. after every monthly or quarterly data release) with the following commands:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/bde_catalog_update.html">bde_catalog_update</a></span><span class="op">(</span><span class="op">)</span>
+
+<span class="co"># On most of the functions using the option update_cache = TRUE</span>
+
+<span class="fu"><a href="../reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span><span class="st">"SOME ID"</span>, update_cache <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
