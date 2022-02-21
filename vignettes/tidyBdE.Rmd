@@ -55,11 +55,128 @@ After we have found our series, we can load the series for the GBP/EUR exchange
 rate using the sequential number reference (`Numero_Secuencial`) as:
 
 
+```r
+
+seq_number <- XR_GBP %>%
+  # First record
+  slice(1) %>%
+  # Get id
+  select(Numero_secuencial) %>%
+  # Convert to num
+  as.double()
+
+
+seq_number
+#> [1] 573214
+
+# We can check the metadata of the series
+seq_number %>%
+  bde_series_load(extract_metadata = TRUE) %>%
+  # To nice table for the vignette
+  knitr::kable()
+```
 
 
 
+|Date                        |573214                                                             |
+|:---------------------------|:------------------------------------------------------------------|
+|NOMBRE DE LA SERIE          |DTCCBCEGBPEUR.B                                                    |
+|NÚMERO SECUENCIAL           |573214                                                             |
+|ALIAS DE LA SERIE           |TC_1_1.4                                                           |
+|DESCRIPCIÓN DE LA SERIE     |Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+|DESCRIPCIÓN DE LAS UNIDADES |Libras esterlinas por Euro                                         |
+|FRECUENCIA                  |LABORABLE                                                          |
+
+```r
 
 
+time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%
+  filter(Date >= "2010-01-01" & Date <= "2020-12-31") %>%
+  drop_na()
+```
+
+## Plot series
+
+The package also provides a custom `ggplot2` theme based on the publications of
+BdE:
 
 
+```r
 
+ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
+  geom_line(colour = bde_vivid_pal()(1)) +
+  geom_smooth(method = "gam", colour = bde_vivid_pal()(2)[2]) +
+  labs(
+    title = "EUR/GBP Exchange Rate (2010-2020)",
+    subtitle = "%",
+    caption = "Source: BdE"
+  ) +
+  geom_vline(
+    xintercept = as.Date("2016-06-23"),
+    linetype = "dotted"
+  ) +
+  geom_label(aes(
+    x = as.Date("2016-06-23"),
+    y = .95,
+    label = "Brexit"
+  )) +
+  coord_cartesian(ylim = c(0.7, 1)) +
+  theme_bde()
+```
+
+<img src="chart-1.png" title="plot of chunk chart" alt="plot of chunk chart" width="100%" />
+
+The package provides also several "shortcut" functions for a selection of the
+most relevant macroeconomic series, so there is no need to look for them in
+advance:
+
+
+```r
+
+gdp <- bde_ind_gdp_var("values")
+gdp$label <- "GDP YoY"
+
+UnempRate <- bde_ind_unemployment_rate("values")
+UnempRate$label <- "Unemployment Rate"
+
+plotseries <- bind_rows(gdp, UnempRate) %>%
+  drop_na() %>%
+  filter(Date >= "2010-01-01" & Date <= "2019-12-31")
+
+ggplot(plotseries, aes(x = Date, y = values)) +
+  geom_line(aes(color = label)) +
+  labs(
+    title = "Spanish Economic Indicators (2010-2019)",
+    subtitle = "%",
+    caption = "Source: BdE"
+  ) +
+  theme_bde() +
+  scale_color_bde_d() # Custom palette on the package
+```
+
+<img src="macroseries-1.png" title="plot of chunk macroseries" alt="plot of chunk macroseries" width="100%" />
+
+## A note on caching
+
+You can use **tidyBdE** to create your own local repository at a given local
+directory passing the following option:
+
+
+```r
+options(bde_cache_dir = "./path/to/location")
+```
+
+When this option is set, **tidyBdE** would look for the cached file on the
+`bde_cache_dir` directory and it will load it, speeding up the process.
+
+It is possible to update the data (i.e. after every monthly or quarterly data
+release) with the following commands:
+
+
+```r
+bde_catalog_update()
+
+# On most of the functions using the option update_cache = TRUE
+
+bde_series_load("SOME ID", update_cache = TRUE)
+```
