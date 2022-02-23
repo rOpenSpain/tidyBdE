@@ -1,4 +1,4 @@
-# tidyBdE (development version)
+# tidyBdE 0.2.4
 
 -   Update series code on `bde_ind_cpi_var()`.
 

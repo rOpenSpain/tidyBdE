@@ -253,7 +253,7 @@ To cite the ‘tidyBdE’ package in publications use:
 
 H. Herrero D (2022). *tidyBdE: Download Data from Bank of Spain*. doi:
 10.5281/zenodo.4673496 (URL: <https://doi.org/10.5281/zenodo.4673496>),
-R package version 0.2.3.9000, \<URL:
+R package version 0.2.4, \<URL:
 <https://ropenspain.github.io/tidyBdE/>\>.
 
 A BibTeX entry for LaTeX users is
@@ -261,9 +261,9 @@ A BibTeX entry for LaTeX users is
     @Manual{,
       title = {tidyBdE: Download Data from Bank of Spain},
       year = {2022},
-      version = {0.2.3.9000},
+      version = {0.2.4},
       author = {Diego {H. Herrero}},
-      note = {R package version 0.2.3.9000},
+      note = {R package version 0.2.4},
       doi = {10.5281/zenodo.4673496},
       url = {https://ropenspain.github.io/tidyBdE/},
       abstract = {Tools to download data series from 'Banco de España' ('BdE') on 'tibble' format. 'Banco de España' is the national central bank and, within the framework of the Single Supervisory Mechanism ('SSM'), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by 'Banco de España'.},
