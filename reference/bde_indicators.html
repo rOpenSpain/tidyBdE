@@ -95,29 +95,29 @@ macroeconomic indicators of Spain.</p>
 custom label for the series extracted. It should have the same length than
 <code>series_code</code>.</p></dd>
 <dt>...</dt>
-<dd><p>Arguments passed on to <code><a href="bde_series_load.html">bde_series_load</a></code></p><dl><dt><code>parse_dates</code></dt>
-<dd><p>Logical. If <code>TRUE</code> the dates would be parsed using
-<code><a href="bde_parse_dates.html">bde_parse_dates()</a></code>.</p></dd>
-
-    <dt><code>parse_numeric</code></dt>
+<dd><p>Arguments passed on to <code><a href="bde_series_load.html">bde_series_load</a></code></p><dl><dt><code>parse_numeric</code></dt>
 <dd><p>Logical. If <code>TRUE</code> the columns would be parsed to
 double (numeric) values. See <strong>Note</strong>.</p></dd>
 
-    <dt><code>cache_dir</code></dt>
-<dd><p>A path to a cache directory. The directory can also be set
-via options with <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
+    <dt><code>extract_metadata</code></dt>
+<dd><p>Logical <code>TRUE/FALSE</code>. On <code>TRUE</code> the output is the
+metadata of the requested series.</p></dd>
+
+    <dt><code>parse_dates</code></dt>
+<dd><p>Logical. If <code>TRUE</code> the dates would be parsed using
+<code><a href="bde_parse_dates.html">bde_parse_dates()</a></code>.</p></dd>
 
     <dt><code>update_cache</code></dt>
 <dd><p>Logical. If <code>TRUE</code> the requested file would be updated on
 the <code>cache_dir</code>.</p></dd>
 
+    <dt><code>cache_dir</code></dt>
+<dd><p>A path to a cache directory. The directory can also be set
+via options with <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
+
     <dt><code>verbose</code></dt>
 <dd><p>Logical <code>TRUE</code> or <code>FALSE</code>, display information useful for
 debugging.</p></dd>
-
-    <dt><code>extract_metadata</code></dt>
-<dd><p>Logical <code>TRUE/FALSE</code>. On <code>TRUE</code> the output is the
-metadata of the requested series.</p></dd>
 
   
 </dl></dd>
