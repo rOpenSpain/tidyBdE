@@ -104,22 +104,6 @@ seq_number <- XR_GBP %>%
   # Convert to num
   as.double()
 
-# Load metadata
-bde_series_load(seq_number, extract_metadata = TRUE) %>%
-  # To table on the vignette
-  knitr::kable()
-```
-
-| Date                        | 573214                                                             |
-|:----------------------------|:-------------------------------------------------------------------|
-| NOMBRE DE LA SERIE          | DTCCBCEGBPEUR.B                                                    |
-| NÚMERO SECUENCIAL           | 573214                                                             |
-| ALIAS DE LA SERIE           | TC_1\_1.4                                                          |
-| DESCRIPCIÓN DE LA SERIE     | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
-| DESCRIPCIÓN DE LAS UNIDADES | Libras esterlinas por Euro                                         |
-| FRECUENCIA                  | LABORABLE                                                          |
-
-``` r
 # Extract series
 time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") %>%
@@ -251,15 +235,14 @@ España.
 
 To cite the ‘tidyBdE’ package in publications use:
 
-H. Herrero D (2022). *tidyBdE: Download Data from Bank of Spain*. doi:
-10.5281/zenodo.4673496 (URL: <https://doi.org/10.5281/zenodo.4673496>),
-R package version 0.2.4, \<URL:
-<https://ropenspain.github.io/tidyBdE/>\>.
+H. Herrero D (2022). *tidyBdE: Download Data from Bank of Spain*.
+<doi:10.5281/zenodo.4673496> <https://doi.org/10.5281/zenodo.4673496>, R
+package version 0.2.4, <https://ropenspain.github.io/tidyBdE/>.
 
 A BibTeX entry for LaTeX users is
 
-    @Manual{,
-      title = {tidyBdE: Download Data from Bank of Spain},
+    @Manual{R-tidybde,
+      title = {{tidyBdE}: Download Data from Bank of Spain},
       year = {2022},
       version = {0.2.4},
       author = {Diego {H. Herrero}},

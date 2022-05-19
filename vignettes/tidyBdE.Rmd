@@ -69,26 +69,6 @@ seq_number <- XR_GBP %>%
 seq_number
 #> [1] 573214
 
-# We can check the metadata of the series
-seq_number %>%
-  bde_series_load(extract_metadata = TRUE) %>%
-  # To nice table for the vignette
-  knitr::kable()
-```
-
-
-
-|Date                        |573214                                                             |
-|:---------------------------|:------------------------------------------------------------------|
-|NOMBRE DE LA SERIE          |DTCCBCEGBPEUR.B                                                    |
-|NÚMERO SECUENCIAL           |573214                                                             |
-|ALIAS DE LA SERIE           |TC_1_1.4                                                           |
-|DESCRIPCIÓN DE LA SERIE     |Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
-|DESCRIPCIÓN DE LAS UNIDADES |Libras esterlinas por Euro                                         |
-|FRECUENCIA                  |LABORABLE                                                          |
-
-```r
-
 
 time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") %>%
@@ -124,7 +104,7 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   theme_bde()
 ```
 
-<img src="chart-1.png" title="plot of chunk chart" alt="plot of chunk chart" width="100%" />
+<img src="./chart-1.png" title="plot of chunk chart" alt="plot of chunk chart" width="100%" />
 
 The package provides also several "shortcut" functions for a selection of the
 most relevant macroeconomic series, so there is no need to look for them in
@@ -154,7 +134,7 @@ ggplot(plotseries, aes(x = Date, y = values)) +
   scale_color_bde_d() # Custom palette on the package
 ```
 
-<img src="macroseries-1.png" title="plot of chunk macroseries" alt="plot of chunk macroseries" width="100%" />
+<img src="./macroseries-1.png" title="plot of chunk macroseries" alt="plot of chunk macroseries" width="100%" />
 
 ## A note on caching
 

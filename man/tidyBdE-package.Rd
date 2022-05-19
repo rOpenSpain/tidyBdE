@@ -6,7 +6,7 @@
 \alias{tidyBdE-package}
 \title{tidyBdE: Download Data from Bank of Spain}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
 Tools to download data series from 'Banco de España' ('BdE') on 'tibble' format. 'Banco de España' is the national central bank and, within the framework of the Single Supervisory Mechanism ('SSM'), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by 'Banco de España'.
 }

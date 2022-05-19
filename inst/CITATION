@@ -4,12 +4,13 @@ abs <- trimws(gsub("\\s+", " ", meta$Description))
 bibentry(
   "Manual",
   header = "To cite the 'tidyBdE' package in publications use:",
-  title = paste("tidyBdE:", meta$Title),
+  title = paste("{tidyBdE}:", meta$Title),
   year = year,
   version = meta$Version,
   author = person("Diego","H. Herrero"),
   note = paste("R package version", meta$Version),
   doi = "10.5281/zenodo.4673496",
   url = unlist(strsplit(meta$URL, ","))[1],
-  abstract = abs
+  abstract = abs,
+  key = "R-tidybde"
 )
