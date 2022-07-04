@@ -68,13 +68,13 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">bde_catalog_load</span><span class="op">(</span>
-  catalog <span class="op">=</span> <span class="st">"ALL"</span>,
-  parse_dates <span class="op">=</span> <span class="cn">TRUE</span>,
-  cache_dir <span class="op">=</span> <span class="cn">NULL</span>,
-  update_cache <span class="op">=</span> <span class="cn">FALSE</span>,
-  verbose <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">bde_catalog_load</span><span class="op">(</span></span>
+<span>  catalog <span class="op">=</span> <span class="st">"ALL"</span>,</span>
+<span>  parse_dates <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  cache_dir <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  update_cache <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -86,22 +86,33 @@
     <dl><dt>catalog</dt>
 <dd><p>A single value indicating the catalogs to be updated
 or <code>"ALL"</code> as a shorthand. See <strong>Details</strong>.</p></dd>
+
+
 <dt>parse_dates</dt>
 <dd><p>Logical. If <code>TRUE</code> the dates would be parsed using
 <code><a href="bde_parse_dates.html">bde_parse_dates()</a></code>.</p></dd>
+
+
 <dt>cache_dir</dt>
 <dd><p>A path to a cache directory. The directory can also be set
 via options with <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
+
+
 <dt>update_cache</dt>
 <dd><p>Logical. If <code>TRUE</code> the requested file would be updated on
 the <code>cache_dir</code>.</p></dd>
+
+
 <dt>verbose</dt>
 <dd><p>Logical <code>TRUE</code> or <code>FALSE</code>, display information useful for
 debugging.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A tibble</p>
+    
+
+<p>A tibble</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -117,10 +128,10 @@ debugging.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="fu">bde_catalog_load</span><span class="op">(</span><span class="st">"TI"</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp29KWIO</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp29KWIO</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu">bde_catalog_load</span><span class="op">(</span><span class="st">"TI"</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpMrkZTt</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\RtmpMrkZTt</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Updating catalogs: TI</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Downloading file from https://www.bde.es/webbde/es/estadis/infoest/series/catalogo_ti.csv</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
@@ -144,7 +155,7 @@ debugging.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Frecuencia_de_la_serie &lt;chr&gt;, Fecha_de_la_primera_observacion &lt;date&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Fecha_de_la_ultima_observacion &lt;date&gt;, Numero_de_observaciones &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Titulo_de_la_serie &lt;chr&gt;, Fuente &lt;chr&gt;, Notas &lt;chr&gt;</span></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -171,7 +182,7 @@ debugging.</p></dd>
   <div class="container">
     <div class="row">
       <div class="col-md text-center text-lg-start">
-        <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+        <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
       </div>
       <div class="col-md offset-md-4 text-center text-lg-start">
       <p>Template <a href="https://github.com/ropenspain/rostemplate/" class="external-link">rostemplate</a> by <a href="https://github.com/dieghernan/" class="external-link">dieghernan</a>, based on <a href="https://bootstrapious.com/" class="external-link">Bootstrapious</a>.

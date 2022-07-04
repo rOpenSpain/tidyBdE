@@ -68,15 +68,15 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">bde_series_full_load</span><span class="op">(</span>
-  <span class="va">series_csv</span>,
-  parse_dates <span class="op">=</span> <span class="cn">TRUE</span>,
-  parse_numeric <span class="op">=</span> <span class="cn">TRUE</span>,
-  cache_dir <span class="op">=</span> <span class="cn">NULL</span>,
-  update_cache <span class="op">=</span> <span class="cn">FALSE</span>,
-  verbose <span class="op">=</span> <span class="cn">FALSE</span>,
-  extract_metadata <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">bde_series_full_load</span><span class="op">(</span></span>
+<span>  <span class="va">series_csv</span>,</span>
+<span>  parse_dates <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  parse_numeric <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  cache_dir <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  update_cache <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  extract_metadata <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -85,28 +85,43 @@
 <dd><p>csv file of a series, as defined in the field
 <code>Nombre del archivo con los valores de la serie</code> of the corresponding
 catalog. See <code><a href="bde_catalog_load.html">bde_catalog_load()</a></code>.</p></dd>
+
+
 <dt>parse_dates</dt>
 <dd><p>Logical. If <code>TRUE</code> the dates would be parsed using
 <code><a href="bde_parse_dates.html">bde_parse_dates()</a></code>.</p></dd>
+
+
 <dt>parse_numeric</dt>
 <dd><p>Logical. If <code>TRUE</code> the columns would be parsed to
 double (numeric) values. See <strong>Note</strong>.</p></dd>
+
+
 <dt>cache_dir</dt>
 <dd><p>A path to a cache directory. The directory can also be set
 via options with <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
+
+
 <dt>update_cache</dt>
 <dd><p>Logical. If <code>TRUE</code> the requested file would be updated on
 the <code>cache_dir</code>.</p></dd>
+
+
 <dt>verbose</dt>
 <dd><p>Logical <code>TRUE</code> or <code>FALSE</code>, display information useful for
 debugging.</p></dd>
+
+
 <dt>extract_metadata</dt>
 <dd><p>Logical <code>TRUE/FALSE</code>. On <code>TRUE</code> the output is the
 metadata of the requested series.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A tibble with a field "Date" and the alias of the fields series as
+    
+
+<p>A tibble with a field "Date" and the alias of the fields series as
 described on the catalogs. See <code><a href="bde_catalog_load.html">bde_catalog_load()</a></code>.</p>
     </div>
     <div class="section level2">
@@ -139,9 +154,9 @@ behavior with <code>parse_numeric = FALSE</code></p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="co"># Metadata</span></span>
-<span class="r-in"><span class="fu">bde_series_full_load</span><span class="op">(</span><span class="st">"TI_1_1.csv"</span>, extract_metadata <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co"># Metadata</span></span></span>
+<span class="r-in"><span><span class="fu">bde_series_full_load</span><span class="op">(</span><span class="st">"TI_1_1.csv"</span>, extract_metadata <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 9</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Date  TI_1_1.1 TI_1_1.2 TI_1_1.3 TI_1_1.4 TI_1_1.5 TI_1_1.7 TI_1_1.9 TI_1_1.10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
@@ -151,10 +166,10 @@ behavior with <code>parse_numeric = FALSE</code></p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> DESC… Tipo de… Tipo de… Tipo de… Tipo de… Tipo de… Tipo de… Tipo de… Tipo de …</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> DESC… Porcent… C�ntimo… Porcent… Porcent… Porcent… Porcent… Porcent… Porcenta…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> FREC… DIARIA   DIARIA   DIARIA   DIARIA   DIARIA   DIARIA   DIARIA   DIARIA   </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Data</span></span>
-<span class="r-in"><span class="fu">bde_series_full_load</span><span class="op">(</span><span class="st">"TI_1_1.csv"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 11,692 × 9</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Data</span></span></span>
+<span class="r-in"><span><span class="fu">bde_series_full_load</span><span class="op">(</span><span class="st">"TI_1_1.csv"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 11,737 × 9</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Date       TI_1_1.1 TI_1_1.2 TI_1_1.3 TI_1_1.4 TI_1_1.5 TI_1_1.7 TI_1_1.9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1990-05-14       <span style="color: #BB0000;">NA</span>     14.6     14.6       <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span></span>
@@ -167,8 +182,8 @@ behavior with <code>parse_numeric = FALSE</code></p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1990-05-21       <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1990-05-22       <span style="color: #BB0000;">NA</span>     <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1990-05-23       <span style="color: #BB0000;">NA</span>     14.6     14.6       <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 11,682 more rows, and 1 more variable: TI_1_1.10 &lt;dbl&gt;</span></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 11,727 more rows, and 1 more variable: TI_1_1.10 &lt;dbl&gt;</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -195,7 +210,7 @@ behavior with <code>parse_numeric = FALSE</code></p>
   <div class="container">
     <div class="row">
       <div class="col-md text-center text-lg-start">
-        <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+        <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
       </div>
       <div class="col-md offset-md-4 text-center text-lg-start">
       <p>Template <a href="https://github.com/ropenspain/rostemplate/" class="external-link">rostemplate</a> by <a href="https://github.com/dieghernan/" class="external-link">dieghernan</a>, based on <a href="https://bootstrapious.com/" class="external-link">Bootstrapious</a>.

@@ -71,21 +71,21 @@ macroeconomic indicators of Spain.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">bde_ind_gdp_var</span><span class="op">(</span>series_label <span class="op">=</span> <span class="st">"GDP_YoY"</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">bde_ind_unemployment_rate</span><span class="op">(</span>series_label <span class="op">=</span> <span class="st">"Unemployment_Rate"</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">bde_ind_euribor_12m_monthly</span><span class="op">(</span>series_label <span class="op">=</span> <span class="st">"Euribor_12M_Monthly"</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">bde_ind_euribor_12m_daily</span><span class="op">(</span>series_label <span class="op">=</span> <span class="st">"Euribor_12M_Daily"</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">bde_ind_cpi_var</span><span class="op">(</span>series_label <span class="op">=</span> <span class="st">"Consumer_price_index_YoY"</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">bde_ind_ibex</span><span class="op">(</span>series_label <span class="op">=</span> <span class="st">"IBEX_index_month"</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">bde_ind_gdp_quarterly</span><span class="op">(</span>series_label <span class="op">=</span> <span class="st">"GDP_quarterly_value"</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">bde_ind_population</span><span class="op">(</span>series_label <span class="op">=</span> <span class="st">"Population_Spain"</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">bde_ind_gdp_var</span><span class="op">(</span>series_label <span class="op">=</span> <span class="st">"GDP_YoY"</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">bde_ind_unemployment_rate</span><span class="op">(</span>series_label <span class="op">=</span> <span class="st">"Unemployment_Rate"</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">bde_ind_euribor_12m_monthly</span><span class="op">(</span>series_label <span class="op">=</span> <span class="st">"Euribor_12M_Monthly"</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">bde_ind_euribor_12m_daily</span><span class="op">(</span>series_label <span class="op">=</span> <span class="st">"Euribor_12M_Daily"</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">bde_ind_cpi_var</span><span class="op">(</span>series_label <span class="op">=</span> <span class="st">"Consumer_price_index_YoY"</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">bde_ind_ibex</span><span class="op">(</span>series_label <span class="op">=</span> <span class="st">"IBEX_index_month"</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">bde_ind_gdp_quarterly</span><span class="op">(</span>series_label <span class="op">=</span> <span class="st">"GDP_quarterly_value"</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">bde_ind_population</span><span class="op">(</span>series_label <span class="op">=</span> <span class="st">"Population_Spain"</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -94,6 +94,8 @@ macroeconomic indicators of Spain.</p>
 <dd><p>Optional. Character vector or value. Allows to specify a
 custom label for the series extracted. It should have the same length than
 <code>series_code</code>.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Arguments passed on to <code><a href="bde_series_load.html">bde_series_load</a></code></p><dl><dt><code>parse_numeric</code></dt>
 <dd><p>Logical. If <code>TRUE</code> the columns would be parsed to
@@ -121,10 +123,13 @@ debugging.</p></dd>
 
   
 </dl></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A tibble with the required series.</p>
+    
+
+<p>A tibble with the required series.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -139,8 +144,8 @@ to see the specification and the source.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="fu">bde_ind_gdp_var</span><span class="op">(</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu">bde_ind_gdp_var</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 105 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Date       GDP_YoY</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -155,7 +160,7 @@ to see the specification and the source.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1998-03-01    4.42</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1998-06-01    4.65</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 95 more rows</span></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -182,7 +187,7 @@ to see the specification and the source.</p>
   <div class="container">
     <div class="row">
       <div class="col-md text-center text-lg-start">
-        <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+        <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
       </div>
       <div class="col-md offset-md-4 text-center text-lg-start">
       <p>Template <a href="https://github.com/ropenspain/rostemplate/" class="external-link">rostemplate</a> by <a href="https://github.com/dieghernan/" class="external-link">dieghernan</a>, based on <a href="https://bootstrapious.com/" class="external-link">Bootstrapious</a>.

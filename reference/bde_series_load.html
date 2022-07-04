@@ -95,16 +95,16 @@ several aliases. If you need to search by alias it is recommended to use
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">bde_series_load</span><span class="op">(</span>
-  <span class="va">series_code</span>,
-  series_label <span class="op">=</span> <span class="cn">NULL</span>,
-  parse_dates <span class="op">=</span> <span class="cn">TRUE</span>,
-  parse_numeric <span class="op">=</span> <span class="cn">TRUE</span>,
-  cache_dir <span class="op">=</span> <span class="cn">NULL</span>,
-  update_cache <span class="op">=</span> <span class="cn">FALSE</span>,
-  verbose <span class="op">=</span> <span class="cn">FALSE</span>,
-  extract_metadata <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">bde_series_load</span><span class="op">(</span></span>
+<span>  <span class="va">series_code</span>,</span>
+<span>  series_label <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  parse_dates <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  parse_numeric <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  cache_dir <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  update_cache <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  extract_metadata <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -113,32 +113,49 @@ several aliases. If you need to search by alias it is recommended to use
 <dd><p>a numeric (or coercible with <code><a href="https://rdrr.io/r/base/double.html" class="external-link">base::as.double()</a></code> value
 or vector with time-series code(s), as defined in the field
 <code>Número secuencial</code> of the corresponding series. See <code><a href="bde_catalog_load.html">bde_catalog_load()</a></code>.</p></dd>
+
+
 <dt>series_label</dt>
 <dd><p>Optional. Character vector or value. Allows to specify a
 custom label for the series extracted. It should have the same length than
 <code>series_code</code>.</p></dd>
+
+
 <dt>parse_dates</dt>
 <dd><p>Logical. If <code>TRUE</code> the dates would be parsed using
 <code><a href="bde_parse_dates.html">bde_parse_dates()</a></code>.</p></dd>
+
+
 <dt>parse_numeric</dt>
 <dd><p>Logical. If <code>TRUE</code> the columns would be parsed to
 double (numeric) values. See <strong>Note</strong>.</p></dd>
+
+
 <dt>cache_dir</dt>
 <dd><p>A path to a cache directory. The directory can also be set
 via options with <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
+
+
 <dt>update_cache</dt>
 <dd><p>Logical. If <code>TRUE</code> the requested file would be updated on
 the <code>cache_dir</code>.</p></dd>
+
+
 <dt>verbose</dt>
 <dd><p>Logical <code>TRUE</code> or <code>FALSE</code>, display information useful for
 debugging.</p></dd>
+
+
 <dt>extract_metadata</dt>
 <dd><p>Logical <code>TRUE/FALSE</code>. On <code>TRUE</code> the output is the
 metadata of the requested series.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A tibble with a field "Date" and the <code>series_code</code> of the series as
+    
+
+<p>A tibble with a field "Date" and the <code>series_code</code> of the series as
 described on the catalogs. See <code><a href="bde_catalog_load.html">bde_catalog_load()</a></code>.</p>
     </div>
     <div class="section level2">
@@ -161,15 +178,15 @@ behavior with <code>parse_numeric = FALSE</code></p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="co"># Metadata</span></span>
-<span class="r-in"><span class="fu">bde_series_load</span><span class="op">(</span><span class="fl">573234</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>, extract_metadata <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp29KWIO</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co"># Metadata</span></span></span>
+<span class="r-in"><span><span class="fu">bde_series_load</span><span class="op">(</span><span class="fl">573234</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>, extract_metadata <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpMrkZTt</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Parsing dates</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Extracting series 573234</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Downloading serie 573234 from file TC_1_1.csv (alias TC_1_1.1).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp29KWIO/TC</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpMrkZTt/TC</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Downloading file from https://www.bde.es/webbde/es/estadis/infoest/series/tc_1_1.csv</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 2</span></span>
@@ -181,10 +198,10 @@ behavior with <code>parse_numeric = FALSE</code></p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> DESCRIPCI�N DE LA SERIE     Tipo de cambio. D�lares estadounidenses por euro …</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> DESCRIPCI�N DE LAS UNIDADES D�lares de Estados Unidos por Euro                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> FRECUENCIA                  LABORABLE                                         </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Data</span></span>
-<span class="r-in"><span class="fu">bde_series_load</span><span class="op">(</span><span class="fl">573234</span>, extract_metadata <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6,097 × 2</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Data</span></span></span>
+<span class="r-in"><span><span class="fu">bde_series_load</span><span class="op">(</span><span class="fl">573234</span>, extract_metadata <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6,130 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Date       `573234`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1999-01-04     1.18</span>
@@ -197,24 +214,24 @@ behavior with <code>parse_numeric = FALSE</code></p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1999-01-13     1.17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1999-01-14     1.17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1999-01-15     1.16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 6,087 more rows</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Vectorized</span></span>
-<span class="r-in"><span class="fu">bde_series_load</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">573234</span>, <span class="fl">573214</span><span class="op">)</span>,</span>
-<span class="r-in">  series_label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"US/EUR"</span>, <span class="st">"GBP/EUR"</span><span class="op">)</span>,</span>
-<span class="r-in">  verbose <span class="op">=</span> <span class="cn">TRUE</span>, extract_metadata <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp29KWIO</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 6,120 more rows</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Vectorized</span></span></span>
+<span class="r-in"><span><span class="fu">bde_series_load</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">573234</span>, <span class="fl">573214</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  series_label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"US/EUR"</span>, <span class="st">"GBP/EUR"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  verbose <span class="op">=</span> <span class="cn">TRUE</span>, extract_metadata <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpMrkZTt</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Parsing dates</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Extracting series 573234</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Downloading serie 573234 from file TC_1_1.csv (alias TC_1_1.1).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp29KWIO/TC</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpMrkZTt/TC</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBde&gt; Reading file tc_1_1.csv from cache.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Extracting series 573214</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Downloading serie 573214 from file TC_1_1.csv (alias TC_1_1.4).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp29KWIO/TC</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpMrkZTt/TC</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBde&gt; Reading file tc_1_1.csv from cache.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Date                        `US/EUR`                                 `GBP/EUR`</span>
@@ -225,28 +242,28 @@ behavior with <code>parse_numeric = FALSE</code></p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> FRECUENCIA                  LABORABLE                                LABORABLE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> NOMBRE DE LA SERIE          DTCCBCEUSDEUR.B                          DTCCBCEG…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> N�MERO SECUENCIAL           573234                                   573214   </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">bde_series_load</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">573234</span>, <span class="fl">573214</span><span class="op">)</span>,</span>
-<span class="r-in">  series_label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"US/EUR"</span>, <span class="st">"GBP/EUR"</span><span class="op">)</span>,</span>
-<span class="r-in">  verbose <span class="op">=</span> <span class="cn">TRUE</span>, extract_metadata <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp29KWIO</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">bde_series_load</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">573234</span>, <span class="fl">573214</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  series_label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"US/EUR"</span>, <span class="st">"GBP/EUR"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  verbose <span class="op">=</span> <span class="cn">TRUE</span>, extract_metadata <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpMrkZTt</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Parsing dates</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Extracting series 573234</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Downloading serie 573234 from file TC_1_1.csv (alias TC_1_1.1).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp29KWIO/TC</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpMrkZTt/TC</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBde&gt; Reading file tc_1_1.csv from cache.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Parsing dates</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Parsing fields to double</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Extracting series 573214</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Downloading serie 573214 from file TC_1_1.csv (alias TC_1_1.4).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp29KWIO/TC</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpMrkZTt/TC</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBde&gt; Reading file tc_1_1.csv from cache.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Parsing dates</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Parsing fields to double</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6,097 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6,130 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Date       `US/EUR` `GBP/EUR`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1999-01-04     1.18     0.711</span>
@@ -259,8 +276,8 @@ behavior with <code>parse_numeric = FALSE</code></p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1999-01-13     1.17     0.708</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1999-01-14     1.17     0.706</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1999-01-15     1.16     0.704</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 6,087 more rows</span></span>
-<span class="r-in"><span class="co"># }</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 6,120 more rows</span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -287,7 +304,7 @@ behavior with <code>parse_numeric = FALSE</code></p>
   <div class="container">
     <div class="row">
       <div class="col-md text-center text-lg-start">
-        <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+        <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
       </div>
       <div class="col-md offset-md-4 text-center text-lg-start">
       <p>Template <a href="https://github.com/ropenspain/rostemplate/" class="external-link">rostemplate</a> by <a href="https://github.com/dieghernan/" class="external-link">dieghernan</a>, based on <a href="https://bootstrapious.com/" class="external-link">Bootstrapious</a>.
