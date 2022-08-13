@@ -1,3 +1,7 @@
+# tidyBdE 0.2.5
+
+-   Update HTML5 due to CRAN request
+
 # tidyBdE 0.2.4
 
 -   Update series code on `bde_ind_cpi_var()`.

@@ -1,16 +1,22 @@
 year <- format(Sys.time(), "%Y")
 abs <- trimws(gsub("\\s+", " ", meta$Description))
+abs <- gsub("'", "", abs)
+doi <- "10.5281/zenodo.4673496"
 
 bibentry(
   "Manual",
-  header = "To cite the 'tidyBdE' package in publications use:",
-  title = paste("{tidyBdE}:", meta$Title),
+  header = paste0("To cite '", meta$Package, "' in publications use:"),
+  title = paste("{tidyBdE}:", gsub("'", "", meta$Title)),
+  doi = doi,
+  author = person("Diego","H. Herrero"),
   year = year,
   version = meta$Version,
-  author = person("Diego","H. Herrero"),
-  note = paste("R package version", meta$Version),
-  doi = "10.5281/zenodo.4673496",
   url = unlist(strsplit(meta$URL, ","))[1],
   abstract = abs,
-  key = "R-tidybde"
+  key = "R-tidyBdE",
+  textVersion = paste0(
+    "H. Herrero, D (", year, "). tidyBdE: ",
+    gsub("'", "", meta$Title), ". <https://doi.org/", doi, ">, <",
+    unlist(strsplit(meta$URL, ","))[1], ">"
+  )
 )
