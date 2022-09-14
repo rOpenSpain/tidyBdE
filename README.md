@@ -47,7 +47,6 @@ Alternatively, you can install the developing version of **tidyBdE**
 using the [r-universe](https://ropenspain.r-universe.dev/ui#builds):
 
 ``` r
-
 # Enable this universe
 options(repos = c(
   ropenspain = "https://ropenspain.r-universe.dev",
@@ -68,7 +67,6 @@ The basic entry point for searching time-series are the catalogs
 (*indexes*) of information. You can search any series by name:
 
 ``` r
-
 library(tidyBdE)
 
 # Load tidyverse for better handling
@@ -98,7 +96,6 @@ exchange rate using the sequential number reference
 
 ``` r
 
-
 seq_number <- XR_GBP %>%
   # First record
   slice(1) %>%
@@ -119,7 +116,6 @@ The package also provides a custom `ggplot2` theme based on the
 publications of BdE:
 
 ``` r
-
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_vivid_pal()(1)) +
   geom_smooth(method = "gam", colour = bde_vivid_pal()(2)[2]) +
@@ -148,7 +144,6 @@ of the most relevant macroeconomic series, so there is no need to look
 for them in advance:
 
 ``` r
-
 gdp <- bde_ind_gdp_var("values")
 gdp$label <- "GDP YoY"
 
@@ -179,14 +174,12 @@ available.
 
 ``` r
 
-
 scales::show_col(bde_rose_pal()(6))
 ```
 
 <img src="man/figures/README-palettes-1.png" width="100%" />
 
 ``` r
-
 scales::show_col(bde_vivid_pal()(6))
 ```
 
