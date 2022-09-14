@@ -96,6 +96,7 @@ bde_series_load(c(573234, 573214),
 \code{\link[=bde_catalog_search]{bde_catalog_search()}}, \code{\link[=bde_indicators]{bde_indicators()}}
 
 Other series: 
-\code{\link{bde_series_full_load}()}
+\code{\link{bde_series_full_load}()},
+\code{\link{bde_themes_download}()}
 }
 \concept{series}
