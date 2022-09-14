@@ -298,6 +298,10 @@ bde_series_full_load <-
       )
 
       if (isFALSE(result)) {
+
+        # Clean up the file if it was produced. Is not valid
+        if (file.exists(local_file)) unlink(local_file, force = TRUE)
+
         return(invisible())
       }
     } else {
