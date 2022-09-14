@@ -161,8 +161,10 @@ bde_series_load <- function(series_code,
         )
       }
 
-      serie_file <- serie_file["Date"]
+      # Prevent deprecation
+      serie_file <- as.data.frame(serie_file["Date"])
       serie_file <- tibble::add_column(serie_file, x = NA)
+      serie_file <- tibble::as_tibble(serie_file)
       # nocov end
     } else {
       serie_file <- serie_file[c("Date", alias_serie)]
@@ -301,7 +303,7 @@ bde_series_full_load <-
     } else {
       if (verbose) {
         message(
-          "tidyBde> Reading file ", serie_file,
+          "tidyBdE> Reading file ", serie_file,
           " from cache."
         )
       }
