@@ -42,3 +42,4 @@ revdep
 docs/
 CRAN-SUBMISSION
 .github/pkg.lock
+cache_tests

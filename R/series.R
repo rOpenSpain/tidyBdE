@@ -300,8 +300,10 @@ bde_series_full_load <-
       if (isFALSE(result)) {
 
         # Clean up the file if it was produced. Is not valid
-        if (file.exists(local_file)) unlink(local_file, force = TRUE)
-
+        file_full_path <- path.expand(local_file)
+        if (file.exists(file_full_path)) {
+          unlink(file_full_path, force = TRUE, recursive = TRUE)
+        }
         return(invisible())
       }
     } else {

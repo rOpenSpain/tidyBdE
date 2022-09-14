@@ -22,3 +22,4 @@
 ^_pkgdown\.yaml$
 ^CITATION\.cff$
 ^CRAN-SUBMISSION$
+^cache_tests$
