@@ -1,6 +1,8 @@
 # tidyBdE (development version)
 
 -   On url not reachable, remove the local csv since it is empty.
+-   Improve download process.
+-   More informative messages for the final user.
 
 # tidyBdE 0.2.5
 

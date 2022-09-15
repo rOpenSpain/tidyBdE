@@ -15,6 +15,16 @@
 #' }
 #' @export
 bde_check_access <- function() {
+
+  # Internal option, for checking purposes only
+  # nocov start
+  test <- getOption("bde_test_offline", NULL)
+  if (isTRUE(test)) {
+    message("dev> Testing offline")
+    return(FALSE)
+  }
+  # nocov end
+
   url <- paste0(
     "https://www.bde.es/webbde/es/",
     "estadis/infoest/series/catalogo_tc.csv"

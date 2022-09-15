@@ -1,5 +1,7 @@
 url: https://ropenspain.github.io/tidyBdE/
 
+development:
+  mode: auto
 
 repo:
   branch: main
