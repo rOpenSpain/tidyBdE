@@ -358,15 +358,14 @@ bde_catalog_search <- function(pattern, ...) {
     stop("`pattern` should be a character.")
   }
 
-  # nocov start
-  if (!bde_check_access()) {
+  # Extract info
+  catalog_search <- bde_catalog_load(...)
+
+  if (nrow(catalog_search) == 0) {
     tbl <- bde_hlp_return_null()
     return(tbl)
   }
-  # nocov end
 
-  # Extract info
-  catalog_search <- bde_catalog_load(...)
 
   if (!tibble::is_tibble(catalog_search)) {
     message("Catalogs corrupted. Try redownloading with bde_catalog_update()")
