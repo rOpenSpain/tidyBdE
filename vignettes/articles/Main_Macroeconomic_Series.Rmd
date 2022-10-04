@@ -69,7 +69,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
     date_labels = "%b-%Y",
     breaks = br
   ) +
-  theme_bde()
+  theme_tidybde()
 ```
 
 ### Year-on-year variation
@@ -99,7 +99,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
     date_labels = "%b-%Y",
     breaks = br
   ) +
-  theme_bde()
+  theme_tidybde()
 ```
 
 ### GDP per capita
@@ -140,7 +140,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
     date_labels = "%b-%Y",
     breaks = br
   ) +
-  theme_bde()
+  theme_tidybde()
 ```
 
 ## Unemployment Rate
@@ -170,7 +170,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
     date_labels = "%b-%Y",
     breaks = br
   ) +
-  theme_bde()
+  theme_tidybde()
 ```
 
 ## Consumer Price Index
@@ -200,7 +200,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
     date_labels = "%b-%Y",
     breaks = br
   ) +
-  theme_bde()
+  theme_tidybde()
 ```
 
 ## Monthly Euribor
@@ -230,7 +230,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
     date_labels = "%b-%Y",
     breaks = br
   ) +
-  theme_bde()
+  theme_tidybde()
 ```
 
 ## Population
@@ -264,5 +264,5 @@ ggplot(dataset, aes(x = Date, y = data)) +
     breaks = br
   ) +
   scale_y_continuous(labels = scales::label_number()) +
-  theme_bde()
+  theme_tidybde()
 ```

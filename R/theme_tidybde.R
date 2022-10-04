@@ -37,11 +37,11 @@
 #'       subtitle = "Some metric",
 #'       caption = "Bank of Spain"
 #'     ) +
-#'     theme_bde()
+#'     theme_tidybde()
 #' }
 #' }
 #'
-theme_bde <- function(...) {
+theme_tidybde <- function(...) {
   # nocov start
   ggplot2::theme_classic() +
     ggplot2::theme(

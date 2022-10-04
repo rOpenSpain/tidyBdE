@@ -2,6 +2,8 @@
 
 -   On url not reachable, remove the local csv since it is empty.
 
+-   **Breaking change**: `theme_bde()` renamed to `theme_tidybde()`.
+
 # tidyBdE 0.2.5
 
 -   Update HTML5 due to CRAN request
