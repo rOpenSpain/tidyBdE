@@ -106,7 +106,7 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
     label = "Brexit"
   )) +
   coord_cartesian(ylim = c(0.7, 1)) +
-  theme_bde()
+  theme_tidybde()
 
 ```
 
@@ -131,7 +131,7 @@ ggplot(plotseries, aes(x = Date, y = values)) +
   labs(title = "Spanish Economic Indicators (2010-2019)",
        subtitle = "%",
        caption = "Source: BdE") +
-  theme_bde() +
+  theme_tidybde() +
   scale_color_bde_d() # Custom palette on the package
 
 ```

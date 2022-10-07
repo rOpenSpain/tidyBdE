@@ -29,7 +29,7 @@ g <- ggplot(PIB_merge, aes(x = Date, y = PIB_perc)) +
   geom_line(aes(color = name, linetype = name), size = 0.5) +
   scale_linetype_manual(values = c(rep("solid", 3), "dashed")) +
   bde_scale_color_vivid() +
-  theme_bde() +
+  theme_tidybde() +
   theme(
     legend.position = "none",
     line = element_line(size = 0.2)

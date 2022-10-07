@@ -138,7 +138,7 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
     label = "Brexit"
   )) +
   coord_cartesian(ylim = c(0.7, 1)) +
-  theme_bde()
+  theme_tidybde()
 ```
 
 <img src="man/figures/README-chart-1.png" width="100%" />
@@ -166,7 +166,7 @@ ggplot(plotseries, aes(x = Date, y = values)) +
     subtitle = "%",
     caption = "Source: BdE"
   ) +
-  theme_bde() +
+  theme_tidybde() +
   scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
 ```
 

@@ -30,6 +30,6 @@ scales::show_col(bde_rose_pal()(6), labels = FALSE)
 \seealso{
 Other bde_plot: 
 \code{\link{scales_bde}},
-\code{\link{theme_bde}()}
+\code{\link{theme_tidybde}()}
 }
 \concept{bde_plot}

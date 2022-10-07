@@ -36,6 +36,6 @@ as \verb{scale_*_bde_d} while continuous palettes are named \verb{scale_*_bde_c}
 
 Other bde_plot: 
 \code{\link{bde_pals}},
-\code{\link{theme_bde}()}
+\code{\link{theme_tidybde}()}
 }
 \concept{bde_plot}
