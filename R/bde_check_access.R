@@ -7,7 +7,7 @@
 #'
 #' @return a logical.
 #'
-#' @family utils
+#' @keywords internal
 #'
 #' @examples
 #' \donttest{

@@ -112,7 +112,7 @@ bde_series_load <- function(series_code,
 
   all_catalogs <- all_catalogs[!is.na(all_catalogs[[2]]), c(2, 3, 4)]
 
-  df_list <- list <- lapply(series_code, function(x) {
+  df_list <- lapply(series_code, function(x) {
     if (verbose) message("tidyBdE> Extracting series ", x, "\n\n")
 
     # Select file
@@ -186,20 +186,33 @@ bde_series_load <- function(series_code,
 
   df_list <- df_list[nrows]
 
-  # Collate data
-  base_data <- df_list[[1]]
-  remain <- df_list[-1]
+  # Check that all dfs have Date field
 
-  for (j in seq_len(length(remain))) {
-    if ("Date" %in% names(remain[[j]])) {
-      base_data <- merge(
-        base_data, remain[[j]],
-        by = "Date", all = TRUE
-      )
-    }
+  has_date <- vapply(df_list, function(x) {
+    "Date" %in% names(x)
+  },
+  FUN.VALUE = logical(1)
+  )
+
+  df_list <- df_list[has_date]
+
+  # Check number of series and merge (if needed)
+  if (length(df_list) == 1) {
+    base <- tibble::as_tibble(df_list[[1]])
+    return(base)
   }
 
-  return(base_data)
+
+
+
+
+  merged <- do.call(dplyr::full_join, c(
+    df_list,
+    list(by = "Date", all = TRUE)
+  ))
+
+  merged <- tibble::as_tibble(merged)
+  return(merged)
 }
 
 

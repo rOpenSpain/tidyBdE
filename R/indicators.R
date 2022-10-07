@@ -31,13 +31,6 @@
 #' bde_ind_gdp_var()
 #' }
 bde_ind_gdp_var <- function(series_label = "GDP_YoY", ...) {
-
-  # nocov start
-  if (!bde_check_access()) {
-    tbl <- bde_hlp_return_null()
-    return(tbl)
-  }
-  # nocov end
   seq_num <- 3779313
 
   econom_ind <-
@@ -52,14 +45,6 @@ bde_ind_gdp_var <- function(series_label = "GDP_YoY", ...) {
 #' @export
 bde_ind_unemployment_rate <-
   function(series_label = "Unemployment_Rate", ...) {
-
-    # nocov start
-    if (!bde_check_access()) {
-      tbl <- bde_hlp_return_null()
-      return(tbl)
-    }
-    # nocov end
-
     seq_num <- 2357793
 
     econom_ind <-
@@ -75,14 +60,6 @@ bde_ind_unemployment_rate <-
 bde_ind_euribor_12m_monthly <-
   function(series_label = "Euribor_12M_Monthly",
            ...) {
-
-    # nocov start
-    if (!bde_check_access()) {
-      tbl <- bde_hlp_return_null()
-      return(tbl)
-    }
-    # nocov end
-
     seq_num <- 587853
 
     econom_ind <-
@@ -97,14 +74,6 @@ bde_ind_euribor_12m_monthly <-
 #' @export
 bde_ind_euribor_12m_daily <-
   function(series_label = "Euribor_12M_Daily", ...) {
-
-    # nocov start
-    if (!bde_check_access()) {
-      tbl <- bde_hlp_return_null()
-      return(tbl)
-    }
-    # nocov end
-
     seq_num <- 905842
 
     econom_ind <-
@@ -119,14 +88,6 @@ bde_ind_euribor_12m_daily <-
 #' @export
 bde_ind_cpi_var <-
   function(series_label = "Consumer_price_index_YoY", ...) {
-
-    # nocov start
-    if (!bde_check_access()) {
-      tbl <- bde_hlp_return_null()
-      return(tbl)
-    }
-    # nocov end
-
     seq_num <- 4144807
 
     econom_ind <-
@@ -140,14 +101,6 @@ bde_ind_cpi_var <-
 #'
 #' @export
 bde_ind_ibex <- function(series_label = "IBEX_index_month", ...) {
-
-  # nocov start
-  if (!bde_check_access()) {
-    tbl <- bde_hlp_return_null()
-    return(tbl)
-  }
-  # nocov end
-
   seq_num <- 254433
 
   econom_ind <-
@@ -162,14 +115,6 @@ bde_ind_ibex <- function(series_label = "IBEX_index_month", ...) {
 #'
 #' @export
 bde_ind_gdp_quarterly <- function(series_label = "GDP_quarterly_value", ...) {
-
-  # nocov start
-  if (!bde_check_access()) {
-    tbl <- bde_hlp_return_null()
-    return(tbl)
-  }
-  # nocov end
-
   seq_num <- 3777060
 
   econom_ind <-
@@ -184,14 +129,6 @@ bde_ind_gdp_quarterly <- function(series_label = "GDP_quarterly_value", ...) {
 #'
 #' @export
 bde_ind_population <- function(series_label = "Population_Spain", ...) {
-
-  # nocov start
-  if (!bde_check_access()) {
-    tbl <- bde_hlp_return_null()
-    return(tbl)
-  }
-  # nocov end
-
   seq_num <- 3078287
 
   econom_ind <-

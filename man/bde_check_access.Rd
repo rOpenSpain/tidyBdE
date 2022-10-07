@@ -18,8 +18,4 @@ Check if R has access to resources at
 bde_check_access()
 }
 }
-\seealso{
-Other utils: 
-\code{\link{bde_parse_dates}()}
-}
-\concept{utils}
+\keyword{internal}
