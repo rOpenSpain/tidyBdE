@@ -111,12 +111,13 @@ bde_catalog_load <-
 
 
       # Catch error
+      # nocov start
       r <- readLines(catalog_file)
       if (length(r) == 0) {
         message("File ", catalog_file, " not valid")
         return(invisible())
       }
-
+      # nocov end
 
       catalog_load <-
         read.csv2(
@@ -361,16 +362,17 @@ bde_catalog_search <- function(pattern, ...) {
   # Extract info
   catalog_search <- bde_catalog_load(...)
 
+  # nocov start
   if (nrow(catalog_search) == 0) {
     tbl <- bde_hlp_return_null()
     return(tbl)
   }
 
-
   if (!tibble::is_tibble(catalog_search)) {
     message("Catalogs corrupted. Try redownloading with bde_catalog_update()")
     return(invisible())
   }
+  # nocov end
 
   # Index lookup columns
   col_ind <- c(2, 3, 4, 5, 15)

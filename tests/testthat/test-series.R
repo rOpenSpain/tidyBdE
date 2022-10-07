@@ -50,3 +50,42 @@ test_that("Indicators", {
   data <- bde_series_load(573234, extract_metadata = FALSE)
   expect_true(nrow(data) > nrow(meta))
 })
+
+test_that("Series full", {
+  skip_on_cran()
+  skip_if_bde_offline()
+  dir <- file.path(tempdir(), paste0("testoff", sample(1:10, 1)))
+
+  # Test all offline
+
+  # Get a series
+  tc_catalog <- bde_catalog_load("TI", cache_dir = dir)
+
+  all_tables <- tc_catalog$Nombre_del_archivo_con_los_valores_de_la_serie
+  all_names <- as.character(unique(all_tables))
+
+  full_1 <- bde_series_full_load(all_names[1], cache_dir = dir)
+
+  expect_s3_class(full_1, "data.frame")
+  expect_true(nrow(full_1) > 5)
+
+  options(bde_test_offline = TRUE)
+  # Can't download series
+  expect_message(bde_series_full_load(all_names[2], cache_dir = dir))
+
+  fail <- bde_series_full_load(all_names[2], cache_dir = dir)
+  expect_equal(nrow(fail), 0)
+
+  # But can reload cached series
+  expect_silent(bde_series_full_load(all_names[1], cache_dir = dir))
+  full_2 <- bde_series_full_load(all_names[1], cache_dir = dir)
+
+  expect_identical(full_1, full_2)
+
+  # Now try online
+  options(bde_test_offline = FALSE)
+
+  failfix <- bde_series_full_load(all_names[2], cache_dir = dir)
+
+  expect_gt(nrow(failfix), 0)
+})

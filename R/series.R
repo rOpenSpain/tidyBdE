@@ -105,10 +105,12 @@ bde_series_load <- function(series_code,
     verbose = verbose
   )
 
+  # nocov start
   if (nrow(all_catalogs) == 0) {
     tbl <- bde_hlp_return_null()
     return(tbl)
   }
+  # nocov end
 
   all_catalogs <- all_catalogs[!is.na(all_catalogs[[2]]), c(2, 3, 4)]
 
@@ -150,11 +152,12 @@ bde_series_load <- function(series_code,
       extract_metadata = extract_metadata
     )
 
+    # nocov start
     if (nrow(serie_file) == 0) {
       tbl <- bde_hlp_return_null()
       return(tbl)
     }
-
+    # nocov end
     # nocov start
     if (!(alias_serie %in% names(serie_file))) {
       if (verbose) {
@@ -346,11 +349,13 @@ bde_series_full_load <-
 
 
     # Catch error
+    # nocov start
     r <- readLines(local_file)
     if (length(r) == 0) {
       message("File ", local_file, " not valid")
       return(invisible())
     }
+    # nocov end
 
 
     # Serie load

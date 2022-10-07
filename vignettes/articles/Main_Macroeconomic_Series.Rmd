@@ -107,15 +107,15 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ```{r echo=FALSE}
 
 pop <- bde_ind_population(series_label = "pop")
-PIB <- bde_ind_gdp_quarterly(series_label = "data")
+pib <- bde_ind_gdp_quarterly(series_label = "data")
 
-PIB$LastY <- PIB$data + lag(PIB$data, 1) + lag(PIB$data, 2) + lag(PIB$data, 3)
+pib$LastY <- pib$data + lag(pib$data, 1) + lag(pib$data, 2) + lag(pib$data, 3)
 
-PIB <- inner_join(PIB, pop, by = "Date")
+pib <- inner_join(pib, pop, by = "Date")
 
-PIB <- PIB %>% mutate(data = 1000 * LastY / pop)
+pib <- pib %>% mutate(data = 1000 * LastY / pop)
 
-dataset <- PIB %>%
+dataset <- pib %>%
   select(Date, data) %>%
   filter(Date >= nd) %>%
   drop_na()
@@ -128,7 +128,10 @@ ggplot(dataset, aes(x = Date, y = data)) +
   geom_text(
     data = l,
     size = 3,
-    aes(label = paste(x = prettyNum(data, big.mark = " "), "€\n", format(Date, "%b-%Y")))
+    aes(label = paste(
+      x = prettyNum(data, big.mark = " "),
+      "€\n", format(Date, "%b-%Y")
+    ))
   ) +
   labs(
     title = "GDP per capita of Spain",
