@@ -95,12 +95,7 @@ bde_series_load <- function(series_code,
     stop("`series_label` and `series_code` should have the same length")
   }
 
-  # nocov start
-  if (!bde_check_access()) {
-    tbl <- bde_hlp_return_null()
-    return(tbl)
-  }
-  # nocov end
+
 
   # Lookup on catalogs
   all_catalogs <- bde_catalog_load(
@@ -109,18 +104,27 @@ bde_series_load <- function(series_code,
     update_cache = update_cache,
     verbose = verbose
   )
+
+  # nocov start
+  if (nrow(all_catalogs) == 0) {
+    tbl <- bde_hlp_return_null()
+    return(tbl)
+  }
+  # nocov end
+
   all_catalogs <- all_catalogs[!is.na(all_catalogs[[2]]), c(2, 3, 4)]
 
-  # Loop start
-  for (i in seq_len(length(series_code))) {
-    if (verbose) message("tidyBdE> Extracting series ", series_code[i], "\n\n")
+  df_list <- lapply(series_code, function(x) {
+    if (verbose) message("tidyBdE> Extracting series ", x, "\n\n")
 
     # Select file
 
-    csv_file <- all_catalogs[all_catalogs[[1]] == series_code[i], c(2, 3)]
+    csv_file <- all_catalogs[all_catalogs[[1]] == x, c(2, 3)]
 
     if (nrow(csv_file) == 0) {
-      stop("`series_code` not found on catalogs.")
+      message("`series_code` not found on catalogs.")
+      tbl <- bde_hlp_return_null()
+      return(tbl)
     }
 
     # Select first record
@@ -130,7 +134,7 @@ bde_series_load <- function(series_code,
     if (verbose) {
       message(
         "tidyBdE> Downloading serie ",
-        series_code[i], " from file ",
+        x, " from file ",
         csv_file_name, " (alias ",
         alias_serie, ")."
       )
@@ -149,6 +153,12 @@ bde_series_load <- function(series_code,
     )
 
     # nocov start
+    if (nrow(serie_file) == 0) {
+      tbl <- bde_hlp_return_null()
+      return(tbl)
+    }
+    # nocov end
+    # nocov start
     if (!(alias_serie %in% names(serie_file))) {
       if (verbose) {
         message(
@@ -156,31 +166,56 @@ bde_series_load <- function(series_code,
           "Serie with alias '",
           alias_serie,
           "' not available on ",
-          csv_file_name, ". ",
-          "Returning col with NA"
+          csv_file_name, ". "
         )
       }
 
       # Prevent deprecation
-      serie_file <- as.data.frame(serie_file["Date"])
-      serie_file <- tibble::add_column(serie_file, x = NA)
-      serie_file <- tibble::as_tibble(serie_file)
+
+      return(bde_hlp_return_null())
+
       # nocov end
     } else {
       serie_file <- serie_file[c("Date", alias_serie)]
     }
+
+    i <- match(x, series_code)
     names(serie_file) <- c("Date", as.character(series_label[i]))
+    return(serie_file)
+  })
 
+  # Clean
+  nrows <- unlist(lapply(df_list, nrow)) > 0
 
-    # Append to final object
-    if (!exists("collate_data")) {
-      collate_data <- serie_file
-    } else {
-      collate_data <- merge(collate_data, serie_file, by = "Date", all = TRUE)
-    }
+  df_list <- df_list[nrows]
+
+  # Check that all dfs have Date field
+
+  has_date <- vapply(df_list, function(x) {
+    "Date" %in% names(x)
+  },
+  FUN.VALUE = logical(1)
+  )
+
+  df_list <- df_list[has_date]
+
+  # Check number of series and merge (if needed)
+  if (length(df_list) == 1) {
+    base <- tibble::as_tibble(df_list[[1]])
+    return(base)
   }
-  collate_data <- tibble::as_tibble(collate_data)
-  return(collate_data)
+
+
+
+
+
+  merged <- do.call(dplyr::full_join, c(
+    df_list,
+    list(by = "Date", all = TRUE)
+  ))
+
+  merged <- tibble::as_tibble(merged)
+  return(merged)
 }
 
 
@@ -258,14 +293,6 @@ bde_series_full_load <-
 
     pp <- substr(series_csv, 1, 2)
 
-    # nocov start
-    if (!bde_check_access()) {
-      tbl <- bde_hlp_return_null()
-      return(tbl)
-    }
-    # nocov end
-
-
     # Get cache dir
     cache_dir <-
       bde_hlp_cachedir(
@@ -291,6 +318,11 @@ bde_series_full_load <-
 
     # If no serie is found, update
     if (update_cache || isFALSE(file.exists(local_file))) {
+      if (!bde_check_access()) {
+        tbl <- bde_hlp_return_null()
+        return(tbl)
+      }
+
       result <- bde_hlp_download(
         url = full_url,
         local_file = local_file,
@@ -317,11 +349,13 @@ bde_series_full_load <-
 
 
     # Catch error
+    # nocov start
     r <- readLines(local_file)
     if (length(r) == 0) {
       message("File ", local_file, " not valid")
       return(invisible())
     }
+    # nocov end
 
 
     # Serie load

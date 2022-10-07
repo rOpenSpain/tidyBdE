@@ -56,8 +56,5 @@ tibble::tibble(raw = wont_parse, parsed = parsed_fail)
 }
 \seealso{
 \code{\link[=as.Date]{as.Date()}}
-
-Other utils: 
-\code{\link{bde_check_access}()}
 }
 \concept{utils}

@@ -73,52 +73,51 @@ bde_catalog_load <-
       is.logical(update_cache)
     )
 
-
-    # nocov start
-    if (!bde_check_access()) {
-      tbl <- bde_hlp_return_null()
-      return(tbl)
-    }
-    # nocov end
-
-    # Get cache dir
-    cache_dir <-
-      bde_hlp_cachedir(cache_dir = cache_dir, verbose = verbose)
-
     if (catalog == "ALL") {
       catalog_to_load <- setdiff(valid_catalogs, "ALL")
     } else {
       catalog_to_load <- catalog
     }
 
-    # Loop
+    # Get cache dir
+    cache_dir <-
+      bde_hlp_cachedir(cache_dir = cache_dir, verbose = verbose)
 
-    final_catalog <- NULL
-
-    for (cat_ind in catalog_to_load) {
-      catalog_file <- paste0("catalogo_", tolower(cat_ind), ".csv")
+    final_catalog <- lapply(catalog_to_load, function(x) {
+      catalog_file <- paste0("catalogo_", tolower(x), ".csv")
       catalog_file <- file.path(cache_dir, catalog_file)
+      has_cache <- file.exists(catalog_file)
 
-      # If no catalog is found or requested, update
-      if (update_cache || isFALSE(file.exists(catalog_file))) {
+      if (all(has_cache, isFALSE(update_cache))) {
+        if (verbose) message("tidyBdE> Cached version of ", x, " detected")
+      } else {
+
+
+        # If no catalog is found or requested, update
+        if (verbose) message("tidyBdE> Need to download catalog ", x)
+
         result <- bde_catalog_update(
-          catalog = cat_ind,
+          catalog = x,
           cache_dir = cache_dir,
           verbose = verbose
         )
 
-        if (isFALSE(result)) {
-          return(invisible())
+        # On error return NULL
+        if (is.data.frame(result) || isFALSE(result)) {
+          message("Download not available for ", x)
+          return(NULL)
         }
       }
 
+
       # Catch error
+      # nocov start
       r <- readLines(catalog_file)
       if (length(r) == 0) {
         message("File ", catalog_file, " not valid")
         return(invisible())
       }
-
+      # nocov end
 
       catalog_load <-
         read.csv2(
@@ -156,14 +155,21 @@ bde_catalog_load <-
       names(catalog_load) <- names_catalog
       catalog_load <- catalog_load[-1, ]
 
-
-
-
       catalog_load <- bde_hlp_tochar(catalog_load)
-      final_catalog <- dplyr::bind_rows(final_catalog, catalog_load)
-      rm(catalog_load)
+      return(catalog_load)
+    })
+
+    res_all <- unlist(lapply(final_catalog, is.null))
+
+    if (any(res_all)) {
+      msg <- paste0(catalog_to_load[res_all], collapse = ", ")
+      message("tidyBdE> Could not load catalogs: ", msg)
     }
+
     # Guess formats
+
+    # Unlist
+    final_catalog <- dplyr::bind_rows(final_catalog)
     final_catalog <-
       bde_hlp_guess(final_catalog, preserve = names(final_catalog)[c(5, 15)])
 
@@ -266,7 +272,6 @@ bde_catalog_update <-
       bde_hlp_cachedir(cache_dir = cache_dir, verbose = verbose)
 
 
-
     # Loop and download
     if ("ALL" %in% catalog) {
       catalog_download <- valid_catalogs[valid_catalogs != "ALL"]
@@ -281,16 +286,10 @@ bde_catalog_update <-
       )
     }
 
-    for (i in seq_len(length(catalog_download))) {
-      serie <- catalog_download[i]
-      if (serie == "CF") {
-        base_url <- "https://www.bde.es/webbde/es/estadis/ccff/csvs/"
-      } else {
-        base_url <- "https://www.bde.es/webbde/es/estadis/infoest/series/"
-      }
-
-      catalog_file <-
-        paste0("catalogo_", tolower(catalog_download[i]), ".csv")
+    res <- lapply(catalog_download, function(x) {
+      serie <- x
+      base_url <- "https://www.bde.es/webbde/es/estadis/infoest/series/"
+      catalog_file <- paste0("catalogo_", tolower(serie), ".csv")
 
       full_url <- paste0(base_url, catalog_file)
       local_file <- file.path(cache_dir, catalog_file)
@@ -302,7 +301,10 @@ bde_catalog_update <-
         verbose = verbose
       )
       return(result)
-    }
+    })
+
+    res <- all(unlist(res))
+    return(res)
   }
 
 #' Search BdE catalogs
@@ -357,20 +359,20 @@ bde_catalog_search <- function(pattern, ...) {
     stop("`pattern` should be a character.")
   }
 
+  # Extract info
+  catalog_search <- bde_catalog_load(...)
+
   # nocov start
-  if (!bde_check_access()) {
+  if (nrow(catalog_search) == 0) {
     tbl <- bde_hlp_return_null()
     return(tbl)
   }
-  # nocov end
-
-  # Extract info
-  catalog_search <- bde_catalog_load(...)
 
   if (!tibble::is_tibble(catalog_search)) {
     message("Catalogs corrupted. Try redownloading with bde_catalog_update()")
     return(invisible())
   }
+  # nocov end
 
   # Index lookup columns
   col_ind <- c(2, 3, 4, 5, 15)
