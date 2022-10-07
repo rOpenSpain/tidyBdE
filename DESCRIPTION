@@ -1,6 +1,6 @@
 Package: tidyBdE
 Title: Download Data from Bank of Spain
-Version: 0.2.5.9000
+Version: 0.3.0
 Authors@R: 
     person("Diego", "H. Herrero", , "dev.dieghernan@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658", affiliation = "rOpenSpain"))

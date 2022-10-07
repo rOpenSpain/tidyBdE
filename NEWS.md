@@ -1,4 +1,4 @@
-# tidyBdE (development version)
+# tidyBdE 0.3.0
 
 -   Overall improvements on downloading files:
 
