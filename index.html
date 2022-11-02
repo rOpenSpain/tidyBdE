@@ -109,7 +109,9 @@
 </h1>
 </div>
 <!-- badges: start -->
-<!-- badges: end --><p><strong>tidyBdE</strong> is an API package that helps to retrieve data from <a href="https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html" class="external-link">Banco de España</a>. The data is provided as <a href="https://tibble.tidyverse.org/" class="external-link">tibble</a> and the package tries to guess the format of every time-series (dates, characters and numbers).</p>
+
+<!-- badges: end -->
+<p><strong>tidyBdE</strong> is an API package that helps to retrieve data from <a href="https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html" class="external-link">Banco de España</a>. The data is provided as <a href="https://tibble.tidyverse.org/" class="external-link">tibble</a> and the package tries to guess the format of every time-series (dates, characters and numbers).</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -120,7 +122,7 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org" class="external-link">remotes</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ropenspain/tidyBdE"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">install_github</span><span class="op">(</span><span class="st">"ropenspain/tidyBdE"</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, you can install the developing version of <strong>tidyBdE</strong> using the <a href="https://ropenspain.r-universe.dev/ui#builds" class="external-link">r-universe</a>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Enable this universe</span></span>
@@ -152,6 +154,10 @@
 <span>  <span class="co"># To table on document</span></span>
 <span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
+<colgroup>
+<col width="21%">
+<col width="78%">
+</colgroup>
 <thead><tr class="header">
 <th align="right">Numero_secuencial</th>
 <th align="left">Descripcion_de_la_serie</th>
