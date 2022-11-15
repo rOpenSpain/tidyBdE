@@ -17,11 +17,23 @@
 #'   custom label for the series extracted. It should have the same length than
 #'   `series_code`.
 #'
+#' @param out_format Defines if the format must be returned as a "long" dataset
+#'   or a "wide" dataset. Possible values are `"wide"` or `"long"`. See
+#'   **Value** for Details and Section **Examples**.
 #' @inheritParams bde_series_full_load
 #'
 #'
-#' @return A tibble with a field "Date" and the `series_code` of the series as
-#' described on the catalogs. See [bde_catalog_load()].
+#' @return
+#' A tibble with a fiel "Date" and :
+#' - With `out_format = "wide"` each series is presented in a separate
+#'   column with the name defined by `series_label`.
+#' - With `out_format = "long"` the tibble would have two more columns,
+#'   `serie_name` with the labels of each series and `serie_value` with the
+#'   value of the series.
+#'
+#' "wide" format is more suitable for exporting to a `.csv` file while "long"
+#' format is more suitable for producing plots with [ggplot2::ggplot()].
+#' See also [tidyr::pivot_longer()] and [tidyr::pivot_wider()].
 #'
 #' @description
 #'
@@ -57,17 +69,38 @@
 #' # Vectorized
 #' bde_series_load(c(573234, 573214),
 #'   series_label = c("US/EUR", "GBP/EUR"),
-#'   verbose = TRUE, extract_metadata = TRUE
+#'   extract_metadata = TRUE
 #' )
 #'
-#' bde_series_load(c(573234, 573214),
+#' wide <- bde_series_load(c(573234, 573214),
+#'   series_label = c("US/EUR", "GBP/EUR")
+#' )
+#'
+#' # Wide format
+#' wide
+#'
+#'
+#' # Long format
+#' long <- bde_series_load(c(573234, 573214),
 #'   series_label = c("US/EUR", "GBP/EUR"),
-#'   verbose = TRUE, extract_metadata = FALSE
+#'   out_format = "long"
 #' )
-#' }
 #'
+#' long
+#'
+#'
+#' # Use with ggplot
+#' library(ggplot2)
+#'
+#'
+#' ggplot(long, aes(Date, serie_value)) +
+#'   geom_line(aes(group = serie_name, color = serie_name)) +
+#'   scale_color_bde_d() +
+#'   theme_tidybde()
+#' }
 bde_series_load <- function(series_code,
                             series_label = NULL,
+                            out_format = "wide",
                             parse_dates = TRUE,
                             parse_numeric = TRUE,
                             cache_dir = NULL,
@@ -180,7 +213,11 @@ bde_series_load <- function(series_code,
     }
 
     i <- match(x, series_code)
-    names(serie_file) <- c("Date", as.character(series_label[i]))
+    names(serie_file) <- c("Date", "serie_value")
+    serie_file$serie_name <- as.character(series_label[i])
+    # Rearrange
+    serie_file <- serie_file[c("Date", "serie_name", "serie_value")]
+
     return(serie_file)
   })
 
@@ -200,22 +237,28 @@ bde_series_load <- function(series_code,
   df_list <- df_list[has_date]
 
   # Check number of series and merge (if needed)
-  if (length(df_list) == 1) {
-    base <- tibble::as_tibble(df_list[[1]])
-    return(base)
+  if (length(df_list) == 0) {
+    return(bde_hlp_return_null())
   }
 
+  # To long
+  end <- dplyr::bind_rows(df_list)
+  # As factors
+  end$serie_name <- factor(end$serie_name,
+    levels = unique(end$serie_name)
+  )
+  # Factors
 
+  if (out_format == "wide" | isTRUE(extract_metadata)) {
+    end <- tidyr::pivot_wider(end,
+      id_cols = "Date",
+      names_from = "serie_name",
+      values_from = "serie_value"
+    )
+  }
 
-
-
-  merged <- do.call(dplyr::full_join, c(
-    df_list,
-    list(by = "Date", all = TRUE)
-  ))
-
-  merged <- tibble::as_tibble(merged)
-  return(merged)
+  end <- tibble::as_tibble(end)
+  return(end)
 }
 
 
@@ -330,7 +373,6 @@ bde_series_full_load <-
       )
 
       if (isFALSE(result)) {
-
         # Clean up the file if it was produced. Is not valid
         file_full_path <- path.expand(local_file)
         if (file.exists(file_full_path)) {
@@ -365,7 +407,7 @@ bde_series_full_load <-
         sep = ",",
         stringsAsFactors = FALSE,
         na.strings = "",
-        header =  FALSE
+        header = FALSE
       )
     serie_load <- tibble::as_tibble(serie_load)
 

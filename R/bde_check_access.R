@@ -15,7 +15,6 @@
 #' }
 #' @export
 bde_check_access <- function() {
-
   # Internal option, for checking purposes only
   # nocov start
   test <- getOption("bde_test_offline", NULL)

@@ -91,8 +91,6 @@ bde_catalog_load <-
       if (all(has_cache, isFALSE(update_cache))) {
         if (verbose) message("tidyBdE> Cached version of ", x, " detected")
       } else {
-
-
         # If no catalog is found or requested, update
         if (verbose) message("tidyBdE> Need to download catalog ", x)
 

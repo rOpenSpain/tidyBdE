@@ -30,8 +30,8 @@ test_that("Indicators", {
 
 
   # Test load series ----
-  expect_warning(expect_error(bde_series_load("aa")))
-  expect_error(bde_series_load(12345678910))
+  expect_warning(bde_series_load("aa"))
+  expect_identical(bde_series_load(12345678910), bde_hlp_return_null())
   expect_error(bde_series_load(c(573234, 573214), series_label = c(1, NA)))
   expect_error(bde_series_load(c(573234, 573214), series_label = c("1", "1")))
   expect_error(bde_series_load(573234, series_label = c("a", "b")))
@@ -49,6 +49,30 @@ test_that("Indicators", {
   meta <- bde_series_load(573234, extract_metadata = TRUE)
   data <- bde_series_load(573234, extract_metadata = FALSE)
   expect_true(nrow(data) > nrow(meta))
+
+  # Test long and wide
+  wide <- bde_series_load(c(573234, 573214), series_label = c("a", "b"))
+  long <- bde_series_load(c(573234, 573214),
+    series_label = c("a", "b"),
+    out_format = "long"
+  )
+
+  expect_equal(ncol(long), 3)
+  expect_true(nrow(long) > nrow(wide))
+  expect_equal(class(long$serie_name), "factor")
+  expect_equal(levels(long$serie_name), names(wide[, -1]))
+
+  # Wide and long does not affect on metadata
+  wide <- bde_series_load(c(573234, 573214),
+    series_label = c("a", "b"),
+    extract_metadata = TRUE
+  )
+  long <- bde_series_load(c(573234, 573214),
+    series_label = c("a", "b"),
+    out_format = "long",
+    extract_metadata = TRUE
+  )
+  expect_identical(wide, long)
 })
 
 test_that("Series full", {

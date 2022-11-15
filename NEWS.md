@@ -1,3 +1,9 @@
+# tidyBdE (development version)
+
+-   Add new dependency: **tidyr**.
+
+-   New parameter `out_format` on `bde_series_load()`.
+
 # tidyBdE 0.3.0
 
 -   Overall improvements on downloading files:
