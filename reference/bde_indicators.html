@@ -19,7 +19,7 @@ macroeconomic indicators of Spain."><meta property="og:image" content="https://r
     <div>
       <img src="../logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo"><a class="navbar-brand me-2" href="../index.html">tidyBdE</a>
 
-      <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
+      <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0.9000</small>
     </div>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -97,7 +97,12 @@ custom label for the series extracted. It should have the same length than
 
 
 <dt>...</dt>
-<dd><p>Arguments passed on to <code><a href="bde_series_load.html">bde_series_load</a></code></p><dl><dt><code>parse_numeric</code></dt>
+<dd><p>Arguments passed on to <code><a href="bde_series_load.html">bde_series_load</a></code></p><dl><dt><code>out_format</code></dt>
+<dd><p>Defines if the format must be returned as a "long" dataset
+or a "wide" dataset. Possible values are <code>"wide"</code> or <code>"long"</code>. See
+<strong>Value</strong> for Details and Section <strong>Examples</strong>.</p></dd>
+
+    <dt><code>parse_numeric</code></dt>
 <dd><p>Logical. If <code>TRUE</code> the columns would be parsed to
 double (numeric) values. See <strong>Note</strong>.</p></dd>
 
