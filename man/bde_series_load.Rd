@@ -8,6 +8,7 @@
 bde_series_load(
   series_code,
   series_label = NULL,
+  out_format = "wide",
   parse_dates = TRUE,
   parse_numeric = TRUE,
   cache_dir = NULL,
@@ -24,6 +25,10 @@ or vector with time-series code(s), as defined in the field
 \item{series_label}{Optional. Character vector or value. Allows to specify a
 custom label for the series extracted. It should have the same length than
 \code{series_code}.}
+
+\item{out_format}{Defines if the format must be returned as a "long" dataset
+or a "wide" dataset. Possible values are \code{"wide"} or \code{"long"}. See
+\strong{Value} for Details and Section \strong{Examples}.}
 
 \item{parse_dates}{Logical. If \code{TRUE} the dates would be parsed using
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
@@ -44,8 +49,18 @@ debugging.}
 metadata of the requested series.}
 }
 \value{
-A tibble with a field "Date" and the \code{series_code} of the series as
-described on the catalogs. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
+A tibble with a fiel "Date" and :
+\itemize{
+\item With \code{out_format = "wide"} each series is presented in a separate
+column with the name defined by \code{series_label}.
+\item With \code{out_format = "long"} the tibble would have two more columns,
+\code{serie_name} with the labels of each series and \code{serie_value} with the
+value of the series.
+}
+
+"wide" format is more suitable for exporting to a \code{.csv} file while "long"
+format is more suitable for producing plots with \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
+See also \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}} and \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.
 }
 \description{
 The series alias is a positional code showing the location (column and/or
@@ -81,13 +96,34 @@ bde_series_load(573234, extract_metadata = FALSE)
 # Vectorized
 bde_series_load(c(573234, 573214),
   series_label = c("US/EUR", "GBP/EUR"),
-  verbose = TRUE, extract_metadata = TRUE
+  extract_metadata = TRUE
 )
 
-bde_series_load(c(573234, 573214),
-  series_label = c("US/EUR", "GBP/EUR"),
-  verbose = TRUE, extract_metadata = FALSE
+wide <- bde_series_load(c(573234, 573214),
+  series_label = c("US/EUR", "GBP/EUR")
 )
+
+# Wide format
+wide
+
+
+# Long format
+long <- bde_series_load(c(573234, 573214),
+  series_label = c("US/EUR", "GBP/EUR"),
+  out_format = "long"
+)
+
+long
+
+
+# Use with ggplot
+library(ggplot2)
+
+
+ggplot(long, aes(Date, serie_value)) +
+  geom_line(aes(group = serie_name, color = serie_name)) +
+  scale_color_bde_d() +
+  theme_tidybde()
 }
 \dontshow{\}) # examplesIf}
 }

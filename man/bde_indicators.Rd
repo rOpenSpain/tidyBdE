@@ -37,6 +37,9 @@ custom label for the series extracted. It should have the same length than
 \item{...}{
   Arguments passed on to \code{\link[=bde_series_load]{bde_series_load}}
   \describe{
+    \item{\code{out_format}}{Defines if the format must be returned as a "long" dataset
+or a "wide" dataset. Possible values are \code{"wide"} or \code{"long"}. See
+\strong{Value} for Details and Section \strong{Examples}.}
     \item{\code{parse_numeric}}{Logical. If \code{TRUE} the columns would be parsed to
 double (numeric) values. See \strong{Note}.}
     \item{\code{extract_metadata}}{Logical \code{TRUE/FALSE}. On \code{TRUE} the output is the
