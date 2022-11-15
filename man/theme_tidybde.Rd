@@ -7,13 +7,23 @@
 theme_tidybde(...)
 }
 \arguments{
-\item{...}{Ignored.}
+\item{...}{
+  Arguments passed on to \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic}}
+  \describe{
+    \item{\code{base_size}}{base font size, given in pts.}
+    \item{\code{base_family}}{base font family}
+    \item{\code{base_line_size}}{base size for line elements}
+    \item{\code{base_rect_size}}{base size for rect elements}
+  }}
 }
 \value{
-A \code{\link[ggplot2:theme]{ggplot2::theme()}}.
+A \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}.
 }
 \description{
 A custom \code{ggplot2} theme based on the publications of BdE.
+}
+\details{
+Theme based on \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}.
 }
 \examples{
 \dontshow{if (bde_check_access()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
@@ -35,7 +45,7 @@ if (nrow(series_TC) > 0) {
   names(series_TC_pivot) <- c("x", "y")
 
   ggplot(series_TC_pivot, aes(x = x, y = y)) +
-    geom_line(size = 0.8, color = bde_vivid_pal()(1)) +
+    geom_line(linewidth = 0.8, color = bde_vivid_pal()(1)) +
     labs(
       title = "Title",
       subtitle = "Some metric",
@@ -47,7 +57,7 @@ if (nrow(series_TC) > 0) {
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[ggplot2:theme]{ggplot2::theme()}}
+\code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}
 
 Other bde_plot: 
 \code{\link{bde_pals}},
