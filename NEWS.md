@@ -1,4 +1,4 @@
-# tidyBdE (development version)
+# tidyBdE 0.3.1
 
 -   Add new dependency: **tidyr**.
 
