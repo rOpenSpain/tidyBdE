@@ -149,18 +149,17 @@ for them in advance:
 
 ``` r
 
-gdp <- bde_ind_gdp_var("values")
-gdp$label <- "GDP YoY"
+# Data in "long" format
 
-UnempRate <- bde_ind_unemployment_rate("values")
-UnempRate$label <- "Unemployment Rate"
-
-plotseries <- bind_rows(gdp, UnempRate) %>%
+plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") %>%
+  bind_rows(
+    bde_ind_unemployment_rate("Unemployment Rate", out_format = "long")
+  ) %>%
   drop_na() %>%
   filter(Date >= "2010-01-01" & Date <= "2019-12-31")
 
-ggplot(plotseries, aes(x = Date, y = values)) +
-  geom_line(aes(color = label)) +
+ggplot(plotseries, aes(x = Date, y = serie_value)) +
+  geom_line(aes(color = serie_name), linewidth = 1) +
   labs(
     title = "Spanish Economic Indicators (2010-2019)",
     subtitle = "%",
