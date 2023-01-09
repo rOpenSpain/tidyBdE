@@ -17,7 +17,7 @@
     <div>
       <img src="../logo.png" alt="tidyBdE-logo" id="ROS-navbar-logo"><a class="navbar-brand me-2" href="../index.html">tidyBdE</a>
 
-      <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+      <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1.9000</small>
     </div>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,6 +61,14 @@
       <small>Source: <a href="https://github.com/rOpenSpain/tidyBdE/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="development version" id="tidybde-development-version">tidyBdE (development version)<a class="anchor" aria-label="anchor" href="#tidybde-development-version"></a></h2>
+<ul><li>
+<p>Fix indicators:</p>
+<ul><li><p>Deprecate <code>bde_ind_population()</code> since it is not available any more.</p></li>
+<li><p>Fix <code><a href="../reference/bde_indicators.html">bde_ind_ibex()</a></code> since identificator has changed.</p></li>
+</ul></li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.1" id="tidybde-031">tidyBdE 0.3.1<a class="anchor" aria-label="anchor" href="#tidybde-031"></a></h2><p class="text-muted">CRAN release: 2022-11-16</p>
 <ul><li><p>Add new dependency: <strong>tidyr</strong>.</p></li>
@@ -116,7 +124,7 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0" id="tidybde-020">tidyBdE 0.2.0<a class="anchor" aria-label="anchor" href="#tidybde-020"></a></h2><p class="text-muted">CRAN release: 2021-08-04</p>
 <ul><li>Add series index article.</li>
-<li>Add new series: <code><a href="../reference/bde_indicators.html">bde_ind_gdp_quarterly()</a></code>, <code><a href="../reference/bde_indicators.html">bde_ind_population()</a></code>.</li>
+<li>Add new series: <code><a href="../reference/bde_indicators.html">bde_ind_gdp_quarterly()</a></code>, <code>bde_ind_population()</code>.</li>
 <li>Improve package coverage and docs.</li>
 <li>Move tests to <code>testthat</code>.</li>
 <li>The following scales have been removed: <code>bde_scale_colour_vivid()</code>, <code>bde_scale_color_vivid()</code>, <code>bde_scale_fill_vivid()</code>, <code>bde_scale_colour_rose()</code>, <code>bde_scale_color_rose()</code> <code>bde_scale_fill_rose()</code>. Use <code><a href="../reference/scales_bde.html">scale_color_bde_c()</a></code> instead.</li>
