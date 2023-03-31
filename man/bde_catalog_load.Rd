@@ -9,7 +9,7 @@
 }
 \usage{
 bde_catalog_load(
-  catalog = "ALL",
+  catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
   parse_dates = TRUE,
   cache_dir = NULL,
   update_cache = FALSE,

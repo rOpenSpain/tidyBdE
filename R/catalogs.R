@@ -56,11 +56,12 @@
 #' bde_catalog_load("TI", verbose = TRUE)
 #' }
 bde_catalog_load <-
-  function(catalog = "ALL",
+  function(catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
            parse_dates = TRUE,
            cache_dir = NULL,
            update_cache = FALSE,
            verbose = FALSE) {
+    catalog <- match.arg(catalog)
     # Validate
     valid_catalogs <-
       c("BE", "SI", "TC", "TI", "PB", "ALL")
@@ -245,9 +246,10 @@ bde_catalog_load <-
 #' bde_catalog_update("TI", verbose = TRUE)
 #' }
 bde_catalog_update <-
-  function(catalog = "ALL",
+  function(catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
            cache_dir = NULL,
            verbose = FALSE) {
+    catalog <- match.arg(catalog)
     # Validate
     valid_catalogs <-
       c("BE", "SI", "TC", "TI", "PB", "ALL")
