@@ -23,3 +23,6 @@
 ^CITATION\.cff$
 ^CRAN-SUBMISSION$
 ^cache_tests$
+^pkgdown\.yaml$
+^pkgdown\.yml$
+^\.imgbotconfig$

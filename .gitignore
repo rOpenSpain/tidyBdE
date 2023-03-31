@@ -36,10 +36,11 @@ docs
 Meta
 CRAN-RELEASE
 cran-comments.md
-revdep
 /doc/
 /Meta/
 docs/
 CRAN-SUBMISSION
 .github/pkg.lock
 cache_tests
+.Rproj.user
+.Rdata

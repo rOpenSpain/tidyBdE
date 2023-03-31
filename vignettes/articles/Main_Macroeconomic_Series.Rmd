@@ -75,7 +75,6 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ### Year-on-year variation
 
 ```{r echo=FALSE}
-
 dataset <- bde_ind_gdp_var(series_label = "data") %>%
   filter(Date >= nd) %>%
   drop_na()
@@ -105,7 +104,6 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ### GDP per capita
 
 ```{r echo=FALSE}
-
 pop <- bde_ind_population(series_label = "pop")
 pib <- bde_ind_gdp_quarterly(series_label = "data")
 
@@ -149,7 +147,6 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ## Unemployment Rate
 
 ```{r echo=FALSE}
-
 dataset <- bde_ind_unemployment_rate(series_label = "data") %>%
   filter(Date >= nd) %>%
   drop_na()
@@ -179,7 +176,6 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ## Consumer Price Index
 
 ```{r echo=FALSE}
-
 dataset <- bde_ind_cpi_var(series_label = "data") %>%
   filter(Date >= nd) %>%
   drop_na()
@@ -209,7 +205,6 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ## Monthly Euribor
 
 ```{r echo=FALSE}
-
 dataset <- bde_ind_euribor_12m_monthly(series_label = "data") %>%
   filter(Date >= nd) %>%
   drop_na()
@@ -239,7 +234,6 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ## Population
 
 ```{r echo=FALSE}
-
 dataset <- bde_ind_population(series_label = "data") %>%
   filter(Date >= nd) %>%
   drop_na()
