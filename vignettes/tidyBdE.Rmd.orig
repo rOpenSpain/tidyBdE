@@ -43,8 +43,9 @@ information. You can search any series by name:
 
 library(tidyBdE)
 
-# Load tidyverse for better handling
-library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
 
 
 # Search GBP on "TC" (exchange rate) catalog

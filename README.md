@@ -44,7 +44,7 @@ install_github("ropenspain/tidyBdE")
 ```
 
 Alternatively, you can install the developing version of **tidyBdE**
-using the [r-universe](http://ropenspain.r-universe.dev/ui/):
+using the [r-universe](https://ropenspain.r-universe.dev/tidyBdE):
 
 ``` r
 # Enable this universe
@@ -70,7 +70,9 @@ The basic entry point for searching time-series are the catalogs
 library(tidyBdE)
 
 # Load tidyverse for better handling
-library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
 
 
 # Search GBP on "TC" (exchange rate) catalog
@@ -244,7 +246,7 @@ A BibTeX entry for LaTeX users is
       doi = {10.5281/zenodo.4673496},
       author = {Diego {H. Herrero}},
       year = {2023},
-      version = {0.3.1},
+      version = {0.3.1.9000},
       url = {https://ropenspain.github.io/tidyBdE/},
       abstract = {Tools to download data series from Banco de España (BdE) on tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by Banco de España.},
     }

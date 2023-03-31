@@ -59,7 +59,7 @@ install_github("ropenspain/tidyBdE")
 ```
 
 Alternatively, you can install the developing version of **tidyBdE** using the
-[r-universe](http://ropenspain.r-universe.dev/ui/):
+[r-universe](https://ropenspain.r-universe.dev/tidyBdE):
 
 ```{r, eval = FALSE}
 # Enable this universe
@@ -85,7 +85,9 @@ information. You can search any series by name:
 library(tidyBdE)
 
 # Load tidyverse for better handling
-library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
 
 
 # Search GBP on "TC" (exchange rate) catalog

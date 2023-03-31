@@ -8,9 +8,11 @@
 \alias{bde_ind_euribor_12m_monthly}
 \alias{bde_ind_euribor_12m_daily}
 \alias{bde_ind_cpi_var}
-\alias{bde_ind_ibex}
+\alias{bde_ind_ibex_monthly}
+\alias{bde_ind_ibex_daily}
 \alias{bde_ind_gdp_quarterly}
 \alias{bde_ind_population}
+\alias{bde_ind_ibex}
 \title{Relevant Indicators of Spain}
 \usage{
 bde_ind_gdp_var(series_label = "GDP_YoY", ...)
@@ -23,7 +25,9 @@ bde_ind_euribor_12m_daily(series_label = "Euribor_12M_Daily", ...)
 
 bde_ind_cpi_var(series_label = "Consumer_price_index_YoY", ...)
 
-bde_ind_ibex(series_label = "IBEX_index_month", ...)
+bde_ind_ibex_monthly(series_label = "IBEX_index_month", ...)
+
+bde_ind_ibex_daily(series_label = "IBEX_index_day", ...)
 
 bde_ind_gdp_quarterly(series_label = "GDP_quarterly_value", ...)
 

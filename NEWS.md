@@ -1,10 +1,19 @@
+# tidyBdE (development version)
+
+-   Remove **tidyverse** from Suggests.
+
+-   On indicators:
+
+    -   `bde_ind_ibex()` renamed to `bde_ind_ibex_monthly()`.
+    -   New indicator `bde_ind_ibex_daily()`
+
 # tidyBdE 0.3.1
 
 -   Add new dependency: **tidyr**.
 
 -   New parameter `out_format` on `bde_series_load()`.
 
--  Use best practices and small adjustments on `theme_tidybde()`.
+-   Use best practices and small adjustments on `theme_tidybde()`.
 
 # tidyBdE 0.3.0
 
