@@ -8,7 +8,11 @@
 \href{https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html}{Time-series bulk data download}
 }
 \usage{
-bde_catalog_update(catalog = "ALL", cache_dir = NULL, verbose = FALSE)
+bde_catalog_update(
+  catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
+  cache_dir = NULL,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{catalog}{A vector of characters indicating the catalogs to be updated

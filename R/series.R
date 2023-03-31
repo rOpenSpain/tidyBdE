@@ -249,7 +249,7 @@ bde_series_load <- function(series_code,
   )
   # Factors
 
-  if (out_format == "wide" | isTRUE(extract_metadata)) {
+  if (out_format == "wide" || isTRUE(extract_metadata)) {
     end <- tidyr::pivot_wider(end,
       id_cols = "Date",
       names_from = "serie_name",

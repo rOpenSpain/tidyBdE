@@ -100,7 +100,7 @@ bde_ind_cpi_var <-
 #' @rdname bde_indicators
 #'
 #' @export
-bde_ind_ibex <- function(series_label = "IBEX_index_month", ...) {
+bde_ind_ibex_monthly <- function(series_label = "IBEX_index_month", ...) {
   seq_num <- 254433
 
   econom_ind <-
@@ -110,6 +110,18 @@ bde_ind_ibex <- function(series_label = "IBEX_index_month", ...) {
   return(econom_ind)
 }
 
+#' @rdname bde_indicators
+#'
+#' @export
+bde_ind_ibex_daily <- function(series_label = "IBEX_index_day", ...) {
+  seq_num <- 821340
+
+  econom_ind <-
+    bde_series_load(seq_num, series_label = series_label, ...)
+  econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
+
+  return(econom_ind)
+}
 
 #' @rdname bde_indicators
 #'
@@ -137,3 +149,8 @@ bde_ind_population <- function(series_label = "Population_Spain", ...) {
 
   return(econom_ind)
 }
+
+#' @export
+#' @rdname bde_indicators
+#' @usage NULL
+bde_ind_ibex <- bde_ind_ibex_monthly

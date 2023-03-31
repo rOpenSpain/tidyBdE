@@ -24,8 +24,10 @@
 #' @param ... Further arguments of [ggplot2::discrete_scale()] or
 #'   [ggplot2::continuous_scale()].
 #'
-scale_color_bde_d <- function(palette = "bde_vivid_pal",
+scale_color_bde_d <- function(palette = c("bde_vivid_pal", "bde_rose_pal"),
                               ...) { # nocov start
+
+  palette <- match.arg(palette)
   valid_pals <- c("bde_vivid_pal", "bde_rose_pal")
 
   if (!palette %in% valid_pals) {
@@ -48,8 +50,9 @@ scale_color_bde_d <- function(palette = "bde_vivid_pal",
 #' @rdname scales_bde
 #' @name scales_bde
 #' @export
-scale_fill_bde_d <- function(palette = "bde_vivid_pal",
+scale_fill_bde_d <- function(palette = c("bde_vivid_pal", "bde_rose_pal"),
                              ...) { # nocov start
+  palette <- match.arg(palette)
   valid_pals <- c("bde_vivid_pal", "bde_rose_pal")
 
   if (!palette %in% valid_pals) {
@@ -73,8 +76,9 @@ scale_fill_bde_d <- function(palette = "bde_vivid_pal",
 #' @rdname scales_bde
 #' @name scales_bde
 #' @export
-scale_color_bde_c <- function(palette = "bde_vivid_pal",
+scale_color_bde_c <- function(palette = c("bde_vivid_pal", "bde_rose_pal"),
                               ...) { # nocov start
+  palette <- match.arg(palette)
   valid_pals <- c("bde_vivid_pal", "bde_rose_pal")
 
   if (!palette %in% valid_pals) {
@@ -97,8 +101,9 @@ scale_color_bde_c <- function(palette = "bde_vivid_pal",
 #' @rdname scales_bde
 #' @name scales_bde
 #' @export
-scale_fill_bde_c <- function(palette = "bde_vivid_pal",
+scale_fill_bde_c <- function(palette = c("bde_vivid_pal", "bde_rose_pal"),
                              ...) { # nocov start
+  palette <- match.arg(palette)
   valid_pals <- c("bde_vivid_pal", "bde_rose_pal")
 
   if (!palette %in% valid_pals) {

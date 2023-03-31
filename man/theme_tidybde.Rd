@@ -28,7 +28,9 @@ Theme based on \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}.
 \examples{
 \dontshow{if (bde_check_access()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
-library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
 
 series_TC <- bde_series_full_load("TC_1_1.csv")
 

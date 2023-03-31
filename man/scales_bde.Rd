@@ -8,13 +8,13 @@
 \alias{scale_fill_bde_c}
 \title{BdE scales for \code{ggplot2}.}
 \usage{
-scale_color_bde_d(palette = "bde_vivid_pal", ...)
+scale_color_bde_d(palette = c("bde_vivid_pal", "bde_rose_pal"), ...)
 
-scale_fill_bde_d(palette = "bde_vivid_pal", ...)
+scale_fill_bde_d(palette = c("bde_vivid_pal", "bde_rose_pal"), ...)
 
-scale_color_bde_c(palette = "bde_vivid_pal", ...)
+scale_color_bde_c(palette = c("bde_vivid_pal", "bde_rose_pal"), ...)
 
-scale_fill_bde_c(palette = "bde_vivid_pal", ...)
+scale_fill_bde_c(palette = c("bde_vivid_pal", "bde_rose_pal"), ...)
 }
 \arguments{
 \item{palette}{Name of the BdE palette to apply. One of "bde_vivid_pal",

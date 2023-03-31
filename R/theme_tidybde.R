@@ -19,7 +19,9 @@
 #' @importFrom ggplot2 %+replace% rel margin
 #' @examplesIf bde_check_access()
 #' \donttest{
-#' library(tidyverse)
+#' library(ggplot2)
+#' library(dplyr)
+#' library(tidyr)
 #'
 #' series_TC <- bde_series_full_load("TC_1_1.csv")
 #'

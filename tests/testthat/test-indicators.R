@@ -21,9 +21,15 @@ test_that("Indicators", {
   n6 <- expect_silent(bde_ind_ibex())
   expect_true(nrow(n6) > 10)
 
+  n6b <- expect_silent(bde_ind_ibex_monthly())
+  expect_identical(n6, n6b)
+
   n7 <- expect_silent(bde_ind_gdp_quarterly())
   expect_true(nrow(n7) > 10)
 
   n8 <- expect_silent(bde_ind_population())
   expect_true(nrow(n8) > 10)
+
+  n9 <- expect_silent(bde_ind_ibex_daily())
+  expect_true(nrow(n9) > 10)
 })
