@@ -1,4 +1,4 @@
-# tidyBdE (development version)
+# tidyBdE 0.3.2
 
 -   Remove **tidyverse** from Suggests.
 
