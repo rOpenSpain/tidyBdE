@@ -31,7 +31,7 @@ Suggests:
 VignetteBuilder: 
     knitr
 Config/Needs/coverage: covr
-Config/Needs/website: reactable
+Config/Needs/website: reactable, styler, tidyverse
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Copyright: See file inst/COPYRIGHTS
