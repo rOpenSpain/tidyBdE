@@ -13,7 +13,7 @@ plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") %>%
 g <- ggplot(plotseries, aes(x = Date, y = serie_value)) +
   geom_line(aes(color = serie_name), linewidth = 0.25, show.legend = FALSE) +
   theme_minimal() +
-  labs(x="", y="") +
+  labs(x = "", y = "") +
   scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
 
 # font_add_google("Roboto", "roboto")
