@@ -21,7 +21,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 <!-- badges: end -->
 
 **tidyBdE** is an API package that helps to retrieve data from [Banco de
-España](https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html).
+España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
 The data is provided as [tibble](https://tibble.tidyverse.org/) and the
 package tries to guess the format of every time-series (dates,
 characters and numbers).
@@ -246,7 +246,7 @@ A BibTeX entry for LaTeX users is
       doi = {10.5281/zenodo.4673496},
       author = {Diego {H. Herrero}},
       year = {2023},
-      version = {0.3.2},
+      version = {0.3.2.9000},
       url = {https://ropenspain.github.io/tidyBdE/},
       abstract = {Tools to download data series from Banco de España (BdE) on tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by Banco de España.},
     }

@@ -3,7 +3,7 @@
 #'
 #' @description
 #' Check if R has access to resources at
-#' <https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html>.
+#' <https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html>.
 #'
 #' @return a logical.
 #'

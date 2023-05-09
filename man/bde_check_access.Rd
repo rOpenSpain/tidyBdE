@@ -11,7 +11,7 @@ a logical.
 }
 \description{
 Check if R has access to resources at
-\url{https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html}.
+\url{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}.
 }
 \examples{
 \donttest{

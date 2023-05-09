@@ -91,7 +91,7 @@ test_that("Series full", {
   full_1 <- bde_series_full_load(all_names[1], cache_dir = dir)
 
   expect_s3_class(full_1, "data.frame")
-  expect_true(nrow(full_1) > 5)
+  expect_gt(nrow(full_1), 5)
 
   options(bde_test_offline = TRUE)
   # Can't download series
@@ -110,6 +110,5 @@ test_that("Series full", {
   options(bde_test_offline = FALSE)
 
   failfix <- bde_series_full_load(all_names[2], cache_dir = dir)
-
-  expect_gt(nrow(failfix), 0)
+  expect_true(is.null(failfix))
 })

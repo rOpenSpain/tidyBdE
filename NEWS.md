@@ -1,3 +1,7 @@
+# tidyBdE (development version)
+
+-   Update tests and documenation.
+
 # tidyBdE 0.3.2
 
 -   Remove **tidyverse** from Suggests.
@@ -49,9 +53,9 @@
 
 -   BdE starts migrating "Indicadores Económicos" (Economic Indicators) series
     to the Statistical Bulletin (more info
-    [here](https://www.bde.es/bde/en/areas/estadis/otras-clasificac/estadisticas-por/junio-2021-0c825dfde7d3a71.html)).
-    Some series on `bde_indicators()` are likely to be broken in the meantime.
-    So far, these series has been updated:
+    [here](https://www.bde.es/wbe/en/estadisticas/)). Some series on
+    `bde_indicators()` are likely to be broken in the meantime. So far, these
+    series has been updated:
 
     -   `bde_ind_euribor_12m_monthly()`: New series code is `587853`.
 

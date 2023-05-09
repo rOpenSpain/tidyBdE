@@ -10,7 +10,7 @@
 #' @return A tibble
 #'
 #'
-#' @source [Time-series bulk data download](https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html)
+#' @source [Time-series bulk data download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html)
 #'
 #' @param catalog A single value indicating the catalogs to be updated
 #'   or `"ALL"` as a shorthand. See **Details**.
@@ -207,7 +207,7 @@ bde_catalog_load <-
 #'
 #' @return None Downloads the catalog file(s) to the local machine.
 #'
-#' @source [Time-series bulk data download](https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html)
+#' @source [Time-series bulk data download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html)
 #'
 #' @param catalog A vector of characters indicating the catalogs to be updated
 #'   or `"ALL"` as a shorthand. See **Details**.

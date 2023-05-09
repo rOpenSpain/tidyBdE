@@ -5,7 +5,7 @@
 \alias{bde_catalog_update}
 \title{Update BdE catalogs}
 \source{
-\href{https://www.bde.es/webbde/en/estadis/infoest/descarga_series_temporales.html}{Time-series bulk data download}
+\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{Time-series bulk data download}
 }
 \usage{
 bde_catalog_update(
