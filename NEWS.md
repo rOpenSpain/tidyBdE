@@ -1,6 +1,6 @@
-# tidyBdE (development version)
+# tidyBdE 0.3.3
 
--   Update tests and documenation.
+-   Update tests and documentation.
 
 # tidyBdE 0.3.2
 
