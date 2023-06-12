@@ -48,6 +48,18 @@ contact:
   email: dev.dieghernan@gmail.com
   orcid: https://orcid.org/0000-0001-8457-4658
   affiliation: rOpenSpain
+keywords:
+- api
+- bde
+- cran
+- ggplot2
+- macroeconomics
+- r
+- r-package
+- ropenspain
+- rstats
+- series-data
+- spain
 references:
 - type: software
   title: 'R: A Language and Environment for Statistical Computing'
