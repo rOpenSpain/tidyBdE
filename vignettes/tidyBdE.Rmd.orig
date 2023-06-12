@@ -91,7 +91,7 @@ time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%
 The package also provides a custom `ggplot2` theme based on the publications of
 BdE:
 
-```{r chart, fig.asp=0.7}
+```{r chart, fig.asp=0.7, fig.cap="EUR/GBP Exchange Rate (2010-2020) via tidyBdE"}
 
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_vivid_pal()(1)) +
@@ -115,7 +115,7 @@ The package provides also several "shortcut" functions for a selection of the
 most relevant macroeconomic series, so there is no need to look for them in
 advance:
 
-```{r macroseries, fig.asp=0.7}
+```{r macroseries, fig.asp=0.7, fig.cap = "Spanish Economic Indicators (2010-2019)"}
 
 # Data in "long" format
 

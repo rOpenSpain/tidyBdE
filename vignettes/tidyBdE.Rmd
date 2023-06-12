@@ -47,6 +47,8 @@ XR_GBP %>%
 |-----------------:|:------------------------------------------------------------------|
 |            573214|Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
 
+
+
 **Note that BdE files are only provided in Spanish, for the time being**, the
 organism is working on the English version. By now, search terms should be
 provided in Spanish in order to get search results.
@@ -102,7 +104,10 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   theme_tidybde()
 ```
 
-<img src="./chart-1.png" alt="plot of chunk chart" width="100%" />
+<div class="figure">
+<img src="./chart-1.png" alt="EUR/GBP Exchange Rate (2010-2020) via tidyBdE" width="100%" />
+<p class="caption">EUR/GBP Exchange Rate (2010-2020) via tidyBdE</p>
+</div>
 
 The package provides also several "shortcut" functions for a selection of the
 most relevant macroeconomic series, so there is no need to look for them in
@@ -130,7 +135,10 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
   scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
 ```
 
-<img src="./macroseries-1.png" alt="plot of chunk macroseries" width="100%" />
+<div class="figure">
+<img src="./macroseries-1.png" alt="Spanish Economic Indicators (2010-2019)" width="100%" />
+<p class="caption">Spanish Economic Indicators (2010-2019)</p>
+</div>
 
 ## A note on caching
 

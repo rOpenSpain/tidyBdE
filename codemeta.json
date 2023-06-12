@@ -8,13 +8,13 @@
   "codeRepository": "https://github.com/rOpenSpain/tidyBdE",
   "issueTracker": "https://github.com/rOpenSpain/tidyBdE/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.3.3",
+  "version": "0.3.3.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.3.0 (2023-04-21 ucrt)",
+  "runtimePlatform": "R version 4.3.0 (2023-04-21)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -180,7 +180,7 @@
   },
   "applicationCategory": "Macroeconomics",
   "isPartOf": "https://ropenspain.es/",
-  "fileSize": "778.387KB",
+  "fileSize": "12038.528KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -200,8 +200,6 @@
     }
   ],
   "releaseNotes": "https://github.com/rOpenSpain/tidyBdE/blob/master/NEWS.md",
-  "readme": "https://github.com/rOpenSpain/tidyBdE/blob/main/README.md",
   "contIntegration": ["https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml", "https://app.codecov.io/gh/ropenspain/tidyBdE"],
-  "developmentStatus": "https://www.repostatus.org/#active",
-  "keywords": ["r-package", "api", "macroeconomics", "r", "rstats", "bde", "cran", "series-data", "spain", "ropenspain", "ggplot2"]
+  "developmentStatus": "https://www.repostatus.org/#active"
 }

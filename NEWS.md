@@ -1,3 +1,7 @@
+# tidyBdE (development version)
+
+-   Update API entry points.
+
 # tidyBdE 0.3.3
 
 -   Update tests and documentation.

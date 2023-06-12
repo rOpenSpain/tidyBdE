@@ -288,7 +288,10 @@ bde_catalog_update <-
 
     res <- lapply(catalog_download, function(x) {
       serie <- x
-      base_url <- "https://www.bde.es/webbde/es/estadis/infoest/series/"
+      base_url <- paste0(
+        "https://www.bde.es/webbe/es/estadisticas/",
+        "compartido/datos/csv/"
+      )
       catalog_file <- paste0("catalogo_", tolower(serie), ".csv")
 
       full_url <- paste0(base_url, catalog_file)

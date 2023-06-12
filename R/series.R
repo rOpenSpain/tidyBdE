@@ -348,11 +348,11 @@ bde_series_full_load <-
     if (!dir.exists(cache_dir)) dir.create(cache_dir, recursive = TRUE)
 
 
-    if (pp == "CF") {
-      base_url <- "https://www.bde.es/webbde/es/estadis/ccff/csvs/"
-    } else {
-      base_url <- "https://www.bde.es/webbde/es/estadis/infoest/series/"
-    }
+    base_url <- paste0(
+      "https://www.bde.es/webbe/es/estadisticas/",
+      "compartido/datos/csv/"
+    )
+
 
     serie_file <- tolower(series_csv)
 
