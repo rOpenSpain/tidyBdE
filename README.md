@@ -47,12 +47,6 @@ Alternatively, you can install the developing version of **tidyBdE**
 using the [r-universe](https://ropenspain.r-universe.dev/tidyBdE):
 
 ``` r
-# Enable this universe
-options(repos = c(
-  ropenspain = "https://ropenspain.r-universe.dev",
-  CRAN = "https://cloud.r-project.org"
-))
-
 # Install tidyBdE
 install.packages("tidyBdE",
   repos = c("https://ropenspain.r-universe.dev", "https://cloud.r-project.org")
@@ -235,11 +229,11 @@ España.
 
 ## Citation
 
-To cite ‘tidyBdE’ in publications use:
-
-H. Herrero, D (2023). tidyBdE: Download Data from Bank of Spain.
-<https://doi.org/10.5281/zenodo.4673496>,
-<https://ropenspain.github.io/tidyBdE/>
+<p>
+H. Herrero D (2023). <em>tidyBdE: Download Data from Bank of Spain</em>.
+<a href="https://doi.org/10.5281/zenodo.4673496">doi:10.5281/zenodo.4673496</a>,
+<a href="https://ropenspain.github.io/tidyBdE/">https://ropenspain.github.io/tidyBdE/</a>.
+</p>
 
 A BibTeX entry for LaTeX users is
 
