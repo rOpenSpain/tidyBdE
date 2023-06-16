@@ -62,12 +62,6 @@ Alternatively, you can install the developing version of **tidyBdE** using the
 [r-universe](https://ropenspain.r-universe.dev/tidyBdE):
 
 ```{r, eval = FALSE}
-# Enable this universe
-options(repos = c(
-  ropenspain = "https://ropenspain.r-universe.dev",
-  CRAN = "https://cloud.r-project.org"
-))
-
 # Install tidyBdE
 install.packages("tidyBdE",
   repos = c("https://ropenspain.r-universe.dev", "https://cloud.r-project.org")
@@ -232,7 +226,7 @@ This package is in no way sponsored endorsed or administered by Banco de España
 ## Citation
 
 ```{r echo=FALSE, results='asis'}
-print(citation("tidyBdE"), bibtex = FALSE)
+print(citation("tidyBdE"), style = "html")
 ```
 
 A BibTeX entry for LaTeX users is
