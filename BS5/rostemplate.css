@@ -197,6 +197,7 @@ pre code span.wa /* Warning        */ {border: 1px solid #FF0000}
      margin-right: auto;
      margin-top: 0.5rem;
      font-size: 85%;
+     width: 100%;
 }
 
 blockquote {
