@@ -1,6 +1,6 @@
 #' BdE `ggplot2` theme
 #'
-#' A custom `ggplot2` theme based on the publications of BdE.
+#' A custom \CRANpkg{ggplot2} theme based on the publications of BdE.
 #'
 #' @family bde_plot
 #'

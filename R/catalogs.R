@@ -7,10 +7,11 @@
 #'
 #' @encoding UTF-8
 #'
-#' @return A tibble
+#' @return A `tibble`.
 #'
 #'
-#' @source [Time-series bulk data download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html)
+#' @source [Time-series bulk data
+#' download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html)
 #'
 #' @param catalog A single value indicating the catalogs to be updated
 #'   or `"ALL"` as a shorthand. See **Details**.
@@ -205,9 +206,10 @@ bde_catalog_load <-
 #'
 #' @encoding UTF-8
 #'
-#' @return None Downloads the catalog file(s) to the local machine.
+#' @return None. Downloads the catalog file(s) to the local machine.
 #'
-#' @source [Time-series bulk data download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html)
+#' @source [Time-series bulk data
+#' download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html)
 #'
 #' @param catalog A vector of characters indicating the catalogs to be updated
 #'   or `"ALL"` as a shorthand. See **Details**.
@@ -306,8 +308,7 @@ bde_catalog_update <-
       return(result)
     })
 
-    res <- all(unlist(res))
-    return(res)
+    return(invisible(res))
   }
 
 #' Search BdE catalogs

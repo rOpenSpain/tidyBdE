@@ -2,8 +2,8 @@
 #'
 #' @description
 #'
-#' Scales to be used with the `ggplot2` package. Discrete palettes are named
-#' as `scale_*_bde_d` while continuous palettes are named `scale_*_bde_c`.
+#' Scales to be used with the \CRANpkg{ggplot2} package. Discrete palettes are
+#' named as `scale_*_bde_d` while continuous palettes are named `scale_*_bde_c`.
 #'
 #' @seealso [bde_vivid_pal()], [ggplot2::discrete_scale()],
 #'   [ggplot2::continuous_scale()]
@@ -18,8 +18,8 @@
 #'
 #' @name scales_bde
 #'
-#' @param palette Name of the BdE palette to apply. One of "bde_vivid_pal",
-#'   "bde_rose_pal". See [bde_pals()] for details.
+#' @param palette Name of the BdE palette to apply. One of `"bde_vivid_pal"`,
+#'   `"bde_rose_pal"`. See [bde_pals()] for details.
 #'
 #' @param ... Further arguments of [ggplot2::discrete_scale()] or
 #'   [ggplot2::continuous_scale()].

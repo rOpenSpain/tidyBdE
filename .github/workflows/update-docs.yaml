@@ -30,7 +30,7 @@ jobs:
 
       - name: Update docs
         run: |
-          
+
           pkgdev::update_docs()
 
         shell: Rscript {0}
@@ -44,7 +44,7 @@ jobs:
           git push origin || echo "No changes to commit"
 
       - uses: r-lib/actions/check-r-package@v2
-      
+
       - name: Deploy package
         run: |
           git config --local user.name "github-actions[bot]"

@@ -7,6 +7,8 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+<!-- tidyBdE.Rmd is generated from tidyBdE.Rmd.orig. Please edit that file -->
+
 
 
 **tidyBdE** is an API package that helps to retrieve data from [Banco de
@@ -104,10 +106,8 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   theme_tidybde()
 ```
 
-<div class="figure">
-<img src="./chart-1.png" alt="EUR/GBP Exchange Rate (2010-2020) via tidyBdE" width="100%" />
-<p class="caption">EUR/GBP Exchange Rate (2010-2020) via tidyBdE</p>
-</div>
+![EUR/GBP Exchange Rate (2010-2020) via
+tidyBdE](../man/figures/README-chart-1.png)
 
 The package provides also several "shortcut" functions for a selection of the
 most relevant macroeconomic series, so there is no need to look for them in
@@ -135,10 +135,8 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
   scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
 ```
 
-<div class="figure">
-<img src="./macroseries-1.png" alt="Spanish Economic Indicators (2010-2019)" width="100%" />
-<p class="caption">Spanish Economic Indicators (2010-2019)</p>
-</div>
+![Spanish Economic Indicators
+(2010-2019)](../man/figures/README-macroseries-1.png)
 
 ## A note on caching
 

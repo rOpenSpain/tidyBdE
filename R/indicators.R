@@ -17,7 +17,7 @@
 #'
 #' @inheritDotParams bde_series_load -series_code
 #'
-#' @return A tibble with the required series.
+#' @return A `tibble` with the required series.
 #'
 #' @seealso [bde_series_load()], [bde_catalog_search()]
 #'
