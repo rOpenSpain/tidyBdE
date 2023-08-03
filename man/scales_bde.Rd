@@ -30,6 +30,30 @@ A \code{ggplot2} color scale.
 Scales to be used with the \CRANpkg{ggplot2} package. Discrete palettes are
 named as \verb{scale_*_bde_d} while continuous palettes are named \verb{scale_*_bde_c}.
 }
+\examples{
+library(ggplot2)
+
+set.seed(596)
+txsamp <- subset(
+  txhousing,
+  city \%in\% c(
+    "Houston", "Fort Worth",
+    "San Antonio", "Dallas", "Austin"
+  )
+)
+
+ggplot(txsamp, aes(x = sales, y = median)) +
+  geom_point(aes(colour = city)) +
+  scale_color_bde_d() +
+  theme_minimal()
+
+
+ggplot(txsamp, aes(x = sales, y = median)) +
+  geom_point(aes(colour = city)) +
+  scale_color_bde_d("bde_rose_pal") +
+  theme_minimal()
+
+}
 \seealso{
 \code{\link[=bde_vivid_pal]{bde_vivid_pal()}}, \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}},
 \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}

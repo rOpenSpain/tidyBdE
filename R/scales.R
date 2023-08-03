@@ -24,6 +24,29 @@
 #' @param ... Further arguments of [ggplot2::discrete_scale()] or
 #'   [ggplot2::continuous_scale()].
 #'
+#' @examples
+#' library(ggplot2)
+#'
+#' set.seed(596)
+#' txsamp <- subset(
+#'   txhousing,
+#'   city %in% c(
+#'     "Houston", "Fort Worth",
+#'     "San Antonio", "Dallas", "Austin"
+#'   )
+#' )
+#'
+#' ggplot(txsamp, aes(x = sales, y = median)) +
+#'   geom_point(aes(colour = city)) +
+#'   scale_color_bde_d() +
+#'   theme_minimal()
+#'
+#'
+#' ggplot(txsamp, aes(x = sales, y = median)) +
+#'   geom_point(aes(colour = city)) +
+#'   scale_color_bde_d("bde_rose_pal") +
+#'   theme_minimal()
+#'
 scale_color_bde_d <- function(palette = c("bde_vivid_pal", "bde_rose_pal"),
                               ...) { # nocov start
 
