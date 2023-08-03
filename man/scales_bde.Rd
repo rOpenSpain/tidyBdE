@@ -17,8 +17,8 @@ scale_color_bde_c(palette = c("bde_vivid_pal", "bde_rose_pal"), ...)
 scale_fill_bde_c(palette = c("bde_vivid_pal", "bde_rose_pal"), ...)
 }
 \arguments{
-\item{palette}{Name of the BdE palette to apply. One of "bde_vivid_pal",
-"bde_rose_pal". See \code{\link[=bde_pals]{bde_pals()}} for details.}
+\item{palette}{Name of the BdE palette to apply. One of \code{"bde_vivid_pal"},
+\code{"bde_rose_pal"}. See \code{\link[=bde_pals]{bde_pals()}} for details.}
 
 \item{...}{Further arguments of \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} or
 \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}.}
@@ -27,8 +27,8 @@ scale_fill_bde_c(palette = c("bde_vivid_pal", "bde_rose_pal"), ...)
 A \code{ggplot2} color scale.
 }
 \description{
-Scales to be used with the \code{ggplot2} package. Discrete palettes are named
-as \verb{scale_*_bde_d} while continuous palettes are named \verb{scale_*_bde_c}.
+Scales to be used with the \CRANpkg{ggplot2} package. Discrete palettes are
+named as \verb{scale_*_bde_d} while continuous palettes are named \verb{scale_*_bde_c}.
 }
 \seealso{
 \code{\link[=bde_vivid_pal]{bde_vivid_pal()}}, \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}},

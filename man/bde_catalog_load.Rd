@@ -33,7 +33,7 @@ the \code{cache_dir}.}
 debugging.}
 }
 \value{
-A tibble
+A \code{tibble}.
 }
 \description{
 Load the time-series catalogs provided by BdE.

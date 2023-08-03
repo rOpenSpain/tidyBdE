@@ -75,19 +75,10 @@ bde_parse_dates <- function(dates_to_parse) {
 
   months_esp <-
     c(
-      "ENE",
-      "FEB",
-      "MAR",
-      "ABR",
-      "MAY",
-      "JUN",
-      "JUL",
-      "AGO",
-      "SEP",
-      "OCT",
-      "NOV",
-      "DIC"
+      "ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP",
+      "OCT", "NOV", "DIC"
     )
+
   # Format months
   for (i in seq_len(length(months_esp))) {
     dateformat <- gsub(months_esp[i], sprintf("%02d", i), dateformat)

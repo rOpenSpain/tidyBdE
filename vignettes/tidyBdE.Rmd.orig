@@ -7,9 +7,9 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+<!-- tidyBdE.Rmd is generated from tidyBdE.Rmd.orig. Please edit that file -->
 
-start_time <- Sys.time()
+```{r, include = FALSE}
 
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -22,6 +22,8 @@ knitr::opts_chunk$set(
   fig.path = "./",
   out.width = "100%"
 )
+
+library(tidyBdE)
 
 ```
 
@@ -51,11 +53,11 @@ library(tidyr)
 # Search GBP on "TC" (exchange rate) catalog
 XR_GBP <- bde_catalog_search("GBP", catalog="TC")
 
-XR_GBP %>% 
+XR_GBP %>%
   select(Numero_secuencial, Descripcion_de_la_serie) %>%
-  # To table on document 
+  # To table on document
   knitr::kable()
-  
+
 
 ```
 
@@ -91,7 +93,7 @@ time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%
 The package also provides a custom `ggplot2` theme based on the publications of
 BdE:
 
-```{r chart, fig.asp=0.7, fig.cap="EUR/GBP Exchange Rate (2010-2020) via tidyBdE"}
+```{r chart, eval=FALSE}
 
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_vivid_pal()(1)) +
@@ -111,11 +113,14 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
 
 ```
 
+![EUR/GBP Exchange Rate (2010-2020) via
+tidyBdE](../man/figures/README-chart-1.png)
+
 The package provides also several "shortcut" functions for a selection of the
 most relevant macroeconomic series, so there is no need to look for them in
 advance:
 
-```{r macroseries, fig.asp=0.7, fig.cap = "Spanish Economic Indicators (2010-2019)"}
+```{r macroseries, eval=FALSE, fig.asp=0.7, fig.cap = "Spanish Economic Indicators (2010-2019)"}
 
 # Data in "long" format
 
@@ -137,6 +142,9 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
   scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
 
 ```
+
+![Spanish Economic Indicators
+(2010-2019)](../man/figures/README-macroseries-1.png)
 
 ## A note on caching
 

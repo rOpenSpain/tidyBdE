@@ -20,7 +20,7 @@ theme_tidybde(...)
 A \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}.
 }
 \description{
-A custom \code{ggplot2} theme based on the publications of BdE.
+A custom \CRANpkg{ggplot2} theme based on the publications of BdE.
 }
 \details{
 Theme based on \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}.

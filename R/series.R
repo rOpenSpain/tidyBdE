@@ -24,7 +24,7 @@
 #'
 #'
 #' @return
-#' A tibble with a fiel "Date" and :
+#' A `tibble` with a field "Date" and :
 #' - With `out_format = "wide"` each series is presented in a separate
 #'   column with the name defined by `series_label`.
 #' - With `out_format = "long"` the tibble would have two more columns,
@@ -42,13 +42,13 @@
 #' a good candidate to be used as the series ID, as it is subject to change.
 #'  If a series changes position in the table, its alias will also change.
 #'
-#'  To ensure series can still be identified, even after these changes, they
-#'  are assigned a sequential number (`series_code` on this function) which
-#'  will remain unchanged throughout the series' lifetime.
+#' To ensure series can still be identified, even after these changes, they
+#' are assigned a sequential number (`series_code` on this function) which
+#' will remain unchanged throughout the series' lifetime.
 #'
-#'  Note that a single series could be used on different tables, so it can have
-#'  several aliases. If you need to search by alias it is recommended to use
-#'  [bde_series_full_load()].
+#' Note that a single series could be used on different tables, so it can have
+#' several aliases. If you need to search by alias it is recommended to use
+#' [bde_series_full_load()].
 #'
 #' @note
 #' This function tries to coerce the columns to numbers. For some series a
