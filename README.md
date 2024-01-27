@@ -116,8 +116,8 @@ publications of BdE:
 
 ``` r
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
-  geom_line(colour = bde_vivid_pal()(1)) +
-  geom_smooth(method = "gam", colour = bde_vivid_pal()(2)[2]) +
+  geom_line(colour = bde_palettes(n = 1)) +
+  geom_smooth(method = "gam", colour = bde_palettes(n = 2)[2]) +
   labs(
     title = "EUR/GBP Exchange Rate (2010-2020)",
     subtitle = "%",
@@ -169,19 +169,6 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
 
 Two custom palettes, based on the used by BdE on some publications are
 available.
-
-``` r
-scales::show_col(bde_rose_pal()(6))
-```
-
-<img src="man/figures/README-palettes-1.png" width="100%" />
-
-``` r
-
-scales::show_col(bde_vivid_pal()(6))
-```
-
-<img src="man/figures/README-palettes-2.png" width="100%" />
 
 Those palettes can be applied to a `ggplot2` using some custom utils
 included on the package (see

@@ -10,6 +10,5 @@ NULL
 
 # import stuffs
 #' @importFrom utils download.file read.csv2
-#' @importFrom tibble tibble
 #' @importFrom ggplot2 unit element_rect element_text element_blank element_line
 NULL

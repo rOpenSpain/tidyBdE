@@ -15,13 +15,22 @@ test_that("Discrete scale", {
   mod3 <- ggplot2::layer_data(p3)$colour
   expect_identical(mod, mod3)
 
+  # Alpha
+
+  p3 <- p + scale_colour_bde_d(alpha = 0.9)
+
+  mod_alpha <- ggplot2::layer_data(p3)$colour
+
+  expect_true(all(ggplot2::alpha(mod, 0.9) == mod_alpha))
+
+
   # Another pal
   p4 <- p + scale_color_bde_d(palette = "bde_rose_pal")
   mod4 <- ggplot2::layer_data(p4)$colour
 
   expect_false(any(mod == mod4))
 
-  # Another param
+  # Another aes
   pf <- ggplot2::ggplot(d) +
     ggplot2::geom_point(ggplot2::aes(x, y, fill = l), shape = 21)
 
@@ -38,51 +47,48 @@ test_that("Discrete scale", {
 
 
 test_that("Continous scale", {
-  skip("Not ready yet")
   d <- data.frame(x = 1:5, y = 1:5, z = 21:25, l = letters[1:5])
 
   p <- ggplot2::ggplot(d) +
     ggplot2::geom_point(ggplot2::aes(x, y, colour = z))
 
   init <- ggplot2::layer_data(p)$colour
-  p2 <- p + scale_colour_terrain_c()
+  p2 <- p + scale_color_bde_c()
 
   mod <- ggplot2::layer_data(p2)$colour
   expect_true(!any(init %in% mod))
 
   # Renamed
-  p3 <- p + scale_color_terrain_c()
+  p3 <- p + scale_colour_bde_c()
   mod3 <- ggplot2::layer_data(p3)$colour
   expect_identical(mod, mod3)
 
 
   # Alpha
-  expect_snapshot(p + scale_colour_terrain_c(alpha = -1),
-    error = TRUE
-  )
 
-  p3 <- p + scale_colour_terrain_c(alpha = 0.9)
+  p3 <- p + scale_colour_bde_c(alpha = 0.9)
 
   mod_alpha <- ggplot2::layer_data(p3)$colour
 
-  expect_true(all(adjustcolor(mod, alpha.f = 0.9) == mod_alpha))
+  expect_true(all(ggplot2::alpha(mod, 0.9) == mod_alpha))
 
-  # Reverse also with alpha
-  expect_snapshot(p + scale_colour_terrain_c(direction = 0.5),
-    error = TRUE
-  )
+  # Another pal
+  p4 <- p + scale_color_bde_c(palette = "bde_vivid_pal")
+  mod4 <- ggplot2::layer_data(p4)$colour
 
+  expect_false(any(mod == mod4))
 
+  # Another aes
+  pf <- ggplot2::ggplot(d) +
+    ggplot2::geom_point(ggplot2::aes(x, y, fill = z), shape = 21)
 
-  p4 <- p + scale_colour_terrain_c(
-    direction = -1,
-    alpha = 0.7
-  )
+  pfill <- pf + scale_fill_bde_c()
+  colfill <- ggplot2::layer_data(pfill)$fill
 
-  mod_alpha_rev <- ggplot2::layer_data(p4)$colour
+  expect_identical(mod, colfill)
 
+  pfill2 <- pf + scale_fill_bde_c(palette = "bde_vivid_pal")
+  colfill2 <- ggplot2::layer_data(pfill2)$fill
 
-  expect_true(
-    all(rev(adjustcolor(mod, alpha.f = 0.7)) == mod_alpha_rev)
-  )
+  expect_identical(mod4, colfill2)
 })

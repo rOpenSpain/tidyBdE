@@ -8,8 +8,8 @@
 bde_catalog_search(pattern, ...)
 }
 \arguments{
-\item{pattern}{\code{\link[base:grep]{regex}}  pattern to search See
-\strong{Details} and \strong{Examples}.}
+\item{pattern}{\code{\link[base:regex]{regex}}  pattern to search See \strong{Details}
+and \strong{Examples}.}
 
 \item{...}{
   Arguments passed on to \code{\link[=bde_catalog_load]{bde_catalog_load}}
@@ -27,17 +27,17 @@ debugging.}
   }}
 }
 \value{
-A tibble with the results of the query.
+A \link[tibble:tibble]{tibble} with the results of the query.
 }
 \description{
 Search for keywords on the time-series catalogs.
 }
 \details{
-\strong{Note that} BdE files are only provided in
-Spanish, for the time being. Therefore search terms should be provided
-in Spanish as well in order to get search results.
+\strong{Note that} BdE files are only provided in Spanish, for the time being.
+Therefore search terms should be provided in Spanish as well in order to get
+search results.
 
-This function uses \code{\link[base:regex]{base::regex()}} function for finding matches on
+This function uses \code{\link[base:grep]{base::grep()}} function for finding matches on
 the catalogs. You can pass \link[base:regex]{regular expressions} to broaden
 the search.
 }
@@ -64,7 +64,7 @@ bde_catalog_search("^3779313$")
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[=bde_catalog_load]{bde_catalog_load()}}, \code{\link[base:regex]{base::regex()}}
+\code{\link[=bde_catalog_load]{bde_catalog_load()}}, \link[base:regex]{base::regex}
 
 Other catalog: 
 \code{\link{bde_catalog_load}()},

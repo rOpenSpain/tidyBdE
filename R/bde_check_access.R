@@ -1,6 +1,5 @@
 #' Check access to BdE
 #'
-#'
 #' @description
 #' Check if R has access to resources at
 #' <https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html>.

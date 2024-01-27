@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
   tidy = "styler",
   warning = FALSE,
   message = FALSE,
-  dpi = 300,
+  dpi = 120,
   dev = "ragg_png",
   fig.path = "./",
   out.width = "100%"
@@ -93,11 +93,11 @@ time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%
 The package also provides a custom `ggplot2` theme based on the publications of
 BdE:
 
-```{r chart, eval=FALSE}
+```{r chart, eval=TRUE, fig.cap='EUR/GBP Exchange Rate (2010-2020)', fig.asp=0.7}
 
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
-  geom_line(colour = bde_vivid_pal()(1)) +
-  geom_smooth(method = "gam", colour = bde_vivid_pal()(2)[2]) +
+  geom_line(colour = bde_palettes(n=1)) +
+  geom_smooth(method = "gam", colour = bde_palettes(n=2)[2]) +
   labs(title = "EUR/GBP Exchange Rate (2010-2020)",
        subtitle = "%",
        caption = "Source: BdE") +
@@ -112,9 +112,6 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   theme_tidybde()
 
 ```
-
-![EUR/GBP Exchange Rate (2010-2020) via
-tidyBdE](../man/figures/README-chart-1.png)
 
 The package provides also several "shortcut" functions for a selection of the
 most relevant macroeconomic series, so there is no need to look for them in

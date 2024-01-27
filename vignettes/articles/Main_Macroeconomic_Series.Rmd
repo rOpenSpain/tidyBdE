@@ -30,7 +30,7 @@ library(dplyr)
 library(tidyr)
 
 
-col <- tidyBdE::bde_rose_pal()(1)
+col <- bde_palettes(1, "bde_rose_pal")
 date <- Sys.Date()
 ny <- as.numeric(format(date, format = "%Y")) - 4
 nd <- as.Date(paste0(ny, "-12-31"))

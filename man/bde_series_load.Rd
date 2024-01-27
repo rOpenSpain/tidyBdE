@@ -49,7 +49,7 @@ debugging.}
 metadata of the requested series.}
 }
 \value{
-A \code{tibble} with a field "Date" and :
+A \link[tibble:tibble]{tibble} with a field "Date" and :
 \itemize{
 \item With \code{out_format = "wide"} each series is presented in a separate
 column with the name defined by \code{series_label}.

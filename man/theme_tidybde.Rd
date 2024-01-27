@@ -47,7 +47,7 @@ if (nrow(series_TC) > 0) {
   names(series_TC_pivot) <- c("x", "y")
 
   ggplot(series_TC_pivot, aes(x = x, y = y)) +
-    geom_line(linewidth = 0.8, color = bde_vivid_pal()(1)) +
+    geom_line(linewidth = 0.8, color = bde_palettes(n = 1)) +
     labs(
       title = "Title",
       subtitle = "Some metric",

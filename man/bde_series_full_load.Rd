@@ -39,8 +39,8 @@ debugging.}
 metadata of the requested series.}
 }
 \value{
-A tibble with a field "Date" and the alias of the fields series as
-described on the catalogs. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
+A \link[tibble:tibble]{tibble} with a field "Date" and the alias of the
+fields series as described on the catalogs. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
 }
 \description{
 Load a full time-series file provided by BdE.
