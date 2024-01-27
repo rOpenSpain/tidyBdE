@@ -67,13 +67,33 @@ named as <code>scale_*_bde_d</code> while continuous palettes are named <code>sc
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">scale_color_bde_d</span><span class="op">(</span>palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bde_vivid_pal"</span>, <span class="st">"bde_rose_pal"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">scale_color_bde_d</span><span class="op">(</span></span>
+<span>  palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bde_vivid_pal"</span>, <span class="st">"bde_rose_pal"</span><span class="op">)</span>,</span>
+<span>  alpha <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  rev <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">scale_fill_bde_d</span><span class="op">(</span>palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bde_vivid_pal"</span>, <span class="st">"bde_rose_pal"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">scale_fill_bde_d</span><span class="op">(</span></span>
+<span>  palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bde_vivid_pal"</span>, <span class="st">"bde_rose_pal"</span><span class="op">)</span>,</span>
+<span>  alpha <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  rev <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">scale_color_bde_c</span><span class="op">(</span>palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bde_rose_pal"</span>, <span class="st">"bde_vivid_pal"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">scale_color_bde_c</span><span class="op">(</span></span>
+<span>  palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bde_rose_pal"</span>, <span class="st">"bde_vivid_pal"</span><span class="op">)</span>,</span>
+<span>  alpha <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  rev <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">scale_fill_bde_c</span><span class="op">(</span>palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bde_rose_pal"</span>, <span class="st">"bde_vivid_pal"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">scale_fill_bde_c</span><span class="op">(</span></span>
+<span>  palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bde_rose_pal"</span>, <span class="st">"bde_vivid_pal"</span><span class="op">)</span>,</span>
+<span>  alpha <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  rev <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -81,6 +101,18 @@ named as <code>scale_*_bde_d</code> while continuous palettes are named <code>sc
     <dl><dt>palette</dt>
 <dd><p>Name of the BdE palette to apply. One of <code>"bde_vivid_pal"</code>,
 <code>"bde_rose_pal"</code>. See <code><a href="bde_palettes.html">bde_palettes()</a></code> for details.</p></dd>
+
+
+<dt>alpha</dt>
+<dd><p>An alpha-transparency level in the range <code>[0,1]</code> (<code>0</code> means
+transparent and <code>1</code> means opaque). A missing, i.e., <code>alpha = NULL</code>, does
+not add opacity codes (<code>"FF"</code>) to the individual color hex codes. See
+<code><a href="https://ggplot2.tidyverse.org/reference/reexports.html" class="external-link">ggplot2::alpha()</a></code>.</p></dd>
+
+
+<dt>rev</dt>
+<dd><p>Logical indicating whether the ordering of the colors should be
+reversed.</p></dd>
 
 
 <dt>...</dt>
