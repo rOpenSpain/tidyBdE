@@ -16,7 +16,7 @@
   <a class="navbar-brand me-2" href="../index.html">
     <img src="../logo.png" alt="tidyBdE logo" height="40" class="d-inline-block me-1">tidyBdE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.4.9000</small>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -129,7 +129,7 @@ the search.</p>
 <span class="r-in"><span><span class="co"># !! PIB [es] == GDP [en]</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">bde_catalog_search</span><span class="op">(</span><span class="st">"PIB"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 431 × 17</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 389 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Nombre_de_la_serie Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> DSPC102016WB11000… 2665111           BE_1_1.7          BE0101.csv            </span>
@@ -142,7 +142,7 @@ the search.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> DTNSEC2010_S0000P… 2563955           BE_1_6.5          BE0106.csv            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> DTNSEC2010_S0000P… 2563956           BE_1_6.6          BE0106.csv            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> DTNSEC2010_S0000P… 2563957           BE_1_6.7          BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 421 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 379 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​Nombre_del_archivo_con_los_valores_de_la_serie</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 13 more variables: Descripcion_de_la_serie &lt;chr&gt;, Tipo_de_variable &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Codigo_de_unidades &lt;chr&gt;, Exponente &lt;dbl&gt;, Numero_de_decimales &lt;dbl&gt;,</span></span>
@@ -152,16 +152,14 @@ the search.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># More complex - Single</span></span></span>
 <span class="r-in"><span><span class="fu">bde_catalog_search</span><span class="op">(</span><span class="st">"Francia(.*)PIB"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 × 17</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Nombre_de_la_serie  Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> DTNSEC2010_S0000P_… 2563958           BE_1_6.8          BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> DTNSEC2010_S0000P_… 2563958           BE_1_6.29         BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> DTNPDE2010_P0000P_… 2563918           BE_1_7.8          BE0107.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> DTNPDE2010_P0000P_… 2563918           BE_1_7.29         BE0107.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> D_UNFKA003          143057            BE_26_1.6         BE2601.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> D_UNFKB003          143072            BE_26_2.6         BE2602.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> DPUUNFKB103         906092            SI_2_1.50         SI_2_1.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> DTNPDE2010_P0000P_… 2563918           BE_1_7.8          BE0107.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> D_UNFKA003          143057            BE_26_1.6         BE2601.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> D_UNFKB003          143072            BE_26_2.6         BE2602.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> DPUUNFKB103         906092            SI_2_1.50         SI_2_1.csv            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​Nombre_del_archivo_con_los_valores_de_la_serie</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 13 more variables: Descripcion_de_la_serie &lt;chr&gt;, Tipo_de_variable &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Codigo_de_unidades &lt;chr&gt;, Exponente &lt;dbl&gt;, Numero_de_decimales &lt;dbl&gt;,</span></span>
@@ -172,26 +170,31 @@ the search.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Even more complex - Double</span></span></span>
 <span class="r-in"><span><span class="fu">bde_catalog_search</span><span class="op">(</span><span class="st">"Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 21 × 17</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 15 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Nombre_de_la_serie Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> DTNSEC2010_S0000P… 2563953           BE_1_6.3          BE0106.csv            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> DTNSEC2010_S0000P… 2563958           BE_1_6.8          BE0106.csv            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> DTNSEC2010_S0000P… 2563959           BE_1_6.10         BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> DTNSEC2010_S0000P… 2563953           BE_1_6.24         BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> DTNSEC2010_S0000P… 2563958           BE_1_6.29         BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> DTNSEC2010_S0000P… 2563959           BE_1_6.31         BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> DTNPDE2010_P0000P… 2563913           BE_1_7.3          BE0107.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> DTNPDE2010_P0000P… 2563918           BE_1_7.8          BE0107.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> DTNPDE2010_P0000P… 2563919           BE_1_7.10         BE0107.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> DTNPDE2010_P0000P… 2563913           BE_1_7.24         BE0107.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 11 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> DTNPDE2010_P0000P… 2563913           BE_1_7.3          BE0107.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> DTNPDE2010_P0000P… 2563918           BE_1_7.8          BE0107.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> DTNPDE2010_P0000P… 2563919           BE_1_7.10         BE0107.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> D_UNFKA0T8         304076            BE_26_1.5         BE2601.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> D_UNFKA003         143057            BE_26_1.6         BE2601.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> D_UNFKA009         143060            BE_26_1.8         BE2601.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> D_UNFKB0T8         304083            BE_26_2.5         BE2602.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> D_UNFKB003         143072            BE_26_2.6         BE2602.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> D_UNFKB009         143075            BE_26_2.8         BE2602.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> DPUUNFKB1T8        906091            SI_2_1.48         SI_2_1.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> DPUUNFKB103        906092            SI_2_1.50         SI_2_1.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> DPUUNFKB109        906093            SI_2_1.52         SI_2_1.csv            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​Nombre_del_archivo_con_los_valores_de_la_serie</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 13 more variables: Descripcion_de_la_serie &lt;chr&gt;, Tipo_de_variable &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Codigo_de_unidades &lt;chr&gt;, Exponente &lt;dbl&gt;, Numero_de_decimales &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Descripcion_de_unidades_y_exponente &lt;chr&gt;, Frecuencia_de_la_serie &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Fecha_de_la_primera_observacion &lt;date&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Fecha_de_la_ultima_observacion &lt;date&gt;, Numero_de_observaciones &lt;dbl&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Fecha_de_la_ultima_observacion &lt;date&gt;, Numero_de_observaciones &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Titulo_de_la_serie &lt;chr&gt;, Fuente &lt;chr&gt;, Notas &lt;chr&gt;</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Search a sequential code: Exact match</span></span></span>
