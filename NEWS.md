@@ -1,3 +1,8 @@
+# tidyBdE (development version)
+
+-   `bde_vivid_pal()` and `bde_rose_pal()` have been deprecated. Use the new
+function `bde_palettes()` instead.
+
 # tidyBdE 0.3.4
 
 -   Update API entry points.

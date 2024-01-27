@@ -1,20 +1,19 @@
-#' BdE color palettes
+#' BdE superseeded palettes
 #'
-#' Custom palettes based on the publications of BdE.
+#' @description
+#' `r lifecycle::badge('deprecated')` See [bde_palettes()]
 #'
-#' @family bde_plot
-#'
-#' @rdname bde_pals
-#' @name bde_pals
 #'
 #' @return A palette of colors.
 #'
-#' @export
 #'
 #' @param ... Further arguments of the functions.
 #'
+#' @name bde_vivid_pal
+#' @rdname bde_pals
 #'
-#'
+#' @export
+#' @keywords internal
 #' @examples
 #'
 #' # BdE vivid pal
@@ -23,18 +22,24 @@
 #' # BdE rose pal
 #' scales::show_col(bde_rose_pal()(6), labels = FALSE)
 bde_vivid_pal <- function(...) {
-  # nocov start
+  lifecycle::deprecate_warn(
+    "0.3.4", "bde_vivid_pal()",
+    "bde_palettes()"
+  )
+
   pal <- c("#4180C2", "#D86E7B", "#F89E63", "#5FBD6A", "#62C8D0", "#AC8771")
   return(scales::manual_pal(pal))
-  # nocov end
 }
 
 #' @rdname bde_pals
-#'
+#' @keywords internal
 #' @export
 bde_rose_pal <- function(...) {
-  # nocov start
+  lifecycle::deprecate_warn(
+    "0.3.4", "bde_rose_pal()",
+    "bde_palettes()"
+  )
+
   pal <- c("#b7365c", "#cb6e8a", "#db9aad", "#0a50a1", "#5385bd", "#89AEDA")
   return(scales::manual_pal(pal))
-  # nocov end
 }

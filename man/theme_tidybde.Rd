@@ -62,7 +62,7 @@ if (nrow(series_TC) > 0) {
 \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}
 
 Other bde_plot: 
-\code{\link{bde_pals}},
+\code{\link{bde_palettes}()},
 \code{\link{scales_bde}}
 }
 \concept{bde_plot}

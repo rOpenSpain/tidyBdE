@@ -3,28 +3,30 @@
 \name{scales_bde}
 \alias{scales_bde}
 \alias{scale_color_bde_d}
+\alias{scale_colour_bde_d}
 \alias{scale_fill_bde_d}
 \alias{scale_color_bde_c}
+\alias{scale_colour_bde_c}
 \alias{scale_fill_bde_c}
-\title{BdE scales for \code{ggplot2}.}
+\title{BdE scales for \CRANpkg{ggplot2}.}
 \usage{
 scale_color_bde_d(palette = c("bde_vivid_pal", "bde_rose_pal"), ...)
 
 scale_fill_bde_d(palette = c("bde_vivid_pal", "bde_rose_pal"), ...)
 
-scale_color_bde_c(palette = c("bde_vivid_pal", "bde_rose_pal"), ...)
+scale_color_bde_c(palette = c("bde_rose_pal", "bde_vivid_pal"), ...)
 
-scale_fill_bde_c(palette = c("bde_vivid_pal", "bde_rose_pal"), ...)
+scale_fill_bde_c(palette = c("bde_rose_pal", "bde_vivid_pal"), ...)
 }
 \arguments{
 \item{palette}{Name of the BdE palette to apply. One of \code{"bde_vivid_pal"},
-\code{"bde_rose_pal"}. See \code{\link[=bde_pals]{bde_pals()}} for details.}
+\code{"bde_rose_pal"}. See \code{\link[=bde_palettes]{bde_palettes()}} for details.}
 
 \item{...}{Further arguments of \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} or
 \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}.}
 }
 \value{
-A \code{ggplot2} color scale.
+A \CRANpkg{ggplot2} color scale.
 }
 \description{
 Scales to be used with the \CRANpkg{ggplot2} package. Discrete palettes are
@@ -55,11 +57,10 @@ ggplot(txsamp, aes(x = sales, y = median)) +
 
 }
 \seealso{
-\code{\link[=bde_vivid_pal]{bde_vivid_pal()}}, \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}},
-\code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}
+\code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}, \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}
 
 Other bde_plot: 
-\code{\link{bde_pals}},
+\code{\link{bde_palettes}()},
 \code{\link{theme_tidybde}()}
 }
 \concept{bde_plot}
