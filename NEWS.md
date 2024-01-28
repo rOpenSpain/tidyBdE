@@ -2,7 +2,7 @@
 
 Mostly changes on the color functions:
 
--   `bde_vivid_pal()` and `bde_rose_pal()` have been deprecated. Use the new
+-   `bde_vivid_pal()` and `bde_rose_pal()` have been superseded. Use the new
     function `bde_palettes()` instead.
 -   `scale_color_bde_d()` and friends leverage now on `bde_palettes()`, and
     these functions gain two new arguments: `alpha` y `rev`.

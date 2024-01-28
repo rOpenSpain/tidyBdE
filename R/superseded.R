@@ -1,7 +1,11 @@
-#' BdE superseeded palettes
+#' BdE superseded palettes
 #'
 #' @description
-#' `r lifecycle::badge('deprecated')` See [bde_palettes()]
+#' `r lifecycle::badge('superseded')`
+#'
+#' These functions have been superseded, see [bde_palettes()] as a replacement.
+#'
+#' Custom palettes based on the publications of BdE.
 #'
 #'
 #' @return A palette of colors.
@@ -22,10 +26,12 @@
 #' # BdE rose pal
 #' scales::show_col(bde_rose_pal()(6), labels = FALSE)
 bde_vivid_pal <- function(...) {
-  lifecycle::deprecate_warn(
-    "0.3.4", "bde_vivid_pal()",
-    "bde_palettes()"
-  )
+  if (requireNamespace("lifecycle", quietly = TRUE)) {
+    lifecycle::deprecate_soft(
+      "0.3.5", "bde_vivid_pal()",
+      "bde_palettes()"
+    )
+  }
 
   pal <- c("#4180C2", "#D86E7B", "#F89E63", "#5FBD6A", "#62C8D0", "#AC8771")
   return(scales::manual_pal(pal))
@@ -35,11 +41,12 @@ bde_vivid_pal <- function(...) {
 #' @keywords internal
 #' @export
 bde_rose_pal <- function(...) {
-  lifecycle::deprecate_warn(
-    "0.3.4", "bde_rose_pal()",
-    "bde_palettes()"
-  )
-
+  if (requireNamespace("lifecycle", quietly = TRUE)) {
+    lifecycle::deprecate_soft(
+      "0.3.5", "bde_rose_pal()",
+      "bde_palettes()"
+    )
+  }
   pal <- c("#b7365c", "#cb6e8a", "#db9aad", "#0a50a1", "#5385bd", "#89AEDA")
   return(scales::manual_pal(pal))
 }

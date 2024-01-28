@@ -19,7 +19,6 @@ Depends:
 Imports: 
     dplyr (>= 0.7.0),
     ggplot2 (>= 3.3.0),
-    lifecycle,
     readr (>= 1.0.0),
     scales (>= 1.1.0),
     tibble (>= 3.0.0),
@@ -27,6 +26,7 @@ Imports:
     utils
 Suggests: 
     knitr,
+    lifecycle,
     rmarkdown,
     testthat (>= 3.0.0)
 VignetteBuilder: 
