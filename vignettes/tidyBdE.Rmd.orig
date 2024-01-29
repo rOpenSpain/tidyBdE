@@ -117,7 +117,7 @@ The package provides also several "shortcut" functions for a selection of the
 most relevant macroeconomic series, so there is no need to look for them in
 advance:
 
-```{r macroseries, eval=FALSE, fig.asp=0.7, fig.cap = "Spanish Economic Indicators (2010-2019)"}
+```{r macroseries, eval=TRUE, fig.asp=0.7, fig.cap = "Spanish Economic Indicators (2010-2019)"}
 
 # Data in "long" format
 
@@ -139,9 +139,6 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
   scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
 
 ```
-
-![Spanish Economic Indicators
-(2010-2019)](../man/figures/README-macroseries-1.png)
 
 ## A note on caching
 

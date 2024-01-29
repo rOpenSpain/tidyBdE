@@ -137,8 +137,10 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
   scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
 ```
 
-![Spanish Economic Indicators
-(2010-2019)](../man/figures/README-macroseries-1.png)
+<div class="figure">
+<img src="./macroseries-1.png" alt="Spanish Economic Indicators (2010-2019)" width="100%" />
+<p class="caption">Spanish Economic Indicators (2010-2019)</p>
+</div>
 
 ## A note on caching
 
