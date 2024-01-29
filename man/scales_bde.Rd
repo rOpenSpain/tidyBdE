@@ -11,36 +11,36 @@
 \title{BdE scales for \CRANpkg{ggplot2}.}
 \usage{
 scale_color_bde_d(
-  palette = c("bde_vivid_pal", "bde_rose_pal"),
+  palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"),
   alpha = NULL,
   rev = FALSE,
   ...
 )
 
 scale_fill_bde_d(
-  palette = c("bde_vivid_pal", "bde_rose_pal"),
+  palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"),
   alpha = NULL,
   rev = FALSE,
   ...
 )
 
 scale_color_bde_c(
-  palette = c("bde_rose_pal", "bde_vivid_pal"),
+  palette = c("bde_rose_pal", "bde_vivid_pal", "bde_qual_pal"),
   alpha = NULL,
   rev = FALSE,
   ...
 )
 
 scale_fill_bde_c(
-  palette = c("bde_rose_pal", "bde_vivid_pal"),
+  palette = c("bde_rose_pal", "bde_vivid_pal", "bde_qual_pal"),
   alpha = NULL,
   rev = FALSE,
   ...
 )
 }
 \arguments{
-\item{palette}{Name of the BdE palette to apply. One of \code{"bde_vivid_pal"},
-\code{"bde_rose_pal"}. See \code{\link[=bde_palettes]{bde_palettes()}} for details.}
+\item{palette}{Name of the BdE palette to apply. See \code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}}
+for details.}
 
 \item{alpha}{An alpha-transparency level in the range \verb{[0,1]} (\code{0} means
 transparent and \code{1} means opaque). A missing, i.e., \code{alpha = NULL}, does
@@ -80,7 +80,7 @@ ggplot(txsamp, aes(x = sales, y = median)) +
 
 ggplot(txsamp, aes(x = sales, y = median)) +
   geom_point(aes(colour = city)) +
-  scale_color_bde_d("bde_rose_pal") +
+  scale_color_bde_d("bde_qual_pal") +
   theme_minimal()
 
 }
@@ -88,7 +88,7 @@ ggplot(txsamp, aes(x = sales, y = median)) +
 \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}, \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}
 
 Other bde_plot: 
-\code{\link{bde_palettes}()},
+\code{\link{bde_tidy_palettes}()},
 \code{\link{theme_tidybde}()}
 }
 \concept{bde_plot}

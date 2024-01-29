@@ -30,6 +30,13 @@ test_that("Discrete scale", {
 
   expect_false(any(mod == mod4))
 
+  # Another pal
+  p5 <- p + scale_color_bde_d(palette = "bde_qual_pal")
+  mod5 <- ggplot2::layer_data(p5)$colour
+
+  expect_false(any(mod == mod5))
+
+
   # Another aes
   pf <- ggplot2::ggplot(d) +
     ggplot2::geom_point(ggplot2::aes(x, y, fill = l), shape = 21)

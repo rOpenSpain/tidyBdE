@@ -126,8 +126,8 @@ BdE:
 
 ```{r chart, fig.asp=0.7}
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
-  geom_line(colour = bde_palettes(n = 1)) +
-  geom_smooth(method = "gam", colour = bde_palettes(n = 2)[2]) +
+  geom_line(colour = bde_tidy_palettes(n = 1)) +
+  geom_smooth(method = "gam", colour = bde_tidy_palettes(n = 2)[2]) +
   labs(
     title = "EUR/GBP Exchange Rate (2010-2020)",
     subtitle = "%",

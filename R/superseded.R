@@ -3,7 +3,8 @@
 #' @description
 #' `r lifecycle::badge('superseded')`
 #'
-#' These functions have been superseded, see [bde_palettes()] as a replacement.
+#' These functions have been superseded, see [bde_tidy_palettes()] as a
+#' replacement.
 #'
 #' Custom palettes based on the publications of BdE.
 #'
@@ -29,7 +30,7 @@ bde_vivid_pal <- function(...) {
   if (requireNamespace("lifecycle", quietly = TRUE)) {
     lifecycle::deprecate_soft(
       "0.3.5", "bde_vivid_pal()",
-      "bde_palettes()"
+      "bde_tidy_palettes()"
     )
   }
 
@@ -44,7 +45,7 @@ bde_rose_pal <- function(...) {
   if (requireNamespace("lifecycle", quietly = TRUE)) {
     lifecycle::deprecate_soft(
       "0.3.5", "bde_rose_pal()",
-      "bde_palettes()"
+      "bde_tidy_palettes()"
     )
   }
   pal <- c("#b7365c", "#cb6e8a", "#db9aad", "#0a50a1", "#5385bd", "#89AEDA")

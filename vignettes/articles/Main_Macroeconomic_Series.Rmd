@@ -30,9 +30,9 @@ library(dplyr)
 library(tidyr)
 
 
-col <- bde_palettes(1, "bde_rose_pal")
+col <- bde_tidy_palettes(1, "bde_rose_pal")
 date <- Sys.Date()
-ny <- as.numeric(format(date, format = "%Y")) - 4
+ny <- as.numeric(format(date, format = "%Y")) - 6
 nd <- as.Date(paste0(ny, "-12-31"))
 
 br <- seq(nd, Sys.Date(), "6 months")

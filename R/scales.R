@@ -17,10 +17,10 @@
 #'
 #' @name scales_bde
 #'
-#' @param palette Name of the BdE palette to apply. One of `"bde_vivid_pal"`,
-#'   `"bde_rose_pal"`. See [bde_palettes()] for details.
+#' @param palette Name of the BdE palette to apply. See [bde_tidy_palettes()]
+#'   for details.
 #'
-#' @inheritParams bde_palettes
+#' @inheritParams bde_tidy_palettes
 #'
 #' @param ... Further arguments of [ggplot2::discrete_scale()] or
 #'   [ggplot2::continuous_scale()].
@@ -45,14 +45,15 @@
 #'
 #' ggplot(txsamp, aes(x = sales, y = median)) +
 #'   geom_point(aes(colour = city)) +
-#'   scale_color_bde_d("bde_rose_pal") +
+#'   scale_color_bde_d("bde_qual_pal") +
 #'   theme_minimal()
 #'
-scale_color_bde_d <- function(palette = c("bde_vivid_pal", "bde_rose_pal"),
-                              alpha = NULL, rev = FALSE, ...) {
+scale_color_bde_d <- function(
+    palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"), alpha = NULL,
+    rev = FALSE, ...) {
   palette <- match.arg(palette)
 
-  cols_v <- bde_palettes(palette = palette, alpha = alpha, rev = rev)
+  cols_v <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
   pal <- scales::manual_pal(cols_v)
 
   ggplot2::discrete_scale(
@@ -72,11 +73,12 @@ scale_colour_bde_d <- scale_color_bde_d
 #' @rdname scales_bde
 #' @name scales_bde
 #' @export
-scale_fill_bde_d <- function(palette = c("bde_vivid_pal", "bde_rose_pal"),
-                             alpha = NULL, rev = FALSE, ...) {
+scale_fill_bde_d <- function(
+    palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"), alpha = NULL,
+    rev = FALSE, ...) {
   palette <- match.arg(palette)
 
-  cols_v <- bde_palettes(palette = palette, alpha = alpha, rev = rev)
+  cols_v <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
   pal <- scales::manual_pal(cols_v)
 
   ggplot2::discrete_scale(
@@ -91,17 +93,22 @@ scale_fill_bde_d <- function(palette = c("bde_vivid_pal", "bde_rose_pal"),
 #' @rdname scales_bde
 #' @name scales_bde
 #' @export
-scale_color_bde_c <- function(palette = c("bde_rose_pal", "bde_vivid_pal"),
-                              alpha = NULL, rev = FALSE, ...) {
+scale_color_bde_c <- function(
+    palette = c("bde_rose_pal", "bde_vivid_pal", "bde_qual_pal"), alpha = NULL,
+    rev = FALSE, ...) {
   palette <- match.arg(palette)
 
 
   cols <- switch(palette,
-    "bde_vivid_pal" = bde_palettes(6, "bde_vivid_pal",
+    "bde_vivid_pal" = bde_tidy_palettes(6, "bde_vivid_pal",
       alpha = alpha,
       rev = rev
     ),
-    "bde_rose_pal" = bde_palettes(6, "bde_rose_pal",
+    "bde_qual_pal" = bde_tidy_palettes(6, "bde_qual_pal",
+      alpha = alpha,
+      rev = rev
+    ),
+    "bde_rose_pal" = bde_tidy_palettes(6, "bde_rose_pal",
       alpha = alpha,
       rev = rev
     )[c(1, 2, 3, 6, 5, 4)]
@@ -124,17 +131,22 @@ scale_colour_bde_c <- scale_color_bde_c
 #' @rdname scales_bde
 #' @name scales_bde
 #' @export
-scale_fill_bde_c <- function(palette = c("bde_rose_pal", "bde_vivid_pal"),
-                             alpha = NULL, rev = FALSE, ...) {
+scale_fill_bde_c <- function(
+    palette = c("bde_rose_pal", "bde_vivid_pal", "bde_qual_pal"), alpha = NULL,
+    rev = FALSE, ...) {
   palette <- match.arg(palette)
 
 
   cols <- switch(palette,
-    "bde_vivid_pal" = bde_palettes(6, "bde_vivid_pal",
+    "bde_vivid_pal" = bde_tidy_palettes(6, "bde_vivid_pal",
       alpha = alpha,
       rev = rev
     ),
-    "bde_rose_pal" = bde_palettes(6, "bde_rose_pal",
+    "bde_qual_pal" = bde_tidy_palettes(6, "bde_qual_pal",
+      alpha = alpha,
+      rev = rev
+    ),
+    "bde_rose_pal" = bde_tidy_palettes(6, "bde_rose_pal",
       alpha = alpha,
       rev = rev
     )[c(1, 2, 3, 6, 5, 4)]

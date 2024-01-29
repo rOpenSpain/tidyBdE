@@ -18,7 +18,8 @@ A palette of colors.
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#superseded}{\figure{lifecycle-superseded.svg}{options: alt='[Superseded]'}}}{\strong{[Superseded]}}
 
-These functions have been superseded, see \code{\link[=bde_palettes]{bde_palettes()}} as a replacement.
+These functions have been superseded, see \code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}} as a
+replacement.
 
 Custom palettes based on the publications of BdE.
 }

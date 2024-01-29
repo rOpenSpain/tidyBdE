@@ -24,7 +24,7 @@
 #'
 #'
 #' @return
-#' A [tibble][tibble::tibble] with a field "Date" and :
+#' A [tibble][tibble::tibble] with a field `Date` and :
 #' - With `out_format = "wide"` each series is presented in a separate
 #'   column with the name defined by `series_label`.
 #' - With `out_format = "long"` the tibble would have two more columns,
@@ -291,7 +291,7 @@ bde_series_load <- function(series_code, series_label = NULL,
 #' @param extract_metadata Logical `TRUE/FALSE`. On `TRUE` the output is the
 #'   metadata of the requested series.
 #'
-#' @return A [tibble][tibble::tibble] with a field "Date" and the alias of the
+#' @return A [tibble][tibble::tibble] with a field `Date` and the alias of the
 #' fields series as described on the catalogs. See [bde_catalog_load()].
 #'
 #' @note

@@ -116,8 +116,8 @@ publications of BdE:
 
 ``` r
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
-  geom_line(colour = bde_palettes(n = 1)) +
-  geom_smooth(method = "gam", colour = bde_palettes(n = 2)[2]) +
+  geom_line(colour = bde_tidy_palettes(n = 1)) +
+  geom_smooth(method = "gam", colour = bde_tidy_palettes(n = 2)[2]) +
   labs(
     title = "EUR/GBP Exchange Rate (2010-2020)",
     subtitle = "%",
@@ -231,7 +231,7 @@ A BibTeX entry for LaTeX users is
       doi = {10.5281/zenodo.4673496},
       author = {Diego {H. Herrero}},
       year = {2024},
-      version = {0.3.4.9000},
+      version = {0.3.5},
       url = {https://ropenspain.github.io/tidyBdE/},
       abstract = {Tools to download data series from Banco de España (BdE) on tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by Banco de España.},
     }

@@ -8,13 +8,13 @@
   "codeRepository": "https://github.com/rOpenSpain/tidyBdE",
   "issueTracker": "https://github.com/rOpenSpain/tidyBdE/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.3.4.9000",
+  "version": "0.3.5",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.3.2 (2023-10-31 ucrt)",
+  "runtimePlatform": "R version 4.3.2 (2023-10-31)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -192,7 +192,7 @@
   },
   "applicationCategory": "Macroeconomics",
   "isPartOf": "https://ropenspain.es/",
-  "fileSize": "273.717KB",
+  "fileSize": "273.083KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

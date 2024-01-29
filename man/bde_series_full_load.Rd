@@ -39,7 +39,7 @@ debugging.}
 metadata of the requested series.}
 }
 \value{
-A \link[tibble:tibble]{tibble} with a field "Date" and the alias of the
+A \link[tibble:tibble]{tibble} with a field \code{Date} and the alias of the
 fields series as described on the catalogs. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
 }
 \description{

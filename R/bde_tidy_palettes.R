@@ -20,12 +20,21 @@
 #' @examples
 #'
 #' # BdE vivid pal
-#' scales::show_col(bde_palettes(palette = "bde_vivid_pal"), labels = FALSE)
+#' scales::show_col(bde_tidy_palettes(palette = "bde_vivid_pal"),
+#'   labels = FALSE
+#' )
 #'
 #' # BdE rose pal
-#' scales::show_col(bde_palettes(palette = "bde_rose_pal"), labels = FALSE)
-bde_palettes <- function(n = 6, palette = c("bde_vivid_pal", "bde_rose_pal"),
-                         alpha = NULL, rev = FALSE) {
+#' scales::show_col(bde_tidy_palettes(palette = "bde_rose_pal"), labels = FALSE)
+#'
+#' # BdE qual pal
+#' scales::show_col(bde_tidy_palettes(palette = "bde_qual_pal"), labels = FALSE)
+bde_tidy_palettes <- function(n = 6,
+                              palette = c(
+                                "bde_vivid_pal", "bde_rose_pal",
+                                "bde_qual_pal"
+                              ),
+                              alpha = NULL, rev = FALSE) {
   palette <- match.arg(palette)
 
   cols <- switch(palette,
@@ -36,6 +45,10 @@ bde_palettes <- function(n = 6, palette = c("bde_vivid_pal", "bde_rose_pal"),
     "bde_rose_pal" = c(
       "#b7365c", "#cb6e8a", "#db9aad",
       "#0a50a1", "#5385bd", "#89AEDA"
+    ),
+    "bde_qual_pal" = c(
+      "#b55b4a", "#2e76bc", "#fece64",
+      "#68be57", "#858788", "#f9b4af"
     )
   )
 
