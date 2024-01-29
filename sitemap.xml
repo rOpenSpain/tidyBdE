@@ -4,12 +4,6 @@
     <loc>https://ropenspain.github.io/tidyBdE/404.html</loc>
   </url>
   <url>
-    <loc>https://ropenspain.github.io/tidyBdE/articles/articles/Main_Macroeconomic_Series.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/articles/articles/Series_Index.html</loc>
-  </url>
-  <url>
     <loc>https://ropenspain.github.io/tidyBdE/articles/index.html</loc>
   </url>
   <url>
@@ -52,9 +46,6 @@
     <loc>https://ropenspain.github.io/tidyBdE/reference/bde_indicators.html</loc>
   </url>
   <url>
-    <loc>https://ropenspain.github.io/tidyBdE/reference/bde_palettes.html</loc>
-  </url>
-  <url>
     <loc>https://ropenspain.github.io/tidyBdE/reference/bde_pals.html</loc>
   </url>
   <url>
@@ -65,6 +56,9 @@
   </url>
   <url>
     <loc>https://ropenspain.github.io/tidyBdE/reference/bde_series_load.html</loc>
+  </url>
+  <url>
+    <loc>https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.html</loc>
   </url>
   <url>
     <loc>https://ropenspain.github.io/tidyBdE/reference/index.html</loc>
