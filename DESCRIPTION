@@ -1,6 +1,6 @@
 Package: tidyBdE
 Title: Download Data from Bank of Spain
-Version: 0.3.5
+Version: 0.3.5.9000
 Authors@R: 
     person("Diego", "H. Herrero", , "dev.dieghernan@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658", affiliation = "rOpenSpain"))
@@ -18,7 +18,7 @@ Depends:
     R (>= 3.6.0)
 Imports: 
     dplyr (>= 0.7.0),
-    ggplot2 (>= 3.3.0),
+    ggplot2 (>= 3.5.0),
     readr (>= 1.0.0),
     scales (>= 1.1.0),
     tibble (>= 3.0.0),

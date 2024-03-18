@@ -24,7 +24,7 @@
 #'
 #'
 #' @return
-#' A [tibble][tibble::tibble] with a field `Date` and :
+#' A [`tibble`][tibble::tibble] with a field `Date` and :
 #' - With `out_format = "wide"` each series is presented in a separate
 #'   column with the name defined by `series_label`.
 #' - With `out_format = "long"` the tibble would have two more columns,
