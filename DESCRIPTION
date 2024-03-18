@@ -33,7 +33,7 @@ VignetteBuilder:
     knitr
 Config/Needs/coverage: covr
 Config/Needs/website: reactable, styler, tidyverse,
-    ropenspain/rostemplate, devtools
+    ropenspain/rostemplate, devtools, cpp11, remotes
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Copyright: See file inst/COPYRIGHTS
