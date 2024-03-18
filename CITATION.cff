@@ -8,7 +8,7 @@ message: 'To cite package "tidyBdE" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'tidyBdE: Download Data from Bank of Spain'
-version: 0.3.5
+version: 0.3.5.9000
 doi: 10.5281/zenodo.4673496
 abstract: Tools to download data series from 'Banco de España' ('BdE') on 'tibble'
   format. 'Banco de España' is the national central bank and, within the framework
@@ -32,7 +32,7 @@ preferred-citation:
     affiliation: rOpenSpain
   doi: 10.5281/zenodo.4673496
   year: '2024'
-  version: 0.3.5
+  version: 0.3.5.9000
   url: https://ropenspain.github.io/tidyBdE/
   abstract: Tools to download data series from Banco de España (BdE) on tibble format.
     Banco de España is the national central bank and, within the framework of the
@@ -136,7 +136,7 @@ references:
     name-particle: van den
     orcid: https://orcid.org/0000-0002-9335-7468
   year: '2024'
-  version: '>= 3.3.0'
+  version: '>= 3.5.0'
 - type: software
   title: readr
   abstract: 'readr: Read Rectangular Text Data'
