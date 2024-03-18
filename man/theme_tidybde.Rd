@@ -2,7 +2,7 @@
 % Please edit documentation in R/theme_tidybde.R
 \name{theme_tidybde}
 \alias{theme_tidybde}
-\title{BdE \code{ggplot2} theme}
+\title{BdE \CRANpkg{ggplot2} theme}
 \usage{
 theme_tidybde(...)
 }
@@ -17,7 +17,7 @@ theme_tidybde(...)
   }}
 }
 \value{
-A \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}.
+A \CRANpkg{ggplot2} \code{\link[ggplot2:ggtheme]{theme()}}.
 }
 \description{
 A custom \CRANpkg{ggplot2} theme based on the publications of BdE.

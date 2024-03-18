@@ -10,7 +10,7 @@ bde_parse_dates(dates_to_parse)
 \item{dates_to_parse}{Dates to parse}
 }
 \value{
-A class "Date" object.
+A \code{\link[=as.Date]{Date}} object.
 }
 \description{
 This function is tailored for the date formatting used on this package, so

@@ -33,7 +33,7 @@ the \code{cache_dir}.}
 debugging.}
 }
 \value{
-A \link[tibble:tibble]{tibble}.
+A \code{\link[tibble:tibble]{tibble}} object.
 }
 \description{
 Load the time-series catalogs provided by BdE.
