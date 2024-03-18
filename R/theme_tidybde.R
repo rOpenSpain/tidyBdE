@@ -1,4 +1,4 @@
-#' BdE `ggplot2` theme
+#' BdE \CRANpkg{ggplot2} theme
 #'
 #' A custom \CRANpkg{ggplot2} theme based on the publications of BdE.
 #'
@@ -6,7 +6,7 @@
 #'
 #' @export
 #'
-#' @return A [ggplot2::theme_classic()].
+#' @return A \CRANpkg{ggplot2} [`theme()`][ggplot2::theme_classic()].
 #'
 #' @inheritDotParams ggplot2::theme_classic
 #'

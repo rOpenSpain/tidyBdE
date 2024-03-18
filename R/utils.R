@@ -6,7 +6,7 @@
 #'
 #' @family utils
 #'
-#' @return A class "Date" object.
+#' @return A [`Date`][as.Date()] object.
 #'
 #' @seealso [as.Date()]
 #'

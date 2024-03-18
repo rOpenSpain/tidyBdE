@@ -9,7 +9,7 @@
 #'
 #' @encoding UTF-8
 #'
-#' @return A [tibble][tibble::tibble].
+#' @return A [`tibble`][tibble::tibble] object.
 #'
 #' @source
 #' [Time-series bulk data
@@ -301,7 +301,7 @@ bde_catalog_update <- function(catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
 #'
 #' @family  catalog
 #'
-#' @return A [tibble][tibble::tibble] with the results of the query.
+#' @return A [`tibble`][tibble::tibble] object with the results of the query.
 #'
 #' @param pattern [`regex`][base::regex]  pattern to search See **Details**
 #'   and **Examples**.

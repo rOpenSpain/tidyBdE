@@ -27,7 +27,7 @@ debugging.}
   }}
 }
 \value{
-A \link[tibble:tibble]{tibble} with the results of the query.
+A \code{\link[tibble:tibble]{tibble}} object with the results of the query.
 }
 \description{
 Search for keywords on the time-series catalogs.
