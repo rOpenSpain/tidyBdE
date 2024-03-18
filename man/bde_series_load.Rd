@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{bde_series_load}
 \alias{bde_series_load}
-\title{Load a single BdE time-series.}
+\title{Load a single BdE time-series}
 \usage{
 bde_series_load(
   series_code,

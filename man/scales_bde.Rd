@@ -8,7 +8,7 @@
 \alias{scale_color_bde_c}
 \alias{scale_colour_bde_c}
 \alias{scale_fill_bde_c}
-\title{BdE scales for \CRANpkg{ggplot2}.}
+\title{BdE scales for \CRANpkg{ggplot2}}
 \usage{
 scale_color_bde_d(
   palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"),

@@ -1,4 +1,4 @@
-#' Load a single BdE time-series.
+#' Load a single BdE time-series
 #'
 #' Load a single time-series provided by BdE.
 #'

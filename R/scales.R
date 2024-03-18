@@ -1,4 +1,4 @@
-#' BdE scales for \CRANpkg{ggplot2}.
+#' BdE scales for \CRANpkg{ggplot2}
 #'
 #' @description
 #'
