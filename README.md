@@ -23,8 +23,8 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 **tidyBdE** is an API package that helps to retrieve data from [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
-The data is provided as [tibble](https://tibble.tidyverse.org/) and the
-package tries to guess the format of every time-series (dates,
+The data is returned as a [`tibble`](https://tibble.tidyverse.org/) and
+the package tries to guess the format of every time-series (dates,
 characters and numbers).
 
 ## Installation
@@ -111,7 +111,7 @@ time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%
 
 ### Plots
 
-The package also provides a custom `ggplot2` theme based on the
+The package also provides a custom **ggplot2** theme based on the
 publications of BdE:
 
 ``` r
