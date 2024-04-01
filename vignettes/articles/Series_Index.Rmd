@@ -46,8 +46,8 @@ series_clean <- series %>%
   select(
     Numero_secuencial, Descripcion_de_la_serie,
     Titulo_de_la_serie,
-    Fecha_de_la_ultima_observacion,
-    Fuente
+    Fecha_de_la_primera_observacion,
+    Fecha_de_la_ultima_observacion
   )
 
 
