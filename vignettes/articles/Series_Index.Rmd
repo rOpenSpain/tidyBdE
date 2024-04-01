@@ -49,7 +49,8 @@ series_clean <- series %>%
     Tipo_de_variable,
     Fecha_de_la_primera_observacion,
     Fecha_de_la_ultima_observacion,
-    Frecuencia_de_la_serie
+    Frecuencia_de_la_serie,
+    Codigo_de_unidades
   )
 
 
@@ -62,7 +63,7 @@ reactable(series_clean,
   showPageSizeOptions = TRUE,
   striped = TRUE,
   defaultColDef = colDef(
-    minWidth = 150, html = TRUE,
+    minWidth = 200, html = TRUE,
     align = "left", vAlign = "center"
   ),
   paginationType = "jump",
