@@ -45,8 +45,8 @@ series_clean <- series %>%
   filter(!is.na(Numero_secuencial)) %>%
   select(
     Numero_secuencial, Descripcion_de_la_serie,
-    Titulo_de_la_serie, Fuente, Fecha_de_la_primera_observacion,
-    Fecha_de_la_ultima_observacion, Frecuencia_de_la_serie
+    Titulo_de_la_serie,
+    Fecha_de_la_ultima_observacion
   )
 
 
