@@ -5,7 +5,7 @@
 \alias{bde_catalog_update}
 \title{Update BdE catalogs}
 \source{
-\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{Time-series bulk data download}
+\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{Time-series bulk data download}.
 }
 \usage{
 bde_catalog_update(
@@ -33,11 +33,11 @@ Update the time-series catalogs provided by BdE.
 \details{
 Accepted values for \code{catalog} are:\tabular{llll}{
    \strong{CODE} \tab \strong{PUBLICATION} \tab \strong{UPDATE FREQUENCY} \tab \strong{FREQUENCY} \cr
-   \strong{BE} \tab Statistical Bulletin \tab Daily \tab Monthly \cr
-   \strong{SI} \tab Summary Indicators \tab Daily \tab Daily \cr
-   \strong{TC} \tab Exchange Rates \tab Daily \tab Daily \cr
-   \strong{TI} \tab Interest Rates \tab Daily \tab Daily \cr
-   \strong{PB} \tab Bank Lending Survey \tab Quarterly \tab Quarterly \cr
+   \code{"BE"} \tab Statistical Bulletin \tab Daily \tab Monthly \cr
+   \code{"SI"} \tab Summary Indicators \tab Daily \tab Daily \cr
+   \code{"TC"} \tab Exchange Rates \tab Daily \tab Daily \cr
+   \code{"TI"} \tab Interest Rates \tab Daily \tab Daily \cr
+   \code{"PB"} \tab Bank Lending Survey \tab Quarterly \tab Quarterly \cr
 }
 
 

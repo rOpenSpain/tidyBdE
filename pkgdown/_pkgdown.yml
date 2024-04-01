@@ -20,7 +20,10 @@ reference:
       - has_concept("indicators")
 
   - title: "Plot utils"
-    desc: Complementary functions for plotting with `ggplot2`.
+    desc: >
+      Complementary functions for plotting with
+      <a href="https://CRAN.R-project.org/package=ggplot2"
+      class="external-link"><span class="pkg">ggplot2</span></a>.
     contents:
       - has_concept("bde_plot")
 

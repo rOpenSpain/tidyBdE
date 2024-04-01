@@ -53,14 +53,15 @@ A \code{\link[tibble:tibble]{tibble}} with a field \code{Date} and :
 \itemize{
 \item With \code{out_format = "wide"} each series is presented in a separate
 column with the name defined by \code{series_label}.
-\item With \code{out_format = "long"} the tibble would have two more columns,
+\item With \code{out_format = "long"} the \code{tibble} would have two more columns,
 \code{serie_name} with the labels of each series and \code{serie_value} with the
 value of the series.
 }
 
-"wide" format is more suitable for exporting to a \code{.csv} file while "long"
-format is more suitable for producing plots with \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
-See also \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}} and \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.
+\code{"wide"} format is more suitable for exporting to a \code{.csv} file while
+\code{"long"} format is more suitable for producing plots with
+\code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}. See also \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}} and
+\code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.
 }
 \description{
 The series alias is a positional code showing the location (column and/or

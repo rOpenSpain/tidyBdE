@@ -110,5 +110,5 @@ test_that("Series full", {
   options(bde_test_offline = FALSE)
 
   failfix <- bde_series_full_load(all_names[2], cache_dir = dir)
-  expect_true(is.null(failfix))
+  expect_gt(nrow(failfix), 10)
 })

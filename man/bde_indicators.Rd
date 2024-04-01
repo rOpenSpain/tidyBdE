@@ -59,7 +59,7 @@ debugging.}
   }}
 }
 \value{
-A \code{tibble} with the required series.
+A \code{\link[tibble:tibble]{tibble}} with the required series.
 }
 \description{
 Set of helper functions for downloading some of the most relevant

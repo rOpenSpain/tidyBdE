@@ -27,13 +27,14 @@
 #' A [`tibble`][tibble::tibble] with a field `Date` and :
 #' - With `out_format = "wide"` each series is presented in a separate
 #'   column with the name defined by `series_label`.
-#' - With `out_format = "long"` the tibble would have two more columns,
+#' - With `out_format = "long"` the `tibble` would have two more columns,
 #'   `serie_name` with the labels of each series and `serie_value` with the
 #'   value of the series.
 #'
-#' "wide" format is more suitable for exporting to a `.csv` file while "long"
-#' format is more suitable for producing plots with [ggplot2::ggplot()].
-#' See also [tidyr::pivot_longer()] and [tidyr::pivot_wider()].
+#' `"wide"` format is more suitable for exporting to a `.csv` file while
+#' `"long"` format is more suitable for producing plots with
+#' [ggplot2::ggplot()]. See also [tidyr::pivot_longer()] and
+#' [tidyr::pivot_wider()].
 #'
 #' @description
 #'
