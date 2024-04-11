@@ -36,6 +36,7 @@ reference:
       - tidyBdE-package
 
 template:
+  bootstrap: 5
   package: rostemplate
   params:
     ganalytics: 'G-CW2RTVRRVF'
