@@ -1,3 +1,4 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # tidyBdE <img src="man/figures/logo.png" align="right" width="120"/>
@@ -15,21 +16,22 @@
 [![codecov](https://codecov.io/gh/ropenspain/tidyBdE/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ropenspain/tidyBdE)
 [![CodeFactor](https://www.codefactor.io/repository/github/ropenspain/tidybde/badge)](https://www.codefactor.io/repository/github/ropenspain/tidybde)
 [![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.4673496-blue)](https://doi.org/10.5281/zenodo.4673496)
-[![Project Status: Active – The project has reached a stable, usable state and
-is being actively
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 <!-- badges: end -->
 
 **tidyBdE** is an API package that helps to retrieve data from [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
-The data is returned as a [`tibble`](https://tibble.tidyverse.org/) and the
-package tries to guess the format of every time-series (dates, characters and
-numbers).
+The data is returned as a [`tibble`](https://tibble.tidyverse.org/) and
+the package tries to guess the format of every time-series (dates,
+characters and numbers).
 
 ## Installation
 
-Install **tidyBdE** from [**CRAN**](https://CRAN.R-project.org/package=tidyBdE):
+Install **tidyBdE** from
+[**CRAN**](https://CRAN.R-project.org/package=tidyBdE):
 
 ``` r
 install.packages("tidyBdE")
@@ -38,13 +40,11 @@ install.packages("tidyBdE")
 You can install the developing version of **tidyBdE** with:
 
 ``` r
-library(remotes)
-
-install_github("ropenspain/tidyBdE")
+remotes::install_github("ropenspain/tidyBdE")
 ```
 
-Alternatively, you can install the developing version of **tidyBdE** using the
-[r-universe](https://ropenspain.r-universe.dev/tidyBdE):
+Alternatively, you can install the developing version of **tidyBdE**
+using the [r-universe](https://ropenspain.r-universe.dev/tidyBdE):
 
 ``` r
 # Install tidyBdE in R:
@@ -56,12 +56,12 @@ install.packages("tidyBdE", repos = c(
 
 ## Examples
 
-Banco de España (**BdE**) provides several time-series, either produced by the
-institution itself or compiled for another sources, as
+Banco de España (**BdE**) provides several time-series, either produced
+by the institution itself or compiled for another sources, as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
-The basic entry point for searching time-series are the catalogs (*indexes*) of
-information. You can search any series by name:
+The basic entry point for searching time-series are the catalogs
+(*indexes*) of information. You can search any series by name:
 
 ``` r
 library(tidyBdE)
@@ -85,12 +85,13 @@ XR_GBP %>%
 |------------------:|:-------------------------------------------------------------------|
 |            573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
 
-**Note that BdE files are only provided in Spanish, for the time being**, the
-organism is working on the English version. By now, search terms should be
-provided in Spanish in order to get search results.
+**Note that BdE files are only provided in Spanish, for the time
+being**, the organism is working on the English version. By now, search
+terms should be provided in Spanish in order to get search results.
 
-After we have found our series, we can load the series for the GBP/EUR exchange
-rate using the sequential number reference (`Numero_Secuencial`) as:
+After we have found our series, we can load the series for the GBP/EUR
+exchange rate using the sequential number reference
+(`Numero_Secuencial`) as:
 
 ``` r
 seq_number <- XR_GBP %>%
@@ -109,8 +110,8 @@ time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%
 
 ### Plots
 
-The package also provides a custom **ggplot2** theme based on the publications
-of BdE:
+The package also provides a custom **ggplot2** theme based on the
+publications of BdE:
 
 ``` r
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
@@ -134,11 +135,11 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   theme_tidybde()
 ```
 
-<img src="man/figures/README-chart-1.png" width="100%"/>
+<img src="man/figures/README-chart-1.png" width="100%" />
 
-The package provides also several “shortcut” functions for a selection of the
-most relevant macroeconomic series, so there is no need to look for them in
-advance:
+The package provides also several “shortcut” functions for a selection
+of the most relevant macroeconomic series, so there is no need to look
+for them in advance:
 
 ``` r
 # Data in "long" format
@@ -161,30 +162,32 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
   scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
 ```
 
-<img src="man/figures/README-macroseries-1.png" width="100%"/>
+<img src="man/figures/README-macroseries-1.png" width="100%" />
 
 ### Palettes
 
 Two custom palettes, based on the used by BdE on some publications are
 available.
 
-Those palettes can be applied to a `ggplot2` using some custom utils included on
-the package (see `help("scale_color_bde_d", package = "tidyBdE")`).
+Those palettes can be applied to a `ggplot2` using some custom utils
+included on the package (see
+`help("scale_color_bde_d", package = "tidyBdE")`).
 
 ### A note on caching
 
-You can use **tidyBdE** to create your own local repository at a given local
-directory passing the following option:
+You can use **tidyBdE** to create your own local repository at a given
+local directory passing the following option:
 
 ``` r
 options(bde_cache_dir = "./path/to/location")
 ```
 
-When this option is set, **tidyBdE** would look for the cached file on the
-`bde_cache_dir` directory and it will load it, speeding up the process.
+When this option is set, **tidyBdE** would look for the cached file on
+the `bde_cache_dir` directory and it will load it, speeding up the
+process.
 
-It is possible to update the data (i.e. after every monthly or quarterly data
-release) with the following commands:
+It is possible to update the data (i.e. after every monthly or quarterly
+data release) with the following commands:
 
 ``` r
 bde_catalog_update()
@@ -198,35 +201,36 @@ bde_series_load("SOME ID", update_cache = TRUE)
 
 Other useful packages that provides access to Spanish open data:
 
--   [**MicroDatosEs**](https://github.com/rOpenSpain/MicroDatosEs): A package
-    that process microdata provided by Spanish statistical agencies (mostly,
-    INE).
--   [**CatastRo**](https://github.com/rOpenSpain/CatastRo): A package that
-    queries Sede electrónica del Catastro API.
--   [**mapSpain**](https://ropenspain.github.io/mapSpain/): For downloading
-    geospatial information from Instituto Geográfico Nacional (IGN) and creating
-    maps of Spain.
+- [**MicroDatosEs**](https://github.com/rOpenSpain/MicroDatosEs): A
+  package that process microdata provided by Spanish statistical
+  agencies (mostly, INE).
+- [**CatastRo**](https://github.com/rOpenSpain/CatastRo): A package that
+  queries Sede electrónica del Catastro API.
+- [**mapSpain**](https://ropenspain.github.io/mapSpain/): For
+  downloading geospatial information from Instituto Geográfico Nacional
+  (IGN) and creating maps of Spain.
 
 ## Disclaimer
 
-This package is in no way sponsored endorsed or administered by Banco de España.
+This package is in no way sponsored endorsed or administered by Banco de
+España.
 
 ## Citation
 
-<p>H. Herrero D (2024). <em>tidyBdE: Download Data from Bank of Spain</em>.
+<p>
+H. Herrero D (2024). <em>tidyBdE: Download Data from Bank of Spain</em>.
 <a href="https://doi.org/10.5281/zenodo.4673496">doi:10.5281/zenodo.4673496</a>,
-<a href="https://ropenspain.github.io/tidyBdE/">https://ropenspain.github.io/tidyBdE/</a>.</p>
+<a href="https://ropenspain.github.io/tidyBdE/">https://ropenspain.github.io/tidyBdE/</a>.
+</p>
 
 A BibTeX entry for LaTeX users is
 
-```         
-@Manual{R-tidyBdE,
-  title = {{tidyBdE}: Download Data from Bank of Spain},
-  doi = {10.5281/zenodo.4673496},
-  author = {Diego {H. Herrero}},
-  year = {2024},
-  version = {0.3.5.9000},
-  url = {https://ropenspain.github.io/tidyBdE/},
-  abstract = {Tools to download data series from Banco de España (BdE) on tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by Banco de España.},
-}
-```
+    @Manual{R-tidyBdE,
+      title = {{tidyBdE}: Download Data from Bank of Spain},
+      doi = {10.5281/zenodo.4673496},
+      author = {Diego {H. Herrero}},
+      year = {2024},
+      version = {0.3.5.9000},
+      url = {https://ropenspain.github.io/tidyBdE/},
+      abstract = {Tools to download data series from Banco de España (BdE) on tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by Banco de España.},
+    }
