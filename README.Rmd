@@ -29,6 +29,7 @@ knitr::opts_chunk$set(
 [![On-CRAN](https://www.r-pkg.org/badges/ago/tidyBdE)](https://cran.r-project.org/web/checks/check_results_tidyBdE.html)
 [![r-universe](https://ropenspain.r-universe.dev/badges/tidyBdE)](https://ropenspain.r-universe.dev/tidyBdE)
 [![R-CMD-check](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml)
+[![R-hub](https://github.com/rOpenSpain/tidyBdE/actions/workflows/rhub.yaml/badge.svg)](https://github.com/rOpenSpain/tidyBdE/actions/workflows/rhub.yaml)
 [![codecov](https://codecov.io/gh/ropenspain/tidyBdE/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ropenspain/tidyBdE)
 [![CodeFactor](https://www.codefactor.io/repository/github/ropenspain/tidybde/badge)](https://www.codefactor.io/repository/github/ropenspain/tidybde)
 [![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.4673496-blue)](https://doi.org/10.5281/zenodo.4673496)
@@ -55,9 +56,7 @@ install.packages("tidyBdE")
 You can install the developing version of **tidyBdE** with:
 
 ```{r, eval = FALSE}
-library(remotes)
-
-install_github("ropenspain/tidyBdE")
+remotes::install_github("ropenspain/tidyBdE")
 ```
 
 Alternatively, you can install the developing version of **tidyBdE** using the

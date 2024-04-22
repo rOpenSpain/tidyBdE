@@ -30,3 +30,4 @@
 ^CODE_OF_CONDUCT\.md$
 ^CONTRIBUTING\.md$
 ^Rplots\.pdf$
+^codecov\.yml$
