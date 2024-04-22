@@ -1,4 +1,4 @@
-# tidyBdE (development version)
+# tidyBdE 0.3.6
 
 -   Adapt `scale_color_bde_d()` and friends to **ggplot2** 3.5.0. Also expose
     the `guide` argument instead of hard-coding it.
