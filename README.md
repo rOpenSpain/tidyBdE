@@ -219,7 +219,7 @@ España.
 
 <p>
 H. Herrero D (2024). <em>tidyBdE: Download Data from Bank of Spain</em>.
-<a href="https://doi.org/10.5281/zenodo.4673496">doi:10.5281/zenodo.4673496</a>,
+<a href="https://doi.org/10.32614/CRAN.package.tidyBdE">doi:10.32614/CRAN.package.tidyBdE</a>,
 <a href="https://ropenspain.github.io/tidyBdE/">https://ropenspain.github.io/tidyBdE/</a>.
 </p>
 
@@ -227,7 +227,7 @@ A BibTeX entry for LaTeX users is
 
     @Manual{R-tidyBdE,
       title = {{tidyBdE}: Download Data from Bank of Spain},
-      doi = {10.5281/zenodo.4673496},
+      doi = {10.32614/CRAN.package.tidyBdE},
       author = {Diego {H. Herrero}},
       year = {2024},
       version = {0.3.6},

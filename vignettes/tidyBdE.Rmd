@@ -27,7 +27,7 @@ The basic entry point for searching time-series are the catalogs (*indexes*) of
 information. You can search any series by name:
 
 
-```r
+``` r
 library(tidyBdE)
 
 library(ggplot2)
@@ -60,7 +60,7 @@ After we have found our series, we can load the series for the GBP/EUR exchange
 rate using the sequential number reference (`Numero_Secuencial`) as:
 
 
-```r
+``` r
 seq_number <- XR_GBP %>%
   # First record
   slice(1) %>%
@@ -72,6 +72,9 @@ seq_number <- XR_GBP %>%
 
 seq_number
 #> [1] 573214
+```
+
+``` r
 
 
 time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%
@@ -85,7 +88,7 @@ The package also provides a custom **ggplot2** theme based on the publications
 of BdE:
 
 
-```r
+``` r
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_tidy_palettes(n = 1)) +
   geom_smooth(method = "gam", colour = bde_tidy_palettes(n = 2)[2]) +
@@ -117,7 +120,7 @@ most relevant macroeconomic series, so there is no need to look for them in
 advance:
 
 
-```r
+``` r
 # Data in "long" format
 
 plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") %>%
@@ -149,7 +152,7 @@ You can use **tidyBdE** to create your own local repository at a given local
 directory passing the following option:
 
 
-```r
+``` r
 options(bde_cache_dir = "./path/to/location")
 ```
 
@@ -160,7 +163,7 @@ It is possible to update the data (i.e. after every monthly or quarterly data
 release) with the following commands:
 
 
-```r
+``` r
 bde_catalog_update()
 
 # On most of the functions using the option update_cache = TRUE
