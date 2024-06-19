@@ -1,17 +1,18 @@
 year <- format(Sys.time(), "%Y")
 abs <- trimws(gsub("\\s+", " ", meta$Description))
 abs <- gsub("'", "", abs)
-doi <- "10.5281/zenodo.4673496"
+pkg <- meta$Package
+doi <- paste0("10.32614/CRAN.package.", pkg)
 
 bibentry(
   "Manual",
-  header = paste0("To cite '", meta$Package, "' in publications use:"),
-  title = paste("{tidyBdE}:", gsub("'", "", meta$Title)),
+  header = paste0("To cite '", pkg, "' in publications use:"),
+  title = paste0("{", pkg, "}: ", gsub("'", "", meta$Title)),
   doi = doi,
-  author = person("Diego","H. Herrero"),
+  author = c(person("Diego", "H. Herrero")),
   year = year,
   version = meta$Version,
   url = unlist(strsplit(meta$URL, ","))[1],
   abstract = abs,
-  key = "R-tidyBdE"
+  key = paste0("R-", pkg)
 )
