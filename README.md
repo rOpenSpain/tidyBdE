@@ -15,7 +15,7 @@
 [![R-hub](https://github.com/rOpenSpain/tidyBdE/actions/workflows/rhub.yaml/badge.svg)](https://github.com/rOpenSpain/tidyBdE/actions/workflows/rhub.yaml)
 [![codecov](https://codecov.io/gh/ropenspain/tidyBdE/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ropenspain/tidyBdE)
 [![CodeFactor](https://www.codefactor.io/repository/github/ropenspain/tidybde/badge)](https://www.codefactor.io/repository/github/ropenspain/tidybde)
-[![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.4673496-blue)](https://doi.org/10.5281/zenodo.4673496)
+[![DOI](https://img.shields.io/badge/DOI-10.32614/CRAN.package.tidyBdE-blue)](https://doi.org/10.32614/CRAN.package.tidyBdE)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
