@@ -72,9 +72,6 @@ seq_number <- XR_GBP %>%
 
 seq_number
 #> [1] 573214
-```
-
-``` r
 
 
 time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%

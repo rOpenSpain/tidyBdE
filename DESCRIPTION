@@ -39,6 +39,6 @@ Config/testthat/parallel: true
 Copyright: See file inst/COPYRIGHTS
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 X-schema.org-applicationCategory: Macroeconomics
 X-schema.org-isPartOf: https://ropenspain.es/
