@@ -1,75 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/404.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/articles/Main_Macroeconomic_Series.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/articles/Series_Index.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/articles/tidyBdE.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/CONTRIBUTING.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/index.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/reference/bde_catalog_search.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/reference/bde_catalog_update.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/reference/bde_check_access.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/reference/bde_indicators.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/reference/bde_pals.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/reference/bde_series_full_load.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/reference/bde_series_load.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/reference/scales_bde.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/reference/theme_tidybde.html</loc>
-  </url>
-  <url>
-    <loc>https://ropenspain.github.io/tidyBdE/reference/tidyBdE-package.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://ropenspain.github.io/tidyBdE/404.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/articles/index.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/articles/Main_Macroeconomic_Series.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/articles/Series_Index.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/articles/tidyBdE.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/authors.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/CONTRIBUTING.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/index.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/LICENSE.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/news/index.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/reference/bde_catalog_search.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/reference/bde_catalog_update.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/reference/bde_check_access.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/reference/bde_indicators.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/reference/bde_pals.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/reference/bde_series_full_load.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/reference/bde_series_load.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/reference/index.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/reference/scales_bde.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/reference/theme_tidybde.html</loc></url>
+<url><loc>https://ropenspain.github.io/tidyBdE/reference/tidyBdE-package.html</loc></url>
 </urlset>
+
