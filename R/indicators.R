@@ -45,7 +45,7 @@ bde_ind_gdp_var <- function(series_label = "GDP_YoY", ...) {
 #' @export
 bde_ind_unemployment_rate <-
   function(series_label = "Unemployment_Rate", ...) {
-    seq_num <- 2357793
+    seq_num <- 4635980
 
     econom_ind <-
       bde_series_load(seq_num, series_label = series_label, ...)
@@ -141,13 +141,16 @@ bde_ind_gdp_quarterly <- function(series_label = "GDP_quarterly_value", ...) {
 #'
 #' @export
 bde_ind_population <- function(series_label = "Population_Spain", ...) {
-  seq_num <- 3078287
+  # seq_num <- 3078287
+  #
+  # econom_ind <-
+  #   bde_series_load(seq_num, series_label = series_label, ...)
+  # econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
+  #
+  # return(econom_ind)
 
-  econom_ind <-
-    bde_series_load(seq_num, series_label = series_label, ...)
-  econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
-
-  return(econom_ind)
+  message("Under review")
+  return(NULL)
 }
 
 #' @export

@@ -1,3 +1,11 @@
+# tidyBdE (development version)
+
+-   Update `bde_ind_unemployment_rate()` since the underlying identifier
+    changed.
+-   `bde_ind_population()` under review, not providing results as of July 2024.
+-   DOI changed to **CRAN** url:
+    <https://doi.org/10.32614/CRAN.package.tidyBdE>.
+
 # tidyBdE 0.3.6
 
 -   Adapt `scale_color_bde_d()` and friends to **ggplot2** 3.5.0. Also expose

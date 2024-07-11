@@ -101,49 +101,6 @@ ggplot(dataset, aes(x = Date, y = data)) +
   theme_tidybde()
 ```
 
-### GDP per capita
-
-```{r echo=FALSE}
-pop <- bde_ind_population(series_label = "pop")
-pib <- bde_ind_gdp_quarterly(series_label = "data")
-
-pib$LastY <- pib$data + lag(pib$data, 1) + lag(pib$data, 2) + lag(pib$data, 3)
-
-pib <- inner_join(pib, pop, by = "Date")
-
-pib <- pib %>% mutate(data = 1000 * LastY / pop)
-
-dataset <- pib %>%
-  select(Date, data) %>%
-  filter(Date >= nd) %>%
-  drop_na()
-
-
-l <- dataset[nrow(dataset), ]
-
-ggplot(dataset, aes(x = Date, y = data)) +
-  geom_line(color = col) +
-  geom_text(
-    data = l,
-    size = 3,
-    aes(label = paste(
-      x = prettyNum(data, big.mark = " "),
-      "€\n", format(Date, "%b-%Y")
-    ))
-  ) +
-  labs(
-    title = "GDP per capita of Spain",
-    subtitle = "€",
-    caption = "Source: BdE"
-  ) +
-  scale_y_continuous(labels = scales::label_number()) +
-  scale_x_date(
-    date_labels = "%b-%Y",
-    breaks = br
-  ) +
-  theme_tidybde()
-```
-
 ## Unemployment Rate
 
 ```{r echo=FALSE}
@@ -228,38 +185,5 @@ ggplot(dataset, aes(x = Date, y = data)) +
     date_labels = "%b-%Y",
     breaks = br
   ) +
-  theme_tidybde()
-```
-
-## Population
-
-```{r echo=FALSE}
-dataset <- bde_ind_population(series_label = "data") %>%
-  filter(Date >= nd) %>%
-  drop_na()
-
-
-l <- dataset[nrow(dataset), ]
-
-ggplot(dataset, aes(x = Date, y = data)) +
-  geom_line(color = col) +
-  geom_text(
-    data = l,
-    size = 3,
-    aes(label = paste(
-      x = prettyNum(data, big.mark = " "),
-      "\n", format(Date, "%b-%Y")
-    ))
-  ) +
-  labs(
-    title = "Population of Spain",
-    subtitle = "thousands",
-    caption = "Source: BdE"
-  ) +
-  scale_x_date(
-    date_labels = "%b-%Y",
-    breaks = br
-  ) +
-  scale_y_continuous(labels = scales::label_number()) +
   theme_tidybde()
 ```
