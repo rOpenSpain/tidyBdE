@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.4.1 (2024-06-14)",
+  "runtimePlatform": "R version 4.4.1 (2024-06-14 ucrt)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -192,7 +192,7 @@
   },
   "applicationCategory": "Macroeconomics",
   "isPartOf": "https://ropenspain.es/",
-  "fileSize": "285.823KB",
+  "fileSize": "289.881KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
