@@ -23,7 +23,7 @@ The following table shows the series available on the catalog (Last update:
 # Set locale in Spanish so accents and special characters shows up
 # This is useful with GHA if running on windows
 
-Sys.setlocale(category = "LC_ALL", locale = "Spanish")
+# Sys.setlocale(category = "LC_ALL", locale = "Spanish")
 ```
 
 Use the sequential number to load a single series (see [Example](#example)
@@ -54,11 +54,7 @@ series_clean <- series %>%
   as_tibble()
 
 
-names(series_clean) <- gsub("_", " ", names(series_clean))
-
-
 library(reactable)
-
 
 reactable(series_clean,
   filterable = TRUE,
