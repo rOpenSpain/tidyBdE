@@ -135,7 +135,7 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   theme_tidybde()
 ```
 
-<img src="man/figures/README-chart-1.png" width="100%" />
+<img src="man/figures/README-chart-1.png" alt="EUR/GBP Exchange Rate (2010-2020)" width="100%" />
 
 The package provides also several “shortcut” functions for a selection
 of the most relevant macroeconomic series, so there is no need to look
@@ -162,7 +162,7 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
   scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
 ```
 
-<img src="man/figures/README-macroseries-1.png" width="100%" />
+<img src="man/figures/README-macroseries-1.png" alt="Spanish Economic Indicators (2010-2019)" width="100%" />
 
 ### Palettes
 
@@ -196,19 +196,6 @@ bde_catalog_update()
 
 bde_series_load("SOME ID", update_cache = TRUE)
 ```
-
-## Another R packages for downloading Spanish open data
-
-Other useful packages that provides access to Spanish open data:
-
-- [**MicroDatosEs**](https://github.com/rOpenSpain/MicroDatosEs): A
-  package that process microdata provided by Spanish statistical
-  agencies (mostly, INE).
-- [**CatastRo**](https://github.com/rOpenSpain/CatastRo): A package that
-  queries Sede electrónica del Catastro API.
-- [**mapSpain**](https://ropenspain.github.io/mapSpain/): For
-  downloading geospatial information from Instituto Geográfico Nacional
-  (IGN) and creating maps of Spain.
 
 ## Disclaimer
 
