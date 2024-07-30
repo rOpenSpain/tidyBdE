@@ -47,8 +47,7 @@ bde_ind_unemployment_rate <-
   function(series_label = "Unemployment_Rate", ...) {
     seq_num <- 4635980
 
-    econom_ind <-
-      bde_series_load(seq_num, series_label = series_label, ...)
+    econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
     econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
     return(econom_ind)
@@ -62,8 +61,7 @@ bde_ind_euribor_12m_monthly <-
            ...) {
     seq_num <- 587853
 
-    econom_ind <-
-      bde_series_load(seq_num, series_label = series_label, ...)
+    econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
     econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
     return(econom_ind)
@@ -76,8 +74,7 @@ bde_ind_euribor_12m_daily <-
   function(series_label = "Euribor_12M_Daily", ...) {
     seq_num <- 905842
 
-    econom_ind <-
-      bde_series_load(seq_num, series_label = series_label, ...)
+    econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
     econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
     return(econom_ind)
@@ -90,8 +87,7 @@ bde_ind_cpi_var <-
   function(series_label = "Consumer_price_index_YoY", ...) {
     seq_num <- 4144807
 
-    econom_ind <-
-      bde_series_load(seq_num, series_label = series_label, ...)
+    econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
     econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
     return(econom_ind)
@@ -103,8 +99,7 @@ bde_ind_cpi_var <-
 bde_ind_ibex_monthly <- function(series_label = "IBEX_index_month", ...) {
   seq_num <- 254433
 
-  econom_ind <-
-    bde_series_load(seq_num, series_label = series_label, ...)
+  econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
   econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
   return(econom_ind)
@@ -116,8 +111,7 @@ bde_ind_ibex_monthly <- function(series_label = "IBEX_index_month", ...) {
 bde_ind_ibex_daily <- function(series_label = "IBEX_index_day", ...) {
   seq_num <- 821340
 
-  econom_ind <-
-    bde_series_load(seq_num, series_label = series_label, ...)
+  econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
   econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
   return(econom_ind)
@@ -129,8 +123,7 @@ bde_ind_ibex_daily <- function(series_label = "IBEX_index_day", ...) {
 bde_ind_gdp_quarterly <- function(series_label = "GDP_quarterly_value", ...) {
   seq_num <- 3777060
 
-  econom_ind <-
-    bde_series_load(seq_num, series_label = series_label, ...)
+  econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
   econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
   return(econom_ind)
@@ -143,8 +136,7 @@ bde_ind_gdp_quarterly <- function(series_label = "GDP_quarterly_value", ...) {
 bde_ind_population <- function(series_label = "Population_Spain", ...) {
   # seq_num <- 3078287
   #
-  # econom_ind <-
-  #   bde_series_load(seq_num, series_label = series_label, ...)
+  # econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
   # econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
   #
   # return(econom_ind)

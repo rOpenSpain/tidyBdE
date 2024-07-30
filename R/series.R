@@ -161,17 +161,14 @@ bde_series_load <- function(series_code, series_label = NULL,
 
     if (verbose) {
       message(
-        "tidyBdE> Downloading serie ",
-        x, " from file ",
-        csv_file_name, " (alias ",
-        alias_serie, ")."
+        "tidyBdE> Downloading serie ", x, " from file ",
+        csv_file_name, " (alias ", alias_serie, ")."
       )
     }
 
 
     # Download and select series
-    serie_file <- bde_series_full_load(
-      csv_file_name,
+    serie_file <- bde_series_full_load(csv_file_name,
       parse_dates = parse_dates,
       parse_numeric = parse_numeric,
       cache_dir = cache_dir,
@@ -188,11 +185,8 @@ bde_series_load <- function(series_code, series_label = NULL,
     if (!(alias_serie %in% names(serie_file))) {
       if (verbose) {
         message(
-          "tidyBdE> ",
-          "Serie with alias '",
-          alias_serie,
-          "' not available on ",
-          csv_file_name, ". "
+          "tidyBdE> ", "Serie with alias '", alias_serie,
+          "' not available on ", csv_file_name, ". "
         )
       }
 
@@ -237,15 +231,12 @@ bde_series_load <- function(series_code, series_label = NULL,
   # To long
   end <- dplyr::bind_rows(df_list)
   # As factors
-  end$serie_name <- factor(end$serie_name,
-    levels = unique(end$serie_name)
-  )
+  end$serie_name <- factor(end$serie_name, levels = unique(end$serie_name))
   # Factors
 
   if (out_format == "wide" || isTRUE(extract_metadata)) {
     end <- tidyr::pivot_wider(end,
-      id_cols = "Date",
-      names_from = "serie_name",
+      id_cols = "Date", names_from = "serie_name",
       values_from = "serie_value"
     )
   }
@@ -308,152 +299,138 @@ bde_series_load <- function(series_code, series_label = NULL,
 #' # Data
 #' bde_series_full_load("TI_1_1.csv")
 #' }
-bde_series_full_load <-
-  function(series_csv,
-           parse_dates = TRUE,
-           parse_numeric = TRUE,
-           cache_dir = NULL,
-           update_cache = FALSE,
-           verbose = FALSE,
-           extract_metadata = FALSE) {
-    stopifnot(
-      is.null(cache_dir) || is.character(cache_dir),
-      is.logical(verbose),
-      is.logical(parse_dates),
-      is.logical(update_cache)
-    )
+bde_series_full_load <- function(series_csv, parse_dates = TRUE,
+                                 parse_numeric = TRUE, cache_dir = NULL,
+                                 update_cache = FALSE, verbose = FALSE,
+                                 extract_metadata = FALSE) {
+  stopifnot(
+    is.null(cache_dir) || is.character(cache_dir),
+    is.logical(verbose),
+    is.logical(parse_dates),
+    is.logical(update_cache)
+  )
 
-    if (length(grep(".csv", series_csv)) == 0) {
-      series_csv <- paste0(series_csv, ".csv")
+  if (length(grep(".csv", series_csv)) == 0) {
+    series_csv <- paste0(series_csv, ".csv")
+  }
+
+  pp <- substr(series_csv, 1, 2)
+
+  # Get cache dir
+  cache_dir <- bde_hlp_cachedir(
+    cache_dir = cache_dir, verbose = verbose,
+    suffix = pp
+  )
+
+  # Create if not exist
+  if (!dir.exists(cache_dir)) dir.create(cache_dir, recursive = TRUE)
+
+
+  base_url <- paste0(
+    "https://www.bde.es/webbe/es/estadisticas/",
+    "compartido/datos/csv/"
+  )
+
+
+  serie_file <- tolower(series_csv)
+
+  full_url <- paste0(base_url, serie_file)
+  local_file <- file.path(cache_dir, serie_file)
+
+  # If no serie is found, update
+  if (update_cache || isFALSE(file.exists(local_file))) {
+    if (!bde_check_access()) {
+      tbl <- bde_hlp_return_null()
+      return(tbl)
     }
 
-    pp <- substr(series_csv, 1, 2)
-
-    # Get cache dir
-    cache_dir <-
-      bde_hlp_cachedir(
-        cache_dir = cache_dir,
-        verbose = verbose,
-        suffix = pp
-      )
-
-    # Create if not exist
-    if (!dir.exists(cache_dir)) dir.create(cache_dir, recursive = TRUE)
-
-
-    base_url <- paste0(
-      "https://www.bde.es/webbe/es/estadisticas/",
-      "compartido/datos/csv/"
+    result <- bde_hlp_download(
+      url = full_url, local_file = local_file,
+      verbose = verbose
     )
 
-
-    serie_file <- tolower(series_csv)
-
-    full_url <- paste0(base_url, serie_file)
-    local_file <- file.path(cache_dir, serie_file)
-
-    # If no serie is found, update
-    if (update_cache || isFALSE(file.exists(local_file))) {
-      if (!bde_check_access()) {
-        tbl <- bde_hlp_return_null()
-        return(tbl)
+    if (isFALSE(result)) {
+      # Clean up the file if it was produced. Is not valid
+      file_full_path <- path.expand(local_file)
+      if (file.exists(file_full_path)) {
+        unlink(file_full_path, force = TRUE, recursive = TRUE)
       }
-
-      result <- bde_hlp_download(
-        url = full_url,
-        local_file = local_file,
-        verbose = verbose
-      )
-
-      if (isFALSE(result)) {
-        # Clean up the file if it was produced. Is not valid
-        file_full_path <- path.expand(local_file)
-        if (file.exists(file_full_path)) {
-          unlink(file_full_path, force = TRUE, recursive = TRUE)
-        }
-        return(invisible())
-      }
-    } else {
-      if (verbose) {
-        message(
-          "tidyBdE> Reading file ", serie_file,
-          " from cache."
-        )
-      }
-    }
-
-
-    # Catch error
-    # nocov start
-    r <- readLines(local_file)
-    if (length(r) == 0) {
-      message("File ", local_file, " not valid")
       return(invisible())
     }
-    # nocov end
-
-
-    # Serie load
-    serie_load <-
-      read.csv2(
-        local_file,
-        sep = ",",
-        stringsAsFactors = FALSE,
-        na.strings = "",
-        header = FALSE
-      )
-    serie_load <- tibble::as_tibble(serie_load)
-
-
-    # Always in third line
-    newnames <- as.character(serie_load[3, ])
-    newnames[1] <- "Date"
-
-    names(serie_load) <- newnames
-
-
-    # Metadata
-    # Always lines 1 to 6
-    meta_serie <- serie_load[seq_len(6), ]
-
-    # Add FUENTE and NOTAS
-    source_notes <-
-      serie_load[serie_load[[1]] %in% c("FUENTE", "NOTAS"), ]
-
-    if (extract_metadata) {
-      return(meta_serie)
+  } else {
+    if (verbose) {
+      message("tidyBdE> Reading file ", serie_file, " from cache.")
     }
-
-    meta_serie <- dplyr::bind_rows(meta_serie, source_notes)
-
-    # Data: the rest of lines
-    data_serie <- serie_load[-seq_len(6), ]
-
-    data_serie <-
-      data_serie[!toupper(data_serie$Date) %in% c("FUENTE", "NOTAS"), ]
-
-    newnames_data <- as.character(meta_serie[4, ])
-    newnames_data[1] <- "Date"
-
-    # Parse dates dates
-    if (parse_dates) {
-      if (verbose) {
-        message("tidyBdE> Parsing dates")
-      }
-      date_fields <-
-        names(data_serie)[grep("Date", names(data_serie))]
-
-      for (i in seq_len(length(date_fields))) {
-        field <- date_fields[i]
-        data_serie[field] <-
-          bde_parse_dates(data_serie[[field]])
-      }
-    }
-
-    if (parse_numeric) {
-      if (verbose) message("tidyBdE> Parsing fields to double")
-      # Fields to double
-      data_serie <- bde_hlp_todouble(data_serie, preserve = "Date")
-    }
-    return(data_serie)
   }
+
+
+  # Catch error
+  # nocov start
+  r <- readLines(local_file)
+  if (length(r) == 0) {
+    message("File ", local_file, " not valid")
+    return(invisible())
+  }
+  # nocov end
+
+
+  # Serie load
+  serie_load <- read.csv2(local_file,
+    sep = ",", stringsAsFactors = FALSE,
+    na.strings = "", header = FALSE,
+    fileEncoding = "latin1"
+  )
+
+  serie_load <- tibble::as_tibble(serie_load)
+
+  # Always in third line
+  newnames <- as.character(serie_load[3, ])
+  newnames[1] <- "Date"
+
+  names(serie_load) <- newnames
+
+
+  # Metadata
+  # Always lines 1 to 6
+  meta_serie <- serie_load[seq_len(6), ]
+
+  # Add FUENTE and NOTAS
+  source_notes <-
+    serie_load[serie_load[[1]] %in% c("FUENTE", "NOTAS"), ]
+
+  if (extract_metadata) {
+    return(meta_serie)
+  }
+
+  meta_serie <- dplyr::bind_rows(meta_serie, source_notes)
+
+  # Data: the rest of lines
+  data_serie <- serie_load[-seq_len(6), ]
+
+  data_serie <-
+    data_serie[!toupper(data_serie$Date) %in% c("FUENTE", "NOTAS"), ]
+
+  newnames_data <- as.character(meta_serie[4, ])
+  newnames_data[1] <- "Date"
+
+  # Parse dates dates
+  if (parse_dates) {
+    if (verbose) {
+      message("tidyBdE> Parsing dates")
+    }
+    date_fields <- names(data_serie)[grep("Date", names(data_serie))]
+
+    for (i in seq_len(length(date_fields))) {
+      field <- date_fields[i]
+
+      data_serie[field] <- bde_parse_dates(data_serie[[field]])
+    }
+  }
+
+  if (parse_numeric) {
+    if (verbose) message("tidyBdE> Parsing fields to double")
+    # Fields to double
+    data_serie <- bde_hlp_todouble(data_serie, preserve = "Date")
+  }
+  return(data_serie)
+}

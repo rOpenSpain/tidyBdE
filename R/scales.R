@@ -57,11 +57,7 @@ scale_color_bde_d <- function(
   cols_v <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
   pal <- scales::manual_pal(cols_v)
 
-  ggplot2::discrete_scale(
-    aesthetics = "color",
-    palette = pal,
-    ...
-  )
+  ggplot2::discrete_scale(aesthetics = "color", palette = pal, ...)
 }
 
 #' @rdname scales_bde
@@ -81,11 +77,7 @@ scale_fill_bde_d <- function(
   cols_v <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
   pal <- scales::manual_pal(cols_v)
 
-  ggplot2::discrete_scale(
-    aesthetics = "fill",
-    palette = pal,
-    ...
-  )
+  ggplot2::discrete_scale(aesthetics = "fill", palette = pal, ...)
 }
 
 
@@ -104,8 +96,7 @@ scale_color_bde_c <- function(
       rev = rev
     ),
     "bde_qual_pal" = bde_tidy_palettes(6, "bde_qual_pal",
-      alpha = alpha,
-      rev = rev
+      alpha = alpha, rev = rev
     ),
     "bde_rose_pal" = bde_tidy_palettes(6, "bde_rose_pal",
       alpha = alpha,
@@ -149,10 +140,10 @@ scale_fill_bde_c <- function(
       rev = rev
     )[c(1, 2, 3, 6, 5, 4)]
   )
+
   ggplot2::continuous_scale(
     aesthetics = "fill",
     palette = scales::gradient_n_pal(cols),
-    guide = guide,
-    ...
+    guide = guide, ...
   )
 }

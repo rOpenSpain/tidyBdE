@@ -117,7 +117,7 @@ bde_catalog_load <- function(catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
     catalog_load <- read.csv2(catalog_file,
       sep = ",",
       stringsAsFactors = FALSE, na.strings = "",
-      header = FALSE
+      header = FALSE, fileEncoding = "latin1"
     )
 
     # Convert names
@@ -263,12 +263,8 @@ bde_catalog_update <- function(catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
   }
   # nocov end
 
-
   # Get cache dir
   cache_dir <- bde_hlp_cachedir(cache_dir = cache_dir, verbose = verbose)
-
-
-
 
   # Loop and download
   catalog_download <- catalog
@@ -296,8 +292,7 @@ bde_catalog_update <- function(catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
 
     # Download
     result <- bde_hlp_download(
-      url = full_url,
-      local_file = local_file,
+      url = full_url, local_file = local_file,
       verbose = verbose
     )
     return(result)
@@ -376,13 +371,11 @@ bde_catalog_search <- function(pattern, ...) {
   search_match_rows <- NULL
   # Loop thorugh cols
   for (i in col_ind) {
-    search_match_rows <- unique(c(
-      search_match_rows,
-      grep(pattern, catalog_search[[i]],
-        ignore.case = TRUE,
-        useBytes = TRUE
-      )
-    ))
+    search_match_rows <- unique(
+      c(search_match_rows, grep(pattern, catalog_search[[i]],
+        ignore.case = TRUE, useBytes = TRUE
+      ))
+    )
   }
 
   search_results <- catalog_search[search_match_rows, ]

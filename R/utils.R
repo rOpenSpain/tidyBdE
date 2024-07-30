@@ -73,11 +73,10 @@ bde_parse_dates <- function(dates_to_parse) {
   dateformat <- gsub("-", "", dateformat)
   dateformat <- gsub("/", "", dateformat)
 
-  months_esp <-
-    c(
-      "ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP",
-      "OCT", "NOV", "DIC"
-    )
+  months_esp <- c(
+    "ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO",
+    "SEP", "OCT", "NOV", "DIC"
+  )
 
   # Format months
   for (i in seq_len(length(months_esp))) {
@@ -113,9 +112,7 @@ bde_parse_dates <- function(dates_to_parse) {
 #' @param suffix a suffix
 #'
 #' @noRd
-bde_hlp_cachedir <- function(cache_dir = NULL,
-                             verbose = FALSE,
-                             suffix = NULL) {
+bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
   # Check cache dir if is null
   if (is.null(cache_dir)) {
     # Check if set via options
@@ -192,17 +189,14 @@ bde_hlp_download <- function(url, local_file, verbose) {
     if (verbose) message("tidyBdE> Trying again")
 
     err_dwnload <- tryCatch(
-      download.file(url,
-        local_file,
+      download.file(url, local_file,
         quiet = isFALSE(verbose),
         mode = "wb"
       ),
       # nocov start
       warning = function(e) {
         message(
-          "tidyBdE> URL \n ",
-          url,
-          "\nnot reachable.\n\n",
+          "tidyBdE> URL \n ", url, "\nnot reachable.\n\n",
           "If you think this is a bug consider opening an issue"
         )
         return(TRUE)
@@ -229,11 +223,13 @@ bde_hlp_download <- function(url, local_file, verbose) {
 bde_hlp_guess <- function(tbl, preserve = "") {
   for (i in names(tbl)) {
     if (class(tbl[[i]])[1] == "character" && !(i %in% preserve)) {
-      tbl[i] <-
-        readr::parse_guess(tbl[[i]],
-          locale = readr::locale(grouping_mark = "", decimal_mark = "."),
-          na = c("_", "...")
-        )
+      tbl[i] <- readr::parse_guess(tbl[[i]],
+        locale = readr::locale(
+          grouping_mark = "",
+          decimal_mark = "."
+        ),
+        na = c("_", "...")
+      )
     }
   }
   return(tbl)
@@ -265,7 +261,10 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
     if (class(tbl[[i]])[1] == "character" && !(i %in% preserve)) {
       tbl[i] <-
         readr::parse_double(tbl[[i]],
-          locale = readr::locale(grouping_mark = "", decimal_mark = "."),
+          locale = readr::locale(
+            grouping_mark = "",
+            decimal_mark = "."
+          ),
           na = c("_", "...")
         )
     }
