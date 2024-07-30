@@ -134,15 +134,13 @@ bde_ind_gdp_quarterly <- function(series_label = "GDP_quarterly_value", ...) {
 #'
 #' @export
 bde_ind_population <- function(series_label = "Population_Spain", ...) {
-  # seq_num <- 3078287
-  #
-  # econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
-  # econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
-  #
-  # return(econom_ind)
+  # was 3078287
+  seq_num <- 4637737
 
-  message("Under review")
-  return(NULL)
+  econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
+  econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
+
+  return(econom_ind)
 }
 
 #' @export

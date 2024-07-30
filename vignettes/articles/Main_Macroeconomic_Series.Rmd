@@ -42,7 +42,7 @@ br <- seq(nd, Sys.Date(), "6 months")
 
 ### Aggregated (last 4 quarters)
 
-```{r echo=FALSE}
+```{r gdp_agg, echo=FALSE, fig.alt="GDP of Spain - Aggregated last 4 quarters"}
 dataset <- bde_ind_gdp_quarterly(series_label = "data") %>%
   drop_na()
 
@@ -74,7 +74,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ### Year-on-year variation
 
-```{r echo=FALSE}
+```{r gdpyoy, echo=FALSE, fig.alt="GDP of Spain - Year-on-year variation"}
 dataset <- bde_ind_gdp_var(series_label = "data") %>%
   filter(Date >= nd) %>%
   drop_na()
@@ -101,9 +101,52 @@ ggplot(dataset, aes(x = Date, y = data)) +
   theme_tidybde()
 ```
 
+### GDP per capita
+
+```{r gdppercap, echo=FALSE, fig.alt="GDP per Capita of Spain"}
+pop <- bde_ind_population(series_label = "pop")
+pib <- bde_ind_gdp_quarterly(series_label = "data")
+
+pib$LastY <- pib$data + lag(pib$data, 1) + lag(pib$data, 2) + lag(pib$data, 3)
+
+pib <- inner_join(pib, pop, by = "Date")
+
+pib <- pib %>% mutate(data = 1000 * LastY / pop)
+
+dataset <- pib %>%
+  select(Date, data) %>%
+  filter(Date >= nd) %>%
+  drop_na()
+
+
+l <- dataset[nrow(dataset), ]
+
+ggplot(dataset, aes(x = Date, y = data)) +
+  geom_line(color = col) +
+  geom_text(
+    data = l,
+    size = 3,
+    aes(label = paste(
+      x = prettyNum(data, big.mark = " "),
+      "€\n", format(Date, "%b-%Y")
+    ))
+  ) +
+  labs(
+    title = "GDP per capita of Spain",
+    subtitle = "€",
+    caption = "Source: BdE"
+  ) +
+  scale_y_continuous(labels = scales::label_number()) +
+  scale_x_date(
+    date_labels = "%b-%Y",
+    breaks = br
+  ) +
+  theme_tidybde()
+```
+
 ## Unemployment Rate
 
-```{r echo=FALSE}
+```{r unempl, echo=FALSE, fig.alt="Unemployment rate"}
 dataset <- bde_ind_unemployment_rate(series_label = "data") %>%
   filter(Date >= nd) %>%
   drop_na()
@@ -132,7 +175,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ## Consumer Price Index
 
-```{r echo=FALSE}
+```{r cprix, echo=FALSE, fig.alt="Consumer Price Index"}
 dataset <- bde_ind_cpi_var(series_label = "data") %>%
   filter(Date >= nd) %>%
   drop_na()
@@ -161,7 +204,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ## Monthly Euribor
 
-```{r echo=FALSE}
+```{r eur, echo=FALSE, fig.alt="Monthly Euribor"}
 dataset <- bde_ind_euribor_12m_monthly(series_label = "data") %>%
   filter(Date >= nd) %>%
   drop_na()
@@ -185,5 +228,38 @@ ggplot(dataset, aes(x = Date, y = data)) +
     date_labels = "%b-%Y",
     breaks = br
   ) +
+  theme_tidybde()
+```
+
+## Population
+
+```{r pop, echo=FALSE, fig.alt="Population in thousands"}
+dataset <- bde_ind_population(series_label = "data") %>%
+  filter(Date >= nd) %>%
+  drop_na()
+
+
+l <- dataset[nrow(dataset), ]
+
+ggplot(dataset, aes(x = Date, y = data)) +
+  geom_line(color = col) +
+  geom_text(
+    data = l,
+    size = 3,
+    aes(label = paste(
+      x = prettyNum(data, big.mark = " "),
+      "\n", format(Date, "%b-%Y")
+    ))
+  ) +
+  labs(
+    title = "Population of Spain",
+    subtitle = "thousands",
+    caption = "Source: BdE"
+  ) +
+  scale_x_date(
+    date_labels = "%b-%Y",
+    breaks = br
+  ) +
+  scale_y_continuous(labels = scales::label_number()) +
   theme_tidybde()
 ```

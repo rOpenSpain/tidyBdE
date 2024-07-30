@@ -49,8 +49,12 @@ series_clean <- series %>%
     Tipo_de_variable,
     Fecha_de_la_primera_observacion,
     Fecha_de_la_ultima_observacion,
-    Frecuencia_de_la_serie
-  )
+    Frecuencia_de_la_serie, Fuente
+  ) %>%
+  as_tibble()
+
+
+names(series_clean) <- gsub("_", " ", names(series_clean))
 
 
 library(reactable)
@@ -59,6 +63,7 @@ library(reactable)
 reactable(series_clean,
   filterable = TRUE,
   searchable = TRUE,
+  resizable = TRUE,
   showPageSizeOptions = TRUE,
   striped = TRUE,
   defaultColDef = colDef(

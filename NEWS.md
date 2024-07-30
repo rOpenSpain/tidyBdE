@@ -1,10 +1,10 @@
 # tidyBdE (development version)
 
--   Update `bde_ind_unemployment_rate()` since the underlying identifier
-    changed.
--   `bde_ind_population()` under review, not providing results as of July 2024.
+-   Update `bde_ind_unemployment_rate()` and `bde_ind_population()` since the
+    underlying identifier changed.
 -   DOI changed to **CRAN** url:
     <https://doi.org/10.32614/CRAN.package.tidyBdE>.
+-   Native encoding when reading the `.csv` files changed to `"latin1"`.
 
 # tidyBdE 0.3.6
 
