@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/rOpenSpain/tidyBdE",
   "issueTracker": "https://github.com/rOpenSpain/tidyBdE/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.3.6.9000",
+  "version": "0.3.7",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -192,7 +192,7 @@
   },
   "applicationCategory": "Macroeconomics",
   "isPartOf": "https://ropenspain.es/",
-  "fileSize": "288.961KB",
+  "fileSize": "288.496KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

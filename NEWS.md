@@ -1,4 +1,4 @@
-# tidyBdE (development version)
+# tidyBdE 0.3.7
 
 -   Update `bde_ind_unemployment_rate()` and `bde_ind_population()` since the
     underlying identifier changed.

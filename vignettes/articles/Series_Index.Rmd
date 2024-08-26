@@ -19,13 +19,6 @@ knitr::opts_chunk$set(
 The following table shows the series available on the catalog (Last update:
 **`r format(Sys.Date(),"%d-%B-%Y")`**).
 
-```{r set_locale, warning=FALSE, comment=FALSE, include=FALSE}
-# Set locale in Spanish so accents and special characters shows up
-# This is useful with GHA if running on windows
-
-# Sys.setlocale(category = "LC_ALL", locale = "Spanish")
-```
-
 Use the sequential number to load a single series (see [Example](#example)
 below):
 
