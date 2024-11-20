@@ -1,3 +1,7 @@
+# tidyBdE (development version)
+
+-   Update `bde_ind_gdp_quarterly()` since the underlying identifier changed.
+
 # tidyBdE 0.3.7
 
 -   Update `bde_ind_unemployment_rate()` and `bde_ind_population()` since the

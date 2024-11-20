@@ -121,7 +121,7 @@ bde_ind_ibex_daily <- function(series_label = "IBEX_index_day", ...) {
 #'
 #' @export
 bde_ind_gdp_quarterly <- function(series_label = "GDP_quarterly_value", ...) {
-  seq_num <- 3777060
+  seq_num <- 2325812
 
   econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
   econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
