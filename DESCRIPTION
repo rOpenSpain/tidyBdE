@@ -42,3 +42,5 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 X-schema.org-applicationCategory: Macroeconomics
 X-schema.org-isPartOf: https://ropenspain.es/
+X-schema.org-keywords: api, bde, cran, ggplot2, macroeconomics, r,
+    r-package, ropenspain, rstats, series-data, spain

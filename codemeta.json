@@ -192,7 +192,8 @@
   },
   "applicationCategory": "Macroeconomics",
   "isPartOf": "https://ropenspain.es/",
-  "fileSize": "289.056KB",
+  "keywords": ["api", "bde", "cran", "ggplot2", "macroeconomics", "r", "r-package", "ropenspain", "rstats", "series-data", "spain"],
+  "fileSize": "289.182KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -214,6 +215,5 @@
   "releaseNotes": "https://github.com/rOpenSpain/tidyBdE/blob/master/NEWS.md",
   "readme": "https://github.com/rOpenSpain/tidyBdE/blob/main/README.md",
   "contIntegration": ["https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml", "https://github.com/rOpenSpain/tidyBdE/actions/workflows/rhub.yaml", "https://app.codecov.io/gh/ropenspain/tidyBdE"],
-  "developmentStatus": "https://www.repostatus.org/#active",
-  "keywords": ["r-package", "api", "macroeconomics", "r", "rstats", "bde", "cran", "series-data", "spain", "ropenspain", "ggplot2"]
+  "developmentStatus": "https://www.repostatus.org/#active"
 }
