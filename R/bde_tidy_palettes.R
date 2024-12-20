@@ -68,5 +68,5 @@ bde_tidy_palettes <- function(n = 6,
   if (rev) endcols <- rev(endcols)
   if (!is.null(alpha)) endcols <- ggplot2::alpha(endcols, alpha)
 
-  return(endcols)
+  endcols
 }

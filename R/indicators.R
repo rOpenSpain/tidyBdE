@@ -37,7 +37,7 @@ bde_ind_gdp_var <- function(series_label = "GDP_YoY", ...) {
     bde_series_load(seq_num, series_label = series_label, ...)
   econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
-  return(econom_ind)
+  econom_ind
 }
 
 #' @rdname bde_indicators
@@ -50,7 +50,7 @@ bde_ind_unemployment_rate <-
     econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
     econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
-    return(econom_ind)
+    econom_ind
   }
 
 #' @rdname bde_indicators
@@ -64,7 +64,7 @@ bde_ind_euribor_12m_monthly <-
     econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
     econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
-    return(econom_ind)
+    econom_ind
   }
 
 #' @rdname bde_indicators
@@ -77,7 +77,7 @@ bde_ind_euribor_12m_daily <-
     econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
     econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
-    return(econom_ind)
+    econom_ind
   }
 
 #' @rdname bde_indicators
@@ -90,7 +90,7 @@ bde_ind_cpi_var <-
     econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
     econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
-    return(econom_ind)
+    econom_ind
   }
 
 #' @rdname bde_indicators
@@ -102,7 +102,7 @@ bde_ind_ibex_monthly <- function(series_label = "IBEX_index_month", ...) {
   econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
   econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
-  return(econom_ind)
+  econom_ind
 }
 
 #' @rdname bde_indicators
@@ -114,7 +114,7 @@ bde_ind_ibex_daily <- function(series_label = "IBEX_index_day", ...) {
   econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
   econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
-  return(econom_ind)
+  econom_ind
 }
 
 #' @rdname bde_indicators
@@ -126,7 +126,7 @@ bde_ind_gdp_quarterly <- function(series_label = "GDP_quarterly_value", ...) {
   econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
   econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
-  return(econom_ind)
+  econom_ind
 }
 
 
@@ -140,7 +140,7 @@ bde_ind_population <- function(series_label = "Population_Spain", ...) {
   econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
   econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
-  return(econom_ind)
+  econom_ind
 }
 
 #' @export

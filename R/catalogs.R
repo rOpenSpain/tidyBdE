@@ -148,7 +148,7 @@ bde_catalog_load <- function(catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
     catalog_load <- catalog_load[-1, ]
 
     catalog_load <- bde_hlp_tochar(catalog_load)
-    return(catalog_load)
+    catalog_load
   })
 
   res_all <- unlist(lapply(final_catalog, is.null))
@@ -183,7 +183,7 @@ bde_catalog_load <- function(catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
       final_catalog[field] <- bde_parse_dates(final_catalog[[field]])
     }
   }
-  return(final_catalog)
+  final_catalog
 }
 
 
@@ -295,7 +295,7 @@ bde_catalog_update <- function(catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
       url = full_url, local_file = local_file,
       verbose = verbose
     )
-    return(result)
+    result
   })
 
   return(invisible(res))
@@ -382,5 +382,5 @@ bde_catalog_search <- function(pattern, ...) {
   if (nrow(search_results) == 0) {
     stop("tidyBdE> No matches found for ", pattern)
   }
-  return(search_results)
+  search_results
 }

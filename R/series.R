@@ -205,7 +205,7 @@ bde_series_load <- function(series_code, series_label = NULL,
     # Rearrange
     serie_file <- serie_file[c("Date", "serie_name", "serie_value")]
 
-    return(serie_file)
+    serie_file
   })
 
   # Clean

@@ -35,7 +35,7 @@ bde_vivid_pal <- function(...) {
   }
 
   pal <- c("#4180C2", "#D86E7B", "#F89E63", "#5FBD6A", "#62C8D0", "#AC8771")
-  return(scales::manual_pal(pal))
+  scales::manual_pal(pal)
 }
 
 #' @rdname bde_pals
@@ -49,5 +49,5 @@ bde_rose_pal <- function(...) {
     )
   }
   pal <- c("#b7365c", "#cb6e8a", "#db9aad", "#0a50a1", "#5385bd", "#89AEDA")
-  return(scales::manual_pal(pal))
+  scales::manual_pal(pal)
 }

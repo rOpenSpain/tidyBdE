@@ -32,15 +32,16 @@ bde_check_access <- function() {
     tryCatch(
       download.file(url, destfile = tempfile(), quiet = TRUE),
       warning = function(e) {
-        return(FALSE)
+        FALSE
       }
     )
 
   if (isFALSE(access)) {
-    return(FALSE)
+    res <- FALSE
   } else {
-    return(TRUE)
+    res <- TRUE
   }
+  res
   # nocov end
 }
 
@@ -55,6 +56,6 @@ skip_if_bde_offline <- function() {
   if (requireNamespace("testthat", quietly = TRUE)) {
     testthat::skip("tidyBdE> BdE API not reachable")
   }
-  return(invisible())
+  invisible()
   # nocov end
 }

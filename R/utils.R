@@ -101,7 +101,7 @@ bde_parse_dates <- function(dates_to_parse) {
 
   # Convert object
   dateformat <- as.Date(dateformat, "%d%m%Y")
-  return(dateformat)
+  dateformat
 }
 
 
@@ -154,7 +154,7 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
   if (verbose) {
     message("tidyBdE> Cache dir created on ", cache_dir)
   }
-  return(cache_dir)
+  cache_dir
 }
 
 #' Helper for downloading files
@@ -209,9 +209,8 @@ bde_hlp_download <- function(url, local_file, verbose) {
   if (isTRUE(err_dwnload)) {
     return(FALSE)
     # nocov end
-  } else {
-    return(TRUE)
   }
+  TRUE
 }
 
 

@@ -1,4 +1,4 @@
-# tidyBdE (development version)
+# tidyBdE 0.3.8
 
 -   Update `bde_ind_gdp_quarterly()` since the underlying identifier changed.
 

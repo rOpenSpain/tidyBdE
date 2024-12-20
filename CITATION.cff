@@ -8,7 +8,7 @@ message: 'To cite package "tidyBdE" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'tidyBdE: Download Data from Bank of Spain'
-version: 0.3.7.9000
+version: 0.3.8
 doi: 10.32614/CRAN.package.tidyBdE
 identifiers:
 - type: doi
@@ -35,7 +35,7 @@ preferred-citation:
     affiliation: rOpenSpain
   doi: 10.32614/CRAN.package.tidyBdE
   year: '2024'
-  version: 0.3.7.9000
+  version: 0.3.8
   url: https://ropenspain.github.io/tidyBdE/
   abstract: Tools to download data series from Banco de España (BdE) on tibble format.
     Banco de España is the national central bank and, within the framework of the
