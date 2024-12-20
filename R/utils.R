@@ -177,7 +177,7 @@ bde_hlp_download <- function(url, local_file, verbose) {
     ),
     # nocov start
     warning = function(e) {
-      return(TRUE)
+      TRUE
     }
   )
   # nocov end
@@ -199,7 +199,7 @@ bde_hlp_download <- function(url, local_file, verbose) {
           "tidyBdE> URL \n ", url, "\nnot reachable.\n\n",
           "If you think this is a bug consider opening an issue"
         )
-        return(TRUE)
+        TRUE
       }
     )
   }

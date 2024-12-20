@@ -23,7 +23,6 @@ authors:
   given-names: Diego
   email: dev.dieghernan@gmail.com
   orcid: https://orcid.org/0000-0001-8457-4658
-  affiliation: rOpenSpain
 preferred-citation:
   type: manual
   title: 'tidyBdE: Download Data from Bank of Spain'
@@ -32,7 +31,6 @@ preferred-citation:
     given-names: Diego
     email: dev.dieghernan@gmail.com
     orcid: https://orcid.org/0000-0001-8457-4658
-    affiliation: rOpenSpain
   doi: 10.32614/CRAN.package.tidyBdE
   year: '2024'
   version: 0.3.8
@@ -50,7 +48,6 @@ contact:
   given-names: Diego
   email: dev.dieghernan@gmail.com
   orcid: https://orcid.org/0000-0001-8457-4658
-  affiliation: rOpenSpain
 keywords:
 - api
 - bde
