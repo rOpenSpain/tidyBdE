@@ -235,11 +235,11 @@ specification. Contributions of any kind are welcome!
 
 ### Code
 
-<table>
+<table class="table allctb-table">
 <tr>
 <td align="center">
 <a href="https://github.com/dieghernan">
-<img src="https://avatars.githubusercontent.com/u/25656809?v=4" width="100px;" alt=""/>
+<img src="https://avatars.githubusercontent.com/u/25656809?v=4" width="100px;" class="allctb-avatar" alt=""/>
 </a><br>
 <a href="https://github.com/rOpenSpain/tidyBdE/commits?author=dieghernan">dieghernan</a>
 </td>
@@ -248,11 +248,11 @@ specification. Contributions of any kind are welcome!
 
 ### Issues
 
-<table>
+<table class="table allctb-table">
 <tr>
 <td align="center">
 <a href="https://github.com/coforfe">
-<img src="https://avatars.githubusercontent.com/u/8349230?u=2731953d16dd098b6ec60206785dc06dcbeca89a&v=4" width="100px;" alt=""/>
+<img src="https://avatars.githubusercontent.com/u/8349230?u=2731953d16dd098b6ec60206785dc06dcbeca89a&v=4" width="100px;" class="allctb-avatar" alt=""/>
 </a><br>
 <a href="https://github.com/rOpenSpain/tidyBdE/issues?q=is%3Aissue+author%3Acoforfe">coforfe</a>
 </td>
