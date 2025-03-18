@@ -81,9 +81,9 @@ XR_GBP %>%
   knitr::kable()
 ```
 
-| Numero_secuencial | Descripcion_de_la_serie |
-|---:|:---|
-| 573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+| Numero_secuencial | Descripcion_de_la_serie                                            |
+|------------------:|:-------------------------------------------------------------------|
+|            573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
 
 **Note that BdE files are only provided in Spanish, for the time
 being**, the organism is working on the English version. By now, search
