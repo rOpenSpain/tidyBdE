@@ -2,7 +2,7 @@
 #'
 #' @description
 #' Set of helper functions for downloading some of the most relevant
-#' macroeconomic indicators of Spain.
+#' macroeconomic indicators of Spain. Metadata available in [bde_ind_db].
 #'
 #' @rdname bde_indicators
 #' @name bde_indicators
@@ -31,7 +31,9 @@
 #' bde_ind_gdp_var()
 #' }
 bde_ind_gdp_var <- function(series_label = "GDP_YoY", ...) {
-  seq_num <- 3779313
+  db <- tidyBdE::bde_ind_db
+  seq_num <- db[db$tidyBdE_fun == "bde_ind_gdp_var", "Numero_secuencial"]
+  seq_num <- as.character(seq_num)
 
   econom_ind <-
     bde_series_load(seq_num, series_label = series_label, ...)
@@ -45,7 +47,13 @@ bde_ind_gdp_var <- function(series_label = "GDP_YoY", ...) {
 #' @export
 bde_ind_unemployment_rate <-
   function(series_label = "Unemployment_Rate", ...) {
-    seq_num <- 4635980
+    db <- tidyBdE::bde_ind_db
+    seq_num <- db[
+      db$tidyBdE_fun == "bde_ind_unemployment_rate",
+      "Numero_secuencial"
+    ]
+    seq_num <- as.character(seq_num)
+
 
     econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
     econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
@@ -59,7 +67,12 @@ bde_ind_unemployment_rate <-
 bde_ind_euribor_12m_monthly <-
   function(series_label = "Euribor_12M_Monthly",
            ...) {
-    seq_num <- 587853
+    db <- tidyBdE::bde_ind_db
+    seq_num <- db[
+      db$tidyBdE_fun == "bde_ind_euribor_12m_monthly",
+      "Numero_secuencial"
+    ]
+    seq_num <- as.character(seq_num)
 
     econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
     econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
@@ -72,7 +85,12 @@ bde_ind_euribor_12m_monthly <-
 #' @export
 bde_ind_euribor_12m_daily <-
   function(series_label = "Euribor_12M_Daily", ...) {
-    seq_num <- 905842
+    db <- tidyBdE::bde_ind_db
+    seq_num <- db[
+      db$tidyBdE_fun == "bde_ind_euribor_12m_daily",
+      "Numero_secuencial"
+    ]
+    seq_num <- as.character(seq_num)
 
     econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
     econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
@@ -85,7 +103,12 @@ bde_ind_euribor_12m_daily <-
 #' @export
 bde_ind_cpi_var <-
   function(series_label = "Consumer_price_index_YoY", ...) {
-    seq_num <- 4144807
+    db <- tidyBdE::bde_ind_db
+    seq_num <- db[
+      db$tidyBdE_fun == "bde_ind_cpi_var",
+      "Numero_secuencial"
+    ]
+    seq_num <- as.character(seq_num)
 
     econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
     econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
@@ -97,7 +120,12 @@ bde_ind_cpi_var <-
 #'
 #' @export
 bde_ind_ibex_monthly <- function(series_label = "IBEX_index_month", ...) {
-  seq_num <- 254433
+  db <- tidyBdE::bde_ind_db
+  seq_num <- db[
+    db$tidyBdE_fun == "bde_ind_ibex_monthly",
+    "Numero_secuencial"
+  ]
+  seq_num <- as.character(seq_num)
 
   econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
   econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
@@ -109,7 +137,12 @@ bde_ind_ibex_monthly <- function(series_label = "IBEX_index_month", ...) {
 #'
 #' @export
 bde_ind_ibex_daily <- function(series_label = "IBEX_index_day", ...) {
-  seq_num <- 821340
+  db <- tidyBdE::bde_ind_db
+  seq_num <- db[
+    db$tidyBdE_fun == "bde_ind_ibex_daily",
+    "Numero_secuencial"
+  ]
+  seq_num <- as.character(seq_num)
 
   econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
   econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
@@ -121,7 +154,12 @@ bde_ind_ibex_daily <- function(series_label = "IBEX_index_day", ...) {
 #'
 #' @export
 bde_ind_gdp_quarterly <- function(series_label = "GDP_quarterly_value", ...) {
-  seq_num <- 2325812
+  db <- tidyBdE::bde_ind_db
+  seq_num <- db[
+    db$tidyBdE_fun == "bde_ind_gdp_quarterly",
+    "Numero_secuencial"
+  ]
+  seq_num <- as.character(seq_num)
 
   econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
   econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
@@ -134,8 +172,13 @@ bde_ind_gdp_quarterly <- function(series_label = "GDP_quarterly_value", ...) {
 #'
 #' @export
 bde_ind_population <- function(series_label = "Population_Spain", ...) {
-  # was 3078287
-  seq_num <- 4637737
+  db <- tidyBdE::bde_ind_db
+  seq_num <- db[
+    db$tidyBdE_fun == "bde_ind_population",
+    "Numero_secuencial"
+  ]
+  seq_num <- as.character(seq_num)
+
 
   econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
   econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]

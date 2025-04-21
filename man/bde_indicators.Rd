@@ -63,7 +63,7 @@ A \code{\link[tibble:tibble]{tibble}} with the required series.
 }
 \description{
 Set of helper functions for downloading some of the most relevant
-macroeconomic indicators of Spain.
+macroeconomic indicators of Spain. Metadata available in \link{bde_ind_db}.
 }
 \details{
 This functions are convenient wrappers of \code{\link[=bde_series_load]{bde_series_load()}} referencing
@@ -79,5 +79,8 @@ bde_ind_gdp_var()
 }
 \seealso{
 \code{\link[=bde_series_load]{bde_series_load()}}, \code{\link[=bde_catalog_search]{bde_catalog_search()}}
+
+Other indicators: 
+\code{\link{bde_ind_db}}
 }
 \concept{indicators}

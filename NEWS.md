@@ -1,3 +1,9 @@
+# tidyBdE (development version)
+
+-   Now `bde_indicators` are based on the data of the new data base
+    `bde_ind_db`, for more clarity on the underlying series identifiers and
+    easier maintenance.
+
 # tidyBdE 0.3.8
 
 -   Update `bde_ind_gdp_quarterly()` since the underlying identifier changed.

@@ -1,6 +1,6 @@
 Package: tidyBdE
 Title: Download Data from Bank of Spain
-Version: 0.3.8
+Version: 0.3.8.9000
 Authors@R: 
     person("Diego", "H. Herrero", , "dev.dieghernan@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658"))
@@ -38,6 +38,7 @@ Config/testthat/edition: 3
 Config/testthat/parallel: true
 Copyright: See file inst/COPYRIGHTS
 Encoding: UTF-8
+LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 X-schema.org-applicationCategory: Macroeconomics

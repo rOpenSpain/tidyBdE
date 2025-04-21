@@ -342,12 +342,6 @@ bde_catalog_update <- function(catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
 #'
 #' # Even more complex - Double
 #' bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
-#'
-#'
-#' # Search a sequential code: Exact match
-#' # Note that this series (sequential code) appears on several tables
-#'
-#' bde_catalog_search("^3779313$")
 #' }
 bde_catalog_search <- function(pattern, ...) {
   # Extract info
