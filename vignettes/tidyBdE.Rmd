@@ -46,9 +46,9 @@ XR_GBP %>%
 
 
 
-| Numero_secuencial|Descripcion_de_la_serie                                            |
-|-----------------:|:------------------------------------------------------------------|
-|            573214|Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+| Numero_secuencial|Descripcion_de_la_serie                                       |
+|-----------------:|:-------------------------------------------------------------|
+|            573214|Exchange rate. Pounds sterling per euro (GBP/EUR). Daily data |
 
 
 
