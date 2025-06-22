@@ -31,7 +31,7 @@ jobs:
       - name: Update docs
         run: |
 
-          pkgdev::update_docs()
+          pkgdev::update_docs(add_contributors = FALSE)
 
         shell: Rscript {0}
 

@@ -1,4 +1,4 @@
-# tidyBdE (development version)
+# tidyBdE 0.4.0
 
 -   Now `bde_indicators` are based on the data of the new data base
     `bde_ind_db`, for more clarity on the underlying series identifiers and
