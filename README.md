@@ -81,9 +81,9 @@ XR_GBP %>%
   knitr::kable()
 ```
 
-| Numero_secuencial | Descripcion_de_la_serie |
-|---:|:---|
-| 573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+| Numero_secuencial | Descripcion_de_la_serie                                            |
+|------------------:|:-------------------------------------------------------------------|
+|            573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
 
 **Note that BdE files are only provided in Spanish, for the time
 being**, the organism is working on the English version. By now, search
@@ -205,7 +205,6 @@ España.
 ## Citation
 
 <p>
-
 H. Herrero D (2025). <em>tidyBdE: Download Data from Bank of Spain</em>.
 <a href="https://doi.org/10.32614/CRAN.package.tidyBdE">doi:10.32614/CRAN.package.tidyBdE</a>,
 <a href="https://ropenspain.github.io/tidyBdE/">https://ropenspain.github.io/tidyBdE/</a>.
