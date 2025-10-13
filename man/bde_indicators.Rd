@@ -71,7 +71,7 @@ specific series. Use \verb{verbose = TRUE, extract_metadata = TRUE} options
 to see the specification and the source.
 }
 \examples{
-\dontshow{if (bde_check_access()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
 \donttest{
 bde_ind_gdp_var()
 }

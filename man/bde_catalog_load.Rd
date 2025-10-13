@@ -54,7 +54,7 @@ Use \code{"ALL"} as a shorthand for updating all the catalogs at a glance.
 If the requested catalog is not cached \code{\link[=bde_catalog_update]{bde_catalog_update()}} is invoked.
 }
 \examples{
-\dontshow{if (bde_check_access()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
 \donttest{
 bde_catalog_load("TI", verbose = TRUE)
 }

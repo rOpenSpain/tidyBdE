@@ -86,7 +86,7 @@ warning may be displayed if the parser fails. You can override the default
 behavior with \code{parse_numeric = FALSE}
 }
 \examples{
-\dontshow{if (bde_check_access()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
 \donttest{
 # Metadata
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)

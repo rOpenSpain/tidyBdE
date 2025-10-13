@@ -42,7 +42,7 @@ the catalogs. You can pass \link[base:regex]{regular expressions} to broaden
 the search.
 }
 \examples{
-\dontshow{if (bde_check_access()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
 \donttest{
 # Simple search (needs to be in Spanish)
 # !! PIB [es] == GDP [en]

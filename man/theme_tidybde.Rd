@@ -12,8 +12,12 @@ theme_tidybde(...)
   \describe{
     \item{\code{base_size}}{base font size, given in pts.}
     \item{\code{base_family}}{base font family}
+    \item{\code{header_family}}{font family for titles and headers. The default, \code{NULL},
+uses theme inheritance to set the font. This setting affects axis titles,
+legend titles, the plot title and tag text.}
     \item{\code{base_line_size}}{base size for line elements}
     \item{\code{base_rect_size}}{base size for rect elements}
+    \item{\code{ink,paper,accent}}{colour for foreground, background, and accented elements respectively.}
   }}
 }
 \value{
@@ -26,7 +30,7 @@ A custom \CRANpkg{ggplot2} theme based on the publications of BdE.
 Theme based on \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}.
 }
 \examples{
-\dontshow{if (bde_check_access()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
 \donttest{
 library(ggplot2)
 library(dplyr)
