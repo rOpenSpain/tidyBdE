@@ -20,7 +20,6 @@ g <- ggplot(plotseries, aes(x = Date, y = serie_value)) +
 showtext_auto()
 
 
-
 sticker(
   g,
   package = "tidyBdE",

@@ -19,7 +19,6 @@ bde_ind_db_init <- tribble(
   arrange(tidyBdE_fun)
 
 
-
 # Add metadata
 full_cat <- bde_catalog_load()
 bde_cat <- full_cat %>%

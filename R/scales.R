@@ -50,8 +50,9 @@
 #'   theme_minimal()
 #'
 scale_color_bde_d <- function(
-    palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"), alpha = NULL,
-    rev = FALSE, ...) {
+  palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"), alpha = NULL,
+  rev = FALSE, ...
+) {
   palette <- match.arg(palette)
 
   cols_v <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
@@ -70,8 +71,9 @@ scale_colour_bde_d <- scale_color_bde_d
 #' @name scales_bde
 #' @export
 scale_fill_bde_d <- function(
-    palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"), alpha = NULL,
-    rev = FALSE, ...) {
+  palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"), alpha = NULL,
+  rev = FALSE, ...
+) {
   palette <- match.arg(palette)
 
   cols_v <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
@@ -85,8 +87,9 @@ scale_fill_bde_d <- function(
 #' @name scales_bde
 #' @export
 scale_color_bde_c <- function(
-    palette = c("bde_rose_pal", "bde_vivid_pal", "bde_qual_pal"), alpha = NULL,
-    rev = FALSE, guide = "colorbar", ...) {
+  palette = c("bde_rose_pal", "bde_vivid_pal", "bde_qual_pal"), alpha = NULL,
+  rev = FALSE, guide = "colorbar", ...
+) {
   palette <- match.arg(palette)
 
 
@@ -121,8 +124,9 @@ scale_colour_bde_c <- scale_color_bde_c
 #' @name scales_bde
 #' @export
 scale_fill_bde_c <- function(
-    palette = c("bde_rose_pal", "bde_vivid_pal", "bde_qual_pal"), alpha = NULL,
-    rev = FALSE, guide = "colorbar", ...) {
+  palette = c("bde_rose_pal", "bde_vivid_pal", "bde_qual_pal"), alpha = NULL,
+  rev = FALSE, guide = "colorbar", ...
+) {
   palette <- match.arg(palette)
 
 

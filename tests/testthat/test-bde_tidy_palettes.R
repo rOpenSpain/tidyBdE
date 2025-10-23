@@ -25,7 +25,6 @@ test_that("Switch pal", {
 })
 
 
-
 test_that("test n", {
   ok <- bde_tidy_palettes(n = 6)
   ok3 <- bde_tidy_palettes(n = 3)

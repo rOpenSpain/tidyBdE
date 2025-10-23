@@ -246,9 +246,6 @@ bde_series_load <- function(series_code, series_label = NULL,
 }
 
 
-
-
-
 #' Load BdE full time-series files
 #'
 #' Load a full time-series file provided by BdE.

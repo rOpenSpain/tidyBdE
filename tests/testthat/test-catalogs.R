@@ -68,7 +68,6 @@ test_that("Old tests: Catalogs", {
   expect_silent(bde_catalog_load("ALL"))
 
 
-
   # Test update catalogs----
 
   expect_error(bde_catalog_update("aa"))
