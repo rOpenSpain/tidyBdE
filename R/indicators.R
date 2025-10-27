@@ -54,7 +54,6 @@ bde_ind_unemployment_rate <-
     ]
     seq_num <- as.character(seq_num)
 
-
     econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
     econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
@@ -65,8 +64,7 @@ bde_ind_unemployment_rate <-
 #'
 #' @export
 bde_ind_euribor_12m_monthly <-
-  function(series_label = "Euribor_12M_Monthly",
-           ...) {
+  function(series_label = "Euribor_12M_Monthly", ...) {
     db <- tidyBdE::bde_ind_db
     seq_num <- db[
       db$tidyBdE_fun == "bde_ind_euribor_12m_monthly",
@@ -178,7 +176,6 @@ bde_ind_population <- function(series_label = "Population_Spain", ...) {
     "Numero_secuencial"
   ]
   seq_num <- as.character(seq_num)
-
 
   econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
   econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]

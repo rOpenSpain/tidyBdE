@@ -50,8 +50,10 @@
 #'   theme_minimal()
 #'
 scale_color_bde_d <- function(
-  palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"), alpha = NULL,
-  rev = FALSE, ...
+  palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"),
+  alpha = NULL,
+  rev = FALSE,
+  ...
 ) {
   palette <- match.arg(palette)
 
@@ -71,8 +73,10 @@ scale_colour_bde_d <- scale_color_bde_d
 #' @name scales_bde
 #' @export
 scale_fill_bde_d <- function(
-  palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"), alpha = NULL,
-  rev = FALSE, ...
+  palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"),
+  alpha = NULL,
+  rev = FALSE,
+  ...
 ) {
   palette <- match.arg(palette)
 
@@ -87,21 +91,30 @@ scale_fill_bde_d <- function(
 #' @name scales_bde
 #' @export
 scale_color_bde_c <- function(
-  palette = c("bde_rose_pal", "bde_vivid_pal", "bde_qual_pal"), alpha = NULL,
-  rev = FALSE, guide = "colorbar", ...
+  palette = c("bde_rose_pal", "bde_vivid_pal", "bde_qual_pal"),
+  alpha = NULL,
+  rev = FALSE,
+  guide = "colorbar",
+  ...
 ) {
   palette <- match.arg(palette)
 
-
   cols <- switch(palette,
-    "bde_vivid_pal" = bde_tidy_palettes(6, "bde_vivid_pal",
+    "bde_vivid_pal" = bde_tidy_palettes(
+      6,
+      "bde_vivid_pal",
       alpha = alpha,
       rev = rev
     ),
-    "bde_qual_pal" = bde_tidy_palettes(6, "bde_qual_pal",
-      alpha = alpha, rev = rev
+    "bde_qual_pal" = bde_tidy_palettes(
+      6,
+      "bde_qual_pal",
+      alpha = alpha,
+      rev = rev
     ),
-    "bde_rose_pal" = bde_tidy_palettes(6, "bde_rose_pal",
+    "bde_rose_pal" = bde_tidy_palettes(
+      6,
+      "bde_rose_pal",
       alpha = alpha,
       rev = rev
     )[c(1, 2, 3, 6, 5, 4)]
@@ -124,22 +137,30 @@ scale_colour_bde_c <- scale_color_bde_c
 #' @name scales_bde
 #' @export
 scale_fill_bde_c <- function(
-  palette = c("bde_rose_pal", "bde_vivid_pal", "bde_qual_pal"), alpha = NULL,
-  rev = FALSE, guide = "colorbar", ...
+  palette = c("bde_rose_pal", "bde_vivid_pal", "bde_qual_pal"),
+  alpha = NULL,
+  rev = FALSE,
+  guide = "colorbar",
+  ...
 ) {
   palette <- match.arg(palette)
 
-
   cols <- switch(palette,
-    "bde_vivid_pal" = bde_tidy_palettes(6, "bde_vivid_pal",
+    "bde_vivid_pal" = bde_tidy_palettes(
+      6,
+      "bde_vivid_pal",
       alpha = alpha,
       rev = rev
     ),
-    "bde_qual_pal" = bde_tidy_palettes(6, "bde_qual_pal",
+    "bde_qual_pal" = bde_tidy_palettes(
+      6,
+      "bde_qual_pal",
       alpha = alpha,
       rev = rev
     ),
-    "bde_rose_pal" = bde_tidy_palettes(6, "bde_rose_pal",
+    "bde_rose_pal" = bde_tidy_palettes(
+      6,
+      "bde_rose_pal",
       alpha = alpha,
       rev = rev
     )[c(1, 2, 3, 6, 5, 4)]
@@ -148,6 +169,7 @@ scale_fill_bde_c <- function(
   ggplot2::continuous_scale(
     aesthetics = "fill",
     palette = scales::gradient_n_pal(cols),
-    guide = guide, ...
+    guide = guide,
+    ...
   )
 }

@@ -23,7 +23,6 @@ test_that("Discrete scale", {
 
   expect_true(all(ggplot2::alpha(mod, 0.9) == mod_alpha))
 
-
   # Another pal
   p4 <- p + scale_color_bde_d(palette = "bde_rose_pal")
   mod4 <- ggplot2::layer_data(p4)$colour
@@ -35,7 +34,6 @@ test_that("Discrete scale", {
   mod5 <- ggplot2::layer_data(p5)$colour
 
   expect_false(any(mod == mod5))
-
 
   # Another aes
   pf <- ggplot2::ggplot(d) +
@@ -69,7 +67,6 @@ test_that("Continous scale", {
   p3 <- p + scale_colour_bde_c()
   mod3 <- ggplot2::layer_data(p3)$colour
   expect_identical(mod, mod3)
-
 
   # Alpha
 

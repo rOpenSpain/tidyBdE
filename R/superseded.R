@@ -29,7 +29,8 @@
 bde_vivid_pal <- function(...) {
   if (requireNamespace("lifecycle", quietly = TRUE)) {
     lifecycle::deprecate_soft(
-      "0.3.5", "bde_vivid_pal()",
+      "0.3.5",
+      "bde_vivid_pal()",
       "bde_tidy_palettes()"
     )
   }
@@ -44,7 +45,8 @@ bde_vivid_pal <- function(...) {
 bde_rose_pal <- function(...) {
   if (requireNamespace("lifecycle", quietly = TRUE)) {
     lifecycle::deprecate_soft(
-      "0.3.5", "bde_rose_pal()",
+      "0.3.5",
+      "bde_rose_pal()",
       "bde_tidy_palettes()"
     )
   }

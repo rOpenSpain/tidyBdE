@@ -1,7 +1,5 @@
 test_that("Test error", {
-  expect_snapshot(bde_tidy_palettes(palette = "none"),
-    error = TRUE
-  )
+  expect_snapshot(bde_tidy_palettes(palette = "none"), error = TRUE)
 })
 
 

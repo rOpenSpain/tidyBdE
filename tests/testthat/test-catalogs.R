@@ -2,7 +2,6 @@ test_that("Catalogs offline", {
   skip_on_cran()
   skip_if_bde_offline()
 
-
   dir <- file.path(tempdir(), "test_catalogs")
 
   expect_silent(bde_catalog_update("TI", cache_dir = dir))
@@ -56,7 +55,6 @@ test_that("Old tests: Catalogs", {
   expect_error(bde_catalog_load("aa"))
   expect_error(bde_catalog_search("xxxxxxx", catalog = "IE"))
 
-
   expect_message(bde_catalog_load("TC", cache_dir = tempdir(), verbose = TRUE))
   expect_message(bde_catalog_load("TC", cache_dir = NULL, verbose = TRUE))
   expect_message(bde_catalog_load(
@@ -67,13 +65,12 @@ test_that("Old tests: Catalogs", {
 
   expect_silent(bde_catalog_load("ALL"))
 
-
   # Test update catalogs----
 
   expect_error(bde_catalog_update("aa"))
 
-
-  expect_message(bde_catalog_update("TC",
+  expect_message(bde_catalog_update(
+    "TC",
     cache_dir = tempdir(),
     verbose = TRUE
   ))
@@ -87,11 +84,9 @@ test_that("Old tests: Catalogs", {
   # Reset
   options(bde_cache_dir = init_cache_dir)
 
-
   # Test bde_catalog_search----
 
   expect_error(bde_catalog_search())
-
 
   expect_silent(bde_catalog_search("Euro", catalog = "TC"))
 })

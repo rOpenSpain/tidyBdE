@@ -23,8 +23,11 @@ bde_ind_db_init <- tribble(
 full_cat <- bde_catalog_load()
 bde_cat <- full_cat %>%
   select(
-    Numero_secuencial, Descripcion_de_la_serie, Frecuencia_de_la_serie,
-    Fecha_de_la_primera_observacion, Fecha_de_la_ultima_observacion,
+    Numero_secuencial,
+    Descripcion_de_la_serie,
+    Frecuencia_de_la_serie,
+    Fecha_de_la_primera_observacion,
+    Fecha_de_la_ultima_observacion,
     Fuente
   ) %>%
   distinct()
@@ -35,7 +38,9 @@ bde_ind_db <- bde_ind_db_init %>%
 
 
 # Re-check on publications
-inpub <- full_cat[full_cat$Numero_secuencial %in% bde_ind_db$Numero_secuencial, ]
+inpub <- full_cat[
+  full_cat$Numero_secuencial %in% bde_ind_db$Numero_secuencial,
+]
 
 
 # Alternative computation of CPI ----
@@ -50,8 +55,10 @@ cpi_alt <- bde_series_load(656547, series_label = "serie") %>%
 
 # Check
 cpi_orig <- bde_ind_cpi_var() %>%
-  left_join(cpi_alt %>%
-    rename(alt = Consumer_price_index_YoY)) %>%
+  left_join(
+    cpi_alt %>%
+      rename(alt = Consumer_price_index_YoY)
+  ) %>%
   mutate(dif = Consumer_price_index_YoY - alt)
 
 

@@ -74,8 +74,18 @@ bde_parse_dates <- function(dates_to_parse) {
   dateformat <- gsub("/", "", dateformat)
 
   months_esp <- c(
-    "ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO",
-    "SEP", "OCT", "NOV", "DIC"
+    "ENE",
+    "FEB",
+    "MAR",
+    "ABR",
+    "MAY",
+    "JUN",
+    "JUL",
+    "AGO",
+    "SEP",
+    "OCT",
+    "NOV",
+    "DIC"
   )
 
   # Format months
@@ -167,14 +177,12 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
 #'
 #' @noRd
 bde_hlp_download <- function(url, local_file, verbose) {
-  if (verbose) message("tidyBdE> Downloading file from ", url, "\n\n")
+  if (verbose) {
+    message("tidyBdE> Downloading file from ", url, "\n\n")
+  }
 
   err_dwnload <- tryCatch(
-    download.file(url,
-      local_file,
-      quiet = isFALSE(verbose),
-      mode = "wb"
-    ),
+    download.file(url, local_file, quiet = isFALSE(verbose), mode = "wb"),
     # nocov start
     warning = function(e) {
       TRUE
@@ -186,17 +194,18 @@ bde_hlp_download <- function(url, local_file, verbose) {
 
   # nocov start
   if (isTRUE(err_dwnload)) {
-    if (verbose) message("tidyBdE> Trying again")
+    if (verbose) {
+      message("tidyBdE> Trying again")
+    }
 
     err_dwnload <- tryCatch(
-      download.file(url, local_file,
-        quiet = isFALSE(verbose),
-        mode = "wb"
-      ),
+      download.file(url, local_file, quiet = isFALSE(verbose), mode = "wb"),
       # nocov start
       warning = function(e) {
         message(
-          "tidyBdE> URL \n ", url, "\nnot reachable.\n\n",
+          "tidyBdE> URL \n ",
+          url,
+          "\nnot reachable.\n\n",
           "If you think this is a bug consider opening an issue"
         )
         TRUE
@@ -222,7 +231,8 @@ bde_hlp_download <- function(url, local_file, verbose) {
 bde_hlp_guess <- function(tbl, preserve = "") {
   for (i in names(tbl)) {
     if (class(tbl[[i]])[1] == "character" && !(i %in% preserve)) {
-      tbl[i] <- readr::parse_guess(tbl[[i]],
+      tbl[i] <- readr::parse_guess(
+        tbl[[i]],
         locale = readr::locale(
           grouping_mark = "",
           decimal_mark = "."
@@ -259,7 +269,8 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
   for (i in names(tbl)) {
     if (class(tbl[[i]])[1] == "character" && !(i %in% preserve)) {
       tbl[i] <-
-        readr::parse_double(tbl[[i]],
+        readr::parse_double(
+          tbl[[i]],
           locale = readr::locale(
             grouping_mark = "",
             decimal_mark = "."

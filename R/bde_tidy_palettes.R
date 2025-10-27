@@ -29,34 +29,57 @@
 #'
 #' # BdE qual pal
 #' scales::show_col(bde_tidy_palettes(palette = "bde_qual_pal"), labels = FALSE)
-bde_tidy_palettes <- function(n = 6,
-                              palette = c(
-                                "bde_vivid_pal", "bde_rose_pal",
-                                "bde_qual_pal"
-                              ),
-                              alpha = NULL, rev = FALSE) {
+bde_tidy_palettes <- function(
+  n = 6,
+  palette = c(
+    "bde_vivid_pal",
+    "bde_rose_pal",
+    "bde_qual_pal"
+  ),
+  alpha = NULL,
+  rev = FALSE
+) {
   palette <- match.arg(palette)
 
   cols <- switch(palette,
     "bde_vivid_pal" = c(
-      "#4180C2", "#D86E7B", "#F89E63",
-      "#5FBD6A", "#62C8D0", "#AC8771"
+      "#4180C2",
+      "#D86E7B",
+      "#F89E63",
+      "#5FBD6A",
+      "#62C8D0",
+      "#AC8771"
     ),
     "bde_rose_pal" = c(
-      "#b7365c", "#cb6e8a", "#db9aad",
-      "#0a50a1", "#5385bd", "#89AEDA"
+      "#b7365c",
+      "#cb6e8a",
+      "#db9aad",
+      "#0a50a1",
+      "#5385bd",
+      "#89AEDA"
     ),
     "bde_qual_pal" = c(
-      "#b55b4a", "#2e76bc", "#fece64",
-      "#68be57", "#858788", "#f9b4af"
+      "#b55b4a",
+      "#2e76bc",
+      "#fece64",
+      "#68be57",
+      "#858788",
+      "#f9b4af"
     )
   )
 
   n_col <- length(cols)
   if (n > n_col) {
     message(
-      "tidyBdE> ", palette, " has ", n_col, ", requested ", n,
-      ". Returning ", n_col, " colors."
+      "tidyBdE> ",
+      palette,
+      " has ",
+      n_col,
+      ", requested ",
+      n,
+      ". Returning ",
+      n_col,
+      " colors."
     )
 
     n <- n_col
@@ -65,8 +88,12 @@ bde_tidy_palettes <- function(n = 6,
   endcols <- cols[seq_len(n)]
 
   # Options
-  if (rev) endcols <- rev(endcols)
-  if (!is.null(alpha)) endcols <- ggplot2::alpha(endcols, alpha)
+  if (rev) {
+    endcols <- rev(endcols)
+  }
+  if (!is.null(alpha)) {
+    endcols <- ggplot2::alpha(endcols, alpha)
+  }
 
   endcols
 }

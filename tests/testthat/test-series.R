@@ -7,20 +7,22 @@ test_that("Indicators", {
   # Test load series all----
   expect_null(bde_series_full_load("aa"))
 
-  expect_message(bde_series_full_load("TI_1_1.csv",
+  expect_message(bde_series_full_load(
+    "TI_1_1.csv",
     cache_dir = tempdir(),
     verbose = TRUE
   ))
-  expect_message(bde_series_full_load("TI_1_1.csv",
+  expect_message(bde_series_full_load(
+    "TI_1_1.csv",
     cache_dir = NULL,
     verbose = TRUE
   ))
-  expect_message(bde_series_full_load("CF0101.csv",
+  expect_message(bde_series_full_load(
+    "CF0101.csv",
     cache_dir = NULL,
     verbose = TRUE
   ))
   expect_silent(bde_series_full_load("CF0101"))
-
 
   data <- bde_series_full_load("TI_1_1.csv")
   meta <-
@@ -28,14 +30,12 @@ test_that("Indicators", {
 
   expect_true(nrow(data) > nrow(meta))
 
-
   # Test load series ----
   expect_warning(bde_series_load("aa"))
   expect_identical(bde_series_load(12345678910), bde_hlp_return_null())
   expect_error(bde_series_load(c(573234, 573214), series_label = c(1, NA)))
   expect_error(bde_series_load(c(573234, 573214), series_label = c("1", "1")))
   expect_error(bde_series_load(573234, series_label = c("a", "b")))
-
 
   expect_silent(bde_series_load(c(573234, 573214), series_label = c("a", "b")))
 
@@ -52,7 +52,8 @@ test_that("Indicators", {
 
   # Test long and wide
   wide <- bde_series_load(c(573234, 573214), series_label = c("a", "b"))
-  long <- bde_series_load(c(573234, 573214),
+  long <- bde_series_load(
+    c(573234, 573214),
     series_label = c("a", "b"),
     out_format = "long"
   )
@@ -63,11 +64,13 @@ test_that("Indicators", {
   expect_equal(levels(long$serie_name), names(wide[, -1]))
 
   # Wide and long does not affect on metadata
-  wide <- bde_series_load(c(573234, 573214),
+  wide <- bde_series_load(
+    c(573234, 573214),
     series_label = c("a", "b"),
     extract_metadata = TRUE
   )
-  long <- bde_series_load(c(573234, 573214),
+  long <- bde_series_load(
+    c(573234, 573214),
     series_label = c("a", "b"),
     out_format = "long",
     extract_metadata = TRUE

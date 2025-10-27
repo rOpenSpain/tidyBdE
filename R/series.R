@@ -99,11 +99,17 @@
 #'   scale_color_bde_d() +
 #'   theme_tidybde()
 #' }
-bde_series_load <- function(series_code, series_label = NULL,
-                            out_format = "wide", parse_dates = TRUE,
-                            parse_numeric = TRUE, cache_dir = NULL,
-                            update_cache = FALSE, verbose = FALSE,
-                            extract_metadata = FALSE) {
+bde_series_load <- function(
+  series_code,
+  series_label = NULL,
+  out_format = "wide",
+  parse_dates = TRUE,
+  parse_numeric = TRUE,
+  cache_dir = NULL,
+  update_cache = FALSE,
+  verbose = FALSE,
+  extract_metadata = FALSE
+) {
   if (missing(series_code)) {
     stop("`series_code` can't be NULL")
   }
@@ -127,7 +133,8 @@ bde_series_load <- function(series_code, series_label = NULL,
 
   # Lookup on catalogs
   all_catalogs <- bde_catalog_load(
-    catalog = "ALL", parse_dates = parse_dates,
+    catalog = "ALL",
+    parse_dates = parse_dates,
     cache_dir = cache_dir,
     update_cache = update_cache,
     verbose = verbose
@@ -143,7 +150,9 @@ bde_series_load <- function(series_code, series_label = NULL,
   all_catalogs <- all_catalogs[!is.na(all_catalogs[[2]]), c(2, 3, 4)]
 
   df_list <- lapply(series_code, function(x) {
-    if (verbose) message("tidyBdE> Extracting series ", x, "\n\n")
+    if (verbose) {
+      message("tidyBdE> Extracting series ", x, "\n\n")
+    }
 
     # Select file
 
@@ -161,14 +170,19 @@ bde_series_load <- function(series_code, series_label = NULL,
 
     if (verbose) {
       message(
-        "tidyBdE> Downloading serie ", x, " from file ",
-        csv_file_name, " (alias ", alias_serie, ")."
+        "tidyBdE> Downloading serie ",
+        x,
+        " from file ",
+        csv_file_name,
+        " (alias ",
+        alias_serie,
+        ")."
       )
     }
 
-
     # Download and select series
-    serie_file <- bde_series_full_load(csv_file_name,
+    serie_file <- bde_series_full_load(
+      csv_file_name,
       parse_dates = parse_dates,
       parse_numeric = parse_numeric,
       cache_dir = cache_dir,
@@ -185,8 +199,12 @@ bde_series_load <- function(series_code, series_label = NULL,
     if (!(alias_serie %in% names(serie_file))) {
       if (verbose) {
         message(
-          "tidyBdE> ", "Serie with alias '", alias_serie,
-          "' not available on ", csv_file_name, ". "
+          "tidyBdE> ",
+          "Serie with alias '",
+          alias_serie,
+          "' not available on ",
+          csv_file_name,
+          ". "
         )
       }
 
@@ -215,10 +233,12 @@ bde_series_load <- function(series_code, series_label = NULL,
 
   # Check that all dfs have Date field
 
-  has_date <- vapply(df_list, function(x) {
-    "Date" %in% names(x)
-  },
-  FUN.VALUE = logical(1)
+  has_date <- vapply(
+    df_list,
+    function(x) {
+      "Date" %in% names(x)
+    },
+    FUN.VALUE = logical(1)
   )
 
   df_list <- df_list[has_date]
@@ -235,8 +255,10 @@ bde_series_load <- function(series_code, series_label = NULL,
   # Factors
 
   if (out_format == "wide" || isTRUE(extract_metadata)) {
-    end <- tidyr::pivot_wider(end,
-      id_cols = "Date", names_from = "serie_name",
+    end <- tidyr::pivot_wider(
+      end,
+      id_cols = "Date",
+      names_from = "serie_name",
       values_from = "serie_value"
     )
   }
@@ -296,10 +318,15 @@ bde_series_load <- function(series_code, series_label = NULL,
 #' # Data
 #' bde_series_full_load("TI_1_1.csv")
 #' }
-bde_series_full_load <- function(series_csv, parse_dates = TRUE,
-                                 parse_numeric = TRUE, cache_dir = NULL,
-                                 update_cache = FALSE, verbose = FALSE,
-                                 extract_metadata = FALSE) {
+bde_series_full_load <- function(
+  series_csv,
+  parse_dates = TRUE,
+  parse_numeric = TRUE,
+  cache_dir = NULL,
+  update_cache = FALSE,
+  verbose = FALSE,
+  extract_metadata = FALSE
+) {
   stopifnot(
     is.null(cache_dir) || is.character(cache_dir),
     is.logical(verbose),
@@ -315,19 +342,20 @@ bde_series_full_load <- function(series_csv, parse_dates = TRUE,
 
   # Get cache dir
   cache_dir <- bde_hlp_cachedir(
-    cache_dir = cache_dir, verbose = verbose,
+    cache_dir = cache_dir,
+    verbose = verbose,
     suffix = pp
   )
 
   # Create if not exist
-  if (!dir.exists(cache_dir)) dir.create(cache_dir, recursive = TRUE)
-
+  if (!dir.exists(cache_dir)) {
+    dir.create(cache_dir, recursive = TRUE)
+  }
 
   base_url <- paste0(
     "https://www.bde.es/webbe/es/estadisticas/",
     "compartido/datos/csv/"
   )
-
 
   serie_file <- tolower(series_csv)
 
@@ -342,7 +370,8 @@ bde_series_full_load <- function(series_csv, parse_dates = TRUE,
     }
 
     result <- bde_hlp_download(
-      url = full_url, local_file = local_file,
+      url = full_url,
+      local_file = local_file,
       verbose = verbose
     )
 
@@ -360,7 +389,6 @@ bde_series_full_load <- function(series_csv, parse_dates = TRUE,
     }
   }
 
-
   # Catch error
   # nocov start
   r <- readLines(local_file)
@@ -370,11 +398,13 @@ bde_series_full_load <- function(series_csv, parse_dates = TRUE,
   }
   # nocov end
 
-
   # Serie load
-  serie_load <- read.csv2(local_file,
-    sep = ",", stringsAsFactors = FALSE,
-    na.strings = "", header = FALSE,
+  serie_load <- read.csv2(
+    local_file,
+    sep = ",",
+    stringsAsFactors = FALSE,
+    na.strings = "",
+    header = FALSE,
     fileEncoding = "latin1"
   )
 
@@ -385,7 +415,6 @@ bde_series_full_load <- function(series_csv, parse_dates = TRUE,
   newnames[1] <- "Date"
 
   names(serie_load) <- newnames
-
 
   # Metadata
   # Always lines 1 to 6
@@ -425,7 +454,9 @@ bde_series_full_load <- function(series_csv, parse_dates = TRUE,
   }
 
   if (parse_numeric) {
-    if (verbose) message("tidyBdE> Parsing fields to double")
+    if (verbose) {
+      message("tidyBdE> Parsing fields to double")
+    }
     # Fields to double
     data_serie <- bde_hlp_todouble(data_serie, preserve = "Date")
   }

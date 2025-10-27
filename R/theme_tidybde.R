@@ -57,16 +57,19 @@ theme_tidybde <- function(...) {
       plot.margin = unit(rep(5.5, 4) * 3, "pt"),
       plot.title = element_text(
         margin = margin(b = 4),
-        hjust = 0, vjust = 1,
+        hjust = 0,
+        vjust = 1,
         size = rel(1.1)
       ),
       plot.subtitle = element_text(
-        hjust = 0, vjust = 1,
+        hjust = 0,
+        vjust = 1,
         size = rel(0.9),
         margin = margin(t = 4, b = 4)
       ),
       plot.caption = element_text(
-        hjust = 1, vjust = 0,
+        hjust = 1,
+        vjust = 0,
         size = rel(.75)
       ),
       panel.background = element_rect(fill = "white", colour = NA),
