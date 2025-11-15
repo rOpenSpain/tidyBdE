@@ -1,11 +1,11 @@
 pandoc: 3.1.11
-pkgdown: 2.1.3
+pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   articles/Main_Macroeconomic_Series: Main_Macroeconomic_Series.html
   articles/Series_Index: Series_Index.html
   tidyBdE: tidyBdE.html
-last_built: 2025-10-27T17:37Z
+last_built: 2025-11-15T22:10Z
 urls:
   reference: https://ropenspain.github.io/tidyBdE/reference
   article: https://ropenspain.github.io/tidyBdE/articles
