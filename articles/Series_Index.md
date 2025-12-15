@@ -1,7 +1,7 @@
 # Series Index
 
 The following table shows the series available on the catalog (Last
-update: **15-November-2025**).
+update: **15-December-2025**).
 
 Use the sequential number to load a single series (see
 [Example](#example) below):
@@ -29,8 +29,6 @@ fr %>%
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------|
 | 2563958           | Economía internacional. Francia. AAPP. SEC2010. Capacidad (+) o necesidad (-) de financiación. Acum. 4 últimos trim. En % PIB pm |
 | 2563918           | Economía internacional. Francia. PDE (SEC2010). AAPP. Deuda PDE. En % PIB pm                                                     |
-| 143057            | Economía internacional. Francia. PIB. Precios corrientes. Datos CVEC                                                             |
-| 143072            | Economía internacional. Francia. PIB. Precios constantes. Base 2010. Datos CVEC                                                  |
 
 ``` r
 

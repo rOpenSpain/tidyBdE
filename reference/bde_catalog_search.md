@@ -100,13 +100,11 @@ bde_catalog_search("PIB")
 
 # More complex - Single
 bde_catalog_search("Francia(.*)PIB")
-#> # A tibble: 4 × 17
+#> # A tibble: 2 × 17
 #>   Nombre_de_la_serie  Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹
 #>   <chr>               <chr>             <chr>             <chr>                 
 #> 1 DTNSEC2010_S0000P_… 2563958           BE_1_6.8          BE0106.csv            
 #> 2 DTNPDE2010_P0000P_… 2563918           BE_1_7.8          BE0107.csv            
-#> 3 D_UNFKA003          143057            BE_26_1.6         BE2601.csv            
-#> 4 D_UNFKB003          143072            BE_26_2.6         BE2602.csv            
 #> # ℹ abbreviated name: ¹​Nombre_del_archivo_con_los_valores_de_la_serie
 #> # ℹ 13 more variables: Descripcion_de_la_serie <chr>, Tipo_de_variable <chr>,
 #> #   Codigo_de_unidades <chr>, Exponente <dbl>, Numero_de_decimales <dbl>,
@@ -117,21 +115,15 @@ bde_catalog_search("Francia(.*)PIB")
 
 # Even more complex - Double
 bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
-#> # A tibble: 12 × 17
-#>    Nombre_de_la_serie Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹
-#>    <chr>              <chr>             <chr>             <chr>                 
-#>  1 DTNSEC2010_S0000P… 2563953           BE_1_6.3          BE0106.csv            
-#>  2 DTNSEC2010_S0000P… 2563958           BE_1_6.8          BE0106.csv            
-#>  3 DTNSEC2010_S0000P… 2563959           BE_1_6.10         BE0106.csv            
-#>  4 DTNPDE2010_P0000P… 2563913           BE_1_7.3          BE0107.csv            
-#>  5 DTNPDE2010_P0000P… 2563918           BE_1_7.8          BE0107.csv            
-#>  6 DTNPDE2010_P0000P… 2563919           BE_1_7.10         BE0107.csv            
-#>  7 D_UNFKA0T8         304076            BE_26_1.5         BE2601.csv            
-#>  8 D_UNFKA003         143057            BE_26_1.6         BE2601.csv            
-#>  9 D_UNFKA009         143060            BE_26_1.8         BE2601.csv            
-#> 10 D_UNFKB0T8         304083            BE_26_2.5         BE2602.csv            
-#> 11 D_UNFKB003         143072            BE_26_2.6         BE2602.csv            
-#> 12 D_UNFKB009         143075            BE_26_2.8         BE2602.csv            
+#> # A tibble: 6 × 17
+#>   Nombre_de_la_serie  Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹
+#>   <chr>               <chr>             <chr>             <chr>                 
+#> 1 DTNSEC2010_S0000P_… 2563953           BE_1_6.3          BE0106.csv            
+#> 2 DTNSEC2010_S0000P_… 2563958           BE_1_6.8          BE0106.csv            
+#> 3 DTNSEC2010_S0000P_… 2563959           BE_1_6.10         BE0106.csv            
+#> 4 DTNPDE2010_P0000P_… 2563913           BE_1_7.3          BE0107.csv            
+#> 5 DTNPDE2010_P0000P_… 2563918           BE_1_7.8          BE0107.csv            
+#> 6 DTNPDE2010_P0000P_… 2563919           BE_1_7.10         BE0107.csv            
 #> # ℹ abbreviated name: ¹​Nombre_del_archivo_con_los_valores_de_la_serie
 #> # ℹ 13 more variables: Descripcion_de_la_serie <chr>, Tipo_de_variable <chr>,
 #> #   Codigo_de_unidades <chr>, Exponente <dbl>, Numero_de_decimales <dbl>,
