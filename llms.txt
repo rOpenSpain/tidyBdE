@@ -202,21 +202,6 @@ A BibTeX entry for LaTeX users is
 }
 ```
 
-## Contributors
-
-All contributions to this project are gratefully acknowledged using the
-[`allcontributors` package](https://github.com/ropensci/allcontributors)
-following the [allcontributors](https://allcontributors.org)
-specification. Contributions of any kind are welcome!
-
-### Code
-
-[TABLE]
-
-### Issues
-
-[TABLE]
-
 # Package index
 
 ## Catalogs
