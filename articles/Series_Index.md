@@ -1,7 +1,7 @@
 # Series Index
 
 The following table shows the series available on the catalog (Last
-update: **15-December-2025**).
+update: **17-December-2025**).
 
 Use the sequential number to load a single series (see
 [Example](#example) below):
