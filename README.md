@@ -81,9 +81,9 @@ XR_GBP %>%
   knitr::kable()
 ```
 
-| Numero_secuencial | Descripcion_de_la_serie |
-|---:|:---|
-| 573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+| Numero_secuencial | Descripcion_de_la_serie                                            |
+|------------------:|:-------------------------------------------------------------------|
+|            573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
 
 **Note that BdE files are only provided in Spanish, for the time
 being**, the organism is working on the English version. By now, search
@@ -205,7 +205,6 @@ España.
 ## Citation
 
 <p>
-
 H. Herrero D (2025). <em>tidyBdE: Download Data from Bank of Spain</em>.
 <a href="https://doi.org/10.32614/CRAN.package.tidyBdE">doi:10.32614/CRAN.package.tidyBdE</a>,
 <a href="https://ropenspain.github.io/tidyBdE/">https://ropenspain.github.io/tidyBdE/</a>.
@@ -222,58 +221,3 @@ A BibTeX entry for LaTeX users is
       url = {https://ropenspain.github.io/tidyBdE/},
       abstract = {Tools to download data series from Banco de España (BdE) on tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by Banco de España.},
     }
-
-## Contributors
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-
-<!-- prettier-ignore-start -->
-
-<!-- markdownlint-disable -->
-
-All contributions to this project are gratefully acknowledged using the
-[`allcontributors` package](https://github.com/ropensci/allcontributors)
-following the [allcontributors](https://allcontributors.org)
-specification. Contributions of any kind are welcome!
-
-### Code
-
-<table class="table allctb-table">
-
-<tr>
-
-<td align="center">
-
-<a href="https://github.com/dieghernan">
-<img src="https://avatars.githubusercontent.com/u/25656809?v=4" width="100px;" class="allctb-avatar" alt=""/>
-</a><br>
-<a href="https://github.com/rOpenSpain/tidyBdE/commits?author=dieghernan">dieghernan</a>
-</td>
-
-</tr>
-
-</table>
-
-### Issues
-
-<table class="table allctb-table">
-
-<tr>
-
-<td align="center">
-
-<a href="https://github.com/coforfe">
-<img src="https://avatars.githubusercontent.com/u/8349230?u=2731953d16dd098b6ec60206785dc06dcbeca89a&v=4" width="100px;" class="allctb-avatar" alt=""/>
-</a><br>
-<a href="https://github.com/rOpenSpain/tidyBdE/issues?q=is%3Aissue+author%3Acoforfe">coforfe</a>
-</td>
-
-</tr>
-
-</table>
-
-<!-- markdownlint-enable -->
-
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
