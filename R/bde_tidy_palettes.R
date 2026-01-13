@@ -1,7 +1,7 @@
 #' BdE color palettes
 #'
-#' Custom palettes based on the publications of BdE. These are manual palettes
-#' with a maximum of 6 colors.
+#' Custom palettes based on the publications of BdE. These are manual
+#' palettes with a maximum of 6 colors.
 #'
 #' @family bde_plot
 #'
@@ -9,12 +9,12 @@
 #' @return A vector of colors.
 #'
 #' @export
-#' @param n The number of colors (`>= 1`) to be in the palette.
-#' @param palette	A valid palette name.
+#' @param n The number of colors (`>= 1`) in the palette.
+#' @param palette A valid palette name.
 #' @param alpha An alpha-transparency level in the range `[0,1]` (`0` means
 #'   transparent and `1` means opaque). A missing, i.e., `alpha = NULL`, does
-#'   not add opacity codes (`"FF"`) to the individual color hex codes. See
-#'   [ggplot2::alpha()].
+#'   not add opacity codes (`"FF"`) to the individual color hex codes.
+#'   See [ggplot2::alpha()].
 #' @param rev Logical indicating whether the ordering of the colors should be
 #'   reversed.
 #' @examples
@@ -25,10 +25,14 @@
 #' )
 #'
 #' # BdE rose pal
-#' scales::show_col(bde_tidy_palettes(palette = "bde_rose_pal"), labels = FALSE)
+#' scales::show_col(bde_tidy_palettes(palette = "bde_rose_pal"),
+#'   labels = FALSE
+#' )
 #'
 #' # BdE qual pal
-#' scales::show_col(bde_tidy_palettes(palette = "bde_qual_pal"), labels = FALSE)
+#' scales::show_col(bde_tidy_palettes(palette = "bde_qual_pal"),
+#'   labels = FALSE
+#' )
 bde_tidy_palettes <- function(
   n = 6,
   palette = c(

@@ -2,8 +2,8 @@
 #'
 #' @description
 #' Minimal metadata of the selected macroeconomic indicators included in helper
-#' functions of \CRANpkg{tidyBdE} (see [bde_indicators]). Full metadata can
-#' be accessed via [bde_catalog_load()]
+#' functions of \CRANpkg{tidyBdE} (see [bde_indicators]). Full metadata can be
+#' accessed via [bde_catalog_load()]
 #'
 #' @docType data
 #'
@@ -14,8 +14,8 @@
 #' @name bde_ind_db
 #'
 #' @format
-#' A [`tibble`][tibble::tibble()] of `r nrow(bde_ind_db)` rows and
-#' `r ncol(bde_ind_db)` columns. with the following fields:
+#' A [tibble][tibble::tbl_df] of `r nrow(bde_ind_db)` rows and
+#' `r ncol(bde_ind_db)` columns with the following fields:
 #'
 #' \describe{
 #'   \item{tidyBdE_fun}{Function name, see [bde_indicators].}

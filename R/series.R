@@ -9,52 +9,49 @@
 #'
 #' @encoding UTF-8
 #'
-#' @param series_code a numeric (or coercible with [base::as.double()] value
-#'   or vector with time-series code(s), as defined in the field
+#' @param series_code A numeric value (or coercible with [base::as.double()])
+#'   or vector of time-series code(s), as defined in the field
 #'   `Número secuencial` of the corresponding series. See [bde_catalog_load()].
 #'
-#' @param series_label Optional. Character vector or value. Allows to specify a
-#'   custom label for the series extracted. It should have the same length than
-#'   `series_code`.
+#' @param series_label Optional. Character vector or value. Allows specifying a
+#'   custom label for the series extracted.
 #'
-#' @param out_format Defines if the format must be returned as a "long" dataset
-#'   or a "wide" dataset. Possible values are `"wide"` or `"long"`. See
-#'   **Value** for Details and Section **Examples**.
+#' @param out_format Whether the format should be returned as "long" or "wide".
+#'   Possible values are `"wide"` or `"long"`. See **Value** for details and
+#'   section **Examples**.
 #' @inheritParams bde_series_full_load
 #'
 #'
 #' @return
-#' A [`tibble`][tibble::tibble] with a field `Date` and :
-#' - With `out_format = "wide"` each series is presented in a separate
+#' A [tibble][tibble::tbl_df] with a field `Date`:
+#' - With `out_format = "wide"`, each series is presented in a separate
 #'   column with the name defined by `series_label`.
-#' - With `out_format = "long"` the `tibble` would have two more columns,
-#'   `serie_name` with the labels of each series and `serie_value` with the
-#'   value of the series.
+#' - With `out_format = "long"`, the tibble has two additional columns:
+#'   - `serie_name` with the label of each series.
+#'   - `serie_value` with the corresponding value.
 #'
 #' `"wide"` format is more suitable for exporting to a `.csv` file while
-#' `"long"` format is more suitable for producing plots with
+#' `"long"` format is more suitable for creating plots with
 #' [ggplot2::ggplot()]. See also [tidyr::pivot_longer()] and
 #' [tidyr::pivot_wider()].
 #'
 #' @description
 #'
 #' The series alias is a positional code showing the location (column and/or
-#' row) of the series in the table. However, although it is unique, it is not
-#' a good candidate to be used as the series ID, as it is subject to change.
-#'  If a series changes position in the table, its alias will also change.
+#' row) of the series in the table. However, although it is unique, it is not a
+#' good candidate to be used as the series ID, as it is subject to change. If a
+#' series changes position in the table, its alias will also change.
 #'
-#' To ensure series can still be identified, even after these changes, they
-#' are assigned a sequential number (`series_code` on this function) which
-#' will remain unchanged throughout the series' lifetime.
+#' To ensure series can still be identified, even after these changes, they are
+#' assigned a sequential number (referred to as `series_code` in this function).
 #'
-#' Note that a single series could be used on different tables, so it can have
-#' several aliases. If you need to search by alias it is recommended to use
+#' Note that a single series may appear in different tables, so it can have
+#' several aliases. If you need to search by alias, use
 #' [bde_series_full_load()].
 #'
 #' @note
-#' This function tries to coerce the columns to numbers. For some series a
-#' warning may be displayed if the parser fails. You can override the default
-#' behavior with `parse_numeric = FALSE`
+#' This function attempts to coerce the columns to numbers. For some series, a
+#' warning may be displayed if the parsing fails.
 #'
 #' @seealso [bde_catalog_load()],
 #' [bde_catalog_search()], [bde_indicators()]
@@ -282,11 +279,9 @@ bde_series_load <- function(
 #' For that reason, the function [bde_series_load()] is more suitable for
 #' extracting specific time-series.
 #'
-#'
 #' @export
 #'
 #' @family series
-#'
 #'
 #' @encoding UTF-8
 #'
@@ -302,8 +297,9 @@ bde_series_load <- function(
 #' @param extract_metadata Logical `TRUE/FALSE`. On `TRUE` the output is the
 #'   metadata of the requested series.
 #'
-#' @return A [tibble][tibble::tibble] with a field `Date` and the alias of the
-#' fields series as described on the catalogs. See [bde_catalog_load()].
+#' @return
+#' A [tibble][tibble::tbl_df] with a field `Date` and the alias of the fields
+#' series as described on the catalogs. See [bde_catalog_load()].
 #'
 #' @note
 #' This function tries to coerce the columns to numbers. For some series a

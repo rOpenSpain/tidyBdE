@@ -1,11 +1,12 @@
-# tidyBdE (development version)
+# tidyBdE 0.5.0
 
 -   Update minimum **R** version required to `4.1.0`.
+-   Improve documentation with Copilot.
 
 # tidyBdE 0.4.0
 
--   Now `bde_indicators` are based on the data of the new data base
-    `bde_ind_db`, for more clarity on the underlying series identifiers and
+-   Now `?bde_indicators` are based on the data from the new database
+    `?bde_ind_db`, for greater clarity on the underlying series identifiers and
     easier maintenance.
 
 # tidyBdE 0.3.8
@@ -31,8 +32,8 @@ Mostly changes on the color functions:
 
 -   `bde_vivid_pal()` and `bde_rose_pal()` have been superseded. Use the new
     function `bde_tidy_palettes()` instead.
--   `scale_color_bde_d()` and friends leverage now on `bde_tidy_palettes()`, and
-    these functions gain two new arguments: `alpha` y `rev`.
+-   `scale_color_bde_d()` and friends now leverage `bde_tidy_palettes()`, and
+    these functions gain two new arguments: `alpha` and `rev`.
 -   Update and review documentation.
 -   New palette named `bde_qual_pal`.
 
@@ -49,7 +50,7 @@ Mostly changes on the color functions:
 -   Remove **tidyverse** from Suggests.
 -   On indicators:
     -   `bde_ind_ibex()` renamed to `bde_ind_ibex_monthly()`.
-    -   New indicator `bde_ind_ibex_daily()`
+    -   New indicator `bde_ind_ibex_daily()`.
 
 # tidyBdE 0.3.1
 
@@ -76,18 +77,18 @@ Mostly changes on the color functions:
 
 # tidyBdE 0.2.3
 
--   The followings catalogs has been deprecated on the API, package updated
-    accordingly:
+-   The following catalogs have been deprecated on the API; the package has been
+    updated accordingly:
     -   **CF**: Financial Accounts of the Spanish Economy.
     -   **IE**: Economic Indicators
 
 # tidyBdE 0.2.2
 
--   BdE starts migrating "Indicadores Económicos" (Economic Indicators) series
+-   BdE started migrating "Indicadores Económicos" (Economic Indicators) series
     to the Statistical Bulletin (more info
-    [here](https://www.bde.es/wbe/en/estadisticas/)). Some series on
-    `bde_indicators()` are likely to be broken in the meantime. So far, these
-    series has been updated:
+    [here](https://www.bde.es/wbe/en/estadisticas/)). Some series in
+    `?bde_indicators` are likely to break in the meantime. So far, the following
+    series have been updated:
     -   `bde_ind_euribor_12m_monthly()`: New series code is `587853`.
 -   Update docs and examples.
 
@@ -106,8 +107,8 @@ Mostly changes on the color functions:
 -   Move tests to **testthat**.
 -   The following scales have been removed: `bde_scale_colour_vivid()`,
     `bde_scale_color_vivid()`, `bde_scale_fill_vivid()`,
-    `bde_scale_colour_rose()`, `bde_scale_color_rose()` `bde_scale_fill_rose()`.
-    Use `scale_color_bde_c()` instead.
+    `bde_scale_colour_rose()`, `bde_scale_color_rose()`,
+    `bde_scale_fill_rose()`. Use `scale_color_bde_c()` instead.
 
 # tidyBdE 0.1.2
 
@@ -118,14 +119,14 @@ Mostly changes on the color functions:
 # tidyBdE 0.1.1
 
 -   Add vignette to package
--   Color adjustment on `bde_rose_pal()`: Now hcl spectrum is more consistent
-    between roses and blues according to `colorspace::specplot()`.
+-   Color adjustment on `bde_rose_pal()`: The HCL spectrum is now more
+    consistent between roses and blues according to `colorspace::specplot()`.
 -   Add DOI: <https://doi.org/10.5281/zenodo.4673496>
 -   New palettes for **ggplot2**: `scale_color_bde_c()`, `scale_color_bde_d()`,
     `scale_fill_bde_c()`, `scale_fill_bde_d()`.
 -   Deprecated scales: `bde_scale_colour_vivid()`, `bde_scale_color_vivid()`,
     `bde_scale_fill_vivid()`, `bde_scale_colour_rose()`,
-    `bde_scale_color_rose()` `bde_scale_fill_rose()`.
+    `bde_scale_color_rose()`, `bde_scale_fill_rose()`.
 
 # tidyBdE 0.1.0
 

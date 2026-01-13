@@ -1,12 +1,14 @@
 #' BdE \CRANpkg{ggplot2} theme
 #'
-#' A custom \CRANpkg{ggplot2} theme based on the publications of BdE.
+#' A custom \CRANpkg{ggplot2} theme based on the publications
+#' of BdE.
 #'
 #' @family bde_plot
 #'
 #' @export
 #'
-#' @return A \CRANpkg{ggplot2} [`theme()`][ggplot2::theme_classic()].
+#' @return A \CRANpkg{ggplot2}
+#'   [`theme()`][ggplot2::theme_classic()].
 #'
 #' @inheritDotParams ggplot2::theme_classic
 #'

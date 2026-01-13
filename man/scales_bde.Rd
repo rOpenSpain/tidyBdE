@@ -46,8 +46,8 @@ for details.}
 
 \item{alpha}{An alpha-transparency level in the range \verb{[0,1]} (\code{0} means
 transparent and \code{1} means opaque). A missing, i.e., \code{alpha = NULL}, does
-not add opacity codes (\code{"FF"}) to the individual color hex codes. See
-\code{\link[ggplot2:reexports]{ggplot2::alpha()}}.}
+not add opacity codes (\code{"FF"}) to the individual color hex codes.
+See \code{\link[ggplot2:reexports]{ggplot2::alpha()}}.}
 
 \item{rev}{Logical indicating whether the ordering of the colors should be
 reversed.}
@@ -63,7 +63,7 @@ A \CRANpkg{ggplot2} color scale.
 }
 \description{
 Scales to be used with the \CRANpkg{ggplot2} package. Discrete palettes are
-named as \verb{scale_*_bde_d} while continuous palettes are named \verb{scale_*_bde_c}.
+named \verb{scale_*_bde_d}, while continuous palettes are named \verb{scale_*_bde_c}.
 }
 \examples{
 library(ggplot2)

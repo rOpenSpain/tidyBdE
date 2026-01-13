@@ -1,7 +1,7 @@
 #' Load BdE catalogs
 #'
 #' @description
-#' Load the time-series catalogs provided by BdE.
+#' Load the time-series catalogs provided by the BdE.
 #'
 #' @export
 #'
@@ -9,7 +9,7 @@
 #'
 #' @encoding UTF-8
 #'
-#' @return A [`tibble`][tibble::tibble] object.
+#' @return A [tibble][tibble::tbl_df] object.
 #'
 #' @source
 #'
@@ -22,14 +22,14 @@
 #'
 #' ```
 #'
-#' @param catalog A single value indicating the catalogs to be updated
-#'   or `"ALL"` as a shorthand. See **Details**.
+#' @param catalog A single value indicating the catalogs to be updated or
+#'   `"ALL"` as a shorthand. See **Details**.
 #'
-#' @param parse_dates Logical. If `TRUE` the dates would be parsed using
+#' @param parse_dates Logical. If `TRUE`, the dates will be parsed using
 #'  [bde_parse_dates()].
 #'
-#' @param update_cache Logical. If `TRUE` the requested file would be updated on
-#'  the `cache_dir`.
+#' @param update_cache Logical. If `TRUE`, the requested file will be updated
+#'   in the `cache_dir`.
 #'
 #' @inheritParams bde_catalog_update
 #'
@@ -329,9 +329,9 @@ bde_catalog_update <- function(
 #'
 #' @family  catalog
 #'
-#' @return A [`tibble`][tibble::tibble] object with the results of the query.
+#' @return A [tibble][tibble::tbl_df] object with the results of the query.
 #'
-#' @param pattern [`regex`][base::regex]  pattern to search See **Details**
+#' @param pattern [`regex`][base::regex] pattern to search. See **Details**
 #'   and **Examples**.
 #'
 #' @inheritDotParams bde_catalog_load
@@ -339,13 +339,12 @@ bde_catalog_update <- function(
 #' @encoding UTF-8
 #'
 #' @details
-#' **Note that** BdE files are only provided in Spanish, for the time being.
-#' Therefore search terms should be provided in Spanish as well in order to get
-#' search results.
+#' **Note:** BdE files are currently provided only in Spanish. Therefore, search
+#' terms should be provided in Spanish to obtain search results.
 #'
-#' This function uses [base::grep()] function for finding matches on
-#' the catalogs. You can pass [regular expressions][base::regex] to broaden
-#' the search.
+#' This function uses [base::grep()] function for finding matches on the
+#' catalogs. You can pass [regular expressions][base::regex] to broaden the
+#' search.
 #'
 #' @seealso [bde_catalog_load()], [base::regex]
 #'

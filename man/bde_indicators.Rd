@@ -34,24 +34,23 @@ bde_ind_gdp_quarterly(series_label = "GDP_quarterly_value", ...)
 bde_ind_population(series_label = "Population_Spain", ...)
 }
 \arguments{
-\item{series_label}{Optional. Character vector or value. Allows to specify a
-custom label for the series extracted. It should have the same length than
-\code{series_code}.}
+\item{series_label}{Optional. Character vector or value. Allows specifying a
+custom label for the series extracted.}
 
 \item{...}{
   Arguments passed on to \code{\link[=bde_series_load]{bde_series_load}}
   \describe{
-    \item{\code{out_format}}{Defines if the format must be returned as a "long" dataset
-or a "wide" dataset. Possible values are \code{"wide"} or \code{"long"}. See
-\strong{Value} for Details and Section \strong{Examples}.}
+    \item{\code{out_format}}{Whether the format should be returned as "long" or "wide".
+Possible values are \code{"wide"} or \code{"long"}. See \strong{Value} for details and
+section \strong{Examples}.}
     \item{\code{parse_numeric}}{Logical. If \code{TRUE} the columns would be parsed to
 double (numeric) values. See \strong{Note}.}
     \item{\code{extract_metadata}}{Logical \code{TRUE/FALSE}. On \code{TRUE} the output is the
 metadata of the requested series.}
-    \item{\code{parse_dates}}{Logical. If \code{TRUE} the dates would be parsed using
+    \item{\code{parse_dates}}{Logical. If \code{TRUE}, the dates will be parsed using
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
-    \item{\code{update_cache}}{Logical. If \code{TRUE} the requested file would be updated on
-the \code{cache_dir}.}
+    \item{\code{update_cache}}{Logical. If \code{TRUE}, the requested file will be updated
+in the \code{cache_dir}.}
     \item{\code{cache_dir}}{A path to a cache directory. The directory can also be set
 via options with \code{options(bde_cache_dir = "path/to/dir")}.}
     \item{\code{verbose}}{Logical \code{TRUE} or \code{FALSE}, display information useful for
@@ -59,16 +58,16 @@ debugging.}
   }}
 }
 \value{
-A \code{\link[tibble:tibble]{tibble}} with the required series.
+A \link[tibble:tbl_df-class]{tibble} with the required series.
 }
 \description{
 Set of helper functions for downloading some of the most relevant
 macroeconomic indicators of Spain. Metadata available in \link{bde_ind_db}.
 }
 \details{
-This functions are convenient wrappers of \code{\link[=bde_series_load]{bde_series_load()}} referencing
-specific series. Use \verb{verbose = TRUE, extract_metadata = TRUE} options
-to see the specification and the source.
+These functions are convenient wrappers around \code{\link[=bde_series_load]{bde_series_load()}} for
+specific series. Use \verb{verbose = TRUE, extract_metadata = TRUE} to see the
+specification and the source.
 }
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}

@@ -16,11 +16,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-The following table shows the series available on the catalog (Last update:
+The following table shows the series available in the catalog (Last update:
 **`r format(Sys.Date(),"%d-%B-%Y")`**).
 
-Use the sequential number to load a single series (see [Example](#example)
-below):
+Use the sequential number below to load a single series (see
+[Example](#example)):
 
 ## Series index
 
@@ -68,7 +68,7 @@ reactable(series_clean,
 
 ## Example {#example}
 
-For searching and extracting a specific serie, see the full workflow:
+For searching and extracting a specific series, see the full workflow:
 
 ```{r example}
 library(tidyBdE)

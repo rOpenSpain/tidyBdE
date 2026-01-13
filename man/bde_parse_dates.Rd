@@ -13,8 +13,8 @@ bde_parse_dates(dates_to_parse)
 A \code{\link[=as.Date]{Date}} object.
 }
 \description{
-This function is tailored for the date formatting used on this package, so
-it may fail if it is used for another datasets. See \strong{Examples} for
+This function is tailored for the date formatting used in this package,
+so it may fail if used with other datasets. See \strong{Examples} for
 checking which formats would be considered.
 \subsection{Date Formats}{\tabular{lll}{
    \strong{FREQUENCY} \tab \strong{FORMAT} \tab \strong{EXAMPLES} \cr

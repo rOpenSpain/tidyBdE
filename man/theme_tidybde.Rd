@@ -21,10 +21,12 @@ legend titles, the plot title and tag text.}
   }}
 }
 \value{
-A \CRANpkg{ggplot2} \code{\link[ggplot2:ggtheme]{theme()}}.
+A \CRANpkg{ggplot2}
+\code{\link[ggplot2:ggtheme]{theme()}}.
 }
 \description{
-A custom \CRANpkg{ggplot2} theme based on the publications of BdE.
+A custom \CRANpkg{ggplot2} theme based on the publications
+of BdE.
 }
 \details{
 Theme based on \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}.

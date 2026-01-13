@@ -17,14 +17,14 @@
 #'
 #' @inheritDotParams bde_series_load -series_code
 #'
-#' @return A [`tibble`][tibble::tibble] with the required series.
+#' @return A [tibble][tibble::tbl_df] with the required series.
 #'
 #' @seealso [bde_series_load()], [bde_catalog_search()]
 #'
 #' @details
-#' This functions are convenient wrappers of [bde_series_load()] referencing
-#' specific series. Use `verbose = TRUE, extract_metadata = TRUE` options
-#' to see the specification and the source.
+#' These functions are convenient wrappers around [bde_series_load()] for
+#' specific series. Use `verbose = TRUE, extract_metadata = TRUE` to see the
+#' specification and the source.
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{

@@ -18,19 +18,18 @@ bde_series_load(
 )
 }
 \arguments{
-\item{series_code}{a numeric (or coercible with \code{\link[base:double]{base::as.double()}} value
-or vector with time-series code(s), as defined in the field
+\item{series_code}{A numeric value (or coercible with \code{\link[base:double]{base::as.double()}})
+or vector of time-series code(s), as defined in the field
 \verb{Número secuencial} of the corresponding series. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 
-\item{series_label}{Optional. Character vector or value. Allows to specify a
-custom label for the series extracted. It should have the same length than
-\code{series_code}.}
+\item{series_label}{Optional. Character vector or value. Allows specifying a
+custom label for the series extracted.}
 
-\item{out_format}{Defines if the format must be returned as a "long" dataset
-or a "wide" dataset. Possible values are \code{"wide"} or \code{"long"}. See
-\strong{Value} for Details and Section \strong{Examples}.}
+\item{out_format}{Whether the format should be returned as "long" or "wide".
+Possible values are \code{"wide"} or \code{"long"}. See \strong{Value} for details and
+section \strong{Examples}.}
 
-\item{parse_dates}{Logical. If \code{TRUE} the dates would be parsed using
+\item{parse_dates}{Logical. If \code{TRUE}, the dates will be parsed using
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
 
 \item{parse_numeric}{Logical. If \code{TRUE} the columns would be parsed to
@@ -39,8 +38,8 @@ double (numeric) values. See \strong{Note}.}
 \item{cache_dir}{A path to a cache directory. The directory can also be set
 via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 
-\item{update_cache}{Logical. If \code{TRUE} the requested file would be updated on
-the \code{cache_dir}.}
+\item{update_cache}{Logical. If \code{TRUE}, the requested file will be updated
+in the \code{cache_dir}.}
 
 \item{verbose}{Logical \code{TRUE} or \code{FALSE}, display information useful for
 debugging.}
@@ -49,41 +48,41 @@ debugging.}
 metadata of the requested series.}
 }
 \value{
-A \code{\link[tibble:tibble]{tibble}} with a field \code{Date} and :
+A \link[tibble:tbl_df-class]{tibble} with a field \code{Date}:
 \itemize{
-\item With \code{out_format = "wide"} each series is presented in a separate
+\item With \code{out_format = "wide"}, each series is presented in a separate
 column with the name defined by \code{series_label}.
-\item With \code{out_format = "long"} the \code{tibble} would have two more columns,
-\code{serie_name} with the labels of each series and \code{serie_value} with the
-value of the series.
+\item With \code{out_format = "long"}, the tibble has two additional columns:
+\itemize{
+\item \code{serie_name} with the label of each series.
+\item \code{serie_value} with the corresponding value.
+}
 }
 
 \code{"wide"} format is more suitable for exporting to a \code{.csv} file while
-\code{"long"} format is more suitable for producing plots with
+\code{"long"} format is more suitable for creating plots with
 \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}. See also \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}} and
 \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.
 }
 \description{
 The series alias is a positional code showing the location (column and/or
-row) of the series in the table. However, although it is unique, it is not
-a good candidate to be used as the series ID, as it is subject to change.
-If a series changes position in the table, its alias will also change.
+row) of the series in the table. However, although it is unique, it is not a
+good candidate to be used as the series ID, as it is subject to change. If a
+series changes position in the table, its alias will also change.
 
-To ensure series can still be identified, even after these changes, they
-are assigned a sequential number (\code{series_code} on this function) which
-will remain unchanged throughout the series' lifetime.
+To ensure series can still be identified, even after these changes, they are
+assigned a sequential number (referred to as \code{series_code} in this function).
 
-Note that a single series could be used on different tables, so it can have
-several aliases. If you need to search by alias it is recommended to use
+Note that a single series may appear in different tables, so it can have
+several aliases. If you need to search by alias, use
 \code{\link[=bde_series_full_load]{bde_series_full_load()}}.
 }
 \details{
 Load a single time-series provided by BdE.
 }
 \note{
-This function tries to coerce the columns to numbers. For some series a
-warning may be displayed if the parser fails. You can override the default
-behavior with \code{parse_numeric = FALSE}
+This function attempts to coerce the columns to numbers. For some series, a
+warning may be displayed if the parsing fails.
 }
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}

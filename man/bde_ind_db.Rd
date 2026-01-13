@@ -6,8 +6,8 @@
 \alias{bde_ind_db}
 \title{Database of selected macroeconomic indicators}
 \format{
-A \code{\link[tibble:tibble]{tibble}} of 9 rows and
-7 columns. with the following fields:
+A \link[tibble:tbl_df-class]{tibble} of 9 rows and
+7 columns with the following fields:
 
 \describe{
 \item{tidyBdE_fun}{Function name, see \link{bde_indicators}.}
@@ -20,8 +20,8 @@ A \code{\link[tibble:tibble]{tibble}} of 9 rows and
 }
 \description{
 Minimal metadata of the selected macroeconomic indicators included in helper
-functions of \CRANpkg{tidyBdE} (see \link{bde_indicators}). Full metadata can
-be accessed via \code{\link[=bde_catalog_load]{bde_catalog_load()}}
+functions of \CRANpkg{tidyBdE} (see \link{bde_indicators}). Full metadata can be
+accessed via \code{\link[=bde_catalog_load]{bde_catalog_load()}}
 }
 \details{
 \tabular{lllllll}{

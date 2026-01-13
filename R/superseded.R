@@ -3,7 +3,7 @@
 #' @description
 #' `r lifecycle::badge('superseded')`
 #'
-#' These functions have been superseded, see [bde_tidy_palettes()] as a
+#' These functions have been superseded; see [bde_tidy_palettes()] as a
 #' replacement.
 #'
 #' Custom palettes based on the publications of BdE.

@@ -3,7 +3,7 @@
 #' @description
 #'
 #' Scales to be used with the \CRANpkg{ggplot2} package. Discrete palettes are
-#' named as `scale_*_bde_d` while continuous palettes are named `scale_*_bde_c`.
+#' named `scale_*_bde_d`, while continuous palettes are named `scale_*_bde_c`.
 #'
 #' @seealso [ggplot2::discrete_scale()], [ggplot2::continuous_scale()]
 #'
