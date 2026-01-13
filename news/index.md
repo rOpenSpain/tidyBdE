@@ -1,16 +1,20 @@
 # Changelog
 
-## tidyBdE (development version)
+## tidyBdE 0.5.0
 
 - Update minimum **R** version required to `4.1.0`.
+- Improve documentation with Copilot.
 
 ## tidyBdE 0.4.0
 
 CRAN release: 2025-06-22
 
-- Now `bde_indicators` are based on the data of the new data base
-  `bde_ind_db`, for more clarity on the underlying series identifiers
-  and easier maintenance.
+- Now
+  [`?bde_indicators`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
+  are based on the data from the new database
+  [`?bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md),
+  for greater clarity on the underlying series identifiers and easier
+  maintenance.
 
 ## tidyBdE 0.3.8
 
@@ -55,9 +59,9 @@ Mostly changes on the color functions:
   [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md)
   instead.
 - [`scale_color_bde_d()`](https://ropenspain.github.io/tidyBdE/reference/scales_bde.md)
-  and friends leverage now on
+  and friends now leverage
   [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md),
-  and these functions gain two new arguments: `alpha` y `rev`.
+  and these functions gain two new arguments: `alpha` and `rev`.
 - Update and review documentation.
 - New palette named `bde_qual_pal`.
 
@@ -83,7 +87,7 @@ CRAN release: 2023-04-01
     renamed to
     [`bde_ind_ibex_monthly()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md).
   - New indicator
-    [`bde_ind_ibex_daily()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
+    [`bde_ind_ibex_daily()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md).
 
 ## tidyBdE 0.3.1
 
@@ -124,8 +128,8 @@ CRAN release: 2022-02-23
 
 CRAN release: 2022-01-19
 
-- The followings catalogs has been deprecated on the API, package
-  updated accordingly:
+- The following catalogs have been deprecated on the API; the package
+  has been updated accordingly:
   - **CF**: Financial Accounts of the Spanish Economy.
   - **IE**: Economic Indicators
 
@@ -133,12 +137,12 @@ CRAN release: 2022-01-19
 
 CRAN release: 2021-10-29
 
-- BdE starts migrating “Indicadores Económicos” (Economic Indicators)
+- BdE started migrating “Indicadores Económicos” (Economic Indicators)
   series to the Statistical Bulletin (more info
-  [here](https://www.bde.es/wbe/en/estadisticas/)). Some series on
-  [`bde_indicators()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
-  are likely to be broken in the meantime. So far, these series has been
-  updated:
+  [here](https://www.bde.es/wbe/en/estadisticas/)). Some series in
+  [`?bde_indicators`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
+  are likely to break in the meantime. So far, the following series have
+  been updated:
   - [`bde_ind_euribor_12m_monthly()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md):
     New series code is `587853`.
 - Update docs and examples.
@@ -166,7 +170,7 @@ CRAN release: 2021-08-04
 - Move tests to **testthat**.
 - The following scales have been removed: `bde_scale_colour_vivid()`,
   `bde_scale_color_vivid()`, `bde_scale_fill_vivid()`,
-  `bde_scale_colour_rose()`, `bde_scale_color_rose()`
+  `bde_scale_colour_rose()`, `bde_scale_color_rose()`,
   `bde_scale_fill_rose()`. Use
   [`scale_color_bde_c()`](https://ropenspain.github.io/tidyBdE/reference/scales_bde.md)
   instead.
@@ -186,9 +190,8 @@ CRAN release: 2021-06-05
 - Add vignette to package
 - Color adjustment on
   [`bde_rose_pal()`](https://ropenspain.github.io/tidyBdE/reference/bde_pals.md):
-  Now hcl spectrum is more consistent between roses and blues according
-  to
-  [`colorspace::specplot()`](https://rdrr.io/pkg/colorspace/man/specplot.html).
+  The HCL spectrum is now more consistent between roses and blues
+  according to `colorspace::specplot()`.
 - Add DOI: <https://doi.org/10.5281/zenodo.4673496>
 - New palettes for **ggplot2**:
   [`scale_color_bde_c()`](https://ropenspain.github.io/tidyBdE/reference/scales_bde.md),
@@ -197,7 +200,7 @@ CRAN release: 2021-06-05
   [`scale_fill_bde_d()`](https://ropenspain.github.io/tidyBdE/reference/scales_bde.md).
 - Deprecated scales: `bde_scale_colour_vivid()`,
   `bde_scale_color_vivid()`, `bde_scale_fill_vivid()`,
-  `bde_scale_colour_rose()`, `bde_scale_color_rose()`
+  `bde_scale_colour_rose()`, `bde_scale_color_rose()`,
   `bde_scale_fill_rose()`.
 
 ## tidyBdE 0.1.0

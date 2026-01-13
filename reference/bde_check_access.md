@@ -1,6 +1,6 @@
 # Check access to BdE
 
-Check if **R** has access to resources at
+Check if **R** can access resources at
 <https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html>.
 
 ## Usage
@@ -11,7 +11,7 @@ bde_check_access()
 
 ## Value
 
-a logical.
+A logical value.
 
 ## Examples
 

@@ -9,8 +9,8 @@ Full metadata can be accessed via
 
 ## Format
 
-A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) of 9
-rows and 7 columns. with the following fields:
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) of
+9 rows and 7 columns with the following fields:
 
 - tidyBdE_fun:
 

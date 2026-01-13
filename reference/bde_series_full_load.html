@@ -13,7 +13,7 @@
   <a class="navbar-brand me-2" href="../index.html">
     <img src="../apple-touch-icon.png" alt="tidyBdE logo" height="40" class="d-inline-block me-1">tidyBdE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0</small>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -69,7 +69,7 @@ catalog. See <code><a href="bde_catalog_load.html">bde_catalog_load()</a></code>
 
 
 <dt id="arg-parse-dates">parse_dates<a class="anchor" aria-label="anchor" href="#arg-parse-dates"></a></dt>
-<dd><p>Logical. If <code>TRUE</code> the dates would be parsed using
+<dd><p>Logical. If <code>TRUE</code>, the dates will be parsed using
 <code><a href="bde_parse_dates.html">bde_parse_dates()</a></code>.</p></dd>
 
 
@@ -84,8 +84,8 @@ via options with <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
 
 
 <dt id="arg-update-cache">update_cache<a class="anchor" aria-label="anchor" href="#arg-update-cache"></a></dt>
-<dd><p>Logical. If <code>TRUE</code> the requested file would be updated on
-the <code>cache_dir</code>.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, the requested file will be updated
+in the <code>cache_dir</code>.</p></dd>
 
 
 <dt id="arg-verbose">verbose<a class="anchor" aria-label="anchor" href="#arg-verbose"></a></dt>
@@ -100,8 +100,8 @@ metadata of the requested series.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a> with a field <code>Date</code> and the alias of the
-fields series as described on the catalogs. See <code><a href="bde_catalog_load.html">bde_catalog_load()</a></code>.</p>
+    <p>A <a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble</a> with a field <code>Date</code> and the alias of the fields
+series as described on the catalogs. See <code><a href="bde_catalog_load.html">bde_catalog_load()</a></code>.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>

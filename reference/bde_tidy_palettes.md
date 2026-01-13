@@ -18,7 +18,7 @@ bde_tidy_palettes(
 
 - n:
 
-  The number of colors (`>= 1`) to be in the palette.
+  The number of colors (`>= 1`) in the palette.
 
 - palette:
 
@@ -57,9 +57,13 @@ scales::show_col(bde_tidy_palettes(palette = "bde_vivid_pal"),
 
 
 # BdE rose pal
-scales::show_col(bde_tidy_palettes(palette = "bde_rose_pal"), labels = FALSE)
+scales::show_col(bde_tidy_palettes(palette = "bde_rose_pal"),
+  labels = FALSE
+)
 
 
 # BdE qual pal
-scales::show_col(bde_tidy_palettes(palette = "bde_qual_pal"), labels = FALSE)
+scales::show_col(bde_tidy_palettes(palette = "bde_qual_pal"),
+  labels = FALSE
+)
 ```

@@ -7,12 +7,11 @@ to change. If a series changes position in the table, its alias will
 also change.
 
 To ensure series can still be identified, even after these changes, they
-are assigned a sequential number (`series_code` on this function) which
-will remain unchanged throughout the series' lifetime.
+are assigned a sequential number (referred to as `series_code` in this
+function).
 
-Note that a single series could be used on different tables, so it can
-have several aliases. If you need to search by alias it is recommended
-to use
+Note that a single series may appear in different tables, so it can have
+several aliases. If you need to search by alias, use
 [`bde_series_full_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_full_load.md).
 
 ## Usage
@@ -35,27 +34,26 @@ bde_series_load(
 
 - series_code:
 
-  a numeric (or coercible with
-  [`base::as.double()`](https://rdrr.io/r/base/double.html) value or
-  vector with time-series code(s), as defined in the field
-  `Número secuencial` of the corresponding series. See
+  A numeric value (or coercible with
+  [`base::as.double()`](https://rdrr.io/r/base/double.html)) or vector
+  of time-series code(s), as defined in the field `Número secuencial` of
+  the corresponding series. See
   [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md).
 
 - series_label:
 
-  Optional. Character vector or value. Allows to specify a custom label
-  for the series extracted. It should have the same length than
-  `series_code`.
+  Optional. Character vector or value. Allows specifying a custom label
+  for the series extracted.
 
 - out_format:
 
-  Defines if the format must be returned as a "long" dataset or a "wide"
-  dataset. Possible values are `"wide"` or `"long"`. See **Value** for
-  Details and Section **Examples**.
+  Whether the format should be returned as "long" or "wide". Possible
+  values are `"wide"` or `"long"`. See **Value** for details and section
+  **Examples**.
 
 - parse_dates:
 
-  Logical. If `TRUE` the dates would be parsed using
+  Logical. If `TRUE`, the dates will be parsed using
   [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md).
 
 - parse_numeric:
@@ -70,7 +68,7 @@ bde_series_load(
 
 - update_cache:
 
-  Logical. If `TRUE` the requested file would be updated on the
+  Logical. If `TRUE`, the requested file will be updated in the
   `cache_dir`.
 
 - verbose:
@@ -84,18 +82,20 @@ bde_series_load(
 
 ## Value
 
-A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) with a
-field `Date` and :
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
+with a field `Date`:
 
-- With `out_format = "wide"` each series is presented in a separate
+- With `out_format = "wide"`, each series is presented in a separate
   column with the name defined by `series_label`.
 
-- With `out_format = "long"` the `tibble` would have two more columns,
-  `serie_name` with the labels of each series and `serie_value` with the
-  value of the series.
+- With `out_format = "long"`, the tibble has two additional columns:
+
+  - `serie_name` with the label of each series.
+
+  - `serie_value` with the corresponding value.
 
 `"wide"` format is more suitable for exporting to a `.csv` file while
-`"long"` format is more suitable for producing plots with
+`"long"` format is more suitable for creating plots with
 [`ggplot2::ggplot()`](https://ggplot2.tidyverse.org/reference/ggplot.html).
 See also
 [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)
@@ -108,9 +108,8 @@ Load a single time-series provided by BdE.
 
 ## Note
 
-This function tries to coerce the columns to numbers. For some series a
-warning may be displayed if the parser fails. You can override the
-default behavior with `parse_numeric = FALSE`
+This function attempts to coerce the columns to numbers. For some
+series, a warning may be displayed if the parsing fails.
 
 ## See also
 
@@ -127,7 +126,7 @@ Other series:
 # \donttest{
 # Metadata
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> tidyBdE> Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpOGUI9f
+#> tidyBdE> Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpuKuuvb
 #> tidyBdE> Cached version of BE detected
 #> tidyBdE> Cached version of SI detected
 #> tidyBdE> Cached version of TC detected
@@ -137,7 +136,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> tidyBdE> Extracting series 573234
 #> 
 #> tidyBdE> Downloading serie 573234 from file TC_1_1.csv (alias TC_1_1.1).
-#> tidyBdE> Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpOGUI9f/TC
+#> tidyBdE> Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpuKuuvb/TC
 #> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv
 #> 
 #> # A tibble: 6 × 2

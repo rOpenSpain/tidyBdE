@@ -1,7 +1,7 @@
 # Parse dates
 
-This function is tailored for the date formatting used on this package,
-so it may fail if it is used for another datasets. See **Examples** for
+This function is tailored for the date formatting used in this package,
+so it may fail if used with other datasets. See **Examples** for
 checking which formats would be considered.
 
 ### Date Formats

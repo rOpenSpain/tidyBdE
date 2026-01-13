@@ -2,8 +2,8 @@
 
 Scales to be used with the
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) package. Discrete
-palettes are named as `scale_*_bde_d` while continuous palettes are
-named `scale_*_bde_c`.
+palettes are named `scale_*_bde_d`, while continuous palettes are named
+`scale_*_bde_c`.
 
 ## Usage
 

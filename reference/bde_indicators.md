@@ -30,9 +30,8 @@ bde_ind_population(series_label = "Population_Spain", ...)
 
 - series_label:
 
-  Optional. Character vector or value. Allows to specify a custom label
-  for the series extracted. It should have the same length than
-  `series_code`.
+  Optional. Character vector or value. Allows specifying a custom label
+  for the series extracted.
 
 - ...:
 
@@ -41,9 +40,9 @@ bde_ind_population(series_label = "Population_Spain", ...)
 
   `out_format`
 
-  :   Defines if the format must be returned as a "long" dataset or a
-      "wide" dataset. Possible values are `"wide"` or `"long"`. See
-      **Value** for Details and Section **Examples**.
+  :   Whether the format should be returned as "long" or "wide".
+      Possible values are `"wide"` or `"long"`. See **Value** for
+      details and section **Examples**.
 
   `parse_numeric`
 
@@ -57,12 +56,12 @@ bde_ind_population(series_label = "Population_Spain", ...)
 
   `parse_dates`
 
-  :   Logical. If `TRUE` the dates would be parsed using
+  :   Logical. If `TRUE`, the dates will be parsed using
       [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md).
 
   `update_cache`
 
-  :   Logical. If `TRUE` the requested file would be updated on the
+  :   Logical. If `TRUE`, the requested file will be updated in the
       `cache_dir`.
 
   `cache_dir`
@@ -77,16 +76,15 @@ bde_ind_population(series_label = "Population_Spain", ...)
 
 ## Value
 
-A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) with
-the required series.
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
+with the required series.
 
 ## Details
 
-This functions are convenient wrappers of
+These functions are convenient wrappers around
 [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
-referencing specific series. Use
-`verbose = TRUE, extract_metadata = TRUE` options to see the
-specification and the source.
+for specific series. Use `verbose = TRUE, extract_metadata = TRUE` to
+see the specification and the source.
 
 ## See also
 

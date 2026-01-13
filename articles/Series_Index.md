@@ -1,16 +1,16 @@
 # Series Index
 
-The following table shows the series available on the catalog (Last
+The following table shows the series available in the catalog (Last
 update: **13-January-2026**).
 
-Use the sequential number to load a single series (see
-[Example](#example) below):
+Use the sequential number below to load a single series (see
+[Example](#example)):
 
 ## Series index
 
 ## Example
 
-For searching and extracting a specific serie, see the full workflow:
+For searching and extracting a specific series, see the full workflow:
 
 ``` r
 library(tidyBdE)

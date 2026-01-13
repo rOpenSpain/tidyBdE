@@ -2,7 +2,7 @@
 
 **\[superseded\]**
 
-These functions have been superseded, see
+These functions have been superseded; see
 [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md)
 as a replacement.
 

@@ -27,7 +27,7 @@ bde_series_full_load(
 
 - parse_dates:
 
-  Logical. If `TRUE` the dates would be parsed using
+  Logical. If `TRUE`, the dates will be parsed using
   [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md).
 
 - parse_numeric:
@@ -42,7 +42,7 @@ bde_series_full_load(
 
 - update_cache:
 
-  Logical. If `TRUE` the requested file would be updated on the
+  Logical. If `TRUE`, the requested file will be updated in the
   `cache_dir`.
 
 - verbose:
@@ -56,9 +56,9 @@ bde_series_full_load(
 
 ## Value
 
-A [tibble](https://tibble.tidyverse.org/reference/tibble.html) with a
-field `Date` and the alias of the fields series as described on the
-catalogs. See
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
+with a field `Date` and the alias of the fields series as described on
+the catalogs. See
 [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md).
 
 ## Details

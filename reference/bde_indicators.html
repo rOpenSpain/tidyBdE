@@ -15,7 +15,7 @@ macroeconomic indicators of Spain. Metadata available in bde_ind_db."><meta prop
   <a class="navbar-brand me-2" href="../index.html">
     <img src="../apple-touch-icon.png" alt="tidyBdE logo" height="40" class="d-inline-block me-1">tidyBdE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0</small>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -74,16 +74,15 @@ macroeconomic indicators of Spain. Metadata available in <a href="bde_ind_db.htm
 
 
 <dl><dt id="arg-series-label">series_label<a class="anchor" aria-label="anchor" href="#arg-series-label"></a></dt>
-<dd><p>Optional. Character vector or value. Allows to specify a
-custom label for the series extracted. It should have the same length than
-<code>series_code</code>.</p></dd>
+<dd><p>Optional. Character vector or value. Allows specifying a
+custom label for the series extracted.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Arguments passed on to <code><a href="bde_series_load.html">bde_series_load</a></code></p><dl><dt><code>out_format</code></dt>
-<dd><p>Defines if the format must be returned as a "long" dataset
-or a "wide" dataset. Possible values are <code>"wide"</code> or <code>"long"</code>. See
-<strong>Value</strong> for Details and Section <strong>Examples</strong>.</p></dd>
+<dd><p>Whether the format should be returned as "long" or "wide".
+Possible values are <code>"wide"</code> or <code>"long"</code>. See <strong>Value</strong> for details and
+section <strong>Examples</strong>.</p></dd>
 
     <dt><code>parse_numeric</code></dt>
 <dd><p>Logical. If <code>TRUE</code> the columns would be parsed to
@@ -94,12 +93,12 @@ double (numeric) values. See <strong>Note</strong>.</p></dd>
 metadata of the requested series.</p></dd>
 
     <dt><code>parse_dates</code></dt>
-<dd><p>Logical. If <code>TRUE</code> the dates would be parsed using
+<dd><p>Logical. If <code>TRUE</code>, the dates will be parsed using
 <code><a href="bde_parse_dates.html">bde_parse_dates()</a></code>.</p></dd>
 
     <dt><code>update_cache</code></dt>
-<dd><p>Logical. If <code>TRUE</code> the requested file would be updated on
-the <code>cache_dir</code>.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, the requested file will be updated
+in the <code>cache_dir</code>.</p></dd>
 
     <dt><code>cache_dir</code></dt>
 <dd><p>A path to a cache directory. The directory can also be set
@@ -115,13 +114,13 @@ debugging.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></code> with the required series.</p>
+    <p>A <a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble</a> with the required series.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>This functions are convenient wrappers of <code><a href="bde_series_load.html">bde_series_load()</a></code> referencing
-specific series. Use <code>verbose = TRUE, extract_metadata = TRUE</code> options
-to see the specification and the source.</p>
+    <p>These functions are convenient wrappers around <code><a href="bde_series_load.html">bde_series_load()</a></code> for
+specific series. Use <code>verbose = TRUE, extract_metadata = TRUE</code> to see the
+specification and the source.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

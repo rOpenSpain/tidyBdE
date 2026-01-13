@@ -12,7 +12,7 @@ bde_catalog_search(pattern, ...)
 
 - pattern:
 
-  [`regex`](https://rdrr.io/r/base/regex.html) pattern to search See
+  [`regex`](https://rdrr.io/r/base/regex.html) pattern to search. See
   **Details** and **Examples**.
 
 - ...:
@@ -27,12 +27,12 @@ bde_catalog_search(pattern, ...)
 
   `parse_dates`
 
-  :   Logical. If `TRUE` the dates would be parsed using
+  :   Logical. If `TRUE`, the dates will be parsed using
       [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md).
 
   `update_cache`
 
-  :   Logical. If `TRUE` the requested file would be updated on the
+  :   Logical. If `TRUE`, the requested file will be updated in the
       `cache_dir`.
 
   `cache_dir`
@@ -47,14 +47,13 @@ bde_catalog_search(pattern, ...)
 
 ## Value
 
-A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) object
-with the results of the query.
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
+object with the results of the query.
 
 ## Details
 
-**Note that** BdE files are only provided in Spanish, for the time
-being. Therefore search terms should be provided in Spanish as well in
-order to get search results.
+**Note:** BdE files are currently provided only in Spanish. Therefore,
+search terms should be provided in Spanish to obtain search results.
 
 This function uses [`base::grep()`](https://rdrr.io/r/base/grep.html)
 function for finding matches on the catalogs. You can pass [regular
