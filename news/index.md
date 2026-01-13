@@ -1,5 +1,9 @@
 # Changelog
 
+## tidyBdE (development version)
+
+- Update minimum **R** version required to `4.1.0`.
+
 ## tidyBdE 0.4.0
 
 CRAN release: 2025-06-22
@@ -183,8 +187,7 @@ CRAN release: 2021-06-05
 - Color adjustment on
   [`bde_rose_pal()`](https://ropenspain.github.io/tidyBdE/reference/bde_pals.md):
   Now hcl spectrum is more consistent between roses and blues according
-  to
-  [`colorspace::specplot()`](https://colorspace.R-Forge.R-project.org/reference/specplot.html).
+  to `colorspace::specplot()`.
 - Add DOI: <https://doi.org/10.5281/zenodo.4673496>
 - New palettes for **ggplot2**:
   [`scale_color_bde_c()`](https://ropenspain.github.io/tidyBdE/reference/scales_bde.md),

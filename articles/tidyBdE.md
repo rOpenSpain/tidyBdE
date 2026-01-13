@@ -26,8 +26,8 @@ library(tidyr)
 # Search GBP on "TC" (exchange rate) catalog
 XR_GBP <- bde_catalog_search("GBP", catalog = "TC")
 
-XR_GBP %>%
-  select(Numero_secuencial, Descripcion_de_la_serie) %>%
+XR_GBP |>
+  select(Numero_secuencial, Descripcion_de_la_serie) |>
   # To table on document
   knitr::kable()
 ```
@@ -45,11 +45,11 @@ exchange rate using the sequential number reference
 (`Numero_Secuencial`) as:
 
 ``` r
-seq_number <- XR_GBP %>%
+seq_number <- XR_GBP |>
   # First record
-  slice(1) %>%
+  slice(1) |>
   # Get id
-  select(Numero_secuencial) %>%
+  select(Numero_secuencial) |>
   # Convert to num
   as.double()
 
@@ -58,8 +58,8 @@ seq_number
 #> [1] 573214
 
 
-time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%
-  filter(Date >= "2010-01-01" & Date <= "2020-12-31") %>%
+time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") |>
+  filter(Date >= "2010-01-01" & Date <= "2020-12-31") |>
   drop_na()
 ```
 
@@ -101,11 +101,11 @@ for them in advance:
 ``` r
 # Data in "long" format
 
-plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") %>%
+plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") |>
   bind_rows(
     bde_ind_unemployment_rate("Unemployment Rate", out_format = "long")
-  ) %>%
-  drop_na() %>%
+  ) |>
+  drop_na() |>
   filter(Date >= "2010-01-01" & Date <= "2019-12-31")
 
 ggplot(plotseries, aes(x = Date, y = serie_value)) +

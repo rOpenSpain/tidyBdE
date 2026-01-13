@@ -4,7 +4,7 @@ This article shows the evolution of selected economic indicators of
 Spain, based on the information provided by [Banco de
 España](https://www.bde.es/).
 
-Last update: **17-December-2025**.
+Last update: **13-January-2026**.
 
 ## GDP of Spain
 
