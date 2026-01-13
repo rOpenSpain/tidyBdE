@@ -3,11 +3,11 @@ library(hexSticker)
 library(showtext)
 library(tidyBdE)
 
-plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") %>%
+plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") |>
   bind_rows(
     bde_ind_unemployment_rate("Unemployment Rate", out_format = "long")
-  ) %>%
-  drop_na() %>%
+  ) |>
+  drop_na() |>
   filter(Date >= "2010-01-01")
 
 g <- ggplot(plotseries, aes(x = Date, y = serie_value)) +
@@ -33,7 +33,7 @@ sticker(
   s_width = 1.6,
   s_height = 1,
   p_size = 30,
-  s_x = .95,
+  s_x = 0.95,
   s_y = 0.7,
 )
 

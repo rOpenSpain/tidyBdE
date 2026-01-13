@@ -29,7 +29,7 @@
 #' if (nrow(series_TC) > 0) {
 #'   series_TC <- series_TC[c(1, 2)]
 #'
-#'   series_TC_pivot <- series_TC %>%
+#'   series_TC_pivot <- series_TC |>
 #'     filter(
 #'       Date >= "2020-01-01" & Date <= "2020-12-31",
 #'       !is.na(series_TC[[2]])
@@ -70,7 +70,7 @@ theme_tidybde <- function(...) {
       plot.caption = element_text(
         hjust = 1,
         vjust = 0,
-        size = rel(.75)
+        size = rel(0.75)
       ),
       panel.background = element_rect(fill = "white", colour = NA),
       panel.grid.major.y = element_line(
@@ -81,21 +81,21 @@ theme_tidybde <- function(...) {
       axis.ticks.length = unit(-2.75, "pt"),
       axis.text.x.bottom = element_text(
         margin = margin(t = 7.5, b = 5, unit = "pt"),
-        size = rel(.9)
+        size = rel(0.9)
       ),
       axis.text.x.top = element_text(
         margin = margin(b = 7.5, t = 5, unit = "pt"),
-        size = rel(.9)
+        size = rel(0.9)
       ),
       axis.text.y.left = element_text(
         hjust = 1,
         margin = margin(r = 7.5, l = 5, unit = "pt"),
-        size = rel(.9)
+        size = rel(0.9)
       ),
       axis.text.y.right = element_text(
         hjust = 0,
         margin = margin(l = 7.5, r = 5, unit = "pt"),
-        size = rel(.9)
+        size = rel(0.9)
       ),
       legend.position = "bottom",
       legend.justification = c(0, 0),

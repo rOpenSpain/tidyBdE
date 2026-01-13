@@ -81,7 +81,7 @@ test_that("Indicators", {
 test_that("Series full", {
   skip_on_cran()
   skip_if_bde_offline()
-  dir <- file.path(tempdir(), paste0("testoff", sample(1:10, 1)))
+  dir <- file.path(tempdir(), paste0("testoff", sample.int(10, 1)))
 
   # Test all offline
 

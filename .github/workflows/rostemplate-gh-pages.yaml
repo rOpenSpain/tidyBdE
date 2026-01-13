@@ -9,6 +9,8 @@ on:
     - cron:  '0 22 15 * *'
 
 name: rostemplate-gh-pages
+permissions:
+  contents: write
 
 jobs:
   rostemplate-gh-pages:

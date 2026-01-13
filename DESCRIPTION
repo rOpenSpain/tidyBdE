@@ -1,6 +1,6 @@
 Package: tidyBdE
 Title: Download Data from Bank of Spain
-Version: 0.4.0
+Version: 0.4.0.9000
 Authors@R: 
     person("Diego", "H. Herrero", , "dev.dieghernan@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658"))
@@ -15,7 +15,7 @@ URL: https://ropenspain.github.io/tidyBdE/,
     https://github.com/rOpenSpain/tidyBdE
 BugReports: https://github.com/rOpenSpain/tidyBdE/issues
 Depends: 
-    R (>= 3.6.0)
+    R (>= 4.1.0)
 Imports: 
     dplyr (>= 0.7.0),
     ggplot2 (>= 3.5.0),

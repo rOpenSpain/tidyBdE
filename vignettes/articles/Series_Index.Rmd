@@ -34,8 +34,8 @@ series <- bde_catalog_load()
 
 
 # Clean
-series_clean <- series %>%
-  filter(!is.na(Numero_secuencial)) %>%
+series_clean <- series |>
+  filter(!is.na(Numero_secuencial)) |>
   select(
     Numero_secuencial, Descripcion_de_la_serie,
     Titulo_de_la_serie,
@@ -43,7 +43,7 @@ series_clean <- series %>%
     Fecha_de_la_primera_observacion,
     Fecha_de_la_ultima_observacion,
     Frecuencia_de_la_serie, Fuente
-  ) %>%
+  ) |>
   as_tibble()
 
 
@@ -78,33 +78,33 @@ library(tidyverse)
 fr <- bde_catalog_search("Francia(.*)PIB")
 
 # Show table on vignette
-fr %>%
-  select(Numero_secuencial, Descripcion_de_la_serie) %>%
+fr |>
+  select(Numero_secuencial, Descripcion_de_la_serie) |>
   knitr::kable()
 
 # In this case we want to extract the first serie
 # See tidyverse style
 
-fr %>%
+fr |>
   # Select id
-  select(Numero_secuencial) %>%
+  select(Numero_secuencial) |>
   # of first obs
-  slice(1) %>%
+  slice(1) |>
   # convert to number
-  as.double() %>%
+  as.double() |>
   # And load it
   bde_series_load()
 
 # See the metadata
-fr %>%
+fr |>
   # Select id
-  select(Numero_secuencial) %>%
+  select(Numero_secuencial) |>
   # of first obs
-  slice(1) %>%
+  slice(1) |>
   # convert to number
-  as.double() %>%
+  as.double() |>
   # And load the metadata
-  bde_series_load(extract_metadata = TRUE) %>%
+  bde_series_load(extract_metadata = TRUE) |>
   # To table on the vignette
   knitr::kable()
 ```

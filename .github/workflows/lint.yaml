@@ -24,9 +24,6 @@ on:
   schedule:
     - cron: '56 11 * * 5'
 
-permissions:
-  contents: read
-
 jobs:
   lintr:
     name: Run lintr scanning

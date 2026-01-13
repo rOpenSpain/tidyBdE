@@ -69,9 +69,9 @@
 #'
 #' tibble::tibble(raw = wont_parse, parsed = parsed_fail)
 bde_parse_dates <- function(dates_to_parse) {
-  dateformat <- gsub(" ", "", toupper(dates_to_parse))
-  dateformat <- gsub("-", "", dateformat)
-  dateformat <- gsub("/", "", dateformat)
+  dateformat <- gsub(" ", "", toupper(dates_to_parse), fixed = TRUE)
+  dateformat <- gsub("-", "", dateformat, fixed = TRUE)
+  dateformat <- gsub("/", "", dateformat, fixed = TRUE)
 
   months_esp <- c(
     "ENE",
@@ -89,12 +89,12 @@ bde_parse_dates <- function(dates_to_parse) {
   )
 
   # Format months
-  for (i in seq_len(length(months_esp))) {
+  for (i in seq_along(months_esp)) {
     dateformat <- gsub(months_esp[i], sprintf("%02d", i), dateformat)
   }
 
   # Final format: dd-mm-yyyy
-  for (j in seq_len(length(dateformat))) {
+  for (j in seq_along(dateformat)) {
     s2 <- dateformat[j]
 
     if (is.na(s2) || nchar(s2) < 4) {
@@ -241,7 +241,7 @@ bde_hlp_guess <- function(tbl, preserve = "") {
       )
     }
   }
-  return(tbl)
+  tbl
 }
 
 
@@ -256,7 +256,7 @@ bde_hlp_tochar <- function(tbl, preserve = "") {
       tbl[i] <- as.character(tbl[[i]])
     }
   }
-  return(tbl)
+  tbl
 }
 
 
@@ -279,7 +279,7 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
         )
     }
   }
-  return(tbl)
+  tbl
 }
 
 
@@ -294,6 +294,6 @@ bde_hlp_return_null <- function(msg = "Offline. Returning an empty tibble") {
   # nocov start
   message(paste0("tidyBdE> ", msg))
   tbl <- tibble::tibble(x = NULL)
-  return(tbl)
+  tbl
   # nocov end
 }

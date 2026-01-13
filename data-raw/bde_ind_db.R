@@ -14,14 +14,14 @@ bde_ind_db_init <- tribble(
   "bde_ind_ibex_daily", 821340,
   "bde_ind_gdp_quarterly", 4663160,
   "bde_ind_population", 4637737
-) %>%
-  mutate(Numero_secuencial = as.character(Numero_secuencial)) %>%
+) |>
+  mutate(Numero_secuencial = as.character(Numero_secuencial)) |>
   arrange(tidyBdE_fun)
 
 
 # Add metadata
 full_cat <- bde_catalog_load()
-bde_cat <- full_cat %>%
+bde_cat <- full_cat |>
   select(
     Numero_secuencial,
     Descripcion_de_la_serie,
@@ -29,11 +29,11 @@ bde_cat <- full_cat %>%
     Fecha_de_la_primera_observacion,
     Fecha_de_la_ultima_observacion,
     Fuente
-  ) %>%
+  ) |>
   distinct()
 
 
-bde_ind_db <- bde_ind_db_init %>%
+bde_ind_db <- bde_ind_db_init |>
   left_join(bde_cat)
 
 
@@ -44,21 +44,21 @@ inpub <- full_cat[
 
 
 # Alternative computation of CPI ----
-cpi_alt <- bde_series_load(656547, series_label = "serie") %>%
+cpi_alt <- bde_series_load(656547, series_label = "serie") |>
   mutate(
     lag12 = lag(serie, 12),
     Consumer_price_index_YoY = round(100 * (serie / lag12 - 1), digits = 1)
-  ) %>%
-  select(Date, Consumer_price_index_YoY) %>%
+  ) |>
+  select(Date, Consumer_price_index_YoY) |>
   drop_na(Consumer_price_index_YoY)
 
 
 # Check
-cpi_orig <- bde_ind_cpi_var() %>%
+cpi_orig <- bde_ind_cpi_var() |>
   left_join(
-    cpi_alt %>%
+    cpi_alt |>
       rename(alt = Consumer_price_index_YoY)
-  ) %>%
+  ) |>
   mutate(dif = Consumer_price_index_YoY - alt)
 
 

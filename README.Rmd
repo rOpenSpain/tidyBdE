@@ -91,8 +91,8 @@ library(tidyr)
 # Search GBP on "TC" (exchange rate) catalog
 XR_GBP <- bde_catalog_search("GBP", catalog = "TC")
 
-XR_GBP %>%
-  select(Numero_secuencial, Descripcion_de_la_serie) %>%
+XR_GBP |>
+  select(Numero_secuencial, Descripcion_de_la_serie) |>
   # To table on document
   knitr::kable()
 ```
@@ -105,17 +105,17 @@ After we have found our series, we can load the series for the GBP/EUR exchange
 rate using the sequential number reference (`Numero_Secuencial`) as:
 
 ```{r find}
-seq_number <- XR_GBP %>%
+seq_number <- XR_GBP |>
   # First record
-  slice(1) %>%
+  slice(1) |>
   # Get id
-  select(Numero_secuencial) %>%
+  select(Numero_secuencial) |>
   # Convert to num
   as.double()
 
 # Extract series
-time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") %>%
-  filter(Date >= "2010-01-01" & Date <= "2020-12-31") %>%
+time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") |>
+  filter(Date >= "2010-01-01" & Date <= "2020-12-31") |>
   drop_na()
 ```
 
@@ -153,11 +153,11 @@ advance:
 ```{r macroseries, fig.asp=0.7, fig.alt="Spanish Economic Indicators (2010-2019)"}
 # Data in "long" format
 
-plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") %>%
+plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") |>
   bind_rows(
     bde_ind_unemployment_rate("Unemployment Rate", out_format = "long")
-  ) %>%
-  drop_na() %>%
+  ) |>
+  drop_na() |>
   filter(Date >= "2010-01-01" & Date <= "2019-12-31")
 
 ggplot(plotseries, aes(x = Date, y = serie_value)) +

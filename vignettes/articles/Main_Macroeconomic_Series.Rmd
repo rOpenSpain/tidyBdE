@@ -43,15 +43,15 @@ br <- seq(nd, Sys.Date(), "6 months")
 ### Aggregated (last 4 quarters)
 
 ```{r gdp_agg, echo=FALSE, fig.alt="GDP of Spain - Aggregated last 4 quarters"}
-dataset <- bde_ind_gdp_quarterly(series_label = "data") %>%
+dataset <- bde_ind_gdp_quarterly(series_label = "data") |>
   drop_na()
 
 dataset$LastY <- dataset$data + lag(dataset$data, 1) +
   lag(dataset$data, 2) + lag(dataset$data, 3)
 
-dataset <- dataset %>%
-  filter(Date >= nd) %>%
-  mutate(data = LastY) %>%
+dataset <- dataset |>
+  filter(Date >= nd) |>
+  mutate(data = LastY) |>
   select(-LastY)
 
 l <- dataset[nrow(dataset), ]
@@ -74,8 +74,8 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ### Year-on-year variation
 
 ```{r gdpyoy, echo=FALSE, fig.alt="GDP of Spain - Year-on-year variation"}
-dataset <- bde_ind_gdp_var(series_label = "data") %>%
-  filter(Date >= nd) %>%
+dataset <- bde_ind_gdp_var(series_label = "data") |>
+  filter(Date >= nd) |>
   drop_na()
 
 
@@ -110,11 +110,11 @@ pib$LastY <- pib$data + lag(pib$data, 1) + lag(pib$data, 2) + lag(pib$data, 3)
 
 pib <- inner_join(pib, pop, by = "Date")
 
-pib <- pib %>% mutate(data = 1000 * LastY / pop)
+pib <- pib |> mutate(data = 1000 * LastY / pop)
 
-dataset <- pib %>%
-  select(Date, data) %>%
-  filter(Date >= nd) %>%
+dataset <- pib |>
+  select(Date, data) |>
+  filter(Date >= nd) |>
   drop_na()
 
 
@@ -146,8 +146,8 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ## Unemployment Rate
 
 ```{r unempl, echo=FALSE, fig.alt="Unemployment rate"}
-dataset <- bde_ind_unemployment_rate(series_label = "data") %>%
-  filter(Date >= nd) %>%
+dataset <- bde_ind_unemployment_rate(series_label = "data") |>
+  filter(Date >= nd) |>
   drop_na()
 
 
@@ -175,8 +175,8 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ## Consumer Price Index
 
 ```{r cprix, echo=FALSE, fig.alt="Consumer Price Index"}
-dataset <- bde_ind_cpi_var(series_label = "data") %>%
-  filter(Date >= nd) %>%
+dataset <- bde_ind_cpi_var(series_label = "data") |>
+  filter(Date >= nd) |>
   drop_na()
 
 
@@ -204,8 +204,8 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ## Monthly Euribor
 
 ```{r eur, echo=FALSE, fig.alt="Monthly Euribor"}
-dataset <- bde_ind_euribor_12m_monthly(series_label = "data") %>%
-  filter(Date >= nd) %>%
+dataset <- bde_ind_euribor_12m_monthly(series_label = "data") |>
+  filter(Date >= nd) |>
   drop_na()
 
 
@@ -233,8 +233,8 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ## Population
 
 ```{r pop, echo=FALSE, fig.alt="Population in thousands"}
-dataset <- bde_ind_population(series_label = "data") %>%
-  filter(Date >= nd) %>%
+dataset <- bde_ind_population(series_label = "data") |>
+  filter(Date >= nd) |>
   drop_na()
 
 

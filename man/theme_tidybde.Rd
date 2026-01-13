@@ -42,7 +42,7 @@ series_TC <- bde_series_full_load("TC_1_1.csv")
 if (nrow(series_TC) > 0) {
   series_TC <- series_TC[c(1, 2)]
 
-  series_TC_pivot <- series_TC \%>\%
+  series_TC_pivot <- series_TC |>
     filter(
       Date >= "2020-01-01" & Date <= "2020-12-31",
       !is.na(series_TC[[2]])

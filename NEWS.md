@@ -1,3 +1,7 @@
+# tidyBdE (development version)
+
+-   Update minimum **R** version required to `4.1.0`.
+
 # tidyBdE 0.4.0
 
 -   Now `bde_indicators` are based on the data of the new data base

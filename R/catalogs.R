@@ -187,9 +187,13 @@ bde_catalog_load <- function(
     if (verbose) {
       message("tidyBdE> Parsing dates")
     }
-    date_fields <- names(final_catalog)[grep("Fecha", names(final_catalog))]
+    date_fields <- names(final_catalog)[grep(
+      "Fecha",
+      names(final_catalog),
+      fixed = TRUE
+    )]
 
-    for (i in seq_len(length(date_fields))) {
+    for (i in seq_along(date_fields)) {
       field <- date_fields[i]
       final_catalog[field] <- bde_parse_dates(final_catalog[[field]])
     }
@@ -313,7 +317,7 @@ bde_catalog_update <- function(
     result
   })
 
-  return(invisible(res))
+  invisible(res)
 }
 
 #' Search BdE catalogs

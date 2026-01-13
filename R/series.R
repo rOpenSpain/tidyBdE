@@ -121,7 +121,7 @@ bde_series_load <- function(
   if (is.null(series_label)) {
     series_label <- as.character(series_code)
   }
-  if (any(is.na(series_label))) {
+  if (anyNA(series_label)) {
     stop("`series_label` should not contain NA values")
   }
 
@@ -264,7 +264,7 @@ bde_series_load <- function(
   }
 
   end <- tibble::as_tibble(end)
-  return(end)
+  end
 }
 
 
@@ -444,9 +444,13 @@ bde_series_full_load <- function(
     if (verbose) {
       message("tidyBdE> Parsing dates")
     }
-    date_fields <- names(data_serie)[grep("Date", names(data_serie))]
+    date_fields <- names(data_serie)[grep(
+      "Date",
+      names(data_serie),
+      fixed = TRUE
+    )]
 
-    for (i in seq_len(length(date_fields))) {
+    for (i in seq_along(date_fields)) {
       field <- date_fields[i]
 
       data_serie[field] <- bde_parse_dates(data_serie[[field]])
@@ -460,5 +464,5 @@ bde_series_full_load <- function(
     # Fields to double
     data_serie <- bde_hlp_todouble(data_serie, preserve = "Date")
   }
-  return(data_serie)
+  data_serie
 }

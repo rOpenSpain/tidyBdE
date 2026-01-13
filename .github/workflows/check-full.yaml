@@ -13,6 +13,8 @@ on:
     - cron:  '30 11 * * 1,4'
 
 name: R-CMD-check
+permissions:
+  contents: read
 
 jobs:
   R-CMD-check:
