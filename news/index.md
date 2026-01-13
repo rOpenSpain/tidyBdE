@@ -187,7 +187,8 @@ CRAN release: 2021-06-05
 - Color adjustment on
   [`bde_rose_pal()`](https://ropenspain.github.io/tidyBdE/reference/bde_pals.md):
   Now hcl spectrum is more consistent between roses and blues according
-  to `colorspace::specplot()`.
+  to
+  [`colorspace::specplot()`](https://rdrr.io/pkg/colorspace/man/specplot.html).
 - Add DOI: <https://doi.org/10.5281/zenodo.4673496>
 - New palettes for **ggplot2**:
   [`scale_color_bde_c()`](https://ropenspain.github.io/tidyBdE/reference/scales_bde.md),
