@@ -2,6 +2,8 @@
 
 ## tidyBdE 0.5.0
 
+CRAN release: 2026-01-13
+
 - Update minimum **R** version required to `4.1.0`.
 - Improve documentation with Copilot.
 
