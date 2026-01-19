@@ -1,4 +1,4 @@
-url: https://ropenspain.github.io/tidyBdE/
+url: "https://ropenspain.github.io/tidyBdE/"
 
 repo:
   branch: main
@@ -39,13 +39,13 @@ template:
   bootstrap: 5
   package: rostemplate
   params:
-    ganalytics: 'G-CW2RTVRRVF'
+    ganalytics: "G-CW2RTVRRVF"
   opengraph:
     image:
       src: https://ropenspain.github.io/tidyBdE/reference/figures/README-chart-1.png
       alt: "tidyBdE R package"
     twitter:
-      site: '@rOpenSpain'
+      site: "@rOpenSpain"
       creator: "@dhernangomez"
       card: summary_large_image
 

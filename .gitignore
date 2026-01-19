@@ -45,3 +45,5 @@ cache_tests
 .Rproj.user
 .Rdata
 Rplots.pdf
+/.quarto/
+**/*.quarto_ipynb

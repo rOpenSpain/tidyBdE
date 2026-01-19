@@ -2,8 +2,12 @@ on:
   workflow_dispatch:
 
 name: revdepcheck
-permissions:
-  contents: write
+permissions: write-all
+
+# This will cancel running jobs once a new run is triggered
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
 
 jobs:
   revdepcheck:
@@ -15,8 +19,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: ubuntu-latest, r: 'release'}
-
+          - { os: ubuntu-latest, r: "release" }
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -43,20 +46,20 @@ jobs:
 
       - name: revdepcheck
         run: |
-
           revdepcheck::revdep_reset()
           revdepcheck::revdep_check(num_workers = 4)
 
-
           revdepig <- c(
             "checks", "library", "checks.noindex", "library.noindex",
-            "data.sqlite", "*.html" )
+            "data.sqlite", "*.html"
+          )
 
-          usethis::use_git_ignore(revdepig, directory = file.path(".", "revdep"))
+          usethis::use_git_ignore(revdepig,
+            directory = file.path(".", "revdep")
+          )
 
           # Ignore this also on build
           usethis::use_build_ignore("revdep")
-
         shell: Rscript {0}
 
       - name: Commit results
@@ -66,4 +69,3 @@ jobs:
           git add -A
           git commit -m 'revdepcheck' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
-

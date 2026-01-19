@@ -30,7 +30,7 @@ bde_check_access <- function() {
   # nocov start
   access <-
     tryCatch(
-      download.file(url, destfile = tempfile(), quiet = TRUE),
+      download.file(url, destfile = tempfile(), quiet = TRUE, mode = "wb"),
       warning = function(e) {
         FALSE
       }
