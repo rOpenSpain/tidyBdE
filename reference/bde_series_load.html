@@ -169,7 +169,7 @@ warning may be displayed if the parsing fails.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># Metadata</span></span></span>
 <span class="r-in"><span><span class="fu">bde_series_load</span><span class="op">(</span><span class="fl">573234</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>, extract_metadata <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpwnrCqB</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpOMWLON</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Cached version of BE detected</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Cached version of SI detected</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Cached version of TC detected</span>
@@ -179,7 +179,7 @@ warning may be displayed if the parsing fails.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Extracting series 573234</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Downloading serie 573234 from file TC_1_1.csv (alias TC_1_1.1).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpwnrCqB/TC</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpOMWLON/TC</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 2</span></span>
@@ -194,7 +194,7 @@ warning may be displayed if the parsing fails.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Data</span></span></span>
 <span class="r-in"><span><span class="fu">bde_series_load</span><span class="op">(</span><span class="fl">573234</span>, extract_metadata <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7,054 × 2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7,055 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Date       `573234`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1999-01-04     1.18</span>
@@ -207,7 +207,7 @@ warning may be displayed if the parsing fails.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1999-01-13     1.17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1999-01-14     1.17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1999-01-15     1.16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7,044 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7,045 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Vectorized</span></span></span>
 <span class="r-in"><span><span class="fu">bde_series_load</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">573234</span>, <span class="fl">573214</span><span class="op">)</span>,</span></span>
@@ -230,7 +230,7 @@ warning may be displayed if the parsing fails.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Wide format</span></span></span>
 <span class="r-in"><span><span class="va">wide</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7,054 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7,055 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Date       `US/EUR` `GBP/EUR`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1999-01-04     1.18     0.711</span>
@@ -243,7 +243,7 @@ warning may be displayed if the parsing fails.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1999-01-13     1.17     0.708</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1999-01-14     1.17     0.706</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1999-01-15     1.16     0.704</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7,044 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7,045 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Long format</span></span></span>
@@ -253,7 +253,7 @@ warning may be displayed if the parsing fails.</p>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">long</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 14,108 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 14,110 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Date       serie_name serie_value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1999-01-04 US/EUR            1.18</span>
@@ -266,7 +266,7 @@ warning may be displayed if the parsing fails.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1999-01-13 US/EUR            1.17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1999-01-14 US/EUR            1.17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1999-01-15 US/EUR            1.16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 14,098 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 14,100 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Use with ggplot</span></span></span>
@@ -304,11 +304,11 @@ warning may be displayed if the parsing fails.</p>
 </footer><div id="copyright">
   <div class="container">
     <div class="row">
-      <div class="col-md text-center text-lg-start">
+      <div class="col-md text-center text-md-start">
         <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
       </div>
-      <div class="col-md offset-md-4 text-center text-lg-start">
-      <p>Template <a href="https://github.com/ropenspain/rostemplate/" class="external-link">rostemplate</a> by <a href="https://github.com/dieghernan/" class="external-link">dieghernan</a>, based on <a href="https://bootstraptemple.com/" class="external-link">bootstraptemple.com</a>.
+      <div class="col-md offset-md-4 text-center text-md-start lh-base">
+      <p>Template <a href="https://github.com/ropenspain/rostemplate/" class="external-link">rostemplate</a> by <a href="https://github.com/dieghernan/" class="external-link">dieghernan</a>, based on <a href="https://templatesherpa.com/templates/universal-business-e-commerce" class="external-link">templatesherpa.com</a>.
       </p>
       </div>
     </div>
