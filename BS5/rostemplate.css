@@ -1,7 +1,14 @@
 /*!
-	* Beautify: https://www.freeformatter.com/css-beautifier.html
-	* Minify: https://www.freeformatter.com/css-minifier.html
+	* Compressed with sass R library
+	* https: //rstudio.github.io/sass/
 */
+
+/*
+library(sass) lns <- readLines("inst/pkgdown/assets/BS5/rostemplate.css") sass(lns,
+	"inst/pkgdown/assets/BS5/rostemplate.min.css",
+	cache=NULL, options=sass_options(output_style="compressed"))
+	*/
+
 h1 code,
 h2 code,
 h3 code,
@@ -327,6 +334,15 @@ pre code span.wa
 	padding-right: .5rem;
 	margin-left: .5rem;
 	margin-right: .5rem;
+}
+
+@media ((min-width: 992px)) {
+	.navbar .nav-item .nav-link {
+		padding-left: .5rem;
+		padding-right: .5rem;
+		margin-left: 0rem;
+		margin-right: 0rem;
+	}
 }
 
 #navbar .dropdown-menu,

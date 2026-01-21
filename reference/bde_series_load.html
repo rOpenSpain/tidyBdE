@@ -22,14 +22,15 @@ bde_series_full_load()."><meta property="og:image" content="https://ropenspain.g
 
   gtag('config', 'G-CW2RTVRRVF');
 </script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"><!-- rogtemplate style sheet --><link href="../BS5/rostemplate.min.css" rel="stylesheet"></head><body>
-    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
+  <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
-  <a class="navbar-brand me-2" href="../index.html">
-    <img src="../apple-touch-icon.png" alt="tidyBdE logo" height="40" class="d-inline-block me-1">tidyBdE</a>
+  <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
+    <a class="navbar-brand me-2" href="../index.html">
+      <img src="../apple-touch-icon.png" alt="tidyBdE logo" height="40" class="d-inline-block me-1">tidyBdE</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0</small>
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -48,9 +49,11 @@ bde_series_full_load()."><meta property="og:image" content="https://ropenspain.g
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/rOpenSpain/tidyBdE/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
+
+
   </div>
 </nav><div class="container template-reference-topic">
-<div class="row">
+    <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Load a single BdE time-series</h1>
       <small class="dont-index">Source: <a href="https://github.com/rOpenSpain/tidyBdE/blob/main/R/series.R" class="external-link"><code>R/series.R</code></a></small>
@@ -169,7 +172,7 @@ warning may be displayed if the parsing fails.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># Metadata</span></span></span>
 <span class="r-in"><span><span class="fu">bde_series_load</span><span class="op">(</span><span class="fl">573234</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>, extract_metadata <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpOMWLON</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpQpAcB4</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Cached version of BE detected</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Cached version of SI detected</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Cached version of TC detected</span>
@@ -179,7 +182,7 @@ warning may be displayed if the parsing fails.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Extracting series 573234</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Downloading serie 573234 from file TC_1_1.csv (alias TC_1_1.1).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpOMWLON/TC</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory C:\Users\RUNNER~1\AppData\Local\Temp\RtmpQpAcB4/TC</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 2</span></span>
@@ -194,7 +197,7 @@ warning may be displayed if the parsing fails.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Data</span></span></span>
 <span class="r-in"><span><span class="fu">bde_series_load</span><span class="op">(</span><span class="fl">573234</span>, extract_metadata <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7,055 × 2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7,057 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Date       `573234`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1999-01-04     1.18</span>
@@ -207,7 +210,7 @@ warning may be displayed if the parsing fails.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1999-01-13     1.17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1999-01-14     1.17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1999-01-15     1.16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7,045 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7,047 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Vectorized</span></span></span>
 <span class="r-in"><span><span class="fu">bde_series_load</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">573234</span>, <span class="fl">573214</span><span class="op">)</span>,</span></span>
@@ -230,7 +233,7 @@ warning may be displayed if the parsing fails.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Wide format</span></span></span>
 <span class="r-in"><span><span class="va">wide</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7,055 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7,057 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Date       `US/EUR` `GBP/EUR`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1999-01-04     1.18     0.711</span>
@@ -243,7 +246,7 @@ warning may be displayed if the parsing fails.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1999-01-13     1.17     0.708</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1999-01-14     1.17     0.706</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1999-01-15     1.16     0.704</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7,045 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7,047 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Long format</span></span></span>
@@ -253,7 +256,7 @@ warning may be displayed if the parsing fails.</p>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">long</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 14,110 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 14,114 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Date       serie_name serie_value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1999-01-04 US/EUR            1.18</span>
@@ -266,7 +269,7 @@ warning may be displayed if the parsing fails.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1999-01-13 US/EUR            1.17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1999-01-14 US/EUR            1.17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1999-01-15 US/EUR            1.16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 14,100 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 14,104 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Use with ggplot</span></span></span>
@@ -284,8 +287,7 @@ warning may be displayed if the parsing fails.</p>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 
-
-   </div>
+  </div>
 
   <!-- ropenspain rostemplate -->
 <footer id="footer"><div class="container">
@@ -293,13 +295,16 @@ warning may be displayed if the parsing fails.</p>
       <div class="col-md">
         <h4 data-toc-skip>About <img src="../logo.png" alt="tidyBdE Logo" height="24"> tidyBdE</h4>
         <p>Developed by Diego H. Herrero.</p>
-        <p>Part of the <span class="ROS-light">rOpenSpain</span> project.</p>
+        <p class="mt-n3">Part of the <span class="ROS-light">rOpenSpain</span> project.</p>
         <hr class="d-md-none"></div>
       <div class="col-md offset-md-4">
         <h4 data-toc-skip>About <img src="../ROS-logo.png" alt="ROpenSpain Logo" height="24"><span class="ROS-light"> rOpenSpain</span></h4>
-        <a href="https://ropenspain.es/" class="external-link"><span class="ROS-light">rOpenSpain</span></a> is a community of R enthusiasts whose ultimate goal is to create high-quality R packages for data mining public Spanish open sources.
+        <a href="https://ropenspain.es/" class="external-link"><span class="ROS-light">rOpenSpain</span></a> is a community of enthusiasts of
+        <strong>R</strong>, open data, and reproducibility that comes together and organizes itself to create
+        <strong>R</strong>
+        packages of the highest quality for the analysis and use of Spanish data of general interest.
         <hr class="d-md-none"></div>
-   </div>
+    </div>
   </div>
 </footer><div id="copyright">
   <div class="container">
@@ -308,8 +313,8 @@ warning may be displayed if the parsing fails.</p>
         <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
       </div>
       <div class="col-md offset-md-4 text-center text-md-start lh-base">
-      <p>Template <a href="https://github.com/ropenspain/rostemplate/" class="external-link">rostemplate</a> by <a href="https://github.com/dieghernan/" class="external-link">dieghernan</a>, based on <a href="https://templatesherpa.com/templates/universal-business-e-commerce" class="external-link">templatesherpa.com</a>.
-      </p>
+        <p>Template <a href="https://github.com/ropenspain/rostemplate/" class="external-link">rostemplate</a> by <a href="https://github.com/dieghernan/" class="external-link">dieghernan</a>, based on <a href="https://templatesherpa.com/templates/universal-business-e-commerce" class="external-link">templatesherpa.com</a>.
+        </p>
       </div>
     </div>
   </div>
@@ -319,11 +324,11 @@ warning may be displayed if the parsing fails.</p>
 
 
   <script>
-var h1s = document.getElementsByTagName("h1");
-var myH1;
-if (h1s.length > 0) {
-  myH1 = h1s[0];
-  myH1.classList.add("ROSh1");
-}
+  var h1s = document.getElementsByTagName("h1");
+  var myH1;
+  if (h1s.length > 0) {
+    myH1 = h1s[0];
+    myH1.classList.add("ROSh1");
+  }
 </script></body></html>
 
