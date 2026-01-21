@@ -1,8 +1,9 @@
 on:
   push:
     paths:
-      - CITATION.cff
+    - CITATION.cff
   workflow_dispatch:
+
 
 permissions:
   contents: read
@@ -16,8 +17,8 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
+    - name: Checkout
+      uses: actions/checkout@v6
 
-      - name: Validate CITATION.cff
-        uses: dieghernan/cff-validator@main
+    - name: Validate CITATION.cff
+      uses: dieghernan/cff-validator@main

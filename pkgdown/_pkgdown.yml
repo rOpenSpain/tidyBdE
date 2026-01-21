@@ -1,39 +1,39 @@
-url: "https://ropenspain.github.io/tidyBdE/"
+url: https://ropenspain.github.io/tidyBdE/
 
 repo:
   branch: main
 
 reference:
-  - title: "Catalogs"
-    desc: Tools for working with BdE catalogs.
-    contents:
-      - has_concept("catalog")
+- title: Catalogs
+  desc: Tools for working with BdE catalogs.
+  contents:
+  - has_concept("catalog")
 
-  - title: "Series"
-    desc: Tools for working with BdE series.
-    contents:
-      - has_concept("series")
+- title: Series
+  desc: Tools for working with BdE series.
+  contents:
+  - has_concept("series")
 
-  - title: "BdE Indicators"
-    desc: Selected macroeconomic indicators of Spain.
-    contents:
-      - has_concept("indicators")
+- title: BdE Indicators
+  desc: Selected macroeconomic indicators of Spain.
+  contents:
+  - has_concept("indicators")
 
-  - title: "Plot utils"
-    desc: >
-      Complementary functions for plotting with
-      <a href="https://CRAN.R-project.org/package=ggplot2"
-      class="external-link"><span class="pkg">ggplot2</span></a>.
-    contents:
-      - has_concept("bde_plot")
+- title: Plot utils
+  desc: >
+    Complementary functions for plotting with <a
+    href="https://CRAN.R-project.org/package=ggplot2"
+    class="external-link"><span class="pkg">ggplot2</span></a>.
+  contents:
+  - has_concept("bde_plot")
 
-  - title: Utils
-    contents:
-      - has_concept("utils")
+- title: Utils
+  contents:
+  - has_concept("utils")
 
-  - title: "About the package"
-    contents:
-      - tidyBdE-package
+- title: About the package
+  contents:
+  - tidyBdE-package
 
 template:
   bootstrap: 5

@@ -8,11 +8,11 @@ concurrency:
 on:
   workflow_dispatch:
   schedule:
-    - cron: "00 22 2 * *"
+  - cron: "00 22 2 * *"
 
 jobs:
   cache-clear:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: easimon/wipe-cache@main
+    - uses: easimon/wipe-cache@main
