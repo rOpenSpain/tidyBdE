@@ -1,4 +1,220 @@
-/*!  Compressed with sass R library https: //rstudio.github.io/sass/*/
+/*!  Compressed with sass R library https: //rstudio.github.io/sass/ */
+
+main img {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.caption,
+.figure {
+	color: var(--bs-gray-500);
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0.5rem;
+	font-size: 85%;
+	width: 100%;
+}
+
+/* ---Navbar tweaks--- */
+
+.navbar {
+	-webkit-box-shadow: 0 0 5px #cccccc;
+	box-shadow: 0 0 5px #cccccc;
+}
+
+[data-bs-theme="dark"] .navbar {
+	-webkit-box-shadow: 0 0 5px var(--bs-primary-bg-subtle);
+	box-shadow: 0 0 5px var(--bs-primary-bg-subtle);
+}
+
+.navbar-brand {
+	font-weight: 300;
+}
+
+.navbar small.text-muted {
+	color: var(--brand-ros_violet) !important;
+}
+
+[data-bs-theme="dark"] {
+	.navbar small.text-muted {
+		color: var(--bs-body-color) !important;
+	}
+}
+
+.navbar small {
+	font-size: 0.75rem;
+	padding-top: 0.65rem;
+	padding-right: 1rem;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+	color: var(--bs-navbar-brand-color);
+}
+
+@media ((max-width: 992px)) {
+	#navbar {
+		padding-top: 0.75rem;
+	}
+}
+
+@media ((max-width: 992px)) {
+	#navbar ul:first-of-type {
+		border-top: solid 1px #cccccc;
+	}
+}
+
+.navbar-toggler:focus {
+	box-shadow: 0 0 0 0.25rem rgba(152, 109, 189, 0.3);
+}
+
+#navbar,
+#navbar .nav-link {
+	text-transform: uppercase;
+	text-decoration: underline;
+	font-weight: bold;
+	letter-spacing: 0.04em;
+}
+
+#navbar .dropdown-menu,
+#navbar .form-inline {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+#navbar .nav-item .nav-link {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+@media ((min-width: 992px)) {
+	#navbar .nav-item .nav-link {
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+		margin-left: 0rem;
+		margin-right: 0rem;
+	}
+	.navbar-nav .nav-item > .nav-link {
+		border-top: solid 5px transparent;
+	}
+}
+#navbar .dropdown-menu .dropdown-item {
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	border-bottom: var(--bs-border-width) var(--bs-border-style)
+		var(--bs-border-color) !important;
+}
+
+/* Hover Dropdown */
+#navbar .dropdown-menu .dropdown-item:hover,
+#navbar .dropdown-menu .dropdown-item:focus,
+#navbar .dropdown-menu .dropdown-item.active,
+#navbar .dropdown-menu .dropdown-item.active:hover,
+#navbar .dropdown-menu .dropdown-item.active:focus {
+	color: var(--brand-ros_violet);
+	background-color: rgba(152, 109, 189, 0.1);
+}
+
+[data-bs-theme="dark"] {
+	#navbar .dropdown-menu .dropdown-item:hover,
+	#navbar .dropdown-menu .dropdown-item:focus,
+	#navbar .dropdown-menu .dropdown-item.active:hover,
+	#navbar .dropdown-menu .dropdown-item.active:focus {
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	#navbar .dropdown-menu .dropdown-item.active {
+		color: rgba(255, 255, 255, 0.5);
+	}
+}
+
+/* Hover Normal */
+#navbar .nav-item > .nav-link:hover,
+#navbar .nav-item > .nav-link:focus {
+	background-color: #cab3dd;
+}
+
+@media ((min-width: 992px)) {
+	.navbar-nav .nav-item > .nav-link:hover,
+	.navbar-nav .nav-item > .nav-link:focus {
+		border-top: solid 5px var(--brand-ros_violet);
+	}
+}
+
+#navbar .dropdown-menu .dropdown-item .fa {
+	opacity: 1;
+	color: inherit;
+}
+
+/* Active */
+
+#navbar .nav-item.active .nav-link {
+	background-color: var(--brand-ros_violet);
+	color: var(--bs-white);
+	text-decoration: none;
+}
+
+@media ((min-width: 992px)) {
+	.navbar .navbar-nav .active > .nav-link {
+		border-top: solid 5px #653d87;
+	}
+}
+
+/* Footer */
+
+/* Position hack to get full width footer even though pkgdown puts it inside
+ a container * See:
+ https://css-tricks.com/full-width-containers-limited-width-parents/ */
+
+#footer {
+	background: #555555;
+	padding: 50px 0;
+	color: #999999;
+	margin-top: 1rem;
+	margin-bottom: 0;
+}
+
+#footer h1,
+#footer h2,
+#footer h3,
+#footer h4,
+#footer h5,
+#footer h6 {
+	color: #eeeeee;
+}
+
+#footer h4 {
+	font-size: 14px;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+#copyright {
+	margin: 0;
+	background: #333;
+	color: #ccc;
+	padding: 50px 0;
+	font-size: 12px;
+	line-height: 28px;
+}
+
+/* ---Misc--- */
+
+/* Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.1;
+}
 
 h1 code,
 h2 code,
@@ -9,33 +225,94 @@ h6 code {
 	background-color: transparent;
 }
 
-pre a {
-	color: inherit;
-	font-weight: inherit;
-	text-decoration: underline;
+#toc > .nav a.nav-link.active {
+	color: white;
+	background-color: var(--brand-ros_violet);
 }
 
-code a {
-	text-decoration: underline;
+img.logo {
+	display: none;
+}
+
+/* Section: specific ros elements and classes */
+.ROSh1 {
+	background: url("texture-bw.png") center center repeat;
+	padding: 20px 0;
+	color: #333333;
+	text-transform: uppercase;
+	font-size: 30px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-align: center;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+[data-bs-theme="dark"] {
+	.ROSh1 {
+		background: url("texture-bw-inverted.png") center center repeat;
+		color: var(--bs-white);
+	}
+}
+
+.ROSh1 img {
+	display: none;
+}
+
+#homelogoxs {
+	height: 24px;
+	display: inline;
+}
+
+#ROS-heading-breadcrumbs {
+	padding-top: 10px;
+	padding-bottom: 1px;
+	font-size: 14px;
+	text-decoration: none;
+	text-transform: none;
+	letter-spacing: 0;
+}
+
+#ROS-partof {
+	font-weight: 300;
+	color: black;
+}
+
+[data-bs-theme="dark"] {
+	#ROS-partof {
+		color: var(--bs-white);
+	}
+}
+
+.ROS-light {
+	font-weight: 300;
+}
+
+/* Hack to reduce color in dark mode */
+[data-bs-theme="dark"] img.r-plt,
+[data-bs-theme="dark"] pre .r-plt.img img,
+[data-bs-theme="dark"] .cell-output-display img,
+[data-bs-theme="dark"] .html-widget {
+	filter: grayscale(33%) !important;
+}
+blockquote {
+	padding: 10px 20px;
+	margin: 0 0 20px;
+	border-left: 5px solid var(--brand-ros_violet);
 }
 
 .pkg {
 	font-weight: bold;
 }
 
-/* ---allcontributors package--- */
-
-.allctb-avatar {
-	border: 0.2rem solid;
-	border-radius: 50%;
-	border-color: var(--bs-body-bg);
-	max-width: 100px;
-	box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.5);
+/* --- Dark Mode --- */
+[data-bs-theme="dark"] {
+	a.external-link:not(:has(*)),
+	a.uri:not(:has(*)) {
+		color: #cab3dd;
+	}
 }
 
-table.allctb-table td {
-	border-color: transparent;
-}
+/* --- Inherited args --- */
 
 .template-reference-topic dt code {
 	font-weight: 700;
@@ -46,6 +323,37 @@ table.allctb-table td {
 	background-color: var(--bs-body-bg);
 	padding: 0;
 	border-radius: 0;
+}
+
+/* ---Code--- */
+code a:any-link {
+	text-decoration: underline;
+	text-decoration-color: #6c757d;
+}
+
+a > code {
+	text-decoration: underline;
+	color: #c7254e;
+}
+
+code {
+	padding: 2px 4px;
+	font-size: 90%;
+	color: #c7254e;
+	background-color: #f9f2f4;
+	border-radius: 4px;
+}
+
+/* Dark Mode */
+[data-bs-theme="dark"] {
+	code a:any-link {
+		color: inherit;
+	}
+
+	code {
+		color: #e75ca2;
+		background-color: rgba(var(--bs-emphasis-color-rgb), 0.07);
+	}
 }
 
 /* Section: Syntax highlighter emacs (como en la web de rOpenSpain) */
@@ -257,210 +565,326 @@ pre code span.wa
 	border: 1px solid #ff0000;
 }
 
-/* Section: Navbar */
-.navbar-light .navbar-brand {
-	font-weight: 300;
-}
+/* Section: Syntax highlighter emacs dark */
+[data-bs-theme="dark"] {
+	pre {
+		color: #f5f5f5;
+		background-color: #444;
+		border: 1px solid #555;
+	}
 
-.navbar-light .navbar-brand:hover,
-.navbar-light .navbar-brand:focus {
-	color: #555555;
-}
+	pre code
 
-.navbar-light .nav-item {
-	text-transform: uppercase;
-	text-decoration: underline;
-	font-weight: bold;
-	letter-spacing: 0.04em;
-}
+/* Normal         */ {
+		color: #f5f5f5;
+	}
 
-.navbar-light .navbar-nav .active > .nav-link {
-	background-color: #986dbd;
-	color: white;
-}
+	pre code span.al
 
-.navbar-light .navbar-nav .active > .nav-link:hover,
-.navbar-light .navbar-nav .active > .nav-link:focus {
-	background-color: #cab3dd;
-}
+/* Alert          */ {
+		border: 1px solid var(--bs-danger-text-emphasis);
+	}
 
-.navbar-light .navbar-nav .nav-item > .nav-link:hover,
-.navbar-light .navbar-nav .nav-item > .nav-link:focus {
-	background-color: #cab3dd;
-}
+	pre code span.an
 
-.navbar .nav-item .nav-link {
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
-	margin-left: 0.5rem;
-	margin-right: 0.5rem;
-}
+/* Annotation     */ {
+		color: var(--bs-success);
+		font-style: italic;
+	}
 
-@media ((min-width: 992px)) {
-	.navbar .nav-item .nav-link {
-		padding-left: 0.5rem;
-		padding-right: 0.5rem;
-		margin-left: 0rem;
-		margin-right: 0rem;
+	pre code span.at
+
+/* Attribute      */ {
+		color: var(--bs-warning-border-subtle);
+	}
+
+	pre code span.bn
+
+/* BaseN          */ {
+		color: var(--bs-warning-border-subtle);
+	}
+
+	pre code span.bu
+
+/* BuiltIn        */ {
+		color: var(--bs-warning-border-subtle);
+	}
+
+	pre code span.cf
+
+/* ControlFlow    */ {
+		color: var(--bs-warning-border-subtle);
+	}
+
+	pre code span.ch
+
+/* Char           */ {
+		color: var(--bs-warning-border-subtle);
+	}
+
+	pre code span.cn
+
+/* Constant       */ {
+		color: var(--bs-warning-border-subtle);
+	}
+
+	pre code span.co
+
+/* Comment        */ {
+		color: var(--bs-success);
+		font-style: italic;
+	}
+
+	pre code span.cv
+
+/* CommentVar     */ {
+		color: var(--bs-success);
+		font-style: italic;
+	}
+
+	pre code span.do
+
+/* Documentation  */ {
+		color: var(--bs-success);
+		font-style: italic;
+	}
+
+	pre code span.dt
+
+/* DataType       */ {
+		color: var(--bs-warning-border-subtle);
+	}
+
+	pre code span.dv
+
+/* DecVal         */ {
+		color: #f5f5f5;
+	}
+
+	pre code span.er
+
+/* Error          */ {
+		border: 1px solid var(--bs-danger-text-emphasis);
+	}
+
+	pre code span.ex
+
+/* Extension      */ {
+		color: var(--bs-warning-border-subtle);
+		font-weight: bold;
+	}
+
+	pre code span.fl
+
+/* Float          */ {
+		color: #f5f5f5;
+	}
+
+	pre code span.fu
+
+/* Function       */ {
+		color: var(--bs-success-text-emphasis);
+	}
+
+	pre code span.im
+
+/* Import         */ {
+		color: var(--bs-warning-border-subtle);
+	}
+
+	pre code span.in
+
+/* Information    */ {
+		color: var(--bs-success-text-emphasis);
+		font-style: italic;
+	}
+
+	pre code span.kw
+
+/* Keyword        */ {
+		color: var(--bs-primary-text-emphasis);
+		font-weight: bold;
+	}
+
+	pre code span.op
+
+/* Operator       */ {
+		color: #f5f5f5;
+	}
+
+	pre code span.ot
+
+/* Others         */ {
+		color: var(--bs-success-text-emphasis);
+	}
+
+	pre code span.pp
+
+/* Preprocessor   */ {
+		color: var(--bs-success-text-emphasis);
+	}
+
+	pre code span.re
+
+/* RegionMarker   */ {
+		color: var(--bs-success-text-emphasis);
+		font-style: italic;
+	}
+
+	pre code span.sc
+
+/* SpecialChar    */ {
+		color: #f5f5f5;
+	}
+
+	pre code span.ss
+
+/* SpecialString  */ {
+		color: var(--bs-success-text-emphasis);
+	}
+
+	pre code span.st
+
+/* String         */ {
+		color: #bb4444;
+	}
+
+	pre code span.va
+
+/* Variable       */ {
+		color: #b8860b;
+	}
+
+	pre code span.vs
+
+/* VerbatimString */ {
+		color: #bb4444;
+	}
+
+	pre code span.wa
+
+/* Warning        */ {
+		border: 1px solid var(--bs-danger-text-emphasis);
 	}
 }
 
-#navbar .dropdown-menu,
-#navbar .form-inline {
-	margin-left: 0.5rem;
-	margin-right: 0.5rem;
-}
+/* Dark reactable */
 
-.navbar small {
-	font-size: 0.75rem;
-	padding-top: 0.65rem;
-	padding-right: 1rem;
-}
-
-.navbar small.text-muted {
-	color: #986dbd !important;
-}
-
-.navbar-nav .active.nav-item {
-	text-decoration: none;
-}
-
-button.nav-link {
-	text-transform: uppercase;
-}
-
-@media ((min-width: 992px)) {
-	.navbar-nav .nav-item > .nav-link {
-		border-top: solid 5px transparent;
+[data-bs-theme="dark"] {
+	.reactable.html-widget {
+		filter: none !important;
 	}
-}
-
-@media ((min-width: 992px)) {
-	.navbar-light .navbar-nav .active > .nav-link {
-		border-top: solid 5px #653d87;
+	.Reactable a {
+		color: #2b8ffd;
 	}
-}
 
-@media ((min-width: 992px)) {
-	.navbar-light .navbar-nav .nav-item > .nav-link:hover,
-	.navbar-light .navbar-nav .nav-item > .nav-link:focus {
-		border-top: solid 5px #986dbd;
+	.Reactable {
+		background-color: var(--bs-body-bg);
+		color: var(--bs-light);
 	}
-}
 
-@media ((max-width: 992px)) {
-	#navbar {
-		padding-top: 0.75rem;
+	.rt-sticky,
+	.rt-tbody,
+	.rt-tr,
+	.rt-tr-group {
+		background-color: inherit;
 	}
-}
 
-@media ((max-width: 992px)) {
-	#navbar ul:first-of-type {
-		border-top: solid 1px #cccccc;
+	.rt-table {
+		border-color: var(--bs-gray-900);
 	}
-}
 
-.navbar-toggler:focus {
-	box-shadow: 0 0 0 0.25rem rgba(152, 109, 189, 0.3);
-}
+	.rt-th {
+		border-bottom: 2px solid var(--bs-gray-900);
+		border-left-color: var(--bs-gray-900);
+	}
 
-/* Section: Misc */
-#toc > .nav a.nav-link.active {
-	color: white;
-	background-color: #986dbd;
-}
+	.rt-td {
+		border-left-color: var(--bs-gray-900);
+		border-top: 1px solid var(--bs-gray-900);
+	}
 
-.logo {
-	display: none;
-}
+	.rt-th-group:after {
+		background-color: var(--bs-gray-900);
+	}
 
-/* Section: specific ros elements and classes */
-.ROSh1 {
-	background: url("texture-bw.png") center center repeat;
-	padding: 20px 0;
-	color: #333333;
-	text-transform: uppercase;
-	font-size: 30px;
-	font-weight: 700;
-	letter-spacing: 0.08em;
-	text-align: center;
-}
+	.rt-tr-striped {
+		background-color: rgba(0, 0, 0, 0.03);
+	}
 
-.ROSh1 img {
-	display: none;
-}
+	.rt-tr-striped-sticky {
+		background-color: var(--bs-gray-900);
+	}
 
-#homelogoxs {
-	height: 24px;
-	display: inline;
-}
+	.rt-tr-highlight:hover {
+		background-color: rgba(0, 0, 0, 0.05);
+	}
 
-#ROS-heading-breadcrumbs {
-	padding-top: 10px;
-	padding-bottom: 1px;
-	font-size: 14px;
-	text-decoration: none;
-	text-transform: none;
-	letter-spacing: 0;
-}
+	.rt-tr-highlight-sticky:hover {
+		background-color: var(--bs-gray);
+	}
+	.rt-td-filter {
+		border-bottom: 1px solid var(--bs-gray-900);
+	}
 
-#ROS-partof {
-	font-weight: 300;
-	color: black;
-}
+	.rt-filter {
+		background-color: var(--bs-gray-900);
+		border: 1px solid var(--bs-gray-900);
+		color: inherit;
+	}
 
-.ROS-light {
-	font-weight: 300;
-}
+	.rt-filter:focus {
+		border: 1px solid var(--bs-gray-900);
+	}
 
-/* Section: Footer */
-/* Position hack to get full width footer even though pkgdown puts it inside a container * See: https://css-tricks.com/full-width-containers-limited-width-parents/ */
-#footer {
-	background: #555555;
-	padding: 50px 0;
-	color: #999999;
-	margin-top: 1rem;
-	margin-bottom: 0;
-}
+	.rt-expander:after {
+		border-top: 7px solid var(--bs-gray-900);
+	}
 
-#footer h1,
-#footer h2,
-#footer h3,
-#footer h4,
-#footer h5,
-#footer h6 {
-	color: #eeeeee;
-}
+	.rt-pagination {
+		border-top: 1px solid var(--bs-gray-900);
+	}
 
-#footer h4 {
-	font-size: 14px;
-	font-weight: 800;
-	text-transform: uppercase;
-	letter-spacing: 0.08em;
-}
+	.rt-page-jump,
+	.rt-page-size-select {
+		background-color: var(--bs-body-bg);
+		border: 1px solid var(--bs-gray-900);
+	}
 
-#copyright {
-	margin: 0;
-	background: #333;
-	color: #ccc;
-	padding: 50px 0;
-	font-size: 12px;
-	line-height: 28px;
-}
+	.rt-page-button:hover {
+		background-color: rgba(0, 0, 0, 0.04);
+	}
 
-/* ---Caption figure--- */
-.caption,
-.figure {
-	color: #6c757d;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 0.5rem;
-	font-size: 85%;
-	width: 100%;
-}
+	.rt-page-button:active {
+		background-color: rgba(0, 0, 0, 0.08);
+	}
 
-blockquote {
-	padding: 10px 20px;
-	margin: 0 0 20px;
-	border-left: 5px solid #986dbd;
+	.rt-keyboard-active .rt-page-button:focus {
+		background-color: rgba(0, 0, 0, 0.04);
+	}
+
+	.rt-page-button:disabled:focus,
+	.rt-page-button:disabled:hover {
+		background-color: transparent;
+	}
+
+	.rt-tbody-no-data .rt-td {
+		border-color: transparent;
+	}
+
+	.rt-search {
+		background-color: var(--bs-gray-900);
+		border: 1px solid var(--bs-gray-900);
+		color: var(--bs-light);
+	}
+
+	.rt-search:active,
+	.rt-search:focus {
+		border: 1px solid var(--bs-gray-900);
+	}
+
+	.rt-borderless .rt-td,
+	.rt-tr-group:first-child > .rt-tr:first-child .rt-td {
+		border-top-color: var(--bs-gray-900);
+	}
 }
