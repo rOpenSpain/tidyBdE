@@ -3,7 +3,10 @@ title: "Series Index"
 date: "`r Sys.Date()`"
 ---
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
+```{r}
+#| message: false
+#| warning: false
+#| include: false
 knitr::opts_chunk$set(
   collapse = TRUE,
   tidy = "styler",
@@ -24,7 +27,11 @@ Use the sequential number below to load a single series (see
 
 ## Series index
 
-```{r reactable, echo=FALSE, warning = FALSE, message=FALSE}
+```{r}
+#| label: reactable
+#| echo: false
+#| warning: false
+#| message: false
 library(tidyBdE)
 library(ggplot2)
 library(dplyr)
@@ -70,7 +77,8 @@ reactable(series_clean,
 
 For searching and extracting a specific series, see the full workflow:
 
-```{r example}
+```{r}
+#| label: example
 library(tidyBdE)
 library(tidyverse)
 

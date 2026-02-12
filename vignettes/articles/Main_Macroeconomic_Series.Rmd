@@ -12,7 +12,8 @@ on information from [Banco de España](https://www.bde.es/).
 
 Last update: **`r format(Sys.Date(),"%d-%B-%Y")`**.
 
-```{r, include = FALSE}
+```{r}
+#| include: false
 knitr::opts_chunk$set(
   collapse = TRUE,
   tidy = "styler",
@@ -42,7 +43,10 @@ br <- seq(nd, Sys.Date(), "6 months")
 
 ### Aggregated (last 4 quarters)
 
-```{r gdp_agg, echo=FALSE, fig.alt="GDP of Spain - Aggregated last 4 quarters"}
+```{r}
+#| label: gdp_agg
+#| echo: false
+#| fig-alt: GDP of Spain - Aggregated last 4 quarters
 dataset <- bde_ind_gdp_quarterly(series_label = "data") |>
   drop_na()
 
@@ -73,7 +77,10 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ### Year-on-year variation
 
-```{r gdpyoy, echo=FALSE, fig.alt="GDP of Spain - Year-on-year variation"}
+```{r}
+#| label: gdpyoy
+#| echo: false
+#| fig-alt: GDP of Spain - Year-on-year variation
 dataset <- bde_ind_gdp_var(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
@@ -102,7 +109,10 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ### GDP per capita
 
-```{r gdppercap, echo=FALSE, fig.alt="GDP per Capita of Spain"}
+```{r}
+#| label: gdppercap
+#| echo: false
+#| fig-alt: GDP per Capita of Spain
 pop <- bde_ind_population(series_label = "pop")
 pib <- bde_ind_gdp_quarterly(series_label = "data")
 
@@ -145,7 +155,10 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ## Unemployment Rate
 
-```{r unempl, echo=FALSE, fig.alt="Unemployment rate"}
+```{r}
+#| label: unempl
+#| echo: false
+#| fig-alt: Unemployment rate
 dataset <- bde_ind_unemployment_rate(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
@@ -174,7 +187,10 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ## Consumer Price Index
 
-```{r cprix, echo=FALSE, fig.alt="Consumer Price Index"}
+```{r}
+#| label: cprix
+#| echo: false
+#| fig-alt: Consumer Price Index
 dataset <- bde_ind_cpi_var(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
@@ -203,7 +219,10 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ## Monthly Euribor
 
-```{r eur, echo=FALSE, fig.alt="Monthly Euribor"}
+```{r}
+#| label: eur
+#| echo: false
+#| fig-alt: Monthly Euribor
 dataset <- bde_ind_euribor_12m_monthly(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
@@ -232,7 +251,10 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ## Population
 
-```{r pop, echo=FALSE, fig.alt="Population in thousands"}
+```{r}
+#| label: pop
+#| echo: false
+#| fig-alt: Population in thousands
 dataset <- bde_ind_population(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()

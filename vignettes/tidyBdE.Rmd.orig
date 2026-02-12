@@ -9,7 +9,8 @@ vignette: >
 
 <!-- tidyBdE.Rmd is generated from tidyBdE.Rmd.orig. Please edit that file -->
 
-```{r, include = FALSE}
+```{r}
+#| include: false
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -40,7 +41,9 @@ institution itself or compiled from other sources, such as
 The basic entry points for searching time-series are the catalogs (*indexes*).
 You can search for any series by name:
 
-```{r search, message = FALSE}
+```{r}
+#| label: search
+#| message: false
 library(tidyBdE)
 
 library(ggplot2)
@@ -64,7 +67,8 @@ obtain results.
 Once you have found your series, you can load the GBP/EUR exchange rate using
 the sequential number reference (`Numero_Secuencial`):
 
-```{r find}
+```{r}
+#| label: find
 seq_number <- xr_gbp |>
   # First record
   slice(1) |>
@@ -87,7 +91,11 @@ time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") |>
 The package also provides a custom **ggplot2** theme based on BdE's
 publications:
 
-```{r chart, eval=TRUE, fig.cap='EUR/GBP Exchange Rate (2010-2020)', fig.asp=0.7}
+```{r}
+#| label: chart
+#| eval: true
+#| fig-cap: EUR/GBP Exchange Rate (2010-2020)
+#| fig-asp: 0.7
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_tidy_palettes(n = 1)) +
   geom_smooth(method = "gam", colour = bde_tidy_palettes(n = 2)[2]) +
@@ -112,7 +120,11 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
 The package also provides convenience functions for a selection of the most
 relevant macroeconomic series, eliminating the need for manual searching:
 
-```{r macroseries, eval=TRUE, fig.asp=0.7, fig.cap = "Spanish Economic Indicators (2010-2019)"}
+```{r}
+#| label: macroseries
+#| eval: true
+#| fig-asp: 0.7
+#| fig-cap: Spanish Economic Indicators (2010-2019)
 # Data in "long" format
 
 plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") |>
@@ -138,7 +150,8 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
 You can use **tidyBdE** to create your own local repository at a given local
 directory passing the following option:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 options(bde_cache_dir = "./path/to/location")
 ```
 
@@ -148,7 +161,8 @@ When this option is set, **tidyBdE** will look for cached files in the
 It is possible to update the data (i.e. after every monthly or quarterly data
 release) with the following commands:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 bde_catalog_update()
 
 # Or use update_cache = TRUE in most functions
