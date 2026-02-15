@@ -16,8 +16,6 @@ knitr:
 
 <!-- README.md is generated from README.qmd. Please edit that file -->
 
-# tidyBdE <img src="man/figures/logo.png" align="right" width="120"/>
-
 # tidyBdE <a href="https://ropenspain.github.io/tidyBdE/"><img src="man/figures/logo.png" alt="tidyBdE website" align="right" height="139"/></a>
 
 <!-- badges: start -->
