@@ -19,7 +19,6 @@
 #'       "(https://www.bde.es/webbe/en/estadisticas/recursos/",
 #'       "descargas-completas.html)."))
 #'
-#'
 #' ```
 #'
 #' @param catalog A single value indicating the catalogs to be updated or
@@ -223,7 +222,6 @@ bde_catalog_load <- function(
 #'       "(https://www.bde.es/webbe/en/estadisticas/recursos/",
 #'       "descargas-completas.html)."))
 #'
-#'
 #' ```
 #'
 #' @param catalog A vector of characters indicating the catalogs to be updated
@@ -327,7 +325,7 @@ bde_catalog_update <- function(
 #'
 #' @export
 #'
-#' @family  catalog
+#' @family catalog
 #'
 #' @return A [tibble][tibble::tbl_df] object with the results of the query.
 #'

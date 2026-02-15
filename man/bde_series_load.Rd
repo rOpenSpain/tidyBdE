@@ -106,7 +106,6 @@ wide <- bde_series_load(c(573234, 573214),
 # Wide format
 wide
 
-
 # Long format
 long <- bde_series_load(c(573234, 573214),
   series_label = c("US/EUR", "GBP/EUR"),
@@ -115,10 +114,8 @@ long <- bde_series_load(c(573234, 573214),
 
 long
 
-
 # Use with ggplot
 library(ggplot2)
-
 
 ggplot(long, aes(Date, serie_value)) +
   geom_line(aes(group = serie_name, color = serie_name)) +

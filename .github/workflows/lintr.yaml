@@ -27,7 +27,7 @@ on:
     workflows: [update-docs]
     types: completed
     branches: [main, master]
- 
+
 permissions:
   contents: read
 

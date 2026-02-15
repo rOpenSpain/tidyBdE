@@ -1,5 +1,16 @@
 url: https://ropenspain.github.io/tidyBdE/
 
+template:
+  bootstrap: 5
+  package: rostemplate
+  params:
+    ganalytics: "G-CW2RTVRRVF"
+  opengraph:
+    twitter:
+      site: "@rOpenSpain"
+      creator: "@dhernangomez"
+      card: summary_large_image
+
 development:
   mode: auto
 
@@ -38,20 +49,10 @@ reference:
   contents:
   - tidyBdE-package
 
-template:
-  bootstrap: 5
-  package: rostemplate
-  params:
-    ganalytics: "G-CW2RTVRRVF"
-  opengraph:
-    image:
-      src: https://ropenspain.github.io/tidyBdE/reference/figures/README-chart-1.png
-      alt: "tidyBdE R package"
-    twitter:
-      site: "@rOpenSpain"
-      creator: "@dhernangomez"
-      card: summary_large_image
-
 authors:
   Banco de España:
     href: "https://www.bde.es/"
+
+redirects:
+  - ["articles/Main_Macroeconomic_Series.html", "articles/mainseries.html"]
+  - ["articles/articles/Series_Index.html", "articles/seriesindex.html"]

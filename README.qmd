@@ -52,12 +52,11 @@ Install **tidyBdE** from [**CRAN**](https://CRAN.R-project.org/package=tidyBdE):
 #| eval: false
 install.packages("tidyBdE")
 ```
-
 :::
 
 ::: pkgdown-devel
-Check the docs of the developing version
-in <https://ropenspain.github.io/tidyBdE/dev/>.
+Check the docs of the developing version in
+<https://ropenspain.github.io/tidyBdE/dev/>.
 
 You can install the developing version of **tidyBdE** with:
 
@@ -72,12 +71,14 @@ Alternatively, you can install the development version of **tidyBdE** using the
 ```{r}
 #| eval: false
 # Install tidyBdE in R:
-install.packages("tidyBdE", repos = c(
-  "https://ropenspain.r-universe.dev",
-  "https://cloud.r-project.org"
-))
+install.packages(
+  "tidyBdE",
+  repos = c(
+    "https://ropenspain.r-universe.dev",
+    "https://cloud.r-project.org"
+  )
+)
 ```
-
 :::
 
 ## Examples
@@ -91,14 +92,13 @@ information. You can search any series by name:
 
 ```{r}
 #| label: search
-#| message: false
+#| results: false
 library(tidyBdE)
 
 # Load tidyverse for better handling
 library(ggplot2)
 library(dplyr)
 library(tidyr)
-
 
 # Search GBP on "TC" (exchange rate) catalog
 xr_gbp <- bde_catalog_search("GBP", catalog = "TC")
@@ -107,6 +107,16 @@ xr_gbp |>
   select(Numero_secuencial, Descripcion_de_la_serie) |>
   # To table on document
   knitr::kable()
+```
+
+```{r}
+#| echo: false
+#| results: asis
+xr_gbp |>
+  select(Numero_secuencial, Descripcion_de_la_serie) |>
+  # To table on document
+  knitr::kable()
+cat("<p class=\"caption\">Table 1: Search results</p>")
 ```
 
 **Note that BdE files are currently only provided in Spanish.** The institution
@@ -130,6 +140,8 @@ seq_number <- xr_gbp |>
 time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") |>
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") |>
   drop_na()
+
+time_series
 ```
 
 ### Plots
@@ -206,8 +218,8 @@ directory by passing the following option:
 options(bde_cache_dir = "./path/to/location")
 ```
 
-When this option is set, **tidyBdE** looks for the cached file in the
-`bde_cache_dir` directory and loads it, speeding up the process.
+When this option is set, **tidyBdE** looks for cached files in the
+`bde_cache_dir` directory and loads them, speeding up the process.
 
 It is possible to update the data (i.e. after every monthly or quarterly data
 release) with the following commands:

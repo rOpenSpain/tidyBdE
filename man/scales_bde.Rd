@@ -82,7 +82,6 @@ ggplot(txsamp, aes(x = sales, y = median)) +
   scale_color_bde_d() +
   theme_minimal()
 
-
 ggplot(txsamp, aes(x = sales, y = median)) +
   geom_point(aes(colour = city)) +
   scale_color_bde_d("bde_qual_pal") +

@@ -5,7 +5,6 @@
 #'
 #' @family bde_plot
 #'
-#'
 #' @return A vector of colors.
 #'
 #' @export

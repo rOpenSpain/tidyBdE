@@ -8,9 +8,7 @@
 #'
 #' Custom palettes based on the publications of BdE.
 #'
-#'
 #' @return A palette of colors.
-#'
 #'
 #' @param ... Further arguments of the functions.
 #'

@@ -11,7 +11,6 @@ test_that("Max value", {
   expect_identical(ok, nmore)
 })
 
-
 test_that("Switch pal", {
   ok <- bde_tidy_palettes(n = 6)
   other <- bde_tidy_palettes(n = 6, palette = "bde_rose_pal")

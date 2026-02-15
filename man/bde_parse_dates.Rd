@@ -20,7 +20,7 @@ checking which formats would be considered.
    \strong{FREQUENCY} \tab \strong{FORMAT} \tab \strong{EXAMPLES} \cr
    \strong{Daily / Business day} \tab DD MMMMYYYY \tab \emph{02 FEB2019} \cr
    \strong{Monthly} \tab MMM YYYY \tab \emph{MAR 2020} \cr
-   \strong{Quarterly} \tab MMM YYYY, where MMM is the first  or the last month of the quarter, depending on the value of its variable OBSERVED. \tab For the first quarter of 2020: \emph{ENE 2020, MAR 2020} \cr
+   \strong{Quarterly} \tab MMM YYYY, where MMM is the first or the last month of the quarter, depending on the value of its variable OBSERVED. \tab For the first quarter of 2020: \emph{ENE 2020, MAR 2020} \cr
    \strong{Half-yearly} \tab MMM YYYY, where MMM is the first or the last month of the halfyear period, depending on the value of its variable OBSERVED. \tab For the first half of 2020: \emph{ENE 2020, JUN 2020} \cr
    \strong{Annual} \tab YYYY \tab \emph{2020} \cr
 }

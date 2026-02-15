@@ -1,5 +1,7 @@
 ---
 title: "Get started with tidyBdE"
+description: Introduction to tidyBdE
+tbl-cap-location: bottom
 vignette: >
   %\VignetteIndexEntry{Get started with tidyBdE}
   %\VignetteEngine{quarto::html}
@@ -25,10 +27,10 @@ knitr::opts_chunk$set(
 library(tidyBdE)
 ```
 
-**tidyBdE** is an API package that helps to retrieve data from [Banco de
+**tidyBdE** is an API package that retrieves data from [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
 The data is returned as a [tibble](https://tibble.tidyverse.org/), and the
-package automatically infers the format of each time-series (dates, characters,
+package automatically detects the format of each time-series (dates, characters,
 and numbers).
 
 ## Search series
@@ -42,13 +44,12 @@ You can search for any series by name:
 
 ```{r}
 #| label: search
-#| message: false
+#| results: false
 library(tidyBdE)
 
 library(ggplot2)
 library(dplyr)
 library(tidyr)
-
 
 # Search GBP on "TC" (exchange rate) catalog
 xr_gbp <- bde_catalog_search("GBP", catalog = "TC")
@@ -59,8 +60,21 @@ xr_gbp |>
   knitr::kable()
 ```
 
+::: {#tbl-search}
+
+```{r}
+#| echo: false
+xr_gbp |>
+  select(Numero_secuencial, Descripcion_de_la_serie) |>
+  # To table on document
+  knitr::kable()
+```
+Search results
+
+:::
+
 **Note:** BdE files are currently provided only in Spanish, as the institution
-works on an English version. Search terms should be provided in Spanish to
+is working on an English version. Search terms should be provided in Spanish to
 obtain results.
 
 Once you have found your series, you can load the GBP/EUR exchange rate using
@@ -83,6 +97,8 @@ seq_number
 time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") |>
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") |>
   drop_na()
+
+time_series
 ```
 
 ## Plot series
@@ -93,7 +109,7 @@ publications:
 ```{r}
 #| label: chart
 #| eval: true
-#| fig-cap: EUR/GBP Exchange Rate (2010-2020)
+#| fig-cap: "Figure 1: EUR/GBP Exchange Rate (2010-2020)"
 #| fig-asp: 0.7
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_tidy_palettes(n = 1)) +
@@ -123,7 +139,7 @@ relevant macroeconomic series, eliminating the need for manual searching:
 #| label: macroseries
 #| eval: true
 #| fig-asp: 0.7
-#| fig-cap: Spanish Economic Indicators (2010-2019)
+#| fig-cap: "Figure 2: Spanish Economic Indicators (2010-2019)"
 # Data in "long" format
 
 plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") |>
@@ -146,8 +162,8 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
 
 ## A note on caching
 
-You can use **tidyBdE** to create your own local repository at a given local
-directory passing the following option:
+You can use **tidyBdE** to create your own local repository in a given local
+directory by passing the following option:
 
 ```{r}
 #| eval: false

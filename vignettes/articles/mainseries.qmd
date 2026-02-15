@@ -1,5 +1,6 @@
 ---
-title: "Main Macroeconomic Series"
+title: "Main macroeconomic series"
+description: Main indicators of Spain up to date.
 date: "`r Sys.Date()`"
 knitr:
   opts_chunk:
@@ -24,7 +25,6 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-
 col <- bde_tidy_palettes(1, "bde_rose_pal")
 date <- Sys.Date()
 ny <- as.numeric(format(date, format = "%Y")) - 6
@@ -44,8 +44,10 @@ br <- seq(nd, Sys.Date(), "6 months")
 dataset <- bde_ind_gdp_quarterly(series_label = "data") |>
   drop_na()
 
-dataset$LastY <- dataset$data + lag(dataset$data, 1) +
-  lag(dataset$data, 2) + lag(dataset$data, 3)
+dataset$LastY <- dataset$data +
+  lag(dataset$data, 1) +
+  lag(dataset$data, 2) +
+  lag(dataset$data, 3)
 
 dataset <- dataset |>
   filter(Date >= nd) |>
@@ -78,7 +80,6 @@ ggplot(dataset, aes(x = Date, y = data)) +
 dataset <- bde_ind_gdp_var(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
-
 
 l <- dataset[nrow(dataset), ]
 
@@ -121,7 +122,6 @@ dataset <- pib |>
   filter(Date >= nd) |>
   drop_na()
 
-
 l <- dataset[nrow(dataset), ]
 
 ggplot(dataset, aes(x = Date, y = data)) +
@@ -129,10 +129,13 @@ ggplot(dataset, aes(x = Date, y = data)) +
   geom_text(
     data = l,
     size = 3,
-    aes(label = paste(
-      x = prettyNum(data, big.mark = " "),
-      "€\n", format(Date, "%b-%Y")
-    ))
+    aes(
+      label = paste(
+        x = prettyNum(data, big.mark = " "),
+        "€\n",
+        format(Date, "%b-%Y")
+      )
+    )
   ) +
   labs(
     title = "GDP per capita of Spain",
@@ -156,7 +159,6 @@ ggplot(dataset, aes(x = Date, y = data)) +
 dataset <- bde_ind_unemployment_rate(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
-
 
 l <- dataset[nrow(dataset), ]
 
@@ -189,7 +191,6 @@ dataset <- bde_ind_cpi_var(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
 
-
 l <- dataset[nrow(dataset), ]
 
 ggplot(dataset, aes(x = Date, y = data)) +
@@ -220,7 +221,6 @@ ggplot(dataset, aes(x = Date, y = data)) +
 dataset <- bde_ind_euribor_12m_monthly(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
-
 
 l <- dataset[nrow(dataset), ]
 
@@ -253,7 +253,6 @@ dataset <- bde_ind_population(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
 
-
 l <- dataset[nrow(dataset), ]
 
 ggplot(dataset, aes(x = Date, y = data)) +
@@ -261,10 +260,13 @@ ggplot(dataset, aes(x = Date, y = data)) +
   geom_text(
     data = l,
     size = 3,
-    aes(label = paste(
-      x = prettyNum(data, big.mark = " "),
-      "\n", format(Date, "%b-%Y")
-    ))
+    aes(
+      label = paste(
+        x = prettyNum(data, big.mark = " "),
+        "\n",
+        format(Date, "%b-%Y")
+      )
+    )
   ) +
   labs(
     title = "Population of Spain",
