@@ -1,10 +1,16 @@
 ---
 title: "Main Macroeconomic Series"
 date: "`r Sys.Date()`"
-output:
-  html_document:
-    toc: yes
-    toc_depth: 2
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: '#>'
+    warning: false
+    message: false
+    tidy: "styler"
+    dev: "ragg_png"
+    dpi: 300
+    out.width: "100%"
 ---
 
 This article shows the evolution of selected economic indicators of Spain, based
@@ -13,17 +19,6 @@ on information from [Banco de España](https://www.bde.es/).
 Last update: **`r format(Sys.Date(),"%d-%B-%Y")`**.
 
 ```{r}
-#| include: false
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  tidy = "styler",
-  comment = "#>",
-  warning = FALSE,
-  message = FALSE,
-  dev = "ragg_png",
-  dpi = 300,
-  out.width = "100%"
-)
 
 library(tidyBdE)
 library(ggplot2)
@@ -44,9 +39,9 @@ br <- seq(nd, Sys.Date(), "6 months")
 ### Aggregated (last 4 quarters)
 
 ```{r}
-#| label: gdp_agg
+#| label: fig-gdp_agg
 #| echo: false
-#| fig-alt: GDP of Spain - Aggregated last 4 quarters
+#| fig-cap: GDP of Spain - Aggregated last 4 quarters
 dataset <- bde_ind_gdp_quarterly(series_label = "data") |>
   drop_na()
 
@@ -78,9 +73,9 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ### Year-on-year variation
 
 ```{r}
-#| label: gdpyoy
+#| label: fig-gdpyoy
 #| echo: false
-#| fig-alt: GDP of Spain - Year-on-year variation
+#| fig-cap: GDP of Spain - Year-on-year variation
 dataset <- bde_ind_gdp_var(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
@@ -110,9 +105,9 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ### GDP per capita
 
 ```{r}
-#| label: gdppercap
+#| label: fig-gdppercap
 #| echo: false
-#| fig-alt: GDP per Capita of Spain
+#| fig-cap: GDP per Capita of Spain
 pop <- bde_ind_population(series_label = "pop")
 pib <- bde_ind_gdp_quarterly(series_label = "data")
 
@@ -156,9 +151,9 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ## Unemployment Rate
 
 ```{r}
-#| label: unempl
+#| label: fig-unempl
 #| echo: false
-#| fig-alt: Unemployment rate
+#| fig-cap: Unemployment rate
 dataset <- bde_ind_unemployment_rate(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
@@ -188,9 +183,9 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ## Consumer Price Index
 
 ```{r}
-#| label: cprix
+#| label: fig-cprix
 #| echo: false
-#| fig-alt: Consumer Price Index
+#| fig-cap: Consumer Price Index
 dataset <- bde_ind_cpi_var(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
@@ -220,9 +215,9 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ## Monthly Euribor
 
 ```{r}
-#| label: eur
+#| label: fig-eur
 #| echo: false
-#| fig-alt: Monthly Euribor
+#| fig-cap: Monthly Euribor
 dataset <- bde_ind_euribor_12m_monthly(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
@@ -252,9 +247,9 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ## Population
 
 ```{r}
-#| label: pop
+#| label: fig-pop
 #| echo: false
-#| fig-alt: Population in thousands
+#| fig-cap: Population in thousands
 dataset <- bde_ind_population(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()

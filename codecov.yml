@@ -1,2 +1,25 @@
 codecov:
-  token: ebd5e3f5-b5e5-4a82-8e65-e347d1392d38
+  branch: main
+  bot: dieghernan-codecov
+  require_ci_to_pass: false
+
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 5%
+        paths:
+        - R/
+        - tests/
+    patch:
+      default:
+        target: auto
+        threshold: 1%
+ignore:
+- data-raw/
+- inst/
+- vignettes/
+
+github_checks:
+  annotations: true

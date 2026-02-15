@@ -27,10 +27,10 @@ Imports:
 Suggests: 
     knitr,
     lifecycle,
-    rmarkdown,
+    quarto,
     testthat (>= 3.0.0)
 VignetteBuilder: 
-    knitr
+    quarto
 Config/Needs/coverage: covr
 Config/Needs/website: cpp11, devtools, progress, reactable, remotes,
     styler, tidyverse, ropenspain/rostemplate

@@ -1,23 +1,17 @@
 ---
 title: "Series Index"
 date: "`r Sys.Date()`"
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: '#>'
+    warning: false
+    message: false
+    tidy: "styler"
+    dev: "ragg_png"
+    dpi: 300
+    out.width: "100%"
 ---
-
-```{r}
-#| message: false
-#| warning: false
-#| include: false
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  tidy = "styler",
-  comment = "#>",
-  warning = FALSE,
-  message = FALSE,
-  dev = "ragg_png",
-  dpi = 300,
-  out.width = "100%"
-)
-```
 
 The following table shows the series available in the catalog (Last update:
 **`r format(Sys.Date(),"%d-%B-%Y")`**).
@@ -30,8 +24,6 @@ Use the sequential number below to load a single series (see
 ```{r}
 #| label: reactable
 #| echo: false
-#| warning: false
-#| message: false
 library(tidyBdE)
 library(ggplot2)
 library(dplyr)

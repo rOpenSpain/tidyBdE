@@ -1,25 +1,24 @@
 ---
-output: github_document
+format: gfm
+default-image-extension: ''
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: "#>"
+    warning: false
+    message: false
+    dev: "ragg_png"
+    tidy: "styler"
+    fig.path: "man/figures/README-"
+    dpi: 300
+    out.width: "100%"
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r}
-#| include: false
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  tidy = "styler",
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  warning = FALSE,
-  message = FALSE,
-  dev = "ragg_png",
-  dpi = 300,
-  out.width = "100%"
-)
-```
+<!-- README.md is generated from README.qmd. Please edit that file -->
 
 # tidyBdE <img src="man/figures/logo.png" align="right" width="120"/>
+
+# tidyBdE <a href="https://ropenspain.github.io/tidyBdE/"><img src="man/figures/logo.png" alt="tidyBdE website" align="right" height="139"/></a>
 
 <!-- badges: start -->
 
@@ -48,6 +47,7 @@ and numbers).
 
 ## Installation
 
+::: pkgdown-release
 Install **tidyBdE** from [**CRAN**](https://CRAN.R-project.org/package=tidyBdE):
 
 ```{r}
@@ -55,7 +55,13 @@ Install **tidyBdE** from [**CRAN**](https://CRAN.R-project.org/package=tidyBdE):
 install.packages("tidyBdE")
 ```
 
-You can install the development version of **tidyBdE** with:
+:::
+
+::: pkgdown-devel
+Check the docs of the developing version
+in <https://ropenspain.github.io/tidyBdE/dev/>.
+
+You can install the developing version of **tidyBdE** with:
 
 ```{r}
 #| eval: false
@@ -73,6 +79,8 @@ install.packages("tidyBdE", repos = c(
   "https://cloud.r-project.org"
 ))
 ```
+
+:::
 
 ## Examples
 
@@ -133,7 +141,7 @@ The package also provides a custom **ggplot2** theme based on BdE publications:
 ```{r}
 #| label: chart
 #| fig-asp: 0.7
-#| fig-alt: EUR/GBP Exchange Rate (2010-2020)
+#| fig-cap: EUR/GBP Exchange Rate (2010-2020)
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_tidy_palettes(n = 1)) +
   geom_smooth(method = "gam", colour = bde_tidy_palettes(n = 2)[2]) +
@@ -162,7 +170,7 @@ advance:
 ```{r}
 #| label: macroseries
 #| fig-asp: 0.7
-#| fig-alt: Spanish Economic Indicators (2010-2019)
+#| fig-cap: Spanish Economic Indicators (2010-2019)
 # Data in "long" format
 
 plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") |>
