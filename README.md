@@ -1,7 +1,10 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+<!-- README.md is generated from README.qmd. Please edit that file -->
 
 # tidyBdE <img src="man/figures/logo.png" align="right" width="120"/>
+
+# tidyBdE <a href="https://ropenspain.github.io/tidyBdE/"><img src="man/figures/logo.png" alt="tidyBdE website" align="right" height="139"/></a>
 
 <!-- badges: start -->
 
@@ -30,6 +33,8 @@ characters, and numbers).
 
 ## Installation
 
+<div class="pkgdown-release">
+
 Install **tidyBdE** from
 [**CRAN**](https://CRAN.R-project.org/package=tidyBdE):
 
@@ -37,7 +42,14 @@ Install **tidyBdE** from
 install.packages("tidyBdE")
 ```
 
-You can install the development version of **tidyBdE** with:
+</div>
+
+<div class="pkgdown-devel">
+
+Check the docs of the developing version in
+<https://ropenspain.github.io/tidyBdE/dev/>.
+
+You can install the developing version of **tidyBdE** with:
 
 ``` r
 remotes::install_github("ropenspain/tidyBdE")
@@ -53,6 +65,8 @@ install.packages("tidyBdE", repos = c(
   "https://cloud.r-project.org"
 ))
 ```
+
+</div>
 
 ## Examples
 
@@ -81,9 +95,9 @@ xr_gbp |>
   knitr::kable()
 ```
 
-| Numero_secuencial | Descripcion_de_la_serie                                            |
-|------------------:|:-------------------------------------------------------------------|
-|            573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+| Numero_secuencial | Descripcion_de_la_serie |
+|---:|:---|
+| 573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
 
 **Note that BdE files are currently only provided in Spanish.** The
 institution is working on the English version. For now, search terms
@@ -135,7 +149,8 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   theme_tidybde()
 ```
 
-<img src="man/figures/README-chart-1.png" alt="EUR/GBP Exchange Rate (2010-2020)" width="100%" />
+<img src="man/figures/README-chart-1.png" style="width:100.0%"
+alt="EUR/GBP Exchange Rate (2010-2020)" />
 
 The package also provides several “shortcut” functions for a selection
 of relevant macroeconomic series, so there is no need to search for them
@@ -162,7 +177,8 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
   scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
 ```
 
-<img src="man/figures/README-macroseries-1.png" alt="Spanish Economic Indicators (2010-2019)" width="100%" />
+<img src="man/figures/README-macroseries-1.png" style="width:100.0%"
+alt="Spanish Economic Indicators (2010-2019)" />
 
 ### Palettes
 
@@ -204,6 +220,7 @@ de España.
 ## Citation
 
 <p>
+
 H. Herrero D (2026). <em>tidyBdE: Download Data from Bank of Spain</em>.
 <a href="https://doi.org/10.32614/CRAN.package.tidyBdE">doi:10.32614/CRAN.package.tidyBdE</a>,
 <a href="https://ropenspain.github.io/tidyBdE/">https://ropenspain.github.io/tidyBdE/</a>.

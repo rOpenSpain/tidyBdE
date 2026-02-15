@@ -1,4 +1,4 @@
-*.html
-*.R
 /.quarto/
 *_files
+*.html
+*.R

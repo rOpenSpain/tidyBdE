@@ -19,7 +19,6 @@ on information from [Banco de España](https://www.bde.es/).
 Last update: **`r format(Sys.Date(),"%d-%B-%Y")`**.
 
 ```{r}
-
 library(tidyBdE)
 library(ggplot2)
 library(dplyr)
