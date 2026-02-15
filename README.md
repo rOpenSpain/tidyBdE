@@ -1,7 +1,8 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# tidyBdE <img src="man/figures/logo.png" align="right" width="120"/>
+<!-- README.md is generated from README.qmd. Please edit that file -->
+
+# tidyBdE <a href="https://ropenspain.github.io/tidyBdE/"><img src="man/figures/logo.png" alt="tidyBdE website" align="right" height="139"/></a>
 
 <!-- badges: start -->
 
@@ -30,6 +31,8 @@ characters, and numbers).
 
 ## Installation
 
+<div class="pkgdown-release">
+
 Install **tidyBdE** from
 [**CRAN**](https://CRAN.R-project.org/package=tidyBdE):
 
@@ -37,7 +40,14 @@ Install **tidyBdE** from
 install.packages("tidyBdE")
 ```
 
-You can install the development version of **tidyBdE** with:
+</div>
+
+<div class="pkgdown-devel">
+
+Check the docs of the developing version in
+<https://ropenspain.github.io/tidyBdE/dev/>.
+
+You can install the developing version of **tidyBdE** with:
 
 ``` r
 remotes::install_github("ropenspain/tidyBdE")
@@ -48,11 +58,16 @@ using the [r-universe](https://ropenspain.r-universe.dev/tidyBdE):
 
 ``` r
 # Install tidyBdE in R:
-install.packages("tidyBdE", repos = c(
-  "https://ropenspain.r-universe.dev",
-  "https://cloud.r-project.org"
-))
+install.packages(
+  "tidyBdE",
+  repos = c(
+    "https://ropenspain.r-universe.dev",
+    "https://cloud.r-project.org"
+  )
+)
 ```
+
+</div>
 
 ## Examples
 
@@ -71,7 +86,6 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-
 # Search GBP on "TC" (exchange rate) catalog
 xr_gbp <- bde_catalog_search("GBP", catalog = "TC")
 
@@ -81,9 +95,14 @@ xr_gbp |>
   knitr::kable()
 ```
 
-| Numero_secuencial | Descripcion_de_la_serie                                            |
-|------------------:|:-------------------------------------------------------------------|
-|            573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+| Numero_secuencial | Descripcion_de_la_serie |
+|---:|:---|
+| 573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+
+<p class="caption">
+
+Table 1: Search results
+</p>
 
 **Note that BdE files are currently only provided in Spanish.** The
 institution is working on the English version. For now, search terms
@@ -106,6 +125,22 @@ seq_number <- xr_gbp |>
 time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") |>
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") |>
   drop_na()
+
+time_series
+#> # A tibble: 2,816 × 2
+#>    Date       EUR_GBP_XR
+#>    <date>          <dbl>
+#>  1 2010-01-04      0.891
+#>  2 2010-01-05      0.900
+#>  3 2010-01-06      0.899
+#>  4 2010-01-07      0.900
+#>  5 2010-01-08      0.893
+#>  6 2010-01-11      0.899
+#>  7 2010-01-12      0.897
+#>  8 2010-01-13      0.895
+#>  9 2010-01-14      0.890
+#> 10 2010-01-15      0.881
+#> # ℹ 2,806 more rows
 ```
 
 ### Plots
@@ -135,7 +170,8 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   theme_tidybde()
 ```
 
-<img src="man/figures/README-chart-1.png" alt="EUR/GBP Exchange Rate (2010-2020)" width="100%" />
+<img src="man/figures/README-chart-1.png" style="width:100.0%"
+alt="EUR/GBP Exchange Rate (2010-2020)" />
 
 The package also provides several “shortcut” functions for a selection
 of relevant macroeconomic series, so there is no need to search for them
@@ -162,7 +198,8 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
   scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
 ```
 
-<img src="man/figures/README-macroseries-1.png" alt="Spanish Economic Indicators (2010-2019)" width="100%" />
+<img src="man/figures/README-macroseries-1.png" style="width:100.0%"
+alt="Spanish Economic Indicators (2010-2019)" />
 
 ### Palettes
 
@@ -182,8 +219,8 @@ local directory by passing the following option:
 options(bde_cache_dir = "./path/to/location")
 ```
 
-When this option is set, **tidyBdE** looks for the cached file in the
-`bde_cache_dir` directory and loads it, speeding up the process.
+When this option is set, **tidyBdE** looks for cached files in the
+`bde_cache_dir` directory and loads them, speeding up the process.
 
 It is possible to update the data (i.e. after every monthly or quarterly
 data release) with the following commands:
@@ -204,6 +241,7 @@ de España.
 ## Citation
 
 <p>
+
 H. Herrero D (2026). <em>tidyBdE: Download Data from Bank of Spain</em>.
 <a href="https://doi.org/10.32614/CRAN.package.tidyBdE">doi:10.32614/CRAN.package.tidyBdE</a>,
 <a href="https://ropenspain.github.io/tidyBdE/">https://ropenspain.github.io/tidyBdE/</a>.
@@ -216,7 +254,7 @@ A BibTeX entry for LaTeX users is
       doi = {10.32614/CRAN.package.tidyBdE},
       author = {Diego {H. Herrero}},
       year = {2026},
-      version = {0.5.0},
+      version = {0.5.0.9000},
       url = {https://ropenspain.github.io/tidyBdE/},
       abstract = {Tools to download data series from Banco de España (BdE) on tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by Banco de España.},
     }

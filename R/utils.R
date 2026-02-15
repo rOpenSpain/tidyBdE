@@ -26,7 +26,7 @@
 #'   "**Daily / Business day**", "DD MMMMYYYY", "*02 FEB2019*",
 #'   "**Monthly**", "MMM YYYY", "*MAR 2020*",
 #'   "**Quarterly**", paste(
-#'     "MMM YYYY, where MMM is the first ",
+#'     "MMM YYYY, where MMM is the first",
 #'     "or the last month of the",
 #'     "quarter, depending on the value of",
 #'     "its variable OBSERVED."

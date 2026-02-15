@@ -1,6 +1,6 @@
 Package: tidyBdE
 Title: Download Data from Bank of Spain
-Version: 0.5.0
+Version: 0.5.0.9000
 Authors@R: 
     person("Diego", "H. Herrero", , "dev.dieghernan@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658"))
@@ -27,10 +27,10 @@ Imports:
 Suggests: 
     knitr,
     lifecycle,
-    rmarkdown,
+    quarto,
     testthat (>= 3.0.0)
 VignetteBuilder: 
-    knitr
+    quarto
 Config/Needs/coverage: covr
 Config/Needs/website: cpp11, devtools, progress, reactable, remotes,
     styler, tidyverse, ropenspain/rostemplate

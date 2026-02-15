@@ -1,24 +1,22 @@
 ---
-output: github_document
+format: gfm
+default-image-extension: ''
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: "#>"
+    warning: false
+    message: false
+    dev: "ragg_png"
+    tidy: "styler"
+    fig.path: "man/figures/README-"
+    dpi: 300
+    out.width: "100%"
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- README.md is generated from README.qmd. Please edit that file -->
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  tidy = "styler",
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  warning = FALSE,
-  message = FALSE,
-  dev = "ragg_png",
-  dpi = 300,
-  out.width = "100%"
-)
-```
-
-# tidyBdE <img src="man/figures/logo.png" align="right" width="120"/>
+# tidyBdE <a href="https://ropenspain.github.io/tidyBdE/"><img src="man/figures/logo.png" alt="tidyBdE website" align="right" height="139"/></a>
 
 <!-- badges: start -->
 
@@ -47,28 +45,41 @@ and numbers).
 
 ## Installation
 
+::: pkgdown-release
 Install **tidyBdE** from [**CRAN**](https://CRAN.R-project.org/package=tidyBdE):
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 install.packages("tidyBdE")
 ```
+:::
 
-You can install the development version of **tidyBdE** with:
+::: pkgdown-devel
+Check the docs of the developing version in
+<https://ropenspain.github.io/tidyBdE/dev/>.
 
-```{r, eval = FALSE}
+You can install the developing version of **tidyBdE** with:
+
+```{r}
+#| eval: false
 remotes::install_github("ropenspain/tidyBdE")
 ```
 
 Alternatively, you can install the development version of **tidyBdE** using the
 [r-universe](https://ropenspain.r-universe.dev/tidyBdE):
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 # Install tidyBdE in R:
-install.packages("tidyBdE", repos = c(
-  "https://ropenspain.r-universe.dev",
-  "https://cloud.r-project.org"
-))
+install.packages(
+  "tidyBdE",
+  repos = c(
+    "https://ropenspain.r-universe.dev",
+    "https://cloud.r-project.org"
+  )
+)
 ```
+:::
 
 ## Examples
 
@@ -79,14 +90,15 @@ institution itself or compiled from other sources, such as
 The basic entry point for searching time-series is the catalogs (*indexes*) of
 information. You can search any series by name:
 
-```{r search, message=FALSE}
+```{r}
+#| label: search
+#| results: false
 library(tidyBdE)
 
 # Load tidyverse for better handling
 library(ggplot2)
 library(dplyr)
 library(tidyr)
-
 
 # Search GBP on "TC" (exchange rate) catalog
 xr_gbp <- bde_catalog_search("GBP", catalog = "TC")
@@ -97,6 +109,16 @@ xr_gbp |>
   knitr::kable()
 ```
 
+```{r}
+#| echo: false
+#| results: asis
+xr_gbp |>
+  select(Numero_secuencial, Descripcion_de_la_serie) |>
+  # To table on document
+  knitr::kable()
+cat("<p class=\"caption\">Table 1: Search results</p>")
+```
+
 **Note that BdE files are currently only provided in Spanish.** The institution
 is working on the English version. For now, search terms must be provided in
 Spanish to retrieve results.
@@ -104,7 +126,8 @@ Spanish to retrieve results.
 After we have found our series, we can load the series for the GBP/EUR exchange
 rate using the sequential number reference (`Numero_Secuencial`) as:
 
-```{r find}
+```{r}
+#| label: find
 seq_number <- xr_gbp |>
   # First record
   slice(1) |>
@@ -117,13 +140,18 @@ seq_number <- xr_gbp |>
 time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") |>
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") |>
   drop_na()
+
+time_series
 ```
 
 ### Plots
 
 The package also provides a custom **ggplot2** theme based on BdE publications:
 
-```{r chart, fig.asp=0.7, fig.alt="EUR/GBP Exchange Rate (2010-2020)"}
+```{r}
+#| label: chart
+#| fig-asp: 0.7
+#| fig-cap: EUR/GBP Exchange Rate (2010-2020)
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_tidy_palettes(n = 1)) +
   geom_smooth(method = "gam", colour = bde_tidy_palettes(n = 2)[2]) +
@@ -149,7 +177,10 @@ The package also provides several "shortcut" functions for a selection of
 relevant macroeconomic series, so there is no need to search for them in
 advance:
 
-```{r macroseries, fig.asp=0.7, fig.alt="Spanish Economic Indicators (2010-2019)"}
+```{r}
+#| label: macroseries
+#| fig-asp: 0.7
+#| fig-cap: Spanish Economic Indicators (2010-2019)
 # Data in "long" format
 
 plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") |>
@@ -187,13 +218,14 @@ directory by passing the following option:
 options(bde_cache_dir = "./path/to/location")
 ```
 
-When this option is set, **tidyBdE** looks for the cached file in the
-`bde_cache_dir` directory and loads it, speeding up the process.
+When this option is set, **tidyBdE** looks for cached files in the
+`bde_cache_dir` directory and loads them, speeding up the process.
 
 It is possible to update the data (i.e. after every monthly or quarterly data
 release) with the following commands:
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 bde_catalog_update()
 
 # On most of the functions using the option update_cache = TRUE
@@ -208,12 +240,16 @@ España.
 
 ## Citation
 
-```{r echo=FALSE, results='asis'}
+```{r}
+#| echo: false
+#| results: asis
 print(citation("tidyBdE"), style = "html")
 ```
 
 A BibTeX entry for LaTeX users is
 
-```{r echo=FALSE, comment=""}
+```{r}
+#| echo: false
+#| comment: ''
 toBibtex(citation("tidyBdE"))
 ```

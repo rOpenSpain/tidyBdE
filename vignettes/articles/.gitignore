@@ -1,6 +1,5 @@
-*.html
-*.R
 /.quarto/
 *_files
-
+*.html
+*.R
 **/*.quarto_ipynb

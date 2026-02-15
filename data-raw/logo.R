@@ -19,7 +19,6 @@ g <- ggplot(plotseries, aes(x = Date, y = serie_value)) +
 # font_add_google("Roboto", "roboto")
 showtext_auto()
 
-
 sticker(
   g,
   package = "tidyBdE",

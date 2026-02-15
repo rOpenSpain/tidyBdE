@@ -1,10 +1,17 @@
 ---
-title: "Main Macroeconomic Series"
+title: "Main macroeconomic series"
+description: Main indicators of Spain up to date.
 date: "`r Sys.Date()`"
-output:
-  html_document:
-    toc: yes
-    toc_depth: 2
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: '#>'
+    warning: false
+    message: false
+    tidy: "styler"
+    dev: "ragg_png"
+    dpi: 300
+    out.width: "100%"
 ---
 
 This article shows the evolution of selected economic indicators of Spain, based
@@ -12,23 +19,11 @@ on information from [Banco de España](https://www.bde.es/).
 
 Last update: **`r format(Sys.Date(),"%d-%B-%Y")`**.
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  tidy = "styler",
-  comment = "#>",
-  warning = FALSE,
-  message = FALSE,
-  dev = "ragg_png",
-  dpi = 300,
-  out.width = "100%"
-)
-
+```{r}
 library(tidyBdE)
 library(ggplot2)
 library(dplyr)
 library(tidyr)
-
 
 col <- bde_tidy_palettes(1, "bde_rose_pal")
 date <- Sys.Date()
@@ -42,12 +37,17 @@ br <- seq(nd, Sys.Date(), "6 months")
 
 ### Aggregated (last 4 quarters)
 
-```{r gdp_agg, echo=FALSE, fig.alt="GDP of Spain - Aggregated last 4 quarters"}
+```{r}
+#| label: fig-gdp_agg
+#| echo: false
+#| fig-cap: GDP of Spain - Aggregated last 4 quarters
 dataset <- bde_ind_gdp_quarterly(series_label = "data") |>
   drop_na()
 
-dataset$LastY <- dataset$data + lag(dataset$data, 1) +
-  lag(dataset$data, 2) + lag(dataset$data, 3)
+dataset$LastY <- dataset$data +
+  lag(dataset$data, 1) +
+  lag(dataset$data, 2) +
+  lag(dataset$data, 3)
 
 dataset <- dataset |>
   filter(Date >= nd) |>
@@ -73,11 +73,13 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ### Year-on-year variation
 
-```{r gdpyoy, echo=FALSE, fig.alt="GDP of Spain - Year-on-year variation"}
+```{r}
+#| label: fig-gdpyoy
+#| echo: false
+#| fig-cap: GDP of Spain - Year-on-year variation
 dataset <- bde_ind_gdp_var(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
-
 
 l <- dataset[nrow(dataset), ]
 
@@ -102,7 +104,10 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ### GDP per capita
 
-```{r gdppercap, echo=FALSE, fig.alt="GDP per Capita of Spain"}
+```{r}
+#| label: fig-gdppercap
+#| echo: false
+#| fig-cap: GDP per Capita of Spain
 pop <- bde_ind_population(series_label = "pop")
 pib <- bde_ind_gdp_quarterly(series_label = "data")
 
@@ -117,7 +122,6 @@ dataset <- pib |>
   filter(Date >= nd) |>
   drop_na()
 
-
 l <- dataset[nrow(dataset), ]
 
 ggplot(dataset, aes(x = Date, y = data)) +
@@ -125,10 +129,13 @@ ggplot(dataset, aes(x = Date, y = data)) +
   geom_text(
     data = l,
     size = 3,
-    aes(label = paste(
-      x = prettyNum(data, big.mark = " "),
-      "€\n", format(Date, "%b-%Y")
-    ))
+    aes(
+      label = paste(
+        x = prettyNum(data, big.mark = " "),
+        "€\n",
+        format(Date, "%b-%Y")
+      )
+    )
   ) +
   labs(
     title = "GDP per capita of Spain",
@@ -145,11 +152,13 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ## Unemployment Rate
 
-```{r unempl, echo=FALSE, fig.alt="Unemployment rate"}
+```{r}
+#| label: fig-unempl
+#| echo: false
+#| fig-cap: Unemployment rate
 dataset <- bde_ind_unemployment_rate(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
-
 
 l <- dataset[nrow(dataset), ]
 
@@ -174,11 +183,13 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ## Consumer Price Index
 
-```{r cprix, echo=FALSE, fig.alt="Consumer Price Index"}
+```{r}
+#| label: fig-cprix
+#| echo: false
+#| fig-cap: Consumer Price Index
 dataset <- bde_ind_cpi_var(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
-
 
 l <- dataset[nrow(dataset), ]
 
@@ -203,11 +214,13 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ## Monthly Euribor
 
-```{r eur, echo=FALSE, fig.alt="Monthly Euribor"}
+```{r}
+#| label: fig-eur
+#| echo: false
+#| fig-cap: Monthly Euribor
 dataset <- bde_ind_euribor_12m_monthly(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
-
 
 l <- dataset[nrow(dataset), ]
 
@@ -232,11 +245,13 @@ ggplot(dataset, aes(x = Date, y = data)) +
 
 ## Population
 
-```{r pop, echo=FALSE, fig.alt="Population in thousands"}
+```{r}
+#| label: fig-pop
+#| echo: false
+#| fig-cap: Population in thousands
 dataset <- bde_ind_population(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
-
 
 l <- dataset[nrow(dataset), ]
 
@@ -245,10 +260,13 @@ ggplot(dataset, aes(x = Date, y = data)) +
   geom_text(
     data = l,
     size = 3,
-    aes(label = paste(
-      x = prettyNum(data, big.mark = " "),
-      "\n", format(Date, "%b-%Y")
-    ))
+    aes(
+      label = paste(
+        x = prettyNum(data, big.mark = " "),
+        "\n",
+        format(Date, "%b-%Y")
+      )
+    )
   ) +
   labs(
     title = "Population of Spain",

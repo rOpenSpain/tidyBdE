@@ -6,7 +6,6 @@
 #'
 #' @family series
 #'
-#'
 #' @encoding UTF-8
 #'
 #' @param series_code A numeric value (or coercible with [base::as.double()])
@@ -20,7 +19,6 @@
 #'   Possible values are `"wide"` or `"long"`. See **Value** for details and
 #'   section **Examples**.
 #' @inheritParams bde_series_full_load
-#'
 #'
 #' @return
 #' A [tibble][tibble::tbl_df] with a field `Date`:
@@ -77,7 +75,6 @@
 #' # Wide format
 #' wide
 #'
-#'
 #' # Long format
 #' long <- bde_series_load(c(573234, 573214),
 #'   series_label = c("US/EUR", "GBP/EUR"),
@@ -86,10 +83,8 @@
 #'
 #' long
 #'
-#'
 #' # Use with ggplot
 #' library(ggplot2)
-#'
 #'
 #' ggplot(long, aes(Date, serie_value)) +
 #'   geom_line(aes(group = serie_name, color = serie_name)) +

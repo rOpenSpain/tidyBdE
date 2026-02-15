@@ -1,3 +1,7 @@
+# tidyBdE (development version)
+
+-   Migrate vignettes to Quarto.
+
 # tidyBdE 0.5.0
 
 -   Update minimum **R** version required to `4.1.0`.

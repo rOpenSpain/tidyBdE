@@ -50,7 +50,6 @@ test_that("Discrete scale", {
   expect_identical(mod4, colfill2)
 })
 
-
 test_that("Continous scale", {
   d <- data.frame(x = 1:5, y = 1:5, z = 21:25, l = letters[1:5])
 

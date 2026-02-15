@@ -1,15 +1,17 @@
 ---
-title: "Get Started with tidyBdE"
-output: rmarkdown::html_vignette
+title: "Get started with tidyBdE"
+description: Introduction to tidyBdE
+tbl-cap-location: bottom
 vignette: >
-  %\VignetteIndexEntry{Get Started with tidyBdE}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Get started with tidyBdE}
+  %\VignetteEngine{quarto::html}
   %\VignetteEncoding{UTF-8}
 ---
 
-<!-- tidyBdE.Rmd is generated from tidyBdE.Rmd.orig. Please edit that file -->
+<!-- tidyBdE.qmd is generated from tidyBdE.qmd.orig. Please edit that file -->
 
-```{r, include = FALSE}
+```{r}
+#| include: false
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -25,10 +27,10 @@ knitr::opts_chunk$set(
 library(tidyBdE)
 ```
 
-**tidyBdE** is an API package that helps to retrieve data from [Banco de
+**tidyBdE** is an API package that retrieves data from [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
 The data is returned as a [tibble](https://tibble.tidyverse.org/), and the
-package automatically infers the format of each time-series (dates, characters,
+package automatically detects the format of each time-series (dates, characters,
 and numbers).
 
 ## Search series
@@ -40,13 +42,14 @@ institution itself or compiled from other sources, such as
 The basic entry points for searching time-series are the catalogs (*indexes*).
 You can search for any series by name:
 
-```{r search, message = FALSE}
+```{r}
+#| label: search
+#| results: false
 library(tidyBdE)
 
 library(ggplot2)
 library(dplyr)
 library(tidyr)
-
 
 # Search GBP on "TC" (exchange rate) catalog
 xr_gbp <- bde_catalog_search("GBP", catalog = "TC")
@@ -57,14 +60,28 @@ xr_gbp |>
   knitr::kable()
 ```
 
+::: {#tbl-search}
+
+```{r}
+#| echo: false
+xr_gbp |>
+  select(Numero_secuencial, Descripcion_de_la_serie) |>
+  # To table on document
+  knitr::kable()
+```
+Search results
+
+:::
+
 **Note:** BdE files are currently provided only in Spanish, as the institution
-works on an English version. Search terms should be provided in Spanish to
+is working on an English version. Search terms should be provided in Spanish to
 obtain results.
 
 Once you have found your series, you can load the GBP/EUR exchange rate using
 the sequential number reference (`Numero_Secuencial`):
 
-```{r find}
+```{r}
+#| label: find
 seq_number <- xr_gbp |>
   # First record
   slice(1) |>
@@ -80,6 +97,8 @@ seq_number
 time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") |>
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") |>
   drop_na()
+
+time_series
 ```
 
 ## Plot series
@@ -87,7 +106,11 @@ time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") |>
 The package also provides a custom **ggplot2** theme based on BdE's
 publications:
 
-```{r chart, eval=TRUE, fig.cap='EUR/GBP Exchange Rate (2010-2020)', fig.asp=0.7}
+```{r}
+#| label: chart
+#| eval: true
+#| fig-cap: "Figure 1: EUR/GBP Exchange Rate (2010-2020)"
+#| fig-asp: 0.7
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_tidy_palettes(n = 1)) +
   geom_smooth(method = "gam", colour = bde_tidy_palettes(n = 2)[2]) +
@@ -112,7 +135,11 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
 The package also provides convenience functions for a selection of the most
 relevant macroeconomic series, eliminating the need for manual searching:
 
-```{r macroseries, eval=TRUE, fig.asp=0.7, fig.cap = "Spanish Economic Indicators (2010-2019)"}
+```{r}
+#| label: macroseries
+#| eval: true
+#| fig-asp: 0.7
+#| fig-cap: "Figure 2: Spanish Economic Indicators (2010-2019)"
 # Data in "long" format
 
 plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") |>
@@ -135,10 +162,11 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
 
 ## A note on caching
 
-You can use **tidyBdE** to create your own local repository at a given local
-directory passing the following option:
+You can use **tidyBdE** to create your own local repository in a given local
+directory by passing the following option:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 options(bde_cache_dir = "./path/to/location")
 ```
 
@@ -148,7 +176,8 @@ When this option is set, **tidyBdE** will look for cached files in the
 It is possible to update the data (i.e. after every monthly or quarterly data
 release) with the following commands:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 bde_catalog_update()
 
 # Or use update_cache = TRUE in most functions
