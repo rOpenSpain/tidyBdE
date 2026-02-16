@@ -24,6 +24,8 @@ Tools for working with BdE series.
 
 Selected macroeconomic indicators of Spain.
 
+- [`bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md)
+  : Database of selected macroeconomic indicators
 - [`bde_ind_gdp_var()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
   [`bde_ind_unemployment_rate()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
   [`bde_ind_euribor_12m_monthly()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
@@ -34,8 +36,6 @@ Selected macroeconomic indicators of Spain.
   [`bde_ind_gdp_quarterly()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
   [`bde_ind_population()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
   : Relevant Indicators of Spain
-- [`bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md)
-  : Database of selected macroeconomic indicators
 
 ## Plot utils
 

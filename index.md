@@ -8,14 +8,10 @@ characters, and numbers).
 
 ## Installation
 
-Install **tidyBdE** from
-[**CRAN**](https://CRAN.R-project.org/package=tidyBdE):
+Check the docs of the developing version in
+<https://ropenspain.github.io/tidyBdE/dev/>.
 
-``` r
-install.packages("tidyBdE")
-```
-
-You can install the development version of **tidyBdE** with:
+You can install the developing version of **tidyBdE** with:
 
 ``` r
 remotes::install_github("ropenspain/tidyBdE")
@@ -26,10 +22,13 @@ using the [r-universe](https://ropenspain.r-universe.dev/tidyBdE):
 
 ``` r
 # Install tidyBdE in R:
-install.packages("tidyBdE", repos = c(
-  "https://ropenspain.r-universe.dev",
-  "https://cloud.r-project.org"
-))
+install.packages(
+  "tidyBdE",
+  repos = c(
+    "https://ropenspain.r-universe.dev",
+    "https://cloud.r-project.org"
+  )
+)
 ```
 
 ## Examples
@@ -49,7 +48,6 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-
 # Search GBP on "TC" (exchange rate) catalog
 xr_gbp <- bde_catalog_search("GBP", catalog = "TC")
 
@@ -62,6 +60,8 @@ xr_gbp |>
 | Numero_secuencial | Descripcion_de_la_serie                                            |
 |------------------:|:-------------------------------------------------------------------|
 |            573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+
+Table 1: Search results
 
 **Note that BdE files are currently only provided in Spanish.** The
 institution is working on the English version. For now, search terms
@@ -84,6 +84,22 @@ seq_number <- xr_gbp |>
 time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") |>
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") |>
   drop_na()
+
+time_series
+#> # A tibble: 2,816 × 2
+#>    Date       EUR_GBP_XR
+#>    <date>          <dbl>
+#>  1 2010-01-04      0.891
+#>  2 2010-01-05      0.900
+#>  3 2010-01-06      0.899
+#>  4 2010-01-07      0.900
+#>  5 2010-01-08      0.893
+#>  6 2010-01-11      0.899
+#>  7 2010-01-12      0.897
+#>  8 2010-01-13      0.895
+#>  9 2010-01-14      0.890
+#> 10 2010-01-15      0.881
+#> # ℹ 2,806 more rows
 ```
 
 ### Plots
@@ -162,8 +178,8 @@ local directory by passing the following option:
 options(bde_cache_dir = "./path/to/location")
 ```
 
-When this option is set, **tidyBdE** looks for the cached file in the
-`bde_cache_dir` directory and loads it, speeding up the process.
+When this option is set, **tidyBdE** looks for cached files in the
+`bde_cache_dir` directory and loads them, speeding up the process.
 
 It is possible to update the data (i.e. after every monthly or quarterly
 data release) with the following commands:
@@ -195,7 +211,7 @@ A BibTeX entry for LaTeX users is
   doi = {10.32614/CRAN.package.tidyBdE},
   author = {Diego {H. Herrero}},
   year = {2026},
-  version = {0.5.0},
+  version = {0.5.0.9000},
   url = {https://ropenspain.github.io/tidyBdE/},
   abstract = {Tools to download data series from Banco de España (BdE) on tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by Banco de España.},
 }

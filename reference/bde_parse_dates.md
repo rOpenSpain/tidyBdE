@@ -79,10 +79,10 @@ class(parsed_fail)
 
 tibble::tibble(raw = wont_parse, parsed = parsed_fail)
 #> # A tibble: 4 × 2
-#>   raw         parsed    
-#>   <chr>       <date>    
-#> 1 JAN2001     NA        
-#> 2 2010-01-12  0112-10-20
-#> 3 01 APR 2017 NA        
-#> 4 01/31/1990  NA        
+#>   raw         parsed   
+#>   <chr>       <date>   
+#> 1 JAN2001     NA       
+#> 2 2010-01-12  112-10-20
+#> 3 01 APR 2017 NA       
+#> 4 01/31/1990  NA       
 ```

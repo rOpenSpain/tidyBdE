@@ -19,8 +19,7 @@
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Download Data from Bank of Spain">
 <meta name="description" content="Tools to download data series from Banco de España (BdE) on tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by Banco de España.">
 <meta property="og:description" content="Tools to download data series from Banco de España (BdE) on tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by Banco de España.">
-<meta property="og:image" content="https://ropenspain.github.io/tidyBdE/reference/figures/README-chart-1.png">
-<meta property="og:image:alt" content="tidyBdE R package">
+<meta property="og:image" content="https://ropenspain.github.io/tidyBdE/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@dhernangomez">
 <meta name="twitter:site" content="@rOpenSpain">
@@ -40,7 +39,7 @@
 
     <a class="navbar-brand me-2" href="index.html"><img src="apple-touch-icon.png" alt="tidyBdE logo" height="34" width="34" class="d-inline-block me-1">tidyBdE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,8 +53,8 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/Main_Macroeconomic_Series.html">Main Macroeconomic Series</a></li>
-    <li><a class="dropdown-item" href="articles/Series_Index.html">Series Index</a></li>
+<li><a class="dropdown-item" href="articles/mainseries.html">Main macroeconomic series</a></li>
+    <li><a class="dropdown-item" href="articles/seriesindex.html">Series index</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
@@ -82,7 +81,8 @@
     <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header">
-<img src="logo.png" class="logo" alt=""><h1 id="tidybde-">tidyBdE <a class="anchor" aria-label="anchor" href="#tidybde-"></a>
+<img src="logo.png" class="logo" alt=""><h1 id="tidybde-">tidyBdE 
+<a class="anchor" aria-label="anchor" href="#tidybde-"></a>
 </h1>
 </div>
 <!-- badges: start -->
@@ -92,19 +92,23 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Install <strong>tidyBdE</strong> from <a href="https://CRAN.R-project.org/package=tidyBdE" class="external-link"><strong>CRAN</strong></a>:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyBdE"</span><span class="op">)</span></span></code></pre></div>
-<p>You can install the development version of <strong>tidyBdE</strong> with:</p>
+
+<div class="pkgdown-devel">
+<p>Check the docs of the developing version in <a href="https://ropenspain.github.io/tidyBdE/dev/" class="uri">https://ropenspain.github.io/tidyBdE/dev/</a>.</p>
+<p>You can install the developing version of <strong>tidyBdE</strong> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ropenspain/tidyBdE"</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, you can install the development version of <strong>tidyBdE</strong> using the <a href="https://ropenspain.r-universe.dev/tidyBdE" class="external-link">r-universe</a>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Install tidyBdE in R:</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyBdE"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>  <span class="st">"https://ropenspain.r-universe.dev"</span>,</span>
-<span>  <span class="st">"https://cloud.r-project.org"</span></span>
-<span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span></span>
+<span>  <span class="st">"tidyBdE"</span>,</span>
+<span>  repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>    <span class="st">"https://ropenspain.r-universe.dev"</span>,</span>
+<span>    <span class="st">"https://cloud.r-project.org"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
 </div>
 <div class="section level2">
 <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
@@ -119,7 +123,6 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span>
 <span></span>
-<span></span>
 <span><span class="co"># Search GBP on "TC" (exchange rate) catalog</span></span>
 <span><span class="va">xr_gbp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bde_catalog_search.html">bde_catalog_search</a></span><span class="op">(</span><span class="st">"GBP"</span>, catalog <span class="op">=</span> <span class="st">"TC"</span><span class="op">)</span></span>
 <span></span>
@@ -129,8 +132,8 @@
 <span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
-<col width="21%">
-<col width="78%">
+<col width="50%">
+<col width="50%">
 </colgroup>
 <thead><tr class="header">
 <th align="right">Numero_secuencial</th>
@@ -141,6 +144,9 @@
 <td align="left">Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios</td>
 </tr></tbody>
 </table>
+<p class="caption">
+Table 1: Search results
+</p>
 <p><strong>Note that BdE files are currently only provided in Spanish.</strong> The institution is working on the English version. For now, search terms must be provided in Spanish to retrieve results.</p>
 <p>After we have found our series, we can load the series for the GBP/EUR exchange rate using the sequential number reference (<code>Numero_Secuencial</code>) as:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -155,7 +161,23 @@
 <span><span class="co"># Extract series</span></span>
 <span><span class="va">time_series</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span><span class="va">seq_number</span>, series_label <span class="op">=</span> <span class="st">"EUR_GBP_XR"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">"2010-01-01"</span> <span class="op">&amp;</span> <span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">"2020-12-31"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">time_series</span></span>
+<span><span class="co">#&gt; # A tibble: 2,816 × 2</span></span>
+<span><span class="co">#&gt;    Date       EUR_GBP_XR</span></span>
+<span><span class="co">#&gt;    &lt;date&gt;          &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 2010-01-04      0.891</span></span>
+<span><span class="co">#&gt;  2 2010-01-05      0.900</span></span>
+<span><span class="co">#&gt;  3 2010-01-06      0.899</span></span>
+<span><span class="co">#&gt;  4 2010-01-07      0.900</span></span>
+<span><span class="co">#&gt;  5 2010-01-08      0.893</span></span>
+<span><span class="co">#&gt;  6 2010-01-11      0.899</span></span>
+<span><span class="co">#&gt;  7 2010-01-12      0.897</span></span>
+<span><span class="co">#&gt;  8 2010-01-13      0.895</span></span>
+<span><span class="co">#&gt;  9 2010-01-14      0.890</span></span>
+<span><span class="co">#&gt; 10 2010-01-15      0.881</span></span>
+<span><span class="co">#&gt; # ℹ 2,806 more rows</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="plots">Plots<a class="anchor" aria-label="anchor" href="#plots"></a>
 </h3>
@@ -180,7 +202,7 @@
 <span>  <span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html" class="external-link">coord_cartesian</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/theme_tidybde.html">theme_tidybde</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-chart-1.png" alt="EUR/GBP Exchange Rate (2010-2020)" width="100%"></p>
+<p><img src="reference/figures/README-chart-1.png" style="width:100.0%" alt="EUR/GBP Exchange Rate (2010-2020)"></p>
 <p>The package also provides several “shortcut” functions for a selection of relevant macroeconomic series, so there is no need to search for them in advance:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Data in "long" format</span></span>
@@ -201,7 +223,7 @@
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/theme_tidybde.html">theme_tidybde</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/scales_bde.html">scale_color_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_vivid_pal"</span><span class="op">)</span> <span class="co"># Custom palette on the package</span></span></code></pre></div>
-<p><img src="reference/figures/README-macroseries-1.png" alt="Spanish Economic Indicators (2010-2019)" width="100%"></p>
+<p><img src="reference/figures/README-macroseries-1.png" style="width:100.0%" alt="Spanish Economic Indicators (2010-2019)"></p>
 </div>
 <div class="section level3">
 <h3 id="palettes">Palettes<a class="anchor" aria-label="anchor" href="#palettes"></a>
@@ -215,7 +237,7 @@
 <p>You can use <strong>tidyBdE</strong> to create your own local repository in a given local directory by passing the following option:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>bde_cache_dir <span class="op">=</span> <span class="st">"./path/to/location"</span><span class="op">)</span></span></code></pre></div>
-<p>When this option is set, <strong>tidyBdE</strong> looks for the cached file in the <code>bde_cache_dir</code> directory and loads it, speeding up the process.</p>
+<p>When this option is set, <strong>tidyBdE</strong> looks for cached files in the <code>bde_cache_dir</code> directory and loads them, speeding up the process.</p>
 <p>It is possible to update the data (i.e. after every monthly or quarterly data release) with the following commands:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/bde_catalog_update.html">bde_catalog_update</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -242,7 +264,7 @@ H. Herrero D (2026). <em>tidyBdE: Download Data from Bank of Spain</em>. <a href
 <span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  doi <span class="ot">=</span> {<span class="fl">10.32614</span><span class="sc">/</span>CRAN.package.tidyBdE},</span>
 <span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>  author <span class="ot">=</span> {Diego {H. Herrero}},</span>
 <span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2026</span>},</span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="fl">5.0</span>},</span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="dv">5</span>.<span class="fl">0.9000</span>},</span>
 <span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>ropenspain.github.io<span class="sc">/</span>tidyBdE<span class="sc">/</span>},</span>
 <span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools to download data series from Banco de España (BdE) on tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory <span class="fu">Mechanism</span> (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is <span class="cf">in</span> no way sponsored endorsed or administered by Banco de España.},</span>
 <span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>}</span></code></pre></div>
@@ -297,8 +319,7 @@ H. Herrero D (2026). <em>tidyBdE: Download Data from Bank of Spain</em>. <a href
 <li><a href="https://cran.r-project.org/package=tidyBdE" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/tidyBdE?color=blue" alt="Downloads"></a></li>
 <li><a href="https://cran.r-project.org/web/checks/check_results_tidyBdE.html" class="external-link"><img src="https://www.r-pkg.org/badges/ago/tidyBdE" alt="On-CRAN"></a></li>
 <li><a href="https://ropenspain.r-universe.dev/tidyBdE" class="external-link"><img src="https://ropenspain.r-universe.dev/badges/tidyBdE" alt="r-universe"></a></li>
-<li><a href="https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml" class="external-link"><img src="https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://github.com/rOpenSpain/tidyBdE/actions/workflows/rhub.yaml" class="external-link"><img src="https://github.com/rOpenSpain/tidyBdE/actions/workflows/rhub.yaml/badge.svg" alt="R-hub"></a></li>
+<li><a href="https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yml" class="external-link"><img src="https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yml/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://app.codecov.io/gh/ropenspain/tidyBdE" class="external-link"><img src="https://codecov.io/gh/ropenspain/tidyBdE/branch/main/graph/badge.svg" alt="codecov"></a></li>
 <li><a href="https://www.codefactor.io/repository/github/ropenspain/tidybde" class="external-link"><img src="https://www.codefactor.io/repository/github/ropenspain/tidybde/badge" alt="CodeFactor"></a></li>
 <li><a href="https://doi.org/10.32614/CRAN.package.tidyBdE" class="external-link"><img src="https://img.shields.io/badge/DOI-10.32614/CRAN.package.tidyBdE-blue" alt="DOI"></a></li>

@@ -1,9 +1,9 @@
-# Get Started with tidyBdE
+# Get started with tidyBdE
 
-**tidyBdE** is an API package that helps to retrieve data from [Banco de
+**tidyBdE** is an API package that retrieves data from [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
 The data is returned as a [tibble](https://tibble.tidyverse.org/), and
-the package automatically infers the format of each time-series (dates,
+the package automatically detects the format of each time-series (dates,
 characters, and numbers).
 
 ## Search series
@@ -22,7 +22,6 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-
 # Search GBP on "TC" (exchange rate) catalog
 xr_gbp <- bde_catalog_search("GBP", catalog = "TC")
 
@@ -36,9 +35,11 @@ xr_gbp |>
 |------------------:|:-------------------------------------------------------------------|
 |            573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
 
+Table 1: Search results
+
 **Note:** BdE files are currently provided only in Spanish, as the
-institution works on an English version. Search terms should be provided
-in Spanish to obtain results.
+institution is working on an English version. Search terms should be
+provided in Spanish to obtain results.
 
 Once you have found your series, you can load the GBP/EUR exchange rate
 using the sequential number reference (`Numero_Secuencial`):
@@ -60,6 +61,22 @@ seq_number
 time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") |>
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") |>
   drop_na()
+
+time_series
+#> # A tibble: 2,816 × 2
+#>    Date       EUR_GBP_XR
+#>    <date>          <dbl>
+#>  1 2010-01-04      0.891
+#>  2 2010-01-05      0.900
+#>  3 2010-01-06      0.899
+#>  4 2010-01-07      0.900
+#>  5 2010-01-08      0.893
+#>  6 2010-01-11      0.899
+#>  7 2010-01-12      0.897
+#>  8 2010-01-13      0.895
+#>  9 2010-01-14      0.890
+#> 10 2010-01-15      0.881
+#> # ℹ 2,806 more rows
 ```
 
 ## Plot series
@@ -89,9 +106,9 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   theme_tidybde()
 ```
 
-![EUR/GBP Exchange Rate (2010-2020)](chart-1.png)
+![Figure 1: EUR/GBP Exchange Rate (2010-2020)](./chart-1.png)
 
-EUR/GBP Exchange Rate (2010-2020)
+Figure 1: EUR/GBP Exchange Rate (2010-2020)
 
 The package also provides convenience functions for a selection of the
 most relevant macroeconomic series, eliminating the need for manual
@@ -118,14 +135,15 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
   scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
 ```
 
-![Spanish Economic Indicators (2010-2019)](macroseries-1.png)
+![Figure 2: Spanish Economic Indicators
+(2010-2019)](./macroseries-1.png)
 
-Spanish Economic Indicators (2010-2019)
+Figure 2: Spanish Economic Indicators (2010-2019)
 
 ## A note on caching
 
-You can use **tidyBdE** to create your own local repository at a given
-local directory passing the following option:
+You can use **tidyBdE** to create your own local repository in a given
+local directory by passing the following option:
 
 ``` r
 options(bde_cache_dir = "./path/to/location")

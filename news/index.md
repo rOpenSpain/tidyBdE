@@ -1,5 +1,13 @@
 # Changelog
 
+## tidyBdE (development version)
+
+- Migrate vignettes to Quarto.
+- Update series code on
+  [`bde_ind_cpi_var()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md),
+  see
+  [`?bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md).
+
 ## tidyBdE 0.5.0
 
 CRAN release: 2026-01-13
@@ -193,8 +201,7 @@ CRAN release: 2021-06-05
 - Color adjustment on
   [`bde_rose_pal()`](https://ropenspain.github.io/tidyBdE/reference/bde_pals.md):
   The HCL spectrum is now more consistent between roses and blues
-  according to
-  [`colorspace::specplot()`](https://colorspace.R-Forge.R-project.org/reference/specplot.html).
+  according to `colorspace::specplot()`.
 - Add DOI: <https://doi.org/10.5281/zenodo.4673496>
 - New palettes for **ggplot2**:
   [`scale_color_bde_c()`](https://ropenspain.github.io/tidyBdE/reference/scales_bde.md),
