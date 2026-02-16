@@ -9,7 +9,7 @@ bde_ind_db_init <- tribble(
   "bde_ind_unemployment_rate", 4635980,
   "bde_ind_euribor_12m_monthly", 587853,
   "bde_ind_euribor_12m_daily", 905842,
-  "bde_ind_cpi_var", 4144807,
+  "bde_ind_cpi_var", 1489713,
   "bde_ind_ibex_monthly", 254433,
   "bde_ind_ibex_daily", 821340,
   "bde_ind_gdp_quarterly", 4663160,
@@ -53,12 +53,20 @@ cpi_alt <- bde_series_load(656547, series_label = "serie") |>
 
 
 # Check
-cpi_orig <- bde_ind_cpi_var() |>
-  left_join(
+
+cpi <- bde_ind_db |>
+  filter(tidyBdE_fun == "bde_ind_cpi_var") |>
+  pull(Numero_secuencial)
+
+cpi_orig <- bde_series_load(cpi, "Consumer_price_index_YoY")
+
+diffs <- cpi_orig |>
+  inner_join(
     cpi_alt |>
       rename(alt = Consumer_price_index_YoY)
   ) |>
-  mutate(dif = Consumer_price_index_YoY - alt)
+  mutate(dif = Consumer_price_index_YoY - alt) |>
+  filter_out(is.na(dif))
 
 
 usethis::use_data(bde_ind_db, overwrite = TRUE)
