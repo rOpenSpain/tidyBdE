@@ -3,3 +3,5 @@
 *.html
 *.R
 **/*.quarto_ipynb
+_quarto.yaml
+_quarto.yml

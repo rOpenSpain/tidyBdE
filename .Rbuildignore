@@ -46,3 +46,5 @@
 ^inst/README\.qmd$
 ^README_files$
 ^README\.html$
+^vignettes/_quarto\.yaml$
+^vignettes/_quarto\.yml$

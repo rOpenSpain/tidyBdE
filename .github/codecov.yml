@@ -1,6 +1,5 @@
 codecov:
   branch: main
-  bot: dieghernan-codecov
   require_ci_to_pass: false
 
 coverage:
@@ -8,14 +7,14 @@ coverage:
     project:
       default:
         target: auto
-        threshold: 5%
-        paths:
-        - R/
-        - tests/
+        threshold: 1%
+        informational: true
     patch:
       default:
         target: auto
         threshold: 1%
+        informational: true
+
 ignore:
 - data-raw/
 - inst/

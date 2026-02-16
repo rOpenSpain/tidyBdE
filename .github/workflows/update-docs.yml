@@ -14,6 +14,7 @@ jobs:
     runs-on: windows-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
     steps:
     - uses: actions/checkout@v6
 
@@ -28,10 +29,8 @@ jobs:
         extra-packages: |
           local::.
           any::rcmdcheck
-          any::pkgdown
-          dieghernan/pkgdev
           ropenspain/rostemplate
-        needs: website
+          dieghernan/pkgdev
 
     - name: Install optipng
       run: |
@@ -63,7 +62,7 @@ jobs:
     - name: Update docs
       run: |
         
-        pkgdev::update_docs(opt_dir = c("man/figures", "img", "vignettes"))
+        pkgdev::update_docs()
 
       shell: Rscript {0}
 
