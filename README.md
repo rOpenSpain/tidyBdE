@@ -12,7 +12,7 @@
 [![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/tidyBdE?color=blue)](https://cran.r-project.org/package=tidyBdE)
 [![On-CRAN](https://www.r-pkg.org/badges/ago/tidyBdE)](https://cran.r-project.org/web/checks/check_results_tidyBdE.html)
 [![r-universe](https://ropenspain.r-universe.dev/badges/tidyBdE)](https://ropenspain.r-universe.dev/tidyBdE)
-[![R-CMD-check](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yml/badge.svg)](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yml)
+[![R-CMD-check](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rOpenSpain/tidyBdE/actions/workflows/check-full.yaml)
 [![codecov](https://codecov.io/gh/ropenspain/tidyBdE/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ropenspain/tidyBdE)
 [![CodeFactor](https://www.codefactor.io/repository/github/ropenspain/tidybde/badge)](https://www.codefactor.io/repository/github/ropenspain/tidybde)
 [![DOI](https://img.shields.io/badge/DOI-10.32614/CRAN.package.tidyBdE-blue)](https://doi.org/10.32614/CRAN.package.tidyBdE)
