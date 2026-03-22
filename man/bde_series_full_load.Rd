@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{bde_series_full_load}
 \alias{bde_series_full_load}
-\title{Load BdE full time-series files}
+\title{Load BdE full time series files}
 \usage{
 bde_series_full_load(
   series_csv,
@@ -43,7 +43,7 @@ A \link[tibble:tbl_df-class]{tibble} with a field \code{Date} and the alias of t
 series as described on the catalogs. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
 }
 \description{
-Load a full time-series file provided by BdE.
+Load a full time series file provided by BdE.
 }
 \details{
 \subsection{About BdE file naming}{
@@ -54,7 +54,7 @@ Statistical Bulletin ("BE"). Although it is a unique value, it is subject
 to change (i.e. a new table is inserted before).
 
 For that reason, the function \code{\link[=bde_series_load]{bde_series_load()}} is more suitable for
-extracting specific time-series.
+extracting specific time series.
 }
 }
 \note{

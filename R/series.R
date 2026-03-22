@@ -1,6 +1,6 @@
-#' Load a single BdE time-series
+#' Load a single BdE time series
 #'
-#' Load a single time-series provided by BdE.
+#' Load a single time series provided by BdE.
 #'
 #' @export
 #'
@@ -9,7 +9,7 @@
 #' @encoding UTF-8
 #'
 #' @param series_code A numeric value (or coercible with [base::as.double()])
-#'   or vector of time-series code(s), as defined in the field
+#'   or vector of time series code(s), as defined in the field
 #'   `Número secuencial` of the corresponding series. See [bde_catalog_load()].
 #'
 #' @param series_label Optional. Character vector or value. Allows specifying a
@@ -260,9 +260,9 @@ bde_series_load <- function(
 }
 
 
-#' Load BdE full time-series files
+#' Load BdE full time series files
 #'
-#' Load a full time-series file provided by BdE.
+#' Load a full time series file provided by BdE.
 #'
 #' ## About BdE file naming
 #'
@@ -272,7 +272,7 @@ bde_series_load <- function(
 #' to change (i.e. a new table is inserted before).
 #'
 #' For that reason, the function [bde_series_load()] is more suitable for
-#' extracting specific time-series.
+#' extracting specific time series.
 #'
 #' @export
 #'
@@ -430,7 +430,7 @@ bde_series_full_load <- function(
   newnames_data <- as.character(meta_serie[4, ])
   newnames_data[1] <- "Date"
 
-  # Parse dates dates
+  # Parse dates
   if (parse_dates) {
     if (verbose) {
       message("tidyBdE> Parsing dates")

@@ -1,6 +1,6 @@
 ---
 title: "Main macroeconomic series"
-description: Main indicators of Spain up to date.
+description: Main indicators of Spain up-to-date.
 date: "`r Sys.Date()`"
 knitr:
   opts_chunk:

@@ -5,7 +5,7 @@
 \alias{bde_catalog_load}
 \title{Load BdE catalogs}
 \source{
-\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{Time-series bulk data download}.
+\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{time series bulk data download}.
 }
 \usage{
 bde_catalog_load(
@@ -17,7 +17,7 @@ bde_catalog_load(
 )
 }
 \arguments{
-\item{catalog}{A single value indicating the catalogs to be updated or
+\item{catalog}{A single value indicating the catalog to be updated or
 \code{"ALL"} as a shorthand. See \strong{Details}.}
 
 \item{parse_dates}{Logical. If \code{TRUE}, the dates will be parsed using
@@ -36,7 +36,7 @@ debugging.}
 A \link[tibble:tbl_df-class]{tibble} object.
 }
 \description{
-Load the time-series catalogs provided by the BdE.
+Load the time series catalogs provided by the BdE.
 }
 \details{
 Accepted values for \code{catalog} are:\tabular{llll}{
@@ -51,7 +51,7 @@ Accepted values for \code{catalog} are:\tabular{llll}{
 
 Use \code{"ALL"} as a shorthand for updating all the catalogs at a glance.
 
-If the requested catalog is not cached \code{\link[=bde_catalog_update]{bde_catalog_update()}} is invoked.
+If the requested catalog is not cached, \code{\link[=bde_catalog_update]{bde_catalog_update()}} is invoked.
 }
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
