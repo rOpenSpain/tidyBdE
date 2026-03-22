@@ -1,6 +1,6 @@
 # Search BdE catalogs
 
-Search for keywords on the time-series catalogs.
+Search for keywords on the time series catalogs.
 
 ## Usage
 
@@ -22,7 +22,7 @@ bde_catalog_search(pattern, ...)
 
   `catalog`
 
-  :   A single value indicating the catalogs to be updated or `"ALL"` as
+  :   A single value indicating the catalog to be updated or `"ALL"` as
       a shorthand. See **Details**.
 
   `parse_dates`

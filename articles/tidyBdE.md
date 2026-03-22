@@ -3,17 +3,17 @@
 **tidyBdE** is an API package that retrieves data from [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
 The data is returned as a [tibble](https://tibble.tidyverse.org/), and
-the package automatically detects the format of each time-series (dates,
+the package automatically detects the format of each time series (dates,
 characters, and numbers).
 
 ## Search series
 
-Banco de España (**BdE**) provides several time-series, either produced
+Banco de España (**BdE**) provides several time series, either produced
 by the institution itself or compiled from other sources, such as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
-The basic entry points for searching time-series are the catalogs
-(*indexes*). You can search for any series by name:
+The basic entry points for searching time series are the time series
+catalogs (*indexes*). You can search for any series by name:
 
 ``` r
 library(tidyBdE)
@@ -27,7 +27,7 @@ xr_gbp <- bde_catalog_search("GBP", catalog = "TC")
 
 xr_gbp |>
   select(Numero_secuencial, Descripcion_de_la_serie) |>
-  # To table on document
+  # Display table in the document
   knitr::kable()
 ```
 
@@ -38,11 +38,11 @@ xr_gbp |>
 Table 1: Search results
 
 **Note:** BdE files are currently provided only in Spanish, as the
-institution is working on an English version. Search terms should be
-provided in Spanish to obtain results.
+institution is working on an English version. Search terms must be
+provided in Spanish to retrieve results.
 
-Once you have found your series, you can load the GBP/EUR exchange rate
-using the sequential number reference (`Numero_Secuencial`):
+Once you have found a series, load the GBP/EUR exchange rate using the
+sequential number reference (`Numero_Secuencial`):
 
 ``` r
 seq_number <- xr_gbp |>

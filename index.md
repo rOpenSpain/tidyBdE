@@ -3,13 +3,17 @@
 **tidyBdE** is an API package that retrieves data from [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
 The data is returned as a [tibble](https://tibble.tidyverse.org/), and
-the package automatically detects the format of each time-series (dates,
+the package automatically detects the format of each time series (dates,
 characters, and numbers).
 
 ## Installation
 
-Check the docs of the developing version in
-<https://ropenspain.github.io/tidyBdE/dev/>.
+Install **tidyBdE** from
+[**CRAN**](https://CRAN.R-project.org/package=tidyBdE):
+
+``` r
+install.packages("tidyBdE")
+```
 
 You can install the developing version of **tidyBdE** with:
 
@@ -33,12 +37,12 @@ install.packages(
 
 ## Examples
 
-Banco de España (**BdE**) provides several time-series, either produced
+Banco de España (**BdE**) provides several time series, either produced
 by the institution itself or compiled from other sources, such as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
-The basic entry point for searching time-series is the catalogs
-(*indexes*) of information. You can search any series by name:
+The basic entry point for searching time series is the time series
+catalogs information. You can search any series by name:
 
 ``` r
 library(tidyBdE)
@@ -69,7 +73,7 @@ must be provided in Spanish to retrieve results.
 
 After we have found our series, we can load the series for the GBP/EUR
 exchange rate using the sequential number reference
-(`Numero_Secuencial`) as:
+(`Numero_Secuencial`) as follows:
 
 ``` r
 seq_number <- xr_gbp |>
@@ -187,7 +191,7 @@ data release) with the following commands:
 ``` r
 bde_catalog_update()
 
-# On most of the functions using the option update_cache = TRUE
+# In most functions using the option update_cache = TRUE
 
 bde_series_load("SOME ID", update_cache = TRUE)
 ```

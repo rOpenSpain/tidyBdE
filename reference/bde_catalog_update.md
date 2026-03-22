@@ -1,6 +1,6 @@
 # Update BdE catalogs
 
-Update the time-series catalogs provided by BdE.
+Update the time series catalogs provided by BdE.
 
 ## Usage
 
@@ -14,15 +14,15 @@ bde_catalog_update(
 
 ## Source
 
-[Time-series bulk data
+[time series bulk data
 download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
 
 ## Arguments
 
 - catalog:
 
-  A vector of characters indicating the catalogs to be updated or
-  `"ALL"` as a shorthand. See **Details**.
+  A character string indicating the catalog to be updated or `"ALL"` as
+  a shorthand. See **Details**.
 
 - cache_dir:
 
@@ -63,7 +63,7 @@ Other catalog:
 ``` r
 # \donttest{
 bde_catalog_update("TI", verbose = TRUE)
-#> tidyBdE> Caching on temporary directory /tmp/RtmpcfoGJ1
+#> tidyBdE> Caching on temporary directory /tmp/RtmpQnNauU
 #> tidyBdE> Updating catalogs: TI
 #> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv
 #> 

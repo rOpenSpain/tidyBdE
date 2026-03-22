@@ -16,9 +16,9 @@ Tools for working with BdE catalogs.
 Tools for working with BdE series.
 
 - [`bde_series_full_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_full_load.md)
-  : Load BdE full time-series files
+  : Load BdE full time series files
 - [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
-  : Load a single BdE time-series
+  : Load a single BdE time series
 
 ## BdE Indicators
 

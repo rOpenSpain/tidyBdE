@@ -1,6 +1,6 @@
-# Load BdE full time-series files
+# Load BdE full time series files
 
-Load a full time-series file provided by BdE.
+Load a full time series file provided by BdE.
 
 ## Usage
 
@@ -72,7 +72,7 @@ subject to change (i.e. a new table is inserted before).
 
 For that reason, the function
 [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
-is more suitable for extracting specific time-series.
+is more suitable for extracting specific time series.
 
 ## Note
 

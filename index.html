@@ -89,13 +89,13 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p><strong>tidyBdE</strong> is an API package that retrieves data from <a href="https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html" class="external-link">Banco de España</a>. The data is returned as a <a href="https://tibble.tidyverse.org/" class="external-link">tibble</a>, and the package automatically detects the format of each time-series (dates, characters, and numbers).</p>
+<p><strong>tidyBdE</strong> is an API package that retrieves data from <a href="https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html" class="external-link">Banco de España</a>. The data is returned as a <a href="https://tibble.tidyverse.org/" class="external-link">tibble</a>, and the package automatically detects the format of each time series (dates, characters, and numbers).</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-
-<div class="pkgdown-devel">
-<p>Check the docs of the developing version in <a href="https://ropenspain.github.io/tidyBdE/dev/" class="uri">https://ropenspain.github.io/tidyBdE/dev/</a>.</p>
+<p>Install <strong>tidyBdE</strong> from <a href="https://CRAN.R-project.org/package=tidyBdE" class="external-link"><strong>CRAN</strong></a>:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyBdE"</span><span class="op">)</span></span></code></pre></div>
 <p>You can install the developing version of <strong>tidyBdE</strong> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ropenspain/tidyBdE"</span><span class="op">)</span></span></code></pre></div>
@@ -110,12 +110,11 @@
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
-</div>
 <div class="section level2">
 <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h2>
-<p>Banco de España (<strong>BdE</strong>) provides several time-series, either produced by the institution itself or compiled from other sources, such as <a href="https://ec.europa.eu/eurostat" class="external-link">Eurostat</a> or <a href="https://www.ine.es/" class="external-link">INE</a>.</p>
-<p>The basic entry point for searching time-series is the catalogs (<em>indexes</em>) of information. You can search any series by name:</p>
+<p>Banco de España (<strong>BdE</strong>) provides several time series, either produced by the institution itself or compiled from other sources, such as <a href="https://ec.europa.eu/eurostat" class="external-link">Eurostat</a> or <a href="https://www.ine.es/" class="external-link">INE</a>.</p>
+<p>The basic entry point for searching time series is the time series catalogs information. You can search any series by name:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropenspain.github.io/tidyBdE/">tidyBdE</a></span><span class="op">)</span></span>
 <span></span>
@@ -149,7 +148,7 @@
 Table 1: Search results
 </p>
 <p><strong>Note that BdE files are currently only provided in Spanish.</strong> The institution is working on the English version. For now, search terms must be provided in Spanish to retrieve results.</p>
-<p>After we have found our series, we can load the series for the GBP/EUR exchange rate using the sequential number reference (<code>Numero_Secuencial</code>) as:</p>
+<p>After we have found our series, we can load the series for the GBP/EUR exchange rate using the sequential number reference (<code>Numero_Secuencial</code>) as follows:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">seq_number</span> <span class="op">&lt;-</span> <span class="va">xr_gbp</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># First record</span></span>
@@ -243,7 +242,7 @@ Table 1: Search results
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/bde_catalog_update.html">bde_catalog_update</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># On most of the functions using the option update_cache = TRUE</span></span>
+<span><span class="co"># In most functions using the option update_cache = TRUE</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span><span class="st">"SOME ID"</span>, update_cache <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>

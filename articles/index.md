@@ -5,7 +5,7 @@
 - [Main macroeconomic
   series](https://ropenspain.github.io/tidyBdE/articles/mainseries.md):
 
-  Main indicators of Spain up to date.
+  Main indicators of Spain up-to-date.
 
 - [Series
   index](https://ropenspain.github.io/tidyBdE/articles/seriesindex.md):

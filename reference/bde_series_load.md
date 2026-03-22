@@ -1,4 +1,4 @@
-# Load a single BdE time-series
+# Load a single BdE time series
 
 The series alias is a positional code showing the location (column
 and/or row) of the series in the table. However, although it is unique,
@@ -36,7 +36,7 @@ bde_series_load(
 
   A numeric value (or coercible with
   [`base::as.double()`](https://rdrr.io/r/base/double.html)) or vector
-  of time-series code(s), as defined in the field `Número secuencial` of
+  of time series code(s), as defined in the field `Número secuencial` of
   the corresponding series. See
   [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md).
 
@@ -104,7 +104,7 @@ and
 
 ## Details
 
-Load a single time-series provided by BdE.
+Load a single time series provided by BdE.
 
 ## Note
 
@@ -126,7 +126,7 @@ Other series:
 # \donttest{
 # Metadata
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> tidyBdE> Caching on temporary directory /tmp/RtmpcfoGJ1
+#> tidyBdE> Caching on temporary directory /tmp/RtmpQnNauU
 #> tidyBdE> Cached version of BE detected
 #> tidyBdE> Cached version of SI detected
 #> tidyBdE> Cached version of TC detected
@@ -136,7 +136,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> tidyBdE> Extracting series 573234
 #> 
 #> tidyBdE> Downloading serie 573234 from file TC_1_1.csv (alias TC_1_1.1).
-#> tidyBdE> Caching on temporary directory /tmp/RtmpcfoGJ1/TC
+#> tidyBdE> Caching on temporary directory /tmp/RtmpQnNauU/TC
 #> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv
 #> 
 #> # A tibble: 6 × 2

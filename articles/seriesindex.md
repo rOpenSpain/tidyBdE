@@ -33,14 +33,14 @@ fr |>
 Table 1: Search results
 
 ``` r
-# In this case we want to extract the first serie
+# In this case we want to extract the first series
 # See tidyverse style
 fr |>
   # Select id
   select(Numero_secuencial) |>
-  # of first obs
+  # first observation
   slice(1) |>
-  # convert to number
+  # convert to numeric
   as.double() |>
   # And load it
   bde_series_load()
@@ -63,9 +63,9 @@ fr |>
 fr |>
   # Select id
   select(Numero_secuencial) |>
-  # of first obs
+  # first observation
   slice(1) |>
-  # convert to number
+  # convert to numeric
   as.double() |>
   # And load the metadata
   bde_series_load(extract_metadata = TRUE) |>
