@@ -18,11 +18,11 @@ install.packages("tidyBdE")
 You can install the developing version of **tidyBdE** with:
 
 ``` r
-remotes::install_github("ropenspain/tidyBdE")
+pak::pak("ropenspain/tidyBdE")
 ```
 
-Alternatively, you can install the development version of **tidyBdE**
-using the [r-universe](https://ropenspain.r-universe.dev/tidyBdE):
+Alternatively, you can install **tidyBdE** using the
+[r-universe](https://ropenspain.r-universe.dev/tidyBdE):
 
 ``` r
 # Install tidyBdE in R:
