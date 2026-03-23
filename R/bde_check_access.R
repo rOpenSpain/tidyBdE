@@ -1,7 +1,7 @@
 #' Check access to BdE
 #'
 #' @description
-#' Check if **R** can access resources at
+#' Check whether **R** can access resources at
 #' <https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html>.
 #'
 #' @return A logical value.

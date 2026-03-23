@@ -79,7 +79,7 @@ Banco de España (**BdE**) provides several time series, either produced by the
 institution itself or compiled from other sources, such as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
-The basic entry point for searching time series is the time series catalogs
+The basic entry point for searching series is the time series catalog
 information. You can search any series by name:
 
 ```{r}
@@ -111,9 +111,9 @@ xr_gbp |>
 cat("<p class=\"caption\">Table 1: Search results</p>")
 ```
 
-**Note that BdE files are currently only provided in Spanish.** The institution
-is working on the English version. For now, search terms must be provided in
-Spanish to retrieve results.
+**Note that BdE metadata is currently only provided in Spanish.** The
+institution is working on an English version. For now, search terms must be
+provided in Spanish to retrieve results.
 
 After we have found our series, we can load the series for the GBP/EUR exchange
 rate using the sequential number reference (`Numero_Secuencial`) as follows:

@@ -1,4 +1,4 @@
-# tidyBdE (development version)
+# tidyBdE 0.6.0
 
 -   Migrate vignettes to Quarto.
 -   Update series code on `bde_ind_cpi_var()`, see `?bde_ind_db`.

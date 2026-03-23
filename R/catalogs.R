@@ -24,11 +24,11 @@
 #' @param catalog A single value indicating the catalog to be updated or
 #'   `"ALL"` as a shorthand. See **Details**.
 #'
-#' @param parse_dates Logical. If `TRUE`, the dates will be parsed using
-#'  [bde_parse_dates()].
+#' @param parse_dates Logical. If `TRUE`, dates are parsed using
+#'   [bde_parse_dates()].
 #'
-#' @param update_cache Logical. If `TRUE`, the requested file will be updated
-#'   in the `cache_dir`.
+#' @param update_cache Logical. If `TRUE`, the requested file is updated in
+#'   `cache_dir`.
 #'
 #' @inheritParams bde_catalog_update
 #'
