@@ -28,7 +28,7 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
 
 - parse_dates:
 
-  Logical. If `TRUE`, the dates will be parsed using
+  Logical. If `TRUE`, dates are parsed using
   [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md).
 
 - cache_dir:
@@ -38,8 +38,7 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
 
 - update_cache:
 
-  Logical. If `TRUE`, the requested file will be updated in the
-  `cache_dir`.
+  Logical. If `TRUE`, the requested file is updated in `cache_dir`.
 
 - verbose:
 
@@ -80,9 +79,9 @@ Other catalog:
 ``` r
 # \donttest{
 bde_catalog_load("TI", verbose = TRUE)
-#> tidyBdE> Caching on temporary directory /tmp/RtmpVMRrvT
+#> tidyBdE> Caching on temporary directory /tmp/RtmpAh60ne
 #> tidyBdE> Need to download catalog TI
-#> tidyBdE> Cache dir is /tmp/RtmpVMRrvT
+#> tidyBdE> Cache dir is /tmp/RtmpAh60ne
 #> tidyBdE> Updating catalogs: TI
 #> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv
 #> 

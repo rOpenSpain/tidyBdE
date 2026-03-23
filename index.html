@@ -40,7 +40,7 @@
 
     <a class="navbar-brand me-2" href="index.html"><img src="apple-touch-icon.png" alt="tidyBdE logo" height="34" width="34" class="d-inline-block me-1">tidyBdE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,7 +114,7 @@
 <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h2>
 <p>Banco de España (<strong>BdE</strong>) provides several time series, either produced by the institution itself or compiled from other sources, such as <a href="https://ec.europa.eu/eurostat" class="external-link">Eurostat</a> or <a href="https://www.ine.es/" class="external-link">INE</a>.</p>
-<p>The basic entry point for searching time series is the time series catalogs information. You can search any series by name:</p>
+<p>The basic entry point for searching series is the time series catalog information. You can search any series by name:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropenspain.github.io/tidyBdE/">tidyBdE</a></span><span class="op">)</span></span>
 <span></span>
@@ -147,7 +147,7 @@
 <p class="caption">
 Table 1: Search results
 </p>
-<p><strong>Note that BdE files are currently only provided in Spanish.</strong> The institution is working on the English version. For now, search terms must be provided in Spanish to retrieve results.</p>
+<p><strong>Note that BdE metadata is currently only provided in Spanish.</strong> The institution is working on an English version. For now, search terms must be provided in Spanish to retrieve results.</p>
 <p>After we have found our series, we can load the series for the GBP/EUR exchange rate using the sequential number reference (<code>Numero_Secuencial</code>) as follows:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">seq_number</span> <span class="op">&lt;-</span> <span class="va">xr_gbp</span> <span class="op">|&gt;</span></span>
@@ -264,7 +264,7 @@ H. Herrero D (2026). <em>tidyBdE: Download Data from Bank of Spain</em>. <a href
 <span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  doi <span class="ot">=</span> {<span class="fl">10.32614</span><span class="sc">/</span>CRAN.package.tidyBdE},</span>
 <span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>  author <span class="ot">=</span> {Diego {H. Herrero}},</span>
 <span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2026</span>},</span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="dv">5</span>.<span class="fl">0.9000</span>},</span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="fl">6.0</span>},</span>
 <span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>ropenspain.github.io<span class="sc">/</span>tidyBdE<span class="sc">/</span>},</span>
 <span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools to download data series from Banco de España (BdE) on tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory <span class="fu">Mechanism</span> (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is <span class="cf">in</span> no way sponsored endorsed or administered by Banco de España.},</span>
 <span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>}</span></code></pre></div>

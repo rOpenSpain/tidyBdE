@@ -53,7 +53,7 @@ bde_series_load(
 
 - parse_dates:
 
-  Logical. If `TRUE`, the dates will be parsed using
+  Logical. If `TRUE`, dates are parsed using
   [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md).
 
 - parse_numeric:
@@ -68,8 +68,7 @@ bde_series_load(
 
 - update_cache:
 
-  Logical. If `TRUE`, the requested file will be updated in the
-  `cache_dir`.
+  Logical. If `TRUE`, the requested file is updated in `cache_dir`.
 
 - verbose:
 
@@ -126,10 +125,8 @@ Other series:
 # \donttest{
 # Metadata
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> tidyBdE> Caching on temporary directory /tmp/RtmpVMRrvT
+#> tidyBdE> Caching on temporary directory /tmp/RtmpAh60ne
 #> tidyBdE> Cached version of BE detected
-#> Warning: incomplete final line found on '/tmp/RtmpVMRrvT/catalogo_be.csv'
-#> Warning: EOF within quoted string
 #> tidyBdE> Cached version of SI detected
 #> tidyBdE> Cached version of TC detected
 #> tidyBdE> Cached version of TI detected
@@ -138,7 +135,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> tidyBdE> Extracting series 573234
 #> 
 #> tidyBdE> Downloading serie 573234 from file TC_1_1.csv (alias TC_1_1.1).
-#> tidyBdE> Caching on temporary directory /tmp/RtmpVMRrvT/TC
+#> tidyBdE> Caching on temporary directory /tmp/RtmpAh60ne/TC
 #> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv
 #> 
 #> # A tibble: 6 × 2
@@ -153,9 +150,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 
 # Data
 bde_series_load(573234, extract_metadata = FALSE)
-#> Warning: incomplete final line found on '/tmp/RtmpVMRrvT/catalogo_be.csv'
-#> Warning: EOF within quoted string
-#> # A tibble: 7,099 × 2
+#> # A tibble: 7,100 × 2
 #>    Date       `573234`
 #>    <date>        <dbl>
 #>  1 1999-01-04     1.18
@@ -168,15 +163,13 @@ bde_series_load(573234, extract_metadata = FALSE)
 #>  8 1999-01-13     1.17
 #>  9 1999-01-14     1.17
 #> 10 1999-01-15     1.16
-#> # ℹ 7,089 more rows
+#> # ℹ 7,090 more rows
 
 # Vectorized
 bde_series_load(c(573234, 573214),
   series_label = c("US/EUR", "GBP/EUR"),
   extract_metadata = TRUE
 )
-#> Warning: incomplete final line found on '/tmp/RtmpVMRrvT/catalogo_be.csv'
-#> Warning: EOF within quoted string
 #> # A tibble: 6 × 3
 #>   Date                        `US/EUR`                                 `GBP/EUR`
 #>   <chr>                       <chr>                                    <chr>    
@@ -190,12 +183,10 @@ bde_series_load(c(573234, 573214),
 wide <- bde_series_load(c(573234, 573214),
   series_label = c("US/EUR", "GBP/EUR")
 )
-#> Warning: incomplete final line found on '/tmp/RtmpVMRrvT/catalogo_be.csv'
-#> Warning: EOF within quoted string
 
 # Wide format
 wide
-#> # A tibble: 7,099 × 3
+#> # A tibble: 7,100 × 3
 #>    Date       `US/EUR` `GBP/EUR`
 #>    <date>        <dbl>     <dbl>
 #>  1 1999-01-04     1.18     0.711
@@ -208,18 +199,16 @@ wide
 #>  8 1999-01-13     1.17     0.708
 #>  9 1999-01-14     1.17     0.706
 #> 10 1999-01-15     1.16     0.704
-#> # ℹ 7,089 more rows
+#> # ℹ 7,090 more rows
 
 # Long format
 long <- bde_series_load(c(573234, 573214),
   series_label = c("US/EUR", "GBP/EUR"),
   out_format = "long"
 )
-#> Warning: incomplete final line found on '/tmp/RtmpVMRrvT/catalogo_be.csv'
-#> Warning: EOF within quoted string
 
 long
-#> # A tibble: 14,198 × 3
+#> # A tibble: 14,200 × 3
 #>    Date       serie_name serie_value
 #>    <date>     <fct>            <dbl>
 #>  1 1999-01-04 US/EUR            1.18
@@ -232,7 +221,7 @@ long
 #>  8 1999-01-13 US/EUR            1.17
 #>  9 1999-01-14 US/EUR            1.17
 #> 10 1999-01-15 US/EUR            1.16
-#> # ℹ 14,188 more rows
+#> # ℹ 14,190 more rows
 
 # Use with ggplot
 library(ggplot2)

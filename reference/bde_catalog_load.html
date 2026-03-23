@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyBdE logo" height="34" width="34" class="d-inline-block me-1">tidyBdE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,7 +79,7 @@
 
 
 <dt id="arg-parse-dates">parse_dates<a class="anchor" aria-label="anchor" href="#arg-parse-dates"></a></dt>
-<dd><p>Logical. If <code>TRUE</code>, the dates will be parsed using
+<dd><p>Logical. If <code>TRUE</code>, dates are parsed using
 <code><a href="bde_parse_dates.html">bde_parse_dates()</a></code>.</p></dd>
 
 
@@ -89,8 +89,8 @@ via options with <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
 
 
 <dt id="arg-update-cache">update_cache<a class="anchor" aria-label="anchor" href="#arg-update-cache"></a></dt>
-<dd><p>Logical. If <code>TRUE</code>, the requested file will be updated
-in the <code>cache_dir</code>.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, the requested file is updated in
+<code>cache_dir</code>.</p></dd>
 
 
 <dt id="arg-verbose">verbose<a class="anchor" aria-label="anchor" href="#arg-verbose"></a></dt>
@@ -118,9 +118,9 @@ debugging.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">bde_catalog_load</span><span class="op">(</span><span class="st">"TI"</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory /tmp/RtmpVMRrvT</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory /tmp/RtmpAh60ne</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Need to download catalog TI</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Cache dir is /tmp/RtmpVMRrvT</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Cache dir is /tmp/RtmpAh60ne</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Updating catalogs: TI</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>

@@ -27,7 +27,7 @@ bde_series_full_load(
 
 - parse_dates:
 
-  Logical. If `TRUE`, the dates will be parsed using
+  Logical. If `TRUE`, dates are parsed using
   [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md).
 
 - parse_numeric:
@@ -42,8 +42,7 @@ bde_series_full_load(
 
 - update_cache:
 
-  Logical. If `TRUE`, the requested file will be updated in the
-  `cache_dir`.
+  Logical. If `TRUE`, the requested file is updated in `cache_dir`.
 
 - verbose:
 
@@ -103,7 +102,7 @@ bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
 
 # Data
 bde_series_full_load("TI_1_1.csv")
-#> # A tibble: 7,100 × 5
+#> # A tibble: 7,101 × 5
 #>    Date       TI_1_1.1 TI_1_1.2 TI_1_1.3 TI_1_1.4
 #>    <date>        <dbl>    <dbl>    <dbl>    <dbl>
 #>  1 1999-01-01        3       NA     4.5      2   
@@ -116,6 +115,6 @@ bde_series_full_load("TI_1_1.csv")
 #>  8 1999-01-12        3       NA     3.25     2.75
 #>  9 1999-01-13        3       NA     3.25     2.75
 #> 10 1999-01-14        3       NA     3.25     2.75
-#> # ℹ 7,090 more rows
+#> # ℹ 7,091 more rows
 # }
 ```

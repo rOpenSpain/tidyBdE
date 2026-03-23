@@ -37,7 +37,7 @@ xr_gbp |>
 
 Table 1: Search results
 
-**Note:** BdE files are currently provided only in Spanish, as the
+**Note:** BdE metadata is currently only provided in Spanish, as the
 institution is working on an English version. Search terms must be
 provided in Spanish to retrieve results.
 

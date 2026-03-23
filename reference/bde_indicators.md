@@ -56,13 +56,12 @@ bde_ind_population(series_label = "Population_Spain", ...)
 
   `parse_dates`
 
-  :   Logical. If `TRUE`, the dates will be parsed using
+  :   Logical. If `TRUE`, dates are parsed using
       [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md).
 
   `update_cache`
 
-  :   Logical. If `TRUE`, the requested file will be updated in the
-      `cache_dir`.
+  :   Logical. If `TRUE`, the requested file is updated in `cache_dir`.
 
   `cache_dir`
 
@@ -99,8 +98,6 @@ Other indicators:
 ``` r
 # \donttest{
 bde_ind_gdp_var()
-#> Warning: incomplete final line found on '/tmp/RtmpVMRrvT/catalogo_be.csv'
-#> Warning: EOF within quoted string
 #> # A tibble: 120 × 2
 #>    Date       GDP_YoY
 #>    <date>       <dbl>

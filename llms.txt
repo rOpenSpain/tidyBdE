@@ -41,8 +41,8 @@ Banco de España (**BdE**) provides several time series, either produced
 by the institution itself or compiled from other sources, such as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
-The basic entry point for searching time series is the time series
-catalogs information. You can search any series by name:
+The basic entry point for searching series is the time series catalog
+information. You can search any series by name:
 
 ``` r
 library(tidyBdE)
@@ -67,9 +67,9 @@ xr_gbp |>
 
 Table 1: Search results
 
-**Note that BdE files are currently only provided in Spanish.** The
-institution is working on the English version. For now, search terms
-must be provided in Spanish to retrieve results.
+**Note that BdE metadata is currently only provided in Spanish.** The
+institution is working on an English version. For now, search terms must
+be provided in Spanish to retrieve results.
 
 After we have found our series, we can load the series for the GBP/EUR
 exchange rate using the sequential number reference
@@ -215,7 +215,7 @@ A BibTeX entry for LaTeX users is
   doi = {10.32614/CRAN.package.tidyBdE},
   author = {Diego {H. Herrero}},
   year = {2026},
-  version = {0.5.0.9000},
+  version = {0.6.0},
   url = {https://ropenspain.github.io/tidyBdE/},
   abstract = {Tools to download data series from Banco de España (BdE) on tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by Banco de España.},
 }
