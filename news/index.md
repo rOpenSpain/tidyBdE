@@ -2,6 +2,8 @@
 
 ## tidyBdE 0.6.0
 
+CRAN release: 2026-03-23
+
 - Migrate vignettes to Quarto.
 - Update series code on
   [`bde_ind_cpi_var()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md),
