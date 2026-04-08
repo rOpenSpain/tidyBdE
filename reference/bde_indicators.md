@@ -98,6 +98,8 @@ Other indicators:
 ``` r
 # \donttest{
 bde_ind_gdp_var()
+#> Warning: incomplete final line found on '/tmp/RtmpjeKhvm/catalogo_be.csv'
+#> Warning: EOF within quoted string
 #> # A tibble: 120 × 2
 #>    Date       GDP_YoY
 #>    <date>       <dbl>
