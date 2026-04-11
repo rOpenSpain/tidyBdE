@@ -30,7 +30,7 @@ bde_tidy_palettes(
   transparent and `1` means opaque). A missing, i.e., `alpha = NULL`,
   does not add opacity codes (`"FF"`) to the individual color hex codes.
   See
-  [`ggplot2::alpha()`](https://ggplot2.tidyverse.org/reference/reexports.html).
+  [`ggplot2::alpha()`](https://scales.r-lib.org/reference/alpha.html).
 
 - rev:
 

@@ -46,7 +46,7 @@ theme_tidybde(...)
 ## Value
 
 A [ggplot2](https://CRAN.R-project.org/package=ggplot2)
-[`theme()`](https://ggplot2.tidyverse.org/reference/theme.html).
+[`theme()`](https://ggplot2.tidyverse.org/reference/ggtheme.html).
 
 ## Details
 

@@ -21,3 +21,8 @@ Useful links:
 
 **Maintainer**: Diego H. Herrero <dev.dieghernan@gmail.com>
 ([ORCID](https://orcid.org/0000-0001-8457-4658)) \[copyright holder\]
+
+Authors:
+
+- Diego H. Herrero <dev.dieghernan@gmail.com>
+  ([ORCID](https://orcid.org/0000-0001-8457-4658)) \[copyright holder\]
