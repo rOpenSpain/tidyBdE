@@ -12,7 +12,7 @@ bde_catalog_search(pattern, ...)
 and \strong{Examples}.}
 
 \item{...}{
-  Arguments passed on to \code{\link[=bde_catalog_load]{bde_catalog_load}}
+  Arguments passed on to \code{\link{bde_catalog_load}}
   \describe{
     \item{\code{catalog}}{A single value indicating the catalog to be updated or
 \code{"ALL"} as a shorthand. See \strong{Details}.}
@@ -27,7 +27,7 @@ debugging.}
   }}
 }
 \value{
-A \link[tibble:tbl_df-class]{tibble} object with the results of the query.
+A \link[tibble:tbl_df]{tibble} object with the results of the query.
 }
 \description{
 Search for keywords on the time series catalogs.
@@ -59,8 +59,8 @@ bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 \seealso{
 \code{\link[=bde_catalog_load]{bde_catalog_load()}}, \link[base:regex]{base::regex}
 
-Other catalog: 
-\code{\link{bde_catalog_load}()},
-\code{\link{bde_catalog_update}()}
+Other catalog:
+\code{\link[=bde_catalog_load]{bde_catalog_load()}},
+\code{\link[=bde_catalog_update]{bde_catalog_update()}}
 }
 \concept{catalog}

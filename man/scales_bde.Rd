@@ -47,7 +47,7 @@ for details.}
 \item{alpha}{An alpha-transparency level in the range \verb{[0,1]} (\code{0} means
 transparent and \code{1} means opaque). A missing, i.e., \code{alpha = NULL}, does
 not add opacity codes (\code{"FF"}) to the individual color hex codes.
-See \code{\link[ggplot2:reexports]{ggplot2::alpha()}}.}
+See \code{\link[ggplot2:alpha]{ggplot2::alpha()}}.}
 
 \item{rev}{Logical indicating whether the ordering of the colors should be
 reversed.}
@@ -91,8 +91,8 @@ ggplot(txsamp, aes(x = sales, y = median)) +
 \seealso{
 \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}, \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}
 
-Other bde_plot: 
-\code{\link{bde_tidy_palettes}()},
-\code{\link{theme_tidybde}()}
+Other bde_plot:
+\code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}},
+\code{\link[=theme_tidybde]{theme_tidybde()}}
 }
 \concept{bde_plot}

@@ -38,7 +38,7 @@ bde_ind_population(series_label = "Population_Spain", ...)
 custom label for the series extracted.}
 
 \item{...}{
-  Arguments passed on to \code{\link[=bde_series_load]{bde_series_load}}
+  Arguments passed on to \code{\link{bde_series_load}}
   \describe{
     \item{\code{out_format}}{Whether the format should be returned as "long" or "wide".
 Possible values are \code{"wide"} or \code{"long"}. See \strong{Value} for details and
@@ -58,7 +58,7 @@ debugging.}
   }}
 }
 \value{
-A \link[tibble:tbl_df-class]{tibble} with the required series.
+A \link[tibble:tbl_df]{tibble} with the required series.
 }
 \description{
 Set of helper functions for downloading some of the most relevant
@@ -79,7 +79,7 @@ bde_ind_gdp_var()
 \seealso{
 \code{\link[=bde_series_load]{bde_series_load()}}, \code{\link[=bde_catalog_search]{bde_catalog_search()}}
 
-Other indicators: 
+Other indicators:
 \code{\link{bde_ind_db}}
 }
 \concept{indicators}

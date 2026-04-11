@@ -6,7 +6,7 @@
 \alias{bde_ind_db}
 \title{Database of selected macroeconomic indicators}
 \format{
-A \link[tibble:tbl_df-class]{tibble} of 9 rows and
+A \link[tibble:tbl_df]{tibble} of 9 rows and
 7 columns with the following fields:
 
 \describe{
@@ -43,7 +43,7 @@ bde_ind_db
 
 }
 \seealso{
-Other indicators: 
+Other indicators:
 \code{\link{bde_indicators}}
 }
 \concept{indicators}

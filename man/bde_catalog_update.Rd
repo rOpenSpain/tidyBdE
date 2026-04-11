@@ -51,8 +51,8 @@ bde_catalog_update("TI", verbose = TRUE)
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Other catalog: 
-\code{\link{bde_catalog_load}()},
-\code{\link{bde_catalog_search}()}
+Other catalog:
+\code{\link[=bde_catalog_load]{bde_catalog_load()}},
+\code{\link[=bde_catalog_search]{bde_catalog_search()}}
 }
 \concept{catalog}

@@ -8,7 +8,7 @@ theme_tidybde(...)
 }
 \arguments{
 \item{...}{
-  Arguments passed on to \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic}}
+  Arguments passed on to \code{\link[ggplot2:theme_classic]{ggplot2::theme_classic}}
   \describe{
     \item{\code{base_size}}{base font size, given in pts.}
     \item{\code{base_family}}{base font family}
@@ -22,14 +22,14 @@ legend titles, the plot title and tag text.}
 }
 \value{
 A \CRANpkg{ggplot2}
-\code{\link[ggplot2:ggtheme]{theme()}}.
+\code{\link[ggplot2:theme_classic]{theme()}}.
 }
 \description{
 A custom \CRANpkg{ggplot2} theme based on the publications
 of BdE.
 }
 \details{
-Theme based on \code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}.
+Theme based on \code{\link[ggplot2:theme_classic]{ggplot2::theme_classic()}}.
 }
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
@@ -65,10 +65,10 @@ if (nrow(series_TC) > 0) {
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[ggplot2:ggtheme]{ggplot2::theme_classic()}}
+\code{\link[ggplot2:theme_classic]{ggplot2::theme_classic()}}
 
-Other bde_plot: 
-\code{\link{bde_tidy_palettes}()},
+Other bde_plot:
+\code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}},
 \code{\link{scales_bde}}
 }
 \concept{bde_plot}

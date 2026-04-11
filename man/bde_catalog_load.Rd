@@ -33,7 +33,7 @@ via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 debugging.}
 }
 \value{
-A \link[tibble:tbl_df-class]{tibble} object.
+A \link[tibble:tbl_df]{tibble} object.
 }
 \description{
 Load the time series catalogs provided by the BdE.
@@ -61,8 +61,8 @@ bde_catalog_load("TI", verbose = TRUE)
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Other catalog: 
-\code{\link{bde_catalog_search}()},
-\code{\link{bde_catalog_update}()}
+Other catalog:
+\code{\link[=bde_catalog_search]{bde_catalog_search()}},
+\code{\link[=bde_catalog_update]{bde_catalog_update()}}
 }
 \concept{catalog}

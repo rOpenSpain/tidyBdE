@@ -39,7 +39,7 @@ debugging.}
 metadata of the requested series.}
 }
 \value{
-A \link[tibble:tbl_df-class]{tibble} with a field \code{Date} and the alias of the fields
+A \link[tibble:tbl_df]{tibble} with a field \code{Date} and the alias of the fields
 series as described on the catalogs. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
 }
 \description{
@@ -74,7 +74,7 @@ bde_series_full_load("TI_1_1.csv")
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Other series: 
-\code{\link{bde_series_load}()}
+Other series:
+\code{\link[=bde_series_load]{bde_series_load()}}
 }
 \concept{series}

@@ -18,7 +18,7 @@ bde_series_load(
 )
 }
 \arguments{
-\item{series_code}{A numeric value (or coercible with \code{\link[base:double]{base::as.double()}})
+\item{series_code}{A numeric value (or coercible with \code{\link[base:as.double]{base::as.double()}})
 or vector of time series code(s), as defined in the field
 \verb{Número secuencial} of the corresponding series. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 
@@ -48,7 +48,7 @@ debugging.}
 metadata of the requested series.}
 }
 \value{
-A \link[tibble:tbl_df-class]{tibble} with a field \code{Date}:
+A \link[tibble:tbl_df]{tibble} with a field \code{Date}:
 \itemize{
 \item With \code{out_format = "wide"}, each series is presented in a separate
 column with the name defined by \code{series_label}.
@@ -128,7 +128,7 @@ ggplot(long, aes(Date, serie_value)) +
 \code{\link[=bde_catalog_load]{bde_catalog_load()}},
 \code{\link[=bde_catalog_search]{bde_catalog_search()}}, \code{\link[=bde_indicators]{bde_indicators()}}
 
-Other series: 
-\code{\link{bde_series_full_load}()}
+Other series:
+\code{\link[=bde_series_full_load]{bde_series_full_load()}}
 }
 \concept{series}

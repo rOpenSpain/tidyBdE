@@ -19,7 +19,7 @@ bde_tidy_palettes(
 \item{alpha}{An alpha-transparency level in the range \verb{[0,1]} (\code{0} means
 transparent and \code{1} means opaque). A missing, i.e., \code{alpha = NULL}, does
 not add opacity codes (\code{"FF"}) to the individual color hex codes.
-See \code{\link[ggplot2:reexports]{ggplot2::alpha()}}.}
+See \code{\link[ggplot2:alpha]{ggplot2::alpha()}}.}
 
 \item{rev}{Logical indicating whether the ordering of the colors should be
 reversed.}
@@ -49,8 +49,8 @@ scales::show_col(bde_tidy_palettes(palette = "bde_qual_pal"),
 )
 }
 \seealso{
-Other bde_plot: 
+Other bde_plot:
 \code{\link{scales_bde}},
-\code{\link{theme_tidybde}()}
+\code{\link[=theme_tidybde]{theme_tidybde()}}
 }
 \concept{bde_plot}
