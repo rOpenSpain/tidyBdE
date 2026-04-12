@@ -2,11 +2,11 @@
 
 **\[superseded\]**
 
-These functions have been superseded; see
+These functions are superseded; see
 [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md)
-as a replacement.
+instead.
 
-Custom palettes based on the publications of BdE.
+Custom palettes based on BdE publications.
 
 ## Usage
 

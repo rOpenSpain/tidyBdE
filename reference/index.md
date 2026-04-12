@@ -37,7 +37,7 @@ Selected macroeconomic indicators of Spain.
   [`bde_ind_population()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
   : Relevant Indicators of Spain
 
-## Plot utils
+## Plot utilities
 
 Complementary functions for plotting with
 [ggplot2](https://CRAN.R-project.org/package=ggplot2).
@@ -58,7 +58,7 @@ Complementary functions for plotting with
 
   BdE [ggplot2](https://CRAN.R-project.org/package=ggplot2) theme
 
-## Utils
+## Utilities
 
 - [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md)
   : Parse dates

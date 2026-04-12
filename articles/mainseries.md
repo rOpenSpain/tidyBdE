@@ -1,9 +1,9 @@
 # Main macroeconomic series
 
-This article shows the evolution of selected economic indicators of
-Spain, based on information from [Banco de España](https://www.bde.es/).
+This article shows the evolution of selected Spanish economic indicators
+using data from [Banco de España](https://www.bde.es/).
 
-Last update: **11-April-2026**.
+Last update: **12-April-2026**.
 
 ``` r
 library(tidyBdE)
@@ -25,13 +25,13 @@ br <- seq(nd, Sys.Date(), "6 months")
 
 ![](mainseries_files/figure-html/fig-gdp_agg-1.png)
 
-Figure 1: GDP of Spain - Aggregated last 4 quarters
+Figure 1: GDP of Spain — aggregated over the last four quarters
 
 ### Year-on-year variation
 
 ![](mainseries_files/figure-html/fig-gdpyoy-1.png)
 
-Figure 2: GDP of Spain - Year-on-year variation
+Figure 2: GDP of Spain — year-on-year variation
 
 ### GDP per capita
 
@@ -55,10 +55,10 @@ Figure 5: Consumer Price Index
 
 ![](mainseries_files/figure-html/fig-eur-1.png)
 
-Figure 6: Monthly Euribor
+Figure 6: 12-month Euribor (monthly)
 
 ## Population
 
 ![](mainseries_files/figure-html/fig-pop-1.png)
 
-Figure 7: Population in thousands
+Figure 7: Population (thousands)

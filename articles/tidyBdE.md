@@ -13,7 +13,7 @@ by the institution itself or compiled from other sources, such as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
 The basic entry points for searching time series are the time series
-catalogs (*indexes*). You can search for any series by name:
+catalogs (indexes). You can search for any series by name:
 
 ``` r
 library(tidyBdE)
@@ -27,7 +27,7 @@ xr_gbp <- bde_catalog_search("GBP", catalog = "TC")
 
 xr_gbp |>
   select(Numero_secuencial, Descripcion_de_la_serie) |>
-  # Display table in the document
+  # Display the table in the document
   knitr::kable()
 ```
 
@@ -42,7 +42,7 @@ institution is working on an English version. Search terms must be
 provided in Spanish to retrieve results.
 
 Once you have found a series, load the GBP/EUR exchange rate using the
-sequential number reference (`Numero_Secuencial`):
+sequential number reference (`Numero_Secuencial`) as follows:
 
 ``` r
 seq_number <- xr_gbp |>
@@ -111,8 +111,8 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
 Figure 1: EUR/GBP Exchange Rate (2010-2020)
 
 The package also provides convenience functions for a selection of the
-most relevant macroeconomic series, eliminating the need for manual
-searching:
+most relevant macroeconomic series, eliminating the need to search
+manually:
 
 ``` r
 # Data in "long" format
@@ -142,8 +142,8 @@ Figure 2: Spanish Economic Indicators (2010-2019)
 
 ## A note on caching
 
-You can use **tidyBdE** to create your own local repository in a given
-local directory by passing the following option:
+You can use **tidyBdE** to create a local cache repository in a
+directory by passing the following option:
 
 ``` r
 options(bde_cache_dir = "./path/to/location")
@@ -152,8 +152,8 @@ options(bde_cache_dir = "./path/to/location")
 When this option is set, **tidyBdE** will look for cached files in the
 `bde_cache_dir` directory and load them, speeding up data retrieval.
 
-It is possible to update the data (i.e. after every monthly or quarterly
-data release) with the following commands:
+You can update the data after monthly or quarterly releases with the
+following commands:
 
 ``` r
 bde_catalog_update()

@@ -5,7 +5,7 @@
 CRAN release: 2026-03-23
 
 - Migrate vignettes to Quarto.
-- Update series code on
+- Update the series code used by
   [`bde_ind_cpi_var()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md),
   see
   [`?bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md).
@@ -115,10 +115,11 @@ CRAN release: 2022-11-16
 
 CRAN release: 2022-10-07
 
-- Overall improvements on downloading files:
-  - On url not reachable, remove the local csv since it is empty.
-  - Improve download process.
-  - More informative messages for the final user.
+- Overall improvements to file downloading:
+  - If a URL is not reachable, remove the local CSV file because it is
+    empty.
+  - Improve the download process.
+  - Provide more informative messages to the user.
   - Internal performance improvements.
 - **Breaking change**: `theme_bde()` renamed to
   [`theme_tidybde()`](https://ropenspain.github.io/tidyBdE/reference/theme_tidybde.md).
@@ -127,7 +128,7 @@ CRAN release: 2022-10-07
 
 CRAN release: 2022-08-13
 
-- Update HTML5 due to **CRAN** request
+- Update HTML5 markup to satisfy **CRAN** request.
 
 ## tidyBdE 0.2.4
 
@@ -166,7 +167,8 @@ CRAN release: 2021-10-07
 - Update docs and vignettes.
 - [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
   now tries to coerce characters to numeric.
-- Improve messages when inconsistencies between catalog and series.
+- Improve messages when inconsistencies occur between the catalog and
+  series.
 - Export
   [`bde_check_access()`](https://ropenspain.github.io/tidyBdE/reference/bde_check_access.md).
 

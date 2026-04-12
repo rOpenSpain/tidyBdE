@@ -62,7 +62,7 @@ scale_fill_bde_c(
 
 - ...:
 
-  Further arguments of
+  Further arguments passed to
   [`ggplot2::discrete_scale()`](https://ggplot2.tidyverse.org/reference/discrete_scale.html)
   or
   [`ggplot2::continuous_scale()`](https://ggplot2.tidyverse.org/reference/continuous_scale.html).

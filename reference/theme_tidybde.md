@@ -50,7 +50,7 @@ A [ggplot2](https://CRAN.R-project.org/package=ggplot2)
 
 ## Details
 
-Theme based on
+A theme based on
 [`ggplot2::theme_classic()`](https://ggplot2.tidyverse.org/reference/ggtheme.html).
 
 ## See also
@@ -79,7 +79,7 @@ library(tidyr)
 
 series_TC <- bde_series_full_load("TC_1_1.csv")
 
-# If download was OK then plot
+# If the download succeeds then plot
 if (nrow(series_TC) > 0) {
   series_TC <- series_TC[c(1, 2)]
 

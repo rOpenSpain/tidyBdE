@@ -42,7 +42,7 @@ bde_series_full_load(
 
 - update_cache:
 
-  Logical. If `TRUE`, the requested file is updated in `cache_dir`.
+  Logical. If `TRUE`, the requested file is refreshed in `cache_dir`.
 
 - verbose:
 

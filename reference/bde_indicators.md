@@ -1,7 +1,7 @@
 # Relevant Indicators of Spain
 
-Set of helper functions for downloading some of the most relevant
-macroeconomic indicators of Spain. Metadata available in
+Helper wrappers for downloading some of the most relevant macroeconomic
+indicators of Spain. Metadata available in
 [bde_ind_db](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md).
 
 ## Usage
@@ -30,8 +30,8 @@ bde_ind_population(series_label = "Population_Spain", ...)
 
 - series_label:
 
-  Optional. Character vector or value. Allows specifying a custom label
-  for the series extracted.
+  Optional character string or vector of labels to assign to the
+  extracted series.
 
 - ...:
 
@@ -61,7 +61,8 @@ bde_ind_population(series_label = "Population_Spain", ...)
 
   `update_cache`
 
-  :   Logical. If `TRUE`, the requested file is updated in `cache_dir`.
+  :   Logical. If `TRUE`, the requested file is refreshed in
+      `cache_dir`.
 
   `cache_dir`
 

@@ -1,10 +1,9 @@
 # Load a single BdE time series
 
 The series alias is a positional code showing the location (column
-and/or row) of the series in the table. However, although it is unique,
-it is not a good candidate to be used as the series ID, as it is subject
-to change. If a series changes position in the table, its alias will
-also change.
+and/or row) of the series in the table. Although it is unique, it is not
+stable enough to use as the series ID because it may change when the
+series moves.
 
 To ensure series can still be identified, even after these changes, they
 are assigned a sequential number (referred to as `series_code` in this
@@ -42,8 +41,8 @@ bde_series_load(
 
 - series_label:
 
-  Optional. Character vector or value. Allows specifying a custom label
-  for the series extracted.
+  Optional character string or vector of labels to assign to the
+  extracted series.
 
 - out_format:
 
@@ -68,7 +67,7 @@ bde_series_load(
 
 - update_cache:
 
-  Logical. If `TRUE`, the requested file is updated in `cache_dir`.
+  Logical. If `TRUE`, the requested file is refreshed in `cache_dir`.
 
 - verbose:
 
@@ -125,7 +124,7 @@ Other series:
 # \donttest{
 # Metadata
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> tidyBdE> Caching on temporary directory /tmp/RtmpEqG7br
+#> tidyBdE> Caching on temporary directory /tmp/RtmpZWXcup
 #> tidyBdE> Cached version of BE detected
 #> tidyBdE> Cached version of SI detected
 #> tidyBdE> Cached version of TC detected
@@ -135,7 +134,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> tidyBdE> Extracting series 573234
 #> 
 #> tidyBdE> Downloading serie 573234 from file TC_1_1.csv (alias TC_1_1.1).
-#> tidyBdE> Caching on temporary directory /tmp/RtmpEqG7br/TC
+#> tidyBdE> Caching on temporary directory /tmp/RtmpZWXcup/TC
 #> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv
 #> 
 #> # A tibble: 6 × 2

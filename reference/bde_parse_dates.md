@@ -33,7 +33,7 @@ A [`Date`](https://rdrr.io/r/base/as.Date.html) object.
 
 ## Details
 
-Tries to parse strings representing dates using
+Attempts to parse strings representing dates using
 [`as.Date()`](https://rdrr.io/r/base/as.Date.html)
 
 ## See also

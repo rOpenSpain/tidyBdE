@@ -22,8 +22,8 @@ bde_catalog_search(pattern, ...)
 
   `catalog`
 
-  :   A single value indicating the catalog to be updated or `"ALL"` as
-      a shorthand. See **Details**.
+  :   A single catalog identifier to update, or `"ALL"` to update every
+      catalog. See **Details**.
 
   `parse_dates`
 
@@ -32,7 +32,8 @@ bde_catalog_search(pattern, ...)
 
   `update_cache`
 
-  :   Logical. If `TRUE`, the requested file is updated in `cache_dir`.
+  :   Logical. If `TRUE`, the requested file is refreshed in
+      `cache_dir`.
 
   `cache_dir`
 
@@ -54,8 +55,8 @@ object with the results of the query.
 **Note:** BdE files are currently provided only in Spanish. Therefore,
 search terms should be provided in Spanish to obtain search results.
 
-This function uses [`base::grep()`](https://rdrr.io/r/base/grep.html)
-function for finding matches on the catalogs. You can pass [regular
+This function uses [`base::grep()`](https://rdrr.io/r/base/grep.html) to
+find matches in the catalogs. You can pass [regular
 expressions](https://rdrr.io/r/base/regex.html) to broaden the search.
 
 ## See also

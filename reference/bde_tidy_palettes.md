@@ -1,7 +1,7 @@
 # BdE color palettes
 
-Custom palettes based on the publications of BdE. These are manual
-palettes with a maximum of 6 colors.
+These palettes are based on BdE publications and are defined manually.
+Each palette contains at most 6 colors.
 
 ## Usage
 
@@ -18,7 +18,7 @@ bde_tidy_palettes(
 
 - n:
 
-  The number of colors (`>= 1`) in the palette.
+  The number of colors (`>= 1`) to return.
 
 - palette:
 
