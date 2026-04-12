@@ -22,8 +22,8 @@ bde_series_load(
 or vector of time series code(s), as defined in the field
 \verb{Número secuencial} of the corresponding series. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 
-\item{series_label}{Optional. Character vector or value. Allows specifying a
-custom label for the series extracted.}
+\item{series_label}{Optional character string or vector of labels to assign
+to the extracted series.}
 
 \item{out_format}{Whether the format should be returned as "long" or "wide".
 Possible values are \code{"wide"} or \code{"long"}. See \strong{Value} for details and
@@ -38,7 +38,7 @@ double (numeric) values. See \strong{Note}.}
 \item{cache_dir}{A path to a cache directory. The directory can also be set
 via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 
-\item{update_cache}{Logical. If \code{TRUE}, the requested file is updated in
+\item{update_cache}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
 
 \item{verbose}{Logical \code{TRUE} or \code{FALSE}, display information useful for
@@ -66,9 +66,8 @@ column with the name defined by \code{series_label}.
 }
 \description{
 The series alias is a positional code showing the location (column and/or
-row) of the series in the table. However, although it is unique, it is not a
-good candidate to be used as the series ID, as it is subject to change. If a
-series changes position in the table, its alias will also change.
+row) of the series in the table. Although it is unique, it is not stable
+enough to use as the series ID because it may change when the series moves.
 
 To ensure series can still be identified, even after these changes, they are
 assigned a sequential number (referred to as \code{series_code} in this function).

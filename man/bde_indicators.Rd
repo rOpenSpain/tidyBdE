@@ -34,8 +34,8 @@ bde_ind_gdp_quarterly(series_label = "GDP_quarterly_value", ...)
 bde_ind_population(series_label = "Population_Spain", ...)
 }
 \arguments{
-\item{series_label}{Optional. Character vector or value. Allows specifying a
-custom label for the series extracted.}
+\item{series_label}{Optional character string or vector of labels to assign
+to the extracted series.}
 
 \item{...}{
   Arguments passed on to \code{\link{bde_series_load}}
@@ -49,7 +49,7 @@ double (numeric) values. See \strong{Note}.}
 metadata of the requested series.}
     \item{\code{parse_dates}}{Logical. If \code{TRUE}, dates are parsed using
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
-    \item{\code{update_cache}}{Logical. If \code{TRUE}, the requested file is updated in
+    \item{\code{update_cache}}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
     \item{\code{cache_dir}}{A path to a cache directory. The directory can also be set
 via options with \code{options(bde_cache_dir = "path/to/dir")}.}
@@ -61,8 +61,8 @@ debugging.}
 A \link[tibble:tbl_df]{tibble} with the required series.
 }
 \description{
-Set of helper functions for downloading some of the most relevant
-macroeconomic indicators of Spain. Metadata available in \link{bde_ind_db}.
+Helper wrappers for downloading some of the most relevant macroeconomic
+indicators of Spain. Metadata available in \link{bde_ind_db}.
 }
 \details{
 These functions are convenient wrappers around \code{\link[=bde_series_load]{bde_series_load()}} for

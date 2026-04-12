@@ -1,6 +1,6 @@
 ---
 title: "Main macroeconomic series"
-description: Main indicators of Spain up-to-date.
+description: Main Spanish economic indicators up to date.
 date: "`r Sys.Date()`"
 knitr:
   opts_chunk:
@@ -14,8 +14,8 @@ knitr:
     out.width: "100%"
 ---
 
-This article shows the evolution of selected economic indicators of Spain, based
-on information from [Banco de España](https://www.bde.es/).
+This article shows the evolution of selected Spanish economic indicators using
+data from [Banco de España](https://www.bde.es/).
 
 Last update: **`r format(Sys.Date(),"%d-%B-%Y")`**.
 
@@ -40,7 +40,7 @@ br <- seq(nd, Sys.Date(), "6 months")
 ```{r}
 #| label: fig-gdp_agg
 #| echo: false
-#| fig-cap: GDP of Spain - Aggregated last 4 quarters
+#| fig-cap: GDP of Spain — aggregated over the last four quarters
 dataset <- bde_ind_gdp_quarterly(series_label = "data") |>
   drop_na()
 
@@ -76,7 +76,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ```{r}
 #| label: fig-gdpyoy
 #| echo: false
-#| fig-cap: GDP of Spain - Year-on-year variation
+#| fig-cap: GDP of Spain — year-on-year variation
 dataset <- bde_ind_gdp_var(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
@@ -217,7 +217,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ```{r}
 #| label: fig-eur
 #| echo: false
-#| fig-cap: Monthly Euribor
+#| fig-cap: 12-month Euribor (monthly)
 dataset <- bde_ind_euribor_12m_monthly(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
@@ -232,7 +232,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
     aes(label = paste(x = data, "%\n", format(Date, "%b-%Y")))
   ) +
   labs(
-    title = "Euribor 12 months (monthly)",
+    title = "12-month Euribor (monthly)",
     subtitle = "%",
     caption = "Source: BdE"
   ) +
@@ -248,7 +248,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ```{r}
 #| label: fig-pop
 #| echo: false
-#| fig-cap: Population in thousands
+#| fig-cap: Population (thousands)
 dataset <- bde_ind_population(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()

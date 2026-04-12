@@ -17,8 +17,8 @@ bde_catalog_load(
 )
 }
 \arguments{
-\item{catalog}{A single value indicating the catalog to be updated or
-\code{"ALL"} as a shorthand. See \strong{Details}.}
+\item{catalog}{A single catalog identifier to update, or \code{"ALL"} to
+update every catalog. See \strong{Details}.}
 
 \item{parse_dates}{Logical. If \code{TRUE}, dates are parsed using
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
@@ -26,7 +26,7 @@ bde_catalog_load(
 \item{cache_dir}{A path to a cache directory. The directory can also be set
 via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 
-\item{update_cache}{Logical. If \code{TRUE}, the requested file is updated in
+\item{update_cache}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
 
 \item{verbose}{Logical \code{TRUE} or \code{FALSE}, display information useful for

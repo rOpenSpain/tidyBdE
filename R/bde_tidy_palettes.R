@@ -1,14 +1,15 @@
 #' BdE color palettes
 #'
-#' Custom palettes based on the publications of BdE. These are manual
-#' palettes with a maximum of 6 colors.
+#' These palettes are based on BdE publications and are defined manually.
+#' Each palette contains at most 6 colors.
 #'
 #' @family bde_plot
 #'
 #' @return A vector of colors.
 #'
 #' @export
-#' @param n The number of colors (`>= 1`) in the palette.
+#' @encoding UTF-8
+#' @param n The number of colors (`>= 1`) to return.
 #' @param palette A valid palette name.
 #' @param alpha An alpha-transparency level in the range `[0,1]` (`0` means
 #'   transparent and `1` means opaque). A missing, i.e., `alpha = NULL`, does

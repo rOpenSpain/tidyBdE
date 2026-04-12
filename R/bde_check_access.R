@@ -13,6 +13,7 @@
 #' bde_check_access()
 #' }
 #' @export
+#' @encoding UTF-8
 bde_check_access <- function() {
   # Internal option, for checking purposes only
   # nocov start

@@ -3,17 +3,16 @@
 #' Load a single time series provided by BdE.
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @family series
-#'
-#' @encoding UTF-8
 #'
 #' @param series_code A numeric value (or coercible with [base::as.double()])
 #'   or vector of time series code(s), as defined in the field
 #'   `Número secuencial` of the corresponding series. See [bde_catalog_load()].
 #'
-#' @param series_label Optional. Character vector or value. Allows specifying a
-#'   custom label for the series extracted.
+#' @param series_label Optional character string or vector of labels to assign
+#'   to the extracted series.
 #'
 #' @param out_format Whether the format should be returned as "long" or "wide".
 #'   Possible values are `"wide"` or `"long"`. See **Value** for details and
@@ -36,9 +35,8 @@
 #' @description
 #'
 #' The series alias is a positional code showing the location (column and/or
-#' row) of the series in the table. However, although it is unique, it is not a
-#' good candidate to be used as the series ID, as it is subject to change. If a
-#' series changes position in the table, its alias will also change.
+#' row) of the series in the table. Although it is unique, it is not stable
+#' enough to use as the series ID because it may change when the series moves.
 #'
 #' To ensure series can still be identified, even after these changes, they are
 #' assigned a sequential number (referred to as `series_code` in this function).
@@ -259,7 +257,6 @@ bde_series_load <- function(
   end
 }
 
-
 #' Load BdE full time series files
 #'
 #' Load a full time series file provided by BdE.
@@ -275,6 +272,7 @@ bde_series_load <- function(
 #' extracting specific time series.
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @family series
 #'

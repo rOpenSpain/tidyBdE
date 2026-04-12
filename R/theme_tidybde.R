@@ -6,6 +6,7 @@
 #' @family bde_plot
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @return A \CRANpkg{ggplot2}
 #'   [`theme()`][ggplot2::theme_classic()].
@@ -16,7 +17,7 @@
 #'
 #' @details
 #'
-#' Theme based on [ggplot2::theme_classic()].
+#' A theme based on [ggplot2::theme_classic()].
 #'
 #' @importFrom ggplot2 %+replace% rel margin
 #' @examplesIf bde_check_access()
@@ -27,7 +28,7 @@
 #'
 #' series_TC <- bde_series_full_load("TC_1_1.csv")
 #'
-#' # If download was OK then plot
+#' # If the download succeeds then plot
 #' if (nrow(series_TC) > 0) {
 #'   series_TC <- series_TC[c(1, 2)]
 #'

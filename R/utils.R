@@ -1,8 +1,9 @@
 #' Parse dates
 #'
-#' Tries to parse strings representing dates using [as.Date()]
+#' Attempts to parse strings representing dates using [as.Date()]
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @family utils
 #'
@@ -113,12 +114,11 @@ bde_parse_dates <- function(dates_to_parse) {
   dateformat
 }
 
-
 #' Creates `cache_dir`
 #'
-#' @param cache_dir a directory path
-#' @param verbose logical, display parameters
-#' @param suffix a suffix
+#' @param cache_dir A directory path
+#' @param verbose Logical; display informative messages.
+#' @param suffix A suffix
 #'
 #' @noRd
 bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
@@ -168,11 +168,11 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
 
 #' Helper for downloading files
 #'
-#' @param url resource url
+#' @param url Resource URL
 #'
-#' @param local_file local file to be created
+#' @param local_file Local file path to create
 #'
-#' @param verbose logical, display parameters and messages
+#' @param verbose Logical; display informative messages.
 #'
 #' @noRd
 bde_hlp_download <- function(url, local_file, verbose) {
@@ -188,7 +188,7 @@ bde_hlp_download <- function(url, local_file, verbose) {
     }
   )
   # nocov end
-  # Try again if not working
+  # Try again if the first download fails
   # This time display a message
 
   # nocov start
@@ -213,14 +213,13 @@ bde_hlp_download <- function(url, local_file, verbose) {
   }
   # nocov end
 
-  # On warning stop the execution
+  # Return FALSE on warning
   if (isTRUE(err_dwnload)) {
     return(FALSE)
     # nocov end
   }
   TRUE
 }
-
 
 #' Guess formats
 #'
@@ -243,8 +242,7 @@ bde_hlp_guess <- function(tbl, preserve = "") {
   tbl
 }
 
-
-#' To chars
+#' Convert to characters
 #'
 #' @param tbl a tibble
 #' @param preserve vector of names to preserve
@@ -258,8 +256,7 @@ bde_hlp_tochar <- function(tbl, preserve = "") {
   tbl
 }
 
-
-#' To double
+#' Convert to double
 #'
 #' @param tbl a tibble
 #' @param preserve vector of names to preserve
@@ -281,9 +278,8 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
   tbl
 }
 
-
 #' Return empty tibble
-#' @return a tibble.
+#' @return A tibble.
 #'
 #' @examples
 #'

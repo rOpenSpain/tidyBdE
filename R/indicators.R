@@ -1,17 +1,16 @@
 #' Relevant Indicators of Spain
 #'
 #' @description
-#' Set of helper functions for downloading some of the most relevant
-#' macroeconomic indicators of Spain. Metadata available in [bde_ind_db].
+#' Helper wrappers for downloading some of the most relevant macroeconomic
+#' indicators of Spain. Metadata available in [bde_ind_db].
 #'
 #' @rdname bde_indicators
 #' @name bde_indicators
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @family indicators
-#'
-#' @encoding UTF-8
 #'
 #' @inheritParams bde_series_load
 #'
@@ -45,6 +44,7 @@ bde_ind_gdp_var <- function(series_label = "GDP_YoY", ...) {
 #' @rdname bde_indicators
 #'
 #' @export
+#' @encoding UTF-8
 bde_ind_unemployment_rate <-
   function(series_label = "Unemployment_Rate", ...) {
     db <- tidyBdE::bde_ind_db
@@ -63,6 +63,7 @@ bde_ind_unemployment_rate <-
 #' @rdname bde_indicators
 #'
 #' @export
+#' @encoding UTF-8
 bde_ind_euribor_12m_monthly <-
   function(series_label = "Euribor_12M_Monthly", ...) {
     db <- tidyBdE::bde_ind_db
@@ -81,6 +82,7 @@ bde_ind_euribor_12m_monthly <-
 #' @rdname bde_indicators
 #'
 #' @export
+#' @encoding UTF-8
 bde_ind_euribor_12m_daily <-
   function(series_label = "Euribor_12M_Daily", ...) {
     db <- tidyBdE::bde_ind_db
@@ -99,6 +101,7 @@ bde_ind_euribor_12m_daily <-
 #' @rdname bde_indicators
 #'
 #' @export
+#' @encoding UTF-8
 bde_ind_cpi_var <-
   function(series_label = "Consumer_price_index_YoY", ...) {
     db <- tidyBdE::bde_ind_db
@@ -117,6 +120,7 @@ bde_ind_cpi_var <-
 #' @rdname bde_indicators
 #'
 #' @export
+#' @encoding UTF-8
 bde_ind_ibex_monthly <- function(series_label = "IBEX_index_month", ...) {
   db <- tidyBdE::bde_ind_db
   seq_num <- db[
@@ -134,6 +138,7 @@ bde_ind_ibex_monthly <- function(series_label = "IBEX_index_month", ...) {
 #' @rdname bde_indicators
 #'
 #' @export
+#' @encoding UTF-8
 bde_ind_ibex_daily <- function(series_label = "IBEX_index_day", ...) {
   db <- tidyBdE::bde_ind_db
   seq_num <- db[
@@ -151,6 +156,7 @@ bde_ind_ibex_daily <- function(series_label = "IBEX_index_day", ...) {
 #' @rdname bde_indicators
 #'
 #' @export
+#' @encoding UTF-8
 bde_ind_gdp_quarterly <- function(series_label = "GDP_quarterly_value", ...) {
   db <- tidyBdE::bde_ind_db
   seq_num <- db[
@@ -165,10 +171,10 @@ bde_ind_gdp_quarterly <- function(series_label = "GDP_quarterly_value", ...) {
   econom_ind
 }
 
-
 #' @rdname bde_indicators
 #'
 #' @export
+#' @encoding UTF-8
 bde_ind_population <- function(series_label = "Population_Spain", ...) {
   db <- tidyBdE::bde_ind_db
   seq_num <- db[
@@ -184,6 +190,7 @@ bde_ind_population <- function(series_label = "Population_Spain", ...) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname bde_indicators
 #' @usage NULL
 bde_ind_ibex <- bde_ind_ibex_monthly

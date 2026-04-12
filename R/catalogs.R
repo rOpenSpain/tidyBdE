@@ -4,10 +4,9 @@
 #' Load the time series catalogs provided by the BdE.
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @family catalog
-#'
-#' @encoding UTF-8
 #'
 #' @return A [tibble][tibble::tbl_df] object.
 #'
@@ -21,13 +20,13 @@
 #'
 #' ```
 #'
-#' @param catalog A single value indicating the catalog to be updated or
-#'   `"ALL"` as a shorthand. See **Details**.
+#' @param catalog A single catalog identifier to update, or `"ALL"` to
+#'   update every catalog. See **Details**.
 #'
 #' @param parse_dates Logical. If `TRUE`, dates are parsed using
 #'   [bde_parse_dates()].
 #'
-#' @param update_cache Logical. If `TRUE`, the requested file is updated in
+#' @param update_cache Logical. If `TRUE`, the requested file is refreshed in
 #'   `cache_dir`.
 #'
 #' @inheritParams bde_catalog_update
@@ -200,17 +199,15 @@ bde_catalog_load <- function(
   final_catalog
 }
 
-
 #' Update BdE catalogs
 #'
 #' @description
 #' Update the time series catalogs provided by BdE.
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @family catalog
-#'
-#' @encoding UTF-8
 #'
 #' @return None. Downloads the catalog file(s) to the local machine.
 #'
@@ -324,6 +321,7 @@ bde_catalog_update <- function(
 #' Search for keywords on the time series catalogs.
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @family catalog
 #'
@@ -334,15 +332,12 @@ bde_catalog_update <- function(
 #'
 #' @inheritDotParams bde_catalog_load
 #'
-#' @encoding UTF-8
-#'
 #' @details
 #' **Note:** BdE files are currently provided only in Spanish. Therefore, search
 #' terms should be provided in Spanish to obtain search results.
 #'
-#' This function uses [base::grep()] function for finding matches on the
-#' catalogs. You can pass [regular expressions][base::regex] to broaden the
-#' search.
+#' This function uses [base::grep()] to find matches in the catalogs. You
+#' can pass [regular expressions][base::regex] to broaden the search.
 #'
 #' @seealso [bde_catalog_load()], [base::regex]
 #'

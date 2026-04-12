@@ -37,13 +37,13 @@ Install **tidyBdE** from
 install.packages("tidyBdE")
 ```
 
-You can install the developing version of **tidyBdE** with:
+You can install the development version of **tidyBdE** with:
 
 ``` r
 pak::pak("ropenspain/tidyBdE")
 ```
 
-Alternatively, you can install **tidyBdE** using the
+Alternatively, you can install **tidyBdE** from the
 [r-universe](https://ropenspain.r-universe.dev/tidyBdE):
 
 ``` r
@@ -63,8 +63,8 @@ Banco de España (**BdE**) provides several time series, either produced
 by the institution itself or compiled from other sources, such as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
-The basic entry point for searching series is the time series catalog
-information. You can search any series by name:
+The basic entry point for searching series is the time series catalog.
+You can search for any series by name:
 
 ``` r
 library(tidyBdE)
@@ -79,7 +79,7 @@ xr_gbp <- bde_catalog_search("GBP", catalog = "TC")
 
 xr_gbp |>
   select(Numero_secuencial, Descripcion_de_la_serie) |>
-  # To table on document
+  # Display the table in the document
   knitr::kable()
 ```
 
@@ -96,9 +96,8 @@ Table 1: Search results
 institution is working on an English version. For now, search terms must
 be provided in Spanish to retrieve results.
 
-After we have found our series, we can load the series for the GBP/EUR
-exchange rate using the sequential number reference
-(`Numero_Secuencial`) as follows:
+After you have found a series, you can load the GBP/EUR exchange rate
+using the sequential number reference (`Numero_Secuencial`) as follows:
 
 ``` r
 seq_number <- xr_gbp |>
@@ -151,7 +150,7 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   ) +
   geom_label(aes(
     x = as.Date("2016-06-23"),
-    y = .95,
+    y = 0.95,
     label = "Brexit"
   )) +
   coord_cartesian(ylim = c(0.7, 1)) +
@@ -161,9 +160,9 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
 <img src="man/figures/README-chart-1.png" style="width:100.0%"
 alt="EUR/GBP Exchange Rate (2010-2020)" />
 
-The package also provides several “shortcut” functions for a selection
-of relevant macroeconomic series, so there is no need to search for them
-in advance:
+The package also provides several shortcut functions for a selection of
+relevant macroeconomic series, so you do not need to search for them in
+advance:
 
 ``` r
 # Data in "long" format
@@ -200,8 +199,8 @@ included in the package (see
 
 ### A note on caching
 
-You can use **tidyBdE** to create your own local repository in a given
-local directory by passing the following option:
+You can use **tidyBdE** to create a local cache repository in a
+directory by passing the following option:
 
 ``` r
 options(bde_cache_dir = "./path/to/location")
@@ -210,8 +209,8 @@ options(bde_cache_dir = "./path/to/location")
 When this option is set, **tidyBdE** looks for cached files in the
 `bde_cache_dir` directory and loads them, speeding up the process.
 
-It is possible to update the data (i.e. after every monthly or quarterly
-data release) with the following commands:
+You can update the data after monthly or quarterly releases with the
+following commands:
 
 ``` r
 bde_catalog_update()
@@ -235,7 +234,7 @@ H. Herrero D (2026). <em>tidyBdE: Download Data from Bank of Spain</em>.
 <a href="https://ropenspain.github.io/tidyBdE/">https://ropenspain.github.io/tidyBdE/</a>.
 </p>
 
-A BibTeX entry for LaTeX users is
+A BibTeX entry for LaTeX users is:
 
     @Manual{R-tidyBdE,
       title = {{tidyBdE}: Download Data from Bank of Spain},

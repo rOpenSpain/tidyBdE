@@ -30,7 +30,7 @@ reference:
   contents:
   - has_concept("indicators")
 
-- title: Plot utils
+- title: Plot utilities
   desc: >
     Complementary functions for plotting with <a
     href="https://CRAN.R-project.org/package=ggplot2"
@@ -38,7 +38,7 @@ reference:
   contents:
   - has_concept("bde_plot")
 
-- title: Utils
+- title: Utilities
   contents:
   - has_concept("utils")
 
@@ -51,5 +51,5 @@ authors:
     href: "https://www.bde.es/"
 
 redirects:
-  - ["articles/Main_Macroeconomic_Series.html", "articles/mainseries.html"]
-  - ["articles/articles/Series_Index.html", "articles/seriesindex.html"]
+- ["articles/Main_Macroeconomic_Series.html", "articles/mainseries.html"]
+- ["articles/articles/Series_Index.html", "articles/seriesindex.html"]

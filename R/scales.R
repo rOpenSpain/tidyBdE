@@ -10,6 +10,7 @@
 #' @family bde_plot
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @return A \CRANpkg{ggplot2} color scale.
 #'
@@ -23,7 +24,7 @@
 #' @inheritParams bde_tidy_palettes
 #' @inheritParams ggplot2::continuous_scale
 #'
-#' @param ... Further arguments of [ggplot2::discrete_scale()] or
+#' @param ... Further arguments passed to [ggplot2::discrete_scale()] or
 #'   [ggplot2::continuous_scale()].
 #'
 #' @examples
@@ -65,12 +66,14 @@ scale_color_bde_d <- function(
 #' @rdname scales_bde
 #' @name scales_bde
 #' @export
+#' @encoding UTF-8
 #' @usage NULL
 scale_colour_bde_d <- scale_color_bde_d
 
 #' @rdname scales_bde
 #' @name scales_bde
 #' @export
+#' @encoding UTF-8
 scale_fill_bde_d <- function(
   palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"),
   alpha = NULL,
@@ -85,10 +88,10 @@ scale_fill_bde_d <- function(
   ggplot2::discrete_scale(aesthetics = "fill", palette = pal, ...)
 }
 
-
 #' @rdname scales_bde
 #' @name scales_bde
 #' @export
+#' @encoding UTF-8
 scale_color_bde_c <- function(
   palette = c("bde_rose_pal", "bde_vivid_pal", "bde_qual_pal"),
   alpha = NULL,
@@ -129,12 +132,14 @@ scale_color_bde_c <- function(
 #' @rdname scales_bde
 #' @name scales_bde
 #' @export
+#' @encoding UTF-8
 #' @usage NULL
 scale_colour_bde_c <- scale_color_bde_c
 
 #' @rdname scales_bde
 #' @name scales_bde
 #' @export
+#' @encoding UTF-8
 scale_fill_bde_c <- function(
   palette = c("bde_rose_pal", "bde_vivid_pal", "bde_qual_pal"),
   alpha = NULL,

@@ -3,10 +3,9 @@
 #' @description
 #' `r lifecycle::badge('superseded')`
 #'
-#' These functions have been superseded; see [bde_tidy_palettes()] as a
-#' replacement.
+#' These functions are superseded; see [bde_tidy_palettes()] instead.
 #'
-#' Custom palettes based on the publications of BdE.
+#' Custom palettes based on BdE publications.
 #'
 #' @return A palette of colors.
 #'
@@ -16,6 +15,7 @@
 #' @rdname bde_pals
 #'
 #' @export
+#' @encoding UTF-8
 #' @keywords internal
 #' @examples
 #'
@@ -40,6 +40,7 @@ bde_vivid_pal <- function(...) {
 #' @rdname bde_pals
 #' @keywords internal
 #' @export
+#' @encoding UTF-8
 bde_rose_pal <- function(...) {
   if (requireNamespace("lifecycle", quietly = TRUE)) {
     lifecycle::deprecate_soft(
