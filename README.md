@@ -230,7 +230,7 @@ de España.
 <p>
 
 H. Herrero D (2026). <em>tidyBdE: Download Data from Bank of Spain</em>.
-<a href="https://doi.org/10.32614/CRAN.package.tidyBdE">doi:10.32614/CRAN.package.tidyBdE</a>,
+<a href="https://doi.org/10.32614/CRAN.package.tidyBdE">doi:10.32614/CRAN.package.tidyBdE</a>.
 <a href="https://ropenspain.github.io/tidyBdE/">https://ropenspain.github.io/tidyBdE/</a>.
 </p>
 
