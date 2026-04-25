@@ -203,7 +203,7 @@ de España.
 ## Citation
 
 H. Herrero D (2026). *tidyBdE: Download Data from Bank of Spain*.
-[doi:10.32614/CRAN.package.tidyBdE](https://doi.org/10.32614/CRAN.package.tidyBdE),
+[doi:10.32614/CRAN.package.tidyBdE](https://doi.org/10.32614/CRAN.package.tidyBdE).
 <https://ropenspain.github.io/tidyBdE/>.
 
 A BibTeX entry for LaTeX users is:
