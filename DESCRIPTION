@@ -34,13 +34,13 @@ VignetteBuilder:
 Config/Needs/coverage: covr
 Config/Needs/website: cpp11, devtools, progress, reactable, remotes,
     styler, tidyverse, ropenspain/rostemplate
-Config/roxygen2/version: 8.0.0.9000
+Config/roxygen2/markdown: TRUE
+Config/roxygen2/version: 8.0.0
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Copyright: See file inst/COPYRIGHTS
 Encoding: UTF-8
 LazyData: true
-Roxygen: list(markdown = TRUE)
 X-schema.org-applicationCategory: Macroeconomics
 X-schema.org-isPartOf: https://ropenspain.es/
 X-schema.org-keywords: api, bde, cran, ggplot2, macroeconomics, r,
