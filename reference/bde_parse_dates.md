@@ -6,14 +6,14 @@ supported.
 
 ### Date Formats
 
-|                          |                                                                                                                             |                                                     |
-|--------------------------|-----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| **FREQUENCY**            | **FORMAT**                                                                                                                  | **EXAMPLES**                                        |
-| **Daily / Business day** | DD MMMMYYYY                                                                                                                 | *02 FEB2019*                                        |
-| **Monthly**              | MMM YYYY                                                                                                                    | *MAR 2020*                                          |
-| **Quarterly**            | MMM YYYY, where MMM is the first or the last month of the quarter, depending on the value of its variable OBSERVED.         | For the first quarter of 2020: *ENE 2020, MAR 2020* |
-| **Half-yearly**          | MMM YYYY, where MMM is the first or the last month of the halfyear period, depending on the value of its variable OBSERVED. | For the first half of 2020: *ENE 2020, JUN 2020*    |
-| **Annual**               | YYYY                                                                                                                        | *2020*                                              |
+|  |  |  |
+|----|----|----|
+| **FREQUENCY** | **FORMAT** | **EXAMPLES** |
+| **Daily / Business day** | DD MMMMYYYY | *02 FEB2019* |
+| **Monthly** | MMM YYYY | *MAR 2020* |
+| **Quarterly** | MMM YYYY, where MMM is the first or the last month of the quarter, depending on the value of its variable OBSERVED. | For the first quarter of 2020: *ENE 2020, MAR 2020* |
+| **Half-yearly** | MMM YYYY, where MMM is the first or the last month of the halfyear period, depending on the value of its variable OBSERVED. | For the first half of 2020: *ENE 2020, JUN 2020* |
+| **Annual** | YYYY | *2020* |
 
 ## Usage
 

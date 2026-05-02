@@ -50,6 +50,7 @@ Other bde_plot:
 ## Examples
 
 ``` r
+
 # BdE vivid pal
 scales::show_col(bde_tidy_palettes(palette = "bde_vivid_pal"),
   labels = FALSE

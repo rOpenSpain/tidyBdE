@@ -1,7 +1,7 @@
 # Series index
 
 The following table shows the series available in the catalog (last
-update: **25-April-2026**).
+update: **02-May-2026**).
 
 Use the sequential number below to load a single series (see the
 example):
@@ -13,6 +13,7 @@ example):
 To search and extract a specific series, see the full workflow:
 
 ``` r
+
 library(tidyBdE)
 library(tidyverse)
 
@@ -25,14 +26,15 @@ fr |>
   knitr::kable()
 ```
 
-| Numero_secuencial | Descripcion_de_la_serie                                                                                                          |
-|:------------------|:---------------------------------------------------------------------------------------------------------------------------------|
-| 2563958           | Economía internacional. Francia. AAPP. SEC2010. Capacidad (+) o necesidad (-) de financiación. Acum. 4 últimos trim. En % PIB pm |
-| 2563918           | Economía internacional. Francia. PDE (SEC2010). AAPP. Deuda PDE. En % PIB pm                                                     |
+| Numero_secuencial | Descripcion_de_la_serie |
+|:---|:---|
+| 2563958 | Economía internacional. Francia. AAPP. SEC2010. Capacidad (+) o necesidad (-) de financiación. Acum. 4 últimos trim. En % PIB pm |
+| 2563918 | Economía internacional. Francia. PDE (SEC2010). AAPP. Deuda PDE. En % PIB pm |
 
 Table 1: Search results
 
 ``` r
+
 # Here we extract the first series
 # See tidyverse style
 fr |>
@@ -73,13 +75,13 @@ fr |>
   knitr::kable()
 ```
 
-| Date                        | 2563958                                                                                                                          |
-|:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------|
-| CÓDIGO DE LA SERIE          | DTNSEC2010_S0000P_APU_FR                                                                                                         |
-| NÚMERO SECUENCIAL           | 2563958                                                                                                                          |
-| ALIAS DE LA SERIE           | BE_1_6.8                                                                                                                         |
-| DESCRIPCIÓN DE LA SERIE     | Economía internacional. Francia. AAPP. SEC2010. Capacidad (+) o necesidad (-) de financiación. Acum. 4 últimos trim. En % PIB pm |
-| DESCRIPCIÓN DE LAS UNIDADES | Porcentaje                                                                                                                       |
-| FRECUENCIA                  | TRIMESTRAL                                                                                                                       |
+| Date | 2563958 |
+|:---|:---|
+| CÓDIGO DE LA SERIE | DTNSEC2010_S0000P_APU_FR |
+| NÚMERO SECUENCIAL | 2563958 |
+| ALIAS DE LA SERIE | BE_1_6.8 |
+| DESCRIPCIÓN DE LA SERIE | Economía internacional. Francia. AAPP. SEC2010. Capacidad (+) o necesidad (-) de financiación. Acum. 4 últimos trim. En % PIB pm |
+| DESCRIPCIÓN DE LAS UNIDADES | Porcentaje |
+| FRECUENCIA | TRIMESTRAL |
 
 Table 2: Metadata of the indicator

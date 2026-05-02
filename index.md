@@ -12,12 +12,14 @@ Install **tidyBdE** from
 [**CRAN**](https://CRAN.R-project.org/package=tidyBdE):
 
 ``` r
+
 install.packages("tidyBdE")
 ```
 
 You can install the development version of **tidyBdE** with:
 
 ``` r
+
 pak::pak("ropenspain/tidyBdE")
 ```
 
@@ -25,6 +27,7 @@ Alternatively, you can install **tidyBdE** from the
 [r-universe](https://ropenspain.r-universe.dev/tidyBdE):
 
 ``` r
+
 # Install tidyBdE in R:
 install.packages(
   "tidyBdE",
@@ -45,6 +48,7 @@ The basic entry point for searching series is the time series catalog.
 You can search for any series by name:
 
 ``` r
+
 library(tidyBdE)
 
 # Load tidyverse for better handling
@@ -61,9 +65,9 @@ xr_gbp |>
   knitr::kable()
 ```
 
-| Numero_secuencial | Descripcion_de_la_serie                                            |
-|------------------:|:-------------------------------------------------------------------|
-|            573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+| Numero_secuencial | Descripcion_de_la_serie |
+|---:|:---|
+| 573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
 
 Table 1: Search results
 
@@ -75,6 +79,7 @@ After you have found a series, you can load the GBP/EUR exchange rate
 using the sequential number reference (`Numero_Secuencial`) as follows:
 
 ``` r
+
 seq_number <- xr_gbp |>
   # First record
   slice(1) |>
@@ -111,6 +116,7 @@ The package also provides a custom **ggplot2** theme based on BdE
 publications:
 
 ``` r
+
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_tidy_palettes(n = 1)) +
   geom_smooth(method = "gam", colour = bde_tidy_palettes(n = 2)[2]) +
@@ -140,6 +146,7 @@ relevant macroeconomic series, so you do not need to search for them in
 advance:
 
 ``` r
+
 # Data in "long" format
 
 plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") |>
@@ -178,6 +185,7 @@ You can use **tidyBdE** to create a local cache repository in a
 directory by passing the following option:
 
 ``` r
+
 options(bde_cache_dir = "./path/to/location")
 ```
 
@@ -188,6 +196,7 @@ You can update the data after monthly or quarterly releases with the
 following commands:
 
 ``` r
+
 bde_catalog_update()
 
 # In most functions using the option update_cache = TRUE
