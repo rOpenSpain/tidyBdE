@@ -121,13 +121,15 @@ bde_catalog_load <- function(
     }
     # nocov end
 
-    catalog_load <- read.csv2(
-      catalog_file,
-      sep = ",",
-      stringsAsFactors = FALSE,
-      na.strings = "",
-      header = FALSE,
-      fileEncoding = "latin1"
+    catalog_load <- suppressWarnings(
+      read.csv2(
+        catalog_file,
+        sep = ",",
+        stringsAsFactors = FALSE,
+        na.strings = "",
+        header = FALSE,
+        fileEncoding = "ISO-8859-1"
+      )
     )
 
     # Convert names

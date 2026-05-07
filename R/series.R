@@ -388,13 +388,15 @@ bde_series_full_load <- function(
   # nocov end
 
   # Serie load
-  serie_load <- read.csv2(
-    local_file,
-    sep = ",",
-    stringsAsFactors = FALSE,
-    na.strings = "",
-    header = FALSE,
-    fileEncoding = "latin1"
+  serie_load <- suppressWarnings(
+    read.csv2(
+      local_file,
+      sep = ",",
+      stringsAsFactors = FALSE,
+      na.strings = "",
+      header = FALSE,
+      fileEncoding = "ISO-8859-1"
+    )
   )
 
   serie_load <- tibble::as_tibble(serie_load)
