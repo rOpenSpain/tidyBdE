@@ -388,6 +388,8 @@ bde_series_full_load <- function(
   # nocov end
 
   # Serie load
+  enc <- readr::guess_encoding(local_file)
+
   serie_load <- suppressWarnings(
     read.csv2(
       local_file,
@@ -395,7 +397,7 @@ bde_series_full_load <- function(
       stringsAsFactors = FALSE,
       na.strings = "",
       header = FALSE,
-      fileEncoding = "ISO-8859-1"
+      fileEncoding = enc$encoding[[1]]
     )
   )
 

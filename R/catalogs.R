@@ -121,6 +121,8 @@ bde_catalog_load <- function(
     }
     # nocov end
 
+    enc <- readr::guess_encoding(catalog_file)
+
     catalog_load <- suppressWarnings(
       read.csv2(
         catalog_file,
@@ -128,7 +130,7 @@ bde_catalog_load <- function(
         stringsAsFactors = FALSE,
         na.strings = "",
         header = FALSE,
-        fileEncoding = "ISO-8859-1"
+        fileEncoding = enc$encoding[[1]]
       )
     )
 
