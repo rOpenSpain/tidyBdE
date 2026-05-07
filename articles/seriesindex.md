@@ -1,7 +1,7 @@
 # Series index
 
 The following table shows the series available in the catalog (last
-update: **02-May-2026**).
+update: **07-May-2026**).
 
 Use the sequential number below to load a single series (see the
 example):
@@ -46,7 +46,7 @@ fr |>
   as.double() |>
   # and load it
   bde_series_load()
-#> # A tibble: 120 × 2
+#> # A tibble: 121 × 2
 #>    Date       `2563958`
 #>    <date>         <dbl>
 #>  1 1995-12-01      -5.1
@@ -59,7 +59,7 @@ fr |>
 #>  8 1997-09-01      NA  
 #>  9 1997-12-01      -3.6
 #> 10 1998-03-01      NA  
-#> # ℹ 110 more rows
+#> # ℹ 111 more rows
 
 # See the metadata
 fr |>

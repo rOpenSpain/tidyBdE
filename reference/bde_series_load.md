@@ -124,7 +124,7 @@ Other series:
 # \donttest{
 # Metadata
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> tidyBdE> Caching on temporary directory /tmp/RtmpmDaTqq
+#> tidyBdE> Caching on temporary directory /tmp/RtmpqVlOtx
 #> tidyBdE> Cached version of BE detected
 #> tidyBdE> Cached version of SI detected
 #> tidyBdE> Cached version of TC detected
@@ -134,7 +134,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> tidyBdE> Extracting series 573234
 #> 
 #> tidyBdE> Downloading serie 573234 from file TC_1_1.csv (alias TC_1_1.1).
-#> tidyBdE> Caching on temporary directory /tmp/RtmpmDaTqq/TC
+#> tidyBdE> Caching on temporary directory /tmp/RtmpqVlOtx/TC
 #> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv
 #> 
 #> # A tibble: 6 × 2
@@ -149,7 +149,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 
 # Data
 bde_series_load(573234, extract_metadata = FALSE)
-#> # A tibble: 7,129 × 2
+#> # A tibble: 7,133 × 2
 #>    Date       `573234`
 #>    <date>        <dbl>
 #>  1 1999-01-04     1.18
@@ -162,7 +162,7 @@ bde_series_load(573234, extract_metadata = FALSE)
 #>  8 1999-01-13     1.17
 #>  9 1999-01-14     1.17
 #> 10 1999-01-15     1.16
-#> # ℹ 7,119 more rows
+#> # ℹ 7,123 more rows
 
 # Vectorized
 bde_series_load(c(573234, 573214),
@@ -185,7 +185,7 @@ wide <- bde_series_load(c(573234, 573214),
 
 # Wide format
 wide
-#> # A tibble: 7,129 × 3
+#> # A tibble: 7,133 × 3
 #>    Date       `US/EUR` `GBP/EUR`
 #>    <date>        <dbl>     <dbl>
 #>  1 1999-01-04     1.18     0.711
@@ -198,7 +198,7 @@ wide
 #>  8 1999-01-13     1.17     0.708
 #>  9 1999-01-14     1.17     0.706
 #> 10 1999-01-15     1.16     0.704
-#> # ℹ 7,119 more rows
+#> # ℹ 7,123 more rows
 
 # Long format
 long <- bde_series_load(c(573234, 573214),
@@ -207,7 +207,7 @@ long <- bde_series_load(c(573234, 573214),
 )
 
 long
-#> # A tibble: 14,258 × 3
+#> # A tibble: 14,266 × 3
 #>    Date       serie_name serie_value
 #>    <date>     <fct>            <dbl>
 #>  1 1999-01-04 US/EUR            1.18
@@ -220,7 +220,7 @@ long
 #>  8 1999-01-13 US/EUR            1.17
 #>  9 1999-01-14 US/EUR            1.17
 #> 10 1999-01-15 US/EUR            1.16
-#> # ℹ 14,248 more rows
+#> # ℹ 14,256 more rows
 
 # Use with ggplot
 library(ggplot2)
@@ -229,8 +229,6 @@ ggplot(long, aes(Date, serie_value)) +
   geom_line(aes(group = serie_name, color = serie_name)) +
   scale_color_bde_d() +
   theme_tidybde()
-#> Warning: Removed 2 rows containing missing values or values outside the scale range
-#> (`geom_line()`).
 
 # }
 ```
