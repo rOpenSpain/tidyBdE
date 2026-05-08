@@ -380,7 +380,7 @@ bde_series_full_load <- function(
 
   # Catch error
   # nocov start
-  r <- readLines(local_file)
+  r <- readLines(local_file, warn = FALSE)
   if (length(r) == 0) {
     message("File ", local_file, " not valid")
     return(invisible())

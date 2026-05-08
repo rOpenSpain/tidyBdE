@@ -114,7 +114,7 @@ bde_catalog_load <- function(
 
     # Catch error
     # nocov start
-    r <- readLines(catalog_file)
+    r <- readLines(catalog_file, warn = FALSE)
     if (length(r) == 0) {
       message("File ", catalog_file, " not valid")
       return(invisible())
