@@ -3,7 +3,7 @@
 This article shows the evolution of selected Spanish economic indicators
 using data from [Banco de España](https://www.bde.es/).
 
-Last update: **08-May-2026**.
+Last update: **09-May-2026**.
 
 ``` r
 
