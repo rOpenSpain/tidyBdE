@@ -1,3 +1,8 @@
+# tidyBdE (development version)
+
+- Improve reading of external `.csv` files. Encoding files detected using
+  `readr::guess_encoding()`.
+
 # tidyBdE 0.6.0
 
 - Migrate vignettes to Quarto.
@@ -22,14 +27,13 @@
 
 - Update `bde_ind_unemployment_rate()` and `bde_ind_population()` since the
   underlying identifier changed.
-- DOI changed to **CRAN** url:
-  <https://doi.org/10.32614/CRAN.package.tidyBdE>.
+- DOI changed to **CRAN** url: <https://doi.org/10.32614/CRAN.package.tidyBdE>.
 - Native encoding when reading the `.csv` files changed to `"latin1"`.
 
 # tidyBdE 0.3.6
 
-- Adapt `scale_color_bde_d()` and friends to **ggplot2** 3.5.0. Also expose
-  the `guide` argument instead of hard-coding it.
+- Adapt `scale_color_bde_d()` and friends to **ggplot2** 3.5.0. Also expose the
+  `guide` argument instead of hard-coding it.
 
 # tidyBdE 0.3.5
 
@@ -89,8 +93,8 @@ Mostly changes on the color functions:
 
 # tidyBdE 0.2.2
 
-- BdE started migrating "Indicadores Económicos" (Economic Indicators) series
-  to the Statistical Bulletin (more info
+- BdE started migrating "Indicadores Económicos" (Economic Indicators) series to
+  the Statistical Bulletin (more info
   [here](https://www.bde.es/wbe/en/estadisticas/)). Some series in
   `?bde_indicators` are likely to break in the meantime. So far, the following
   series have been updated:
@@ -112,8 +116,8 @@ Mostly changes on the color functions:
 - Move tests to **testthat**.
 - The following scales have been removed: `bde_scale_colour_vivid()`,
   `bde_scale_color_vivid()`, `bde_scale_fill_vivid()`,
-  `bde_scale_colour_rose()`, `bde_scale_color_rose()`,
-  `bde_scale_fill_rose()`. Use `scale_color_bde_c()` instead.
+  `bde_scale_colour_rose()`, `bde_scale_color_rose()`, `bde_scale_fill_rose()`.
+  Use `scale_color_bde_c()` instead.
 
 # tidyBdE 0.1.2
 
@@ -124,14 +128,14 @@ Mostly changes on the color functions:
 # tidyBdE 0.1.1
 
 - Add vignette to package
-- Color adjustment on `bde_rose_pal()`: The HCL spectrum is now more
-  consistent between roses and blues according to `colorspace::specplot()`.
+- Color adjustment on `bde_rose_pal()`: The HCL spectrum is now more consistent
+  between roses and blues according to `colorspace::specplot()`.
 - Add DOI: <https://doi.org/10.5281/zenodo.4673496>
 - New palettes for **ggplot2**: `scale_color_bde_c()`, `scale_color_bde_d()`,
   `scale_fill_bde_c()`, `scale_fill_bde_d()`.
 - Deprecated scales: `bde_scale_colour_vivid()`, `bde_scale_color_vivid()`,
-  `bde_scale_fill_vivid()`, `bde_scale_colour_rose()`,
-  `bde_scale_color_rose()`, `bde_scale_fill_rose()`.
+  `bde_scale_fill_vivid()`, `bde_scale_colour_rose()`, `bde_scale_color_rose()`,
+  `bde_scale_fill_rose()`.
 
 # tidyBdE 0.1.0
 

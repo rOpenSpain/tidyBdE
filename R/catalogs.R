@@ -114,23 +114,23 @@ bde_catalog_load <- function(
 
     # Catch error
     # nocov start
-    r <- readLines(catalog_file, warn = FALSE)
+    r <- readLines(catalog_file, warn = FALSE, n = 1000)
     if (length(r) == 0) {
       message("File ", catalog_file, " not valid")
       return(invisible())
     }
     # nocov end
 
-    enc <- readr::guess_encoding(catalog_file)
+    enc <- readr::guess_encoding(catalog_file)[[1]][[1]]
 
     catalog_load <- suppressWarnings(
       read.csv2(
         catalog_file,
         sep = ",",
         stringsAsFactors = FALSE,
-        na.strings = "",
+        na.strings = c("", "-", "_"),
         header = FALSE,
-        fileEncoding = enc$encoding[[1]]
+        fileEncoding = enc
       )
     )
 

@@ -231,10 +231,7 @@ bde_hlp_guess <- function(tbl, preserve = "") {
     if (class(tbl[[i]])[1] == "character" && !(i %in% preserve)) {
       tbl[i] <- readr::parse_guess(
         tbl[[i]],
-        locale = readr::locale(
-          grouping_mark = "",
-          decimal_mark = "."
-        ),
+        locale = readr::locale(grouping_mark = "", decimal_mark = "."),
         na = c("_", "...")
       )
     }
@@ -264,15 +261,11 @@ bde_hlp_tochar <- function(tbl, preserve = "") {
 bde_hlp_todouble <- function(tbl, preserve = "") {
   for (i in names(tbl)) {
     if (class(tbl[[i]])[1] == "character" && !(i %in% preserve)) {
-      tbl[i] <-
-        readr::parse_double(
-          tbl[[i]],
-          locale = readr::locale(
-            grouping_mark = "",
-            decimal_mark = "."
-          ),
-          na = c("_", "...")
-        )
+      tbl[i] <- readr::parse_double(
+        tbl[[i]],
+        locale = readr::locale(grouping_mark = "", decimal_mark = "."),
+        na = c("_", "...")
+      )
     }
   }
   tbl

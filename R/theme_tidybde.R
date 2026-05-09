@@ -70,16 +70,9 @@ theme_tidybde <- function(...) {
         size = rel(0.9),
         margin = margin(t = 4, b = 4)
       ),
-      plot.caption = element_text(
-        hjust = 1,
-        vjust = 0,
-        size = rel(0.75)
-      ),
+      plot.caption = element_text(hjust = 1, vjust = 0, size = rel(0.75)),
       panel.background = element_rect(fill = "white", colour = NA),
-      panel.grid.major.y = element_line(
-        colour = "grey70",
-        linetype = "dashed"
-      ),
+      panel.grid.major.y = element_line(colour = "grey70", linetype = "dashed"),
       axis.title = element_blank(),
       axis.ticks.length = unit(-2.75, "pt"),
       axis.text.x.bottom = element_text(

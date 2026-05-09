@@ -34,8 +34,7 @@ bde_ind_gdp_var <- function(series_label = "GDP_YoY", ...) {
   seq_num <- db[db$tidyBdE_fun == "bde_ind_gdp_var", "Numero_secuencial"]
   seq_num <- as.character(seq_num)
 
-  econom_ind <-
-    bde_series_load(seq_num, series_label = series_label, ...)
+  econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
   econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
   econom_ind
@@ -45,77 +44,73 @@ bde_ind_gdp_var <- function(series_label = "GDP_YoY", ...) {
 #'
 #' @export
 #' @encoding UTF-8
-bde_ind_unemployment_rate <-
-  function(series_label = "Unemployment_Rate", ...) {
-    db <- tidyBdE::bde_ind_db
-    seq_num <- db[
-      db$tidyBdE_fun == "bde_ind_unemployment_rate",
-      "Numero_secuencial"
-    ]
-    seq_num <- as.character(seq_num)
+bde_ind_unemployment_rate <- function(series_label = "Unemployment_Rate", ...) {
+  db <- tidyBdE::bde_ind_db
+  seq_num <- db[
+    db$tidyBdE_fun == "bde_ind_unemployment_rate",
+    "Numero_secuencial"
+  ]
+  seq_num <- as.character(seq_num)
 
-    econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
-    econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
+  econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
+  econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
-    econom_ind
-  }
-
-#' @rdname bde_indicators
-#'
-#' @export
-#' @encoding UTF-8
-bde_ind_euribor_12m_monthly <-
-  function(series_label = "Euribor_12M_Monthly", ...) {
-    db <- tidyBdE::bde_ind_db
-    seq_num <- db[
-      db$tidyBdE_fun == "bde_ind_euribor_12m_monthly",
-      "Numero_secuencial"
-    ]
-    seq_num <- as.character(seq_num)
-
-    econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
-    econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
-
-    econom_ind
-  }
+  econom_ind
+}
 
 #' @rdname bde_indicators
 #'
 #' @export
 #' @encoding UTF-8
-bde_ind_euribor_12m_daily <-
-  function(series_label = "Euribor_12M_Daily", ...) {
-    db <- tidyBdE::bde_ind_db
-    seq_num <- db[
-      db$tidyBdE_fun == "bde_ind_euribor_12m_daily",
-      "Numero_secuencial"
-    ]
-    seq_num <- as.character(seq_num)
+bde_ind_euribor_12m_monthly <- function(
+  series_label = "Euribor_12M_Monthly",
+  ...
+) {
+  db <- tidyBdE::bde_ind_db
+  seq_num <- db[
+    db$tidyBdE_fun == "bde_ind_euribor_12m_monthly",
+    "Numero_secuencial"
+  ]
+  seq_num <- as.character(seq_num)
 
-    econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
-    econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
+  econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
+  econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
-    econom_ind
-  }
+  econom_ind
+}
 
 #' @rdname bde_indicators
 #'
 #' @export
 #' @encoding UTF-8
-bde_ind_cpi_var <-
-  function(series_label = "Consumer_price_index_YoY", ...) {
-    db <- tidyBdE::bde_ind_db
-    seq_num <- db[
-      db$tidyBdE_fun == "bde_ind_cpi_var",
-      "Numero_secuencial"
-    ]
-    seq_num <- as.character(seq_num)
+bde_ind_euribor_12m_daily <- function(series_label = "Euribor_12M_Daily", ...) {
+  db <- tidyBdE::bde_ind_db
+  seq_num <- db[
+    db$tidyBdE_fun == "bde_ind_euribor_12m_daily",
+    "Numero_secuencial"
+  ]
+  seq_num <- as.character(seq_num)
 
-    econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
-    econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
+  econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
+  econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
 
-    econom_ind
-  }
+  econom_ind
+}
+
+#' @rdname bde_indicators
+#'
+#' @export
+#' @encoding UTF-8
+bde_ind_cpi_var <- function(series_label = "Consumer_price_index_YoY", ...) {
+  db <- tidyBdE::bde_ind_db
+  seq_num <- db[db$tidyBdE_fun == "bde_ind_cpi_var", "Numero_secuencial"]
+  seq_num <- as.character(seq_num)
+
+  econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
+  econom_ind <- econom_ind[!is.na(econom_ind[[2]]), ]
+
+  econom_ind
+}
 
 #' @rdname bde_indicators
 #'
@@ -123,10 +118,7 @@ bde_ind_cpi_var <-
 #' @encoding UTF-8
 bde_ind_ibex_monthly <- function(series_label = "IBEX_index_month", ...) {
   db <- tidyBdE::bde_ind_db
-  seq_num <- db[
-    db$tidyBdE_fun == "bde_ind_ibex_monthly",
-    "Numero_secuencial"
-  ]
+  seq_num <- db[db$tidyBdE_fun == "bde_ind_ibex_monthly", "Numero_secuencial"]
   seq_num <- as.character(seq_num)
 
   econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
@@ -141,10 +133,7 @@ bde_ind_ibex_monthly <- function(series_label = "IBEX_index_month", ...) {
 #' @encoding UTF-8
 bde_ind_ibex_daily <- function(series_label = "IBEX_index_day", ...) {
   db <- tidyBdE::bde_ind_db
-  seq_num <- db[
-    db$tidyBdE_fun == "bde_ind_ibex_daily",
-    "Numero_secuencial"
-  ]
+  seq_num <- db[db$tidyBdE_fun == "bde_ind_ibex_daily", "Numero_secuencial"]
   seq_num <- as.character(seq_num)
 
   econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
@@ -159,10 +148,7 @@ bde_ind_ibex_daily <- function(series_label = "IBEX_index_day", ...) {
 #' @encoding UTF-8
 bde_ind_gdp_quarterly <- function(series_label = "GDP_quarterly_value", ...) {
   db <- tidyBdE::bde_ind_db
-  seq_num <- db[
-    db$tidyBdE_fun == "bde_ind_gdp_quarterly",
-    "Numero_secuencial"
-  ]
+  seq_num <- db[db$tidyBdE_fun == "bde_ind_gdp_quarterly", "Numero_secuencial"]
   seq_num <- as.character(seq_num)
 
   econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)
@@ -177,10 +163,7 @@ bde_ind_gdp_quarterly <- function(series_label = "GDP_quarterly_value", ...) {
 #' @encoding UTF-8
 bde_ind_population <- function(series_label = "Population_Spain", ...) {
   db <- tidyBdE::bde_ind_db
-  seq_num <- db[
-    db$tidyBdE_fun == "bde_ind_population",
-    "Numero_secuencial"
-  ]
+  seq_num <- db[db$tidyBdE_fun == "bde_ind_population", "Numero_secuencial"]
   seq_num <- as.character(seq_num)
 
   econom_ind <- bde_series_load(seq_num, series_label = series_label, ...)

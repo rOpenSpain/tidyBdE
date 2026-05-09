@@ -25,8 +25,7 @@ test_that("Indicators", {
   expect_silent(bde_series_full_load("CF0101"))
 
   data <- bde_series_full_load("TI_1_1.csv")
-  meta <-
-    bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
+  meta <- bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
 
   expect_true(nrow(data) > nrow(meta))
 

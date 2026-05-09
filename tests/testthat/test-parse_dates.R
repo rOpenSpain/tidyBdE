@@ -1,7 +1,6 @@
 test_that("Parse dates", {
   # Test bde_parse_dates----
-  testdates <-
-    c("2002", "MAR 2002", "01 MAR 2002", "---", NA, "-an,a")
+  testdates <- c("2002", "MAR 2002", "01 MAR 2002", "---", NA, "-an,a")
   parsed <- bde_parse_dates(testdates)
 
   expect_s3_class(parsed, "Date")

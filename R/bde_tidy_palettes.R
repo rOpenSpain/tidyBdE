@@ -35,11 +35,7 @@
 #' )
 bde_tidy_palettes <- function(
   n = 6,
-  palette = c(
-    "bde_vivid_pal",
-    "bde_rose_pal",
-    "bde_qual_pal"
-  ),
+  palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"),
   alpha = NULL,
   rev = FALSE
 ) {

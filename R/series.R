@@ -380,7 +380,7 @@ bde_series_full_load <- function(
 
   # Catch error
   # nocov start
-  r <- readLines(local_file, warn = FALSE)
+  r <- readLines(local_file, warn = FALSE, n = 1000)
   if (length(r) == 0) {
     message("File ", local_file, " not valid")
     return(invisible())
@@ -388,16 +388,16 @@ bde_series_full_load <- function(
   # nocov end
 
   # Serie load
-  enc <- readr::guess_encoding(local_file)
+  enc <- readr::guess_encoding(local_file)[[1]][[1]]
 
   serie_load <- suppressWarnings(
     read.csv2(
       local_file,
       sep = ",",
       stringsAsFactors = FALSE,
-      na.strings = "",
+      na.strings = c("", "-", "_"),
       header = FALSE,
-      fileEncoding = enc$encoding[[1]]
+      fileEncoding = enc
     )
   )
 
@@ -414,8 +414,7 @@ bde_series_full_load <- function(
   meta_serie <- serie_load[seq_len(6), ]
 
   # Add FUENTE and NOTAS
-  source_notes <-
-    serie_load[serie_load[[1]] %in% c("FUENTE", "NOTAS"), ]
+  source_notes <- serie_load[serie_load[[1]] %in% c("FUENTE", "NOTAS"), ]
 
   if (extract_metadata) {
     return(meta_serie)
@@ -426,8 +425,9 @@ bde_series_full_load <- function(
   # Data: the rest of lines
   data_serie <- serie_load[-seq_len(6), ]
 
-  data_serie <-
-    data_serie[!toupper(data_serie$Date) %in% c("FUENTE", "NOTAS"), ]
+  data_serie <- data_serie[
+    !toupper(data_serie$Date) %in% c("FUENTE", "NOTAS"),
+  ]
 
   newnames_data <- as.character(meta_serie[4, ])
   newnames_data[1] <- "Date"

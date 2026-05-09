@@ -29,13 +29,12 @@ bde_check_access <- function() {
     "estadis/infoest/series/catalogo_tc.csv"
   )
   # nocov start
-  access <-
-    tryCatch(
-      download.file(url, destfile = tempfile(), quiet = TRUE, mode = "wb"),
-      warning = function(e) {
-        FALSE
-      }
-    )
+  access <- tryCatch(
+    download.file(url, destfile = tempfile(), quiet = TRUE, mode = "wb"),
+    warning = function(e) {
+      FALSE
+    }
+  )
 
   if (isFALSE(access)) {
     res <- FALSE
