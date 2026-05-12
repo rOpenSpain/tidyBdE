@@ -25,7 +25,7 @@ or vector of time series code(s), as defined in the field
 \item{series_label}{Optional character string or vector of labels to assign
 to the extracted series.}
 
-\item{out_format}{Whether the format should be returned as "long" or "wide".
+\item{out_format}{The format to return, either "long" or "wide".
 Possible values are \code{"wide"} or \code{"long"}. See \strong{Value} for details and
 section \strong{Examples}.}
 
@@ -41,14 +41,13 @@ via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 \item{update_cache}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
 
-\item{verbose}{Logical \code{TRUE} or \code{FALSE}, display information useful for
-debugging.}
+\item{verbose}{Logical. If \code{TRUE}, display information useful for debugging.}
 
 \item{extract_metadata}{Logical \code{TRUE/FALSE}. On \code{TRUE} the output is the
 metadata of the requested series.}
 }
 \value{
-A \link[tibble:tbl_df]{tibble} with a field \code{Date}:
+A \link[tibble:tbl_df]{tibble} with a \code{Date} column:
 \itemize{
 \item With \code{out_format = "wide"}, each series is presented in a separate
 column with the name defined by \code{series_label}.
@@ -59,8 +58,8 @@ column with the name defined by \code{series_label}.
 }
 }
 
-\code{"wide"} format is more suitable for exporting to a \code{.csv} file while
-\code{"long"} format is more suitable for creating plots with
+\code{"wide"} format is more suitable for exporting to a \code{.csv} file, while
+\code{"long"} format is more suitable for creating plots using
 \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}. See also \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}} and
 \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.
 }

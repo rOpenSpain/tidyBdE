@@ -1,15 +1,14 @@
-#' BdE \CRANpkg{ggplot2} theme
+#' BdE ggplot2 theme
 #'
-#' A custom \CRANpkg{ggplot2} theme based on the publications
-#' of BdE.
+#' @description
+#' Custom \CRANpkg{ggplot2} theme based on BdE publications.
 #'
 #' @family bde_plot
 #'
 #' @export
 #' @encoding UTF-8
 #'
-#' @return A \CRANpkg{ggplot2}
-#'   [`theme()`][ggplot2::theme_classic()].
+#' @return A \CRANpkg{ggplot2} theme object.
 #'
 #' @inheritDotParams ggplot2::theme_classic
 #'
@@ -17,7 +16,7 @@
 #'
 #' @details
 #'
-#' A theme based on [ggplot2::theme_classic()].
+#' Theme based on [ggplot2::theme_classic()].
 #'
 #' @importFrom ggplot2 %+replace% rel margin
 #' @examplesIf bde_check_access()
@@ -28,7 +27,7 @@
 #'
 #' series_TC <- bde_series_full_load("TC_1_1.csv")
 #'
-#' # If the download succeeds then plot
+#' # If the download succeeds, plot
 #' if (nrow(series_TC) > 0) {
 #'   series_TC <- series_TC[c(1, 2)]
 #'

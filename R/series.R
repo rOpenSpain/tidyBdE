@@ -14,21 +14,21 @@
 #' @param series_label Optional character string or vector of labels to assign
 #'   to the extracted series.
 #'
-#' @param out_format Whether the format should be returned as "long" or "wide".
+#' @param out_format The format to return, either "long" or "wide".
 #'   Possible values are `"wide"` or `"long"`. See **Value** for details and
 #'   section **Examples**.
 #' @inheritParams bde_series_full_load
 #'
 #' @return
-#' A [tibble][tibble::tbl_df] with a field `Date`:
+#' A [tibble][tibble::tbl_df] with a `Date` column:
 #' - With `out_format = "wide"`, each series is presented in a separate
 #'   column with the name defined by `series_label`.
 #' - With `out_format = "long"`, the tibble has two additional columns:
 #'   - `serie_name` with the label of each series.
 #'   - `serie_value` with the corresponding value.
 #'
-#' `"wide"` format is more suitable for exporting to a `.csv` file while
-#' `"long"` format is more suitable for creating plots with
+#' `"wide"` format is more suitable for exporting to a `.csv` file, while
+#' `"long"` format is more suitable for creating plots using
 #' [ggplot2::ggplot()]. See also [tidyr::pivot_longer()] and
 #' [tidyr::pivot_wider()].
 #'
@@ -121,7 +121,7 @@ bde_series_load <- function(
     stop("`series_label` and `series_code` should have the same length")
   }
 
-  # Lookup on catalogs
+  # Search the catalogs
   all_catalogs <- bde_catalog_load(
     catalog = "ALL",
     parse_dates = parse_dates,
@@ -144,7 +144,7 @@ bde_series_load <- function(
       message("tidyBdE> Extracting series ", x, "\n\n")
     }
 
-    # Select file
+    # Identify source file
 
     csv_file <- all_catalogs[all_catalogs[[1]] == x, c(2, 3)]
 
@@ -154,7 +154,7 @@ bde_series_load <- function(
       return(tbl)
     }
 
-    # Select first record
+    # Select the first available record
     csv_file_name <- as.character(csv_file[1, 2])
     alias_serie <- as.character(csv_file[1, 1])
 
@@ -170,7 +170,7 @@ bde_series_load <- function(
       )
     }
 
-    # Download and select series
+    # Download and extract series
     serie_file <- bde_series_full_load(
       csv_file_name,
       parse_dates = parse_dates,
@@ -198,7 +198,7 @@ bde_series_load <- function(
         )
       }
 
-      # Prevent deprecation
+      # Return empty tibble if alias is not available
 
       return(bde_hlp_return_null())
 
@@ -233,16 +233,15 @@ bde_series_load <- function(
 
   df_list <- df_list[has_date]
 
-  # Check number of series and merge (if needed)
+  # Check number of series and merge if needed
   if (length(df_list) == 0) {
     return(bde_hlp_return_null())
   }
 
-  # To long
+  # Convert to long format
   end <- dplyr::bind_rows(df_list)
-  # As factors
+  # Convert series names to factors for consistent plotting
   end$serie_name <- factor(end$serie_name, levels = unique(end$serie_name))
-  # Factors
 
   if (out_format == "wide" || isTRUE(extract_metadata)) {
     end <- tidyr::pivot_wider(
@@ -336,7 +335,7 @@ bde_series_full_load <- function(
     suffix = pp
   )
 
-  # Create if not exist
+  # Create directory if it does not exist
   if (!dir.exists(cache_dir)) {
     dir.create(cache_dir, recursive = TRUE)
   }
@@ -351,7 +350,7 @@ bde_series_full_load <- function(
   full_url <- paste0(base_url, serie_file)
   local_file <- file.path(cache_dir, serie_file)
 
-  # If no serie is found, update
+  # Download series if missing or update requested
   if (update_cache || isFALSE(file.exists(local_file))) {
     if (!bde_check_access()) {
       tbl <- bde_hlp_return_null()
@@ -403,17 +402,17 @@ bde_series_full_load <- function(
 
   serie_load <- tibble::as_tibble(serie_load)
 
-  # Always in third line
+  # Header names are in the third row
   newnames <- as.character(serie_load[3, ])
   newnames[1] <- "Date"
 
   names(serie_load) <- newnames
 
   # Metadata
-  # Always lines 1 to 6
+  # Metadata is in the first six rows
   meta_serie <- serie_load[seq_len(6), ]
 
-  # Add FUENTE and NOTAS
+  # Add source and notes
   source_notes <- serie_load[serie_load[[1]] %in% c("FUENTE", "NOTAS"), ]
 
   if (extract_metadata) {
@@ -422,7 +421,7 @@ bde_series_full_load <- function(
 
   meta_serie <- dplyr::bind_rows(meta_serie, source_notes)
 
-  # Data: the rest of lines
+  # Remaining rows contain the data
   data_serie <- serie_load[-seq_len(6), ]
 
   data_serie <- data_serie[

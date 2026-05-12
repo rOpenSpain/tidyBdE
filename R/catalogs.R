@@ -1,7 +1,7 @@
 #' Load BdE catalogs
 #'
 #' @description
-#' Load the time series catalogs provided by the BdE.
+#' Load the time series catalogs provided by BdE.
 #'
 #' @export
 #' @encoding UTF-8
@@ -67,7 +67,7 @@ bde_catalog_load <- function(
   verbose = FALSE
 ) {
   catalog <- match.arg(catalog)
-  # Validate
+  # Validate input arguments
   valid_catalogs <- c("BE", "SI", "TC", "TI", "PB", "ALL")
   stopifnot(
     catalog %in% valid_catalogs,
@@ -83,7 +83,7 @@ bde_catalog_load <- function(
     catalog_to_load <- setdiff(valid_catalogs, "ALL")
   }
 
-  # Get cache dir
+  # Determine cache directory
   cache_dir <- bde_hlp_cachedir(cache_dir = cache_dir, verbose = verbose)
 
   final_catalog <- lapply(catalog_to_load, function(x) {
@@ -94,7 +94,7 @@ bde_catalog_load <- function(
     if (all(has_cache, isFALSE(update_cache))) {
       if (verbose) message("tidyBdE> Cached version of ", x, " detected")
     } else {
-      # If no catalog is found or requested, update
+      # Download catalog if missing or update requested
       if (verbose) {
         message("tidyBdE> Need to download catalog ", x)
       }
@@ -105,14 +105,14 @@ bde_catalog_load <- function(
         verbose = verbose
       )
 
-      # On error return NULL
+      # Handle download errors
       if (any(is.data.frame(result), isFALSE(result))) {
         message("Download not available for ", x)
         return(NULL)
       }
     }
 
-    # Catch error
+    # Handle empty file
     # nocov start
     r <- readLines(catalog_file, warn = FALSE, n = 1000)
     if (length(r) == 0) {
@@ -135,8 +135,8 @@ bde_catalog_load <- function(
     )
 
     # Convert names
-    # Hard-coded, problematic on checks because UTF-8 values
-    # Some OS would fail if this workaround is not used
+    # Hard-coded column names to avoid UTF-8 encoding issues during checks.
+    # Some operating systems might fail without this workaround.
     names_catalog <- c(
       "Nombre_de_la_serie",
       "Numero_secuencial",
@@ -157,7 +157,7 @@ bde_catalog_load <- function(
       "Notas"
     )
 
-    # Rename and delete first row
+    # Set column names and remove original header
     names(catalog_load) <- names_catalog
     catalog_load <- catalog_load[-1, ]
 
@@ -172,19 +172,17 @@ bde_catalog_load <- function(
     message("tidyBdE> Could not load catalogs: ", msg)
   }
 
-  # Guess formats
-
-  # Unlist
+  # Combine catalogs and infer column types
   final_catalog <- dplyr::bind_rows(final_catalog)
   final_catalog <- bde_hlp_guess(
     final_catalog,
     preserve = names(final_catalog)[c(5, 15)]
   )
 
-  # To tibble
+  # Convert result to a tibble
   final_catalog <- tibble::as_tibble(final_catalog)
 
-  # Parse dates
+  # Parse date columns
   if (parse_dates) {
     if (verbose) {
       message("tidyBdE> Parsing dates")
@@ -225,12 +223,11 @@ bde_catalog_load <- function(
 #'
 #' ```
 #'
-#' @param catalog A character string indicating the catalog to be updated
-#'   or `"ALL"` as a shorthand. See **Details**.
+#' @param catalog A single catalog identifier to update, or `"ALL"` to
+#'   update every catalog. See **Details**.
 #' @param cache_dir A path to a cache directory. The directory can also be set
 #'   via options with `options(bde_cache_dir = "path/to/dir")`.
-#' @param verbose Logical `TRUE` or `FALSE`, display information useful for
-#'   debugging.
+#' @param verbose Logical. If `TRUE`, display information useful for debugging.
 #'
 #' @details
 #' Accepted values for `catalog` are:
@@ -280,10 +277,10 @@ bde_catalog_update <- function(
   }
   # nocov end
 
-  # Get cache dir
+  # Determine cache directory
   cache_dir <- bde_hlp_cachedir(cache_dir = cache_dir, verbose = verbose)
 
-  # Loop and download
+  # Download requested catalogs
   catalog_download <- catalog
   if ("ALL" %in% catalog) {
     catalog_download <- valid_catalogs[valid_catalogs != "ALL"]
@@ -337,8 +334,8 @@ bde_catalog_update <- function(
 #' @inheritDotParams bde_catalog_load
 #'
 #' @details
-#' **Note:** BdE files are currently provided only in Spanish. Therefore, search
-#' terms should be provided in Spanish to obtain search results.
+#' **Note:** BdE metadata is currently only provided in Spanish. Therefore,
+#' search terms must be provided in Spanish to retrieve results.
 #'
 #' This function uses [base::grep()] to find matches in the catalogs. You
 #' can pass [regular expressions][base::regex] to broaden the search.
@@ -374,11 +371,11 @@ bde_catalog_search <- function(pattern, ...) {
   }
   # nocov end
 
-  # Index lookup columns
+  # Define indices for search columns
   col_ind <- c(2, 3, 4, 5, 15)
 
   search_match_rows <- NULL
-  # Loop through cols
+  # Search across specified columns
   for (i in col_ind) {
     search_match_rows <- unique(
       c(

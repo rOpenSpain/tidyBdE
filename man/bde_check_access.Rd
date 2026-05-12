@@ -11,7 +11,7 @@ bde_check_access()
 A logical value.
 }
 \description{
-Check whether \strong{R} can access resources at
+Check if \strong{R} can access resources at
 \url{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}.
 }
 \examples{

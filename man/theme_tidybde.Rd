@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{theme_tidybde}
 \alias{theme_tidybde}
-\title{BdE \CRANpkg{ggplot2} theme}
+\title{BdE ggplot2 theme}
 \usage{
 theme_tidybde(...)
 }
@@ -22,15 +22,13 @@ legend titles, the plot title and tag text.}
   }}
 }
 \value{
-A \CRANpkg{ggplot2}
-\code{\link[ggplot2:theme_classic]{theme()}}.
+A \CRANpkg{ggplot2} theme object.
 }
 \description{
-A custom \CRANpkg{ggplot2} theme based on the publications
-of BdE.
+Custom \CRANpkg{ggplot2} theme based on BdE publications.
 }
 \details{
-A theme based on \code{\link[ggplot2:theme_classic]{ggplot2::theme_classic()}}.
+Theme based on \code{\link[ggplot2:theme_classic]{ggplot2::theme_classic()}}.
 }
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
@@ -41,7 +39,7 @@ library(tidyr)
 
 series_TC <- bde_series_full_load("TC_1_1.csv")
 
-# If the download succeeds then plot
+# If the download succeeds, plot
 if (nrow(series_TC) > 0) {
   series_TC <- series_TC[c(1, 2)]
 

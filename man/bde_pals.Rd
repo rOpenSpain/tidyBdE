@@ -4,14 +4,14 @@
 \name{bde_vivid_pal}
 \alias{bde_vivid_pal}
 \alias{bde_rose_pal}
-\title{BdE superseded palettes}
+\title{Superseded BdE palettes}
 \usage{
 bde_vivid_pal(...)
 
 bde_rose_pal(...)
 }
 \arguments{
-\item{...}{Further arguments of the functions.}
+\item{...}{Additional arguments.}
 }
 \value{
 A palette of colors.
@@ -19,16 +19,16 @@ A palette of colors.
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#superseded}{\figure{lifecycle-superseded.svg}{options: alt='[Superseded]'}}}{\strong{[Superseded]}}
 
-These functions are superseded; see \code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}} instead.
+These functions are superseded, see \code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}} instead.
 
-Custom palettes based on BdE publications.
+Palettes based on BdE publications.
 }
 \examples{
 
-# BdE vivid pal
+# Vivid palette
 scales::show_col(bde_vivid_pal()(6), labels = FALSE)
 
-# BdE rose pal
+# Rose palette
 scales::show_col(bde_rose_pal()(6), labels = FALSE)
 }
 \keyword{internal}

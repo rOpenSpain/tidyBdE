@@ -1,7 +1,7 @@
 ---
 title: "Series index"
 date: "`r Sys.Date()`"
-description: A summary of all the information accessible through tidyBdE
+description: Summary of information accessible through tidyBdE
 toc: true
 tbl-cap-location: bottom
 knitr:
@@ -16,10 +16,10 @@ knitr:
     out.width: "100%"
 ---
 
-The following table shows the series available in the catalog (last update:
+Table showing available series in the catalog (last updated:
 **`r format(Sys.Date(),"%d-%B-%Y")`**).
 
-Use the sequential number below to load a single series (see the example):
+Use the sequential number to load a single series (see Example):
 
 ## Summary
 
@@ -72,15 +72,15 @@ reactable(
 
 ## Example {#example}
 
-To search and extract a specific series, see the full workflow:
+Workflow for searching and extracting a specific series:
 
 ```{r}
 #| label: tbl-example
-#| tbl-cap: Search results
+#| tbl-cap: "Search results"
 library(tidyBdE)
 library(tidyverse)
 
-# GDP France
+# Search for French GDP
 fr <- bde_catalog_search("Francia(.*)PIB")
 
 # Display the table in the vignette
@@ -97,23 +97,23 @@ fr |>
 fr |>
   # Select id
   select(Numero_secuencial) |>
-  # first observation
+  # First observation
   slice(1) |>
-  # convert to numeric
+  # Convert to numeric
   as.double() |>
-  # and load it
+  # Load the series
   bde_series_load()
 
 # See the metadata
 fr |>
   # Select id
   select(Numero_secuencial) |>
-  # first observation
+  # First observation
   slice(1) |>
-  # convert to numeric
+  # Convert to numeric
   as.double() |>
-  # and load its metadata
+  # Load its metadata
   bde_series_load(extract_metadata = TRUE) |>
-  # To table on the vignette
+  # Display table in the vignette
   knitr::kable()
 ```

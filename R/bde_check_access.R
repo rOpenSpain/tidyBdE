@@ -1,7 +1,7 @@
 #' Check access to BdE
 #'
 #' @description
-#' Check whether **R** can access resources at
+#' Check if **R** can access resources at
 #' <https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html>.
 #'
 #' @return A logical value.
@@ -15,7 +15,7 @@
 #' @export
 #' @encoding UTF-8
 bde_check_access <- function() {
-  # Internal option, for checking purposes only
+  # Internal option for testing purposes only
   # nocov start
   test <- getOption("bde_test_offline", NULL)
   if (isTRUE(test)) {
@@ -45,7 +45,7 @@ bde_check_access <- function() {
   # nocov end
 }
 
-#' Skip tests
+#' Skip tests if BdE is offline
 #' @noRd
 skip_if_bde_offline <- function() {
   # nocov start

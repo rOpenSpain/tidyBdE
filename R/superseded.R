@@ -1,15 +1,15 @@
-#' BdE superseded palettes
+#' Superseded BdE palettes
 #'
 #' @description
 #' `r lifecycle::badge('superseded')`
 #'
-#' These functions are superseded; see [bde_tidy_palettes()] instead.
+#' These functions are superseded, see [bde_tidy_palettes()] instead.
 #'
-#' Custom palettes based on BdE publications.
+#' Palettes based on BdE publications.
 #'
 #' @return A palette of colors.
 #'
-#' @param ... Further arguments of the functions.
+#' @param ... Additional arguments.
 #'
 #' @name bde_vivid_pal
 #' @rdname bde_pals
@@ -19,10 +19,10 @@
 #' @keywords internal
 #' @examples
 #'
-#' # BdE vivid pal
+#' # Vivid palette
 #' scales::show_col(bde_vivid_pal()(6), labels = FALSE)
 #'
-#' # BdE rose pal
+#' # Rose palette
 #' scales::show_col(bde_rose_pal()(6), labels = FALSE)
 bde_vivid_pal <- function(...) {
   if (requireNamespace("lifecycle", quietly = TRUE)) {

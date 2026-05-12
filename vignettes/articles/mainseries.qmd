@@ -1,6 +1,6 @@
 ---
 title: "Main macroeconomic series"
-description: Main Spanish economic indicators up to date.
+description: Evolution of selected Spanish economic indicators.
 date: "`r Sys.Date()`"
 knitr:
   opts_chunk:
@@ -14,8 +14,8 @@ knitr:
     out.width: "100%"
 ---
 
-This article shows the evolution of selected Spanish economic indicators using
-data from [Banco de España](https://www.bde.es/).
+Evolution of selected Spanish economic indicators using data from Banco de
+España.
 
 Last update: **`r format(Sys.Date(),"%d-%B-%Y")`**.
 
@@ -25,6 +25,7 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
+# Set plot parameters and date ranges
 col <- bde_tidy_palettes(1, "bde_rose_pal")
 date <- Sys.Date()
 ny <- as.numeric(format(date, format = "%Y")) - 6
@@ -44,11 +45,13 @@ br <- seq(nd, Sys.Date(), "6 months")
 dataset <- bde_ind_gdp_quarterly(series_label = "data") |>
   drop_na()
 
+# Calculate rolling sum for the last four quarters
 dataset$LastY <- dataset$data +
   lag(dataset$data, 1) +
   lag(dataset$data, 2) +
   lag(dataset$data, 3)
 
+# Filter observations
 dataset <- dataset |>
   filter(Date >= nd) |>
   mutate(data = LastY) |>
@@ -61,7 +64,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
   scale_y_continuous(labels = scales::label_number()) +
   labs(
     title = "GDP of Spain",
-    subtitle = "million €",
+    subtitle = "Million €",
     caption = "Source: BdE"
   ) +
   scale_x_date(
@@ -111,10 +114,12 @@ ggplot(dataset, aes(x = Date, y = data)) +
 pop <- bde_ind_population(series_label = "pop")
 pib <- bde_ind_gdp_quarterly(series_label = "data")
 
+# Calculate rolling sum and join with population data
 pib$LastY <- pib$data + lag(pib$data, 1) + lag(pib$data, 2) + lag(pib$data, 3)
 
 pib <- inner_join(pib, pop, by = "Date")
 
+# Compute GDP per capita
 pib <- pib |> mutate(data = 1000 * LastY / pop)
 
 dataset <- pib |>

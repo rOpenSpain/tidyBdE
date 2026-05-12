@@ -18,18 +18,18 @@ bde_tidy_palettes(
 \item{palette}{A valid palette name.}
 
 \item{alpha}{An alpha-transparency level in the range \verb{[0,1]} (\code{0} means
-transparent and \code{1} means opaque). A missing, i.e., \code{alpha = NULL}, does
-not add opacity codes (\code{"FF"}) to the individual color hex codes.
+transparent and \code{1} means opaque). If missing (i.e., \code{alpha = NULL}), it
+does not add opacity codes (\code{"FF"}) to the individual color hex codes.
 See \code{\link[ggplot2:alpha]{ggplot2::alpha()}}.}
 
-\item{rev}{Logical indicating whether the ordering of the colors should be
+\item{rev}{Logical indicating if the ordering of the colors should be
 reversed.}
 }
 \value{
 A vector of colors.
 }
 \description{
-These palettes are based on BdE publications and are defined manually.
+Palettes based on BdE publications and defined manually.
 Each palette contains at most 6 colors.
 }
 \examples{

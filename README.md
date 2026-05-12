@@ -26,12 +26,12 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
 The data is returned as a [tibble](https://tibble.tidyverse.org/), and
 the package automatically detects the format of each time series (dates,
-characters, and numbers).
+characters and numbers).
 
 ## Installation
 
 Install **tidyBdE** from
-[**CRAN**](https://CRAN.R-project.org/package=tidyBdE):
+[CRAN](https://CRAN.R-project.org/package=tidyBdE):
 
 ``` r
 install.packages("tidyBdE")
@@ -190,11 +190,11 @@ alt="Spanish Economic Indicators (2010-2019)" />
 
 ### Palettes
 
-Two custom palettes, based on those used by BdE in some publications,
+Three custom palettes, based on those used by BdE in some publications,
 are available.
 
-These palettes can be applied to `ggplot2` plots using custom utilities
-included in the package (see
+Apply these palettes to `ggplot2` plots using the scale functions
+provided in the package (see
 `help("scale_color_bde_d", package = "tidyBdE")`).
 
 ### A note on caching
@@ -243,5 +243,5 @@ A BibTeX entry for LaTeX users is:
       year = {2026},
       version = {0.6.0.9000},
       url = {https://ropenspain.github.io/tidyBdE/},
-      abstract = {Tools to download data series from Banco de España (BdE) on tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored endorsed or administered by Banco de España.},
+      abstract = {Tools to download data series from Banco de España (BdE) in tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored, endorsed or administered by Banco de España.},
     }

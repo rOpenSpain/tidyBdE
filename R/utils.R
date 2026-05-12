@@ -1,6 +1,6 @@
-#' Parse dates
+#' Parse dates from strings
 #'
-#' Attempts to parse strings representing dates using [as.Date()]
+#' Parse strings representing dates using [as.Date()]
 #'
 #' @export
 #' @encoding UTF-8
@@ -11,7 +11,7 @@
 #'
 #' @seealso [as.Date()]
 #'
-#' @param dates_to_parse Dates to parse
+#' @param dates_to_parse Character vector of dates to parse.
 #'
 #' @description
 #' This function is tailored for date formats used in this package and may fail
@@ -88,12 +88,12 @@ bde_parse_dates <- function(dates_to_parse) {
     "DIC"
   )
 
-  # Format months
+  # Map Spanish month names to numbers
   for (i in seq_along(months_esp)) {
     dateformat <- gsub(months_esp[i], sprintf("%02d", i), dateformat)
   }
 
-  # Final format: dd-mm-yyyy
+  # Normalize the date format to dd-mm-yyyy
   for (j in seq_along(dateformat)) {
     s2 <- dateformat[j]
 
@@ -101,10 +101,10 @@ bde_parse_dates <- function(dates_to_parse) {
       # Return NULL
       dateformat[j] <- NA
     } else if (nchar(s2) == 4) {
-      # This is just year, add day, month
+      # Only a year is provided; add month and day
       dateformat[j] <- paste0("3112", s2)
     } else if (nchar(s2) == 6) {
-      # Month Year, add day
+      # Month and year are provided; add day
       dateformat[j] <- paste0("01", s2)
     }
   }
@@ -114,21 +114,22 @@ bde_parse_dates <- function(dates_to_parse) {
   dateformat
 }
 
-#' Creates `cache_dir`
+#' Create a cache directory
 #'
-#' @param cache_dir A directory path
-#' @param verbose Logical; display informative messages.
-#' @param suffix A suffix
+#' @param cache_dir Path to a cache directory.
+#' @param verbose Logical indicating if informative messages should be
+#'   displayed.
+#' @param suffix An optional suffix to append to the path.
 #'
 #' @noRd
 bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
-  # Check cache dir if is null
+  # Identify the cache directory
   if (is.null(cache_dir)) {
-    # Check if set via options
+    # Check if the directory is set via global options
     cache_dir <- getOption("bde_cache_dir", NULL)
 
     if (is.null(cache_dir)) {
-      # Not set - using tempdir
+      # Fall back to a temporary directory
       cache_dir <- tempdir()
 
       if (!is.null(suffix)) {
@@ -140,7 +141,7 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
       }
       return(cache_dir)
     } else {
-      # Set via options
+      # Detect cache directory from global options
       if (verbose) {
         message("tidyBdE> Cache dir detected on options: ", cache_dir)
       }
@@ -166,13 +167,14 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
   cache_dir
 }
 
-#' Helper for downloading files
+#' Internal helper for downloading files
 #'
 #' @param url Resource URL
 #'
 #' @param local_file Local file path to create
 #'
-#' @param verbose Logical; display informative messages.
+#' @param verbose Logical indicating if informative messages should be
+#'   displayed.
 #'
 #' @noRd
 bde_hlp_download <- function(url, local_file, verbose) {
@@ -188,8 +190,7 @@ bde_hlp_download <- function(url, local_file, verbose) {
     }
   )
   # nocov end
-  # Try again if the first download fails
-  # This time display a message
+  # Attempt a second download if the first fails
 
   # nocov start
   if (isTRUE(err_dwnload)) {
@@ -213,7 +214,7 @@ bde_hlp_download <- function(url, local_file, verbose) {
   }
   # nocov end
 
-  # Return FALSE on warning
+  # Return FALSE if a warning is encountered
   if (isTRUE(err_dwnload)) {
     return(FALSE)
     # nocov end
@@ -221,9 +222,9 @@ bde_hlp_download <- function(url, local_file, verbose) {
   TRUE
 }
 
-#' Guess formats
+#' Infer column types in a tibble
 #'
-#' @param tbl a tibble
+#' @param tbl The tibble to process.
 #' @param preserve vector of names to preserve
 #' @noRd
 bde_hlp_guess <- function(tbl, preserve = "") {
@@ -239,9 +240,9 @@ bde_hlp_guess <- function(tbl, preserve = "") {
   tbl
 }
 
-#' Convert to characters
+#' Convert columns to characters
 #'
-#' @param tbl a tibble
+#' @param tbl A tibble.
 #' @param preserve vector of names to preserve
 #' @noRd
 bde_hlp_tochar <- function(tbl, preserve = "") {
@@ -253,9 +254,9 @@ bde_hlp_tochar <- function(tbl, preserve = "") {
   tbl
 }
 
-#' Convert to double
+#' Convert columns to double precision numbers
 #'
-#' @param tbl a tibble
+#' @param tbl A tibble.
 #' @param preserve vector of names to preserve
 #' @noRd
 bde_hlp_todouble <- function(tbl, preserve = "") {
@@ -271,8 +272,8 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
   tbl
 }
 
-#' Return empty tibble
-#' @return A tibble.
+#' Return an empty tibble with an informative message
+#' @return A [tibble][tibble::tbl_df].
 #'
 #' @examples
 #'

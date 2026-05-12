@@ -1,12 +1,12 @@
 # tidyBdE (development version)
 
-- Improve reading of external `.csv` files. Encoding files detected using
+- Improve reading of external `.csv` files by detecting file encoding with
   `readr::guess_encoding()`.
 
 # tidyBdE 0.6.0
 
 - Migrate vignettes to Quarto.
-- Update the series code used by `bde_ind_cpi_var()`, see `?bde_ind_db`.
+- Update the series code used by `bde_ind_cpi_var()` (see `?bde_ind_db`).
 
 # tidyBdE 0.5.0
 
@@ -37,7 +37,7 @@
 
 # tidyBdE 0.3.5
 
-Mostly changes on the color functions:
+Mostly changes to the color functions:
 
 - `bde_vivid_pal()` and `bde_rose_pal()` have been superseded. Use the new
   function `bde_tidy_palettes()` instead.

@@ -26,19 +26,17 @@ reference:
   - has_concept("series")
 
 - title: BdE Indicators
-  desc: Selected macroeconomic indicators of Spain.
+  desc: Relevant macroeconomic indicators of Spain.
   contents:
   - has_concept("indicators")
 
 - title: Plot utilities
-  desc: >
-    Complementary functions for plotting with <a
-    href="https://CRAN.R-project.org/package=ggplot2"
-    class="external-link"><span class="pkg">ggplot2</span></a>.
+  desc: Functions for plotting with ggplot2.
   contents:
   - has_concept("bde_plot")
 
 - title: Utilities
+  desc: Internal utility functions.
   contents:
   - has_concept("utils")
 

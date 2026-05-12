@@ -1,8 +1,8 @@
-#' BdE scales for \CRANpkg{ggplot2}
+#' BdE color scales
 #'
 #' @description
 #'
-#' Scales to be used with the \CRANpkg{ggplot2} package. Discrete palettes are
+#' Color scales for the \CRANpkg{ggplot2} package. Discrete palettes are
 #' named `scale_*_bde_d`, while continuous palettes are named `scale_*_bde_c`.
 #'
 #' @seealso [ggplot2::discrete_scale()], [ggplot2::continuous_scale()]
@@ -18,13 +18,13 @@
 #'
 #' @name scales_bde
 #'
-#' @param palette Name of the BdE palette to apply. See [bde_tidy_palettes()]
+#' @param palette BdE palette to apply. See [bde_tidy_palettes()]
 #'   for details.
 #'
 #' @inheritParams bde_tidy_palettes
 #' @inheritParams ggplot2::continuous_scale
 #'
-#' @param ... Further arguments passed to [ggplot2::discrete_scale()] or
+#' @param ... Additional arguments passed to [ggplot2::discrete_scale()] or
 #'   [ggplot2::continuous_scale()].
 #'
 #' @examples
@@ -57,6 +57,7 @@ scale_color_bde_d <- function(
 ) {
   palette <- match.arg(palette)
 
+  # Generate discrete palette
   cols_v <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
   pal <- scales::manual_pal(cols_v)
 
@@ -82,6 +83,7 @@ scale_fill_bde_d <- function(
 ) {
   palette <- match.arg(palette)
 
+  # Generate discrete palette
   cols_v <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
   pal <- scales::manual_pal(cols_v)
 
@@ -101,6 +103,7 @@ scale_color_bde_c <- function(
 ) {
   palette <- match.arg(palette)
 
+  # Define color ramp for continuous scale
   cols <- switch(palette,
     "bde_vivid_pal" = bde_tidy_palettes(
       6,
@@ -149,6 +152,7 @@ scale_fill_bde_c <- function(
 ) {
   palette <- match.arg(palette)
 
+  # Define color ramp for continuous scale
   cols <- switch(palette,
     "bde_vivid_pal" = bde_tidy_palettes(
       6,

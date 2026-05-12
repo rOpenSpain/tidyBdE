@@ -21,7 +21,7 @@ A \link[tibble:tbl_df]{tibble} of 9 rows and
 \description{
 Minimal metadata of the selected macroeconomic indicators included in helper
 functions of \CRANpkg{tidyBdE} (see \link{bde_indicators}). Full metadata can be
-accessed via \code{\link[=bde_catalog_load]{bde_catalog_load()}}
+accessed via \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
 }
 \details{
 \tabular{lllllll}{

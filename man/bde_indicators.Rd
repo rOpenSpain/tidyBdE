@@ -13,7 +13,7 @@
 \alias{bde_ind_gdp_quarterly}
 \alias{bde_ind_population}
 \alias{bde_ind_ibex}
-\title{Relevant Indicators of Spain}
+\title{Relevant macroeconomic indicators of Spain}
 \usage{
 bde_ind_gdp_var(series_label = "GDP_YoY", ...)
 
@@ -40,7 +40,7 @@ to the extracted series.}
 \item{...}{
   Arguments passed on to \code{\link{bde_series_load}}
   \describe{
-    \item{\code{out_format}}{Whether the format should be returned as "long" or "wide".
+    \item{\code{out_format}}{The format to return, either "long" or "wide".
 Possible values are \code{"wide"} or \code{"long"}. See \strong{Value} for details and
 section \strong{Examples}.}
     \item{\code{parse_numeric}}{Logical. If \code{TRUE} the columns would be parsed to
@@ -53,16 +53,15 @@ metadata of the requested series.}
 \code{cache_dir}.}
     \item{\code{cache_dir}}{A path to a cache directory. The directory can also be set
 via options with \code{options(bde_cache_dir = "path/to/dir")}.}
-    \item{\code{verbose}}{Logical \code{TRUE} or \code{FALSE}, display information useful for
-debugging.}
+    \item{\code{verbose}}{Logical. If \code{TRUE}, display information useful for debugging.}
   }}
 }
 \value{
 A \link[tibble:tbl_df]{tibble} with the required series.
 }
 \description{
-Helper wrappers for downloading some of the most relevant macroeconomic
-indicators of Spain. Metadata available in \link{bde_ind_db}.
+Helper functions for downloading selected macroeconomic indicators of Spain.
+Metadata is available in \link{bde_ind_db}.
 }
 \details{
 These functions are convenient wrappers around \code{\link[=bde_series_load]{bde_series_load()}} for

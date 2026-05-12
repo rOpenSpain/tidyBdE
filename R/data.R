@@ -3,7 +3,7 @@
 #' @description
 #' Minimal metadata of the selected macroeconomic indicators included in helper
 #' functions of \CRANpkg{tidyBdE} (see [bde_indicators]). Full metadata can be
-#' accessed via [bde_catalog_load()]
+#' accessed via [bde_catalog_load()].
 #'
 #' @docType data
 #'

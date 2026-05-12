@@ -15,14 +15,13 @@ bde_catalog_update(
 )
 }
 \arguments{
-\item{catalog}{A character string indicating the catalog to be updated
-or \code{"ALL"} as a shorthand. See \strong{Details}.}
+\item{catalog}{A single catalog identifier to update, or \code{"ALL"} to
+update every catalog. See \strong{Details}.}
 
 \item{cache_dir}{A path to a cache directory. The directory can also be set
 via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 
-\item{verbose}{Logical \code{TRUE} or \code{FALSE}, display information useful for
-debugging.}
+\item{verbose}{Logical. If \code{TRUE}, display information useful for debugging.}
 }
 \value{
 None. Downloads the catalog file(s) to the local machine.

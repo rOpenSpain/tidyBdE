@@ -1,8 +1,8 @@
-#' Relevant Indicators of Spain
+#' Relevant macroeconomic indicators of Spain
 #'
 #' @description
-#' Helper wrappers for downloading some of the most relevant macroeconomic
-#' indicators of Spain. Metadata available in [bde_ind_db].
+#' Helper functions for downloading selected macroeconomic indicators of Spain.
+#' Metadata is available in [bde_ind_db].
 #'
 #' @rdname bde_indicators
 #' @name bde_indicators

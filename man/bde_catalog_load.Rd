@@ -29,14 +29,13 @@ via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 \item{update_cache}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
 
-\item{verbose}{Logical \code{TRUE} or \code{FALSE}, display information useful for
-debugging.}
+\item{verbose}{Logical. If \code{TRUE}, display information useful for debugging.}
 }
 \value{
 A \link[tibble:tbl_df]{tibble} object.
 }
 \description{
-Load the time series catalogs provided by the BdE.
+Load the time series catalogs provided by BdE.
 }
 \details{
 Accepted values for \code{catalog} are:\tabular{llll}{

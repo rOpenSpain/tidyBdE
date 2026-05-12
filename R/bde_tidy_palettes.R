@@ -1,6 +1,7 @@
 #' BdE color palettes
 #'
-#' These palettes are based on BdE publications and are defined manually.
+#' @description
+#' Palettes based on BdE publications and defined manually.
 #' Each palette contains at most 6 colors.
 #'
 #' @family bde_plot
@@ -12,10 +13,10 @@
 #' @param n The number of colors (`>= 1`) to return.
 #' @param palette A valid palette name.
 #' @param alpha An alpha-transparency level in the range `[0,1]` (`0` means
-#'   transparent and `1` means opaque). A missing, i.e., `alpha = NULL`, does
-#'   not add opacity codes (`"FF"`) to the individual color hex codes.
+#'   transparent and `1` means opaque). If missing (i.e., `alpha = NULL`), it
+#'   does not add opacity codes (`"FF"`) to the individual color hex codes.
 #'   See [ggplot2::alpha()].
-#' @param rev Logical indicating whether the ordering of the colors should be
+#' @param rev Logical indicating if the ordering of the colors should be
 #'   reversed.
 #' @examples
 #'
@@ -87,7 +88,7 @@ bde_tidy_palettes <- function(
 
   endcols <- cols[seq_len(n)]
 
-  # Options
+  # Apply palette options
   if (rev) {
     endcols <- rev(endcols)
   }
