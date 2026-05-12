@@ -5,7 +5,7 @@ helper functions of
 [tidyBdE](https://CRAN.R-project.org/package=tidyBdE) (see
 [bde_indicators](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)).
 Full metadata can be accessed via
-[`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md)
+[`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md).
 
 ## Format
 

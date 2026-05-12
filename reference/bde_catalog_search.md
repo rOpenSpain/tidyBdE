@@ -42,8 +42,7 @@ bde_catalog_search(pattern, ...)
 
   `verbose`
 
-  :   Logical `TRUE` or `FALSE`, display information useful for
-      debugging.
+  :   Logical. If `TRUE`, display information useful for debugging.
 
 ## Value
 
@@ -52,8 +51,8 @@ object with the results of the query.
 
 ## Details
 
-**Note:** BdE files are currently provided only in Spanish. Therefore,
-search terms should be provided in Spanish to obtain search results.
+**Note:** BdE metadata is currently only provided in Spanish. Therefore,
+search terms must be provided in Spanish to retrieve results.
 
 This function uses [`base::grep()`](https://rdrr.io/r/base/grep.html) to
 find matches in the catalogs. You can pass [regular

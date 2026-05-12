@@ -72,8 +72,8 @@
 
 
 <dl><dt id="arg-catalog">catalog<a class="anchor" aria-label="anchor" href="#arg-catalog"></a></dt>
-<dd><p>A character string indicating the catalog to be updated
-or <code>"ALL"</code> as a shorthand. See <strong>Details</strong>.</p></dd>
+<dd><p>A single catalog identifier to update, or <code>"ALL"</code> to
+update every catalog. See <strong>Details</strong>.</p></dd>
 
 
 <dt id="arg-cache-dir">cache_dir<a class="anchor" aria-label="anchor" href="#arg-cache-dir"></a></dt>
@@ -82,8 +82,7 @@ via options with <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
 
 
 <dt id="arg-verbose">verbose<a class="anchor" aria-label="anchor" href="#arg-verbose"></a></dt>
-<dd><p>Logical <code>TRUE</code> or <code>FALSE</code>, display information useful for
-debugging.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, display information useful for debugging.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -105,7 +104,7 @@ debugging.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">bde_catalog_update</span><span class="op">(</span><span class="st">"TI"</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory /tmp/RtmplO0ihI</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory /tmp/Rtmp47i7Aa</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Updating catalogs: TI</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>

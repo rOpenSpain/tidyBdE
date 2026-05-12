@@ -4,7 +4,7 @@
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
 The data is returned as a [tibble](https://tibble.tidyverse.org/), and
 the package automatically detects the format of each time series (dates,
-characters, and numbers).
+characters and numbers).
 
 ## Search series
 
@@ -13,7 +13,7 @@ by the institution itself or compiled from other sources, such as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
 The basic entry points for searching time series are the time series
-catalogs (indexes). You can search for any series by name:
+catalogs (indices). You can search for any series by name:
 
 ``` r
 
@@ -23,7 +23,7 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-# Search GBP on "TC" (exchange rate) catalog
+# Search for GBP in the "TC" (exchange rate) catalog
 xr_gbp <- bde_catalog_search("GBP", catalog = "TC")
 
 xr_gbp |>
@@ -51,7 +51,7 @@ seq_number <- xr_gbp |>
   # First record
   slice(1) |>
   # Get the ID
-  select(Numero_secuencial) |>
+  pull(Numero_secuencial) |>
   # Convert to numeric
   as.double()
 

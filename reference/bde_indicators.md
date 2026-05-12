@@ -1,7 +1,7 @@
-# Relevant Indicators of Spain
+# Relevant macroeconomic indicators of Spain
 
-Helper wrappers for downloading some of the most relevant macroeconomic
-indicators of Spain. Metadata available in
+Helper functions for downloading selected macroeconomic indicators of
+Spain. Metadata is available in
 [bde_ind_db](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md).
 
 ## Usage
@@ -40,9 +40,9 @@ bde_ind_population(series_label = "Population_Spain", ...)
 
   `out_format`
 
-  :   Whether the format should be returned as "long" or "wide".
-      Possible values are `"wide"` or `"long"`. See **Value** for
-      details and section **Examples**.
+  :   The format to return, either "long" or "wide". Possible values are
+      `"wide"` or `"long"`. See **Value** for details and section
+      **Examples**.
 
   `parse_numeric`
 
@@ -71,8 +71,7 @@ bde_ind_population(series_label = "Population_Spain", ...)
 
   `verbose`
 
-  :   Logical `TRUE` or `FALSE`, display information useful for
-      debugging.
+  :   Logical. If `TRUE`, display information useful for debugging.
 
 ## Value
 

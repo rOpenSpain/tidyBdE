@@ -46,8 +46,8 @@ bde_series_load(
 
 - out_format:
 
-  Whether the format should be returned as "long" or "wide". Possible
-  values are `"wide"` or `"long"`. See **Value** for details and section
+  The format to return, either "long" or "wide". Possible values are
+  `"wide"` or `"long"`. See **Value** for details and section
   **Examples**.
 
 - parse_dates:
@@ -71,7 +71,7 @@ bde_series_load(
 
 - verbose:
 
-  Logical `TRUE` or `FALSE`, display information useful for debugging.
+  Logical. If `TRUE`, display information useful for debugging.
 
 - extract_metadata:
 
@@ -81,7 +81,7 @@ bde_series_load(
 ## Value
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
-with a field `Date`:
+with a `Date` column:
 
 - With `out_format = "wide"`, each series is presented in a separate
   column with the name defined by `series_label`.
@@ -92,8 +92,8 @@ with a field `Date`:
 
   - `serie_value` with the corresponding value.
 
-`"wide"` format is more suitable for exporting to a `.csv` file while
-`"long"` format is more suitable for creating plots with
+`"wide"` format is more suitable for exporting to a `.csv` file, while
+`"long"` format is more suitable for creating plots using
 [`ggplot2::ggplot()`](https://ggplot2.tidyverse.org/reference/ggplot.html).
 See also
 [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)
@@ -124,7 +124,7 @@ Other series:
 # \donttest{
 # Metadata
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> tidyBdE> Caching on temporary directory /tmp/RtmplO0ihI
+#> tidyBdE> Caching on temporary directory /tmp/Rtmp47i7Aa
 #> tidyBdE> Cached version of BE detected
 #> tidyBdE> Cached version of SI detected
 #> tidyBdE> Cached version of TC detected
@@ -134,7 +134,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> tidyBdE> Extracting series 573234
 #> 
 #> tidyBdE> Downloading serie 573234 from file TC_1_1.csv (alias TC_1_1.1).
-#> tidyBdE> Caching on temporary directory /tmp/RtmplO0ihI/TC
+#> tidyBdE> Caching on temporary directory /tmp/Rtmp47i7Aa/TC
 #> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv
 #> 
 #> # A tibble: 6 × 2
@@ -149,7 +149,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 
 # Data
 bde_series_load(573234, extract_metadata = FALSE)
-#> # A tibble: 7,134 × 2
+#> # A tibble: 7,136 × 2
 #>    Date       `573234`
 #>    <date>        <dbl>
 #>  1 1999-01-04     1.18
@@ -162,7 +162,7 @@ bde_series_load(573234, extract_metadata = FALSE)
 #>  8 1999-01-13     1.17
 #>  9 1999-01-14     1.17
 #> 10 1999-01-15     1.16
-#> # ℹ 7,124 more rows
+#> # ℹ 7,126 more rows
 
 # Vectorized
 bde_series_load(c(573234, 573214),
@@ -185,7 +185,7 @@ wide <- bde_series_load(c(573234, 573214),
 
 # Wide format
 wide
-#> # A tibble: 7,134 × 3
+#> # A tibble: 7,136 × 3
 #>    Date       `US/EUR` `GBP/EUR`
 #>    <date>        <dbl>     <dbl>
 #>  1 1999-01-04     1.18     0.711
@@ -198,7 +198,7 @@ wide
 #>  8 1999-01-13     1.17     0.708
 #>  9 1999-01-14     1.17     0.706
 #> 10 1999-01-15     1.16     0.704
-#> # ℹ 7,124 more rows
+#> # ℹ 7,126 more rows
 
 # Long format
 long <- bde_series_load(c(573234, 573214),
@@ -207,7 +207,7 @@ long <- bde_series_load(c(573234, 573214),
 )
 
 long
-#> # A tibble: 14,268 × 3
+#> # A tibble: 14,272 × 3
 #>    Date       serie_name serie_value
 #>    <date>     <fct>            <dbl>
 #>  1 1999-01-04 US/EUR            1.18
@@ -220,7 +220,7 @@ long
 #>  8 1999-01-13 US/EUR            1.17
 #>  9 1999-01-14 US/EUR            1.17
 #> 10 1999-01-15 US/EUR            1.16
-#> # ℹ 14,258 more rows
+#> # ℹ 14,262 more rows
 
 # Use with ggplot
 library(ggplot2)

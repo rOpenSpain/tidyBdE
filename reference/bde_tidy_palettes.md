@@ -1,7 +1,7 @@
 # BdE color palettes
 
-These palettes are based on BdE publications and are defined manually.
-Each palette contains at most 6 colors.
+Palettes based on BdE publications and defined manually. Each palette
+contains at most 6 colors.
 
 ## Usage
 
@@ -27,15 +27,14 @@ bde_tidy_palettes(
 - alpha:
 
   An alpha-transparency level in the range `[0,1]` (`0` means
-  transparent and `1` means opaque). A missing, i.e., `alpha = NULL`,
-  does not add opacity codes (`"FF"`) to the individual color hex codes.
-  See
+  transparent and `1` means opaque). If missing (i.e., `alpha = NULL`),
+  it does not add opacity codes (`"FF"`) to the individual color hex
+  codes. See
   [`ggplot2::alpha()`](https://scales.r-lib.org/reference/alpha.html).
 
 - rev:
 
-  Logical indicating whether the ordering of the colors should be
-  reversed.
+  Logical indicating if the ordering of the colors should be reversed.
 
 ## Value
 

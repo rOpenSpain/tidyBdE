@@ -1,6 +1,6 @@
-# BdE scales for [ggplot2](https://CRAN.R-project.org/package=ggplot2)
+# BdE color scales
 
-Scales to be used with the
+Color scales for the
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) package. Discrete
 palettes are named `scale_*_bde_d`, while continuous palettes are named
 `scale_*_bde_c`.
@@ -43,26 +43,25 @@ scale_fill_bde_c(
 
 - palette:
 
-  Name of the BdE palette to apply. See
+  BdE palette to apply. See
   [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md)
   for details.
 
 - alpha:
 
   An alpha-transparency level in the range `[0,1]` (`0` means
-  transparent and `1` means opaque). A missing, i.e., `alpha = NULL`,
-  does not add opacity codes (`"FF"`) to the individual color hex codes.
-  See
+  transparent and `1` means opaque). If missing (i.e., `alpha = NULL`),
+  it does not add opacity codes (`"FF"`) to the individual color hex
+  codes. See
   [`ggplot2::alpha()`](https://scales.r-lib.org/reference/alpha.html).
 
 - rev:
 
-  Logical indicating whether the ordering of the colors should be
-  reversed.
+  Logical indicating if the ordering of the colors should be reversed.
 
 - ...:
 
-  Further arguments passed to
+  Additional arguments passed to
   [`ggplot2::discrete_scale()`](https://ggplot2.tidyverse.org/reference/discrete_scale.html)
   or
   [`ggplot2::continuous_scale()`](https://ggplot2.tidyverse.org/reference/continuous_scale.html).

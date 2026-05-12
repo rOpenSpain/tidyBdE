@@ -2,8 +2,8 @@
 
 ## tidyBdE (development version)
 
-- Improve reading of external `.csv` files. Encoding files detected
-  using
+- Improve reading of external `.csv` files by detecting file encoding
+  with
   [`readr::guess_encoding()`](https://readr.tidyverse.org/reference/encoding.html).
 
 ## tidyBdE 0.6.0
@@ -12,9 +12,9 @@ CRAN release: 2026-03-23
 
 - Migrate vignettes to Quarto.
 - Update the series code used by
-  [`bde_ind_cpi_var()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md),
-  see
-  [`?bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md).
+  [`bde_ind_cpi_var()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
+  (see
+  [`?bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md)).
 
 ## tidyBdE 0.5.0
 
@@ -68,7 +68,7 @@ CRAN release: 2024-04-22
 
 CRAN release: 2024-01-29
 
-Mostly changes on the color functions:
+Mostly changes to the color functions:
 
 - [`bde_vivid_pal()`](https://ropenspain.github.io/tidyBdE/reference/bde_pals.md)
   and

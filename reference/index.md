@@ -22,7 +22,7 @@ Tools for working with BdE series.
 
 ## BdE Indicators
 
-Selected macroeconomic indicators of Spain.
+Relevant macroeconomic indicators of Spain.
 
 - [`bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md)
   : Database of selected macroeconomic indicators
@@ -35,33 +35,28 @@ Selected macroeconomic indicators of Spain.
   [`bde_ind_ibex_daily()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
   [`bde_ind_gdp_quarterly()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
   [`bde_ind_population()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
-  : Relevant Indicators of Spain
+  : Relevant macroeconomic indicators of Spain
 
 ## Plot utilities
 
-Complementary functions for plotting with
-[ggplot2](https://CRAN.R-project.org/package=ggplot2).
+Functions for plotting with ggplot2.
 
 - [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md)
   : BdE color palettes
-
 - [`scale_color_bde_d()`](https://ropenspain.github.io/tidyBdE/reference/scales_bde.md)
   [`scale_fill_bde_d()`](https://ropenspain.github.io/tidyBdE/reference/scales_bde.md)
   [`scale_color_bde_c()`](https://ropenspain.github.io/tidyBdE/reference/scales_bde.md)
   [`scale_fill_bde_c()`](https://ropenspain.github.io/tidyBdE/reference/scales_bde.md)
-  :
-
-  BdE scales for [ggplot2](https://CRAN.R-project.org/package=ggplot2)
-
+  : BdE color scales
 - [`theme_tidybde()`](https://ropenspain.github.io/tidyBdE/reference/theme_tidybde.md)
-  :
-
-  BdE [ggplot2](https://CRAN.R-project.org/package=ggplot2) theme
+  : BdE ggplot2 theme
 
 ## Utilities
 
+Internal utility functions.
+
 - [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md)
-  : Parse dates
+  : Parse dates from strings
 
 ## About the package
 

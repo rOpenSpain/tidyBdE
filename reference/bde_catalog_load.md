@@ -1,6 +1,6 @@
 # Load BdE catalogs
 
-Load the time series catalogs provided by the BdE.
+Load the time series catalogs provided by BdE.
 
 ## Usage
 
@@ -42,7 +42,7 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
 
 - verbose:
 
-  Logical `TRUE` or `FALSE`, display information useful for debugging.
+  Logical. If `TRUE`, display information useful for debugging.
 
 ## Value
 
@@ -79,9 +79,9 @@ Other catalog:
 ``` r
 # \donttest{
 bde_catalog_load("TI", verbose = TRUE)
-#> tidyBdE> Caching on temporary directory /tmp/RtmplO0ihI
+#> tidyBdE> Caching on temporary directory /tmp/Rtmp47i7Aa
 #> tidyBdE> Need to download catalog TI
-#> tidyBdE> Cache dir is /tmp/RtmplO0ihI
+#> tidyBdE> Cache dir is /tmp/Rtmp47i7Aa
 #> tidyBdE> Updating catalogs: TI
 #> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv
 #> 
