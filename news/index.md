@@ -21,7 +21,7 @@ CRAN release: 2026-03-23
 CRAN release: 2026-01-13
 
 - Update minimum **R** version required to `4.1.0`.
-- Improve documentation with Copilot.
+- Improve documentation with AI-assisted review.
 
 ## tidyBdE 0.4.0
 
@@ -114,7 +114,7 @@ CRAN release: 2022-11-16
 - Add new dependency: **tidyr**.
 - New parameter `out_format` on
   [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md).
-- Use best practices and small adjustments on
+- Apply best practices and small adjustments to
   [`theme_tidybde()`](https://ropenspain.github.io/tidyBdE/reference/theme_tidybde.md).
 
 ## tidyBdE 0.3.0
@@ -200,7 +200,7 @@ CRAN release: 2021-08-04
 CRAN release: 2021-07-07
 
 - Precompile vignette.
-- Better handling of errors, according to **CRAN** rules.
+- Improve error handling according to **CRAN** rules.
 - Changed some examples.
 
 ## tidyBdE 0.1.1

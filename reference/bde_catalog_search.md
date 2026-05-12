@@ -71,8 +71,8 @@ Other catalog:
 
 ``` r
 # \donttest{
-# Simple search (needs to be in Spanish)
-# !! PIB [es] == GDP [en]
+# Simple search. Search terms must be in Spanish.
+# PIB [es] == GDP [en].
 
 bde_catalog_search("PIB")
 #> # A tibble: 400 × 17
@@ -96,7 +96,7 @@ bde_catalog_search("PIB")
 #> #   Fecha_de_la_primera_observacion <date>,
 #> #   Fecha_de_la_ultima_observacion <date>, Numero_de_observaciones <dbl>, …
 
-# More complex - Single condition
+# Search with a single complex condition.
 bde_catalog_search("Francia(.*)PIB")
 #> # A tibble: 2 × 17
 #>   Nombre_de_la_serie  Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹
@@ -111,7 +111,7 @@ bde_catalog_search("Francia(.*)PIB")
 #> #   Fecha_de_la_ultima_observacion <date>, Numero_de_observaciones <dbl>,
 #> #   Titulo_de_la_serie <chr>, Fuente <chr>, Notas <chr>
 
-# Even more complex - Multiple conditions
+# Search with multiple complex conditions.
 bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 #> # A tibble: 6 × 17
 #>   Nombre_de_la_serie  Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹

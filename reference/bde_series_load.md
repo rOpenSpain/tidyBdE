@@ -121,9 +121,9 @@ Other series:
 
 ``` r
 # \donttest{
-# Metadata
+# Show metadata.
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> tidyBdE> Caching on temporary directory /tmp/RtmppcqoWz
+#> tidyBdE> Caching on temporary directory /tmp/RtmpkmHR11
 #> tidyBdE> Cached version of BE detected
 #> tidyBdE> Cached version of SI detected
 #> tidyBdE> Cached version of TC detected
@@ -133,7 +133,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> tidyBdE> Extracting series 573234
 #> 
 #> tidyBdE> Downloading serie 573234 from file TC_1_1.csv (alias TC_1_1.1).
-#> tidyBdE> Caching on temporary directory /tmp/RtmppcqoWz/TC
+#> tidyBdE> Caching on temporary directory /tmp/RtmpkmHR11/TC
 #> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv
 #> 
 #> # A tibble: 6 × 2
@@ -146,7 +146,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> 5 DESCRIPCIÓN DE LAS UNIDADES Dólares de Estados Unidos por Euro                
 #> 6 FRECUENCIA                  LABORABLE                                         
 
-# Data
+# Load data.
 bde_series_load(573234, extract_metadata = FALSE)
 #> # A tibble: 7,136 × 2
 #>    Date       `573234`
@@ -163,7 +163,7 @@ bde_series_load(573234, extract_metadata = FALSE)
 #> 10 1999-01-15     1.16
 #> # ℹ 7,126 more rows
 
-# Vectorized
+# Load multiple series.
 bde_series_load(c(573234, 573214),
   series_label = c("US/EUR", "GBP/EUR"),
   extract_metadata = TRUE
@@ -182,7 +182,7 @@ wide <- bde_series_load(c(573234, 573214),
   series_label = c("US/EUR", "GBP/EUR")
 )
 
-# Wide format
+# Show wide output.
 wide
 #> # A tibble: 7,136 × 3
 #>    Date       `US/EUR` `GBP/EUR`
@@ -199,7 +199,7 @@ wide
 #> 10 1999-01-15     1.16     0.704
 #> # ℹ 7,126 more rows
 
-# Long format
+# Show long output.
 long <- bde_series_load(c(573234, 573214),
   series_label = c("US/EUR", "GBP/EUR"),
   out_format = "long"
@@ -221,7 +221,7 @@ long
 #> 10 1999-01-15 US/EUR            1.16
 #> # ℹ 14,262 more rows
 
-# Use with ggplot
+# Use with ggplot2.
 library(ggplot2)
 
 ggplot(long, aes(Date, serie_value)) +

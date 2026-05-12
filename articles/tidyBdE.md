@@ -1,6 +1,6 @@
 # Get started with tidyBdE
 
-**tidyBdE** is an API package that retrieves data from [Banco de
+**tidyBdE** is an **R** package that retrieves data from [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
 The data is returned as a [tibble](https://tibble.tidyverse.org/), and
 the package automatically detects the format of each time series (dates,
@@ -23,12 +23,12 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-# Search for GBP in the "TC" (exchange rate) catalog
+# Search for GBP in the "TC" (exchange rate) catalog.
 xr_gbp <- bde_catalog_search("GBP", catalog = "TC")
 
 xr_gbp |>
   select(Numero_secuencial, Descripcion_de_la_serie) |>
-  # Display the table in the document
+  # Display the table in the document.
   knitr::kable()
 ```
 
@@ -48,11 +48,11 @@ sequential number reference (`Numero_secuencial`) as follows:
 ``` r
 
 seq_number <- xr_gbp |>
-  # First record
+  # Select the first record.
   slice(1) |>
-  # Get the ID
+  # Get the ID.
   pull(Numero_secuencial) |>
-  # Convert to numeric
+  # Convert to numeric.
   as.double()
 
 
@@ -119,7 +119,7 @@ manually:
 
 ``` r
 
-# Data in "long" format
+# Data in long format.
 
 plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") |>
   bind_rows(
@@ -136,7 +136,7 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
     caption = "Source: BdE"
   ) +
   theme_tidybde() +
-  scale_color_bde_d(palette = "bde_vivid_pal") # Custom package palette
+  scale_color_bde_d(palette = "bde_vivid_pal") # Custom package palette.
 ```
 
 ![Figure 2: Spanish Economic Indicators
@@ -146,8 +146,8 @@ Figure 2: Spanish Economic Indicators (2010-2019)
 
 ## A note on caching
 
-You can use **tidyBdE** to create a local cache in a directory by
-passing the following option:
+You can use **tidyBdE** to create a local cache by setting the following
+option:
 
 ``` r
 
@@ -155,7 +155,7 @@ options(bde_cache_dir = "./path/to/location")
 ```
 
 When this option is set, **tidyBdE** looks for cached files in the
-`bde_cache_dir` directory and load them, speeding up data retrieval.
+`bde_cache_dir` directory and loads them, speeding up data retrieval.
 
 You can update the data after monthly or quarterly releases with the
 following commands:
@@ -164,7 +164,7 @@ following commands:
 
 bde_catalog_update()
 
-# Or use update_cache = TRUE in most functions
+# Or use `update_cache = TRUE` in most functions.
 
 bde_series_load("SOME ID", update_cache = TRUE)
 ```

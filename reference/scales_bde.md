@@ -49,10 +49,10 @@ scale_fill_bde_c(
 
 - alpha:
 
-  An alpha transparency level in the range `[0,1]` (`0` means
+  An alpha transparency level in the range `[0, 1]` (`0` means
   transparent and `1` means opaque). If missing (i.e., `alpha = NULL`),
-  it does not add opacity codes (`"FF"`) to the individual color hex
-  codes. See
+  the function does not append opacity codes (`"FF"`) to the individual
+  color hex codes. See
   [`ggplot2::alpha()`](https://scales.r-lib.org/reference/alpha.html).
 
 - rev:

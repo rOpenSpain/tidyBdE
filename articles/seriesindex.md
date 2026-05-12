@@ -1,9 +1,10 @@
 # Series index
 
-Table of available series in the catalog (last updated:
+This table lists the available series in the catalog (last updated:
 **12-May-2026**).
 
-Use the sequential number to load a single series (see the example):
+Use the sequential number to load a single series, as shown in the
+example.
 
 ## Summary
 
@@ -16,10 +17,10 @@ Workflow for searching and extracting a specific series:
 library(tidyBdE)
 library(tidyverse)
 
-# Search for French GDP
+# Search for French GDP.
 fr <- bde_catalog_search("Francia(.*)PIB")
 
-# Display the table in the vignette
+# Display the table in the vignette.
 fr |>
   select(Numero_secuencial, Descripcion_de_la_serie) |>
   knitr::kable()
@@ -34,16 +35,16 @@ Table 1: Search results
 
 ``` r
 
-# Here we extract the first series
-# See tidyverse style
+# Extract the first series.
+# Use tidyverse style.
 fr |>
-  # Select the ID
+  # Select the ID.
   select(Numero_secuencial) |>
-  # First observation
+  # Select the first observation.
   slice(1) |>
-  # Convert to numeric
+  # Convert to numeric.
   as.double() |>
-  # Load the series
+  # Load the series.
   bde_series_load()
 #> # A tibble: 121 × 2
 #>    Date       `2563958`
@@ -60,17 +61,17 @@ fr |>
 #> 10 1998-03-01      NA  
 #> # ℹ 111 more rows
 
-# See the metadata
+# Show the metadata.
 fr |>
-  # Select the ID
+  # Select the ID.
   select(Numero_secuencial) |>
-  # First observation
+  # Select the first observation.
   slice(1) |>
-  # Convert to numeric
+  # Convert to numeric.
   as.double() |>
-  # Load its metadata
+  # Load its metadata.
   bde_series_load(extract_metadata = TRUE) |>
-  # Display table in the vignette
+  # Display the table in the vignette.
   knitr::kable()
 ```
 

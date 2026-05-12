@@ -12,7 +12,7 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-# Set plot parameters and date ranges
+# Set plot parameters and date ranges.
 col <- bde_tidy_palettes(1, "bde_rose_pal")
 date <- Sys.Date()
 ny <- as.numeric(format(date, format = "%Y")) - 6
@@ -23,7 +23,7 @@ br <- seq(nd, Sys.Date(), "6 months")
 
 ## GDP of Spain
 
-### Aggregated (last 4 quarters)
+### Aggregated over the last four quarters
 
 ![](mainseries_files/figure-html/fig-gdp_agg-1.png)
 

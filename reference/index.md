@@ -39,7 +39,7 @@ Convenience functions for selected Spanish macroeconomic indicators.
 
 ## Plot utilities
 
-BdE-inspired palettes, scales and themes for ggplot2.
+BdE-inspired palettes, scales and themes for ggplot2 plots.
 
 - [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md)
   : BdE color palettes

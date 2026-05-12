@@ -20,7 +20,7 @@ bde_series_full_load(
 
 - series_csv:
 
-  csv file of a series, as defined in the field
+  CSV file of a series, as defined in the field
   `Nombre del archivo con los valores de la serie` of the corresponding
   catalog. See
   [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md).
@@ -88,7 +88,7 @@ Other series:
 
 ``` r
 # \donttest{
-# Metadata
+# Show metadata.
 bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
 #> # A tibble: 6 × 5
 #>   Date                        TI_1_1.1                TI_1_1.2 TI_1_1.3 TI_1_1.4
@@ -100,7 +100,7 @@ bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
 #> 5 DESCRIPCIÓN DE LAS UNIDADES Porcentaje              Porcent… Porcent… Porcent…
 #> 6 FRECUENCIA                  LABORABLE               LABORAB… LABORAB… LABORAB…
 
-# Data
+# Load data.
 bde_series_full_load("TI_1_1.csv")
 #> # A tibble: 7,137 × 5
 #>    Date       TI_1_1.1 TI_1_1.2 TI_1_1.3 TI_1_1.4

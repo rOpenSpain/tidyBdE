@@ -1,6 +1,6 @@
-# Check access to BdE
+# Check BdE access
 
-Check if **R** can access resources at
+Check whether **R** can access resources at
 <https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html>.
 
 ## Usage
@@ -11,7 +11,7 @@ bde_check_access()
 
 ## Value
 
-A logical value.
+A logical value indicating whether BdE resources are reachable.
 
 ## Examples
 

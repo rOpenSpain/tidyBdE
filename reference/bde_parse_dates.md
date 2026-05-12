@@ -43,7 +43,7 @@ Parse strings representing dates using
 ## Examples
 
 ``` r
-# Formats parsed
+# Supported formats.
 would_parse <- c(
   "02 FEB2019", "15 ABR 1890", "MAR 2020", "ENE2020",
   "2020", "12-1993", "01-02-2014", "01/02/1990"
@@ -69,7 +69,7 @@ tibble::tibble(raw = would_parse, parsed = parsed_ok)
 
 #-----------------------------------
 
-# Unsupported formats
+# Unsupported formats.
 wont_parse <- c("JAN2001", "2010-01-12", "01 APR 2017", "01/31/1990")
 
 parsed_fail <- bde_parse_dates(wont_parse)
