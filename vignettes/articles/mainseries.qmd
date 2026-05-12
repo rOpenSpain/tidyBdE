@@ -14,8 +14,8 @@ knitr:
     out.width: "100%"
 ---
 
-This article shows selected Spanish economic indicators using data from Banco de
-España.
+This article shows selected Spanish economic indicators using data from Banco
+de España.
 
 Last updated: **`r format(Sys.Date(),"%d-%B-%Y")`**.
 
@@ -25,7 +25,7 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-# Set plot parameters and date ranges
+# Set plot parameters and date ranges.
 col <- bde_tidy_palettes(1, "bde_rose_pal")
 date <- Sys.Date()
 ny <- as.numeric(format(date, format = "%Y")) - 6
@@ -36,7 +36,7 @@ br <- seq(nd, Sys.Date(), "6 months")
 
 ## GDP of Spain
 
-### Aggregated (last 4 quarters)
+### Aggregated over the last four quarters
 
 ```{r}
 #| label: fig-gdp_agg
@@ -45,13 +45,13 @@ br <- seq(nd, Sys.Date(), "6 months")
 dataset <- bde_ind_gdp_quarterly(series_label = "data") |>
   drop_na()
 
-# Calculate rolling sum for the last four quarters
+# Calculate the rolling sum for the last four quarters.
 dataset$LastY <- dataset$data +
   lag(dataset$data, 1) +
   lag(dataset$data, 2) +
   lag(dataset$data, 3)
 
-# Filter observations
+# Filter observations.
 dataset <- dataset |>
   filter(Date >= nd) |>
   mutate(data = LastY) |>
@@ -114,12 +114,12 @@ ggplot(dataset, aes(x = Date, y = data)) +
 pop <- bde_ind_population(series_label = "pop")
 pib <- bde_ind_gdp_quarterly(series_label = "data")
 
-# Calculate rolling sum and join with population data
+# Calculate the rolling sum and join it with population data.
 pib$LastY <- pib$data + lag(pib$data, 1) + lag(pib$data, 2) + lag(pib$data, 3)
 
 pib <- inner_join(pib, pop, by = "Date")
 
-# Compute GDP per capita
+# Compute GDP per capita.
 pib <- pib |> mutate(data = 1000 * LastY / pop)
 
 dataset <- pib |>

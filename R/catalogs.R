@@ -8,7 +8,7 @@
 #'
 #' @family catalog
 #'
-#' @return A [tibble][tibble::tbl_df] object.
+#' @return A [tibble][tibble::tbl_df] with the requested catalog metadata.
 #'
 #' @source
 #'
@@ -67,7 +67,7 @@ bde_catalog_load <- function(
   verbose = FALSE
 ) {
   catalog <- match.arg(catalog)
-  # Validate input arguments
+  # Validate input arguments.
   valid_catalogs <- c("BE", "SI", "TC", "TI", "PB", "ALL")
   stopifnot(
     catalog %in% valid_catalogs,
@@ -83,7 +83,7 @@ bde_catalog_load <- function(
     catalog_to_load <- setdiff(valid_catalogs, "ALL")
   }
 
-  # Determine cache directory
+  # Determine the cache directory.
   cache_dir <- bde_hlp_cachedir(cache_dir = cache_dir, verbose = verbose)
 
   final_catalog <- lapply(catalog_to_load, function(x) {
@@ -94,7 +94,7 @@ bde_catalog_load <- function(
     if (all(has_cache, isFALSE(update_cache))) {
       if (verbose) message("tidyBdE> Cached version of ", x, " detected")
     } else {
-      # Download catalog if missing or update requested
+      # Download the catalog if it is missing or must be refreshed.
       if (verbose) {
         message("tidyBdE> Need to download catalog ", x)
       }
@@ -105,14 +105,14 @@ bde_catalog_load <- function(
         verbose = verbose
       )
 
-      # Handle download errors
+      # Handle download errors.
       if (any(is.data.frame(result), isFALSE(result))) {
         message("Download not available for ", x)
         return(NULL)
       }
     }
 
-    # Handle empty file
+    # Handle empty files.
     # nocov start
     r <- readLines(catalog_file, warn = FALSE, n = 1000)
     if (length(r) == 0) {
@@ -134,7 +134,7 @@ bde_catalog_load <- function(
       )
     )
 
-    # Convert names
+    # Convert names.
     # Hard-coded column names to avoid UTF-8 encoding issues during checks.
     # Some operating systems might fail without this workaround.
     names_catalog <- c(
@@ -157,7 +157,7 @@ bde_catalog_load <- function(
       "Notas"
     )
 
-    # Set column names and remove original header
+    # Set column names and remove the original header.
     names(catalog_load) <- names_catalog
     catalog_load <- catalog_load[-1, ]
 
@@ -172,17 +172,17 @@ bde_catalog_load <- function(
     message("tidyBdE> Could not load catalogs: ", msg)
   }
 
-  # Combine catalogs and infer column types
+  # Combine catalogs and infer column types.
   final_catalog <- dplyr::bind_rows(final_catalog)
   final_catalog <- bde_hlp_guess(
     final_catalog,
     preserve = names(final_catalog)[c(5, 15)]
   )
 
-  # Convert result to a tibble
+  # Convert the result to a tibble.
   final_catalog <- tibble::as_tibble(final_catalog)
 
-  # Parse date columns
+  # Parse date columns.
   if (parse_dates) {
     if (verbose) {
       message("tidyBdE> Parsing dates")
@@ -211,7 +211,7 @@ bde_catalog_load <- function(
 #'
 #' @family catalog
 #'
-#' @return None. Downloads the catalog file(s) to the local machine.
+#' @return None. Downloads the catalog file or files to the local machine.
 #'
 #' @source
 #'
@@ -262,7 +262,7 @@ bde_catalog_update <- function(
   verbose = FALSE
 ) {
   catalog <- match.arg(catalog)
-  # Validate
+  # Validate input arguments.
   valid_catalogs <- c("BE", "SI", "TC", "TI", "PB", "ALL")
   stopifnot(
     catalog %in% valid_catalogs,
@@ -277,10 +277,10 @@ bde_catalog_update <- function(
   }
   # nocov end
 
-  # Determine cache directory
+  # Determine the cache directory.
   cache_dir <- bde_hlp_cachedir(cache_dir = cache_dir, verbose = verbose)
 
-  # Download requested catalogs
+  # Download the requested catalogs.
   catalog_download <- catalog
   if ("ALL" %in% catalog) {
     catalog_download <- valid_catalogs[valid_catalogs != "ALL"]
@@ -304,7 +304,7 @@ bde_catalog_update <- function(
     full_url <- paste0(base_url, catalog_file)
     local_file <- file.path(cache_dir, catalog_file)
 
-    # Download
+    # Download the catalog.
     result <- bde_hlp_download(
       url = full_url,
       local_file = local_file,
@@ -344,19 +344,19 @@ bde_catalog_update <- function(
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{
-#' # Simple search (needs to be in Spanish)
-#' # !! PIB [es] == GDP [en]
+#' # Simple search. Search terms must be in Spanish.
+#' # PIB [es] == GDP [en].
 #'
 #' bde_catalog_search("PIB")
 #'
-#' # More complex - Single condition
+#' # Search with a single complex condition.
 #' bde_catalog_search("Francia(.*)PIB")
 #'
-#' # Even more complex - Multiple conditions
+#' # Search with multiple complex conditions.
 #' bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 #' }
 bde_catalog_search <- function(pattern, ...) {
-  # Extract info
+  # Extract catalog data.
   catalog_search <- bde_catalog_load(...)
 
   # nocov start
@@ -371,11 +371,11 @@ bde_catalog_search <- function(pattern, ...) {
   }
   # nocov end
 
-  # Define indices for search columns
+  # Define indices for search columns.
   col_ind <- c(2, 3, 4, 5, 15)
 
   search_match_rows <- NULL
-  # Search across specified columns
+  # Search across the specified columns.
   for (i in col_ind) {
     search_match_rows <- unique(
       c(

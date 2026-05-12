@@ -31,7 +31,7 @@ reference:
   - has_concept("indicators")
 
 - title: Plot utilities
-  desc: BdE-inspired palettes, scales and themes for ggplot2.
+  desc: BdE-inspired palettes, scales and themes for ggplot2 plots.
   contents:
   - has_concept("bde_plot")
 

@@ -25,10 +25,10 @@ Palettes based on BdE publications.
 }
 \examples{
 
-# Vivid palette
+# Show the vivid palette.
 scales::show_col(bde_vivid_pal()(6), labels = FALSE)
 
-# Rose palette
+# Show the rose palette.
 scales::show_col(bde_rose_pal()(6), labels = FALSE)
 }
 \keyword{internal}

@@ -3,15 +3,15 @@
 \encoding{UTF-8}
 \name{bde_check_access}
 \alias{bde_check_access}
-\title{Check access to BdE}
+\title{Check BdE access}
 \usage{
 bde_check_access()
 }
 \value{
-A logical value.
+A logical value indicating whether BdE resources are reachable.
 }
 \description{
-Check if \strong{R} can access resources at
+Check whether \strong{R} can access resources at
 \url{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}.
 }
 \examples{

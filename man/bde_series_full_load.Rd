@@ -16,7 +16,7 @@ bde_series_full_load(
 )
 }
 \arguments{
-\item{series_csv}{csv file of a series, as defined in the field
+\item{series_csv}{CSV file of a series, as defined in the field
 \verb{Nombre del archivo con los valores de la serie} of the corresponding
 catalog. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 
@@ -64,10 +64,10 @@ behavior with \code{parse_numeric = FALSE}.
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
 \donttest{
-# Metadata
+# Show metadata.
 bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
 
-# Data
+# Load data.
 bde_series_full_load("TI_1_1.csv")
 }
 \dontshow{\}) # examplesIf}

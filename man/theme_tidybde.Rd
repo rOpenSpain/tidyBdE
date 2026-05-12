@@ -28,7 +28,7 @@ A \CRANpkg{ggplot2} theme object.
 Custom \CRANpkg{ggplot2} theme based on BdE publications.
 }
 \details{
-Theme based on \code{\link[ggplot2:theme_classic]{ggplot2::theme_classic()}}.
+This theme is based on \code{\link[ggplot2:theme_classic]{ggplot2::theme_classic()}}.
 }
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
@@ -39,7 +39,7 @@ library(tidyr)
 
 series_TC <- bde_series_full_load("TC_1_1.csv")
 
-# If the download succeeds, plot
+# Plot if the download succeeds.
 if (nrow(series_TC) > 0) {
   series_TC <- series_TC[c(1, 2)]
 

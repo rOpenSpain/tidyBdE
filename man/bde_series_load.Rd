@@ -85,13 +85,13 @@ warning may be displayed if the parsing fails.
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
 \donttest{
-# Metadata
+# Show metadata.
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 
-# Data
+# Load data.
 bde_series_load(573234, extract_metadata = FALSE)
 
-# Vectorized
+# Load multiple series.
 bde_series_load(c(573234, 573214),
   series_label = c("US/EUR", "GBP/EUR"),
   extract_metadata = TRUE
@@ -101,10 +101,10 @@ wide <- bde_series_load(c(573234, 573214),
   series_label = c("US/EUR", "GBP/EUR")
 )
 
-# Wide format
+# Show wide output.
 wide
 
-# Long format
+# Show long output.
 long <- bde_series_load(c(573234, 573214),
   series_label = c("US/EUR", "GBP/EUR"),
   out_format = "long"
@@ -112,7 +112,7 @@ long <- bde_series_load(c(573234, 573214),
 
 long
 
-# Use with ggplot
+# Use with ggplot2.
 library(ggplot2)
 
 ggplot(long, aes(Date, serie_value)) +

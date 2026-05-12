@@ -57,7 +57,7 @@ scale_color_bde_d <- function(
 ) {
   palette <- match.arg(palette)
 
-  # Generate discrete palette
+  # Generate the discrete palette.
   cols_v <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
   pal <- scales::manual_pal(cols_v)
 
@@ -83,7 +83,7 @@ scale_fill_bde_d <- function(
 ) {
   palette <- match.arg(palette)
 
-  # Generate discrete palette
+  # Generate the discrete palette.
   cols_v <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
   pal <- scales::manual_pal(cols_v)
 
@@ -103,7 +103,7 @@ scale_color_bde_c <- function(
 ) {
   palette <- match.arg(palette)
 
-  # Define color ramp for continuous scale
+  # Define the color ramp for the continuous scale.
   cols <- switch(palette,
     "bde_vivid_pal" = bde_tidy_palettes(
       6,
@@ -152,7 +152,7 @@ scale_fill_bde_c <- function(
 ) {
   palette <- match.arg(palette)
 
-  # Define color ramp for continuous scale
+  # Define the color ramp for the continuous scale.
   cols <- switch(palette,
     "bde_vivid_pal" = bde_tidy_palettes(
       6,

@@ -22,7 +22,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 <!-- badges: end -->
 
-**tidyBdE** is an API package that retrieves data from [Banco de
+**tidyBdE** is an **R** package that retrieves data from [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
 The data is returned as a [tibble](https://tibble.tidyverse.org/), and
 the package automatically detects the format of each time series (dates,
@@ -69,17 +69,17 @@ You can search for any series by name:
 ``` r
 library(tidyBdE)
 
-# Load tidyverse for better handling
+# Load packages for data handling and plotting.
 library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-# Search for GBP in the "TC" (exchange rate) catalog
+# Search for GBP in the "TC" (exchange rate) catalog.
 xr_gbp <- bde_catalog_search("GBP", catalog = "TC")
 
 xr_gbp |>
   select(Numero_secuencial, Descripcion_de_la_serie) |>
-  # Display the table in the document
+  # Display the table in the document.
   knitr::kable()
 ```
 
@@ -101,14 +101,14 @@ using the sequential number reference (`Numero_secuencial`) as follows:
 
 ``` r
 seq_number <- xr_gbp |>
-  # First record
+  # Select the first record.
   slice(1) |>
-  # Get the ID
+  # Get the ID.
   select(Numero_secuencial) |>
-  # Convert to numeric
+  # Convert to numeric.
   as.double()
 
-# Extract series
+# Extract the series.
 time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") |>
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") |>
   drop_na()
@@ -165,7 +165,7 @@ relevant macroeconomic series, so you do not need to search for them in
 advance:
 
 ``` r
-# Data in "long" format
+# Data in long format.
 
 plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") |>
   bind_rows(
@@ -182,7 +182,7 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
     caption = "Source: BdE"
   ) +
   theme_tidybde() +
-  scale_color_bde_d(palette = "bde_vivid_pal") # Custom package palette
+  scale_color_bde_d(palette = "bde_vivid_pal") # Custom package palette.
 ```
 
 <img src="man/figures/README-macroseries-1.png" style="width:100.0%"
@@ -199,15 +199,15 @@ provided in the package (see
 
 ### A note on caching
 
-You can use **tidyBdE** to create a local cache in a directory by
-passing the following option:
+You can use **tidyBdE** to create a local cache by setting the following
+option:
 
 ``` r
 options(bde_cache_dir = "./path/to/location")
 ```
 
 When this option is set, **tidyBdE** looks for cached files in the
-`bde_cache_dir` directory and loads them, speeding up the process.
+`bde_cache_dir` directory and loads them, speeding up data retrieval.
 
 You can update the data after monthly or quarterly releases with the
 following commands:
@@ -215,7 +215,7 @@ following commands:
 ``` r
 bde_catalog_update()
 
-# Or use update_cache = TRUE in most functions
+# Or use `update_cache = TRUE` in most functions.
 
 bde_series_load("SOME ID", update_cache = TRUE)
 ```
@@ -244,5 +244,5 @@ A BibTeX entry for LaTeX users is:
       year = {2026},
       version = {0.6.0.9000},
       url = {https://ropenspain.github.io/tidyBdE/},
-      abstract = {Tools to retrieve time series data from Banco de España (BdE) and return it in tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored, endorsed or administered by Banco de España.},
+      abstract = {Tools to retrieve time series data from Banco de España (BdE) and return the results in tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is in no way sponsored, endorsed or administered by Banco de España.},
     }

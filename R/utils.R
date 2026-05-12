@@ -46,7 +46,7 @@
 #' ```
 #'
 #' @examples
-#' # Formats parsed
+#' # Supported formats.
 #' would_parse <- c(
 #'   "02 FEB2019", "15 ABR 1890", "MAR 2020", "ENE2020",
 #'   "2020", "12-1993", "01-02-2014", "01/02/1990"
@@ -60,7 +60,7 @@
 #'
 #' #-----------------------------------
 #'
-#' # Unsupported formats
+#' # Unsupported formats.
 #' wont_parse <- c("JAN2001", "2010-01-12", "01 APR 2017", "01/31/1990")
 #'
 #' parsed_fail <- bde_parse_dates(wont_parse)
@@ -88,28 +88,28 @@ bde_parse_dates <- function(dates_to_parse) {
     "DIC"
   )
 
-  # Map Spanish month names to numbers
+  # Map Spanish month names to numbers.
   for (i in seq_along(months_esp)) {
     dateformat <- gsub(months_esp[i], sprintf("%02d", i), dateformat)
   }
 
-  # Normalize the date format to dd-mm-yyyy
+  # Normalize the date format to dd-mm-yyyy.
   for (j in seq_along(dateformat)) {
     s2 <- dateformat[j]
 
     if (is.na(s2) || nchar(s2) < 4) {
-      # Return NA
+      # Return NA.
       dateformat[j] <- NA
     } else if (nchar(s2) == 4) {
-      # Only a year is provided; add month and day
+      # Only a year is provided; add month and day.
       dateformat[j] <- paste0("3112", s2)
     } else if (nchar(s2) == 6) {
-      # Month and year are provided; add day
+      # Month and year are provided; add day.
       dateformat[j] <- paste0("01", s2)
     }
   }
 
-  # Convert object
+  # Convert normalized values to dates.
   dateformat <- as.Date(dateformat, "%d%m%Y")
   dateformat
 }
@@ -123,13 +123,13 @@ bde_parse_dates <- function(dates_to_parse) {
 #'
 #' @noRd
 bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
-  # Identify the cache directory
+  # Identify the cache directory.
   if (is.null(cache_dir)) {
-    # Check if the directory is set via global options
+    # Check whether the directory is set via global options.
     cache_dir <- getOption("bde_cache_dir", NULL)
 
     if (is.null(cache_dir)) {
-      # Fall back to a temporary directory
+      # Fall back to a temporary directory.
       cache_dir <- tempdir()
 
       if (!is.null(suffix)) {
@@ -141,14 +141,14 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
       }
       return(cache_dir)
     } else {
-      # Detect cache directory from global options
+      # Detect the cache directory from global options.
       if (verbose) {
         message("tidyBdE> Cache dir detected on options: ", cache_dir)
       }
     }
   }
 
-  # When provided
+  # Append the suffix when provided.
   if (!is.null(suffix)) {
     cache_dir <- file.path(gsub(file.path("", suffix), "", cache_dir), suffix)
   }
@@ -190,7 +190,7 @@ bde_hlp_download <- function(url, local_file, verbose) {
     }
   )
   # nocov end
-  # Attempt a second download if the first fails
+  # Attempt a second download if the first fails.
 
   # nocov start
   if (isTRUE(err_dwnload)) {
@@ -214,7 +214,7 @@ bde_hlp_download <- function(url, local_file, verbose) {
   }
   # nocov end
 
-  # Return FALSE if a warning is encountered
+  # Return FALSE if a warning is encountered.
   if (isTRUE(err_dwnload)) {
     return(FALSE)
     # nocov end

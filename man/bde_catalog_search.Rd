@@ -41,15 +41,15 @@ can pass \link[base:regex]{regular expressions} to broaden the search.
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
 \donttest{
-# Simple search (needs to be in Spanish)
-# !! PIB [es] == GDP [en]
+# Simple search. Search terms must be in Spanish.
+# PIB [es] == GDP [en].
 
 bde_catalog_search("PIB")
 
-# More complex - Single condition
+# Search with a single complex condition.
 bde_catalog_search("Francia(.*)PIB")
 
-# Even more complex - Multiple conditions
+# Search with multiple complex conditions.
 bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 }
 \dontshow{\}) # examplesIf}

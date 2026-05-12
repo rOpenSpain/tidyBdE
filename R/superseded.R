@@ -19,10 +19,10 @@
 #' @keywords internal
 #' @examples
 #'
-#' # Vivid palette
+#' # Show the vivid palette.
 #' scales::show_col(bde_vivid_pal()(6), labels = FALSE)
 #'
-#' # Rose palette
+#' # Show the rose palette.
 #' scales::show_col(bde_rose_pal()(6), labels = FALSE)
 bde_vivid_pal <- function(...) {
   if (requireNamespace("lifecycle", quietly = TRUE)) {

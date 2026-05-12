@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Tools to retrieve time series data from 'Banco de España' ('BdE') and return it in 'tibble' format. 'Banco de España' is the national central bank and, within the framework of the Single Supervisory Mechanism ('SSM'), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored, endorsed or administered by 'Banco de España'.
+Tools to retrieve time series data from 'Banco de España' ('BdE') and return the results in 'tibble' format. 'Banco de España' is the national central bank and, within the framework of the Single Supervisory Mechanism ('SSM'), the supervisor of the Spanish banking system alongside the European Central Bank. This package is in no way sponsored, endorsed or administered by 'Banco de España'.
 }
 \seealso{
 Useful links:

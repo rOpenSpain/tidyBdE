@@ -5,10 +5,10 @@ Authors@R:
     person("Diego", "H. Herrero", , "dev.dieghernan@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658"))
 Description: Tools to retrieve time series data from 'Banco de España'
-    ('BdE') and return it in 'tibble' format. 'Banco de España' is the
-    national central bank and, within the framework of the Single
+    ('BdE') and return the results in 'tibble' format. 'Banco de España'
+    is the national central bank and, within the framework of the Single
     Supervisory Mechanism ('SSM'), the supervisor of the Spanish banking
-    system along with the European Central Bank. This package is in no way
+    system alongside the European Central Bank. This package is in no way
     sponsored, endorsed or administered by 'Banco de España'.
 License: GPL (>= 3)
 URL: https://ropenspain.github.io/tidyBdE/,

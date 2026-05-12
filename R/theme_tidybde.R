@@ -16,7 +16,7 @@
 #'
 #' @details
 #'
-#' Theme based on [ggplot2::theme_classic()].
+#' This theme is based on [ggplot2::theme_classic()].
 #'
 #' @importFrom ggplot2 %+replace% rel margin
 #' @examplesIf bde_check_access()
@@ -27,7 +27,7 @@
 #'
 #' series_TC <- bde_series_full_load("TC_1_1.csv")
 #'
-#' # If the download succeeds, plot
+#' # Plot if the download succeeds.
 #' if (nrow(series_TC) > 0) {
 #'   series_TC <- series_TC[c(1, 2)]
 #'

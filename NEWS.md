@@ -11,7 +11,7 @@
 # tidyBdE 0.5.0
 
 - Update minimum **R** version required to `4.1.0`.
-- Improve documentation with Copilot.
+- Improve documentation with AI-assisted review.
 
 # tidyBdE 0.4.0
 
@@ -65,7 +65,7 @@ Mostly changes to the color functions:
 
 - Add new dependency: **tidyr**.
 - New parameter `out_format` on `bde_series_load()`.
-- Use best practices and small adjustments on `theme_tidybde()`.
+- Apply best practices and small adjustments to `theme_tidybde()`.
 
 # tidyBdE 0.3.0
 
@@ -122,7 +122,7 @@ Mostly changes to the color functions:
 # tidyBdE 0.1.2
 
 - Precompile vignette.
-- Better handling of errors, according to **CRAN** rules.
+- Improve error handling according to **CRAN** rules.
 - Changed some examples.
 
 # tidyBdE 0.1.1
