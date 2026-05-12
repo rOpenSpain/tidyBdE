@@ -1,7 +1,7 @@
-# Relevant macroeconomic indicators of Spain
+# Selected Spanish macroeconomic indicators
 
-Helper functions for downloading selected macroeconomic indicators of
-Spain. Metadata is available in
+Convenience functions for downloading selected Spanish macroeconomic
+indicators. Metadata is available in
 [bde_ind_db](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md).
 
 ## Usage
@@ -40,18 +40,17 @@ bde_ind_population(series_label = "Population_Spain", ...)
 
   `out_format`
 
-  :   The format to return, either "long" or "wide". Possible values are
-      `"wide"` or `"long"`. See **Value** for details and section
-      **Examples**.
+  :   The format to return, either `"wide"` or `"long"`. See **Value**
+      for details and the **Examples** section.
 
   `parse_numeric`
 
-  :   Logical. If `TRUE` the columns would be parsed to double (numeric)
+  :   Logical. If `TRUE`, the columns are parsed to double (numeric)
       values. See **Note**.
 
   `extract_metadata`
 
-  :   Logical `TRUE/FALSE`. On `TRUE` the output is the metadata of the
+  :   Logical `TRUE/FALSE`. If `TRUE`, the output is the metadata of the
       requested series.
 
   `parse_dates`
@@ -83,7 +82,7 @@ with the required series.
 These functions are convenient wrappers around
 [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
 for specific series. Use `verbose = TRUE, extract_metadata = TRUE` to
-see the specification and the source.
+see the metadata and the source.
 
 ## See also
 

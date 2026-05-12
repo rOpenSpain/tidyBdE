@@ -95,8 +95,9 @@ several aliases. If you need to search by alias, use
 
 
 <dl><dt id="arg-series-code">series_code<a class="anchor" aria-label="anchor" href="#arg-series-code"></a></dt>
-<dd><p>A numeric value (or coercible with <code><a href="https://rdrr.io/r/base/double.html" class="external-link">base::as.double()</a></code>)
-or vector of time series code(s), as defined in the field
+<dd><p>A numeric value, or one coercible with
+<code><a href="https://rdrr.io/r/base/double.html" class="external-link">base::as.double()</a></code>, or a vector of time series codes, as defined in the
+field
 <code>Número secuencial</code> of the corresponding series. See <code><a href="bde_catalog_load.html">bde_catalog_load()</a></code>.</p></dd>
 
 
@@ -106,9 +107,8 @@ to the extracted series.</p></dd>
 
 
 <dt id="arg-out-format">out_format<a class="anchor" aria-label="anchor" href="#arg-out-format"></a></dt>
-<dd><p>The format to return, either "long" or "wide".
-Possible values are <code>"wide"</code> or <code>"long"</code>. See <strong>Value</strong> for details and
-section <strong>Examples</strong>.</p></dd>
+<dd><p>The format to return, either <code>"wide"</code> or <code>"long"</code>.
+See <strong>Value</strong> for details and the <strong>Examples</strong> section.</p></dd>
 
 
 <dt id="arg-parse-dates">parse_dates<a class="anchor" aria-label="anchor" href="#arg-parse-dates"></a></dt>
@@ -117,7 +117,7 @@ section <strong>Examples</strong>.</p></dd>
 
 
 <dt id="arg-parse-numeric">parse_numeric<a class="anchor" aria-label="anchor" href="#arg-parse-numeric"></a></dt>
-<dd><p>Logical. If <code>TRUE</code> the columns would be parsed to
+<dd><p>Logical. If <code>TRUE</code>, the columns are parsed to
 double (numeric) values. See <strong>Note</strong>.</p></dd>
 
 
@@ -136,7 +136,7 @@ via options with <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
 
 
 <dt id="arg-extract-metadata">extract_metadata<a class="anchor" aria-label="anchor" href="#arg-extract-metadata"></a></dt>
-<dd><p>Logical <code>TRUE/FALSE</code>. On <code>TRUE</code> the output is the
+<dd><p>Logical <code>TRUE/FALSE</code>. If <code>TRUE</code>, the output is the
 metadata of the requested series.</p></dd>
 
 </dl></div>
@@ -144,8 +144,8 @@ metadata of the requested series.</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A <a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble</a> with a <code>Date</code> column:</p><ul><li><p>With <code>out_format = "wide"</code>, each series is presented in a separate
 column with the name defined by <code>series_label</code>.</p></li>
-<li><p>With <code>out_format = "long"</code>, the tibble has two additional columns:</p><ul><li><p><code>serie_name</code> with the label of each series.</p></li>
-<li><p><code>serie_value</code> with the corresponding value.</p></li>
+<li><p>With <code>out_format = "long"</code>, the tibble has two additional columns:</p><ul><li><p><code>serie_name</code>, with the label of each series.</p></li>
+<li><p><code>serie_value</code>, with the corresponding value.</p></li>
 </ul></li>
 </ul><p><code>"wide"</code> format is more suitable for exporting to a <code>.csv</code> file, while
 <code>"long"</code> format is more suitable for creating plots using
@@ -174,7 +174,7 @@ warning may be displayed if the parsing fails.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># Metadata</span></span></span>
 <span class="r-in"><span><span class="fu">bde_series_load</span><span class="op">(</span><span class="fl">573234</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>, extract_metadata <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory /tmp/Rtmp47i7Aa</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory /tmp/RtmppcqoWz</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Cached version of BE detected</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Cached version of SI detected</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Cached version of TC detected</span>
@@ -184,7 +184,7 @@ warning may be displayed if the parsing fails.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Extracting series 573234</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Downloading serie 573234 from file TC_1_1.csv (alias TC_1_1.1).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory /tmp/Rtmp47i7Aa/TC</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Caching on temporary directory /tmp/RtmppcqoWz/TC</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> tidyBdE&gt; Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 2</span></span>

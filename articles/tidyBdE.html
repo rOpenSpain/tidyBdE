@@ -99,7 +99,7 @@
 <section class="level2"><h2 id="search-series">Search series<a class="anchor" aria-label="anchor" href="#search-series"></a>
 </h2>
 <p>Banco de España (<strong>BdE</strong>) provides several time series, either produced by the institution itself or compiled from other sources, such as <a href="https://ec.europa.eu/eurostat" class="external-link">Eurostat</a> or <a href="https://www.ine.es/" class="external-link">INE</a>.</p>
-<p>The basic entry points for searching time series are the time series catalogs (indices). You can search for any series by name:</p>
+<p>The basic entry point for searching time series is the time series catalog (index). You can search for any series by name:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropenspain.github.io/tidyBdE/">tidyBdE</a></span><span class="op">)</span></span>
 <span></span>
@@ -136,7 +136,7 @@ Table 1: Search results
 </figcaption></figure>
 </div>
 <p><strong>Note:</strong> BdE metadata is currently only provided in Spanish, as the institution is working on an English version. Search terms must be provided in Spanish to retrieve results.</p>
-<p>Once you have found a series, load the GBP/EUR exchange rate using the sequential number reference (<code>Numero_Secuencial</code>) as follows:</p>
+<p>Once you have found a series, load the GBP/EUR exchange rate using the sequential number reference (<code>Numero_secuencial</code>) as follows:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">seq_number</span> <span class="op">&lt;-</span> <span class="va">xr_gbp</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># First record</span></span>
@@ -217,7 +217,7 @@ Figure 1: EUR/GBP Exchange Rate (2010-2020)
 <span>    caption <span class="op">=</span> <span class="st">"Source: BdE"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_tidybde.html">theme_tidybde</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/scales_bde.html">scale_color_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_vivid_pal"</span><span class="op">)</span> <span class="co"># Custom palette on the package</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/scales_bde.html">scale_color_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_vivid_pal"</span><span class="op">)</span> <span class="co"># Custom package palette</span></span></code></pre></div>
 <div class="figure">
 <img src="./macroseries-1.png" alt="Figure 2: Spanish Economic Indicators (2010-2019)" width="100%"><p class="caption">
 Figure 2: Spanish Economic Indicators (2010-2019)
@@ -225,10 +225,10 @@ Figure 2: Spanish Economic Indicators (2010-2019)
 </div>
 </section><section class="level2"><h2 id="a-note-on-caching">A note on caching<a class="anchor" aria-label="anchor" href="#a-note-on-caching"></a>
 </h2>
-<p>You can use <strong>tidyBdE</strong> to create a local cache repository in a directory by passing the following option:</p>
+<p>You can use <strong>tidyBdE</strong> to create a local cache in a directory by passing the following option:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>bde_cache_dir <span class="op">=</span> <span class="st">"./path/to/location"</span><span class="op">)</span></span></code></pre></div>
-<p>When this option is set, <strong>tidyBdE</strong> will look for cached files in the <code>bde_cache_dir</code> directory and load them, speeding up data retrieval.</p>
+<p>When this option is set, <strong>tidyBdE</strong> looks for cached files in the <code>bde_cache_dir</code> directory and load them, speeding up data retrieval.</p>
 <p>You can update the data after monthly or quarterly releases with the following commands:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/bde_catalog_update.html">bde_catalog_update</a></span><span class="op">(</span><span class="op">)</span></span>

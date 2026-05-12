@@ -1,6 +1,6 @@
 # Search BdE catalogs
 
-Search for keywords on the time series catalogs.
+Search for keywords in the time series catalogs.
 
 ## Usage
 
@@ -96,7 +96,7 @@ bde_catalog_search("PIB")
 #> #   Fecha_de_la_primera_observacion <date>,
 #> #   Fecha_de_la_ultima_observacion <date>, Numero_de_observaciones <dbl>, …
 
-# More complex - Single
+# More complex - Single condition
 bde_catalog_search("Francia(.*)PIB")
 #> # A tibble: 2 × 17
 #>   Nombre_de_la_serie  Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹
@@ -111,7 +111,7 @@ bde_catalog_search("Francia(.*)PIB")
 #> #   Fecha_de_la_ultima_observacion <date>, Numero_de_observaciones <dbl>,
 #> #   Titulo_de_la_serie <chr>, Fuente <chr>, Notas <chr>
 
-# Even more complex - Double
+# Even more complex - Multiple conditions
 bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 #> # A tibble: 6 × 17
 #>   Nombre_de_la_serie  Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹

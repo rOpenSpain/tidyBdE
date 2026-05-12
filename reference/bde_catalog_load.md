@@ -62,7 +62,7 @@ Accepted values for `catalog` are:
 | `"TI"`   | Interest Rates       | Daily                | Daily         |
 | `"PB"`   | Bank Lending Survey  | Quarterly            | Quarterly     |
 
-Use `"ALL"` as a shorthand for updating all the catalogs at a glance.
+Use `"ALL"` as a shorthand for updating all the catalogs at once.
 
 If the requested catalog is not cached,
 [`bde_catalog_update()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_update.md)
@@ -79,9 +79,9 @@ Other catalog:
 ``` r
 # \donttest{
 bde_catalog_load("TI", verbose = TRUE)
-#> tidyBdE> Caching on temporary directory /tmp/Rtmp47i7Aa
+#> tidyBdE> Caching on temporary directory /tmp/RtmppcqoWz
 #> tidyBdE> Need to download catalog TI
-#> tidyBdE> Cache dir is /tmp/Rtmp47i7Aa
+#> tidyBdE> Cache dir is /tmp/RtmppcqoWz
 #> tidyBdE> Updating catalogs: TI
 #> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv
 #> 

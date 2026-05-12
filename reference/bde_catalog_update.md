@@ -50,7 +50,7 @@ Accepted values for `catalog` are:
 | `"TI"`   | Interest Rates       | Daily                | Daily         |
 | `"PB"`   | Bank Lending Survey  | Quarterly            | Quarterly     |
 
-Use `"ALL"` as a shorthand for updating all the catalogs at a glance.
+Use `"ALL"` as a shorthand for updating all the catalogs at once.
 
 ## See also
 
@@ -63,7 +63,7 @@ Other catalog:
 ``` r
 # \donttest{
 bde_catalog_update("TI", verbose = TRUE)
-#> tidyBdE> Caching on temporary directory /tmp/Rtmp47i7Aa
+#> tidyBdE> Caching on temporary directory /tmp/RtmppcqoWz
 #> tidyBdE> Updating catalogs: TI
 #> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv
 #> 

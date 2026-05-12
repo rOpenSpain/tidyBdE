@@ -33,9 +33,9 @@ bde_series_load(
 
 - series_code:
 
-  A numeric value (or coercible with
-  [`base::as.double()`](https://rdrr.io/r/base/double.html)) or vector
-  of time series code(s), as defined in the field `Número secuencial` of
+  A numeric value, or one coercible with
+  [`base::as.double()`](https://rdrr.io/r/base/double.html), or a vector
+  of time series codes, as defined in the field `Número secuencial` of
   the corresponding series. See
   [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md).
 
@@ -46,9 +46,8 @@ bde_series_load(
 
 - out_format:
 
-  The format to return, either "long" or "wide". Possible values are
-  `"wide"` or `"long"`. See **Value** for details and section
-  **Examples**.
+  The format to return, either `"wide"` or `"long"`. See **Value** for
+  details and the **Examples** section.
 
 - parse_dates:
 
@@ -57,8 +56,8 @@ bde_series_load(
 
 - parse_numeric:
 
-  Logical. If `TRUE` the columns would be parsed to double (numeric)
-  values. See **Note**.
+  Logical. If `TRUE`, the columns are parsed to double (numeric) values.
+  See **Note**.
 
 - cache_dir:
 
@@ -75,7 +74,7 @@ bde_series_load(
 
 - extract_metadata:
 
-  Logical `TRUE/FALSE`. On `TRUE` the output is the metadata of the
+  Logical `TRUE/FALSE`. If `TRUE`, the output is the metadata of the
   requested series.
 
 ## Value
@@ -88,9 +87,9 @@ with a `Date` column:
 
 - With `out_format = "long"`, the tibble has two additional columns:
 
-  - `serie_name` with the label of each series.
+  - `serie_name`, with the label of each series.
 
-  - `serie_value` with the corresponding value.
+  - `serie_value`, with the corresponding value.
 
 `"wide"` format is more suitable for exporting to a `.csv` file, while
 `"long"` format is more suitable for creating plots using
@@ -124,7 +123,7 @@ Other series:
 # \donttest{
 # Metadata
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> tidyBdE> Caching on temporary directory /tmp/Rtmp47i7Aa
+#> tidyBdE> Caching on temporary directory /tmp/RtmppcqoWz
 #> tidyBdE> Cached version of BE detected
 #> tidyBdE> Cached version of SI detected
 #> tidyBdE> Cached version of TC detected
@@ -134,7 +133,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> tidyBdE> Extracting series 573234
 #> 
 #> tidyBdE> Downloading serie 573234 from file TC_1_1.csv (alias TC_1_1.1).
-#> tidyBdE> Caching on temporary directory /tmp/Rtmp47i7Aa/TC
+#> tidyBdE> Caching on temporary directory /tmp/RtmppcqoWz/TC
 #> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv
 #> 
 #> # A tibble: 6 × 2

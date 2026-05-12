@@ -1,9 +1,9 @@
 # Series index
 
-Table showing available series in the catalog (last updated:
+Table of available series in the catalog (last updated:
 **12-May-2026**).
 
-Use the sequential number to load a single series (see Example):
+Use the sequential number to load a single series (see the example):
 
 ## Summary
 
@@ -37,7 +37,7 @@ Table 1: Search results
 # Here we extract the first series
 # See tidyverse style
 fr |>
-  # Select id
+  # Select the ID
   select(Numero_secuencial) |>
   # First observation
   slice(1) |>
@@ -62,7 +62,7 @@ fr |>
 
 # See the metadata
 fr |>
-  # Select id
+  # Select the ID
   select(Numero_secuencial) |>
   # First observation
   slice(1) |>

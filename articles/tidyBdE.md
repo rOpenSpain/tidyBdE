@@ -12,8 +12,8 @@ Banco de España (**BdE**) provides several time series, either produced
 by the institution itself or compiled from other sources, such as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
-The basic entry points for searching time series are the time series
-catalogs (indices). You can search for any series by name:
+The basic entry point for searching time series is the time series
+catalog (index). You can search for any series by name:
 
 ``` r
 
@@ -43,7 +43,7 @@ institution is working on an English version. Search terms must be
 provided in Spanish to retrieve results.
 
 Once you have found a series, load the GBP/EUR exchange rate using the
-sequential number reference (`Numero_Secuencial`) as follows:
+sequential number reference (`Numero_secuencial`) as follows:
 
 ``` r
 
@@ -136,7 +136,7 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
     caption = "Source: BdE"
   ) +
   theme_tidybde() +
-  scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
+  scale_color_bde_d(palette = "bde_vivid_pal") # Custom package palette
 ```
 
 ![Figure 2: Spanish Economic Indicators
@@ -146,15 +146,15 @@ Figure 2: Spanish Economic Indicators (2010-2019)
 
 ## A note on caching
 
-You can use **tidyBdE** to create a local cache repository in a
-directory by passing the following option:
+You can use **tidyBdE** to create a local cache in a directory by
+passing the following option:
 
 ``` r
 
 options(bde_cache_dir = "./path/to/location")
 ```
 
-When this option is set, **tidyBdE** will look for cached files in the
+When this option is set, **tidyBdE** looks for cached files in the
 `bde_cache_dir` directory and load them, speeding up data retrieval.
 
 You can update the data after monthly or quarterly releases with the

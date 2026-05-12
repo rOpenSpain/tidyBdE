@@ -1,11 +1,11 @@
-# tidyBdE: Download Data from Bank of Spain
+# tidyBdE: Retrieve Data from 'Banco de España'
 
-Tools to download data series from 'Banco de España' ('BdE') in 'tibble'
-format. 'Banco de España' is the national central bank and, within the
-framework of the Single Supervisory Mechanism ('SSM'), the supervisor of
-the Spanish banking system along with the European Central Bank. This
-package is in no way sponsored, endorsed or administered by 'Banco de
-España'.
+Tools to retrieve time series data from 'Banco de España' ('BdE') and
+return it in 'tibble' format. 'Banco de España' is the national central
+bank and, within the framework of the Single Supervisory Mechanism
+('SSM'), the supervisor of the Spanish banking system along with the
+European Central Bank. This package is in no way sponsored, endorsed or
+administered by 'Banco de España'.
 
 ## See also
 

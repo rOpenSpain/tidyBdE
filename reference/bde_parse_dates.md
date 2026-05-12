@@ -4,7 +4,7 @@ This function is tailored for date formats used in this package and may
 fail with other datasets. See **Examples** for formats that are
 supported.
 
-### Date Formats
+### Date formats
 
 |  |  |  |
 |----|----|----|
@@ -12,7 +12,7 @@ supported.
 | **Daily / Business day** | DD MMMMYYYY | *02 FEB2019* |
 | **Monthly** | MMM YYYY | *MAR 2020* |
 | **Quarterly** | MMM YYYY, where MMM is the first or the last month of the quarter, depending on the value of its variable OBSERVED. | For the first quarter of 2020: *ENE 2020, MAR 2020* |
-| **Half-yearly** | MMM YYYY, where MMM is the first or the last month of the halfyear period, depending on the value of its variable OBSERVED. | For the first half of 2020: *ENE 2020, JUN 2020* |
+| **Half-yearly** | MMM YYYY, where MMM is the first or the last month of the half-year period, depending on the value of its variable OBSERVED. | For the first half of 2020: *ENE 2020, JUN 2020* |
 | **Annual** | YYYY | *2020* |
 
 ## Usage
@@ -34,7 +34,7 @@ A [`Date`](https://rdrr.io/r/base/as.Date.html) object.
 ## Details
 
 Parse strings representing dates using
-[`as.Date()`](https://rdrr.io/r/base/as.Date.html)
+[`as.Date()`](https://rdrr.io/r/base/as.Date.html).
 
 ## See also
 
@@ -69,7 +69,7 @@ tibble::tibble(raw = would_parse, parsed = parsed_ok)
 
 #-----------------------------------
 
-# Formats not admitted
+# Unsupported formats
 wont_parse <- c("JAN2001", "2010-01-12", "01 APR 2017", "01/31/1990")
 
 parsed_fail <- bde_parse_dates(wont_parse)

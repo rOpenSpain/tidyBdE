@@ -10,9 +10,9 @@
 - [Series
   index](https://ropenspain.github.io/tidyBdE/articles/seriesindex.md):
 
-  Summary of information accessible through tidyBdE
+  Summary of information accessible through tidyBdE.
 
 - [Get started with
   tidyBdE](https://ropenspain.github.io/tidyBdE/articles/tidyBdE.md):
 
-  Introduction to tidyBdE
+  Introduction to tidyBdE.

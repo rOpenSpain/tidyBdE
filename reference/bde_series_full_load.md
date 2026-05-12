@@ -32,8 +32,8 @@ bde_series_full_load(
 
 - parse_numeric:
 
-  Logical. If `TRUE` the columns would be parsed to double (numeric)
-  values. See **Note**.
+  Logical. If `TRUE`, the columns are parsed to double (numeric) values.
+  See **Note**.
 
 - cache_dir:
 
@@ -50,13 +50,13 @@ bde_series_full_load(
 
 - extract_metadata:
 
-  Logical `TRUE/FALSE`. On `TRUE` the output is the metadata of the
+  Logical `TRUE/FALSE`. If `TRUE`, the output is the metadata of the
   requested series.
 
 ## Value
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
-with a field `Date` and the alias of the fields series as described on
+with a `Date` field and the aliases of the series fields as described in
 the catalogs. See
 [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md).
 
@@ -65,9 +65,9 @@ the catalogs. See
 ### About BdE file naming
 
 The series name is a positional code showing the location of the table.
-For example, table **be_6_1** represents the Table 1, Chapter 6 of the
-Statistical Bulletin ("BE"). Although it is a unique value, it is
-subject to change (i.e. a new table is inserted before).
+For example, table **be_6_1** represents Table 1, Chapter 6 of the
+Statistical Bulletin ("BE"). Although it is unique, it is subject to
+change, for example when a new table is inserted before it.
 
 For that reason, the function
 [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
@@ -75,9 +75,9 @@ is more suitable for extracting specific time series.
 
 ## Note
 
-This function tries to coerce the columns to numbers. For some series a
+This function tries to coerce the columns to numbers. For some series, a
 warning may be displayed if the parser fails. You can override the
-default behavior with `parse_numeric = FALSE`
+default behavior with `parse_numeric = FALSE`.
 
 ## See also
 

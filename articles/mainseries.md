@@ -1,9 +1,9 @@
 # Main macroeconomic series
 
-Evolution of selected Spanish economic indicators using data from Banco
-de España.
+This article shows selected Spanish economic indicators using data from
+Banco de España.
 
-Last update: **12-May-2026**.
+Last updated: **12-May-2026**.
 
 ``` r
 
@@ -39,19 +39,19 @@ Figure 2: GDP of Spain — year-on-year variation
 
 ![](mainseries_files/figure-html/fig-gdppercap-1.png)
 
-Figure 3: GDP per Capita of Spain
+Figure 3: GDP per capita of Spain
 
-## Unemployment Rate
+## Unemployment rate
 
 ![](mainseries_files/figure-html/fig-unempl-1.png)
 
 Figure 4: Unemployment rate
 
-## Consumer Price Index
+## Consumer price index
 
 ![](mainseries_files/figure-html/fig-cprix-1.png)
 
-Figure 5: Consumer Price Index
+Figure 5: Consumer price index
 
 ## Monthly Euribor
 

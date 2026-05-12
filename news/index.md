@@ -51,7 +51,7 @@ CRAN release: 2024-08-26
   and
   [`bde_ind_population()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
   since the underlying identifier changed.
-- DOI changed to **CRAN** url:
+- DOI changed to **CRAN** URL:
   <https://doi.org/10.32614/CRAN.package.tidyBdE>.
 - Native encoding when reading the `.csv` files changed to `"latin1"`.
 
@@ -140,14 +140,14 @@ CRAN release: 2022-08-13
 
 CRAN release: 2022-02-23
 
-- Update series code on
+- Update the series code used by
   [`bde_ind_cpi_var()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md).
 
 ## tidyBdE 0.2.3
 
 CRAN release: 2022-01-19
 
-- The following catalogs have been deprecated on the API; the package
+- The following catalogs have been deprecated in the API; the package
   has been updated accordingly:
   - **CF**: Financial Accounts of the Spanish Economy.
   - **IE**: Economic Indicators
@@ -164,13 +164,13 @@ CRAN release: 2021-10-29
   been updated:
   - [`bde_ind_euribor_12m_monthly()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md):
     New series code is `587853`.
-- Update docs and examples.
+- Update documentation and examples.
 
 ## tidyBdE 0.2.1
 
 CRAN release: 2021-10-07
 
-- Update docs and vignettes.
+- Update documentation and vignettes.
 - [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
   now tries to coerce characters to numeric.
 - Improve messages when inconsistencies occur between the catalog and
@@ -186,7 +186,7 @@ CRAN release: 2021-08-04
 - Add new series:
   [`bde_ind_gdp_quarterly()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md),
   [`bde_ind_population()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md).
-- Improve package coverage and docs.
+- Improve package coverage and documentation.
 - Move tests to **testthat**.
 - The following scales have been removed: `bde_scale_colour_vivid()`,
   `bde_scale_color_vivid()`, `bde_scale_fill_vivid()`,
@@ -207,7 +207,7 @@ CRAN release: 2021-07-07
 
 CRAN release: 2021-06-05
 
-- Add vignette to package
+- Add vignette to the package.
 - Color adjustment on
   [`bde_rose_pal()`](https://ropenspain.github.io/tidyBdE/reference/bde_pals.md):
   The HCL spectrum is now more consistent between roses and blues

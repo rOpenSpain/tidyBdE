@@ -83,7 +83,7 @@ catalog. See <code><a href="bde_catalog_load.html">bde_catalog_load()</a></code>
 
 
 <dt id="arg-parse-numeric">parse_numeric<a class="anchor" aria-label="anchor" href="#arg-parse-numeric"></a></dt>
-<dd><p>Logical. If <code>TRUE</code> the columns would be parsed to
+<dd><p>Logical. If <code>TRUE</code>, the columns are parsed to
 double (numeric) values. See <strong>Note</strong>.</p></dd>
 
 
@@ -102,14 +102,14 @@ via options with <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
 
 
 <dt id="arg-extract-metadata">extract_metadata<a class="anchor" aria-label="anchor" href="#arg-extract-metadata"></a></dt>
-<dd><p>Logical <code>TRUE/FALSE</code>. On <code>TRUE</code> the output is the
+<dd><p>Logical <code>TRUE/FALSE</code>. If <code>TRUE</code>, the output is the
 metadata of the requested series.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble</a> with a field <code>Date</code> and the alias of the fields
-series as described on the catalogs. See <code><a href="bde_catalog_load.html">bde_catalog_load()</a></code>.</p>
+    <p>A <a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble</a> with a <code>Date</code> field and the aliases of the
+series fields as described in the catalogs. See <code><a href="bde_catalog_load.html">bde_catalog_load()</a></code>.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -119,9 +119,9 @@ series as described on the catalogs. See <code><a href="bde_catalog_load.html">b
 
 
 <p>The series name is a positional code showing the location of the table. For
-example, table <strong>be_6_1</strong> represents the Table 1, Chapter 6 of the
-Statistical Bulletin ("BE"). Although it is a unique value, it is subject
-to change (i.e. a new table is inserted before).</p>
+example, table <strong>be_6_1</strong> represents Table 1, Chapter 6 of the Statistical
+Bulletin ("BE"). Although it is unique, it is subject to change, for
+example when a new table is inserted before it.</p>
 <p>For that reason, the function <code><a href="bde_series_load.html">bde_series_load()</a></code> is more suitable for
 extracting specific time series.</p>
 </div>
@@ -129,9 +129,9 @@ extracting specific time series.</p>
     </div>
     <div class="section level2">
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
-    <p>This function tries to coerce the columns to numbers. For some series a
+    <p>This function tries to coerce the columns to numbers. For some series, a
 warning may be displayed if the parser fails. You can override the default
-behavior with <code>parse_numeric = FALSE</code></p>
+behavior with <code>parse_numeric = FALSE</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
