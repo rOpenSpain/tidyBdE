@@ -12,11 +12,11 @@
 #' @encoding UTF-8
 #' @param n The number of colors (`>= 1`) to return.
 #' @param palette A valid palette name.
-#' @param alpha An alpha-transparency level in the range `[0,1]` (`0` means
+#' @param alpha An alpha transparency level in the range `[0,1]` (`0` means
 #'   transparent and `1` means opaque). If missing (i.e., `alpha = NULL`), it
 #'   does not add opacity codes (`"FF"`) to the individual color hex codes.
 #'   See [ggplot2::alpha()].
-#' @param rev Logical indicating if the ordering of the colors should be
+#' @param rev Logical indicating whether the ordering of the colors should be
 #'   reversed.
 #' @examples
 #'

@@ -14,10 +14,10 @@ knitr:
     out.width: "100%"
 ---
 
-Evolution of selected Spanish economic indicators using data from Banco de
+This article shows selected Spanish economic indicators using data from Banco de
 España.
 
-Last update: **`r format(Sys.Date(),"%d-%B-%Y")`**.
+Last updated: **`r format(Sys.Date(),"%d-%B-%Y")`**.
 
 ```{r}
 library(tidyBdE)
@@ -110,7 +110,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
 ```{r}
 #| label: fig-gdppercap
 #| echo: false
-#| fig-cap: GDP per Capita of Spain
+#| fig-cap: GDP per capita of Spain
 pop <- bde_ind_population(series_label = "pop")
 pib <- bde_ind_gdp_quarterly(series_label = "data")
 
@@ -155,7 +155,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
   theme_tidybde()
 ```
 
-## Unemployment Rate
+## Unemployment rate
 
 ```{r}
 #| label: fig-unempl
@@ -175,7 +175,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
     aes(label = paste(x = data, "%\n", format(Date, "%b-%Y")))
   ) +
   labs(
-    title = "Unemployment Rate",
+    title = "Unemployment rate",
     subtitle = "%",
     caption = "Source: BdE"
   ) +
@@ -186,12 +186,12 @@ ggplot(dataset, aes(x = Date, y = data)) +
   theme_tidybde()
 ```
 
-## Consumer Price Index
+## Consumer price index
 
 ```{r}
 #| label: fig-cprix
 #| echo: false
-#| fig-cap: Consumer Price Index
+#| fig-cap: Consumer price index
 dataset <- bde_ind_cpi_var(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
@@ -206,7 +206,7 @@ ggplot(dataset, aes(x = Date, y = data)) +
     aes(label = paste(x = data, "%\n", format(Date, "%b-%Y")))
   ) +
   labs(
-    title = "Consumer Price Index",
+    title = "Consumer price index",
     subtitle = "%",
     caption = "Source: BdE"
   ) +

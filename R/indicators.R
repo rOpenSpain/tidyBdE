@@ -1,7 +1,8 @@
-#' Relevant macroeconomic indicators of Spain
+#' Selected Spanish macroeconomic indicators
 #'
 #' @description
-#' Helper functions for downloading selected macroeconomic indicators of Spain.
+#' Convenience functions for downloading selected Spanish macroeconomic
+#' indicators.
 #' Metadata is available in [bde_ind_db].
 #'
 #' @rdname bde_indicators
@@ -23,7 +24,7 @@
 #' @details
 #' These functions are convenient wrappers around [bde_series_load()] for
 #' specific series. Use `verbose = TRUE, extract_metadata = TRUE` to see the
-#' specification and the source.
+#' metadata and the source.
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{

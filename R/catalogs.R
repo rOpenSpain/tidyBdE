@@ -51,7 +51,7 @@
 #'
 #' knitr::kable(t)
 #' ```
-#' Use `"ALL"` as a shorthand for updating all the catalogs at a glance.
+#' Use `"ALL"` as a shorthand for updating all the catalogs at once.
 #'
 #' If the requested catalog is not cached, [bde_catalog_update()] is invoked.
 #'
@@ -250,7 +250,7 @@ bde_catalog_load <- function(
 #' knitr::kable(t)
 #'
 #' ```
-#' Use `"ALL"` as a shorthand for updating all the catalogs at a glance.
+#' Use `"ALL"` as a shorthand for updating all the catalogs at once.
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{
@@ -319,7 +319,7 @@ bde_catalog_update <- function(
 #' Search BdE catalogs
 #'
 #' @description
-#' Search for keywords on the time series catalogs.
+#' Search for keywords in the time series catalogs.
 #'
 #' @export
 #' @encoding UTF-8
@@ -349,10 +349,10 @@ bde_catalog_update <- function(
 #'
 #' bde_catalog_search("PIB")
 #'
-#' # More complex - Single
+#' # More complex - Single condition
 #' bde_catalog_search("Francia(.*)PIB")
 #'
-#' # Even more complex - Double
+#' # Even more complex - Multiple conditions
 #' bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 #' }
 bde_catalog_search <- function(pattern, ...) {

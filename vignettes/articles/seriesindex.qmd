@@ -1,7 +1,7 @@
 ---
 title: "Series index"
 date: "`r Sys.Date()`"
-description: Summary of information accessible through tidyBdE
+description: Summary of information accessible through tidyBdE.
 toc: true
 tbl-cap-location: bottom
 knitr:
@@ -16,10 +16,10 @@ knitr:
     out.width: "100%"
 ---
 
-Table showing available series in the catalog (last updated:
+Table of available series in the catalog (last updated:
 **`r format(Sys.Date(),"%d-%B-%Y")`**).
 
-Use the sequential number to load a single series (see Example):
+Use the sequential number to load a single series (see the example):
 
 ## Summary
 
@@ -33,7 +33,7 @@ library(tidyr)
 
 series <- bde_catalog_load()
 
-# Clean
+# Clean data
 series_clean <- series |>
   filter(!is.na(Numero_secuencial)) |>
   select(
@@ -95,7 +95,7 @@ fr |>
 # Here we extract the first series
 # See tidyverse style
 fr |>
-  # Select id
+  # Select the ID
   select(Numero_secuencial) |>
   # First observation
   slice(1) |>
@@ -106,7 +106,7 @@ fr |>
 
 # See the metadata
 fr |>
-  # Select id
+  # Select the ID
   select(Numero_secuencial) |>
   # First observation
   slice(1) |>

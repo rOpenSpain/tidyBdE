@@ -16,19 +16,19 @@ A \code{\link[=as.Date]{Date}} object.
 \description{
 This function is tailored for date formats used in this package and may fail
 with other datasets. See \strong{Examples} for formats that are supported.
-\subsection{Date Formats}{\tabular{lll}{
+\subsection{Date formats}{\tabular{lll}{
    \strong{FREQUENCY} \tab \strong{FORMAT} \tab \strong{EXAMPLES} \cr
    \strong{Daily / Business day} \tab DD MMMMYYYY \tab \emph{02 FEB2019} \cr
    \strong{Monthly} \tab MMM YYYY \tab \emph{MAR 2020} \cr
    \strong{Quarterly} \tab MMM YYYY, where MMM is the first or the last month of the quarter, depending on the value of its variable OBSERVED. \tab For the first quarter of 2020: \emph{ENE 2020, MAR 2020} \cr
-   \strong{Half-yearly} \tab MMM YYYY, where MMM is the first or the last month of the halfyear period, depending on the value of its variable OBSERVED. \tab For the first half of 2020: \emph{ENE 2020, JUN 2020} \cr
+   \strong{Half-yearly} \tab MMM YYYY, where MMM is the first or the last month of the half-year period, depending on the value of its variable OBSERVED. \tab For the first half of 2020: \emph{ENE 2020, JUN 2020} \cr
    \strong{Annual} \tab YYYY \tab \emph{2020} \cr
 }
 
 }
 }
 \details{
-Parse strings representing dates using \code{\link[=as.Date]{as.Date()}}
+Parse strings representing dates using \code{\link[=as.Date]{as.Date()}}.
 }
 \examples{
 # Formats parsed
@@ -45,7 +45,7 @@ tibble::tibble(raw = would_parse, parsed = parsed_ok)
 
 #-----------------------------------
 
-# Formats not admitted
+# Unsupported formats
 wont_parse <- c("JAN2001", "2010-01-12", "01 APR 2017", "01/31/1990")
 
 parsed_fail <- bde_parse_dates(wont_parse)

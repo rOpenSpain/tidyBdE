@@ -92,7 +92,7 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-# Search GBP on "TC" (exchange rate) catalog
+# Search for GBP in the "TC" (exchange rate) catalog
 xr_gbp <- bde_catalog_search("GBP", catalog = "TC")
 
 xr_gbp |>
@@ -116,16 +116,16 @@ institution is working on an English version. For now, search terms must be
 provided in Spanish to retrieve results.
 
 After you have found a series, you can load the GBP/EUR exchange rate using the
-sequential number reference (`Numero_Secuencial`) as follows:
+sequential number reference (`Numero_secuencial`) as follows:
 
 ```{r}
 #| label: find
 seq_number <- xr_gbp |>
   # First record
   slice(1) |>
-  # Get id
+  # Get the ID
   select(Numero_secuencial) |>
-  # Convert to num
+  # Convert to numeric
   as.double()
 
 # Extract series
@@ -189,7 +189,7 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
     caption = "Source: BdE"
   ) +
   theme_tidybde() +
-  scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
+  scale_color_bde_d(palette = "bde_vivid_pal") # Custom package palette
 ```
 
 ### Palettes
@@ -202,7 +202,7 @@ the package (see `help("scale_color_bde_d", package = "tidyBdE")`).
 
 ### A note on caching
 
-You can use **tidyBdE** to create a local cache repository in a directory by
+You can use **tidyBdE** to create a local cache in a directory by
 passing the following option:
 
 ``` r
@@ -219,7 +219,7 @@ commands:
 #| eval: false
 bde_catalog_update()
 
-# In most functions using the option update_cache = TRUE
+# Or use update_cache = TRUE in most functions
 
 bde_series_load("SOME ID", update_cache = TRUE)
 ```

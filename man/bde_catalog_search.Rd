@@ -29,7 +29,7 @@ via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 A \link[tibble:tbl_df]{tibble} object with the results of the query.
 }
 \description{
-Search for keywords on the time series catalogs.
+Search for keywords in the time series catalogs.
 }
 \details{
 \strong{Note:} BdE metadata is currently only provided in Spanish. Therefore,
@@ -46,10 +46,10 @@ can pass \link[base:regex]{regular expressions} to broaden the search.
 
 bde_catalog_search("PIB")
 
-# More complex - Single
+# More complex - Single condition
 bde_catalog_search("Francia(.*)PIB")
 
-# Even more complex - Double
+# Even more complex - Multiple conditions
 bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 }
 \dontshow{\}) # examplesIf}

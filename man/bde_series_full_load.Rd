@@ -23,7 +23,7 @@ catalog. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 \item{parse_dates}{Logical. If \code{TRUE}, dates are parsed using
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
 
-\item{parse_numeric}{Logical. If \code{TRUE} the columns would be parsed to
+\item{parse_numeric}{Logical. If \code{TRUE}, the columns are parsed to
 double (numeric) values. See \strong{Note}.}
 
 \item{cache_dir}{A path to a cache directory. The directory can also be set
@@ -34,12 +34,12 @@ via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 
 \item{verbose}{Logical. If \code{TRUE}, display information useful for debugging.}
 
-\item{extract_metadata}{Logical \code{TRUE/FALSE}. On \code{TRUE} the output is the
+\item{extract_metadata}{Logical \code{TRUE/FALSE}. If \code{TRUE}, the output is the
 metadata of the requested series.}
 }
 \value{
-A \link[tibble:tbl_df]{tibble} with a field \code{Date} and the alias of the fields
-series as described on the catalogs. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
+A \link[tibble:tbl_df]{tibble} with a \code{Date} field and the aliases of the
+series fields as described in the catalogs. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
 }
 \description{
 Load a full time series file provided by BdE.
@@ -48,18 +48,18 @@ Load a full time series file provided by BdE.
 \subsection{About BdE file naming}{
 
 The series name is a positional code showing the location of the table. For
-example, table \strong{be_6_1} represents the Table 1, Chapter 6 of the
-Statistical Bulletin ("BE"). Although it is a unique value, it is subject
-to change (i.e. a new table is inserted before).
+example, table \strong{be_6_1} represents Table 1, Chapter 6 of the Statistical
+Bulletin ("BE"). Although it is unique, it is subject to change, for
+example when a new table is inserted before it.
 
 For that reason, the function \code{\link[=bde_series_load]{bde_series_load()}} is more suitable for
 extracting specific time series.
 }
 }
 \note{
-This function tries to coerce the columns to numbers. For some series a
+This function tries to coerce the columns to numbers. For some series, a
 warning may be displayed if the parser fails. You can override the default
-behavior with \code{parse_numeric = FALSE}
+behavior with \code{parse_numeric = FALSE}.
 }
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}

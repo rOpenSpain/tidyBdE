@@ -16,22 +16,22 @@ repo:
 
 reference:
 - title: Catalogs
-  desc: Tools for working with BdE catalogs.
+  desc: Search and load Banco de España time series catalogs.
   contents:
   - has_concept("catalog")
 
 - title: Series
-  desc: Tools for working with BdE series.
+  desc: Retrieve individual or complete Banco de España time series.
   contents:
   - has_concept("series")
 
-- title: BdE Indicators
-  desc: Relevant macroeconomic indicators of Spain.
+- title: Selected indicators
+  desc: Convenience functions for selected Spanish macroeconomic indicators.
   contents:
   - has_concept("indicators")
 
 - title: Plot utilities
-  desc: Functions for plotting with ggplot2.
+  desc: BdE-inspired palettes, scales and themes for ggplot2.
   contents:
   - has_concept("bde_plot")
 

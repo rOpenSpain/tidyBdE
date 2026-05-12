@@ -27,7 +27,7 @@
 
 - Update `bde_ind_unemployment_rate()` and `bde_ind_population()` since the
   underlying identifier changed.
-- DOI changed to **CRAN** url: <https://doi.org/10.32614/CRAN.package.tidyBdE>.
+- DOI changed to **CRAN** URL: <https://doi.org/10.32614/CRAN.package.tidyBdE>.
 - Native encoding when reading the `.csv` files changed to `"latin1"`.
 
 # tidyBdE 0.3.6
@@ -82,11 +82,11 @@ Mostly changes to the color functions:
 
 # tidyBdE 0.2.4
 
-- Update series code on `bde_ind_cpi_var()`.
+- Update the series code used by `bde_ind_cpi_var()`.
 
 # tidyBdE 0.2.3
 
-- The following catalogs have been deprecated on the API; the package has been
+- The following catalogs have been deprecated in the API; the package has been
   updated accordingly:
   - **CF**: Financial Accounts of the Spanish Economy.
   - **IE**: Economic Indicators
@@ -99,11 +99,11 @@ Mostly changes to the color functions:
   `?bde_indicators` are likely to break in the meantime. So far, the following
   series have been updated:
   - `bde_ind_euribor_12m_monthly()`: New series code is `587853`.
-- Update docs and examples.
+- Update documentation and examples.
 
 # tidyBdE 0.2.1
 
-- Update docs and vignettes.
+- Update documentation and vignettes.
 - `bde_series_load()` now tries to coerce characters to numeric.
 - Improve messages when inconsistencies occur between the catalog and series.
 - Export `bde_check_access()`.
@@ -112,7 +112,7 @@ Mostly changes to the color functions:
 
 - Add series index article.
 - Add new series: `bde_ind_gdp_quarterly()`, `bde_ind_population()`.
-- Improve package coverage and docs.
+- Improve package coverage and documentation.
 - Move tests to **testthat**.
 - The following scales have been removed: `bde_scale_colour_vivid()`,
   `bde_scale_color_vivid()`, `bde_scale_fill_vivid()`,
@@ -127,7 +127,7 @@ Mostly changes to the color functions:
 
 # tidyBdE 0.1.1
 
-- Add vignette to package
+- Add vignette to the package.
 - Color adjustment on `bde_rose_pal()`: The HCL spectrum is now more consistent
   between roses and blues according to `colorspace::specplot()`.
 - Add DOI: <https://doi.org/10.5281/zenodo.4673496>

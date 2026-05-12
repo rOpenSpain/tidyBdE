@@ -7,16 +7,16 @@
 #'
 #' @family series
 #'
-#' @param series_code A numeric value (or coercible with [base::as.double()])
-#'   or vector of time series code(s), as defined in the field
+#' @param series_code A numeric value, or one coercible with
+#'   [base::as.double()], or a vector of time series codes, as defined in the
+#'   field
 #'   `Número secuencial` of the corresponding series. See [bde_catalog_load()].
 #'
 #' @param series_label Optional character string or vector of labels to assign
 #'   to the extracted series.
 #'
-#' @param out_format The format to return, either "long" or "wide".
-#'   Possible values are `"wide"` or `"long"`. See **Value** for details and
-#'   section **Examples**.
+#' @param out_format The format to return, either `"wide"` or `"long"`.
+#'   See **Value** for details and the **Examples** section.
 #' @inheritParams bde_series_full_load
 #'
 #' @return
@@ -24,8 +24,8 @@
 #' - With `out_format = "wide"`, each series is presented in a separate
 #'   column with the name defined by `series_label`.
 #' - With `out_format = "long"`, the tibble has two additional columns:
-#'   - `serie_name` with the label of each series.
-#'   - `serie_value` with the corresponding value.
+#'   - `serie_name`, with the label of each series.
+#'   - `serie_value`, with the corresponding value.
 #'
 #' `"wide"` format is more suitable for exporting to a `.csv` file, while
 #' `"long"` format is more suitable for creating plots using
@@ -144,7 +144,7 @@ bde_series_load <- function(
       message("tidyBdE> Extracting series ", x, "\n\n")
     }
 
-    # Identify source file
+    # Identify the source file
 
     csv_file <- all_catalogs[all_catalogs[[1]] == x, c(2, 3)]
 
@@ -198,7 +198,7 @@ bde_series_load <- function(
         )
       }
 
-      # Return empty tibble if alias is not available
+      # Return an empty tibble if the alias is not available
 
       return(bde_hlp_return_null())
 
@@ -210,7 +210,7 @@ bde_series_load <- function(
     i <- match(x, series_code)
     names(serie_file) <- c("Date", "serie_value")
     serie_file$serie_name <- as.character(series_label[i])
-    # Rearrange
+    # Rearrange columns
     serie_file <- serie_file[c("Date", "serie_name", "serie_value")]
 
     serie_file
@@ -221,7 +221,7 @@ bde_series_load <- function(
 
   df_list <- df_list[nrows]
 
-  # Check that all dfs have Date field
+  # Check that all data frames have a Date field
 
   has_date <- vapply(
     df_list,
@@ -263,9 +263,9 @@ bde_series_load <- function(
 #' ## About BdE file naming
 #'
 #' The series name is a positional code showing the location of the table. For
-#' example, table **be_6_1** represents the Table 1, Chapter 6 of the
-#' Statistical Bulletin ("BE"). Although it is a unique value, it is subject
-#' to change (i.e. a new table is inserted before).
+#' example, table **be_6_1** represents Table 1, Chapter 6 of the Statistical
+#' Bulletin ("BE"). Although it is unique, it is subject to change, for
+#' example when a new table is inserted before it.
 #'
 #' For that reason, the function [bde_series_load()] is more suitable for
 #' extracting specific time series.
@@ -283,20 +283,20 @@ bde_series_load <- function(
 #'
 #' @inheritParams bde_catalog_load
 #'
-#' @param parse_numeric Logical. If `TRUE` the columns would be parsed to
+#' @param parse_numeric Logical. If `TRUE`, the columns are parsed to
 #'   double (numeric) values. See **Note**.
 #'
-#' @param extract_metadata Logical `TRUE/FALSE`. On `TRUE` the output is the
+#' @param extract_metadata Logical `TRUE/FALSE`. If `TRUE`, the output is the
 #'   metadata of the requested series.
 #'
 #' @return
-#' A [tibble][tibble::tbl_df] with a field `Date` and the alias of the fields
-#' series as described on the catalogs. See [bde_catalog_load()].
+#' A [tibble][tibble::tbl_df] with a `Date` field and the aliases of the
+#' series fields as described in the catalogs. See [bde_catalog_load()].
 #'
 #' @note
-#' This function tries to coerce the columns to numbers. For some series a
+#' This function tries to coerce the columns to numbers. For some series, a
 #' warning may be displayed if the parser fails. You can override the default
-#' behavior with `parse_numeric = FALSE`
+#' behavior with `parse_numeric = FALSE`.
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{
@@ -364,7 +364,7 @@ bde_series_full_load <- function(
     )
 
     if (isFALSE(result)) {
-      # Clean up the file if it was produced. Is not valid
+      # Clean up the file if it was produced. It is not valid
       file_full_path <- path.expand(local_file)
       if (file.exists(file_full_path)) {
         unlink(file_full_path, force = TRUE, recursive = TRUE)
@@ -377,7 +377,7 @@ bde_series_full_load <- function(
     }
   }
 
-  # Catch error
+  # Catch errors
   # nocov start
   r <- readLines(local_file, warn = FALSE, n = 1000)
   if (length(r) == 0) {
@@ -386,7 +386,7 @@ bde_series_full_load <- function(
   }
   # nocov end
 
-  # Serie load
+  # Series load
   enc <- readr::guess_encoding(local_file)[[1]][[1]]
 
   serie_load <- suppressWarnings(

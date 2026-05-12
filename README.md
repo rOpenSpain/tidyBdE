@@ -74,7 +74,7 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-# Search GBP on "TC" (exchange rate) catalog
+# Search for GBP in the "TC" (exchange rate) catalog
 xr_gbp <- bde_catalog_search("GBP", catalog = "TC")
 
 xr_gbp |>
@@ -97,15 +97,15 @@ institution is working on an English version. For now, search terms must
 be provided in Spanish to retrieve results.
 
 After you have found a series, you can load the GBP/EUR exchange rate
-using the sequential number reference (`Numero_Secuencial`) as follows:
+using the sequential number reference (`Numero_secuencial`) as follows:
 
 ``` r
 seq_number <- xr_gbp |>
   # First record
   slice(1) |>
-  # Get id
+  # Get the ID
   select(Numero_secuencial) |>
-  # Convert to num
+  # Convert to numeric
   as.double()
 
 # Extract series
@@ -182,7 +182,7 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
     caption = "Source: BdE"
   ) +
   theme_tidybde() +
-  scale_color_bde_d(palette = "bde_vivid_pal") # Custom palette on the package
+  scale_color_bde_d(palette = "bde_vivid_pal") # Custom package palette
 ```
 
 <img src="man/figures/README-macroseries-1.png" style="width:100.0%"
@@ -199,8 +199,8 @@ provided in the package (see
 
 ### A note on caching
 
-You can use **tidyBdE** to create a local cache repository in a
-directory by passing the following option:
+You can use **tidyBdE** to create a local cache in a directory by
+passing the following option:
 
 ``` r
 options(bde_cache_dir = "./path/to/location")
@@ -215,7 +215,7 @@ following commands:
 ``` r
 bde_catalog_update()
 
-# In most functions using the option update_cache = TRUE
+# Or use update_cache = TRUE in most functions
 
 bde_series_load("SOME ID", update_cache = TRUE)
 ```
@@ -229,7 +229,8 @@ de España.
 
 <p>
 
-H. Herrero D (2026). <em>tidyBdE: Download Data from Bank of Spain</em>.
+H. Herrero D (2026). <em>tidyBdE: Retrieve Data from Banco de
+España</em>.
 <a href="https://doi.org/10.32614/CRAN.package.tidyBdE">doi:10.32614/CRAN.package.tidyBdE</a>.
 <a href="https://ropenspain.github.io/tidyBdE/">https://ropenspain.github.io/tidyBdE/</a>.
 </p>
@@ -237,11 +238,11 @@ H. Herrero D (2026). <em>tidyBdE: Download Data from Bank of Spain</em>.
 A BibTeX entry for LaTeX users is:
 
     @Manual{R-tidyBdE,
-      title = {{tidyBdE}: Download Data from Bank of Spain},
+      title = {{tidyBdE}: Retrieve Data from Banco de España},
       doi = {10.32614/CRAN.package.tidyBdE},
       author = {Diego {H. Herrero}},
       year = {2026},
       version = {0.6.0.9000},
       url = {https://ropenspain.github.io/tidyBdE/},
-      abstract = {Tools to download data series from Banco de España (BdE) in tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored, endorsed or administered by Banco de España.},
+      abstract = {Tools to retrieve time series data from Banco de España (BdE) and return it in tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system along with the European Central Bank. This package is in no way sponsored, endorsed or administered by Banco de España.},
     }

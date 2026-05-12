@@ -48,7 +48,7 @@ Accepted values for \code{catalog} are:\tabular{llll}{
 }
 
 
-Use \code{"ALL"} as a shorthand for updating all the catalogs at a glance.
+Use \code{"ALL"} as a shorthand for updating all the catalogs at once.
 
 If the requested catalog is not cached, \code{\link[=bde_catalog_update]{bde_catalog_update()}} is invoked.
 }

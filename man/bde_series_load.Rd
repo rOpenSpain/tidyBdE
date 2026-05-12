@@ -18,21 +18,21 @@ bde_series_load(
 )
 }
 \arguments{
-\item{series_code}{A numeric value (or coercible with \code{\link[base:as.double]{base::as.double()}})
-or vector of time series code(s), as defined in the field
+\item{series_code}{A numeric value, or one coercible with
+\code{\link[base:as.double]{base::as.double()}}, or a vector of time series codes, as defined in the
+field
 \verb{Número secuencial} of the corresponding series. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 
 \item{series_label}{Optional character string or vector of labels to assign
 to the extracted series.}
 
-\item{out_format}{The format to return, either "long" or "wide".
-Possible values are \code{"wide"} or \code{"long"}. See \strong{Value} for details and
-section \strong{Examples}.}
+\item{out_format}{The format to return, either \code{"wide"} or \code{"long"}.
+See \strong{Value} for details and the \strong{Examples} section.}
 
 \item{parse_dates}{Logical. If \code{TRUE}, dates are parsed using
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
 
-\item{parse_numeric}{Logical. If \code{TRUE} the columns would be parsed to
+\item{parse_numeric}{Logical. If \code{TRUE}, the columns are parsed to
 double (numeric) values. See \strong{Note}.}
 
 \item{cache_dir}{A path to a cache directory. The directory can also be set
@@ -43,7 +43,7 @@ via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 
 \item{verbose}{Logical. If \code{TRUE}, display information useful for debugging.}
 
-\item{extract_metadata}{Logical \code{TRUE/FALSE}. On \code{TRUE} the output is the
+\item{extract_metadata}{Logical \code{TRUE/FALSE}. If \code{TRUE}, the output is the
 metadata of the requested series.}
 }
 \value{
@@ -53,8 +53,8 @@ A \link[tibble:tbl_df]{tibble} with a \code{Date} column:
 column with the name defined by \code{series_label}.
 \item With \code{out_format = "long"}, the tibble has two additional columns:
 \itemize{
-\item \code{serie_name} with the label of each series.
-\item \code{serie_value} with the corresponding value.
+\item \code{serie_name}, with the label of each series.
+\item \code{serie_value}, with the corresponding value.
 }
 }
 

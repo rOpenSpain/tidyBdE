@@ -1,6 +1,6 @@
 #' Parse dates from strings
 #'
-#' Parse strings representing dates using [as.Date()]
+#' Parse strings representing dates using [as.Date()].
 #'
 #' @export
 #' @encoding UTF-8
@@ -17,7 +17,7 @@
 #' This function is tailored for date formats used in this package and may fail
 #' with other datasets. See **Examples** for formats that are supported.
 #'
-#' ## Date Formats
+#' ## Date formats
 #'
 #' ```{r, echo=FALSE}
 #'
@@ -34,7 +34,7 @@
 #'   "For the first quarter of 2020: *ENE 2020, MAR 2020*",
 #'   "**Half-yearly**", paste(
 #'     "MMM YYYY, where MMM is the first or the last month",
-#'     "of the halfyear period, depending on the value of its",
+#'     "of the half-year period, depending on the value of its",
 #'     "variable OBSERVED."
 #'   ),
 #'   "For the first half of 2020: *ENE 2020, JUN 2020*",
@@ -60,7 +60,7 @@
 #'
 #' #-----------------------------------
 #'
-#' # Formats not admitted
+#' # Unsupported formats
 #' wont_parse <- c("JAN2001", "2010-01-12", "01 APR 2017", "01/31/1990")
 #'
 #' parsed_fail <- bde_parse_dates(wont_parse)
@@ -98,7 +98,7 @@ bde_parse_dates <- function(dates_to_parse) {
     s2 <- dateformat[j]
 
     if (is.na(s2) || nchar(s2) < 4) {
-      # Return NULL
+      # Return NA
       dateformat[j] <- NA
     } else if (nchar(s2) == 4) {
       # Only a year is provided; add month and day
@@ -117,7 +117,7 @@ bde_parse_dates <- function(dates_to_parse) {
 #' Create a cache directory
 #'
 #' @param cache_dir Path to a cache directory.
-#' @param verbose Logical indicating if informative messages should be
+#' @param verbose Logical indicating whether informative messages should be
 #'   displayed.
 #' @param suffix An optional suffix to append to the path.
 #'
@@ -169,11 +169,11 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
 
 #' Internal helper for downloading files
 #'
-#' @param url Resource URL
+#' @param url Resource URL.
 #'
-#' @param local_file Local file path to create
+#' @param local_file Local file path to create.
 #'
-#' @param verbose Logical indicating if informative messages should be
+#' @param verbose Logical indicating whether informative messages should be
 #'   displayed.
 #'
 #' @noRd
@@ -225,7 +225,7 @@ bde_hlp_download <- function(url, local_file, verbose) {
 #' Infer column types in a tibble
 #'
 #' @param tbl The tibble to process.
-#' @param preserve vector of names to preserve
+#' @param preserve Vector of names to preserve.
 #' @noRd
 bde_hlp_guess <- function(tbl, preserve = "") {
   for (i in names(tbl)) {
@@ -243,7 +243,7 @@ bde_hlp_guess <- function(tbl, preserve = "") {
 #' Convert columns to characters
 #'
 #' @param tbl A tibble.
-#' @param preserve vector of names to preserve
+#' @param preserve Vector of names to preserve.
 #' @noRd
 bde_hlp_tochar <- function(tbl, preserve = "") {
   for (i in names(tbl)) {
@@ -257,7 +257,7 @@ bde_hlp_tochar <- function(tbl, preserve = "") {
 #' Convert columns to double precision numbers
 #'
 #' @param tbl A tibble.
-#' @param preserve vector of names to preserve
+#' @param preserve Vector of names to preserve.
 #' @noRd
 bde_hlp_todouble <- function(tbl, preserve = "") {
   for (i in names(tbl)) {

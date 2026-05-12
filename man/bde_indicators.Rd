@@ -13,7 +13,7 @@
 \alias{bde_ind_gdp_quarterly}
 \alias{bde_ind_population}
 \alias{bde_ind_ibex}
-\title{Relevant macroeconomic indicators of Spain}
+\title{Selected Spanish macroeconomic indicators}
 \usage{
 bde_ind_gdp_var(series_label = "GDP_YoY", ...)
 
@@ -40,12 +40,11 @@ to the extracted series.}
 \item{...}{
   Arguments passed on to \code{\link{bde_series_load}}
   \describe{
-    \item{\code{out_format}}{The format to return, either "long" or "wide".
-Possible values are \code{"wide"} or \code{"long"}. See \strong{Value} for details and
-section \strong{Examples}.}
-    \item{\code{parse_numeric}}{Logical. If \code{TRUE} the columns would be parsed to
+    \item{\code{out_format}}{The format to return, either \code{"wide"} or \code{"long"}.
+See \strong{Value} for details and the \strong{Examples} section.}
+    \item{\code{parse_numeric}}{Logical. If \code{TRUE}, the columns are parsed to
 double (numeric) values. See \strong{Note}.}
-    \item{\code{extract_metadata}}{Logical \code{TRUE/FALSE}. On \code{TRUE} the output is the
+    \item{\code{extract_metadata}}{Logical \code{TRUE/FALSE}. If \code{TRUE}, the output is the
 metadata of the requested series.}
     \item{\code{parse_dates}}{Logical. If \code{TRUE}, dates are parsed using
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
@@ -60,13 +59,14 @@ via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 A \link[tibble:tbl_df]{tibble} with the required series.
 }
 \description{
-Helper functions for downloading selected macroeconomic indicators of Spain.
+Convenience functions for downloading selected Spanish macroeconomic
+indicators.
 Metadata is available in \link{bde_ind_db}.
 }
 \details{
 These functions are convenient wrappers around \code{\link[=bde_series_load]{bde_series_load()}} for
 specific series. Use \verb{verbose = TRUE, extract_metadata = TRUE} to see the
-specification and the source.
+metadata and the source.
 }
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
