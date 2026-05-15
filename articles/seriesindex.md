@@ -1,10 +1,9 @@
 # Series index
 
 This table lists the available series in the catalog (last updated:
-**12-May-2026**).
+**15-May-2026**).
 
-Use the sequential number to load a single series, as shown in the
-example.
+Use the sequential number to load a series, as shown in the example.
 
 ## Summary
 
@@ -27,7 +26,7 @@ fr |>
 ```
 
 | Numero_secuencial | Descripcion_de_la_serie |
-|:---|:---|
+|---:|:---|
 | 2563958 | Economía internacional. Francia. AAPP. SEC2010. Capacidad (+) o necesidad (-) de financiación. Acum. 4 últimos trim. En % PIB pm |
 | 2563918 | Economía internacional. Francia. PDE (SEC2010). AAPP. Deuda PDE. En % PIB pm |
 

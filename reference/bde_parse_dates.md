@@ -29,7 +29,7 @@ bde_parse_dates(dates_to_parse)
 
 ## Value
 
-A [`Date`](https://rdrr.io/r/base/as.Date.html) object.
+A vector of [`Date`](https://rdrr.io/r/base/as.Date.html) values.
 
 ## Details
 

@@ -23,8 +23,8 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
 
 - catalog:
 
-  A single catalog identifier to update, or `"ALL"` to update every
-  catalog. See **Details**.
+  A single catalog identifier to load, or `"ALL"` to load every catalog.
+  See **Details**.
 
 - parse_dates:
 
@@ -79,9 +79,9 @@ Other catalog:
 ``` r
 # \donttest{
 bde_catalog_load("TI", verbose = TRUE)
-#> tidyBdE> Caching on temporary directory /tmp/RtmpkmHR11
+#> tidyBdE> Caching on temporary directory /tmp/RtmpTjuPsI
 #> tidyBdE> Need to download catalog TI
-#> tidyBdE> Cache dir is /tmp/RtmpkmHR11
+#> tidyBdE> Cache dir is /tmp/RtmpTjuPsI
 #> tidyBdE> Updating catalogs: TI
 #> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv
 #> 
