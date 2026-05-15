@@ -92,9 +92,9 @@ xr_gbp |>
 Table 1: Search results
 </p>
 
-**Note that BdE metadata is currently only provided in Spanish.** The
-institution is working on an English version. For now, search terms must
-be provided in Spanish to retrieve results.
+**Note:** BdE metadata is currently only provided in Spanish, so search
+terms must be provided in Spanish to retrieve results. The institution
+is working on an English version.
 
 After you have found a series, you can load the GBP/EUR exchange rate
 using the sequential number reference (`Numero_secuencial`) as follows:

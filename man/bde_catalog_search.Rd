@@ -14,8 +14,8 @@ and \strong{Examples}.}
 \item{...}{
   Arguments passed on to \code{\link{bde_catalog_load}}
   \describe{
-    \item{\code{catalog}}{A single catalog identifier to update, or \code{"ALL"} to
-update every catalog. See \strong{Details}.}
+    \item{\code{catalog}}{A single catalog identifier to load, or \code{"ALL"} to
+load every catalog. See \strong{Details}.}
     \item{\code{parse_dates}}{Logical. If \code{TRUE}, dates are parsed using
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
     \item{\code{update_cache}}{Logical. If \code{TRUE}, the requested file is refreshed in

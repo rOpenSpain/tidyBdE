@@ -17,8 +17,8 @@ bde_catalog_load(
 )
 }
 \arguments{
-\item{catalog}{A single catalog identifier to update, or \code{"ALL"} to
-update every catalog. See \strong{Details}.}
+\item{catalog}{A single catalog identifier to load, or \code{"ALL"} to
+load every catalog. See \strong{Details}.}
 
 \item{parse_dates}{Logical. If \code{TRUE}, dates are parsed using
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}

@@ -7,7 +7,7 @@
 #'
 #' @family utils
 #'
-#' @return A [`Date`][as.Date()] object.
+#' @return A vector of [`Date`][as.Date()] values.
 #'
 #' @seealso [as.Date()]
 #'

@@ -11,7 +11,7 @@ bde_parse_dates(dates_to_parse)
 \item{dates_to_parse}{Character vector of dates to parse.}
 }
 \value{
-A \code{\link[=as.Date]{Date}} object.
+A vector of \code{\link[=as.Date]{Date}} values.
 }
 \description{
 This function is tailored for date formats used in this package and may fail

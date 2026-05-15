@@ -20,8 +20,8 @@
 #'
 #' ```
 #'
-#' @param catalog A single catalog identifier to update, or `"ALL"` to
-#'   update every catalog. See **Details**.
+#' @param catalog A single catalog identifier to load, or `"ALL"` to
+#'   load every catalog. See **Details**.
 #'
 #' @param parse_dates Logical. If `TRUE`, dates are parsed using
 #'   [bde_parse_dates()].
@@ -211,7 +211,7 @@ bde_catalog_load <- function(
 #'
 #' @family catalog
 #'
-#' @return None. Downloads the catalog file or files to the local machine.
+#' @return An invisible list of download results.
 #'
 #' @source
 #'

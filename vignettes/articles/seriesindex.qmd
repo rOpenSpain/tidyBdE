@@ -19,7 +19,7 @@ knitr:
 This table lists the available series in the catalog (last updated:
 **`r format(Sys.Date(),"%d-%B-%Y")`**).
 
-Use the sequential number to load a single series, as shown in the example.
+Use the sequential number to load a series, as shown in the example.
 
 ## Summary
 
