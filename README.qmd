@@ -38,7 +38,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 **tidyBdE** is an **R** package that retrieves data from [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
-The data is returned as a [tibble](https://tibble.tidyverse.org/), and the
+Data are returned as a [tibble](https://tibble.tidyverse.org/), and the
 package automatically detects the format of each time series (dates, characters
 and numbers).
 
@@ -115,7 +115,7 @@ cat("<p class=\"caption\">Table 1: Search results</p>")
 terms must be provided in Spanish to retrieve results. The institution is
 working on an English version.
 
-After you have found a series, you can load the GBP/EUR exchange rate using the
+Once you have found a series, you can load the GBP/EUR exchange rate using the
 sequential number reference (`Numero_secuencial`) as follows:
 
 ```{r}
@@ -123,7 +123,7 @@ sequential number reference (`Numero_secuencial`) as follows:
 seq_number <- xr_gbp |>
   # Select the first record.
   slice(1) |>
-  # Get the ID.
+  # Get the series ID.
   select(Numero_secuencial) |>
   # Convert to numeric.
   as.double()
@@ -165,9 +165,8 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   theme_tidybde()
 ```
 
-The package also provides several shortcut functions for a selection of
-relevant macroeconomic series, so you do not need to search for them in
-advance:
+The package also provides convenience functions for selected macroeconomic
+series, so you do not need to search for them in advance:
 
 ```{r}
 #| label: macroseries
@@ -190,7 +189,7 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
     caption = "Source: BdE"
   ) +
   theme_tidybde() +
-  scale_color_bde_d(palette = "bde_vivid_pal") # Custom package palette.
+  scale_color_bde_d(palette = "bde_vivid_pal") # Use a custom package palette.
 ```
 
 ### Palettes
@@ -198,7 +197,7 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
 Three custom palettes, based on those used by BdE in some publications, are
 available.
 
-Apply these palettes to `ggplot2` plots using the scale functions provided in
+Apply these palettes to **ggplot2** plots using the scale functions provided in
 the package (see `help("scale_color_bde_d", package = "tidyBdE")`).
 
 ### A note on caching
@@ -227,7 +226,7 @@ bde_series_load("SOME ID", update_cache = TRUE)
 
 ## Disclaimer
 
-This package is in no way sponsored, endorsed, or administered by Banco de
+This package is in no way sponsored, endorsed or administered by Banco de
 España.
 
 ## Citation

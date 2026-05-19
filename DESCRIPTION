@@ -4,8 +4,8 @@ Version: 0.6.0.9000
 Authors@R:
     person("Diego", "H. Herrero", , "dev.dieghernan@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658"))
-Description: Tools to retrieve time series data from 'Banco de España'
-    ('BdE') and return the results in 'tibble' format. 'Banco de España'
+Description: Tools for retrieving time series data from 'Banco de España'
+    ('BdE') and returning results as 'tibble' objects. 'Banco de España'
     is the national central bank and, within the framework of the Single
     Supervisory Mechanism ('SSM'), the supervisor of the Spanish banking
     system alongside the European Central Bank. This package is in no way

@@ -24,7 +24,7 @@
 #' @details
 #' These functions are convenient wrappers around [bde_series_load()] for
 #' specific series. Use `verbose = TRUE, extract_metadata = TRUE` to see the
-#' metadata and the source.
+#' metadata and source.
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{

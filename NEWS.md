@@ -15,9 +15,9 @@
 
 # tidyBdE 0.4.0
 
-- Now `?bde_indicators` are based on the data from the new database
-  `?bde_ind_db`, for greater clarity on the underlying series identifiers and
-  easier maintenance.
+- `?bde_indicators` is now based on data from the new `?bde_ind_db` database,
+  for greater clarity on the underlying series identifiers and easier
+  maintenance.
 
 # tidyBdE 0.3.8
 
@@ -32,12 +32,12 @@
 
 # tidyBdE 0.3.6
 
-- Adapt `scale_color_bde_d()` and friends to **ggplot2** 3.5.0. Also expose the
+- Adapt `scale_color_bde_d()` and friends to **ggplot2** 3.5.0. Expose the
   `guide` argument instead of hard-coding it.
 
 # tidyBdE 0.3.5
 
-Mostly changes to the color functions:
+Mainly changes to the color functions:
 
 - `bde_vivid_pal()` and `bde_rose_pal()` have been superseded. Use the new
   function `bde_tidy_palettes()` instead.
@@ -57,14 +57,14 @@ Mostly changes to the color functions:
 # tidyBdE 0.3.2
 
 - Remove **tidyverse** from Suggests.
-- On indicators:
+- Indicators:
   - `bde_ind_ibex()` renamed to `bde_ind_ibex_monthly()`.
   - New indicator `bde_ind_ibex_daily()`.
 
 # tidyBdE 0.3.1
 
 - Add new dependency: **tidyr**.
-- New parameter `out_format` on `bde_series_load()`.
+- Add the `out_format` parameter to `bde_series_load()`.
 - Apply best practices and small adjustments to `theme_tidybde()`.
 
 # tidyBdE 0.3.0
@@ -86,10 +86,10 @@ Mostly changes to the color functions:
 
 # tidyBdE 0.2.3
 
-- The following catalogs have been deprecated in the API; the package has been
-  updated accordingly:
+- The package has been updated because the following catalogs have been
+  deprecated in the API:
   - **CF**: Financial Accounts of the Spanish Economy.
-  - **IE**: Economic Indicators
+  - **IE**: Economic Indicators.
 
 # tidyBdE 0.2.2
 
@@ -98,7 +98,7 @@ Mostly changes to the color functions:
   [here](https://www.bde.es/wbe/en/estadisticas/)). Some series in
   `?bde_indicators` are likely to break in the meantime. So far, the following
   series have been updated:
-  - `bde_ind_euribor_12m_monthly()`: New series code is `587853`.
+  - `bde_ind_euribor_12m_monthly()`: The new series code is `587853`.
 - Update documentation and examples.
 
 # tidyBdE 0.2.1
@@ -123,12 +123,12 @@ Mostly changes to the color functions:
 
 - Precompile vignette.
 - Improve error handling according to **CRAN** rules.
-- Changed some examples.
+- Update examples.
 
 # tidyBdE 0.1.1
 
 - Add vignette to the package.
-- Color adjustment on `bde_rose_pal()`: The HCL spectrum is now more consistent
+- Adjust colors in `bde_rose_pal()`: the HCL spectrum is now more consistent
   between roses and blues according to `colorspace::specplot()`.
 - Add DOI: <https://doi.org/10.5281/zenodo.4673496>
 - New palettes for **ggplot2**: `scale_color_bde_c()`, `scale_color_bde_d()`,

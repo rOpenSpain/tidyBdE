@@ -42,16 +42,14 @@ scale_fill_bde_c(
 )
 }
 \arguments{
-\item{palette}{BdE palette to apply. See \code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}}
-for details.}
+\item{palette}{BdE palette to apply. See \code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}} for details.}
 
 \item{alpha}{An alpha transparency level in the range \verb{[0, 1]} (\code{0} means
 transparent and \code{1} means opaque). If missing (i.e., \code{alpha = NULL}), the
 function does not append opacity codes (\code{"FF"}) to the individual color
 hex codes. See \code{\link[ggplot2:alpha]{ggplot2::alpha()}}.}
 
-\item{rev}{Logical indicating whether the ordering of the colors should be
-reversed.}
+\item{rev}{Logical indicating whether to reverse the color order.}
 
 \item{...}{Additional arguments passed to \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} or
 \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}.}
@@ -60,10 +58,10 @@ reversed.}
 \code{\link[ggplot2:guides]{guides()}} for more information.}
 }
 \value{
-A \CRANpkg{ggplot2} color scale.
+A \CRANpkg{ggplot2} color scale object.
 }
 \description{
-Color scales for the \CRANpkg{ggplot2} package. Discrete palettes are
+Color scales for the \CRANpkg{ggplot2} package. Discrete scales are
 named \verb{scale_*_bde_d}, while continuous palettes are named \verb{scale_*_bde_c}.
 }
 \examples{

@@ -21,7 +21,7 @@ load every catalog. See \strong{Details}.}
     \item{\code{update_cache}}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
     \item{\code{cache_dir}}{A path to a cache directory. The directory can also be set
-via options with \code{options(bde_cache_dir = "path/to/dir")}.}
+with options using \code{options(bde_cache_dir = "path/to/dir")}.}
     \item{\code{verbose}}{Logical. If \code{TRUE}, display information useful for debugging.}
   }}
 }
@@ -29,7 +29,7 @@ via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 A \link[tibble:tbl_df]{tibble} object with the results of the query.
 }
 \description{
-Search for keywords in the time series catalogs.
+Search for keywords in BdE time series catalogs.
 }
 \details{
 \strong{Note:} BdE metadata is currently only provided in Spanish. Therefore,

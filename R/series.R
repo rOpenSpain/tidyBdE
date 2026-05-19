@@ -1,6 +1,6 @@
 #' Load a single BdE time series
 #'
-#' Load a single time series provided by BdE.
+#' Load a single BdE time series.
 #'
 #' @export
 #' @encoding UTF-8
@@ -81,7 +81,7 @@
 #'
 #' long
 #'
-#' # Use with ggplot2.
+#' # Use with `ggplot2`.
 #' library(ggplot2)
 #'
 #' ggplot(long, aes(Date, serie_value)) +
@@ -101,7 +101,7 @@ bde_series_load <- function(
   extract_metadata = FALSE
 ) {
   if (missing(series_code)) {
-    stop("`series_code` can't be NULL")
+    stop("`series_code` cannot be NULL.")
   }
 
   series_code <- as.double(series_code)
@@ -112,13 +112,13 @@ bde_series_load <- function(
     series_label <- as.character(series_code)
   }
   if (anyNA(series_label)) {
-    stop("`series_label` should not contain NA values")
+    stop("`series_label` must not contain NA values.")
   }
 
   series_label <- unique(as.character(series_label))
 
   if (length(series_code) != length(series_label)) {
-    stop("`series_label` and `series_code` should have the same length")
+    stop("`series_label` and `series_code` must have the same length.")
   }
 
   # Search the catalogs.
@@ -141,15 +141,14 @@ bde_series_load <- function(
 
   df_list <- lapply(series_code, function(x) {
     if (verbose) {
-      message("tidyBdE> Extracting series ", x, "\n\n")
+      message("tidyBdE> Extracting series ", x, ".\n\n")
     }
 
     # Identify the source file.
-
     csv_file <- all_catalogs[all_catalogs[[1]] == x, c(2, 3)]
 
     if (nrow(csv_file) == 0) {
-      message("`series_code` not found on catalogs.")
+      message("`series_code` not found in catalogs.")
       tbl <- bde_hlp_return_null()
       return(tbl)
     }
@@ -160,7 +159,7 @@ bde_series_load <- function(
 
     if (verbose) {
       message(
-        "tidyBdE> Downloading serie ",
+        "tidyBdE> Downloading series ",
         x,
         " from file ",
         csv_file_name,
@@ -190,16 +189,15 @@ bde_series_load <- function(
       if (verbose) {
         message(
           "tidyBdE> ",
-          "Serie with alias '",
+          "Series with alias '",
           alias_serie,
-          "' not available on ",
+          "' is not available in ",
           csv_file_name,
-          ". "
+          "."
         )
       }
 
       # Return an empty tibble if the alias is not available.
-
       return(bde_hlp_return_null())
 
       # nocov end
@@ -222,7 +220,6 @@ bde_series_load <- function(
   df_list <- df_list[nrows]
 
   # Check that all data frames have a Date field.
-
   has_date <- vapply(
     df_list,
     function(x) {
@@ -258,7 +255,7 @@ bde_series_load <- function(
 
 #' Load BdE full time series files
 #'
-#' Load a full time series file provided by BdE.
+#' Load a full BdE time series file.
 #'
 #' ## About BdE file naming
 #'
@@ -328,7 +325,7 @@ bde_series_full_load <- function(
 
   pp <- substr(series_csv, 1, 2)
 
-  # Get the cache directory.
+  # Resolve the cache directory.
   cache_dir <- bde_hlp_cachedir(
     cache_dir = cache_dir,
     verbose = verbose,
@@ -381,7 +378,7 @@ bde_series_full_load <- function(
   # nocov start
   r <- readLines(local_file, warn = FALSE, n = 1000)
   if (length(r) == 0) {
-    message("File ", local_file, " not valid")
+    message("File ", local_file, " is not valid.")
     return(invisible())
   }
   # nocov end
@@ -433,7 +430,7 @@ bde_series_full_load <- function(
   # Parse dates.
   if (parse_dates) {
     if (verbose) {
-      message("tidyBdE> Parsing dates")
+      message("tidyBdE> Parsing dates.")
     }
     date_fields <- names(data_serie)[grep(
       "Date",
@@ -450,7 +447,7 @@ bde_series_full_load <- function(
 
   if (parse_numeric) {
     if (verbose) {
-      message("tidyBdE> Parsing fields to double")
+      message("tidyBdE> Parsing fields to double.")
     }
     # Convert fields to double precision numbers.
     data_serie <- bde_hlp_todouble(data_serie, preserve = "Date")

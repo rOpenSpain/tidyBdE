@@ -1,7 +1,7 @@
 ---
 title: "Series index"
 date: "`r Sys.Date()`"
-description: Summary of information accessible through tidyBdE.
+description: Summary of information available through tidyBdE.
 toc: true
 tbl-cap-location: bottom
 knitr:
@@ -16,7 +16,7 @@ knitr:
     out.width: "100%"
 ---
 
-This table lists the available series in the catalog (last updated:
+This table lists the available series in the catalog, last updated:
 **`r format(Sys.Date(),"%d-%B-%Y")`**).
 
 Use the sequential number to load a series, as shown in the example.
@@ -72,7 +72,7 @@ reactable(
 
 ## Example {#example}
 
-Workflow for searching and extracting a specific series:
+Workflow for searching for and extracting a specific series:
 
 ```{r}
 #| label: tbl-example
@@ -92,12 +92,11 @@ fr |>
 ```{r}
 #| label: tbl-meta
 #| tbl-cap: Metadata of the indicator
-# Extract the first series.
-# Use tidyverse style.
+# Extract the first series using tidyverse style.
 fr |>
-  # Select the ID.
+  # Select the series ID.
   select(Numero_secuencial) |>
-  # Select the first observation.
+  # Select the first record.
   slice(1) |>
   # Convert to numeric.
   as.double() |>
@@ -106,9 +105,9 @@ fr |>
 
 # Show the metadata.
 fr |>
-  # Select the ID.
+  # Select the series ID.
   select(Numero_secuencial) |>
-  # Select the first observation.
+  # Select the first record.
   slice(1) |>
   # Convert to numeric.
   as.double() |>

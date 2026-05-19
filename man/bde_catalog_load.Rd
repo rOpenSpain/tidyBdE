@@ -24,7 +24,7 @@ load every catalog. See \strong{Details}.}
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
 
 \item{cache_dir}{A path to a cache directory. The directory can also be set
-via options with \code{options(bde_cache_dir = "path/to/dir")}.}
+with options using \code{options(bde_cache_dir = "path/to/dir")}.}
 
 \item{update_cache}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
@@ -35,7 +35,7 @@ via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 A \link[tibble:tbl_df]{tibble} with the requested catalog metadata.
 }
 \description{
-Load the time series catalogs provided by BdE.
+Load BdE time series catalogs.
 }
 \details{
 Accepted values for \code{catalog} are:\tabular{llll}{
@@ -48,7 +48,7 @@ Accepted values for \code{catalog} are:\tabular{llll}{
 }
 
 
-Use \code{"ALL"} as a shorthand for updating all the catalogs at once.
+Use \code{"ALL"} as a shorthand for loading all catalogs at once.
 
 If the requested catalog is not cached, \code{\link[=bde_catalog_update]{bde_catalog_update()}} is invoked.
 }

@@ -36,7 +36,7 @@ See \strong{Value} for details and the \strong{Examples} section.}
 double (numeric) values. See \strong{Note}.}
 
 \item{cache_dir}{A path to a cache directory. The directory can also be set
-via options with \code{options(bde_cache_dir = "path/to/dir")}.}
+with options using \code{options(bde_cache_dir = "path/to/dir")}.}
 
 \item{update_cache}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
@@ -76,7 +76,7 @@ several aliases. If you need to search by alias, use
 \code{\link[=bde_series_full_load]{bde_series_full_load()}}.
 }
 \details{
-Load a single time series provided by BdE.
+Load a single BdE time series.
 }
 \note{
 This function attempts to coerce the columns to numbers. For some series, a
@@ -112,7 +112,7 @@ long <- bde_series_load(c(573234, 573214),
 
 long
 
-# Use with ggplot2.
+# Use with `ggplot2`.
 library(ggplot2)
 
 ggplot(long, aes(Date, serie_value)) +

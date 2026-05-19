@@ -3,7 +3,7 @@
 #' @description
 #' Minimal metadata for the selected Spanish macroeconomic indicators included
 #' in convenience functions of \CRANpkg{tidyBdE} (see [bde_indicators]). Full
-#' metadata can be accessed via [bde_catalog_load()].
+#' metadata can be accessed with [bde_catalog_load()].
 #'
 #' @docType data
 #'

@@ -2,7 +2,7 @@
 #'
 #' @description
 #'
-#' Color scales for the \CRANpkg{ggplot2} package. Discrete palettes are
+#' Color scales for the \CRANpkg{ggplot2} package. Discrete scales are
 #' named `scale_*_bde_d`, while continuous palettes are named `scale_*_bde_c`.
 #'
 #' @seealso [ggplot2::discrete_scale()], [ggplot2::continuous_scale()]
@@ -12,14 +12,13 @@
 #' @export
 #' @encoding UTF-8
 #'
-#' @return A \CRANpkg{ggplot2} color scale.
+#' @return A \CRANpkg{ggplot2} color scale object.
 #'
 #' @rdname scales_bde
 #'
 #' @name scales_bde
 #'
-#' @param palette BdE palette to apply. See [bde_tidy_palettes()]
-#'   for details.
+#' @param palette BdE palette to apply. See [bde_tidy_palettes()] for details.
 #'
 #' @inheritParams bde_tidy_palettes
 #' @inheritParams ggplot2::continuous_scale

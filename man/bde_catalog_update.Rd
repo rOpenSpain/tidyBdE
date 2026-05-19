@@ -19,7 +19,7 @@ bde_catalog_update(
 update every catalog. See \strong{Details}.}
 
 \item{cache_dir}{A path to a cache directory. The directory can also be set
-via options with \code{options(bde_cache_dir = "path/to/dir")}.}
+with options using \code{options(bde_cache_dir = "path/to/dir")}.}
 
 \item{verbose}{Logical. If \code{TRUE}, display information useful for debugging.}
 }
@@ -27,7 +27,7 @@ via options with \code{options(bde_cache_dir = "path/to/dir")}.}
 An invisible list of download results.
 }
 \description{
-Update the time series catalogs provided by BdE.
+Update BdE time series catalogs.
 }
 \details{
 Accepted values for \code{catalog} are:\tabular{llll}{
@@ -40,7 +40,7 @@ Accepted values for \code{catalog} are:\tabular{llll}{
 }
 
 
-Use \code{"ALL"} as a shorthand for updating all the catalogs at once.
+Use \code{"ALL"} as a shorthand for updating all catalogs at once.
 }
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}

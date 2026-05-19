@@ -1,7 +1,7 @@
 #' Load BdE catalogs
 #'
 #' @description
-#' Load the time series catalogs provided by BdE.
+#' Load BdE time series catalogs.
 #'
 #' @export
 #' @encoding UTF-8
@@ -51,7 +51,7 @@
 #'
 #' knitr::kable(t)
 #' ```
-#' Use `"ALL"` as a shorthand for updating all the catalogs at once.
+#' Use `"ALL"` as a shorthand for loading all catalogs at once.
 #'
 #' If the requested catalog is not cached, [bde_catalog_update()] is invoked.
 #'
@@ -83,7 +83,7 @@ bde_catalog_load <- function(
     catalog_to_load <- setdiff(valid_catalogs, "ALL")
   }
 
-  # Determine the cache directory.
+  # Resolve the cache directory.
   cache_dir <- bde_hlp_cachedir(cache_dir = cache_dir, verbose = verbose)
 
   final_catalog <- lapply(catalog_to_load, function(x) {
@@ -92,11 +92,11 @@ bde_catalog_load <- function(
     has_cache <- file.exists(catalog_file)
 
     if (all(has_cache, isFALSE(update_cache))) {
-      if (verbose) message("tidyBdE> Cached version of ", x, " detected")
+      if (verbose) message("tidyBdE> Cached version of ", x, " detected.")
     } else {
       # Download the catalog if it is missing or must be refreshed.
       if (verbose) {
-        message("tidyBdE> Need to download catalog ", x)
+        message("tidyBdE> Need to download catalog ", x, ".")
       }
 
       result <- bde_catalog_update(
@@ -107,7 +107,7 @@ bde_catalog_load <- function(
 
       # Handle download errors.
       if (any(is.data.frame(result), isFALSE(result))) {
-        message("Download not available for ", x)
+        message("Download is not available for ", x, ".")
         return(NULL)
       }
     }
@@ -116,7 +116,7 @@ bde_catalog_load <- function(
     # nocov start
     r <- readLines(catalog_file, warn = FALSE, n = 1000)
     if (length(r) == 0) {
-      message("File ", catalog_file, " not valid")
+      message("File ", catalog_file, " is not valid.")
       return(invisible())
     }
     # nocov end
@@ -134,9 +134,9 @@ bde_catalog_load <- function(
       )
     )
 
-    # Convert names.
+    # Use stable column names.
     # Hard-coded column names to avoid UTF-8 encoding issues during checks.
-    # Some operating systems might fail without this workaround.
+    # Avoid check failures on systems with different encodings.
     names_catalog <- c(
       "Nombre_de_la_serie",
       "Numero_secuencial",
@@ -169,7 +169,7 @@ bde_catalog_load <- function(
 
   if (any(res_all)) {
     msg <- paste0(catalog_to_load[res_all], collapse = ", ")
-    message("tidyBdE> Could not load catalogs: ", msg)
+    message("tidyBdE> Could not load catalogs: ", msg, ".")
   }
 
   # Combine catalogs and infer column types.
@@ -179,13 +179,13 @@ bde_catalog_load <- function(
     preserve = names(final_catalog)[c(5, 15)]
   )
 
-  # Convert the result to a tibble.
+  # Return the result as a tibble.
   final_catalog <- tibble::as_tibble(final_catalog)
 
   # Parse date columns.
   if (parse_dates) {
     if (verbose) {
-      message("tidyBdE> Parsing dates")
+      message("tidyBdE> Parsing dates.")
     }
     date_fields <- names(final_catalog)[grep(
       "Fecha",
@@ -204,7 +204,7 @@ bde_catalog_load <- function(
 #' Update BdE catalogs
 #'
 #' @description
-#' Update the time series catalogs provided by BdE.
+#' Update BdE time series catalogs.
 #'
 #' @export
 #' @encoding UTF-8
@@ -226,7 +226,7 @@ bde_catalog_load <- function(
 #' @param catalog A single catalog identifier to update, or `"ALL"` to
 #'   update every catalog. See **Details**.
 #' @param cache_dir A path to a cache directory. The directory can also be set
-#'   via options with `options(bde_cache_dir = "path/to/dir")`.
+#'   with options using `options(bde_cache_dir = "path/to/dir")`.
 #' @param verbose Logical. If `TRUE`, display information useful for debugging.
 #'
 #' @details
@@ -250,7 +250,7 @@ bde_catalog_load <- function(
 #' knitr::kable(t)
 #'
 #' ```
-#' Use `"ALL"` as a shorthand for updating all the catalogs at once.
+#' Use `"ALL"` as a shorthand for updating all catalogs at once.
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{
@@ -277,7 +277,7 @@ bde_catalog_update <- function(
   }
   # nocov end
 
-  # Determine the cache directory.
+  # Resolve the cache directory.
   cache_dir <- bde_hlp_cachedir(cache_dir = cache_dir, verbose = verbose)
 
   # Download the requested catalogs.
@@ -319,7 +319,7 @@ bde_catalog_update <- function(
 #' Search BdE catalogs
 #'
 #' @description
-#' Search for keywords in the time series catalogs.
+#' Search for keywords in BdE time series catalogs.
 #'
 #' @export
 #' @encoding UTF-8
@@ -366,7 +366,9 @@ bde_catalog_search <- function(pattern, ...) {
   }
 
   if (!tibble::is_tibble(catalog_search)) {
-    message("Catalogs corrupted. Try redownloading with bde_catalog_update()")
+    message(
+      "Catalogs are corrupted. Try redownloading with bde_catalog_update()."
+    )
     return(invisible())
   }
   # nocov end
@@ -387,7 +389,7 @@ bde_catalog_search <- function(pattern, ...) {
 
   search_results <- catalog_search[search_match_rows, ]
   if (nrow(search_results) == 0) {
-    stop("tidyBdE> No matches found for ", pattern)
+    stop("tidyBdE> No matches found for ", pattern, ".")
   }
   search_results
 }

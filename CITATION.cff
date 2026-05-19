@@ -13,11 +13,11 @@ doi: 10.32614/CRAN.package.tidyBdE
 identifiers:
 - type: doi
   value: 10.32614/CRAN.package.tidyBdE
-abstract: Tools to retrieve time series data from 'Banco de España' ('BdE') and return
-  the results in 'tibble' format. 'Banco de España' is the national central bank and,
-  within the framework of the Single Supervisory Mechanism ('SSM'), the supervisor
-  of the Spanish banking system alongside the European Central Bank. This package
-  is in no way sponsored, endorsed or administered by 'Banco de España'.
+abstract: Tools for retrieving time series data from 'Banco de España' ('BdE') and
+  returning results as 'tibble' objects. 'Banco de España' is the national central
+  bank and, within the framework of the Single Supervisory Mechanism ('SSM'), the
+  supervisor of the Spanish banking system alongside the European Central Bank. This
+  package is in no way sponsored, endorsed or administered by 'Banco de España'.
 authors:
 - family-names: H. Herrero
   given-names: Diego
@@ -35,11 +35,11 @@ preferred-citation:
   year: '2026'
   version: 0.6.0.9000
   url: https://ropenspain.github.io/tidyBdE/
-  abstract: Tools to retrieve time series data from Banco de España (BdE) and return
-    the results in tibble format. Banco de España is the national central bank and,
-    within the framework of the Single Supervisory Mechanism (SSM), the supervisor
-    of the Spanish banking system alongside the European Central Bank. This package
-    is in no way sponsored, endorsed or administered by Banco de España.
+  abstract: Tools for retrieving time series data from Banco de España (BdE) and returning
+    results as tibble objects. Banco de España is the national central bank and, within
+    the framework of the Single Supervisory Mechanism (SSM), the supervisor of the
+    Spanish banking system alongside the European Central Bank. This package is in
+    no way sponsored, endorsed or administered by Banco de España.
 repository: https://CRAN.R-project.org/package=tidyBdE
 repository-code: https://github.com/rOpenSpain/tidyBdE
 url: https://ropenspain.github.io/tidyBdE/

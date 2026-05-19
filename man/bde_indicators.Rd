@@ -51,7 +51,7 @@ metadata of the requested series.}
     \item{\code{update_cache}}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
     \item{\code{cache_dir}}{A path to a cache directory. The directory can also be set
-via options with \code{options(bde_cache_dir = "path/to/dir")}.}
+with options using \code{options(bde_cache_dir = "path/to/dir")}.}
     \item{\code{verbose}}{Logical. If \code{TRUE}, display information useful for debugging.}
   }}
 }
@@ -66,7 +66,7 @@ Metadata is available in \link{bde_ind_db}.
 \details{
 These functions are convenient wrappers around \code{\link[=bde_series_load]{bde_series_load()}} for
 specific series. Use \verb{verbose = TRUE, extract_metadata = TRUE} to see the
-metadata and the source.
+metadata and source.
 }
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}

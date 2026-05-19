@@ -22,14 +22,13 @@ transparent and \code{1} means opaque). If missing (i.e., \code{alpha = NULL}), 
 function does not append opacity codes (\code{"FF"}) to the individual color
 hex codes. See \code{\link[ggplot2:alpha]{ggplot2::alpha()}}.}
 
-\item{rev}{Logical indicating whether the ordering of the colors should be
-reversed.}
+\item{rev}{Logical indicating whether to reverse the color order.}
 }
 \value{
-A vector of colors.
+A character vector of colors.
 }
 \description{
-Palettes based on BdE publications and defined manually.
+Manually defined palettes based on BdE publications.
 Each palette contains at most six colors.
 }
 \examples{

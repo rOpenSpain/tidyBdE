@@ -101,10 +101,10 @@ bde_parse_dates <- function(dates_to_parse) {
       # Return NA.
       dateformat[j] <- NA
     } else if (nchar(s2) == 4) {
-      # Only a year is provided; add month and day.
+      # If only a year is provided, add month and day.
       dateformat[j] <- paste0("3112", s2)
     } else if (nchar(s2) == 6) {
-      # Month and year are provided; add day.
+      # If month and year are provided, add day.
       dateformat[j] <- paste0("01", s2)
     }
   }
@@ -117,13 +117,12 @@ bde_parse_dates <- function(dates_to_parse) {
 #' Create a cache directory
 #'
 #' @param cache_dir Path to a cache directory.
-#' @param verbose Logical indicating whether informative messages should be
-#'   displayed.
+#' @param verbose Logical indicating whether to display informative messages.
 #' @param suffix An optional suffix to append to the path.
 #'
 #' @noRd
 bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
-  # Identify the cache directory.
+  # Resolve the cache directory.
   if (is.null(cache_dir)) {
     # Check whether the directory is set via global options.
     cache_dir <- getOption("bde_cache_dir", NULL)
@@ -137,13 +136,17 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
       }
 
       if (verbose) {
-        message("tidyBdE> Caching on temporary directory ", cache_dir)
+        message("tidyBdE> Caching in temporary directory ", cache_dir, ".")
       }
       return(cache_dir)
     } else {
       # Detect the cache directory from global options.
       if (verbose) {
-        message("tidyBdE> Cache dir detected on options: ", cache_dir)
+        message(
+          "tidyBdE> Cache directory detected in options: ",
+          cache_dir,
+          "."
+        )
       }
     }
   }
@@ -155,14 +158,14 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
 
   if (dir.exists(cache_dir)) {
     if (verbose) {
-      message("tidyBdE> Cache dir is ", cache_dir)
+      message("tidyBdE> Cache directory is ", cache_dir, ".")
     }
     return(cache_dir)
   }
 
   dir.create(cache_dir, recursive = TRUE)
   if (verbose) {
-    message("tidyBdE> Cache dir created on ", cache_dir)
+    message("tidyBdE> Cache directory created at ", cache_dir, ".")
   }
   cache_dir
 }
@@ -173,13 +176,12 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
 #'
 #' @param local_file Local file path to create.
 #'
-#' @param verbose Logical indicating whether informative messages should be
-#'   displayed.
+#' @param verbose Logical indicating whether to display informative messages.
 #'
 #' @noRd
 bde_hlp_download <- function(url, local_file, verbose) {
   if (verbose) {
-    message("tidyBdE> Downloading file from ", url, "\n\n")
+    message("tidyBdE> Downloading file from ", url, ".\n\n")
   }
 
   err_dwnload <- tryCatch(
@@ -195,7 +197,7 @@ bde_hlp_download <- function(url, local_file, verbose) {
   # nocov start
   if (isTRUE(err_dwnload)) {
     if (verbose) {
-      message("tidyBdE> Trying again")
+      message("tidyBdE> Trying again.")
     }
 
     err_dwnload <- tryCatch(
@@ -205,8 +207,8 @@ bde_hlp_download <- function(url, local_file, verbose) {
         message(
           "tidyBdE> URL \n ",
           url,
-          "\nnot reachable.\n\n",
-          "If you think this is a bug consider opening an issue"
+          "\nis not reachable.\n\n",
+          "If you think this is a bug, consider opening an issue."
         )
         TRUE
       }
@@ -279,7 +281,7 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
 #'
 #' bde_hlp_return_null()
 #' @noRd
-bde_hlp_return_null <- function(msg = "Offline. Returning an empty tibble") {
+bde_hlp_return_null <- function(msg = "Offline. Returning an empty tibble.") {
   # nocov start
   message(paste0("tidyBdE> ", msg))
   tbl <- tibble::tibble(x = NULL)

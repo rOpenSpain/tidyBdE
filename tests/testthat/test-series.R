@@ -1,5 +1,5 @@
 test_that("Indicators", {
-  expect_error(bde_series_load())
+  expect_error(bde_series_load(), "`series_code` cannot be NULL\\.")
 
   skip_on_cran()
   skip_if_bde_offline()
@@ -7,21 +7,30 @@ test_that("Indicators", {
   # Test load series all----
   expect_null(bde_series_full_load("aa"))
 
-  expect_message(bde_series_full_load(
-    "TI_1_1.csv",
-    cache_dir = tempdir(),
-    verbose = TRUE
-  ))
-  expect_message(bde_series_full_load(
-    "TI_1_1.csv",
-    cache_dir = NULL,
-    verbose = TRUE
-  ))
-  expect_message(bde_series_full_load(
-    "CF0101.csv",
-    cache_dir = NULL,
-    verbose = TRUE
-  ))
+  expect_message(
+    bde_series_full_load(
+      "TI_1_1.csv",
+      cache_dir = tempdir(),
+      verbose = TRUE
+    ),
+    "Reading file ti_1_1.csv from cache\\.|Downloading file from"
+  )
+  expect_message(
+    bde_series_full_load(
+      "TI_1_1.csv",
+      cache_dir = NULL,
+      verbose = TRUE
+    ),
+    "Reading file ti_1_1.csv from cache\\.|Downloading file from"
+  )
+  expect_message(
+    bde_series_full_load(
+      "CF0101.csv",
+      cache_dir = NULL,
+      verbose = TRUE
+    ),
+    "Reading file cf0101.csv from cache\\.|Downloading file from"
+  )
   expect_silent(bde_series_full_load("CF0101"))
 
   data <- bde_series_full_load("TI_1_1.csv")
@@ -32,9 +41,18 @@ test_that("Indicators", {
   # Test load series ----
   expect_warning(bde_series_load("aa"))
   expect_identical(bde_series_load(12345678910), bde_hlp_return_null())
-  expect_error(bde_series_load(c(573234, 573214), series_label = c(1, NA)))
-  expect_error(bde_series_load(c(573234, 573214), series_label = c("1", "1")))
-  expect_error(bde_series_load(573234, series_label = c("a", "b")))
+  expect_error(
+    bde_series_load(c(573234, 573214), series_label = c(1, NA)),
+    "`series_label` must not contain NA values\\."
+  )
+  expect_error(
+    bde_series_load(c(573234, 573214), series_label = c("1", "1")),
+    "`series_label` and `series_code` must have the same length\\."
+  )
+  expect_error(
+    bde_series_load(573234, series_label = c("a", "b")),
+    "`series_label` and `series_code` must have the same length\\."
+  )
 
   expect_silent(bde_series_load(c(573234, 573214), series_label = c("a", "b")))
 
@@ -43,7 +61,10 @@ test_that("Indicators", {
   expect_warning(bde_series_load(c("573234", "a")))
   expect_silent(bde_series_load(573234, series_label = NULL))
   expect_silent(bde_series_load(573234, extract_metadata = TRUE))
-  expect_message(bde_series_load(573234, verbose = TRUE))
+  expect_message(
+    bde_series_load(573234, verbose = TRUE),
+    "Extracting series 573234\\."
+  )
 
   meta <- bde_series_load(573234, extract_metadata = TRUE)
   data <- bde_series_load(573234, extract_metadata = FALSE)
@@ -97,7 +118,10 @@ test_that("Series full", {
 
   options(bde_test_offline = TRUE)
   # Can't download series
-  expect_message(bde_series_full_load(all_names[2], cache_dir = dir))
+  expect_message(
+    bde_series_full_load(all_names[2], cache_dir = dir),
+    "Testing offline\\."
+  )
 
   fail <- bde_series_full_load(all_names[2], cache_dir = dir)
   expect_equal(nrow(fail), 0)

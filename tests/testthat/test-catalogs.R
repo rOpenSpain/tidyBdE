@@ -8,7 +8,10 @@ test_that("Catalogs offline", {
 
   options(bde_test_offline = TRUE)
 
-  expect_message(bde_catalog_update("TC", cache_dir = dir))
+  expect_message(
+    bde_catalog_update("TC", cache_dir = dir),
+    "Testing offline\\."
+  )
 
   table1 <- bde_catalog_load("TI", cache_dir = dir)
   all <- bde_catalog_load("ALL", cache_dir = dir)
@@ -43,8 +46,14 @@ test_that("Messages", {
   dir <- file.path(tempdir(), "test_catalogs2")
 
   options(bde_test_offline = FALSE)
-  expect_message(bde_catalog_load("TC", verbose = TRUE, cache_dir = dir))
-  expect_message(bde_catalog_load("TC", verbose = TRUE, cache_dir = dir))
+  expect_message(
+    bde_catalog_load("TC", verbose = TRUE, cache_dir = dir),
+    "Need to download catalog TC\\.|Cached version of TC detected\\."
+  )
+  expect_message(
+    bde_catalog_load("TC", verbose = TRUE, cache_dir = dir),
+    "Cached version of TC detected\\."
+  )
 })
 
 test_that("Old tests: Catalogs", {
@@ -55,13 +64,22 @@ test_that("Old tests: Catalogs", {
   expect_error(bde_catalog_load("aa"))
   expect_error(bde_catalog_search("xxxxxxx", catalog = "IE"))
 
-  expect_message(bde_catalog_load("TC", cache_dir = tempdir(), verbose = TRUE))
-  expect_message(bde_catalog_load("TC", cache_dir = NULL, verbose = TRUE))
-  expect_message(bde_catalog_load(
-    "TC",
-    cache_dir = file.path(tempdir(), "aa"),
-    verbose = TRUE
-  ))
+  expect_message(
+    bde_catalog_load("TC", cache_dir = tempdir(), verbose = TRUE),
+    "Cached version of TC detected\\.|Need to download catalog TC\\."
+  )
+  expect_message(
+    bde_catalog_load("TC", cache_dir = NULL, verbose = TRUE),
+    "Cached version of TC detected\\.|Need to download catalog TC\\."
+  )
+  expect_message(
+    bde_catalog_load(
+      "TC",
+      cache_dir = file.path(tempdir(), "aa"),
+      verbose = TRUE
+    ),
+    "Cache directory created at|Need to download catalog TC\\."
+  )
 
   expect_silent(bde_catalog_load("ALL"))
 
@@ -69,18 +87,24 @@ test_that("Old tests: Catalogs", {
 
   expect_error(bde_catalog_update("aa"))
 
-  expect_message(bde_catalog_update(
-    "TC",
-    cache_dir = tempdir(),
-    verbose = TRUE
-  ))
+  expect_message(
+    bde_catalog_update(
+      "TC",
+      cache_dir = tempdir(),
+      verbose = TRUE
+    ),
+    "Updating catalogs: TC"
+  )
   expect_silent(bde_catalog_update("ALL", cache_dir = tempdir()))
   expect_silent(bde_catalog_update("TC", cache_dir = tempdir()))
 
   # Testing options cache dir
   init_cache_dir <- getOption("bde_cache_dir")
   options(bde_cache_dir = file.path(tempdir(), "test"))
-  expect_message(bde_catalog_update("TC", verbose = TRUE))
+  expect_message(
+    bde_catalog_update("TC", verbose = TRUE),
+    "Cache directory detected in options:"
+  )
   # Reset
   options(bde_cache_dir = init_cache_dir)
 

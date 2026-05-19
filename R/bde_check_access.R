@@ -19,7 +19,7 @@ bde_check_access <- function() {
   # nocov start
   test <- getOption("bde_test_offline", NULL)
   if (isTRUE(test)) {
-    message("dev> Testing offline")
+    message("dev> Testing offline.")
     return(FALSE)
   }
   # nocov end
@@ -54,7 +54,7 @@ skip_if_bde_offline <- function() {
   }
 
   if (requireNamespace("testthat", quietly = TRUE)) {
-    testthat::skip("tidyBdE> BdE API not reachable")
+    testthat::skip("tidyBdE> BdE API is not reachable.")
   }
   invisible()
   # nocov end

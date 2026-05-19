@@ -16,12 +16,12 @@ repo:
 
 reference:
 - title: Catalogs
-  desc: Search and load Banco de España time series catalogs.
+  desc: Search and load BdE time series catalogs.
   contents:
   - has_concept("catalog")
 
 - title: Series
-  desc: Retrieve individual or complete Banco de España time series.
+  desc: Load individual series or complete BdE time series files.
   contents:
   - has_concept("series")
 
@@ -41,8 +41,20 @@ reference:
   - has_concept("utils")
 
 - title: About the package
+  desc: Package-level documentation.
   contents:
   - tidyBdE-package
+
+articles:
+- title: Get started
+  navbar: ~
+  contents:
+  - tidyBdE
+- title: Articles
+  navbar: Articles
+  contents:
+  - articles/mainseries
+  - articles/seriesindex
 
 authors:
   Banco de España:

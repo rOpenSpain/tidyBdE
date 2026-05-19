@@ -1,12 +1,12 @@
 #' BdE color palettes
 #'
 #' @description
-#' Palettes based on BdE publications and defined manually.
+#' Manually defined palettes based on BdE publications.
 #' Each palette contains at most six colors.
 #'
 #' @family bde_plot
 #'
-#' @return A vector of colors.
+#' @return A character vector of colors.
 #'
 #' @export
 #' @encoding UTF-8
@@ -16,8 +16,7 @@
 #'   transparent and `1` means opaque). If missing (i.e., `alpha = NULL`), the
 #'   function does not append opacity codes (`"FF"`) to the individual color
 #'   hex codes. See [ggplot2::alpha()].
-#' @param rev Logical indicating whether the ordering of the colors should be
-#'   reversed.
+#' @param rev Logical indicating whether to reverse the color order.
 #' @examples
 #'
 #' # Show the BdE vivid palette.

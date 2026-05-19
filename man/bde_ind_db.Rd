@@ -21,7 +21,7 @@ A \link[tibble:tbl_df]{tibble} of 9 rows and
 \description{
 Minimal metadata for the selected Spanish macroeconomic indicators included
 in convenience functions of \CRANpkg{tidyBdE} (see \link{bde_indicators}). Full
-metadata can be accessed via \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
+metadata can be accessed with \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
 }
 \details{
 \tabular{lllllll}{
