@@ -65,8 +65,8 @@ bde_ind_population(series_label = "Population_Spain", ...)
 
   `cache_dir`
 
-  :   A path to a cache directory. The directory can also be set via
-      options with `options(bde_cache_dir = "path/to/dir")`.
+  :   A path to a cache directory. The directory can also be set with
+      options using `options(bde_cache_dir = "path/to/dir")`.
 
   `verbose`
 
@@ -82,7 +82,7 @@ with the required series.
 These functions are convenient wrappers around
 [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
 for specific series. Use `verbose = TRUE, extract_metadata = TRUE` to
-see the metadata and the source.
+see the metadata and source.
 
 ## See also
 

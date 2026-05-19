@@ -2,7 +2,7 @@
 
 Color scales for the
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) package. Discrete
-palettes are named `scale_*_bde_d`, while continuous palettes are named
+scales are named `scale_*_bde_d`, while continuous palettes are named
 `scale_*_bde_c`.
 
 ## Usage
@@ -57,8 +57,7 @@ scale_fill_bde_c(
 
 - rev:
 
-  Logical indicating whether the ordering of the colors should be
-  reversed.
+  Logical indicating whether to reverse the color order.
 
 - ...:
 
@@ -75,7 +74,8 @@ scale_fill_bde_c(
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) color scale.
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) color scale
+object.
 
 ## See also
 

@@ -27,12 +27,11 @@ CRAN release: 2026-01-13
 
 CRAN release: 2025-06-22
 
-- Now
-  [`?bde_indicators`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
-  are based on the data from the new database
-  [`?bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md),
-  for greater clarity on the underlying series identifiers and easier
-  maintenance.
+- [`?bde_indicators`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
+  is now based on data from the new
+  [`?bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md)
+  database, for greater clarity on the underlying series identifiers and
+  easier maintenance.
 
 ## tidyBdE 0.3.8
 
@@ -61,14 +60,14 @@ CRAN release: 2024-04-22
 
 - Adapt
   [`scale_color_bde_d()`](https://ropenspain.github.io/tidyBdE/reference/scales_bde.md)
-  and friends to **ggplot2** 3.5.0. Also expose the `guide` argument
-  instead of hard-coding it.
+  and friends to **ggplot2** 3.5.0. Expose the `guide` argument instead
+  of hard-coding it.
 
 ## tidyBdE 0.3.5
 
 CRAN release: 2024-01-29
 
-Mostly changes to the color functions:
+Mainly changes to the color functions:
 
 - [`bde_vivid_pal()`](https://ropenspain.github.io/tidyBdE/reference/bde_pals.md)
   and
@@ -100,7 +99,7 @@ CRAN release: 2023-05-25
 CRAN release: 2023-04-01
 
 - Remove **tidyverse** from Suggests.
-- On indicators:
+- Indicators:
   - [`bde_ind_ibex()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
     renamed to
     [`bde_ind_ibex_monthly()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md).
@@ -112,7 +111,7 @@ CRAN release: 2023-04-01
 CRAN release: 2022-11-16
 
 - Add new dependency: **tidyr**.
-- New parameter `out_format` on
+- Add the `out_format` parameter to
   [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md).
 - Apply best practices and small adjustments to
   [`theme_tidybde()`](https://ropenspain.github.io/tidyBdE/reference/theme_tidybde.md).
@@ -147,10 +146,10 @@ CRAN release: 2022-02-23
 
 CRAN release: 2022-01-19
 
-- The following catalogs have been deprecated in the API; the package
-  has been updated accordingly:
+- The package has been updated because the following catalogs have been
+  deprecated in the API:
   - **CF**: Financial Accounts of the Spanish Economy.
-  - **IE**: Economic Indicators
+  - **IE**: Economic Indicators.
 
 ## tidyBdE 0.2.2
 
@@ -163,7 +162,7 @@ CRAN release: 2021-10-29
   are likely to break in the meantime. So far, the following series have
   been updated:
   - [`bde_ind_euribor_12m_monthly()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md):
-    New series code is `587853`.
+    The new series code is `587853`.
 - Update documentation and examples.
 
 ## tidyBdE 0.2.1
@@ -201,16 +200,16 @@ CRAN release: 2021-07-07
 
 - Precompile vignette.
 - Improve error handling according to **CRAN** rules.
-- Changed some examples.
+- Update examples.
 
 ## tidyBdE 0.1.1
 
 CRAN release: 2021-06-05
 
 - Add vignette to the package.
-- Color adjustment on
+- Adjust colors in
   [`bde_rose_pal()`](https://ropenspain.github.io/tidyBdE/reference/bde_pals.md):
-  The HCL spectrum is now more consistent between roses and blues
+  the HCL spectrum is now more consistent between roses and blues
   according to `colorspace::specplot()`.
 - Add DOI: <https://doi.org/10.5281/zenodo.4673496>
 - New palettes for **ggplot2**:

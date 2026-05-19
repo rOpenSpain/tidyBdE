@@ -61,8 +61,8 @@ bde_series_load(
 
 - cache_dir:
 
-  A path to a cache directory. The directory can also be set via options
-  with `options(bde_cache_dir = "path/to/dir")`.
+  A path to a cache directory. The directory can also be set with
+  options using `options(bde_cache_dir = "path/to/dir")`.
 
 - update_cache:
 
@@ -101,7 +101,7 @@ and
 
 ## Details
 
-Load a single time series provided by BdE.
+Load a single BdE time series.
 
 ## Note
 
@@ -123,18 +123,18 @@ Other series:
 # \donttest{
 # Show metadata.
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> tidyBdE> Caching on temporary directory /tmp/RtmpFxLJrE
-#> tidyBdE> Cached version of BE detected
-#> tidyBdE> Cached version of SI detected
-#> tidyBdE> Cached version of TC detected
-#> tidyBdE> Cached version of TI detected
-#> tidyBdE> Cached version of PB detected
-#> tidyBdE> Parsing dates
-#> tidyBdE> Extracting series 573234
+#> tidyBdE> Caching in temporary directory /tmp/RtmpBi90qM.
+#> tidyBdE> Cached version of BE detected.
+#> tidyBdE> Cached version of SI detected.
+#> tidyBdE> Cached version of TC detected.
+#> tidyBdE> Cached version of TI detected.
+#> tidyBdE> Cached version of PB detected.
+#> tidyBdE> Parsing dates.
+#> tidyBdE> Extracting series 573234.
 #> 
-#> tidyBdE> Downloading serie 573234 from file TC_1_1.csv (alias TC_1_1.1).
-#> tidyBdE> Caching on temporary directory /tmp/RtmpFxLJrE/TC
-#> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv
+#> tidyBdE> Downloading series 573234 from file TC_1_1.csv (alias TC_1_1.1).
+#> tidyBdE> Caching in temporary directory /tmp/RtmpBi90qM/TC.
+#> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv.
 #> 
 #> # A tibble: 6 × 2
 #>   Date                        `573234`                                          
@@ -148,7 +148,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 
 # Load data.
 bde_series_load(573234, extract_metadata = FALSE)
-#> # A tibble: 7,138 × 2
+#> # A tibble: 7,140 × 2
 #>    Date       `573234`
 #>    <date>        <dbl>
 #>  1 1999-01-04     1.18
@@ -161,7 +161,7 @@ bde_series_load(573234, extract_metadata = FALSE)
 #>  8 1999-01-13     1.17
 #>  9 1999-01-14     1.17
 #> 10 1999-01-15     1.16
-#> # ℹ 7,128 more rows
+#> # ℹ 7,130 more rows
 
 # Load multiple series.
 bde_series_load(c(573234, 573214),
@@ -184,7 +184,7 @@ wide <- bde_series_load(c(573234, 573214),
 
 # Show wide output.
 wide
-#> # A tibble: 7,138 × 3
+#> # A tibble: 7,140 × 3
 #>    Date       `US/EUR` `GBP/EUR`
 #>    <date>        <dbl>     <dbl>
 #>  1 1999-01-04     1.18     0.711
@@ -197,7 +197,7 @@ wide
 #>  8 1999-01-13     1.17     0.708
 #>  9 1999-01-14     1.17     0.706
 #> 10 1999-01-15     1.16     0.704
-#> # ℹ 7,128 more rows
+#> # ℹ 7,130 more rows
 
 # Show long output.
 long <- bde_series_load(c(573234, 573214),
@@ -206,7 +206,7 @@ long <- bde_series_load(c(573234, 573214),
 )
 
 long
-#> # A tibble: 14,276 × 3
+#> # A tibble: 14,280 × 3
 #>    Date       serie_name serie_value
 #>    <date>     <fct>            <dbl>
 #>  1 1999-01-04 US/EUR            1.18
@@ -219,9 +219,9 @@ long
 #>  8 1999-01-13 US/EUR            1.17
 #>  9 1999-01-14 US/EUR            1.17
 #> 10 1999-01-15 US/EUR            1.16
-#> # ℹ 14,266 more rows
+#> # ℹ 14,270 more rows
 
-# Use with ggplot2.
+# Use with `ggplot2`.
 library(ggplot2)
 
 ggplot(long, aes(Date, serie_value)) +

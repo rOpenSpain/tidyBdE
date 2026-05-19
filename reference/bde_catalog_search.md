@@ -1,6 +1,6 @@
 # Search BdE catalogs
 
-Search for keywords in the time series catalogs.
+Search for keywords in BdE time series catalogs.
 
 ## Usage
 
@@ -37,8 +37,8 @@ bde_catalog_search(pattern, ...)
 
   `cache_dir`
 
-  :   A path to a cache directory. The directory can also be set via
-      options with `options(bde_cache_dir = "path/to/dir")`.
+  :   A path to a cache directory. The directory can also be set with
+      options using `options(bde_cache_dir = "path/to/dir")`.
 
   `verbose`
 

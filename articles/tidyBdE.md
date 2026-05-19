@@ -2,8 +2,8 @@
 
 **tidyBdE** is an **R** package that retrieves data from [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
-The data is returned as a [tibble](https://tibble.tidyverse.org/), and
-the package automatically detects the format of each time series (dates,
+Data are returned as a [tibble](https://tibble.tidyverse.org/), and the
+package automatically detects the format of each time series (dates,
 characters and numbers).
 
 ## Search series
@@ -50,15 +50,13 @@ sequential number reference (`Numero_secuencial`) as follows:
 seq_number <- xr_gbp |>
   # Select the first record.
   slice(1) |>
-  # Get the ID.
+  # Get the series ID.
   pull(Numero_secuencial) |>
   # Convert to numeric.
   as.double()
 
-
 seq_number
 #> [1] 573214
-
 
 time_series <- bde_series_load(seq_number, series_label = "EUR_GBP_XR") |>
   filter(Date >= "2010-01-01" & Date <= "2020-12-31") |>
@@ -83,7 +81,7 @@ time_series
 
 ## Plot series
 
-The package also provides a custom **ggplot2** theme based on BdE’s
+The package also provides a custom **ggplot2** theme based on BdE
 publications:
 
 ``` r
@@ -113,9 +111,8 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
 
 Figure 1: EUR/GBP Exchange Rate (2010-2020)
 
-The package also provides convenience functions for a selection of the
-most relevant macroeconomic series, eliminating the need to search
-manually:
+The package also provides convenience functions for selected
+macroeconomic series, so you do not need to search manually:
 
 ``` r
 
@@ -136,7 +133,7 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
     caption = "Source: BdE"
   ) +
   theme_tidybde() +
-  scale_color_bde_d(palette = "bde_vivid_pal") # Custom package palette.
+  scale_color_bde_d(palette = "bde_vivid_pal") # Use a custom package palette.
 ```
 
 ![Figure 2: Spanish Economic Indicators

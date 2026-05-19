@@ -1,6 +1,6 @@
 # BdE color palettes
 
-Palettes based on BdE publications and defined manually. Each palette
+Manually defined palettes based on BdE publications. Each palette
 contains at most six colors.
 
 ## Usage
@@ -34,12 +34,11 @@ bde_tidy_palettes(
 
 - rev:
 
-  Logical indicating whether the ordering of the colors should be
-  reversed.
+  Logical indicating whether to reverse the color order.
 
 ## Value
 
-A vector of colors.
+A character vector of colors.
 
 ## See also
 

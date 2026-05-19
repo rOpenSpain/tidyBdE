@@ -1,6 +1,6 @@
 # Update BdE catalogs
 
-Update the time series catalogs provided by BdE.
+Update BdE time series catalogs.
 
 ## Usage
 
@@ -26,8 +26,8 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
 
 - cache_dir:
 
-  A path to a cache directory. The directory can also be set via options
-  with `options(bde_cache_dir = "path/to/dir")`.
+  A path to a cache directory. The directory can also be set with
+  options using `options(bde_cache_dir = "path/to/dir")`.
 
 - verbose:
 
@@ -50,7 +50,7 @@ Accepted values for `catalog` are:
 | `"TI"`   | Interest Rates       | Daily                | Daily         |
 | `"PB"`   | Bank Lending Survey  | Quarterly            | Quarterly     |
 
-Use `"ALL"` as a shorthand for updating all the catalogs at once.
+Use `"ALL"` as a shorthand for updating all catalogs at once.
 
 ## See also
 
@@ -63,9 +63,9 @@ Other catalog:
 ``` r
 # \donttest{
 bde_catalog_update("TI", verbose = TRUE)
-#> tidyBdE> Caching on temporary directory /tmp/RtmpFxLJrE
+#> tidyBdE> Caching in temporary directory /tmp/RtmpBi90qM.
 #> tidyBdE> Updating catalogs: TI
-#> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv
+#> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv.
 #> 
 # }
 ```

@@ -2,7 +2,7 @@
 
 ## Catalogs
 
-Search and load Banco de España time series catalogs.
+Search and load BdE time series catalogs.
 
 - [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md)
   : Load BdE catalogs
@@ -13,7 +13,7 @@ Search and load Banco de España time series catalogs.
 
 ## Series
 
-Retrieve individual or complete Banco de España time series.
+Load individual series or complete BdE time series files.
 
 - [`bde_series_full_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_full_load.md)
   : Load BdE full time series files
@@ -59,6 +59,8 @@ Internal utility functions.
   : Parse dates from strings
 
 ## About the package
+
+Package-level documentation.
 
 - [`tidyBdE`](https://ropenspain.github.io/tidyBdE/reference/tidyBdE-package.md)
   [`tidyBdE-package`](https://ropenspain.github.io/tidyBdE/reference/tidyBdE-package.md)

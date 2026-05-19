@@ -2,7 +2,7 @@
 
 **\[superseded\]**
 
-These functions are superseded, see
+These functions are superseded. Use
 [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md)
 instead.
 
@@ -24,7 +24,7 @@ bde_rose_pal(...)
 
 ## Value
 
-A palette of colors.
+A color palette function.
 
 ## Examples
 

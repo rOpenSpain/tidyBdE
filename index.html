@@ -13,13 +13,13 @@
 <link rel="manifest" href="site.webmanifest">
 <!-- katex math --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><script src="katex-auto.js"></script><script src="lightswitch.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Roboto-0.4.10/font.css" rel="stylesheet">
+<link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/Roboto-0.4.10/font.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Retrieve Data from Banco de España">
-<meta name="description" content="Tools to retrieve time series data from Banco de España (BdE) and return the results in tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is in no way sponsored, endorsed or administered by Banco de España.">
-<meta property="og:description" content="Tools to retrieve time series data from Banco de España (BdE) and return the results in tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is in no way sponsored, endorsed or administered by Banco de España.">
+<meta name="description" content="Tools for retrieving time series data from Banco de España (BdE) and returning results as tibble objects. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is in no way sponsored, endorsed or administered by Banco de España.">
+<meta property="og:description" content="Tools for retrieving time series data from Banco de España (BdE) and returning results as tibble objects. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is in no way sponsored, endorsed or administered by Banco de España.">
 <meta property="og:image" content="https://ropenspain.github.io/tidyBdE/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@dhernangomez">
@@ -54,7 +54,9 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/mainseries.html">Main macroeconomic series</a></li>
+<li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
+    <li><a class="dropdown-item" href="articles/mainseries.html">Main macroeconomic series</a></li>
     <li><a class="dropdown-item" href="articles/seriesindex.html">Series index</a></li>
   </ul>
 </li>
@@ -89,7 +91,7 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p><strong>tidyBdE</strong> is an <strong>R</strong> package that retrieves data from <a href="https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html" class="external-link">Banco de España</a>. The data is returned as a <a href="https://tibble.tidyverse.org/" class="external-link">tibble</a>, and the package automatically detects the format of each time series (dates, characters and numbers).</p>
+<p><strong>tidyBdE</strong> is an <strong>R</strong> package that retrieves data from <a href="https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html" class="external-link">Banco de España</a>. Data are returned as a <a href="https://tibble.tidyverse.org/" class="external-link">tibble</a>, and the package automatically detects the format of each time series (dates, characters and numbers).</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -148,12 +150,12 @@
 Table 1: Search results
 </p>
 <p><strong>Note:</strong> BdE metadata is currently only provided in Spanish, so search terms must be provided in Spanish to retrieve results. The institution is working on an English version.</p>
-<p>After you have found a series, you can load the GBP/EUR exchange rate using the sequential number reference (<code>Numero_secuencial</code>) as follows:</p>
+<p>Once you have found a series, you can load the GBP/EUR exchange rate using the sequential number reference (<code>Numero_secuencial</code>) as follows:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">seq_number</span> <span class="op">&lt;-</span> <span class="va">xr_gbp</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># Select the first record.</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="co"># Get the ID.</span></span>
+<span>  <span class="co"># Get the series ID.</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Numero_secuencial</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># Convert to numeric.</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/double.html" class="external-link">as.double</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -203,7 +205,7 @@ Table 1: Search results
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html" class="external-link">coord_cartesian</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/theme_tidybde.html">theme_tidybde</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-chart-1.png" style="width:100.0%" alt="EUR/GBP Exchange Rate (2010-2020)"></p>
-<p>The package also provides several shortcut functions for a selection of relevant macroeconomic series, so you do not need to search for them in advance:</p>
+<p>The package also provides convenience functions for selected macroeconomic series, so you do not need to search for them in advance:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Data in long format.</span></span>
 <span></span>
@@ -222,14 +224,14 @@ Table 1: Search results
 <span>    caption <span class="op">=</span> <span class="st">"Source: BdE"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/theme_tidybde.html">theme_tidybde</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="reference/scales_bde.html">scale_color_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_vivid_pal"</span><span class="op">)</span> <span class="co"># Custom package palette.</span></span></code></pre></div>
+<span>  <span class="fu"><a href="reference/scales_bde.html">scale_color_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_vivid_pal"</span><span class="op">)</span> <span class="co"># Use a custom package palette.</span></span></code></pre></div>
 <p><img src="reference/figures/README-macroseries-1.png" style="width:100.0%" alt="Spanish Economic Indicators (2010-2019)"></p>
 </div>
 <div class="section level3">
 <h3 id="palettes">Palettes<a class="anchor" aria-label="anchor" href="#palettes"></a>
 </h3>
 <p>Three custom palettes, based on those used by BdE in some publications, are available.</p>
-<p>Apply these palettes to <code>ggplot2</code> plots using the scale functions provided in the package (see <code><a href="reference/scales_bde.html">help("scale_color_bde_d", package = "tidyBdE")</a></code>).</p>
+<p>Apply these palettes to <strong>ggplot2</strong> plots using the scale functions provided in the package (see <code><a href="reference/scales_bde.html">help("scale_color_bde_d", package = "tidyBdE")</a></code>).</p>
 </div>
 <div class="section level3">
 <h3 id="a-note-on-caching">A note on caching<a class="anchor" aria-label="anchor" href="#a-note-on-caching"></a>
@@ -250,7 +252,7 @@ Table 1: Search results
 <div class="section level2">
 <h2 id="disclaimer">Disclaimer<a class="anchor" aria-label="anchor" href="#disclaimer"></a>
 </h2>
-<p>This package is in no way sponsored, endorsed, or administered by Banco de España.</p>
+<p>This package is in no way sponsored, endorsed or administered by Banco de España.</p>
 </div>
 <div class="section level2">
 <h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
@@ -266,7 +268,7 @@ H. Herrero D (2026). <em>tidyBdE: Retrieve Data from Banco de España</em>. <a h
 <span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2026</span>},</span>
 <span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="dv">6</span>.<span class="fl">0.9000</span>},</span>
 <span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>ropenspain.github.io<span class="sc">/</span>tidyBdE<span class="sc">/</span>},</span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools to retrieve time series data from Banco de España (BdE) and return the results <span class="cf">in</span> tibble format. Banco de España is the national central bank and, within the framework of the Single Supervisory <span class="fu">Mechanism</span> (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is <span class="cf">in</span> no way sponsored, endorsed or administered by Banco de España.},</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools <span class="cf">for</span> retrieving time series data from Banco de España (BdE) and returning results as tibble objects. Banco de España is the national central bank and, within the framework of the Single Supervisory <span class="fu">Mechanism</span> (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is <span class="cf">in</span> no way sponsored, endorsed or administered by Banco de España.},</span>
 <span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 </div>

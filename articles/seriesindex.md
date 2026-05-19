@@ -1,7 +1,7 @@
 # Series index
 
-This table lists the available series in the catalog (last updated:
-**15-May-2026**).
+This table lists the available series in the catalog, last updated:
+**19-May-2026**).
 
 Use the sequential number to load a series, as shown in the example.
 
@@ -9,7 +9,7 @@ Use the sequential number to load a series, as shown in the example.
 
 ## Example
 
-Workflow for searching and extracting a specific series:
+Workflow for searching for and extracting a specific series:
 
 ``` r
 
@@ -34,12 +34,11 @@ Table 1: Search results
 
 ``` r
 
-# Extract the first series.
-# Use tidyverse style.
+# Extract the first series using tidyverse style.
 fr |>
-  # Select the ID.
+  # Select the series ID.
   select(Numero_secuencial) |>
-  # Select the first observation.
+  # Select the first record.
   slice(1) |>
   # Convert to numeric.
   as.double() |>
@@ -62,9 +61,9 @@ fr |>
 
 # Show the metadata.
 fr |>
-  # Select the ID.
+  # Select the series ID.
   select(Numero_secuencial) |>
-  # Select the first observation.
+  # Select the first record.
   slice(1) |>
   # Convert to numeric.
   as.double() |>

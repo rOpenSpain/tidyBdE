@@ -13,8 +13,8 @@
 <link rel="manifest" href="../site.webmanifest">
 <!-- katex math --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><script src="../katex-auto.js"></script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="tidyBdE_files/libs/quarto-html/popper.min.js"></script><script src="tidyBdE_files/libs/quarto-html/tippy.umd.min.js"></script><link href="tidyBdE_files/libs/quarto-html/tippy.css" rel="stylesheet">
@@ -54,7 +54,9 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic series</a></li>
+<li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
+    <li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic series</a></li>
     <li><a class="dropdown-item" href="../articles/seriesindex.html">Series index</a></li>
   </ul>
 </li>
@@ -95,7 +97,7 @@
 
 
 
-    <!-- tidyBdE.qmd is generated from tidyBdE.qmd.orig. Please edit that file --><p><strong>tidyBdE</strong> is an <strong>R</strong> package that retrieves data from <a href="https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html" class="external-link">Banco de España</a>. The data is returned as a <a href="https://tibble.tidyverse.org/" class="external-link">tibble</a>, and the package automatically detects the format of each time series (dates, characters and numbers).</p>
+    <!-- tidyBdE.qmd is generated from tidyBdE.qmd.orig. Please edit that file --><p><strong>tidyBdE</strong> is an <strong>R</strong> package that retrieves data from <a href="https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html" class="external-link">Banco de España</a>. Data are returned as a <a href="https://tibble.tidyverse.org/" class="external-link">tibble</a>, and the package automatically detects the format of each time series (dates, characters and numbers).</p>
 <section class="level2"><h2 id="search-series">Search series<a class="anchor" aria-label="anchor" href="#search-series"></a>
 </h2>
 <p>Banco de España (<strong>BdE</strong>) provides several time series, either produced by the institution itself or compiled from other sources, such as <a href="https://ec.europa.eu/eurostat" class="external-link">Eurostat</a> or <a href="https://www.ine.es/" class="external-link">INE</a>.</p>
@@ -141,15 +143,13 @@ Table 1: Search results
 <code class="sourceCode R"><span><span class="va">seq_number</span> <span class="op">&lt;-</span> <span class="va">xr_gbp</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># Select the first record.</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="co"># Get the ID.</span></span>
+<span>  <span class="co"># Get the series ID.</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">Numero_secuencial</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># Convert to numeric.</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/double.html" class="external-link">as.double</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span></span>
 <span><span class="va">seq_number</span></span>
 <span><span class="co">#&gt; [1] 573214</span></span>
-<span></span>
 <span></span>
 <span><span class="va">time_series</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span><span class="va">seq_number</span>, series_label <span class="op">=</span> <span class="st">"EUR_GBP_XR"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">"2010-01-01"</span> <span class="op">&amp;</span> <span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">"2020-12-31"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -172,7 +172,7 @@ Table 1: Search results
 <span><span class="co">#&gt; # ℹ 2,806 more rows</span></span></code></pre></div>
 </section><section class="level2"><h2 id="plot-series">Plot series<a class="anchor" aria-label="anchor" href="#plot-series"></a>
 </h2>
-<p>The package also provides a custom <strong>ggplot2</strong> theme based on BdE’s publications:</p>
+<p>The package also provides a custom <strong>ggplot2</strong> theme based on BdE publications:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">time_series</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">EUR_GBP_XR</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="fu"><a href="../reference/bde_tidy_palettes.html">bde_tidy_palettes</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -198,7 +198,7 @@ Table 1: Search results
 Figure 1: EUR/GBP Exchange Rate (2010-2020)
 </p>
 </div>
-<p>The package also provides convenience functions for a selection of the most relevant macroeconomic series, eliminating the need to search manually:</p>
+<p>The package also provides convenience functions for selected macroeconomic series, so you do not need to search manually:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Data in long format.</span></span>
 <span></span>
@@ -217,7 +217,7 @@ Figure 1: EUR/GBP Exchange Rate (2010-2020)
 <span>    caption <span class="op">=</span> <span class="st">"Source: BdE"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_tidybde.html">theme_tidybde</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/scales_bde.html">scale_color_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_vivid_pal"</span><span class="op">)</span> <span class="co"># Custom package palette.</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/scales_bde.html">scale_color_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_vivid_pal"</span><span class="op">)</span> <span class="co"># Use a custom package palette.</span></span></code></pre></div>
 <div class="figure">
 <img src="./macroseries-1.png" alt="Figure 2: Spanish Economic Indicators (2010-2019)" width="100%"><p class="caption">
 Figure 2: Spanish Economic Indicators (2010-2019)
