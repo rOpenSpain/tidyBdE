@@ -1,6 +1,6 @@
-# Load BdE catalogs
+# Load BdE catalog metadata
 
-Load BdE time series catalogs.
+Load BdE time series catalog metadata.
 
 ## Usage
 
@@ -28,7 +28,7 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
 
 - parse_dates:
 
-  Logical. If `TRUE`, dates are parsed using
+  Logical. If `TRUE`, date columns are parsed with
   [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md).
 
 - cache_dir:
@@ -64,9 +64,8 @@ Accepted values for `catalog` are:
 
 Use `"ALL"` as a shorthand for loading all catalogs at once.
 
-If the requested catalog is not cached,
-[`bde_catalog_update()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_update.md)
-is invoked.
+If the requested catalog is not cached, this function calls
+[`bde_catalog_update()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_update.md).
 
 ## See also
 
@@ -79,12 +78,11 @@ Other catalog:
 ``` r
 # \donttest{
 bde_catalog_load("TI", verbose = TRUE)
-#> tidyBdE> Caching in temporary directory /tmp/RtmpBi90qM.
+#> tidyBdE> Caching in temporary directory /tmp/RtmpIDdtwV.
 #> tidyBdE> Need to download catalog TI.
-#> tidyBdE> Cache directory is /tmp/RtmpBi90qM.
+#> tidyBdE> Cache directory is /tmp/RtmpIDdtwV.
 #> tidyBdE> Updating catalogs: TI
 #> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv.
-#> 
 #> tidyBdE> Parsing dates.
 #> # A tibble: 49 × 17
 #>    Nombre_de_la_serie Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹

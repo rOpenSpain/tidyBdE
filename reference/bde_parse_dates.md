@@ -1,6 +1,6 @@
 # Parse dates from strings
 
-This function is tailored for date formats used in this package and may
+This function is tailored to date formats used in this package and may
 fail with other datasets. See **Examples** for formats that are
 supported.
 
@@ -33,7 +33,7 @@ A vector of [`Date`](https://rdrr.io/r/base/as.Date.html) values.
 
 ## Details
 
-Parse strings representing dates using
+Parse strings representing dates with
 [`as.Date()`](https://rdrr.io/r/base/as.Date.html).
 
 ## See also
@@ -67,9 +67,8 @@ tibble::tibble(raw = would_parse, parsed = parsed_ok)
 #> 7 01-02-2014  2014-02-01
 #> 8 01/02/1990  1990-02-01
 
-#-----------------------------------
-
 # Unsupported formats.
+
 wont_parse <- c("JAN2001", "2010-01-12", "01 APR 2017", "01/31/1990")
 
 parsed_fail <- bde_parse_dates(wont_parse)

@@ -50,12 +50,12 @@ bde_ind_population(series_label = "Population_Spain", ...)
 
   `extract_metadata`
 
-  :   Logical `TRUE/FALSE`. If `TRUE`, the output is the metadata of the
-      requested series.
+  :   Logical. If `TRUE`, the output is the metadata of the requested
+      series.
 
   `parse_dates`
 
-  :   Logical. If `TRUE`, dates are parsed using
+  :   Logical. If `TRUE`, date columns are parsed with
       [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md).
 
   `update_cache`
@@ -82,7 +82,7 @@ with the required series.
 These functions are convenient wrappers around
 [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
 for specific series. Use `verbose = TRUE, extract_metadata = TRUE` to
-see the metadata and source.
+inspect the metadata and source.
 
 ## See also
 

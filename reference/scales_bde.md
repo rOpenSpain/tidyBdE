@@ -74,8 +74,7 @@ scale_fill_bde_c(
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) color scale
-object.
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) scale object.
 
 ## See also
 

@@ -27,7 +27,7 @@ bde_series_full_load(
 
 - parse_dates:
 
-  Logical. If `TRUE`, dates are parsed using
+  Logical. If `TRUE`, date columns are parsed with
   [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md).
 
 - parse_numeric:
@@ -50,8 +50,8 @@ bde_series_full_load(
 
 - extract_metadata:
 
-  Logical `TRUE/FALSE`. If `TRUE`, the output is the metadata of the
-  requested series.
+  Logical. If `TRUE`, the output is the metadata of the requested
+  series.
 
 ## Value
 
@@ -69,7 +69,7 @@ For example, table **be_6_1** represents Table 1, Chapter 6 of the
 Statistical Bulletin ("BE"). Although it is unique, it is subject to
 change, for example when a new table is inserted before it.
 
-For that reason, the function
+For that reason,
 [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
 is more suitable for extracting specific time series.
 
@@ -102,7 +102,7 @@ bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
 
 # Load data.
 bde_series_full_load("TI_1_1.csv")
-#> # A tibble: 7,141 × 5
+#> # A tibble: 7,143 × 5
 #>    Date       TI_1_1.1 TI_1_1.2 TI_1_1.3 TI_1_1.4
 #>    <date>        <dbl>    <dbl>    <dbl>    <dbl>
 #>  1 1999-01-01        3       NA     4.5      2   
@@ -115,6 +115,6 @@ bde_series_full_load("TI_1_1.csv")
 #>  8 1999-01-12        3       NA     3.25     2.75
 #>  9 1999-01-13        3       NA     3.25     2.75
 #> 10 1999-01-14        3       NA     3.25     2.75
-#> # ℹ 7,131 more rows
+#> # ℹ 7,133 more rows
 # }
 ```

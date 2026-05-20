@@ -1,7 +1,7 @@
 # Series index
 
-This table lists the available series in the catalog, last updated:
-**19-May-2026**).
+This table lists the series available in the catalog. Last updated:
+**20-May-2026**.
 
 Use the sequential number to load a series, as shown in the example.
 
@@ -9,7 +9,7 @@ Use the sequential number to load a series, as shown in the example.
 
 ## Example
 
-Workflow for searching for and extracting a specific series:
+Workflow for searching and extracting a specific series:
 
 ``` r
 

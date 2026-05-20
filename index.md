@@ -45,7 +45,7 @@ by the institution itself or compiled from other sources, such as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
 The basic entry point for searching series is the time series catalog.
-You can search for any series by name:
+You can search for series by name:
 
 ``` r
 
@@ -71,12 +71,12 @@ xr_gbp |>
 
 Table 1: Search results
 
-**Note:** BdE metadata is currently only provided in Spanish, so search
+**Note:** BdE metadata is currently provided in Spanish only, so search
 terms must be provided in Spanish to retrieve results. The institution
 is working on an English version.
 
-Once you have found a series, you can load the GBP/EUR exchange rate
-using the sequential number reference (`Numero_secuencial`) as follows:
+After finding a series, you can load the GBP/EUR exchange rate using the
+sequential number reference (`Numero_secuencial`):
 
 ``` r
 
@@ -142,7 +142,7 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
 (2010-2020)](reference/figures/README-chart-1.png)
 
 The package also provides convenience functions for selected
-macroeconomic series, so you do not need to search for them in advance:
+macroeconomic series, so you do not need to search for them manually:
 
 ``` r
 
@@ -171,8 +171,8 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
 
 ### Palettes
 
-Three custom palettes, based on those used by BdE in some publications,
-are available.
+Three custom palettes are available, based on those used by BdE in some
+publications.
 
 Apply these palettes to **ggplot2** plots using the scale functions
 provided in the package (see
@@ -205,8 +205,8 @@ bde_series_load("SOME ID", update_cache = TRUE)
 
 ## Disclaimer
 
-This package is in no way sponsored, endorsed or administered by Banco
-de España.
+This package is not sponsored, endorsed or administered by Banco de
+España.
 
 ## Citation
 
@@ -224,6 +224,6 @@ A BibTeX entry for LaTeX users is:
   year = {2026},
   version = {0.6.0.9000},
   url = {https://ropenspain.github.io/tidyBdE/},
-  abstract = {Tools for retrieving time series data from Banco de España (BdE) and returning results as tibble objects. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is in no way sponsored, endorsed or administered by Banco de España.},
+  abstract = {Tools for retrieving time series data from Banco de España (BdE) as tibble objects. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by Banco de España.},
 }
 ```

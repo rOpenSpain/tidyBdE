@@ -2,18 +2,18 @@
 
 ## Catalogs
 
-Search and load BdE time series catalogs.
+Search, update and load BdE time series catalog metadata.
 
 - [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md)
-  : Load BdE catalogs
+  : Load BdE catalog metadata
 - [`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_search.md)
   : Search BdE catalogs
 - [`bde_catalog_update()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_update.md)
-  : Update BdE catalogs
+  : Update BdE catalog files
 
 ## Series
 
-Load individual series or complete BdE time series files.
+Load individual series and complete BdE time series files.
 
 - [`bde_series_full_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_full_load.md)
   : Load BdE full time series files
@@ -39,7 +39,7 @@ Convenience functions for selected Spanish macroeconomic indicators.
 
 ## Plot utilities
 
-BdE-inspired palettes, scales and themes for ggplot2 plots.
+BdE-inspired palettes, scales and themes for ggplot2 charts.
 
 - [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md)
   : BdE color palettes
@@ -53,7 +53,7 @@ BdE-inspired palettes, scales and themes for ggplot2 plots.
 
 ## Utilities
 
-Internal utility functions.
+Date parsing and supporting utilities.
 
 - [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md)
   : Parse dates from strings

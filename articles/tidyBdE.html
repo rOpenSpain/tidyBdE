@@ -101,7 +101,7 @@
 <section class="level2"><h2 id="search-series">Search series<a class="anchor" aria-label="anchor" href="#search-series"></a>
 </h2>
 <p>Banco de España (<strong>BdE</strong>) provides several time series, either produced by the institution itself or compiled from other sources, such as <a href="https://ec.europa.eu/eurostat" class="external-link">Eurostat</a> or <a href="https://www.ine.es/" class="external-link">INE</a>.</p>
-<p>The basic entry point for searching time series is the catalog. You can search for any series by name:</p>
+<p>The basic entry point for searching time series is the catalog. You can search for series by name:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropenspain.github.io/tidyBdE/">tidyBdE</a></span><span class="op">)</span></span>
 <span></span>
@@ -137,8 +137,8 @@
 Table 1: Search results
 </figcaption></figure>
 </div>
-<p><strong>Note:</strong> BdE metadata is currently only provided in Spanish, so search terms must be provided in Spanish to retrieve results. The institution is working on an English version.</p>
-<p>Once you have found a series, load the GBP/EUR exchange rate using the sequential number reference (<code>Numero_secuencial</code>) as follows:</p>
+<p><strong>Note:</strong> BdE metadata is currently provided in Spanish only, so search terms must be provided in Spanish to retrieve results. The institution is working on an English version.</p>
+<p>After finding a series, load the GBP/EUR exchange rate using the sequential number reference (<code>Numero_secuencial</code>):</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">seq_number</span> <span class="op">&lt;-</span> <span class="va">xr_gbp</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># Select the first record.</span></span>

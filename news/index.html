@@ -62,37 +62,37 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5.0" id="tidybde-050">tidyBdE 0.5.0<a class="anchor" aria-label="anchor" href="#tidybde-050"></a></h2><p class="text-muted">CRAN release: 2026-01-13</p>
-<ul><li>Update minimum <strong>R</strong> version required to <code>4.1.0</code>.</li>
-<li>Improve documentation with AI-assisted review.</li>
+<ul><li>Improve documentation with AI-assisted review.</li>
+<li>Update the minimum required <strong>R</strong> version to <code>4.1.0</code>.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.0" id="tidybde-040">tidyBdE 0.4.0<a class="anchor" aria-label="anchor" href="#tidybde-040"></a></h2><p class="text-muted">CRAN release: 2025-06-22</p>
 <ul><li>
-<code><a href="../reference/bde_indicators.html">?bde_indicators</a></code> is now based on data from the new <code><a href="../reference/bde_ind_db.html">?bde_ind_db</a></code> database, for greater clarity on the underlying series identifiers and easier maintenance.</li>
+<code><a href="../reference/bde_indicators.html">?bde_indicators</a></code> is now based on data from the new <code><a href="../reference/bde_ind_db.html">?bde_ind_db</a></code> database, which clarifies the underlying series identifiers and makes maintenance easier.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.8" id="tidybde-038">tidyBdE 0.3.8<a class="anchor" aria-label="anchor" href="#tidybde-038"></a></h2><p class="text-muted">CRAN release: 2024-12-20</p>
-<ul><li>Update <code><a href="../reference/bde_indicators.html">bde_ind_gdp_quarterly()</a></code> since the underlying identifier changed.</li>
+<ul><li>Update <code><a href="../reference/bde_indicators.html">bde_ind_gdp_quarterly()</a></code> because the underlying identifier changed.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.7" id="tidybde-037">tidyBdE 0.3.7<a class="anchor" aria-label="anchor" href="#tidybde-037"></a></h2><p class="text-muted">CRAN release: 2024-08-26</p>
-<ul><li>Update <code><a href="../reference/bde_indicators.html">bde_ind_unemployment_rate()</a></code> and <code><a href="../reference/bde_indicators.html">bde_ind_population()</a></code> since the underlying identifier changed.</li>
-<li>DOI changed to <strong>CRAN</strong> URL: <a href="https://doi.org/10.32614/CRAN.package.tidyBdE" class="external-link uri">https://doi.org/10.32614/CRAN.package.tidyBdE</a>.</li>
-<li>Native encoding when reading the <code>.csv</code> files changed to <code>"latin1"</code>.</li>
+<ul><li>DOI changed to the <strong>CRAN</strong> URL: <a href="https://doi.org/10.32614/CRAN.package.tidyBdE" class="external-link uri">https://doi.org/10.32614/CRAN.package.tidyBdE</a>.</li>
+<li>Native encoding when reading <code>.csv</code> files changed to <code>"latin1"</code>.</li>
+<li>Update <code><a href="../reference/bde_indicators.html">bde_ind_unemployment_rate()</a></code> and <code><a href="../reference/bde_indicators.html">bde_ind_population()</a></code> because the underlying identifiers changed.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.6" id="tidybde-036">tidyBdE 0.3.6<a class="anchor" aria-label="anchor" href="#tidybde-036"></a></h2><p class="text-muted">CRAN release: 2024-04-22</p>
-<ul><li>Adapt <code><a href="../reference/scales_bde.html">scale_color_bde_d()</a></code> and friends to <strong>ggplot2</strong> 3.5.0. Expose the <code>guide</code> argument instead of hard-coding it.</li>
+<ul><li>Adapt <code><a href="../reference/scales_bde.html">scale_color_bde_d()</a></code> and related functions to <strong>ggplot2</strong> 3.5.0, exposing the <code>guide</code> argument instead of hard-coding it.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.5" id="tidybde-035">tidyBdE 0.3.5<a class="anchor" aria-label="anchor" href="#tidybde-035"></a></h2><p class="text-muted">CRAN release: 2024-01-29</p>
 <p>Mainly changes to the color functions:</p>
-<ul><li>
-<code><a href="../reference/bde_pals.html">bde_vivid_pal()</a></code> and <code><a href="../reference/bde_pals.html">bde_rose_pal()</a></code> have been superseded. Use the new function <code><a href="../reference/bde_tidy_palettes.html">bde_tidy_palettes()</a></code> instead.</li>
+<ul><li>Add the new <code>bde_qual_pal</code> palette.</li>
 <li>
-<code><a href="../reference/scales_bde.html">scale_color_bde_d()</a></code> and friends now leverage <code><a href="../reference/bde_tidy_palettes.html">bde_tidy_palettes()</a></code>, and these functions gain two new arguments: <code>alpha</code> and <code>rev</code>.</li>
+<code><a href="../reference/bde_pals.html">bde_vivid_pal()</a></code> and <code><a href="../reference/bde_pals.html">bde_rose_pal()</a></code> have been superseded. Use <code><a href="../reference/bde_tidy_palettes.html">bde_tidy_palettes()</a></code> instead.</li>
+<li>
+<code><a href="../reference/scales_bde.html">scale_color_bde_d()</a></code> and related functions now use <code><a href="../reference/bde_tidy_palettes.html">bde_tidy_palettes()</a></code> and gain two new arguments: <code>alpha</code> and <code>rev</code>.</li>
 <li>Update and review documentation.</li>
-<li>New palette named <code>bde_qual_pal</code>.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.4" id="tidybde-034">tidyBdE 0.3.4<a class="anchor" aria-label="anchor" href="#tidybde-034"></a></h2><p class="text-muted">CRAN release: 2023-06-13</p>
@@ -104,33 +104,25 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.2" id="tidybde-032">tidyBdE 0.3.2<a class="anchor" aria-label="anchor" href="#tidybde-032"></a></h2><p class="text-muted">CRAN release: 2023-04-01</p>
-<ul><li>Remove <strong>tidyverse</strong> from Suggests.</li>
-<li>Indicators:
-<ul><li>
-<code><a href="../reference/bde_indicators.html">bde_ind_ibex()</a></code> renamed to <code><a href="../reference/bde_indicators.html">bde_ind_ibex_monthly()</a></code>.</li>
-<li>New indicator <code><a href="../reference/bde_indicators.html">bde_ind_ibex_daily()</a></code>.</li>
-</ul></li>
+<ul><li>Indicators: <code><a href="../reference/bde_indicators.html">bde_ind_ibex()</a></code> was renamed to <code><a href="../reference/bde_indicators.html">bde_ind_ibex_monthly()</a></code>.</li>
+<li>Indicators: Add the new <code><a href="../reference/bde_indicators.html">bde_ind_ibex_daily()</a></code> indicator.</li>
+<li>Remove <strong>tidyverse</strong> from Suggests.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.1" id="tidybde-031">tidyBdE 0.3.1<a class="anchor" aria-label="anchor" href="#tidybde-031"></a></h2><p class="text-muted">CRAN release: 2022-11-16</p>
-<ul><li>Add new dependency: <strong>tidyr</strong>.</li>
+<ul><li>Add <strong>tidyr</strong> as a new dependency.</li>
 <li>Add the <code>out_format</code> parameter to <code><a href="../reference/bde_series_load.html">bde_series_load()</a></code>.</li>
 <li>Apply best practices and small adjustments to <code><a href="../reference/theme_tidybde.html">theme_tidybde()</a></code>.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.0" id="tidybde-030">tidyBdE 0.3.0<a class="anchor" aria-label="anchor" href="#tidybde-030"></a></h2><p class="text-muted">CRAN release: 2022-10-07</p>
-<ul><li>Overall improvements to file downloading:
-<ul><li>If a URL is not reachable, remove the local CSV file because it is empty.</li>
-<li>Improve the download process.</li>
-<li>Provide more informative messages to the user.</li>
-<li>Internal performance improvements.</li>
-</ul></li>
-<li>
-<strong>Breaking change</strong>: <code>theme_bde()</code> renamed to <code><a href="../reference/theme_tidybde.html">theme_tidybde()</a></code>.</li>
+<ul><li>
+<strong>Breaking change</strong>: <code>theme_bde()</code> was renamed to <code><a href="../reference/theme_tidybde.html">theme_tidybde()</a></code>.</li>
+<li>Improve file downloading by removing empty local CSV files when URLs are not reachable, improving the download process, providing more informative user messages and making internal performance improvements.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.5" id="tidybde-025">tidyBdE 0.2.5<a class="anchor" aria-label="anchor" href="#tidybde-025"></a></h2><p class="text-muted">CRAN release: 2022-08-13</p>
-<ul><li>Update HTML5 markup to satisfy <strong>CRAN</strong> request.</li>
+<ul><li>Update HTML5 markup to satisfy the <strong>CRAN</strong> request.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.4" id="tidybde-024">tidyBdE 0.2.4<a class="anchor" aria-label="anchor" href="#tidybde-024"></a></h2><p class="text-muted">CRAN release: 2022-02-23</p>
@@ -138,51 +130,42 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.3" id="tidybde-023">tidyBdE 0.2.3<a class="anchor" aria-label="anchor" href="#tidybde-023"></a></h2><p class="text-muted">CRAN release: 2022-01-19</p>
-<ul><li>The package has been updated because the following catalogs have been deprecated in the API:
-<ul><li>
-<strong>CF</strong>: Financial Accounts of the Spanish Economy.</li>
-<li>
-<strong>IE</strong>: Economic Indicators.</li>
-</ul></li>
+<ul><li>Update the package because the <strong>CF</strong> (Financial Accounts of the Spanish Economy) and <strong>IE</strong> (Economic Indicators) catalogs were deprecated in the API.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.2" id="tidybde-022">tidyBdE 0.2.2<a class="anchor" aria-label="anchor" href="#tidybde-022"></a></h2><p class="text-muted">CRAN release: 2021-10-29</p>
-<ul><li>BdE started migrating “Indicadores Económicos” (Economic Indicators) series to the Statistical Bulletin (more info <a href="https://www.bde.es/wbe/en/estadisticas/" class="external-link">here</a>). Some series in <code><a href="../reference/bde_indicators.html">?bde_indicators</a></code> are likely to break in the meantime. So far, the following series have been updated:
-<ul><li>
-<code><a href="../reference/bde_indicators.html">bde_ind_euribor_12m_monthly()</a></code>: The new series code is <code>587853</code>.</li>
-</ul></li>
+<ul><li>BdE started migrating “Indicadores Económicos” (Economic Indicators) series to the Statistical Bulletin. Some series in <code><a href="../reference/bde_indicators.html">?bde_indicators</a></code> are likely to break during the transition. So far, <code><a href="../reference/bde_indicators.html">bde_ind_euribor_12m_monthly()</a></code> has been updated to use the new series code <code>587853</code>. See <a href="https://www.bde.es/wbe/en/estadisticas/" class="external-link uri">https://www.bde.es/wbe/en/estadisticas/</a>.</li>
 <li>Update documentation and examples.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.1" id="tidybde-021">tidyBdE 0.2.1<a class="anchor" aria-label="anchor" href="#tidybde-021"></a></h2><p class="text-muted">CRAN release: 2021-10-07</p>
-<ul><li>Update documentation and vignettes.</li>
-<li>
-<code><a href="../reference/bde_series_load.html">bde_series_load()</a></code> now tries to coerce characters to numeric.</li>
-<li>Improve messages when inconsistencies occur between the catalog and series.</li>
+<ul><li>
+<code><a href="../reference/bde_series_load.html">bde_series_load()</a></code> now tries to coerce characters to numeric values.</li>
 <li>Export <code><a href="../reference/bde_check_access.html">bde_check_access()</a></code>.</li>
+<li>Improve messages when inconsistencies occur between the catalog and series.</li>
+<li>Update documentation and vignettes.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0" id="tidybde-020">tidyBdE 0.2.0<a class="anchor" aria-label="anchor" href="#tidybde-020"></a></h2><p class="text-muted">CRAN release: 2021-08-04</p>
-<ul><li>Add series index article.</li>
-<li>Add new series: <code><a href="../reference/bde_indicators.html">bde_ind_gdp_quarterly()</a></code>, <code><a href="../reference/bde_indicators.html">bde_ind_population()</a></code>.</li>
+<ul><li>Add a series index article.</li>
+<li>Add new series: <code><a href="../reference/bde_indicators.html">bde_ind_gdp_quarterly()</a></code> and <code><a href="../reference/bde_indicators.html">bde_ind_population()</a></code>.</li>
 <li>Improve package coverage and documentation.</li>
 <li>Move tests to <strong>testthat</strong>.</li>
-<li>The following scales have been removed: <code>bde_scale_colour_vivid()</code>, <code>bde_scale_color_vivid()</code>, <code>bde_scale_fill_vivid()</code>, <code>bde_scale_colour_rose()</code>, <code>bde_scale_color_rose()</code>, <code>bde_scale_fill_rose()</code>. Use <code><a href="../reference/scales_bde.html">scale_color_bde_c()</a></code> instead.</li>
+<li>Remove the following scales: <code>bde_scale_colour_vivid()</code>, <code>bde_scale_color_vivid()</code>, <code>bde_scale_fill_vivid()</code>, <code>bde_scale_colour_rose()</code>, <code>bde_scale_color_rose()</code> and <code>bde_scale_fill_rose()</code>. Use <code><a href="../reference/scales_bde.html">scale_color_bde_c()</a></code> instead.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.2" id="tidybde-012">tidyBdE 0.1.2<a class="anchor" aria-label="anchor" href="#tidybde-012"></a></h2><p class="text-muted">CRAN release: 2021-07-07</p>
-<ul><li>Precompile vignette.</li>
-<li>Improve error handling according to <strong>CRAN</strong> rules.</li>
+<ul><li>Improve error handling according to <strong>CRAN</strong> rules.</li>
+<li>Precompile the vignette.</li>
 <li>Update examples.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.1" id="tidybde-011">tidyBdE 0.1.1<a class="anchor" aria-label="anchor" href="#tidybde-011"></a></h2><p class="text-muted">CRAN release: 2021-06-05</p>
-<ul><li>Add vignette to the package.</li>
+<ul><li>Add a DOI: <a href="https://doi.org/10.5281/zenodo.4673496" class="external-link uri">https://doi.org/10.5281/zenodo.4673496</a>.</li>
+<li>Add the package vignette.</li>
+<li>Add new palettes for <strong>ggplot2</strong>: <code><a href="../reference/scales_bde.html">scale_color_bde_c()</a></code>, <code><a href="../reference/scales_bde.html">scale_color_bde_d()</a></code>, <code><a href="../reference/scales_bde.html">scale_fill_bde_c()</a></code> and <code><a href="../reference/scales_bde.html">scale_fill_bde_d()</a></code>.</li>
 <li>Adjust colors in <code><a href="../reference/bde_pals.html">bde_rose_pal()</a></code>: the HCL spectrum is now more consistent between roses and blues according to <code>colorspace::specplot()</code>.</li>
-<li>Add DOI: <a href="https://doi.org/10.5281/zenodo.4673496" class="external-link uri">https://doi.org/10.5281/zenodo.4673496</a>
-</li>
-<li>New palettes for <strong>ggplot2</strong>: <code><a href="../reference/scales_bde.html">scale_color_bde_c()</a></code>, <code><a href="../reference/scales_bde.html">scale_color_bde_d()</a></code>, <code><a href="../reference/scales_bde.html">scale_fill_bde_c()</a></code>, <code><a href="../reference/scales_bde.html">scale_fill_bde_d()</a></code>.</li>
-<li>Deprecated scales: <code>bde_scale_colour_vivid()</code>, <code>bde_scale_color_vivid()</code>, <code>bde_scale_fill_vivid()</code>, <code>bde_scale_colour_rose()</code>, <code>bde_scale_color_rose()</code>, <code>bde_scale_fill_rose()</code>.</li>
+<li>Deprecate scales: <code>bde_scale_colour_vivid()</code>, <code>bde_scale_color_vivid()</code>, <code>bde_scale_fill_vivid()</code>, <code>bde_scale_colour_rose()</code>, <code>bde_scale_color_rose()</code> and <code>bde_scale_fill_rose()</code>.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="tidybde-010">tidyBdE 0.1.0<a class="anchor" aria-label="anchor" href="#tidybde-010"></a></h2><p class="text-muted">CRAN release: 2021-04-08</p>

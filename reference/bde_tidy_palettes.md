@@ -38,7 +38,7 @@ bde_tidy_palettes(
 
 ## Value
 
-A character vector of colors.
+A character vector of hex color codes.
 
 ## See also
 

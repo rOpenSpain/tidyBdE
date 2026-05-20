@@ -1,6 +1,6 @@
 # Search BdE catalogs
 
-Search for keywords in BdE time series catalogs.
+Search BdE time series catalog metadata for keywords.
 
 ## Usage
 
@@ -27,7 +27,7 @@ bde_catalog_search(pattern, ...)
 
   `parse_dates`
 
-  :   Logical. If `TRUE`, dates are parsed using
+  :   Logical. If `TRUE`, date columns are parsed with
       [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md).
 
   `update_cache`
@@ -51,7 +51,7 @@ object with the results of the query.
 
 ## Details
 
-**Note:** BdE metadata is currently only provided in Spanish. Therefore,
+**Note:** BdE metadata is currently provided in Spanish only. Therefore,
 search terms must be provided in Spanish to retrieve results.
 
 This function uses [`base::grep()`](https://rdrr.io/r/base/grep.html) to

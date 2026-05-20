@@ -1,7 +1,7 @@
 # Database of selected Spanish macroeconomic indicators
 
 Minimal metadata for the selected Spanish macroeconomic indicators
-included in convenience functions of
+included in the convenience functions of
 [tidyBdE](https://CRAN.R-project.org/package=tidyBdE) (see
 [bde_indicators](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)).
 Full metadata can be accessed with
