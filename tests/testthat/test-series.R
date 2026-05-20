@@ -1,5 +1,5 @@
 test_that("Indicators", {
-  expect_error(bde_series_load(), "`series_code` cannot be NULL\\.")
+  expect_error(bde_series_load(), "`series_code` cannot be missing")
 
   skip_on_cran()
   skip_if_bde_offline()

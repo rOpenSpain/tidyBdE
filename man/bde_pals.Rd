@@ -19,9 +19,7 @@ A color palette function.
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#superseded}{\figure{lifecycle-superseded.svg}{options: alt='[Superseded]'}}}{\strong{[Superseded]}}
 
-These functions are superseded. Use \code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}} instead.
-
-Palettes based on BdE publications.
+These palettes are superseded. Use \code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}} instead.
 }
 \examples{
 

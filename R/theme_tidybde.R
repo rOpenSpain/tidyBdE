@@ -15,7 +15,6 @@
 #' @seealso [ggplot2::theme_classic()]
 #'
 #' @details
-#'
 #' This theme is based on [ggplot2::theme_classic()].
 #'
 #' @importFrom ggplot2 %+replace% rel margin

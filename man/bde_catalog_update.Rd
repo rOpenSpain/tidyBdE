@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{bde_catalog_update}
 \alias{bde_catalog_update}
-\title{Update BdE catalogs}
+\title{Update BdE catalog files}
 \source{
 \href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{time series bulk data download}.
 }
@@ -15,8 +15,8 @@ bde_catalog_update(
 )
 }
 \arguments{
-\item{catalog}{A single catalog identifier to update, or \code{"ALL"} to
-update every catalog. See \strong{Details}.}
+\item{catalog}{A single catalog identifier to update, or \code{"ALL"} to update
+every catalog. See \strong{Details}.}
 
 \item{cache_dir}{A path to a cache directory. The directory can also be set
 with options using \code{options(bde_cache_dir = "path/to/dir")}.}
@@ -27,7 +27,7 @@ with options using \code{options(bde_cache_dir = "path/to/dir")}.}
 An invisible list of download results.
 }
 \description{
-Update BdE time series catalogs.
+Update BdE time series catalog files.
 }
 \details{
 Accepted values for \code{catalog} are:\tabular{llll}{

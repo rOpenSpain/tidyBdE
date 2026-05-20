@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{bde_catalog_load}
 \alias{bde_catalog_load}
-\title{Load BdE catalogs}
+\title{Load BdE catalog metadata}
 \source{
 \href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{time series bulk data download}.
 }
@@ -17,10 +17,10 @@ bde_catalog_load(
 )
 }
 \arguments{
-\item{catalog}{A single catalog identifier to load, or \code{"ALL"} to
-load every catalog. See \strong{Details}.}
+\item{catalog}{A single catalog identifier to load, or \code{"ALL"} to load every
+catalog. See \strong{Details}.}
 
-\item{parse_dates}{Logical. If \code{TRUE}, dates are parsed using
+\item{parse_dates}{Logical. If \code{TRUE}, date columns are parsed with
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
 
 \item{cache_dir}{A path to a cache directory. The directory can also be set
@@ -35,7 +35,7 @@ with options using \code{options(bde_cache_dir = "path/to/dir")}.}
 A \link[tibble:tbl_df]{tibble} with the requested catalog metadata.
 }
 \description{
-Load BdE time series catalogs.
+Load BdE time series catalog metadata.
 }
 \details{
 Accepted values for \code{catalog} are:\tabular{llll}{
@@ -50,7 +50,8 @@ Accepted values for \code{catalog} are:\tabular{llll}{
 
 Use \code{"ALL"} as a shorthand for loading all catalogs at once.
 
-If the requested catalog is not cached, \code{\link[=bde_catalog_update]{bde_catalog_update()}} is invoked.
+If the requested catalog is not cached, this function calls
+\code{\link[=bde_catalog_update]{bde_catalog_update()}}.
 }
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}

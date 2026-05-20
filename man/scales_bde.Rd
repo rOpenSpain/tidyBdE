@@ -58,7 +58,7 @@ hex codes. See \code{\link[ggplot2:alpha]{ggplot2::alpha()}}.}
 \code{\link[ggplot2:guides]{guides()}} for more information.}
 }
 \value{
-A \CRANpkg{ggplot2} color scale object.
+A \CRANpkg{ggplot2} scale object.
 }
 \description{
 Color scales for the \CRANpkg{ggplot2} package. Discrete scales are

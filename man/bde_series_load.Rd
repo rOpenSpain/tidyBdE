@@ -29,7 +29,7 @@ to the extracted series.}
 \item{out_format}{The format to return, either \code{"wide"} or \code{"long"}.
 See \strong{Value} for details and the \strong{Examples} section.}
 
-\item{parse_dates}{Logical. If \code{TRUE}, dates are parsed using
+\item{parse_dates}{Logical. If \code{TRUE}, date columns are parsed with
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
 
 \item{parse_numeric}{Logical. If \code{TRUE}, the columns are parsed to
@@ -43,19 +43,17 @@ with options using \code{options(bde_cache_dir = "path/to/dir")}.}
 
 \item{verbose}{Logical. If \code{TRUE}, display information useful for debugging.}
 
-\item{extract_metadata}{Logical \code{TRUE/FALSE}. If \code{TRUE}, the output is the
-metadata of the requested series.}
+\item{extract_metadata}{Logical. If \code{TRUE}, the output is the metadata of the
+requested series.}
 }
 \value{
 A \link[tibble:tbl_df]{tibble} with a \code{Date} column:
 \itemize{
-\item With \code{out_format = "wide"}, each series is presented in a separate
-column with the name defined by \code{series_label}.
+\item With \code{out_format = "wide"}, each series is presented in a separate column
+with the name defined by \code{series_label}.
 \item With \code{out_format = "long"}, the tibble has two additional columns:
-\itemize{
-\item \code{serie_name}, with the label of each series.
-\item \code{serie_value}, with the corresponding value.
-}
+\code{serie_name}, with the label of each series, and \code{serie_value}, with the
+corresponding value.
 }
 
 \code{"wide"} format is more suitable for exporting to a \code{.csv} file, while
@@ -68,8 +66,8 @@ The series alias is a positional code showing the location (column and/or
 row) of the series in the table. Although it is unique, it is not stable
 enough to use as the series ID because it may change when the series moves.
 
-To ensure series can still be identified, even after these changes, they are
-assigned a sequential number (referred to as \code{series_code} in this function).
+To ensure series can still be identified after these changes, they are
+assigned a sequential number, referred to as \code{series_code} in this function.
 
 Note that a single series may appear in different tables, so it can have
 several aliases. If you need to search by alias, use

@@ -14,9 +14,9 @@ and \strong{Examples}.}
 \item{...}{
   Arguments passed on to \code{\link{bde_catalog_load}}
   \describe{
-    \item{\code{catalog}}{A single catalog identifier to load, or \code{"ALL"} to
-load every catalog. See \strong{Details}.}
-    \item{\code{parse_dates}}{Logical. If \code{TRUE}, dates are parsed using
+    \item{\code{catalog}}{A single catalog identifier to load, or \code{"ALL"} to load every
+catalog. See \strong{Details}.}
+    \item{\code{parse_dates}}{Logical. If \code{TRUE}, date columns are parsed with
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
     \item{\code{update_cache}}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
@@ -29,14 +29,14 @@ with options using \code{options(bde_cache_dir = "path/to/dir")}.}
 A \link[tibble:tbl_df]{tibble} object with the results of the query.
 }
 \description{
-Search for keywords in BdE time series catalogs.
+Search BdE time series catalog metadata for keywords.
 }
 \details{
-\strong{Note:} BdE metadata is currently only provided in Spanish. Therefore,
+\strong{Note:} BdE metadata is currently provided in Spanish only. Therefore,
 search terms must be provided in Spanish to retrieve results.
 
-This function uses \code{\link[base:grep]{base::grep()}} to find matches in the catalogs. You
-can pass \link[base:regex]{regular expressions} to broaden the search.
+This function uses \code{\link[base:grep]{base::grep()}} to find matches in the catalogs. You can
+pass \link[base:regex]{regular expressions} to broaden the search.
 }
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}

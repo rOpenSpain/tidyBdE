@@ -1,7 +1,6 @@
 #' BdE color scales
 #'
 #' @description
-#'
 #' Color scales for the \CRANpkg{ggplot2} package. Discrete scales are
 #' named `scale_*_bde_d`, while continuous palettes are named `scale_*_bde_c`.
 #'
@@ -12,7 +11,7 @@
 #' @export
 #' @encoding UTF-8
 #'
-#' @return A \CRANpkg{ggplot2} color scale object.
+#' @return A \CRANpkg{ggplot2} scale object.
 #'
 #' @rdname scales_bde
 #'
@@ -56,7 +55,7 @@ scale_color_bde_d <- function(
 ) {
   palette <- match.arg(palette)
 
-  # Generate the discrete palette.
+  # Build the discrete palette.
   cols_v <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
   pal <- scales::manual_pal(cols_v)
 
@@ -82,7 +81,7 @@ scale_fill_bde_d <- function(
 ) {
   palette <- match.arg(palette)
 
-  # Generate the discrete palette.
+  # Build the discrete palette.
   cols_v <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
   pal <- scales::manual_pal(cols_v)
 

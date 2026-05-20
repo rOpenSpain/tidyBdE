@@ -16,8 +16,8 @@ knitr:
     out.width: "100%"
 ---
 
-This table lists the available series in the catalog, last updated:
-**`r format(Sys.Date(),"%d-%B-%Y")`**).
+This table lists the series available in the catalog. Last updated:
+**`r format(Sys.Date(), "%d-%B-%Y")`**.
 
 Use the sequential number to load a series, as shown in the example.
 
@@ -72,7 +72,7 @@ reactable(
 
 ## Example {#example}
 
-Workflow for searching for and extracting a specific series:
+Workflow for searching and extracting a specific series:
 
 ```{r}
 #| label: tbl-example

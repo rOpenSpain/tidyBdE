@@ -20,7 +20,7 @@ bde_series_full_load(
 \verb{Nombre del archivo con los valores de la serie} of the corresponding
 catalog. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 
-\item{parse_dates}{Logical. If \code{TRUE}, dates are parsed using
+\item{parse_dates}{Logical. If \code{TRUE}, date columns are parsed with
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
 
 \item{parse_numeric}{Logical. If \code{TRUE}, the columns are parsed to
@@ -34,8 +34,8 @@ with options using \code{options(bde_cache_dir = "path/to/dir")}.}
 
 \item{verbose}{Logical. If \code{TRUE}, display information useful for debugging.}
 
-\item{extract_metadata}{Logical \code{TRUE/FALSE}. If \code{TRUE}, the output is the
-metadata of the requested series.}
+\item{extract_metadata}{Logical. If \code{TRUE}, the output is the metadata of the
+requested series.}
 }
 \value{
 A \link[tibble:tbl_df]{tibble} with a \code{Date} field and the aliases of the
@@ -52,8 +52,8 @@ example, table \strong{be_6_1} represents Table 1, Chapter 6 of the Statistical
 Bulletin ("BE"). Although it is unique, it is subject to change, for
 example when a new table is inserted before it.
 
-For that reason, the function \code{\link[=bde_series_load]{bde_series_load()}} is more suitable for
-extracting specific time series.
+For that reason, \code{\link[=bde_series_load]{bde_series_load()}} is more suitable for extracting
+specific time series.
 }
 }
 \note{

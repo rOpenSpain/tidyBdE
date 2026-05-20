@@ -14,7 +14,7 @@ bde_parse_dates(dates_to_parse)
 A vector of \code{\link[=as.Date]{Date}} values.
 }
 \description{
-This function is tailored for date formats used in this package and may fail
+This function is tailored to date formats used in this package and may fail
 with other datasets. See \strong{Examples} for formats that are supported.
 \subsection{Date formats}{\tabular{lll}{
    \strong{FREQUENCY} \tab \strong{FORMAT} \tab \strong{EXAMPLES} \cr
@@ -28,7 +28,7 @@ with other datasets. See \strong{Examples} for formats that are supported.
 }
 }
 \details{
-Parse strings representing dates using \code{\link[=as.Date]{as.Date()}}.
+Parse strings representing dates with \code{\link[=as.Date]{as.Date()}}.
 }
 \examples{
 # Supported formats.
@@ -43,9 +43,8 @@ class(parsed_ok)
 
 tibble::tibble(raw = would_parse, parsed = parsed_ok)
 
-#-----------------------------------
-
 # Unsupported formats.
+
 wont_parse <- c("JAN2001", "2010-01-12", "01 APR 2017", "01/31/1990")
 
 parsed_fail <- bde_parse_dates(wont_parse)

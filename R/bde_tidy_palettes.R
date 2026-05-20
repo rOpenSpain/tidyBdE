@@ -1,12 +1,12 @@
 #' BdE color palettes
 #'
 #' @description
-#' Manually defined palettes based on BdE publications.
-#' Each palette contains at most six colors.
+#' Manually defined palettes based on BdE publications. Each palette contains
+#' at most six colors.
 #'
 #' @family bde_plot
 #'
-#' @return A character vector of colors.
+#' @return A character vector of hex color codes.
 #'
 #' @export
 #' @encoding UTF-8
@@ -73,9 +73,9 @@ bde_tidy_palettes <- function(
     message(
       "tidyBdE> ",
       palette,
-      " has ",
+      " contains ",
       n_col,
-      ", requested ",
+      " colors. You requested ",
       n,
       ". Returning ",
       n_col,

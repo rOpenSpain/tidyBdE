@@ -11,5 +11,5 @@
     Code
       nmore <- bde_tidy_palettes(n = 23)
     Message
-      tidyBdE> bde_vivid_pal has 6, requested 23. Returning 6 colors.
+      tidyBdE> bde_vivid_pal contains 6 colors. You requested 23. Returning 6 colors.
 

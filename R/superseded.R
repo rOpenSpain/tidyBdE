@@ -3,9 +3,7 @@
 #' @description
 #' `r lifecycle::badge('superseded')`
 #'
-#' These functions are superseded. Use [bde_tidy_palettes()] instead.
-#'
-#' Palettes based on BdE publications.
+#' These palettes are superseded. Use [bde_tidy_palettes()] instead.
 #'
 #' @return A color palette function.
 #'

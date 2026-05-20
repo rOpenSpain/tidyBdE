@@ -21,11 +21,12 @@
 #'
 #' @return
 #' A [tibble][tibble::tbl_df] with a `Date` column:
-#' - With `out_format = "wide"`, each series is presented in a separate
-#'   column with the name defined by `series_label`.
+#'
+#' - With `out_format = "wide"`, each series is presented in a separate column
+#'   with the name defined by `series_label`.
 #' - With `out_format = "long"`, the tibble has two additional columns:
-#'   - `serie_name`, with the label of each series.
-#'   - `serie_value`, with the corresponding value.
+#'   `serie_name`, with the label of each series, and `serie_value`, with the
+#'   corresponding value.
 #'
 #' `"wide"` format is more suitable for exporting to a `.csv` file, while
 #' `"long"` format is more suitable for creating plots using
@@ -38,8 +39,8 @@
 #' row) of the series in the table. Although it is unique, it is not stable
 #' enough to use as the series ID because it may change when the series moves.
 #'
-#' To ensure series can still be identified, even after these changes, they are
-#' assigned a sequential number (referred to as `series_code` in this function).
+#' To ensure series can still be identified after these changes, they are
+#' assigned a sequential number, referred to as `series_code` in this function.
 #'
 #' Note that a single series may appear in different tables, so it can have
 #' several aliases. If you need to search by alias, use
@@ -101,7 +102,7 @@ bde_series_load <- function(
   extract_metadata = FALSE
 ) {
   if (missing(series_code)) {
-    stop("`series_code` cannot be NULL.")
+    stop("tidyBdE> `series_code` cannot be missing.")
   }
 
   series_code <- as.double(series_code)
@@ -112,13 +113,13 @@ bde_series_load <- function(
     series_label <- as.character(series_code)
   }
   if (anyNA(series_label)) {
-    stop("`series_label` must not contain NA values.")
+    stop("tidyBdE> `series_label` must not contain NA values.")
   }
 
   series_label <- unique(as.character(series_label))
 
   if (length(series_code) != length(series_label)) {
-    stop("`series_label` and `series_code` must have the same length.")
+    stop("tidyBdE> `series_label` and `series_code` must have the same length.")
   }
 
   # Search the catalogs.
@@ -141,14 +142,14 @@ bde_series_load <- function(
 
   df_list <- lapply(series_code, function(x) {
     if (verbose) {
-      message("tidyBdE> Extracting series ", x, ".\n\n")
+      message("tidyBdE> Extracting series ", x, ".")
     }
 
     # Identify the source file.
     csv_file <- all_catalogs[all_catalogs[[1]] == x, c(2, 3)]
 
     if (nrow(csv_file) == 0) {
-      message("`series_code` not found in catalogs.")
+      message("tidyBdE> `series_code` not found in catalogs.")
       tbl <- bde_hlp_return_null()
       return(tbl)
     }
@@ -208,7 +209,7 @@ bde_series_load <- function(
     i <- match(x, series_code)
     names(serie_file) <- c("Date", "serie_value")
     serie_file$serie_name <- as.character(series_label[i])
-    # Rearrange columns.
+    # Place the date, label and value columns first.
     serie_file <- serie_file[c("Date", "serie_name", "serie_value")]
 
     serie_file
@@ -264,15 +265,13 @@ bde_series_load <- function(
 #' Bulletin ("BE"). Although it is unique, it is subject to change, for
 #' example when a new table is inserted before it.
 #'
-#' For that reason, the function [bde_series_load()] is more suitable for
-#' extracting specific time series.
+#' For that reason, [bde_series_load()] is more suitable for extracting
+#' specific time series.
 #'
 #' @export
 #' @encoding UTF-8
 #'
 #' @family series
-#'
-#' @encoding UTF-8
 #'
 #' @param series_csv CSV file of a series, as defined in the field
 #'   `Nombre del archivo con los valores de la serie` of the corresponding
@@ -283,8 +282,8 @@ bde_series_load <- function(
 #' @param parse_numeric Logical. If `TRUE`, the columns are parsed to
 #'   double (numeric) values. See **Note**.
 #'
-#' @param extract_metadata Logical `TRUE/FALSE`. If `TRUE`, the output is the
-#'   metadata of the requested series.
+#' @param extract_metadata Logical. If `TRUE`, the output is the metadata of the
+#'   requested series.
 #'
 #' @return
 #' A [tibble][tibble::tbl_df] with a `Date` field and the aliases of the
@@ -361,7 +360,7 @@ bde_series_full_load <- function(
     )
 
     if (isFALSE(result)) {
-      # Clean up the file if it was produced. It is not valid.
+      # Remove the invalid file if the failed download created one.
       file_full_path <- path.expand(local_file)
       if (file.exists(file_full_path)) {
         unlink(file_full_path, force = TRUE, recursive = TRUE)
@@ -378,7 +377,7 @@ bde_series_full_load <- function(
   # nocov start
   r <- readLines(local_file, warn = FALSE, n = 1000)
   if (length(r) == 0) {
-    message("File ", local_file, " is not valid.")
+    message("tidyBdE> File ", local_file, " is not valid.")
     return(invisible())
   }
   # nocov end
@@ -447,7 +446,7 @@ bde_series_full_load <- function(
 
   if (parse_numeric) {
     if (verbose) {
-      message("tidyBdE> Parsing fields to double.")
+      message("tidyBdE> Parsing fields as double.")
     }
     # Convert fields to double precision numbers.
     data_serie <- bde_hlp_todouble(data_serie, preserve = "Date")

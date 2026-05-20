@@ -19,7 +19,7 @@ bde_check_access <- function() {
   # nocov start
   test <- getOption("bde_test_offline", NULL)
   if (isTRUE(test)) {
-    message("dev> Testing offline.")
+    message("tidyBdE> Testing offline.")
     return(FALSE)
   }
   # nocov end

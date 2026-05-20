@@ -17,7 +17,7 @@ knitr:
 This article shows selected Spanish economic indicators using Banco de España
 data.
 
-Last updated: **`r format(Sys.Date(),"%d-%B-%Y")`**.
+Last updated: **`r format(Sys.Date(), "%d-%B-%Y")`**.
 
 ```{r}
 library(tidyBdE)

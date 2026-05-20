@@ -16,12 +16,12 @@ repo:
 
 reference:
 - title: Catalogs
-  desc: Search and load BdE time series catalogs.
+  desc: Search, update and load BdE time series catalog metadata.
   contents:
   - has_concept("catalog")
 
 - title: Series
-  desc: Load individual series or complete BdE time series files.
+  desc: Load individual series and complete BdE time series files.
   contents:
   - has_concept("series")
 
@@ -31,12 +31,12 @@ reference:
   - has_concept("indicators")
 
 - title: Plot utilities
-  desc: BdE-inspired palettes, scales and themes for ggplot2 plots.
+  desc: BdE-inspired palettes, scales and themes for ggplot2 charts.
   contents:
   - has_concept("bde_plot")
 
 - title: Utilities
-  desc: Internal utility functions.
+  desc: Date parsing and supporting utilities.
   contents:
   - has_concept("utils")
 

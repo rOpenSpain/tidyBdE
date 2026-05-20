@@ -1,6 +1,6 @@
 #' Parse dates from strings
 #'
-#' Parse strings representing dates using [as.Date()].
+#' Parse strings representing dates with [as.Date()].
 #'
 #' @export
 #' @encoding UTF-8
@@ -14,7 +14,7 @@
 #' @param dates_to_parse Character vector of dates to parse.
 #'
 #' @description
-#' This function is tailored for date formats used in this package and may fail
+#' This function is tailored to date formats used in this package and may fail
 #' with other datasets. See **Examples** for formats that are supported.
 #'
 #' ## Date formats
@@ -58,9 +58,8 @@
 #'
 #' tibble::tibble(raw = would_parse, parsed = parsed_ok)
 #'
-#' #-----------------------------------
-#'
 #' # Unsupported formats.
+#'
 #' wont_parse <- c("JAN2001", "2010-01-12", "01 APR 2017", "01/31/1990")
 #'
 #' parsed_fail <- bde_parse_dates(wont_parse)
@@ -98,7 +97,7 @@ bde_parse_dates <- function(dates_to_parse) {
     s2 <- dateformat[j]
 
     if (is.na(s2) || nchar(s2) < 4) {
-      # Return NA.
+      # Return missing values for incomplete dates.
       dateformat[j] <- NA
     } else if (nchar(s2) == 4) {
       # If only a year is provided, add month and day.
@@ -114,7 +113,7 @@ bde_parse_dates <- function(dates_to_parse) {
   dateformat
 }
 
-#' Create a cache directory
+#' Resolve a cache directory
 #'
 #' @param cache_dir Path to a cache directory.
 #' @param verbose Logical indicating whether to display informative messages.
@@ -140,7 +139,7 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
       }
       return(cache_dir)
     } else {
-      # Detect the cache directory from global options.
+      # Use the cache directory from global options.
       if (verbose) {
         message(
           "tidyBdE> Cache directory detected in options: ",
@@ -170,18 +169,18 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
   cache_dir
 }
 
-#' Internal helper for downloading files
+#' Download a file
 #'
 #' @param url Resource URL.
 #'
-#' @param local_file Local file path to create.
+#' @param local_file Local file path to create or overwrite.
 #'
 #' @param verbose Logical indicating whether to display informative messages.
 #'
 #' @noRd
 bde_hlp_download <- function(url, local_file, verbose) {
   if (verbose) {
-    message("tidyBdE> Downloading file from ", url, ".\n\n")
+    message("tidyBdE> Downloading file from ", url, ".")
   }
 
   err_dwnload <- tryCatch(
@@ -205,9 +204,9 @@ bde_hlp_download <- function(url, local_file, verbose) {
       # nocov start
       warning = function(e) {
         message(
-          "tidyBdE> URL \n ",
+          "tidyBdE> URL ",
           url,
-          "\nis not reachable.\n\n",
+          " is not reachable. ",
           "If you think this is a bug, consider opening an issue."
         )
         TRUE
@@ -242,7 +241,7 @@ bde_hlp_guess <- function(tbl, preserve = "") {
   tbl
 }
 
-#' Convert columns to characters
+#' Convert columns to character vectors
 #'
 #' @param tbl A tibble.
 #' @param preserve Vector of names to preserve.
@@ -256,7 +255,7 @@ bde_hlp_tochar <- function(tbl, preserve = "") {
   tbl
 }
 
-#' Convert columns to double precision numbers
+#' Convert columns to double-precision numbers
 #'
 #' @param tbl A tibble.
 #' @param preserve Vector of names to preserve.
@@ -275,6 +274,7 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
 }
 
 #' Return an empty tibble with an informative message
+#'
 #' @return A [tibble][tibble::tbl_df].
 #'
 #' @examples

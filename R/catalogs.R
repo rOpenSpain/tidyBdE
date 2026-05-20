@@ -1,7 +1,7 @@
-#' Load BdE catalogs
+#' Load BdE catalog metadata
 #'
 #' @description
-#' Load BdE time series catalogs.
+#' Load BdE time series catalog metadata.
 #'
 #' @export
 #' @encoding UTF-8
@@ -20,10 +20,10 @@
 #'
 #' ```
 #'
-#' @param catalog A single catalog identifier to load, or `"ALL"` to
-#'   load every catalog. See **Details**.
+#' @param catalog A single catalog identifier to load, or `"ALL"` to load every
+#'   catalog. See **Details**.
 #'
-#' @param parse_dates Logical. If `TRUE`, dates are parsed using
+#' @param parse_dates Logical. If `TRUE`, date columns are parsed with
 #'   [bde_parse_dates()].
 #'
 #' @param update_cache Logical. If `TRUE`, the requested file is refreshed in
@@ -53,7 +53,8 @@
 #' ```
 #' Use `"ALL"` as a shorthand for loading all catalogs at once.
 #'
-#' If the requested catalog is not cached, [bde_catalog_update()] is invoked.
+#' If the requested catalog is not cached, this function calls
+#' [bde_catalog_update()].
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{
@@ -94,7 +95,7 @@ bde_catalog_load <- function(
     if (all(has_cache, isFALSE(update_cache))) {
       if (verbose) message("tidyBdE> Cached version of ", x, " detected.")
     } else {
-      # Download the catalog if it is missing or must be refreshed.
+      # Download the catalog when it is missing or must be refreshed.
       if (verbose) {
         message("tidyBdE> Need to download catalog ", x, ".")
       }
@@ -107,7 +108,7 @@ bde_catalog_load <- function(
 
       # Handle download errors.
       if (any(is.data.frame(result), isFALSE(result))) {
-        message("Download is not available for ", x, ".")
+        message("tidyBdE> Download is not available for ", x, ".")
         return(NULL)
       }
     }
@@ -116,7 +117,7 @@ bde_catalog_load <- function(
     # nocov start
     r <- readLines(catalog_file, warn = FALSE, n = 1000)
     if (length(r) == 0) {
-      message("File ", catalog_file, " is not valid.")
+      message("tidyBdE> File ", catalog_file, " is not valid.")
       return(invisible())
     }
     # nocov end
@@ -135,8 +136,7 @@ bde_catalog_load <- function(
     )
 
     # Use stable column names.
-    # Hard-coded column names to avoid UTF-8 encoding issues during checks.
-    # Avoid check failures on systems with different encodings.
+    # Use hard-coded column names to avoid UTF-8 check failures.
     names_catalog <- c(
       "Nombre_de_la_serie",
       "Numero_secuencial",
@@ -201,10 +201,10 @@ bde_catalog_load <- function(
   final_catalog
 }
 
-#' Update BdE catalogs
+#' Update BdE catalog files
 #'
 #' @description
-#' Update BdE time series catalogs.
+#' Update BdE time series catalog files.
 #'
 #' @export
 #' @encoding UTF-8
@@ -223,8 +223,8 @@ bde_catalog_load <- function(
 #'
 #' ```
 #'
-#' @param catalog A single catalog identifier to update, or `"ALL"` to
-#'   update every catalog. See **Details**.
+#' @param catalog A single catalog identifier to update, or `"ALL"` to update
+#'   every catalog. See **Details**.
 #' @param cache_dir A path to a cache directory. The directory can also be set
 #'   with options using `options(bde_cache_dir = "path/to/dir")`.
 #' @param verbose Logical. If `TRUE`, display information useful for debugging.
@@ -319,7 +319,7 @@ bde_catalog_update <- function(
 #' Search BdE catalogs
 #'
 #' @description
-#' Search for keywords in BdE time series catalogs.
+#' Search BdE time series catalog metadata for keywords.
 #'
 #' @export
 #' @encoding UTF-8
@@ -334,11 +334,11 @@ bde_catalog_update <- function(
 #' @inheritDotParams bde_catalog_load
 #'
 #' @details
-#' **Note:** BdE metadata is currently only provided in Spanish. Therefore,
+#' **Note:** BdE metadata is currently provided in Spanish only. Therefore,
 #' search terms must be provided in Spanish to retrieve results.
 #'
-#' This function uses [base::grep()] to find matches in the catalogs. You
-#' can pass [regular expressions][base::regex] to broaden the search.
+#' This function uses [base::grep()] to find matches in the catalogs. You can
+#' pass [regular expressions][base::regex] to broaden the search.
 #'
 #' @seealso [bde_catalog_load()], [base::regex]
 #'
@@ -367,7 +367,8 @@ bde_catalog_search <- function(pattern, ...) {
 
   if (!tibble::is_tibble(catalog_search)) {
     message(
-      "Catalogs are corrupted. Try redownloading with bde_catalog_update()."
+      "tidyBdE> Catalogs are corrupted. Try redownloading with ",
+      "bde_catalog_update()."
     )
     return(invisible())
   }

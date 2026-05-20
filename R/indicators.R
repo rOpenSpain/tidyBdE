@@ -2,8 +2,7 @@
 #'
 #' @description
 #' Convenience functions for downloading selected Spanish macroeconomic
-#' indicators.
-#' Metadata is available in [bde_ind_db].
+#' indicators. Metadata is available in [bde_ind_db].
 #'
 #' @rdname bde_indicators
 #' @name bde_indicators
@@ -23,7 +22,7 @@
 #'
 #' @details
 #' These functions are convenient wrappers around [bde_series_load()] for
-#' specific series. Use `verbose = TRUE, extract_metadata = TRUE` to see the
+#' specific series. Use `verbose = TRUE, extract_metadata = TRUE` to inspect the
 #' metadata and source.
 #'
 #' @examplesIf bde_check_access()

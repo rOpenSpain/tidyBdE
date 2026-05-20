@@ -44,9 +44,9 @@ to the extracted series.}
 See \strong{Value} for details and the \strong{Examples} section.}
     \item{\code{parse_numeric}}{Logical. If \code{TRUE}, the columns are parsed to
 double (numeric) values. See \strong{Note}.}
-    \item{\code{extract_metadata}}{Logical \code{TRUE/FALSE}. If \code{TRUE}, the output is the
-metadata of the requested series.}
-    \item{\code{parse_dates}}{Logical. If \code{TRUE}, dates are parsed using
+    \item{\code{extract_metadata}}{Logical. If \code{TRUE}, the output is the metadata of the
+requested series.}
+    \item{\code{parse_dates}}{Logical. If \code{TRUE}, date columns are parsed with
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
     \item{\code{update_cache}}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
@@ -60,12 +60,11 @@ A \link[tibble:tbl_df]{tibble} with the required series.
 }
 \description{
 Convenience functions for downloading selected Spanish macroeconomic
-indicators.
-Metadata is available in \link{bde_ind_db}.
+indicators. Metadata is available in \link{bde_ind_db}.
 }
 \details{
 These functions are convenient wrappers around \code{\link[=bde_series_load]{bde_series_load()}} for
-specific series. Use \verb{verbose = TRUE, extract_metadata = TRUE} to see the
+specific series. Use \verb{verbose = TRUE, extract_metadata = TRUE} to inspect the
 metadata and source.
 }
 \examples{

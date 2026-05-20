@@ -25,11 +25,11 @@ hex codes. See \code{\link[ggplot2:alpha]{ggplot2::alpha()}}.}
 \item{rev}{Logical indicating whether to reverse the color order.}
 }
 \value{
-A character vector of colors.
+A character vector of hex color codes.
 }
 \description{
-Manually defined palettes based on BdE publications.
-Each palette contains at most six colors.
+Manually defined palettes based on BdE publications. Each palette contains
+at most six colors.
 }
 \examples{
 
