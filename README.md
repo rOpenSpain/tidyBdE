@@ -241,7 +241,7 @@ A BibTeX entry for LaTeX users is:
       doi = {10.32614/CRAN.package.tidyBdE},
       author = {Diego {H. Herrero}},
       year = {2026},
-      version = {0.6.0.9000},
+      version = {0.6.1},
       url = {https://ropenspain.github.io/tidyBdE/},
       abstract = {Tools for retrieving time series data from Banco de España (BdE) as tibble objects. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by Banco de España.},
     }
