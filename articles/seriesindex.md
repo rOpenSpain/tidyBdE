@@ -1,7 +1,7 @@
 # Series index
 
 This table lists the series available in the catalog. Last updated:
-**20-May-2026**.
+**21-May-2026**.
 
 Use the sequential number to load a series, as shown in the example.
 

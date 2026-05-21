@@ -1,10 +1,12 @@
 # Changelog
 
-## tidyBdE (development version)
+## tidyBdE 0.6.1
 
 - Improve reading of external `.csv` files by detecting file encoding
   with
   [`readr::guess_encoding()`](https://readr.tidyverse.org/reference/encoding.html).
+- Package documentation was reviewed and updated with AI-assisted
+  editing.
 
 ## tidyBdE 0.6.0
 

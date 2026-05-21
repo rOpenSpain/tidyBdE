@@ -3,7 +3,7 @@
 This article shows selected Spanish economic indicators using Banco de
 España data.
 
-Last updated: **20-May-2026**.
+Last updated: **21-May-2026**.
 
 ``` r
 
