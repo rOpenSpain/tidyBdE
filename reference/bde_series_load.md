@@ -121,7 +121,7 @@ Other series:
 # \donttest{
 # Show metadata.
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> tidyBdE> Caching in temporary directory /tmp/Rtmp54OEQV.
+#> tidyBdE> Caching in temporary directory /tmp/RtmpCioVX5.
 #> tidyBdE> Cached version of BE detected.
 #> tidyBdE> Cached version of SI detected.
 #> tidyBdE> Cached version of TC detected.
@@ -130,7 +130,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> tidyBdE> Parsing dates.
 #> tidyBdE> Extracting series 573234.
 #> tidyBdE> Downloading series 573234 from file TC_1_1.csv (alias TC_1_1.1).
-#> tidyBdE> Caching in temporary directory /tmp/Rtmp54OEQV/TC.
+#> tidyBdE> Caching in temporary directory /tmp/RtmpCioVX5/TC.
 #> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv.
 #> # A tibble: 6 × 2
 #>   Date                        `573234`                                          
