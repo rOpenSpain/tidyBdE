@@ -1,6 +1,6 @@
 
 
-<!-- README.md is generated from README.qmd. Please edit that file -->
+<!-- index.md is generated from index.qmd. Please edit that file -->
 
 # tidyBdE <a href="https://ropenspain.github.io/tidyBdE/"><img src="man/figures/logo.png" alt="tidyBdE website" align="right" height="139"/></a>
 
@@ -28,10 +28,17 @@ Data are returned as [**tibble**](https://tibble.tidyverse.org/)
 objects. The package automatically detects the format of each time
 series field, including dates, character fields and numeric fields.
 
-> [!IMPORTANT]
->
-> This package is not sponsored, endorsed or administered by Banco de
-> España.
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">A note on performance</div></div>
+<div class="callout-body-container callout-body">
+
+This package is not sponsored, endorsed or administered by Banco de
+España.
+
+</div>
+</div>
 
 ## Installation
 
@@ -97,11 +104,19 @@ xr_gbp |>
 Table 1: Search results
 </p>
 
-> [!NOTE]
->
-> BdE metadata is currently available in Spanish only, so search terms
-> must be in Spanish to retrieve results. The institution is working on
-> an English version.
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">About the screenshots</div>
+</div>
+<div class="callout-body-container callout-body">
+
+BdE metadata is currently available in Spanish only, so search terms
+must be in Spanish to retrieve results. The institution is working on an
+English version.
+
+</div>
+</div>
 
 After finding a time series, you can load the GBP/EUR exchange rate
 using the sequential number reference (`Numero_secuencial`):
