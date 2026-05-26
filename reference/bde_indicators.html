@@ -15,7 +15,7 @@ indicators. Metadata is available in bde_ind_db."><meta property="og:image" cont
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyBdE logo" height="34" width="34" class="d-inline-block me-1">tidyBdE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@ indicators. Metadata is available in bde_ind_db."><meta property="og:image" cont
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
-    <li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic series</a></li>
+    <li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic indicators</a></li>
     <li><a class="dropdown-item" href="../articles/seriesindex.html">Series index</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -91,8 +91,8 @@ to the extracted series.</p></dd>
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Arguments passed on to <code><a href="bde_series_load.html">bde_series_load</a></code></p><dl><dt><code>out_format</code></dt>
-<dd><p>The format to return, either <code>"wide"</code> or <code>"long"</code>.
-See <strong>Value</strong> for details and the <strong>Examples</strong> section.</p></dd>
+<dd><p>The format to return, either <code>"wide"</code> or <code>"long"</code>. See
+<strong>Value</strong> for details and the <strong>Examples</strong> section.</p></dd>
 
     <dt><code>parse_numeric</code></dt>
 <dd><p>Logical. If <code>TRUE</code>, the columns are parsed to
@@ -111,8 +111,8 @@ requested series.</p></dd>
 <code>cache_dir</code>.</p></dd>
 
     <dt><code>cache_dir</code></dt>
-<dd><p>A path to a cache directory. The directory can also be set
-with options using <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
+<dd><p>Path to a cache directory. The directory can also be set
+with <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
 
     <dt><code>verbose</code></dt>
 <dd><p>Logical. If <code>TRUE</code>, display information useful for debugging.</p></dd>

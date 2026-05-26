@@ -1,5 +1,17 @@
 # Changelog
 
+## tidyBdE (development version)
+
+- Internal code was refactored with AI assistance to reduce duplication
+  in indicator wrappers and **ggplot2** scale helpers.
+- Messages and package errors now use **cli**, with AI-assisted wording
+  updates and without the former `tidyBdE>` prefix.
+- Roxygen2 documentation was reviewed with AI assistance and tag order
+  was made consistent across source files.
+- Tests were refactored and expanded with local fixtures, mocks and
+  snapshot updates, reaching 100% line coverage in
+  `devtools:::test_coverage()`.
+
 ## tidyBdE 0.6.1
 
 CRAN release: 2026-05-21
@@ -34,7 +46,7 @@ CRAN release: 2025-06-22
 - [`?bde_indicators`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
   is now based on data from the new
   [`?bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md)
-  database, which clarifies the underlying series identifiers and makes
+  database, which clarifies the underlying series codes and makes
   maintenance easier.
 
 ## tidyBdE 0.3.8

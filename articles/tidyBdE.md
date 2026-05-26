@@ -2,18 +2,18 @@
 
 **tidyBdE** is an **R** package that retrieves data from [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
-Data are returned as a [tibble](https://tibble.tidyverse.org/), and the
-package automatically detects the format of each time series (dates,
-characters and numbers).
+Data are returned as [**tibble**](https://tibble.tidyverse.org/)
+objects. The package automatically detects the format of each time
+series field, including dates, character fields and numeric fields.
 
-## Search series
+## Search time series
 
 Banco de España (**BdE**) provides several time series, either produced
-by the institution itself or compiled from other sources, such as
+by the institution or compiled from other sources, such as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
 The basic entry point for searching time series is the catalog. You can
-search for series by name:
+search for time series by name:
 
 ``` r
 
@@ -38,11 +38,11 @@ xr_gbp |>
 
 Table 1: Search results
 
-**Note:** BdE metadata is currently provided in Spanish only, so search
-terms must be provided in Spanish to retrieve results. The institution
-is working on an English version.
+**Note:** BdE metadata is currently available in Spanish only, so search
+terms must be in Spanish to retrieve results. The institution is working
+on an English version.
 
-After finding a series, load the GBP/EUR exchange rate using the
+After finding a time series, load the GBP/EUR exchange rate using the
 sequential number reference (`Numero_secuencial`):
 
 ``` r
@@ -50,7 +50,7 @@ sequential number reference (`Numero_secuencial`):
 seq_number <- xr_gbp |>
   # Select the first record.
   slice(1) |>
-  # Get the series ID.
+  # Get the series code.
   pull(Numero_secuencial) |>
   # Convert to numeric.
   as.double()
@@ -79,7 +79,7 @@ time_series
 #> # ℹ 2,806 more rows
 ```
 
-## Plot series
+## Plot time series
 
 The package also provides a custom **ggplot2** theme based on BdE
 publications:
@@ -111,8 +111,8 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
 
 Figure 1: EUR/GBP Exchange Rate (2010-2020)
 
-The package also provides convenience functions for selected
-macroeconomic series, so you do not need to search manually:
+The package also provides convenience functions for selected Spanish
+macroeconomic indicators, so you do not need to search manually:
 
 ``` r
 
@@ -143,8 +143,7 @@ Figure 2: Spanish Economic Indicators (2010-2019)
 
 ## A note on caching
 
-You can use **tidyBdE** to create a local cache by setting the following
-option:
+Create a local cache by setting the following option:
 
 ``` r
 
@@ -152,9 +151,9 @@ options(bde_cache_dir = "./path/to/location")
 ```
 
 When this option is set, **tidyBdE** looks for cached files in the
-`bde_cache_dir` directory and loads them, speeding up data retrieval.
+`bde_cache_dir` directory and loads them to speed up data retrieval.
 
-You can update the data after monthly or quarterly releases with the
+Update cached data after monthly or quarterly releases with the
 following commands:
 
 ``` r

@@ -10,11 +10,11 @@
 ### Articles
 
 - [Main macroeconomic
-  series](https://ropenspain.github.io/tidyBdE/articles/mainseries.md):
+  indicators](https://ropenspain.github.io/tidyBdE/articles/mainseries.md):
 
   Evolution of selected Spanish economic indicators.
 
 - [Series
   index](https://ropenspain.github.io/tidyBdE/articles/seriesindex.md):
 
-  Summary of information available through tidyBdE.
+  Summary of time series available through tidyBdE.

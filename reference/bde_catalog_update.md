@@ -14,7 +14,7 @@ bde_catalog_update(
 
 ## Source
 
-[time series bulk data
+[Time series bulk data
 download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
 
 ## Arguments
@@ -26,8 +26,8 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
 
 - cache_dir:
 
-  A path to a cache directory. The directory can also be set with
-  options using `options(bde_cache_dir = "path/to/dir")`.
+  Path to a cache directory. The directory can also be set with
+  `options(bde_cache_dir = "path/to/dir")`.
 
 - verbose:
 
@@ -63,8 +63,8 @@ Other catalog:
 ``` r
 # \donttest{
 bde_catalog_update("TI", verbose = TRUE)
-#> tidyBdE> Caching in temporary directory /tmp/Rtmpf92AnC.
-#> tidyBdE> Updating catalogs: TI
-#> tidyBdE> Downloading file from https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv.
+#> ℹ Using temporary cache directory /tmp/Rtmpwr9zgT.
+#> ℹ Updating catalogs: TI.
+#> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv>.
 # }
 ```

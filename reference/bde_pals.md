@@ -27,7 +27,6 @@ A color palette function.
 ## Examples
 
 ``` r
-
 # Show the vivid palette.
 scales::show_col(bde_vivid_pal()(6), labels = FALSE)
 #> Warning: `bde_vivid_pal()` was deprecated in tidyBdE 0.3.5.

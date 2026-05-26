@@ -1,15 +1,16 @@
 # Series index
 
-This table lists the series available in the catalog. Last updated:
-**23-May-2026**.
+This table lists time series available in the catalog. Last updated:
+**26-May-2026**.
 
-Use the sequential number to load a series, as shown in the example.
+Use the sequential number to load a time series, as shown in the
+example.
 
 ## Summary
 
 ## Example
 
-Workflow for searching and extracting a specific series:
+Workflow for searching and extracting a specific time series:
 
 ``` r
 
@@ -34,15 +35,15 @@ Table 1: Search results
 
 ``` r
 
-# Extract the first series using tidyverse style.
+# Extract the first matching time series.
 fr |>
-  # Select the series ID.
+  # Select the series code.
   select(Numero_secuencial) |>
   # Select the first record.
   slice(1) |>
   # Convert to numeric.
   as.double() |>
-  # Load the series.
+  # Load the time series.
   bde_series_load()
 #> # A tibble: 121 × 2
 #>    Date       `2563958`
@@ -59,15 +60,15 @@ fr |>
 #> 10 1998-03-01      NA  
 #> # ℹ 111 more rows
 
-# Show the metadata.
+# Show the series metadata.
 fr |>
-  # Select the series ID.
+  # Select the series code.
   select(Numero_secuencial) |>
   # Select the first record.
   slice(1) |>
   # Convert to numeric.
   as.double() |>
-  # Load its metadata.
+  # Load the series metadata.
   bde_series_load(extract_metadata = TRUE) |>
   # Display the table in the vignette.
   knitr::kable()

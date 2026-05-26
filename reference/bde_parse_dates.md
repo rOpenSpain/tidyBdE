@@ -1,8 +1,9 @@
 # Parse dates from strings
 
-This function is tailored to date formats used in this package and may
-fail with other datasets. See **Examples** for formats that are
-supported.
+Parse strings representing dates with
+[`as.Date()`](https://rdrr.io/r/base/as.Date.html). This function is
+tailored to date formats used in this package and may fail with other
+datasets. See **Examples** for formats that are supported.
 
 ### Date formats
 
@@ -30,11 +31,6 @@ bde_parse_dates(dates_to_parse)
 ## Value
 
 A vector of [`Date`](https://rdrr.io/r/base/as.Date.html) values.
-
-## Details
-
-Parse strings representing dates with
-[`as.Date()`](https://rdrr.io/r/base/as.Date.html).
 
 ## See also
 

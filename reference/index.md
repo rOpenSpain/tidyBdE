@@ -13,7 +13,7 @@ Search, update and load BdE time series catalog metadata.
 
 ## Series
 
-Load individual series and complete BdE time series files.
+Load individual time series and complete BdE time series files.
 
 - [`bde_series_full_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_full_load.md)
   : Load BdE full time series files
@@ -39,7 +39,7 @@ Convenience functions for selected Spanish macroeconomic indicators.
 
 ## Plot utilities
 
-BdE-inspired palettes, scales and themes for ggplot2 charts.
+BdE-inspired palettes, scales and themes for ggplot2 plots.
 
 - [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md)
   : BdE color palettes
@@ -64,4 +64,4 @@ Package-level documentation.
 
 - [`tidyBdE`](https://ropenspain.github.io/tidyBdE/reference/tidyBdE-package.md)
   [`tidyBdE-package`](https://ropenspain.github.io/tidyBdE/reference/tidyBdE-package.md)
-  : tidyBdE: Retrieve Data from 'Banco de España'
+  : tidyBdE: Retrieve Time Series Data from 'Banco de España'

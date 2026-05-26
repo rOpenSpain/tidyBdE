@@ -1,9 +1,9 @@
-# Main macroeconomic series
+# Main macroeconomic indicators
 
-This article shows selected Spanish economic indicators using Banco de
-España data.
+This article shows selected Spanish macroeconomic indicators using Banco
+de España data.
 
-Last updated: **23-May-2026**.
+Last updated: **26-May-2026**.
 
 ``` r
 
@@ -12,7 +12,7 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-# Set plot parameters and date range.
+# Set plot parameters and the date range.
 col <- bde_tidy_palettes(1, "bde_rose_pal")
 date <- Sys.Date()
 ny <- as.numeric(format(date, format = "%Y")) - 6

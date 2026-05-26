@@ -37,8 +37,8 @@ bde_catalog_search(pattern, ...)
 
   `cache_dir`
 
-  :   A path to a cache directory. The directory can also be set with
-      options using `options(bde_cache_dir = "path/to/dir")`.
+  :   Path to a cache directory. The directory can also be set with
+      `options(bde_cache_dir = "path/to/dir")`.
 
   `verbose`
 
@@ -51,8 +51,8 @@ object with the results of the query.
 
 ## Details
 
-**Note:** BdE metadata is currently provided in Spanish only. Therefore,
-search terms must be provided in Spanish to retrieve results.
+**Note:** BdE metadata is currently available in Spanish only.
+Therefore, search terms must be in Spanish to retrieve results.
 
 This function uses [`base::grep()`](https://rdrr.io/r/base/grep.html) to
 find matches in the catalogs. You can pass [regular

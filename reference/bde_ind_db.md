@@ -14,12 +14,12 @@ A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) of
 
 - tidyBdE_fun:
 
-  Function name, see
+  Function name. See
   [bde_indicators](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md).
 
 - Numero_secuencial:
 
-  Series code, see
+  Series code. See
   [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md).
 
 - Descripcion_de_la_serie:

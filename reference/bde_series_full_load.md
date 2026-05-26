@@ -2,6 +2,17 @@
 
 Load a full BdE time series file.
 
+### About BdE file naming
+
+The series name is a positional code showing the location of the table.
+For example, table **be_6_1** represents Table 1, Chapter 6 of the
+Statistical Bulletin ("BE"). Although it is unique, it is subject to
+change, for example when a new table is inserted before it.
+
+For that reason,
+[`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
+is more suitable for extracting specific time series.
+
 ## Usage
 
 ``` r
@@ -20,7 +31,7 @@ bde_series_full_load(
 
 - series_csv:
 
-  CSV file of a series, as defined in the field
+  CSV file name for a series, as defined in the field
   `Nombre del archivo con los valores de la serie` of the corresponding
   catalog. See
   [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md).
@@ -37,8 +48,8 @@ bde_series_full_load(
 
 - cache_dir:
 
-  A path to a cache directory. The directory can also be set with
-  options using `options(bde_cache_dir = "path/to/dir")`.
+  Path to a cache directory. The directory can also be set with
+  `options(bde_cache_dir = "path/to/dir")`.
 
 - update_cache:
 
@@ -56,28 +67,15 @@ bde_series_full_load(
 ## Value
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
-with a `Date` field and the aliases of the series fields as described in
-the catalogs. See
+with a `Date` field and the aliases of the time series fields as
+described in the catalogs. See
 [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md).
-
-## Details
-
-### About BdE file naming
-
-The series name is a positional code showing the location of the table.
-For example, table **be_6_1** represents Table 1, Chapter 6 of the
-Statistical Bulletin ("BE"). Although it is unique, it is subject to
-change, for example when a new table is inserted before it.
-
-For that reason,
-[`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
-is more suitable for extracting specific time series.
 
 ## Note
 
-This function tries to coerce the columns to numbers. For some series, a
-warning may be displayed if the parser fails. You can override the
-default behavior with `parse_numeric = FALSE`.
+This function tries to coerce the columns to numbers. For some time
+series, a warning may be displayed if the parser fails. You can override
+the default behavior with `parse_numeric = FALSE`.
 
 ## See also
 
@@ -102,7 +100,7 @@ bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
 
 # Load data.
 bde_series_full_load("TI_1_1.csv")
-#> # A tibble: 7,145 × 5
+#> # A tibble: 7,147 × 5
 #>    Date       TI_1_1.1 TI_1_1.2 TI_1_1.3 TI_1_1.4
 #>    <date>        <dbl>    <dbl>    <dbl>    <dbl>
 #>  1 1999-01-01        3       NA     4.5      2   
@@ -115,6 +113,6 @@ bde_series_full_load("TI_1_1.csv")
 #>  8 1999-01-12        3       NA     3.25     2.75
 #>  9 1999-01-13        3       NA     3.25     2.75
 #> 10 1999-01-14        3       NA     3.25     2.75
-#> # ℹ 7,135 more rows
+#> # ℹ 7,137 more rows
 # }
 ```

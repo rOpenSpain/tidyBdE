@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyBdE logo" height="34" width="34" class="d-inline-block me-1">tidyBdE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +27,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
-    <li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic series</a></li>
+    <li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic indicators</a></li>
     <li><a class="dropdown-item" href="../articles/seriesindex.html">Series index</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -84,8 +84,8 @@ catalog. See <strong>Details</strong>.</p></dd>
 <code>cache_dir</code>.</p></dd>
 
     <dt><code>cache_dir</code></dt>
-<dd><p>A path to a cache directory. The directory can also be set
-with options using <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
+<dd><p>Path to a cache directory. The directory can also be set
+with <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
 
     <dt><code>verbose</code></dt>
 <dd><p>Logical. If <code>TRUE</code>, display information useful for debugging.</p></dd>
@@ -100,8 +100,8 @@ with options using <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p><strong>Note:</strong> BdE metadata is currently provided in Spanish only. Therefore,
-search terms must be provided in Spanish to retrieve results.</p>
+    <p><strong>Note:</strong> BdE metadata is currently available in Spanish only. Therefore,
+search terms must be in Spanish to retrieve results.</p>
 <p>This function uses <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">base::grep()</a></code> to find matches in the catalogs. You can
 pass <a href="https://rdrr.io/r/base/regex.html" class="external-link">regular expressions</a> to broaden the search.</p>
     </div>

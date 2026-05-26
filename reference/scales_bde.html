@@ -15,7 +15,7 @@ named scale_*_bde_d, while continuous palettes are named scale_*_bde_c."><meta p
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyBdE logo" height="34" width="34" class="d-inline-block me-1">tidyBdE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@ named scale_*_bde_d, while continuous palettes are named scale_*_bde_c."><meta p
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
-    <li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic series</a></li>
+    <li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic indicators</a></li>
     <li><a class="dropdown-item" href="../articles/seriesindex.html">Series index</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -101,10 +101,10 @@ named <code>scale_*_bde_d</code>, while continuous palettes are named <code>scal
 
 
 <dt id="arg-alpha">alpha<a class="anchor" aria-label="anchor" href="#arg-alpha"></a></dt>
-<dd><p>An alpha transparency level in the range <code>[0, 1]</code> (<code>0</code> means
-transparent and <code>1</code> means opaque). If missing (i.e., <code>alpha = NULL</code>), the
-function does not append opacity codes (<code>"FF"</code>) to the individual color
-hex codes. See <code><a href="https://scales.r-lib.org/reference/alpha.html" class="external-link">ggplot2::alpha()</a></code>.</p></dd>
+<dd><p>Alpha transparency level in the range <code>[0, 1]</code>, where <code>0</code> is
+transparent and <code>1</code> is opaque. If <code>alpha = NULL</code>, the function does not
+append opacity codes (<code>"FF"</code>) to individual color hex codes. See
+<code><a href="https://scales.r-lib.org/reference/alpha.html" class="external-link">ggplot2::alpha()</a></code>.</p></dd>
 
 
 <dt id="arg-rev">rev<a class="anchor" aria-label="anchor" href="#arg-rev"></a></dt>

@@ -65,8 +65,8 @@ bde_ind_population(series_label = "Population_Spain", ...)
 
   `cache_dir`
 
-  :   A path to a cache directory. The directory can also be set with
-      options using `options(bde_cache_dir = "path/to/dir")`.
+  :   Path to a cache directory. The directory can also be set with
+      `options(bde_cache_dir = "path/to/dir")`.
 
   `verbose`
 

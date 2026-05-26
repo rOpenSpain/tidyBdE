@@ -1,4 +1,4 @@
-# tidyBdE: Retrieve Data from 'Banco de España'
+# tidyBdE: Retrieve Time Series Data from 'Banco de España'
 
 Tools for retrieving time series data from 'Banco de España' ('BdE') as
 'tibble' objects. 'Banco de España' is the national central bank and,
