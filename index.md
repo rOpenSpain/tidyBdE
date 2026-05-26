@@ -1,5 +1,3 @@
-
-
 <!-- index.md is generated from index.qmd. Please edit that file -->
 
 # tidyBdE <a href="https://ropenspain.github.io/tidyBdE/"><img src="man/figures/logo.png" alt="tidyBdE website" align="right" height="139"/></a>
@@ -31,7 +29,7 @@ series field, including dates, character fields and numeric fields.
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container"><i class="callout-icon"></i></div>
-<div class="callout-title-container flex-fill">A note on performance</div></div>
+<div class="callout-title-container flex-fill">Important</div></div>
 <div class="callout-body-container callout-body">
 
 This package is not sponsored, endorsed or administered by Banco de
@@ -45,20 +43,20 @@ España.
 Install **tidyBdE** from
 [CRAN](https://CRAN.R-project.org/package=tidyBdE):
 
-``` r
+```r
 install.packages("tidyBdE")
 ```
 
 Install the development version of **tidyBdE** from GitHub with:
 
-``` r
+```r
 pak::pak("ropenspain/tidyBdE")
 ```
 
 Alternatively, install **tidyBdE** from
 [r-universe](https://ropenspain.r-universe.dev/tidyBdE):
 
-``` r
+```r
 # Install tidyBdE in R:
 install.packages(
   "tidyBdE",
@@ -78,7 +76,7 @@ by the institution or compiled from other sources, such as
 The basic entry point for searching time series is the catalog. You can
 search for time series by name:
 
-``` r
+```r
 library(tidyBdE)
 
 # Load packages for data handling and plotting.
@@ -95,19 +93,20 @@ xr_gbp |>
   knitr::kable()
 ```
 
-| Numero_secuencial | Descripcion_de_la_serie |
-|---:|:---|
-| 573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+| Numero_secuencial | Descripcion_de_la_serie                                            |
+| ----------------: | :----------------------------------------------------------------- |
+|            573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
 
 <p class="caption">
 
 Table 1: Search results
+
 </p>
 
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container"><i class="callout-icon"></i></div>
-<div class="callout-title-container flex-fill">About the screenshots</div>
+<div class="callout-title-container flex-fill">Note</div>
 </div>
 <div class="callout-body-container callout-body">
 
@@ -121,7 +120,7 @@ English version.
 After finding a time series, you can load the GBP/EUR exchange rate
 using the sequential number reference (`Numero_secuencial`):
 
-``` r
+```r
 seq_number <- xr_gbp |>
   # Select the first record.
   slice(1) |>
@@ -157,7 +156,7 @@ time_series
 The package also provides a custom **ggplot2** theme based on BdE
 publications:
 
-``` r
+```r
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_tidy_palettes(n = 1)) +
   geom_smooth(method = "gam", colour = bde_tidy_palettes(n = 2)[2]) +
@@ -186,7 +185,7 @@ The package also provides convenience functions for selected Spanish
 macroeconomic indicators, so you do not need to search for them
 manually:
 
-``` r
+```r
 # Data in long format.
 
 plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") |>
@@ -223,7 +222,7 @@ provided by the package. See
 
 Create a local cache by setting the following option:
 
-``` r
+```r
 options(bde_cache_dir = "./path/to/location")
 ```
 
@@ -233,7 +232,7 @@ When this option is set, **tidyBdE** looks for cached files in the
 Update cached data after monthly or quarterly releases with the
 following commands:
 
-``` r
+```r
 bde_catalog_update()
 
 # Or use `update_cache = TRUE` in most functions.
@@ -249,6 +248,7 @@ H. Herrero D (2026). <em>tidyBdE: Retrieve Time Series Data from Banco
 de España</em>.
 <a href="https://doi.org/10.32614/CRAN.package.tidyBdE">doi:10.32614/CRAN.package.tidyBdE</a>.
 <a href="https://ropenspain.github.io/tidyBdE/">https://ropenspain.github.io/tidyBdE/</a>.
+
 </p>
 
 A BibTeX entry for LaTeX users is:
