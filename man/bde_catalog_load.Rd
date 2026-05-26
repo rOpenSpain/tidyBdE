@@ -5,7 +5,7 @@
 \alias{bde_catalog_load}
 \title{Load BdE catalog metadata}
 \source{
-\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{time series bulk data download}.
+\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{Time series bulk data download}.
 }
 \usage{
 bde_catalog_load(
@@ -23,8 +23,8 @@ catalog. See \strong{Details}.}
 \item{parse_dates}{Logical. If \code{TRUE}, date columns are parsed with
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
 
-\item{cache_dir}{A path to a cache directory. The directory can also be set
-with options using \code{options(bde_cache_dir = "path/to/dir")}.}
+\item{cache_dir}{Path to a cache directory. The directory can also be set
+with \code{options(bde_cache_dir = "path/to/dir")}.}
 
 \item{update_cache}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}

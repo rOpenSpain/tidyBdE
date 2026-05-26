@@ -5,18 +5,18 @@
 #'
 #' These palettes are superseded. Use [bde_tidy_palettes()] instead.
 #'
-#' @return A color palette function.
-#'
 #' @param ... Additional arguments.
 #'
-#' @name bde_vivid_pal
+#' @return A color palette function.
+#'
 #' @rdname bde_pals
+#' @name bde_vivid_pal
 #'
 #' @export
 #' @encoding UTF-8
 #' @keywords internal
-#' @examples
 #'
+#' @examples
 #' # Show the vivid palette.
 #' scales::show_col(bde_vivid_pal()(6), labels = FALSE)
 #'
@@ -36,9 +36,9 @@ bde_vivid_pal <- function(...) {
 }
 
 #' @rdname bde_pals
-#' @keywords internal
 #' @export
 #' @encoding UTF-8
+#' @keywords internal
 bde_rose_pal <- function(...) {
   if (requireNamespace("lifecycle", quietly = TRUE)) {
     lifecycle::deprecate_soft("0.3.5", "bde_rose_pal()", "bde_tidy_palettes()")

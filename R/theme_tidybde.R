@@ -3,21 +3,21 @@
 #' @description
 #' Custom \CRANpkg{ggplot2} theme based on BdE publications.
 #'
-#' @family bde_plot
-#'
-#' @export
-#' @encoding UTF-8
-#'
-#' @return A \CRANpkg{ggplot2} theme object.
-#'
 #' @inheritDotParams ggplot2::theme_classic
-#'
-#' @seealso [ggplot2::theme_classic()]
 #'
 #' @details
 #' This theme is based on [ggplot2::theme_classic()].
 #'
+#' @return A \CRANpkg{ggplot2} theme object.
+#'
+#' @seealso [ggplot2::theme_classic()]
+#'
+#' @family bde_plot
+#'
 #' @importFrom ggplot2 %+replace% rel margin
+#' @export
+#' @encoding UTF-8
+#'
 #' @examplesIf bde_check_access()
 #' \donttest{
 #' library(ggplot2)

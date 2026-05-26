@@ -5,7 +5,7 @@
 \alias{bde_catalog_update}
 \title{Update BdE catalog files}
 \source{
-\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{time series bulk data download}.
+\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{Time series bulk data download}.
 }
 \usage{
 bde_catalog_update(
@@ -18,8 +18,8 @@ bde_catalog_update(
 \item{catalog}{A single catalog identifier to update, or \code{"ALL"} to update
 every catalog. See \strong{Details}.}
 
-\item{cache_dir}{A path to a cache directory. The directory can also be set
-with options using \code{options(bde_cache_dir = "path/to/dir")}.}
+\item{cache_dir}{Path to a cache directory. The directory can also be set
+with \code{options(bde_cache_dir = "path/to/dir")}.}
 
 \item{verbose}{Logical. If \code{TRUE}, display information useful for debugging.}
 }

@@ -7,7 +7,7 @@ cff-version: 1.2.0
 message: 'To cite package "tidyBdE" in publications use:'
 type: software
 license: GPL-3.0-or-later
-title: 'tidyBdE: Retrieve Data from ''Banco de España'''
+title: 'tidyBdE: Retrieve Time Series Data from ''Banco de España'''
 version: 0.6.1
 doi: 10.32614/CRAN.package.tidyBdE
 identifiers:
@@ -25,7 +25,7 @@ authors:
   orcid: https://orcid.org/0000-0001-8457-4658
 preferred-citation:
   type: manual
-  title: 'tidyBdE: Retrieve Data from Banco de España'
+  title: 'tidyBdE: Retrieve Time Series Data from Banco de España'
   authors:
   - family-names: H. Herrero
     given-names: Diego

@@ -24,9 +24,9 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 **tidyBdE** is an **R** package that retrieves data from [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
-Data are returned as a [tibble](https://tibble.tidyverse.org/), and the
-package automatically detects the format of each time series (dates,
-characters and numbers).
+Data are returned as [**tibble**](https://tibble.tidyverse.org/)
+objects. The package automatically detects the format of each time
+series field, including dates, character fields and numeric fields.
 
 ## Installation
 
@@ -37,13 +37,13 @@ Install **tidyBdE** from
 install.packages("tidyBdE")
 ```
 
-You can install the development version of **tidyBdE** with:
+Install the development version of **tidyBdE** from GitHub with:
 
 ``` r
 pak::pak("ropenspain/tidyBdE")
 ```
 
-Alternatively, you can install **tidyBdE** from the
+Alternatively, install **tidyBdE** from
 [r-universe](https://ropenspain.r-universe.dev/tidyBdE):
 
 ``` r
@@ -60,11 +60,11 @@ install.packages(
 ## Examples
 
 Banco de España (**BdE**) provides several time series, either produced
-by the institution itself or compiled from other sources, such as
+by the institution or compiled from other sources, such as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
-The basic entry point for searching series is the time series catalog.
-You can search for series by name:
+The basic entry point for searching time series is the catalog. You can
+search for time series by name:
 
 ``` r
 library(tidyBdE)
@@ -92,18 +92,18 @@ xr_gbp |>
 Table 1: Search results
 </p>
 
-**Note:** BdE metadata is currently provided in Spanish only, so search
-terms must be provided in Spanish to retrieve results. The institution
-is working on an English version.
+**Note:** BdE metadata is currently available in Spanish only, so search
+terms must be in Spanish to retrieve results. The institution is working
+on an English version.
 
-After finding a series, you can load the GBP/EUR exchange rate using the
-sequential number reference (`Numero_secuencial`):
+After finding a time series, you can load the GBP/EUR exchange rate
+using the sequential number reference (`Numero_secuencial`):
 
 ``` r
 seq_number <- xr_gbp |>
   # Select the first record.
   slice(1) |>
-  # Get the series ID.
+  # Get the series code.
   select(Numero_secuencial) |>
   # Convert to numeric.
   as.double()
@@ -160,8 +160,9 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
 <img src="man/figures/README-chart-1.png" style="width:100.0%"
 alt="EUR/GBP Exchange Rate (2010-2020)" />
 
-The package also provides convenience functions for selected
-macroeconomic series, so you do not need to search for them manually:
+The package also provides convenience functions for selected Spanish
+macroeconomic indicators, so you do not need to search for them
+manually:
 
 ``` r
 # Data in long format.
@@ -189,26 +190,25 @@ alt="Spanish Economic Indicators (2010-2019)" />
 
 ### Palettes
 
-Three custom palettes are available, based on those used by BdE in some
-publications.
+Three custom palettes are available. They are based on colors used by
+BdE in some publications.
 
-Apply these palettes to **ggplot2** plots using the scale functions
-provided in the package (see
-`help("scale_color_bde_d", package = "tidyBdE")`).
+Apply these palettes to **ggplot2** plots with the scale functions
+provided by the package. See
+`help("scale_color_bde_d", package = "tidyBdE")`.
 
 ### A note on caching
 
-You can use **tidyBdE** to create a local cache by setting the following
-option:
+Create a local cache by setting the following option:
 
 ``` r
 options(bde_cache_dir = "./path/to/location")
 ```
 
 When this option is set, **tidyBdE** looks for cached files in the
-`bde_cache_dir` directory and loads them, speeding up data retrieval.
+`bde_cache_dir` directory and loads them to speed up data retrieval.
 
-You can update the data after monthly or quarterly releases with the
+Update cached data after monthly or quarterly releases with the
 following commands:
 
 ``` r
@@ -228,7 +228,7 @@ España.
 
 <p>
 
-H. Herrero D (2026). <em>tidyBdE: Retrieve Data from Banco de
+H. Herrero D (2026). <em>tidyBdE: Retrieve Time Series Data from Banco de
 España</em>.
 <a href="https://doi.org/10.32614/CRAN.package.tidyBdE">doi:10.32614/CRAN.package.tidyBdE</a>.
 <a href="https://ropenspain.github.io/tidyBdE/">https://ropenspain.github.io/tidyBdE/</a>.
@@ -237,7 +237,7 @@ España</em>.
 A BibTeX entry for LaTeX users is:
 
     @Manual{R-tidyBdE,
-      title = {{tidyBdE}: Retrieve Data from Banco de España},
+      title = {{tidyBdE}: Retrieve Time Series Data from Banco de España},
       doi = {10.32614/CRAN.package.tidyBdE},
       author = {Diego {H. Herrero}},
       year = {2026},

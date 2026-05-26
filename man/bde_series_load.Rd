@@ -18,16 +18,15 @@ bde_series_load(
 )
 }
 \arguments{
-\item{series_code}{A numeric value, or one coercible with
-\code{\link[base:as.double]{base::as.double()}}, or a vector of time series codes, as defined in the
-field
-\verb{Número secuencial} of the corresponding series. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
+\item{series_code}{Numeric value, value coercible with \code{\link[base:as.double]{base::as.double()}},
+or vector of time series codes from the \verb{Número secuencial} field of the
+corresponding series. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 
 \item{series_label}{Optional character string or vector of labels to assign
 to the extracted series.}
 
-\item{out_format}{The format to return, either \code{"wide"} or \code{"long"}.
-See \strong{Value} for details and the \strong{Examples} section.}
+\item{out_format}{The format to return, either \code{"wide"} or \code{"long"}. See
+\strong{Value} for details and the \strong{Examples} section.}
 
 \item{parse_dates}{Logical. If \code{TRUE}, date columns are parsed with
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
@@ -35,8 +34,8 @@ See \strong{Value} for details and the \strong{Examples} section.}
 \item{parse_numeric}{Logical. If \code{TRUE}, the columns are parsed to
 double (numeric) values. See \strong{Note}.}
 
-\item{cache_dir}{A path to a cache directory. The directory can also be set
-with options using \code{options(bde_cache_dir = "path/to/dir")}.}
+\item{cache_dir}{Path to a cache directory. The directory can also be set
+with \code{options(bde_cache_dir = "path/to/dir")}.}
 
 \item{update_cache}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
@@ -62,23 +61,21 @@ corresponding value.
 \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.
 }
 \description{
+Load a single BdE time series.
+
 The series alias is a positional code showing the location (column and/or
 row) of the series in the table. Although it is unique, it is not stable
-enough to use as the series ID because it may change when the series moves.
+enough to identify a time series because it may change when the series moves.
 
 To ensure series can still be identified after these changes, they are
 assigned a sequential number, referred to as \code{series_code} in this function.
 
-Note that a single series may appear in different tables, so it can have
-several aliases. If you need to search by alias, use
-\code{\link[=bde_series_full_load]{bde_series_full_load()}}.
-}
-\details{
-Load a single BdE time series.
+A single time series may appear in different tables, so it can have several
+aliases. If you need to search by alias, use \code{\link[=bde_series_full_load]{bde_series_full_load()}}.
 }
 \note{
-This function attempts to coerce the columns to numbers. For some series, a
-warning may be displayed if the parsing fails.
+This function attempts to coerce the columns to numbers. For some time
+series, a warning may be displayed if the parsing fails.
 }
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}

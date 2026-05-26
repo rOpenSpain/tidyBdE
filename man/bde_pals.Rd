@@ -22,7 +22,6 @@ A color palette function.
 These palettes are superseded. Use \code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}} instead.
 }
 \examples{
-
 # Show the vivid palette.
 scales::show_col(bde_vivid_pal()(6), labels = FALSE)
 

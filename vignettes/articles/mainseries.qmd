@@ -1,5 +1,5 @@
 ---
-title: "Main macroeconomic series"
+title: "Main macroeconomic indicators"
 description: Evolution of selected Spanish economic indicators.
 date: "`r Sys.Date()`"
 knitr:
@@ -14,8 +14,8 @@ knitr:
     out.width: "100%"
 ---
 
-This article shows selected Spanish economic indicators using Banco de España
-data.
+This article shows selected Spanish macroeconomic indicators using Banco de
+España data.
 
 Last updated: **`r format(Sys.Date(), "%d-%B-%Y")`**.
 
@@ -25,7 +25,7 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-# Set plot parameters and date range.
+# Set plot parameters and the date range.
 col <- bde_tidy_palettes(1, "bde_rose_pal")
 date <- Sys.Date()
 ny <- as.numeric(format(date, format = "%Y")) - 6
@@ -51,7 +51,7 @@ dataset$LastY <- dataset$data +
   lag(dataset$data, 2) +
   lag(dataset$data, 3)
 
-# Filter observations.
+# Keep observations in the selected date range.
 dataset <- dataset |>
   filter(Date >= nd) |>
   mutate(data = LastY) |>

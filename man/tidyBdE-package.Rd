@@ -4,7 +4,7 @@
 \name{tidyBdE-package}
 \alias{tidyBdE}
 \alias{tidyBdE-package}
-\title{tidyBdE: Retrieve Data from 'Banco de España'}
+\title{tidyBdE: Retrieve Time Series Data from 'Banco de España'}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 

@@ -44,10 +44,10 @@ scale_fill_bde_c(
 \arguments{
 \item{palette}{BdE palette to apply. See \code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}} for details.}
 
-\item{alpha}{An alpha transparency level in the range \verb{[0, 1]} (\code{0} means
-transparent and \code{1} means opaque). If missing (i.e., \code{alpha = NULL}), the
-function does not append opacity codes (\code{"FF"}) to the individual color
-hex codes. See \code{\link[ggplot2:alpha]{ggplot2::alpha()}}.}
+\item{alpha}{Alpha transparency level in the range \verb{[0, 1]}, where \code{0} is
+transparent and \code{1} is opaque. If \code{alpha = NULL}, the function does not
+append opacity codes (\code{"FF"}) to individual color hex codes. See
+\code{\link[ggplot2:alpha]{ggplot2::alpha()}}.}
 
 \item{rev}{Logical indicating whether to reverse the color order.}
 

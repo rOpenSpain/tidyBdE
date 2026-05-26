@@ -1,6 +1,6 @@
 Package: tidyBdE
-Title: Retrieve Data from 'Banco de España'
-Version: 0.6.1
+Title: Retrieve Time Series Data from 'Banco de España'
+Version: 0.6.1.9000
 Authors@R:
     person("Diego", "H. Herrero", , "dev.dieghernan@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658"))
@@ -17,6 +17,7 @@ BugReports: https://github.com/rOpenSpain/tidyBdE/issues
 Depends:
     R (>= 4.1.0)
 Imports:
+    cli,
     dplyr (>= 0.7.0),
     ggplot2 (>= 3.5.0),
     readr (>= 1.0.0),

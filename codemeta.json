@@ -3,7 +3,7 @@
   "@type": "SoftwareSourceCode",
   "identifier": "tidyBdE",
   "description": "Tools for retrieving time series data from 'Banco de España' ('BdE') as 'tibble' objects. 'Banco de España' is the national central bank and, within the framework of the Single Supervisory Mechanism ('SSM'), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by 'Banco de España'.",
-  "name": "tidyBdE: Retrieve Data from 'Banco de España'",
+  "name": "tidyBdE: Retrieve Time Series Data from 'Banco de España'",
   "relatedLink": ["https://ropenspain.github.io/tidyBdE/", "https://CRAN.R-project.org/package=tidyBdE"],
   "codeRepository": "https://github.com/rOpenSpain/tidyBdE",
   "issueTracker": "https://github.com/rOpenSpain/tidyBdE/issues",
@@ -205,7 +205,7 @@
           "familyName": "H. Herrero"
         }
       ],
-      "name": "{tidyBdE}: Retrieve Data from Banco de España",
+      "name": "{tidyBdE}: Retrieve Time Series Data from Banco de España",
       "identifier": "10.32614/CRAN.package.tidyBdE",
       "url": "https://ropenspain.github.io/tidyBdE/",
       "@id": "https://doi.org/10.32614/CRAN.package.tidyBdE",

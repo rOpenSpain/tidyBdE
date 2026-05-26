@@ -5,31 +5,29 @@
 #' in the convenience functions of \CRANpkg{tidyBdE} (see [bde_indicators]).
 #' Full metadata can be accessed with [bde_catalog_load()].
 #'
-#' @docType data
+#' @details
 #'
-#' @family indicators
-#'
-#' @encoding UTF-8
-#'
-#' @name bde_ind_db
+#' ```{r child = "man/chunks/bde_ind_db_meta.Rmd"}
+#' ```
 #'
 #' @format
 #' A [tibble][tibble::tbl_df] of `r nrow(bde_ind_db)` rows and
 #' `r ncol(bde_ind_db)` columns with the following fields:
 #'
 #' \describe{
-#'   \item{tidyBdE_fun}{Function name, see [bde_indicators].}
-#'   \item{Numero_secuencial}{Series code, see [bde_series_load()].}
+#'   \item{tidyBdE_fun}{Function name. See [bde_indicators].}
+#'   \item{Numero_secuencial}{Series code. See [bde_series_load()].}
 #'   \item{Descripcion_de_la_serie}{Description of the series in Spanish.}
 #'   \item{Fecha_de_la_primera_observacion}{Starting date of the indicator.}
 #'   \item{Fecha_de_la_ultima_observacion}{Most recent date available.}
 #'   \item{Fuente}{Data source.}
 #' }
 #'
-#' @details
+#' @family indicators
 #'
-#' ```{r child = "man/chunks/bde_ind_db_meta.Rmd"}
-#' ```
+#' @name bde_ind_db
+#' @docType data
+#' @encoding UTF-8
 #'
 #' @examples
 #' data("bde_ind_db")
