@@ -73,11 +73,11 @@ Search results
 :::
 
 **Note:** BdE metadata is currently available in Spanish only, so search terms
-must be in Spanish to retrieve results. The institution is working on an
-English version.
+must be in Spanish to retrieve results. The institution is working on an English
+version.
 
-After finding a time series, load the GBP/EUR exchange rate using the
-sequential number reference (`Numero_secuencial`):
+After finding a time series, load the GBP/EUR exchange rate using the sequential
+number reference (`Numero_secuencial`):
 
 ```{r}
 #| label: find
@@ -100,8 +100,7 @@ time_series
 
 ## Plot time series
 
-The package also provides a custom **ggplot2** theme based on BdE
-publications:
+The package also provides a custom **ggplot2** theme based on BdE publications:
 
 ```{r}
 #| label: chart
