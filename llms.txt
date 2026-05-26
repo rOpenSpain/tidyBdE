@@ -6,7 +6,7 @@ Data are returned as [**tibble**](https://tibble.tidyverse.org/)
 objects. The package automatically detects the format of each time
 series field, including dates, character fields and numeric fields.
 
-A note on performance
+Important
 
 This package is not sponsored, endorsed or administered by Banco de
 España.
@@ -76,7 +76,7 @@ xr_gbp |>
 
 Table 1: Search results
 
-About the screenshots
+Note
 
 BdE metadata is currently available in Spanish only, so search terms
 must be in Spanish to retrieve results. The institution is working on an
