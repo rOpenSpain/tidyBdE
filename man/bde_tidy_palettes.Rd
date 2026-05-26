@@ -17,10 +17,10 @@ bde_tidy_palettes(
 
 \item{palette}{A valid palette name.}
 
-\item{alpha}{An alpha transparency level in the range \verb{[0, 1]} (\code{0} means
-transparent and \code{1} means opaque). If missing (i.e., \code{alpha = NULL}), the
-function does not append opacity codes (\code{"FF"}) to the individual color
-hex codes. See \code{\link[ggplot2:alpha]{ggplot2::alpha()}}.}
+\item{alpha}{Alpha transparency level in the range \verb{[0, 1]}, where \code{0} is
+transparent and \code{1} is opaque. If \code{alpha = NULL}, the function does not
+append opacity codes (\code{"FF"}) to individual color hex codes. See
+\code{\link[ggplot2:alpha]{ggplot2::alpha()}}.}
 
 \item{rev}{Logical indicating whether to reverse the color order.}
 }
@@ -32,7 +32,6 @@ Manually defined palettes based on BdE publications. Each palette contains
 at most six colors.
 }
 \examples{
-
 # Show the BdE vivid palette.
 scales::show_col(bde_tidy_palettes(palette = "bde_vivid_pal"),
   labels = FALSE

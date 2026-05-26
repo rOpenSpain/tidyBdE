@@ -10,7 +10,7 @@ test_that("Catalogs offline", {
 
   expect_message(
     bde_catalog_update("TC", cache_dir = dir),
-    "Testing offline\\."
+    "Testing offline mode\\."
   )
 
   table1 <- bde_catalog_load("TI", cache_dir = dir)
@@ -48,11 +48,11 @@ test_that("Messages", {
   options(bde_test_offline = FALSE)
   expect_message(
     bde_catalog_load("TC", verbose = TRUE, cache_dir = dir),
-    "Need to download catalog TC\\.|Cached version of TC detected\\."
+    "Downloading catalog|Using cached catalog"
   )
   expect_message(
     bde_catalog_load("TC", verbose = TRUE, cache_dir = dir),
-    "Cached version of TC detected\\."
+    "Using cached catalog"
   )
 })
 
@@ -66,11 +66,11 @@ test_that("Old tests: Catalogs", {
 
   expect_message(
     bde_catalog_load("TC", cache_dir = tempdir(), verbose = TRUE),
-    "Cached version of TC detected\\.|Need to download catalog TC\\."
+    "Using cached catalog|Downloading catalog"
   )
   expect_message(
     bde_catalog_load("TC", cache_dir = NULL, verbose = TRUE),
-    "Cached version of TC detected\\.|Need to download catalog TC\\."
+    "Using cached catalog|Downloading catalog"
   )
   expect_message(
     bde_catalog_load(
@@ -78,7 +78,7 @@ test_that("Old tests: Catalogs", {
       cache_dir = file.path(tempdir(), "aa"),
       verbose = TRUE
     ),
-    "Cache directory created at|Need to download catalog TC\\."
+    "Created cache directory|Downloading catalog"
   )
 
   expect_silent(bde_catalog_load("ALL"))
@@ -93,7 +93,7 @@ test_that("Old tests: Catalogs", {
       cache_dir = tempdir(),
       verbose = TRUE
     ),
-    "Updating catalogs: TC"
+    "Updating catalogs: TC\\."
   )
   expect_silent(bde_catalog_update("ALL", cache_dir = tempdir()))
   expect_silent(bde_catalog_update("TC", cache_dir = tempdir()))
@@ -103,7 +103,7 @@ test_that("Old tests: Catalogs", {
   options(bde_cache_dir = file.path(tempdir(), "test"))
   expect_message(
     bde_catalog_update("TC", verbose = TRUE),
-    "Cache directory detected in options:"
+    "Using cache directory from options:"
   )
   # Reset
   options(bde_cache_dir = init_cache_dir)

@@ -40,8 +40,8 @@ to the extracted series.}
 \item{...}{
   Arguments passed on to \code{\link{bde_series_load}}
   \describe{
-    \item{\code{out_format}}{The format to return, either \code{"wide"} or \code{"long"}.
-See \strong{Value} for details and the \strong{Examples} section.}
+    \item{\code{out_format}}{The format to return, either \code{"wide"} or \code{"long"}. See
+\strong{Value} for details and the \strong{Examples} section.}
     \item{\code{parse_numeric}}{Logical. If \code{TRUE}, the columns are parsed to
 double (numeric) values. See \strong{Note}.}
     \item{\code{extract_metadata}}{Logical. If \code{TRUE}, the output is the metadata of the
@@ -50,8 +50,8 @@ requested series.}
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
     \item{\code{update_cache}}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
-    \item{\code{cache_dir}}{A path to a cache directory. The directory can also be set
-with options using \code{options(bde_cache_dir = "path/to/dir")}.}
+    \item{\code{cache_dir}}{Path to a cache directory. The directory can also be set
+with \code{options(bde_cache_dir = "path/to/dir")}.}
     \item{\code{verbose}}{Logical. If \code{TRUE}, display information useful for debugging.}
   }}
 }

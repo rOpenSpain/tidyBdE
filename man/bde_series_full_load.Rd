@@ -16,7 +16,7 @@ bde_series_full_load(
 )
 }
 \arguments{
-\item{series_csv}{CSV file of a series, as defined in the field
+\item{series_csv}{CSV file name for a series, as defined in the field
 \verb{Nombre del archivo con los valores de la serie} of the corresponding
 catalog. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 
@@ -26,8 +26,8 @@ catalog. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 \item{parse_numeric}{Logical. If \code{TRUE}, the columns are parsed to
 double (numeric) values. See \strong{Note}.}
 
-\item{cache_dir}{A path to a cache directory. The directory can also be set
-with options using \code{options(bde_cache_dir = "path/to/dir")}.}
+\item{cache_dir}{Path to a cache directory. The directory can also be set
+with \code{options(bde_cache_dir = "path/to/dir")}.}
 
 \item{update_cache}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
@@ -38,13 +38,12 @@ with options using \code{options(bde_cache_dir = "path/to/dir")}.}
 requested series.}
 }
 \value{
-A \link[tibble:tbl_df]{tibble} with a \code{Date} field and the aliases of the
-series fields as described in the catalogs. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
+A \link[tibble:tbl_df]{tibble} with a \code{Date} field and the aliases of
+the time series fields as described in the catalogs. See
+\code{\link[=bde_catalog_load]{bde_catalog_load()}}.
 }
 \description{
 Load a full BdE time series file.
-}
-\details{
 \subsection{About BdE file naming}{
 
 The series name is a positional code showing the location of the table. For
@@ -57,8 +56,8 @@ specific time series.
 }
 }
 \note{
-This function tries to coerce the columns to numbers. For some series, a
-warning may be displayed if the parser fails. You can override the default
+This function tries to coerce the columns to numbers. For some time series,
+a warning may be displayed if the parser fails. You can override the default
 behavior with \code{parse_numeric = FALSE}.
 }
 \examples{

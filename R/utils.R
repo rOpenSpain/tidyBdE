@@ -1,21 +1,9 @@
 #' Parse dates from strings
 #'
-#' Parse strings representing dates with [as.Date()].
-#'
-#' @export
-#' @encoding UTF-8
-#'
-#' @family utils
-#'
-#' @return A vector of [`Date`][as.Date()] values.
-#'
-#' @seealso [as.Date()]
-#'
-#' @param dates_to_parse Character vector of dates to parse.
-#'
 #' @description
-#' This function is tailored to date formats used in this package and may fail
-#' with other datasets. See **Examples** for formats that are supported.
+#' Parse strings representing dates with [as.Date()]. This function is tailored
+#' to date formats used in this package and may fail with other datasets. See
+#' **Examples** for formats that are supported.
 #'
 #' ## Date formats
 #'
@@ -44,6 +32,17 @@
 #'
 #' knitr::kable(dates)
 #' ```
+#'
+#' @param dates_to_parse Character vector of dates to parse.
+#'
+#' @return A vector of [`Date`][as.Date()] values.
+#'
+#' @seealso [as.Date()]
+#'
+#' @family utils
+#'
+#' @export
+#' @encoding UTF-8
 #'
 #' @examples
 #' # Supported formats.
@@ -117,17 +116,17 @@ bde_parse_dates <- function(dates_to_parse) {
 #'
 #' @param cache_dir Path to a cache directory.
 #' @param verbose Logical indicating whether to display informative messages.
-#' @param suffix An optional suffix to append to the path.
+#' @param suffix Optional suffix to append to the path.
 #'
 #' @noRd
 bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
-  # Resolve the cache directory.
+  # Prefer an explicit cache directory, then an option, then a temp directory.
   if (is.null(cache_dir)) {
-    # Check whether the directory is set via global options.
+    # Respect the global cache option when no directory is supplied.
     cache_dir <- getOption("bde_cache_dir", NULL)
 
     if (is.null(cache_dir)) {
-      # Fall back to a temporary directory.
+      # Keep default caching disposable when no cache is configured.
       cache_dir <- tempdir()
 
       if (!is.null(suffix)) {
@@ -135,36 +134,36 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
       }
 
       if (verbose) {
-        message("tidyBdE> Caching in temporary directory ", cache_dir, ".")
+        cli::cli_alert_info(
+          "Using temporary cache directory {.path {cache_dir}}."
+        )
       }
       return(cache_dir)
     } else {
-      # Use the cache directory from global options.
+      # Report the configured cache location when requested.
       if (verbose) {
-        message(
-          "tidyBdE> Cache directory detected in options: ",
-          cache_dir,
-          "."
+        cli::cli_alert_info(
+          "Using cache directory from options: {.path {cache_dir}}."
         )
       }
     }
   }
 
-  # Append the suffix when provided.
+  # Keep family-specific series files in a stable subdirectory.
   if (!is.null(suffix)) {
     cache_dir <- file.path(gsub(file.path("", suffix), "", cache_dir), suffix)
   }
 
   if (dir.exists(cache_dir)) {
     if (verbose) {
-      message("tidyBdE> Cache directory is ", cache_dir, ".")
+      cli::cli_alert_success("Using cache directory {.path {cache_dir}}.")
     }
     return(cache_dir)
   }
 
   dir.create(cache_dir, recursive = TRUE)
   if (verbose) {
-    message("tidyBdE> Cache directory created at ", cache_dir, ".")
+    cli::cli_alert_success("Created cache directory {.path {cache_dir}}.")
   }
   cache_dir
 }
@@ -180,7 +179,7 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
 #' @noRd
 bde_hlp_download <- function(url, local_file, verbose) {
   if (verbose) {
-    message("tidyBdE> Downloading file from ", url, ".")
+    cli::cli_alert_info("Downloading file from {.url {url}}.")
   }
 
   err_dwnload <- tryCatch(
@@ -191,23 +190,23 @@ bde_hlp_download <- function(url, local_file, verbose) {
     }
   )
   # nocov end
-  # Attempt a second download if the first fails.
+  # Retry once because intermittent warnings are common for remote files.
 
   # nocov start
   if (isTRUE(err_dwnload)) {
     if (verbose) {
-      message("tidyBdE> Trying again.")
+      cli::cli_alert_warning("Download failed. Trying again.")
     }
 
     err_dwnload <- tryCatch(
       download.file(url, local_file, quiet = isFALSE(verbose), mode = "wb"),
       # nocov start
       warning = function(e) {
-        message(
-          "tidyBdE> URL ",
-          url,
-          " is not reachable. ",
-          "If you think this is a bug, consider opening an issue."
+        cli::cli_alert_warning(
+          paste0(
+            "URL {.url {url}} is not reachable. ",
+            "If this looks like a bug, please open an issue."
+          )
         )
         TRUE
       }
@@ -215,7 +214,7 @@ bde_hlp_download <- function(url, local_file, verbose) {
   }
   # nocov end
 
-  # Return FALSE if a warning is encountered.
+  # Signal download failure without raising an error.
   if (isTRUE(err_dwnload)) {
     return(FALSE)
     # nocov end
@@ -275,15 +274,19 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
 
 #' Return an empty tibble with an informative message
 #'
+#' @param msg Message to display before returning the empty tibble.
+#'
 #' @return A [tibble][tibble::tbl_df].
 #'
 #' @examples
-#'
 #' bde_hlp_return_null()
+#'
 #' @noRd
-bde_hlp_return_null <- function(msg = "Offline. Returning an empty tibble.") {
+bde_hlp_return_null <- function(
+  msg = "BdE is offline. Returning an empty tibble."
+) {
   # nocov start
-  message(paste0("tidyBdE> ", msg))
+  cli::cli_alert_info(msg)
   tbl <- tibble::tibble(x = NULL)
   tbl
   # nocov end

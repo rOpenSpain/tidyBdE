@@ -1,26 +1,28 @@
 #' Load a single BdE time series
 #'
+#' @description
 #' Load a single BdE time series.
 #'
-#' @export
-#' @encoding UTF-8
+#' The series alias is a positional code showing the location (column and/or
+#' row) of the series in the table. Although it is unique, it is not stable
+#' enough to identify a time series because it may change when the series moves.
 #'
-#' @family series
+#' To ensure series can still be identified after these changes, they are
+#' assigned a sequential number, referred to as `series_code` in this function.
 #'
-#' @param series_code A numeric value, or one coercible with
-#'   [base::as.double()], or a vector of time series codes, as defined in the
-#'   field
-#'   `Número secuencial` of the corresponding series. See [bde_catalog_load()].
+#' A single time series may appear in different tables, so it can have several
+#' aliases. If you need to search by alias, use [bde_series_full_load()].
 #'
+#' @param series_code Numeric value, value coercible with [base::as.double()],
+#'   or vector of time series codes from the `Número secuencial` field of the
+#'   corresponding series. See [bde_catalog_load()].
 #' @param series_label Optional character string or vector of labels to assign
 #'   to the extracted series.
-#'
-#' @param out_format The format to return, either `"wide"` or `"long"`.
-#'   See **Value** for details and the **Examples** section.
+#' @param out_format The format to return, either `"wide"` or `"long"`. See
+#'   **Value** for details and the **Examples** section.
 #' @inheritParams bde_series_full_load
 #'
-#' @return
-#' A [tibble][tibble::tbl_df] with a `Date` column:
+#' @return A [tibble][tibble::tbl_df] with a `Date` column:
 #'
 #' - With `out_format = "wide"`, each series is presented in a separate column
 #'   with the name defined by `series_label`.
@@ -33,25 +35,17 @@
 #' [ggplot2::ggplot()]. See also [tidyr::pivot_longer()] and
 #' [tidyr::pivot_wider()].
 #'
-#' @description
-#'
-#' The series alias is a positional code showing the location (column and/or
-#' row) of the series in the table. Although it is unique, it is not stable
-#' enough to use as the series ID because it may change when the series moves.
-#'
-#' To ensure series can still be identified after these changes, they are
-#' assigned a sequential number, referred to as `series_code` in this function.
-#'
-#' Note that a single series may appear in different tables, so it can have
-#' several aliases. If you need to search by alias, use
-#' [bde_series_full_load()].
-#'
 #' @note
-#' This function attempts to coerce the columns to numbers. For some series, a
-#' warning may be displayed if the parsing fails.
+#' This function attempts to coerce the columns to numbers. For some time
+#' series, a warning may be displayed if the parsing fails.
 #'
 #' @seealso [bde_catalog_load()],
 #' [bde_catalog_search()], [bde_indicators()]
+#'
+#' @family series
+#'
+#' @export
+#' @encoding UTF-8
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{
@@ -102,24 +96,26 @@ bde_series_load <- function(
   extract_metadata = FALSE
 ) {
   if (missing(series_code)) {
-    stop("tidyBdE> `series_code` cannot be missing.")
+    cli::cli_abort("{.arg series_code} cannot be missing.")
   }
 
   series_code <- as.double(series_code)
-  # Remove missing values.
+  # Drop invalid codes created by coercion.
   series_code <- series_code[!is.na(series_code)]
 
   if (is.null(series_label)) {
     series_label <- as.character(series_code)
   }
   if (anyNA(series_label)) {
-    stop("tidyBdE> `series_label` must not contain NA values.")
+    cli::cli_abort("{.arg series_label} must not contain missing values.")
   }
 
   series_label <- unique(as.character(series_label))
 
   if (length(series_code) != length(series_label)) {
-    stop("tidyBdE> `series_label` and `series_code` must have the same length.")
+    cli::cli_abort(
+      "{.arg series_label} and {.arg series_code} must have the same length."
+    )
   }
 
   # Search the catalogs.
@@ -142,31 +138,28 @@ bde_series_load <- function(
 
   df_list <- lapply(series_code, function(x) {
     if (verbose) {
-      message("tidyBdE> Extracting series ", x, ".")
+      cli::cli_alert_info("Extracting series {.val {x}}.")
     }
 
-    # Identify the source file.
+    # Match the sequential code to the first catalog record available.
     csv_file <- all_catalogs[all_catalogs[[1]] == x, c(2, 3)]
 
     if (nrow(csv_file) == 0) {
-      message("tidyBdE> `series_code` not found in catalogs.")
+      cli::cli_alert_warning("{.arg series_code} was not found in catalogs.")
       tbl <- bde_hlp_return_null()
       return(tbl)
     }
 
-    # Select the first available record.
+    # Use the first available alias when a series appears in multiple tables.
     csv_file_name <- as.character(csv_file[1, 2])
     alias_serie <- as.character(csv_file[1, 1])
 
     if (verbose) {
-      message(
-        "tidyBdE> Downloading series ",
-        x,
-        " from file ",
-        csv_file_name,
-        " (alias ",
-        alias_serie,
-        ")."
+      cli::cli_alert_info(
+        paste0(
+          "Downloading series {.val {x}} from file ",
+          "{.file {csv_file_name}} (alias {.val {alias_serie}})."
+        )
       )
     }
 
@@ -188,13 +181,11 @@ bde_series_load <- function(
     }
     if (!(alias_serie %in% names(serie_file))) {
       if (verbose) {
-        message(
-          "tidyBdE> ",
-          "Series with alias '",
-          alias_serie,
-          "' is not available in ",
-          csv_file_name,
-          "."
+        cli::cli_alert_warning(
+          paste0(
+            "Series with alias {.val {alias_serie}} is not available in ",
+            "{.file {csv_file_name}}."
+          )
         )
       }
 
@@ -231,14 +222,14 @@ bde_series_load <- function(
 
   df_list <- df_list[has_date]
 
-  # Check the number of series and merge if needed.
+  # Return early when every requested series failed to load.
   if (length(df_list) == 0) {
     return(bde_hlp_return_null())
   }
 
-  # Convert to long format.
+  # Bind the successfully loaded series before final reshaping.
   end <- dplyr::bind_rows(df_list)
-  # Convert series names to factors for consistent plotting.
+  # Preserve the requested series order in plots.
   end$serie_name <- factor(end$serie_name, levels = unique(end$serie_name))
 
   if (out_format == "wide" || isTRUE(extract_metadata)) {
@@ -256,6 +247,7 @@ bde_series_load <- function(
 
 #' Load BdE full time series files
 #'
+#' @description
 #' Load a full BdE time series file.
 #'
 #' ## About BdE file naming
@@ -268,31 +260,28 @@ bde_series_load <- function(
 #' For that reason, [bde_series_load()] is more suitable for extracting
 #' specific time series.
 #'
-#' @export
-#' @encoding UTF-8
-#'
-#' @family series
-#'
-#' @param series_csv CSV file of a series, as defined in the field
+#' @param series_csv CSV file name for a series, as defined in the field
 #'   `Nombre del archivo con los valores de la serie` of the corresponding
 #'   catalog. See [bde_catalog_load()].
-#'
 #' @inheritParams bde_catalog_load
-#'
 #' @param parse_numeric Logical. If `TRUE`, the columns are parsed to
 #'   double (numeric) values. See **Note**.
-#'
 #' @param extract_metadata Logical. If `TRUE`, the output is the metadata of the
 #'   requested series.
 #'
-#' @return
-#' A [tibble][tibble::tbl_df] with a `Date` field and the aliases of the
-#' series fields as described in the catalogs. See [bde_catalog_load()].
+#' @return A [tibble][tibble::tbl_df] with a `Date` field and the aliases of
+#' the time series fields as described in the catalogs. See
+#' [bde_catalog_load()].
 #'
 #' @note
-#' This function tries to coerce the columns to numbers. For some series, a
-#' warning may be displayed if the parser fails. You can override the default
+#' This function tries to coerce the columns to numbers. For some time series,
+#' a warning may be displayed if the parser fails. You can override the default
 #' behavior with `parse_numeric = FALSE`.
+#'
+#' @family series
+#'
+#' @export
+#' @encoding UTF-8
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{
@@ -324,14 +313,14 @@ bde_series_full_load <- function(
 
   pp <- substr(series_csv, 1, 2)
 
-  # Resolve the cache directory.
+  # Resolve the cache directory for the series family.
   cache_dir <- bde_hlp_cachedir(
     cache_dir = cache_dir,
     verbose = verbose,
     suffix = pp
   )
 
-  # Create the directory if it does not exist.
+  # Ensure downloads have a family-specific destination.
   if (!dir.exists(cache_dir)) {
     dir.create(cache_dir, recursive = TRUE)
   }
@@ -369,20 +358,20 @@ bde_series_full_load <- function(
     }
   } else {
     if (verbose) {
-      message("tidyBdE> Reading file ", serie_file, " from cache.")
+      cli::cli_alert_success("Reading file {.file {serie_file}} from cache.")
     }
   }
 
-  # Catch errors.
+  # Reject empty files before encoding detection.
   # nocov start
   r <- readLines(local_file, warn = FALSE, n = 1000)
   if (length(r) == 0) {
-    message("tidyBdE> File ", local_file, " is not valid.")
+    cli::cli_alert_warning("File {.file {local_file}} is not valid.")
     return(invisible())
   }
   # nocov end
 
-  # Load the series.
+  # Read the raw CSV after detecting its encoding.
   enc <- readr::guess_encoding(local_file)[[1]][[1]]
 
   serie_load <- suppressWarnings(
@@ -398,16 +387,16 @@ bde_series_full_load <- function(
 
   serie_load <- tibble::as_tibble(serie_load)
 
-  # Header names are in the third row.
+  # BdE series files store column names in the third row.
   newnames <- as.character(serie_load[3, ])
   newnames[1] <- "Date"
 
   names(serie_load) <- newnames
 
-  # Extract metadata from the first six rows.
+  # Preserve the file-level metadata rows.
   meta_serie <- serie_load[seq_len(6), ]
 
-  # Add source and notes.
+  # Keep source and notes with the metadata used for aliases.
   source_notes <- serie_load[serie_load[[1]] %in% c("FUENTE", "NOTAS"), ]
 
   if (extract_metadata) {
@@ -416,7 +405,7 @@ bde_series_full_load <- function(
 
   meta_serie <- dplyr::bind_rows(meta_serie, source_notes)
 
-  # Keep the remaining rows as data.
+  # Keep observation rows after removing metadata.
   data_serie <- serie_load[-seq_len(6), ]
 
   data_serie <- data_serie[
@@ -426,10 +415,10 @@ bde_series_full_load <- function(
   newnames_data <- as.character(meta_serie[4, ])
   newnames_data[1] <- "Date"
 
-  # Parse dates.
+  # Parse date fields before numeric conversion.
   if (parse_dates) {
     if (verbose) {
-      message("tidyBdE> Parsing dates.")
+      cli::cli_alert_info("Parsing date columns.")
     }
     date_fields <- names(data_serie)[grep(
       "Date",
@@ -446,9 +435,9 @@ bde_series_full_load <- function(
 
   if (parse_numeric) {
     if (verbose) {
-      message("tidyBdE> Parsing fields as double.")
+      cli::cli_alert_info("Parsing numeric fields as doubles.")
     }
-    # Convert fields to double precision numbers.
+    # Preserve dates while converting observations to double precision.
     data_serie <- bde_hlp_todouble(data_serie, preserve = "Date")
   }
   data_serie

@@ -14,8 +14,9 @@ bde_parse_dates(dates_to_parse)
 A vector of \code{\link[=as.Date]{Date}} values.
 }
 \description{
-This function is tailored to date formats used in this package and may fail
-with other datasets. See \strong{Examples} for formats that are supported.
+Parse strings representing dates with \code{\link[=as.Date]{as.Date()}}. This function is tailored
+to date formats used in this package and may fail with other datasets. See
+\strong{Examples} for formats that are supported.
 \subsection{Date formats}{\tabular{lll}{
    \strong{FREQUENCY} \tab \strong{FORMAT} \tab \strong{EXAMPLES} \cr
    \strong{Daily / Business day} \tab DD MMMMYYYY \tab \emph{02 FEB2019} \cr
@@ -26,9 +27,6 @@ with other datasets. See \strong{Examples} for formats that are supported.
 }
 
 }
-}
-\details{
-Parse strings representing dates with \code{\link[=as.Date]{as.Date()}}.
 }
 \examples{
 # Supported formats.

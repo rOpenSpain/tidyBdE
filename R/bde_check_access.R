@@ -6,20 +6,20 @@
 #'
 #' @return A logical value indicating whether BdE resources are reachable.
 #'
+#' @export
+#' @encoding UTF-8
 #' @keywords internal
 #'
 #' @examples
 #' \donttest{
 #' bde_check_access()
 #' }
-#' @export
-#' @encoding UTF-8
 bde_check_access <- function() {
   # Use an internal option for testing purposes only.
   # nocov start
   test <- getOption("bde_test_offline", NULL)
   if (isTRUE(test)) {
-    message("tidyBdE> Testing offline.")
+    cli::cli_alert_info("Testing offline mode.")
     return(FALSE)
   }
   # nocov end
@@ -54,7 +54,7 @@ skip_if_bde_offline <- function() {
   }
 
   if (requireNamespace("testthat", quietly = TRUE)) {
-    testthat::skip("tidyBdE> BdE API is not reachable.")
+    testthat::skip("BdE API is not reachable.")
   }
   invisible()
   # nocov end

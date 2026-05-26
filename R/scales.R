@@ -4,26 +4,23 @@
 #' Color scales for the \CRANpkg{ggplot2} package. Discrete scales are
 #' named `scale_*_bde_d`, while continuous palettes are named `scale_*_bde_c`.
 #'
+#' @param palette BdE palette to apply. See [bde_tidy_palettes()] for details.
+#' @inheritParams bde_tidy_palettes
+#' @inheritParams ggplot2::continuous_scale
+#' @param ... Additional arguments passed to [ggplot2::discrete_scale()] or
+#'   [ggplot2::continuous_scale()].
+#'
+#' @return A \CRANpkg{ggplot2} scale object.
+#'
 #' @seealso [ggplot2::discrete_scale()], [ggplot2::continuous_scale()]
 #'
 #' @family bde_plot
 #'
-#' @export
-#' @encoding UTF-8
-#'
-#' @return A \CRANpkg{ggplot2} scale object.
-#'
 #' @rdname scales_bde
-#'
 #' @name scales_bde
 #'
-#' @param palette BdE palette to apply. See [bde_tidy_palettes()] for details.
-#'
-#' @inheritParams bde_tidy_palettes
-#' @inheritParams ggplot2::continuous_scale
-#'
-#' @param ... Additional arguments passed to [ggplot2::discrete_scale()] or
-#'   [ggplot2::continuous_scale()].
+#' @export
+#' @encoding UTF-8
 #'
 #' @examples
 #' library(ggplot2)
@@ -54,19 +51,20 @@ scale_color_bde_d <- function(
   ...
 ) {
   palette <- match.arg(palette)
-
-  # Build the discrete palette.
-  cols_v <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
-  pal <- scales::manual_pal(cols_v)
-
-  ggplot2::discrete_scale(aesthetics = "color", palette = pal, ...)
+  bde_scale_bde_d(
+    aesthetics = "color",
+    palette = palette,
+    alpha = alpha,
+    rev = rev,
+    ...
+  )
 }
 
 #' @rdname scales_bde
 #' @name scales_bde
+#' @usage NULL
 #' @export
 #' @encoding UTF-8
-#' @usage NULL
 scale_colour_bde_d <- scale_color_bde_d
 
 #' @rdname scales_bde
@@ -80,12 +78,13 @@ scale_fill_bde_d <- function(
   ...
 ) {
   palette <- match.arg(palette)
-
-  # Build the discrete palette.
-  cols_v <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
-  pal <- scales::manual_pal(cols_v)
-
-  ggplot2::discrete_scale(aesthetics = "fill", palette = pal, ...)
+  bde_scale_bde_d(
+    aesthetics = "fill",
+    palette = palette,
+    alpha = alpha,
+    rev = rev,
+    ...
+  )
 }
 
 #' @rdname scales_bde
@@ -100,31 +99,11 @@ scale_color_bde_c <- function(
   ...
 ) {
   palette <- match.arg(palette)
-
-  # Define the color ramp for the continuous scale.
-  cols <- switch(palette,
-    "bde_vivid_pal" = bde_tidy_palettes(
-      6,
-      "bde_vivid_pal",
-      alpha = alpha,
-      rev = rev
-    ),
-    "bde_qual_pal" = bde_tidy_palettes(
-      6,
-      "bde_qual_pal",
-      alpha = alpha,
-      rev = rev
-    ),
-    "bde_rose_pal" = bde_tidy_palettes(
-      6,
-      "bde_rose_pal",
-      alpha = alpha,
-      rev = rev
-    )[c(1, 2, 3, 6, 5, 4)]
-  )
-  ggplot2::continuous_scale(
+  bde_scale_bde_c(
     aesthetics = "color",
-    palette = scales::gradient_n_pal(cols),
+    palette = palette,
+    alpha = alpha,
+    rev = rev,
     guide = guide,
     ...
   )
@@ -132,9 +111,9 @@ scale_color_bde_c <- function(
 
 #' @rdname scales_bde
 #' @name scales_bde
+#' @usage NULL
 #' @export
 #' @encoding UTF-8
-#' @usage NULL
 scale_colour_bde_c <- scale_color_bde_c
 
 #' @rdname scales_bde
@@ -149,33 +128,59 @@ scale_fill_bde_c <- function(
   ...
 ) {
   palette <- match.arg(palette)
-
-  # Define the color ramp for the continuous scale.
-  cols <- switch(palette,
-    "bde_vivid_pal" = bde_tidy_palettes(
-      6,
-      "bde_vivid_pal",
-      alpha = alpha,
-      rev = rev
-    ),
-    "bde_qual_pal" = bde_tidy_palettes(
-      6,
-      "bde_qual_pal",
-      alpha = alpha,
-      rev = rev
-    ),
-    "bde_rose_pal" = bde_tidy_palettes(
-      6,
-      "bde_rose_pal",
-      alpha = alpha,
-      rev = rev
-    )[c(1, 2, 3, 6, 5, 4)]
-  )
-
-  ggplot2::continuous_scale(
+  bde_scale_bde_c(
     aesthetics = "fill",
+    palette = palette,
+    alpha = alpha,
+    rev = rev,
+    guide = guide,
+    ...
+  )
+}
+
+#' Build a discrete BdE scale
+#'
+#' @param aesthetics Scale aesthetics.
+#' @param palette BdE palette to apply.
+#' @inheritParams bde_tidy_palettes
+#' @param ... Additional arguments passed to [ggplot2::discrete_scale()].
+#' @noRd
+bde_scale_bde_d <- function(aesthetics, palette, alpha, rev, ...) {
+  cols <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
+  ggplot2::discrete_scale(
+    aesthetics = aesthetics,
+    palette = scales::manual_pal(cols),
+    ...
+  )
+}
+
+#' Build a continuous BdE scale
+#'
+#' @param aesthetics Scale aesthetics.
+#' @param palette BdE palette to apply.
+#' @inheritParams bde_tidy_palettes
+#' @inheritParams ggplot2::continuous_scale
+#' @param ... Additional arguments passed to [ggplot2::continuous_scale()].
+#' @noRd
+bde_scale_bde_c <- function(aesthetics, palette, alpha, rev, guide, ...) {
+  cols <- bde_scale_bde_c_cols(palette, alpha = alpha, rev = rev)
+  ggplot2::continuous_scale(
+    aesthetics = aesthetics,
     palette = scales::gradient_n_pal(cols),
     guide = guide,
     ...
   )
+}
+
+#' Return colors for continuous BdE scales
+#'
+#' @param palette BdE palette to apply.
+#' @inheritParams bde_tidy_palettes
+#' @noRd
+bde_scale_bde_c_cols <- function(palette, alpha, rev) {
+  cols <- bde_tidy_palettes(6, palette, alpha = alpha, rev = rev)
+  if (palette == "bde_rose_pal") {
+    cols <- cols[c(1, 2, 3, 6, 5, 4)]
+  }
+  cols
 }

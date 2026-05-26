@@ -13,7 +13,7 @@ test_that("Indicators", {
       cache_dir = tempdir(),
       verbose = TRUE
     ),
-    "Reading file ti_1_1.csv from cache\\.|Downloading file from"
+    "Reading file .*ti_1_1.csv.* from cache\\.|Downloading file from"
   )
   expect_message(
     bde_series_full_load(
@@ -21,7 +21,7 @@ test_that("Indicators", {
       cache_dir = NULL,
       verbose = TRUE
     ),
-    "Reading file ti_1_1.csv from cache\\.|Downloading file from"
+    "Reading file .*ti_1_1.csv.* from cache\\.|Downloading file from"
   )
   expect_message(
     bde_series_full_load(
@@ -29,7 +29,7 @@ test_that("Indicators", {
       cache_dir = NULL,
       verbose = TRUE
     ),
-    "Reading file cf0101.csv from cache\\.|Downloading file from"
+    "Reading file .*cf0101.csv.* from cache\\.|Downloading file from"
   )
   expect_silent(bde_series_full_load("CF0101"))
 
@@ -43,7 +43,7 @@ test_that("Indicators", {
   expect_identical(bde_series_load(12345678910), bde_hlp_return_null())
   expect_error(
     bde_series_load(c(573234, 573214), series_label = c(1, NA)),
-    "`series_label` must not contain NA values\\."
+    "`series_label` must not contain missing values\\."
   )
   expect_error(
     bde_series_load(c(573234, 573214), series_label = c("1", "1")),
@@ -63,7 +63,7 @@ test_that("Indicators", {
   expect_silent(bde_series_load(573234, extract_metadata = TRUE))
   expect_message(
     bde_series_load(573234, verbose = TRUE),
-    "Extracting series 573234\\."
+    "Extracting series"
   )
 
   meta <- bde_series_load(573234, extract_metadata = TRUE)
@@ -120,7 +120,7 @@ test_that("Series full", {
   # Can't download series
   expect_message(
     bde_series_full_load(all_names[2], cache_dir = dir),
-    "Testing offline\\."
+    "Testing offline mode\\."
   )
 
   fail <- bde_series_full_load(all_names[2], cache_dir = dir)

@@ -20,8 +20,8 @@ catalog. See \strong{Details}.}
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
     \item{\code{update_cache}}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
-    \item{\code{cache_dir}}{A path to a cache directory. The directory can also be set
-with options using \code{options(bde_cache_dir = "path/to/dir")}.}
+    \item{\code{cache_dir}}{Path to a cache directory. The directory can also be set
+with \code{options(bde_cache_dir = "path/to/dir")}.}
     \item{\code{verbose}}{Logical. If \code{TRUE}, display information useful for debugging.}
   }}
 }
@@ -32,8 +32,8 @@ A \link[tibble:tbl_df]{tibble} object with the results of the query.
 Search BdE time series catalog metadata for keywords.
 }
 \details{
-\strong{Note:} BdE metadata is currently provided in Spanish only. Therefore,
-search terms must be provided in Spanish to retrieve results.
+\strong{Note:} BdE metadata is currently available in Spanish only. Therefore,
+search terms must be in Spanish to retrieve results.
 
 This function uses \code{\link[base:grep]{base::grep()}} to find matches in the catalogs. You can
 pass \link[base:regex]{regular expressions} to broaden the search.
