@@ -1,6 +1,6 @@
 # Check BdE access
 
-Check whether **R** can access resources at
+Check whether R can access resources at
 <https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html>.
 
 ## Usage
