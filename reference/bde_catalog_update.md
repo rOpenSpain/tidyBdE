@@ -63,7 +63,7 @@ Other catalog:
 ``` r
 # \donttest{
 bde_catalog_update("TI", verbose = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmpwleND7.
+#> ℹ Using temporary cache directory /tmp/RtmpoOjU46.
 #> ℹ Updating catalogs: TI.
 #> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv>.
 # }
