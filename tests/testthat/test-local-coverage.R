@@ -88,7 +88,7 @@ test_that("series loaders work with local CSV files", {
     "Reading file"
   )
   expect_s3_class(full, "tbl_df")
-  expect_equal(names(full), c("Date", "ALIAS1", "ALIAS2"))
+  expect_named(full, c("Date", "ALIAS1", "ALIAS2"))
   expect_s3_class(full$Date, "Date")
   expect_equal(full$ALIAS1[1], 1.5)
   expect_true(is.na(full$ALIAS1[2]))
@@ -114,7 +114,7 @@ test_that("series loaders work with local CSV files", {
     series_label = "Test series",
     cache_dir = dir
   )
-  expect_equal(names(wide), c("Date", "Test series"))
+  expect_named(wide, c("Date", "Test series"))
 
   long <- bde_series_load(
     12345,
@@ -122,7 +122,7 @@ test_that("series loaders work with local CSV files", {
     cache_dir = dir,
     out_format = "long"
   )
-  expect_equal(names(long), c("Date", "serie_name", "serie_value"))
+  expect_named(long, c("Date", "serie_name", "serie_value"))
   expect_s3_class(long$serie_name, "factor")
 })
 

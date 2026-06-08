@@ -8,7 +8,7 @@ test_that("Discrete scale", {
   p2 <- p + scale_color_bde_d()
 
   mod <- ggplot2::layer_data(p2)$colour
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   # Renamed
   p3 <- p + scale_colour_bde_d()
@@ -60,7 +60,7 @@ test_that("Continous scale", {
   p2 <- p + scale_color_bde_c()
 
   mod <- ggplot2::layer_data(p2)$colour
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   # Renamed
   p3 <- p + scale_colour_bde_c()

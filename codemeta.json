@@ -205,7 +205,7 @@
   "applicationCategory": "Macroeconomics",
   "isPartOf": "https://ropenspain.es/",
   "keywords": ["api", "bde", "cran", "ggplot2", "macroeconomics", "r", "r-package", "ropenspain", "rstats", "series-data", "spain"],
-  "fileSize": "306.309KB",
+  "fileSize": "306.395KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

@@ -80,7 +80,7 @@ test_that("Indicators", {
 
   expect_equal(ncol(long), 3)
   expect_true(nrow(long) > nrow(wide))
-  expect_equal(class(long$serie_name), "factor")
+  expect_s3_class(long$serie_name, "factor")
   expect_equal(levels(long$serie_name), names(wide[, -1]))
 
   # Wide and long does not affect on metadata
