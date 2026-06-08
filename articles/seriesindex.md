@@ -1,7 +1,7 @@
 # Series index
 
 This table lists time series available in the catalog. Last updated:
-**03-June-2026**.
+**08-June-2026**.
 
 Use the sequential number to load a time series, as shown in the
 example.

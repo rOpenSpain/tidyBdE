@@ -100,7 +100,7 @@ bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
 
 # Load data.
 bde_series_full_load("TI_1_1.csv")
-#> # A tibble: 7,153 × 5
+#> # A tibble: 7,155 × 5
 #>    Date       TI_1_1.1 TI_1_1.2 TI_1_1.3 TI_1_1.4
 #>    <date>        <dbl>    <dbl>    <dbl>    <dbl>
 #>  1 1999-01-01        3       NA     4.5      2   
@@ -113,6 +113,6 @@ bde_series_full_load("TI_1_1.csv")
 #>  8 1999-01-12        3       NA     3.25     2.75
 #>  9 1999-01-13        3       NA     3.25     2.75
 #> 10 1999-01-14        3       NA     3.25     2.75
-#> # ℹ 7,143 more rows
+#> # ℹ 7,145 more rows
 # }
 ```

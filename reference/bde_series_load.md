@@ -119,7 +119,7 @@ Other series:
 # \donttest{
 # Show metadata.
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmpoOjU46.
+#> ℹ Using temporary cache directory /tmp/Rtmp8PeGbr.
 #> ✔ Using cached catalog "BE".
 #> ✔ Using cached catalog "SI".
 #> ✔ Using cached catalog "TC".
@@ -128,7 +128,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> ℹ Parsing date columns.
 #> ℹ Extracting series 573234.
 #> ℹ Downloading series 573234 from file TC_1_1.csv (alias "TC_1_1.1").
-#> ℹ Using temporary cache directory /tmp/RtmpoOjU46/TC.
+#> ℹ Using temporary cache directory /tmp/Rtmp8PeGbr/TC.
 #> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv>.
 #> # A tibble: 6 × 2
 #>   Date                        `573234`                                          
@@ -142,7 +142,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 
 # Load data.
 bde_series_load(573234, extract_metadata = FALSE)
-#> # A tibble: 7,152 × 2
+#> # A tibble: 7,154 × 2
 #>    Date       `573234`
 #>    <date>        <dbl>
 #>  1 1999-01-04     1.18
@@ -155,7 +155,7 @@ bde_series_load(573234, extract_metadata = FALSE)
 #>  8 1999-01-13     1.17
 #>  9 1999-01-14     1.17
 #> 10 1999-01-15     1.16
-#> # ℹ 7,142 more rows
+#> # ℹ 7,144 more rows
 
 # Load multiple series.
 bde_series_load(c(573234, 573214),
@@ -178,7 +178,7 @@ wide <- bde_series_load(c(573234, 573214),
 
 # Show wide output.
 wide
-#> # A tibble: 7,152 × 3
+#> # A tibble: 7,154 × 3
 #>    Date       `US/EUR` `GBP/EUR`
 #>    <date>        <dbl>     <dbl>
 #>  1 1999-01-04     1.18     0.711
@@ -191,7 +191,7 @@ wide
 #>  8 1999-01-13     1.17     0.708
 #>  9 1999-01-14     1.17     0.706
 #> 10 1999-01-15     1.16     0.704
-#> # ℹ 7,142 more rows
+#> # ℹ 7,144 more rows
 
 # Show long output.
 long <- bde_series_load(c(573234, 573214),
@@ -200,7 +200,7 @@ long <- bde_series_load(c(573234, 573214),
 )
 
 long
-#> # A tibble: 14,304 × 3
+#> # A tibble: 14,308 × 3
 #>    Date       serie_name serie_value
 #>    <date>     <fct>            <dbl>
 #>  1 1999-01-04 US/EUR            1.18
@@ -213,7 +213,7 @@ long
 #>  8 1999-01-13 US/EUR            1.17
 #>  9 1999-01-14 US/EUR            1.17
 #> 10 1999-01-15 US/EUR            1.16
-#> # ℹ 14,294 more rows
+#> # ℹ 14,298 more rows
 
 # Use with `ggplot2`.
 library(ggplot2)
