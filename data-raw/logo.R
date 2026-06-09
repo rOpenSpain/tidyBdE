@@ -33,7 +33,7 @@ sticker(
   s_height = 1,
   p_size = 30,
   s_x = 0.95,
-  s_y = 0.7,
+  s_y = 0.7
 )
 
 pkgdown::build_favicons(overwrite = TRUE)
