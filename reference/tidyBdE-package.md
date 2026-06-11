@@ -26,3 +26,8 @@ Authors:
 
 - Diego H. Herrero <dev.dieghernan@gmail.com>
   ([ORCID](https://orcid.org/0000-0001-8457-4658)) \[copyright holder\]
+
+Other contributors:
+
+- Banco de España ([ROR](https://ror.org/02f26yq04)) (Data copyright
+  holder) \[copyright holder\]

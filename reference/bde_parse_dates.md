@@ -10,11 +10,15 @@ datasets. See **Examples** for formats that are supported.
 |  |  |  |
 |----|----|----|
 | **FREQUENCY** | **FORMAT** | **EXAMPLES** |
-| **Daily / Business day** | DD MMMMYYYY | *02 FEB2019* |
-| **Monthly** | MMM YYYY | *MAR 2020* |
-| **Quarterly** | MMM YYYY, where MMM is the first or the last month of the quarter, depending on the value of its variable OBSERVED. | For the first quarter of 2020: *ENE 2020, MAR 2020* |
-| **Half-yearly** | MMM YYYY, where MMM is the first or the last month of the half-year period, depending on the value of its variable OBSERVED. | For the first half of 2020: *ENE 2020, JUN 2020* |
-| **Annual** | YYYY | *2020* |
+| **Daily / Business day** | `DD MMMMYYYY` | `02 FEB2019` |
+| **Monthly** | `MMM YYYY` | `MAR 2020` |
+| **Quarterly** | `MMM YYYY`, where `MMM` is the first or the last month of the quarter, depending on the value of its variable OBSERVED. | For the first quarter of 2020: `ENE 2020`, `MAR 2020` |
+| **Half-yearly** | `MMM YYYY`, where `MMM` is the first or the last month of the half-year period, depending on the value of its variable OBSERVED. | For the first half of 2020: `ENE 2020`, `JUN 2020` |
+| **Annual** | `YYYY` | `2020` |
+
+See
+[`vignette("csv_manual", package = "tidyBdE")`](https://ropenspain.github.io/tidyBdE/articles/csv_manual.md)
+for details.
 
 ## Usage
 

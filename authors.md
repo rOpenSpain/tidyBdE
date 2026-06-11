@@ -5,6 +5,10 @@
 - **Diego H. Herrero**. Author, maintainer, copyright holder.
   [](https://orcid.org/0000-0001-8457-4658)
 
+- **[Banco de España](https://www.bde.es/)**. Copyright holder.
+  [![ROR](https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg)](https://ror.org/02f26yq04)  
+  Data copyright holder
+
 ## Citation
 
 Source:

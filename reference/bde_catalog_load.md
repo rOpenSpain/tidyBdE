@@ -47,7 +47,9 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
 ## Value
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
-with the requested catalog metadata.
+with the requested catalog metadata. See
+[`vignette("csv_manual", package = "tidyBdE")`](https://ropenspain.github.io/tidyBdE/articles/csv_manual.md)
+for details.
 
 ## Details
 
@@ -78,9 +80,9 @@ Other catalog:
 ``` r
 # \donttest{
 bde_catalog_load("TI", verbose = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmpMhTUox.
+#> ℹ Using temporary cache directory /tmp/RtmptZNIjE.
 #> ℹ Downloading catalog "TI".
-#> ✔ Using cache directory /tmp/RtmpMhTUox.
+#> ✔ Using cache directory /tmp/RtmptZNIjE.
 #> ℹ Updating catalogs: TI.
 #> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv>.
 #> ℹ Parsing date columns.

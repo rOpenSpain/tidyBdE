@@ -69,7 +69,10 @@ bde_series_full_load(
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
 with a `Date` field and the aliases of the time series fields as
 described in the catalogs. See
-[`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md).
+[`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md)
+and
+[`vignette("csv_manual", package = "tidyBdE")`](https://ropenspain.github.io/tidyBdE/articles/csv_manual.md)
+for details.
 
 ## Note
 
@@ -100,7 +103,7 @@ bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
 
 # Load data.
 bde_series_full_load("TI_1_1.csv")
-#> # A tibble: 7,157 × 5
+#> # A tibble: 7,159 × 5
 #>    Date       TI_1_1.1 TI_1_1.2 TI_1_1.3 TI_1_1.4
 #>    <date>        <dbl>    <dbl>    <dbl>    <dbl>
 #>  1 1999-01-01        3       NA     4.5      2   
@@ -113,6 +116,6 @@ bde_series_full_load("TI_1_1.csv")
 #>  8 1999-01-12        3       NA     3.25     2.75
 #>  9 1999-01-13        3       NA     3.25     2.75
 #> 10 1999-01-14        3       NA     3.25     2.75
-#> # ℹ 7,147 more rows
+#> # ℹ 7,149 more rows
 # }
 ```

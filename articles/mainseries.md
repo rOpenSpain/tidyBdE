@@ -3,7 +3,7 @@
 This article shows selected Spanish macroeconomic indicators using Banco
 de España data.
 
-Last updated: **09-June-2026**.
+Last updated: **11-June-2026**.
 
 ``` r
 

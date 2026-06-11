@@ -2,10 +2,11 @@ pandoc: 3.8.3
 pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
+  csv_manual: csv_manual.html
   articles/mainseries: mainseries.html
   articles/seriesindex: seriesindex.html
   tidyBdE: tidyBdE.html
-last_built: 2026-06-09T20:33Z
+last_built: 2026-06-11T08:44Z
 urls:
   reference: https://ropenspain.github.io/tidyBdE/reference
   article: https://ropenspain.github.io/tidyBdE/articles

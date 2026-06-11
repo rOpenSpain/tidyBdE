@@ -11,6 +11,9 @@
 - Tests were refactored and expanded with local fixtures, mocks and
   snapshot updates, reaching 100% line coverage in
   `devtools:::test_coverage()`.
+- New vignette
+  [`vignette("csv_manual", package = "tidyBdE")`](https://ropenspain.github.io/tidyBdE/articles/csv_manual.md)
+  explaining the structure of the CSV files provided by BdE.
 
 ## tidyBdE 0.6.1
 
