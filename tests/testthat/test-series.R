@@ -148,3 +148,85 @@ test_that("Series full", {
   failfix <- bde_series_full_load(all_names[2], cache_dir = dir)
   expect_gt(nrow(failfix), 10)
 })
+test_that("Mock files series", {
+  skip_on_cran()
+  skip_if_bde_offline()
+
+  local_mocked_bindings(
+    bde_catalog_load = function(...) {
+      dplyr::tibble()
+    }
+  )
+
+  expect_message(
+    long <- bde_series_load(
+      c(573234, 573214),
+      series_label = c("a", "b"),
+      out_format = "long",
+      extract_metadata = TRUE
+    ),
+    "BdE is offline"
+  )
+  local_mocked_bindings(
+    bde_catalog_load = function(...) {
+      dplyr::tibble(no_name = 1, another = 2, more = 2, and_more = 2)
+    }
+  )
+  expect_message(
+    long <- bde_series_load(
+      c(573234, 573214),
+      series_label = c("a", "b"),
+      out_format = "long",
+      verbose = TRUE
+    ),
+    "BdE is offline"
+  )
+})
+
+test_that("Mock files all", {
+  skip_on_cran()
+  skip_if_bde_offline()
+
+  fpath <- file.path(tempdir(), "TI", "ti_1_1.csv")
+  writeLines(" ", fpath)
+
+  expect_true(file.exists(fpath))
+  local_mocked_bindings(
+    bde_hlp_download = function(...) {
+      TRUE
+    }
+  )
+
+  expect_silent(
+    ss <- bde_series_full_load(
+      "TI_1_1.csv",
+      cache_dir = tempdir(),
+      verbose = FALSE
+    )
+  )
+  unlink(fpath)
+})
+
+test_that("Mock files cleanup", {
+  skip_on_cran()
+  skip_if_bde_offline()
+
+  fpath <- file.path(tempdir(), "TI", "ti_1_1.csv")
+  writeLines("a", fpath)
+
+  expect_true(file.exists(fpath))
+  local_mocked_bindings(
+    bde_hlp_download = function(...) {
+      FALSE
+    }
+  )
+
+  expect_silent(
+    ss <- bde_series_full_load(
+      "TI_1_1.csv",
+      cache_dir = tempdir(),
+      verbose = FALSE
+    )
+  )
+  unlink(fpath)
+})
