@@ -84,6 +84,7 @@ test_that("Errors on download", {
   expect_snapshot(
     a <- bde_hlp_download("https://www.invented_test_url.com", tmp, TRUE)
   )
+  unlink(tmp)
   expect_false(file.exists(tmp))
 
   # Existing url

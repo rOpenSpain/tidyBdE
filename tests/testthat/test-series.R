@@ -1,3 +1,10 @@
+test_that("Series load returns null when catalog is empty", {
+  local_mocked_bindings(
+    bde_catalog_load = function(...) tibble::tibble()
+  )
+  expect_identical(bde_series_load(573234), bde_hlp_return_null())
+})
+
 test_that("Indicators", {
   expect_error(bde_series_load(), "`series_code` cannot be missing")
 
