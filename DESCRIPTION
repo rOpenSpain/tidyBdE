@@ -23,6 +23,7 @@ Imports:
     cli,
     dplyr (>= 0.7.0),
     ggplot2 (>= 3.5.0),
+    jsonlite,
     lifecycle,
     readr (>= 1.0.0),
     scales (>= 1.1.0),
