@@ -21,7 +21,7 @@ reference:
   - has_concept("catalog")
 
 - title: Series
-  desc: Load individual time series and complete BdE time series files.
+  desc: Load individual series, complete BdE time series files and Statistics web service (API) data.
   contents:
   - has_concept("series")
 

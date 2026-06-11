@@ -25,6 +25,14 @@ bde_check_access <- function() {
     "estadis/infoest/series/catalogo_tc.csv"
   )
 
+  # nocov start
+  old_timeout <- getOption("timeout")
+  on.exit(options(timeout = old_timeout), add = TRUE)
+
+  timeout <- getOption("bde_api_timeout", 10)
+  options(timeout = min(old_timeout, timeout))
+  # nocov end
+
   access <- tryCatch(
     download.file(url, destfile = tempfile(), quiet = TRUE, mode = "wb"),
     warning = function(e) {
@@ -37,7 +45,8 @@ bde_check_access <- function() {
 
 #' Check whether the current session is running on CRAN
 #'
-#' @return A logical.
+#' @return A logical value.
+#'
 #' @noRd
 on_cran <- function() {
   # nocov start

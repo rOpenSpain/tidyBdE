@@ -234,7 +234,6 @@ test_that("Mock files cleanup", {
   )
 })
 
-
 test_that("Mock files cleanup", {
   skip_on_cran()
   skip_if_bde_offline()

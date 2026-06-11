@@ -40,7 +40,6 @@
 #' A [tibble][tibble::tbl_df] with the requested catalog metadata. See
 #' `vignette("csv_manual", package = "tidyBdE")` for details.
 #'
-#'
 #' @source
 #'
 #' ```{r, echo=FALSE, results='asis'}
@@ -116,7 +115,6 @@ bde_catalog_load <- function(
     }
 
     # Reject empty files before encoding detection.
-
     r <- readLines(catalog_file, warn = FALSE, n = 1000)
     if (length(r) == 0) {
       cli::cli_alert_warning("File {.file {catalog_file}} is not valid.")
@@ -337,7 +335,7 @@ bde_catalog_update <- function(
 #'
 #' @return A [tibble][tibble::tbl_df] object with the results of the query.
 #'
-#' @seealso [bde_catalog_load()], [base::regex]
+#' @seealso [bde_catalog_load()], [base::regex()]
 #'
 #' @family catalog
 #'
@@ -369,7 +367,7 @@ bde_catalog_search <- function(pattern, ...) {
   if (!tibble::is_tibble(catalog_search)) {
     cli::cli_alert_warning(
       paste0(
-        "Catalog data is not a tibble. Try redownloading it with ",
+        "Catalog data is not a tibble. Try downloading it again with ",
         "bde_catalog_update()."
       )
     )

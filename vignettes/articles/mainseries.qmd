@@ -1,6 +1,6 @@
 ---
 title: "Main macroeconomic indicators"
-description: Evolution of selected Spanish economic indicators.
+description: Evolution of selected Spanish macroeconomic indicators.
 date: "`r Sys.Date()`"
 knitr:
   opts_chunk:
@@ -15,7 +15,7 @@ knitr:
 ---
 
 This article shows selected Spanish macroeconomic indicators using Banco de
-España data.
+España time series data.
 
 Last updated: **`r format(Sys.Date(), "%d-%B-%Y")`**.
 

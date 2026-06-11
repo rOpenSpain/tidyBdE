@@ -13,8 +13,8 @@
 #' A single time series may appear in different tables, so it can have several
 #' aliases. If you need to search by alias, use [bde_series_full_load()].
 #'
-#' @param series_code Numeric value, value coercible with [base::as.double()],
-#'   or vector of time series codes from the `Número secuencial` field of the
+#' @param series_code Numeric vector of sequential numbers, or values coercible
+#'   with [base::as.double()], from the `Número secuencial` field of the
 #'   corresponding series. See [bde_catalog_load()].
 #' @param series_label Optional character string or vector of labels to assign
 #'   to the extracted series.
@@ -41,8 +41,8 @@
 #' This function attempts to coerce the columns to numbers. For some time
 #' series, a warning may be displayed if the parsing fails.
 #'
-#' @seealso [bde_catalog_load()],
-#' [bde_catalog_search()], [bde_indicators()]
+#' @seealso [bde_catalog_load()], [bde_catalog_search()],
+#'   [bde_indicators()]
 #'
 #' @family series
 #'
@@ -141,11 +141,13 @@ bde_series_load <- function(
       cli::cli_alert_info("Extracting series {.val {x}}.")
     }
 
-    # Match the sequential code to the first catalog record available.
+    # Match the sequential number to the first catalog record available.
     csv_file <- all_catalogs[all_catalogs[[1]] == x, c(2, 3)]
 
     if (nrow(csv_file) == 0) {
-      cli::cli_alert_warning("{.arg series_code} was not found in catalogs.")
+      cli::cli_alert_warning(
+        "{.arg series_code} was not found in the catalogs."
+      )
       tbl <- bde_hlp_return_null()
       return(tbl)
     }
@@ -242,14 +244,14 @@ bde_series_load <- function(
   end
 }
 
-#' Load BdE full time series files
+#' Load full BdE time series files
 #'
 #' @description
 #' Load a full BdE time series file.
 #'
 #' ## About BdE file naming
 #'
-#' The series name is a positional code showing the location of the table. For
+#' The series alias is a positional code showing the location of the table. For
 #' example, table **be_6_1** represents Table 1, Chapter 6 of the Statistical
 #' Bulletin ("BE"). Although it is unique, it is subject to change, for
 #' example when a new table is inserted before it.
@@ -361,7 +363,6 @@ bde_series_full_load <- function(
   }
 
   # Reject empty files before encoding detection.
-
   r <- readLines(local_file, warn = FALSE, n = 1000)
   if (length(r) == 0) {
     cli::cli_alert_warning("File {.file {local_file}} is not valid.")

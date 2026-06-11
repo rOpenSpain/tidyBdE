@@ -172,13 +172,13 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
 #' Download a file
 #'
 #' @param url Resource URL.
-#'
 #' @param local_file Local file path to create or overwrite.
-#'
 #' @param verbose Logical indicating whether to display informative messages.
+#' @param retry Logical indicating whether to retry once after a failed
+#'   download.
 #'
 #' @noRd
-bde_hlp_download <- function(url, local_file, verbose) {
+bde_hlp_download <- function(url, local_file, verbose, retry = TRUE) {
   if (verbose) {
     cli::cli_alert_info("Downloading file from {.url {url}}.")
   }
@@ -191,8 +191,7 @@ bde_hlp_download <- function(url, local_file, verbose) {
   )
 
   # Retry once because intermittent warnings are common for remote files.
-
-  if (isTRUE(err_dwnload)) {
+  if (isTRUE(err_dwnload) && isTRUE(retry)) {
     if (verbose) {
       cli::cli_alert_warning("Download failed. Trying again.")
     }

@@ -34,6 +34,7 @@ bde_vivid_pal <- function(...) {
 }
 
 #' @rdname bde_pals
+#'
 #' @export
 #' @encoding UTF-8
 #' @keywords internal

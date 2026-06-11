@@ -18,8 +18,8 @@ bde_series_load(
 )
 }
 \arguments{
-\item{series_code}{Numeric value, value coercible with \code{\link[base:as.double]{base::as.double()}},
-or vector of time series codes from the \verb{Número secuencial} field of the
+\item{series_code}{Numeric vector of sequential numbers, or values coercible
+with \code{\link[base:as.double]{base::as.double()}}, from the \verb{Número secuencial} field of the
 corresponding series. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 
 \item{series_label}{Optional character string or vector of labels to assign
@@ -120,8 +120,8 @@ ggplot(long, aes(Date, serie_value)) +
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[=bde_catalog_load]{bde_catalog_load()}},
-\code{\link[=bde_catalog_search]{bde_catalog_search()}}, \code{\link[=bde_indicators]{bde_indicators()}}
+\code{\link[=bde_catalog_load]{bde_catalog_load()}}, \code{\link[=bde_catalog_search]{bde_catalog_search()}},
+\code{\link[=bde_indicators]{bde_indicators()}}
 
 Other series:
 \code{\link{bde_series_api}},

@@ -9,10 +9,13 @@
 -   Tests were refactored and expanded with local fixtures, mocks and snapshot
     updates, reaching 100% line coverage in `devtools:::test_coverage()`.
 -   New vignette `vignette("csv_manual", package = "tidyBdE")` explaining the
-    structure of the CSV files provided by BdE.
--   `bde_series_api_latest()` added to query the [statistics web service
-    (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html)
-    of BdE.
+    structure of Banco de España bulk CSV files.
+-   `bde_series_api_latest()` added to query the Latest Data request of the
+    Banco de España [Statistics web service
+    (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
+-   `bde_series_api_load()` added to query the Series List request of the Banco
+    de España Statistics web service (API), with support for wide and long
+    output, metadata extraction and API range validation.
 
 # tidyBdE 0.6.1
 

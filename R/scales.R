@@ -63,12 +63,14 @@ scale_color_bde_d <- function(
 #' @rdname scales_bde
 #' @name scales_bde
 #' @usage NULL
+#'
 #' @export
 #' @encoding UTF-8
 scale_colour_bde_d <- scale_color_bde_d
 
 #' @rdname scales_bde
 #' @name scales_bde
+#'
 #' @export
 #' @encoding UTF-8
 scale_fill_bde_d <- function(
@@ -89,6 +91,7 @@ scale_fill_bde_d <- function(
 
 #' @rdname scales_bde
 #' @name scales_bde
+#'
 #' @export
 #' @encoding UTF-8
 scale_color_bde_c <- function(
@@ -112,12 +115,14 @@ scale_color_bde_c <- function(
 #' @rdname scales_bde
 #' @name scales_bde
 #' @usage NULL
+#'
 #' @export
 #' @encoding UTF-8
 scale_colour_bde_c <- scale_color_bde_c
 
 #' @rdname scales_bde
 #' @name scales_bde
+#'
 #' @export
 #' @encoding UTF-8
 scale_fill_bde_c <- function(
@@ -144,6 +149,7 @@ scale_fill_bde_c <- function(
 #' @param palette BdE palette to apply.
 #' @inheritParams bde_tidy_palettes
 #' @param ... Additional arguments passed to [ggplot2::discrete_scale()].
+#'
 #' @noRd
 bde_scale_bde_d <- function(aesthetics, palette, alpha, rev, ...) {
   cols <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
@@ -161,6 +167,7 @@ bde_scale_bde_d <- function(aesthetics, palette, alpha, rev, ...) {
 #' @inheritParams bde_tidy_palettes
 #' @inheritParams ggplot2::continuous_scale
 #' @param ... Additional arguments passed to [ggplot2::continuous_scale()].
+#'
 #' @noRd
 bde_scale_bde_c <- function(aesthetics, palette, alpha, rev, guide, ...) {
   cols <- bde_scale_bde_c_cols(palette, alpha = alpha, rev = rev)
@@ -176,6 +183,7 @@ bde_scale_bde_c <- function(aesthetics, palette, alpha, rev, guide, ...) {
 #'
 #' @param palette BdE palette to apply.
 #' @inheritParams bde_tidy_palettes
+#'
 #' @noRd
 bde_scale_bde_c_cols <- function(palette, alpha, rev) {
   cols <- bde_tidy_palettes(6, palette, alpha = alpha, rev = rev)
