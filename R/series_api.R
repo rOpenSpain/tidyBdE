@@ -81,7 +81,7 @@
 #' xr |>
 #'   slice_head(n = 1) |>
 #'   pull(Nombre_de_la_serie) |>
-#'   bde_series_api_load(language = "en", time_range = "30M") |>
+#'   bde_series_api_load(language = "en", time_range = "12M") |>
 #'   glimpse()
 #' }
 bde_series_api_latest <- function(

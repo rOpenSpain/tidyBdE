@@ -11,5 +11,5 @@
     Code
       bde_catalog_search("TC", catalog = "TC")
     Message
-      ! Catalog data is not a tibble. Try redownloading it with bde_catalog_update().
+      ! Catalog data is not a tibble. Try downloading it again with bde_catalog_update().
 
