@@ -153,7 +153,7 @@ test_that("Mock files series", {
   skip_if_bde_offline()
 
   local_mocked_bindings(
-    bde_catalog_load = function(...) {
+    bde_series_full_load = function(...) {
       dplyr::tibble()
     }
   )
@@ -168,7 +168,7 @@ test_that("Mock files series", {
     "BdE is offline"
   )
   local_mocked_bindings(
-    bde_catalog_load = function(...) {
+    bde_series_full_load = function(...) {
       dplyr::tibble(no_name = 1, another = 2, more = 2, and_more = 2)
     }
   )
@@ -211,12 +211,9 @@ test_that("Mock files cleanup", {
   skip_on_cran()
   skip_if_bde_offline()
 
-  fpath <- file.path(tempdir(), "TI", "ti_1_1.csv")
-  writeLines("a", fpath)
-
-  expect_true(file.exists(fpath))
   local_mocked_bindings(
-    bde_hlp_download = function(...) {
+    bde_hlp_download = function(url, local_file, verbose) {
+      writeLines("a", local_file)
       FALSE
     }
   )
@@ -228,5 +225,26 @@ test_that("Mock files cleanup", {
       verbose = FALSE
     )
   )
-  unlink(fpath)
+})
+
+
+test_that("Mock files cleanup", {
+  skip_on_cran()
+  skip_if_bde_offline()
+
+  local_mocked_bindings(
+    bde_hlp_download = function(url, local_file, verbose) {
+      file.create(local_file, showWarnings = FALSE)
+      TRUE
+    }
+  )
+
+  expect_message(
+    ss <- bde_series_full_load(
+      "TI_1_1.csv",
+      cache_dir = tempdir(),
+      verbose = FALSE
+    ),
+    "is not valid"
+  )
 })

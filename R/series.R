@@ -365,6 +365,7 @@ bde_series_full_load <- function(
   r <- readLines(local_file, warn = FALSE, n = 1000)
   if (length(r) == 0) {
     cli::cli_alert_warning("File {.file {local_file}} is not valid.")
+    unlink(local_file)
     return(invisible())
   }
 

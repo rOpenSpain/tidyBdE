@@ -6,3 +6,10 @@
       Error in `bde_catalog_search()`:
       ! No matches found for "GDP".
 
+---
+
+    Code
+      bde_catalog_search("TC", catalog = "TC")
+    Message
+      ! Catalog data is not a tibble. Try redownloading it with bde_catalog_update().
+

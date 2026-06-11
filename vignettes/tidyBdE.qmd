@@ -10,6 +10,8 @@ vignette: >
 
 <!-- tidyBdE.qmd is generated from tidyBdE.qmd.orig. Please edit that file -->
 
+
+
 **tidyBdE** is an **R** package that retrieves data from [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
 Data are returned as [**tibble**](https://tibble.tidyverse.org/) objects. The
@@ -24,6 +26,7 @@ institution or compiled from other sources, such as
 
 The basic entry point for searching time series is the catalog. You can search
 for time series by name:
+
 
 ``` r
 library(tidyBdE)
@@ -42,9 +45,13 @@ xr_gbp |>
 ```
 
 ::: {#tbl-search}
-| Numero_secuencial | Descripcion_de_la_serie |
-|---:|:---|
-| 573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+
+
+| Numero_secuencial|Descripcion_de_la_serie                                            |
+|-----------------:|:------------------------------------------------------------------|
+|            573214|Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+
+
 
 Search results
 :::
@@ -55,6 +62,7 @@ version.
 
 After finding a time series, load the GBP/EUR exchange rate using the sequential
 number reference (`Numero_secuencial`):
+
 
 ``` r
 seq_number <- xr_gbp |>
@@ -93,6 +101,7 @@ time_series
 
 The package also provides a custom **ggplot2** theme based on BdE publications:
 
+
 ``` r
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_tidy_palettes(n = 1)) +
@@ -115,18 +124,14 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   theme_tidybde()
 ```
 
-::: figure
-<img src="./chart-1.png" alt="Figure 1: EUR/GBP Exchange Rate (2010-2020)" width="100%"/>
-
-<p class="caption">
-
-Figure 1: EUR/GBP Exchange Rate (2010-2020)
-
-</p>
-:::
+<div class="figure">
+<img src="./chart-1.png" alt="Figure 1: EUR/GBP Exchange Rate (2010-2020)" width="100%" />
+<p class="caption">Figure 1: EUR/GBP Exchange Rate (2010-2020)</p>
+</div>
 
 The package also provides convenience functions for selected Spanish
 macroeconomic indicators, so you do not need to search manually:
+
 
 ``` r
 # Data in long format.
@@ -149,19 +154,15 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
   scale_color_bde_d(palette = "bde_vivid_pal") # Use a custom package palette.
 ```
 
-::: figure
-<img src="./macroseries-1.png" alt="Figure 2: Spanish Economic Indicators (2010-2019)" width="100%"/>
-
-<p class="caption">
-
-Figure 2: Spanish Economic Indicators (2010-2019)
-
-</p>
-:::
+<div class="figure">
+<img src="./macroseries-1.png" alt="Figure 2: Spanish Economic Indicators (2010-2019)" width="100%" />
+<p class="caption">Figure 2: Spanish Economic Indicators (2010-2019)</p>
+</div>
 
 ## A note on caching
 
 Create a local cache by setting the following option:
+
 
 ``` r
 options(bde_cache_dir = "./path/to/location")
@@ -172,6 +173,7 @@ When this option is set, **tidyBdE** looks for cached files in the
 
 Update cached data after monthly or quarterly releases with the following
 commands:
+
 
 ``` r
 bde_catalog_update()

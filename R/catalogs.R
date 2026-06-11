@@ -120,6 +120,7 @@ bde_catalog_load <- function(
     r <- readLines(catalog_file, warn = FALSE, n = 1000)
     if (length(r) == 0) {
       cli::cli_alert_warning("File {.file {catalog_file}} is not valid.")
+      unlink(catalog_file)
       return(invisible())
     }
 

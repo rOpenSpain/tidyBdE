@@ -73,4 +73,47 @@ test_that("No results", {
   skip_on_cran()
   skip_if_bde_offline()
   expect_snapshot(error = TRUE, bde_catalog_search("GDP", catalog = "TI"))
+
+  local_mocked_bindings(
+    bde_catalog_load = function(...) {
+      data.frame(a = 1)
+    }
+  )
+
+  expect_snapshot(bde_catalog_search("TC", catalog = "TC"))
+})
+
+test_that("Mocks expand all", {
+  skip_on_cran()
+  skip_if_bde_offline()
+
+  # Expand all
+  local_mocked_bindings(bde_hlp_download = function(...) {
+    TRUE
+  })
+  res <- bde_catalog_update("ALL", cache_dir = tempdir())
+  expect_all_true(unlist(res))
+  expect_length(res, 5)
+})
+
+test_that("Mock bad catalog file", {
+  skip_on_cran()
+  skip_if_bde_offline()
+
+  local_mocked_bindings(bde_catalog_update = function(
+    catalog = "a",
+    cache_dir = tempdir(),
+    verbose = FALSE
+  ) {
+    file.create(file.path(cache_dir, "catalogo_tc.csv"))
+  })
+
+  expect_message(
+    bde_catalog_load(
+      "TC",
+      verbose = FALSE,
+      cache_dir = file.path(tempdir(), "isolate")
+    ),
+    "not valid"
+  )
 })
