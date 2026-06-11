@@ -129,12 +129,10 @@ bde_series_load <- function(
     verbose = verbose
   )
 
-  # nocov start
   if (nrow(all_catalogs) == 0) {
     tbl <- bde_hlp_return_null()
     return(tbl)
   }
-  # nocov end
 
   all_catalogs <- all_catalogs[!is.na(all_catalogs[[2]]), c(2, 3, 4)]
 
@@ -176,7 +174,6 @@ bde_series_load <- function(
       extract_metadata = extract_metadata
     )
 
-    # nocov start
     if (nrow(serie_file) == 0) {
       tbl <- bde_hlp_return_null()
       return(tbl)
@@ -193,8 +190,6 @@ bde_series_load <- function(
 
       # Return an empty tibble if the alias is not available.
       return(bde_hlp_return_null())
-
-      # nocov end
     } else {
       serie_file <- serie_file[c("Date", alias_serie)]
     }
@@ -366,13 +361,12 @@ bde_series_full_load <- function(
   }
 
   # Reject empty files before encoding detection.
-  # nocov start
+
   r <- readLines(local_file, warn = FALSE, n = 1000)
   if (length(r) == 0) {
     cli::cli_alert_warning("File {.file {local_file}} is not valid.")
     return(invisible())
   }
-  # nocov end
 
   # Read the raw CSV after detecting its encoding.
   enc <- readr::guess_encoding(local_file)[[1]][[1]]

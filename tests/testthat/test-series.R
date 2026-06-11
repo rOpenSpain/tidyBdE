@@ -116,11 +116,17 @@ test_that("Series full", {
   expect_s3_class(full_1, "data.frame")
   expect_gt(nrow(full_1), 5)
 
-  options(bde_test_offline = TRUE)
+  # Test offline
+  local_mocked_bindings(
+    on_cran = function(...) {
+      TRUE
+    }
+  )
+
   # Can't download series
   expect_message(
     bde_series_full_load(all_names[2], cache_dir = dir),
-    "Testing offline mode\\."
+    "empty tibble"
   )
 
   fail <- bde_series_full_load(all_names[2], cache_dir = dir)
@@ -133,7 +139,11 @@ test_that("Series full", {
   expect_identical(full_1, full_2)
 
   # Now try online
-  options(bde_test_offline = FALSE)
+  local_mocked_bindings(
+    on_cran = function(...) {
+      FALSE
+    }
+  )
 
   failfix <- bde_series_full_load(all_names[2], cache_dir = dir)
   expect_gt(nrow(failfix), 10)

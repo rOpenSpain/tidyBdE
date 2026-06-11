@@ -169,17 +169,25 @@ test_that("full series loader covers download branches", {
   dir <- file.path(tempdir(), "tidybde-local-download")
   unlink(dir, recursive = TRUE, force = TRUE)
 
-  options(bde_test_offline = TRUE)
-  on.exit(options(bde_test_offline = FALSE))
+  local_mocked_bindings(
+    on_cran = function(...) {
+      TRUE
+    }
+  )
 
   expect_message(
     offline <- bde_series_full_load("TC_1_2.csv", cache_dir = dir),
-    "Testing offline mode"
+    "empty tibble"
   )
   expect_equal(nrow(offline), 0)
 
-  options(bde_test_offline = FALSE)
-  testthat::local_mocked_bindings(
+  local_mocked_bindings(
+    on_cran = function(...) {
+      FALSE
+    }
+  )
+
+  local_mocked_bindings(
     bde_check_access = function() TRUE,
     bde_hlp_download = function(url, local_file, verbose) {
       writeLines(character(), local_file)
@@ -193,13 +201,17 @@ test_that("full series loader covers download branches", {
 
 test_that("full series loader creates default cache subdirectories", {
   unlink(file.path(tempdir(), "ZZ"), recursive = TRUE, force = TRUE)
-  options(bde_test_offline = TRUE)
-  on.exit(options(bde_test_offline = FALSE))
+  local_mocked_bindings(
+    on_cran = function(...) {
+      TRUE
+    }
+  )
 
   expect_message(
     out <- bde_series_full_load("ZZ_1_1.csv", cache_dir = NULL),
-    "Testing offline mode"
+    "empty tibble"
   )
+
   expect_equal(nrow(out), 0)
   expect_true(dir.exists(file.path(tempdir(), "ZZ")))
 })

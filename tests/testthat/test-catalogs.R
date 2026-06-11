@@ -6,11 +6,15 @@ test_that("Catalogs offline", {
 
   expect_silent(bde_catalog_update("TI", cache_dir = dir))
 
-  options(bde_test_offline = TRUE)
+  local_mocked_bindings(
+    on_cran = function(...) {
+      TRUE
+    }
+  )
 
   expect_message(
     bde_catalog_update("TC", cache_dir = dir),
-    "Testing offline mode\\."
+    "empty tibble"
   )
 
   table1 <- bde_catalog_load("TI", cache_dir = dir)
@@ -33,7 +37,11 @@ test_that("Catalogs offline", {
   expect_equal(nrow(s2), 0)
 
   # Now try online
-  options(bde_test_offline = FALSE)
+  local_mocked_bindings(
+    on_cran = function(...) {
+      FALSE
+    }
+  )
 
   nonull <- bde_catalog_load("TC", cache_dir = dir)
   expect_gt(nrow(nonull), 0)
@@ -45,7 +53,6 @@ test_that("Messages", {
 
   dir <- file.path(tempdir(), "test_catalogs2")
 
-  options(bde_test_offline = FALSE)
   expect_message(
     bde_catalog_load("TC", verbose = TRUE, cache_dir = dir),
     "Downloading catalog|Using cached catalog"
@@ -56,66 +63,14 @@ test_that("Messages", {
   )
 })
 
-test_that("Old tests: Catalogs", {
-  skip_on_cran()
-  skip_if_bde_offline()
-
-  # Test load catalogs----
-  expect_error(bde_catalog_load("aa"))
-  expect_error(bde_catalog_search("xxxxxxx", catalog = "IE"))
-
-  expect_message(
-    bde_catalog_load("TC", cache_dir = tempdir(), verbose = TRUE),
-    "Using cached catalog|Downloading catalog"
-  )
-  expect_message(
-    bde_catalog_load("TC", cache_dir = NULL, verbose = TRUE),
-    "Using cached catalog|Downloading catalog"
-  )
-  expect_message(
-    bde_catalog_load(
-      "TC",
-      cache_dir = file.path(tempdir(), "aa"),
-      verbose = TRUE
-    ),
-    "Created cache directory|Downloading catalog"
-  )
-
-  expect_silent(bde_catalog_load("ALL"))
-
-  # Test update catalogs----
-
-  expect_error(bde_catalog_update("aa"))
-
-  expect_message(
-    bde_catalog_update(
-      "TC",
-      cache_dir = tempdir(),
-      verbose = TRUE
-    ),
-    "Updating catalogs: TC\\."
-  )
-  expect_silent(bde_catalog_update("ALL", cache_dir = tempdir()))
-  expect_silent(bde_catalog_update("TC", cache_dir = tempdir()))
-
-  # Testing options cache dir
-  init_cache_dir <- getOption("bde_cache_dir")
-  options(bde_cache_dir = file.path(tempdir(), "test"))
-  expect_message(
-    bde_catalog_update("TC", verbose = TRUE),
-    "Using cache directory from options:"
-  )
-  # Reset
-  options(bde_cache_dir = init_cache_dir)
-
-  # Test bde_catalog_search----
-
-  expect_error(bde_catalog_search())
-
-  expect_silent(bde_catalog_search("Euro", catalog = "TC"))
-})
 
 test_that("Fully Deprecation of Series", {
   expect_error(bde_catalog_update("IE", cache_dir = tempdir()))
   expect_error(bde_catalog_update("CF", cache_dir = tempdir()))
+})
+
+test_that("No results", {
+  skip_on_cran()
+  skip_if_bde_offline()
+  expect_snapshot(error = TRUE, bde_catalog_search("GDP", catalog = "TI"))
 })

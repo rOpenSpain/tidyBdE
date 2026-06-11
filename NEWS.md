@@ -10,6 +10,9 @@
     updates, reaching 100% line coverage in `devtools:::test_coverage()`.
 -   New vignette `vignette("csv_manual", package = "tidyBdE")` explaining the
     structure of the CSV files provided by BdE.
+-   `bde_series_api_latest()` added to query the [statistics web service
+    (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html)
+    of BdE.
 
 # tidyBdE 0.6.1
 

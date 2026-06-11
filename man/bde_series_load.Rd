@@ -124,6 +124,7 @@ ggplot(long, aes(Date, serie_value)) +
 \code{\link[=bde_catalog_search]{bde_catalog_search()}}, \code{\link[=bde_indicators]{bde_indicators()}}
 
 Other series:
+\code{\link{bde_series_api}},
 \code{\link[=bde_series_full_load]{bde_series_full_load()}}
 }
 \concept{series}

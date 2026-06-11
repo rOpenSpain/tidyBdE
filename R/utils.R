@@ -185,15 +185,13 @@ bde_hlp_download <- function(url, local_file, verbose) {
 
   err_dwnload <- tryCatch(
     download.file(url, local_file, quiet = isFALSE(verbose), mode = "wb"),
-    # nocov start
     warning = function(e) {
       TRUE
     }
   )
-  # nocov end
+
   # Retry once because intermittent warnings are common for remote files.
 
-  # nocov start
   if (isTRUE(err_dwnload)) {
     if (verbose) {
       cli::cli_alert_warning("Download failed. Trying again.")
@@ -201,7 +199,6 @@ bde_hlp_download <- function(url, local_file, verbose) {
 
     err_dwnload <- tryCatch(
       download.file(url, local_file, quiet = isFALSE(verbose), mode = "wb"),
-      # nocov start
       warning = function(e) {
         cli::cli_alert_warning(
           paste0(
@@ -213,12 +210,10 @@ bde_hlp_download <- function(url, local_file, verbose) {
       }
     )
   }
-  # nocov end
 
   # Signal download failure without raising an error.
   if (isTRUE(err_dwnload)) {
     return(FALSE)
-    # nocov end
   }
   TRUE
 }
@@ -286,9 +281,7 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
 bde_hlp_return_null <- function(
   msg = "BdE is offline. Returning an empty tibble."
 ) {
-  # nocov start
   cli::cli_alert_info(msg)
   tbl <- tibble::tibble(x = NULL)
   tbl
-  # nocov end
 }

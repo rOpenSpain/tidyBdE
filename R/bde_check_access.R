@@ -16,31 +16,36 @@
 #' }
 bde_check_access <- function() {
   # Use an internal option for testing purposes only.
-  # nocov start
-  test <- getOption("bde_test_offline", NULL)
-  if (isTRUE(test)) {
-    cli::cli_alert_info("Testing offline mode.")
+  if (on_cran()) {
     return(FALSE)
   }
-  # nocov end
 
   url <- paste0(
     "https://www.bde.es/webbde/es/",
     "estadis/infoest/series/catalogo_tc.csv"
   )
-  # nocov start
+
   access <- tryCatch(
     download.file(url, destfile = tempfile(), quiet = TRUE, mode = "wb"),
     warning = function(e) {
-      FALSE
+      FALSE # nocov
     }
   )
 
-  if (isFALSE(access)) {
-    res <- FALSE
+  !isFALSE(access)
+}
+
+#' Check whether the current session is running on CRAN
+#'
+#' @return A logical.
+#' @noRd
+on_cran <- function() {
+  # nocov start
+  env <- Sys.getenv("NOT_CRAN")
+  if (identical(env, "")) {
+    !interactive()
   } else {
-    res <- TRUE
+    !isTRUE(as.logical(env))
   }
-  res
   # nocov end
 }
