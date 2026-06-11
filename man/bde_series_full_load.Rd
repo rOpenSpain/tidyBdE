@@ -38,9 +38,9 @@ with \code{options(bde_cache_dir = "path/to/dir")}.}
 requested series.}
 }
 \value{
-A \link[tibble:tbl_df]{tibble} with a \code{Date} field and the aliases of
-the time series fields as described in the catalogs. See
-\code{\link[=bde_catalog_load]{bde_catalog_load()}}.
+A \link[tibble:tbl_df]{tibble} with a \code{Date} field and the aliases of the time
+series fields as described in the catalogs. See \code{\link[=bde_catalog_load]{bde_catalog_load()}} and
+\code{vignette("csv_manual", package = "tidyBdE")} for details.
 }
 \description{
 Load a full BdE time series file.

@@ -7,13 +7,19 @@
         "id": "https://orcid.org/0000-0001-8457-4658"
       },
       "codeRepository": "https://github.com/rOpenSpain/tidyBdE",
-      "copyrightHolder": {
-        "id": "https://orcid.org/0000-0001-8457-4658",
-        "type": "Person",
-        "email": "dev.dieghernan@gmail.com",
-        "familyName": "H. Herrero",
-        "givenName": "Diego"
-      },
+      "copyrightHolder": [
+        {
+          "id": "https://orcid.org/0000-0001-8457-4658",
+          "type": "Person",
+          "email": "dev.dieghernan@gmail.com",
+          "familyName": "H. Herrero",
+          "givenName": "Diego"
+        },
+        {
+          "type": "Organization",
+          "name": "Banco de España"
+        }
+      ],
       "description": "Tools for retrieving time series data from 'Banco de España' ('BdE') as 'tibble' objects. 'Banco de España' is the national central bank and, within the framework of the Single Supervisory Mechanism ('SSM'), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by 'Banco de España'.",
       "license": "https://spdx.org/licenses/GPL-3.0",
       "name": "tidyBdE: Retrieve Time Series Data from 'Banco de España'",
@@ -28,7 +34,7 @@
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "runtimePlatform": "R version 4.6.0 (2026-04-24 ucrt)",
+      "runtimePlatform": "R version 4.5.3 (2026-03-11)",
       "version": "0.6.1.9000"
     },
     {

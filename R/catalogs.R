@@ -36,7 +36,10 @@
 #' If the requested catalog is not cached, this function calls
 #' [bde_catalog_update()].
 #'
-#' @return A [tibble][tibble::tbl_df] with the requested catalog metadata.
+#' @return
+#' A [tibble][tibble::tbl_df] with the requested catalog metadata. See
+#' `vignette("csv_manual", package = "tidyBdE")` for details.
+#'
 #'
 #' @source
 #'

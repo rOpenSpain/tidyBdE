@@ -53,6 +53,7 @@ articles:
 - title: Articles
   navbar: Articles
   contents:
+  - csv_manual
   - articles/mainseries
   - articles/seriesindex
 

@@ -35,6 +35,8 @@
 #' [ggplot2::ggplot()]. See also [tidyr::pivot_longer()] and
 #' [tidyr::pivot_wider()].
 #'
+#' See `vignette("csv_manual", package = "tidyBdE")` for details.
+#'
 #' @note
 #' This function attempts to coerce the columns to numbers. For some time
 #' series, a warning may be displayed if the parsing fails.
@@ -269,9 +271,10 @@ bde_series_load <- function(
 #' @param extract_metadata Logical. If `TRUE`, the output is the metadata of the
 #'   requested series.
 #'
-#' @return A [tibble][tibble::tbl_df] with a `Date` field and the aliases of
-#' the time series fields as described in the catalogs. See
-#' [bde_catalog_load()].
+#' @return
+#' A [tibble][tibble::tbl_df] with a `Date` field and the aliases of the time
+#' series fields as described in the catalogs. See [bde_catalog_load()] and
+#' `vignette("csv_manual", package = "tidyBdE")` for details.
 #'
 #' @note
 #' This function tries to coerce the columns to numbers. For some time series,

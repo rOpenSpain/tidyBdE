@@ -32,7 +32,8 @@ with \code{options(bde_cache_dir = "path/to/dir")}.}
 \item{verbose}{Logical. If \code{TRUE}, display information useful for debugging.}
 }
 \value{
-A \link[tibble:tbl_df]{tibble} with the requested catalog metadata.
+A \link[tibble:tbl_df]{tibble} with the requested catalog metadata. See
+\code{vignette("csv_manual", package = "tidyBdE")} for details.
 }
 \description{
 Load BdE time series catalog metadata.

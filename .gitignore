@@ -31,7 +31,6 @@ tidyBdE*.tar.gz
 tidyBdE*.tgz
 inst/doc
 doc
-dev
 docs
 Meta
 CRAN-RELEASE

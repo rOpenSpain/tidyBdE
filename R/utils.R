@@ -11,27 +11,28 @@
 #'
 #' dates <- tibble::tribble(
 #'   ~FREQUENCY, ~FORMAT, ~EXAMPLES,
-#'   "**Daily / Business day**", "DD MMMMYYYY", "*02 FEB2019*",
-#'   "**Monthly**", "MMM YYYY", "*MAR 2020*",
+#'   "**Daily / Business day**", "`DD MMMMYYYY`", "`02 FEB2019`",
+#'   "**Monthly**", "`MMM YYYY`", "`MAR 2020`",
 #'   "**Quarterly**", paste(
-#'     "MMM YYYY, where MMM is the first",
+#'     "`MMM YYYY`, where `MMM` is the first",
 #'     "or the last month of the",
 #'     "quarter, depending on the value of",
 #'     "its variable OBSERVED."
 #'   ),
-#'   "For the first quarter of 2020: *ENE 2020, MAR 2020*",
+#'   "For the first quarter of 2020: `ENE 2020`, `MAR 2020`",
 #'   "**Half-yearly**", paste(
-#'     "MMM YYYY, where MMM is the first or the last month",
+#'     "`MMM YYYY`, where `MMM` is the first or the last month",
 #'     "of the half-year period, depending on the value of its",
 #'     "variable OBSERVED."
 #'   ),
-#'   "For the first half of 2020: *ENE 2020, JUN 2020*",
-#'   "**Annual**", "YYYY", "*2020*"
+#'   "For the first half of 2020: `ENE 2020`, `JUN 2020`",
+#'   "**Annual**", "`YYYY`", "`2020`"
 #' )
 #' names(dates) <- paste0("**", names(dates), "**")
 #'
 #' knitr::kable(dates)
 #' ```
+#' See `vignette("csv_manual", package = "tidyBdE")` for details.
 #'
 #' @param dates_to_parse Character vector of dates to parse.
 #'
