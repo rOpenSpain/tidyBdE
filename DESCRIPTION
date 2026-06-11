@@ -1,9 +1,12 @@
 Package: tidyBdE
 Title: Retrieve Time Series Data from 'Banco de España'
 Version: 0.6.1.9000
-Authors@R:
+Authors@R: c(
     person("Diego", "H. Herrero", , "dev.dieghernan@gmail.com", role = c("aut", "cre", "cph"),
-           comment = c(ORCID = "0000-0001-8457-4658"))
+           comment = c(ORCID = "0000-0001-8457-4658")),
+    person("Banco de España", role = "cph",
+           comment = c(ROR = "02f26yq04", "Data copyright holder"))
+  )
 Description: Tools for retrieving time series data from 'Banco de España'
     ('BdE') as 'tibble' objects. 'Banco de España' is the national central
     bank and, within the framework of the Single Supervisory Mechanism
@@ -20,6 +23,7 @@ Imports:
     cli,
     dplyr (>= 0.7.0),
     ggplot2 (>= 3.5.0),
+    lifecycle,
     readr (>= 1.0.0),
     scales (>= 1.1.0),
     tibble (>= 3.0.0),
@@ -27,7 +31,6 @@ Imports:
     utils
 Suggests:
     knitr,
-    lifecycle,
     quarto,
     testthat (>= 3.0.0)
 VignetteBuilder:

@@ -27,5 +27,10 @@ Authors:
   \item Diego H. Herrero \email{dev.dieghernan@gmail.com} (\href{https://orcid.org/0000-0001-8457-4658}{ORCID}) [copyright holder]
 }
 
+Other contributors:
+\itemize{
+  \item Banco de España (\href{https://ror.org/02f26yq04}{ROR}) (Data copyright holder) [copyright holder]
+}
+
 }
 \keyword{internal}

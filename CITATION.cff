@@ -67,13 +67,10 @@ references:
   url: https://www.R-project.org/
   authors:
   - name: R Core Team
-    website: https://ror.org/02zz1nj61
   institution:
     name: R Foundation for Statistical Computing
-    website: https://ror.org/05qewa988
     address: Vienna, Austria
   year: '2026'
-  doi: 10.32614/R.manuals
   version: '>= 4.1.0'
 - type: software
   title: cli
@@ -155,6 +152,22 @@ references:
   doi: 10.32614/CRAN.package.ggplot2
   version: '>= 3.5.0'
 - type: software
+  title: lifecycle
+  abstract: 'lifecycle: Manage the Life Cycle of your Package Functions'
+  notes: Imports
+  url: https://lifecycle.r-lib.org/
+  repository: https://CRAN.R-project.org/package=lifecycle
+  authors:
+  - family-names: Henry
+    given-names: Lionel
+    email: lionel@posit.co
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+    orcid: https://orcid.org/0000-0003-4757-117X
+  year: '2026'
+  doi: 10.32614/CRAN.package.lifecycle
+- type: software
   title: readr
   abstract: 'readr: Read Rectangular Text Data'
   notes: Imports
@@ -232,13 +245,10 @@ references:
   notes: Imports
   authors:
   - name: R Core Team
-    website: https://ror.org/02zz1nj61
   institution:
     name: R Foundation for Statistical Computing
-    website: https://ror.org/05qewa988
     address: Vienna, Austria
   year: '2026'
-  doi: 10.32614/R.manuals
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
@@ -252,22 +262,6 @@ references:
     orcid: https://orcid.org/0000-0003-0645-5666
   year: '2026'
   doi: 10.32614/CRAN.package.knitr
-- type: software
-  title: lifecycle
-  abstract: 'lifecycle: Manage the Life Cycle of your Package Functions'
-  notes: Suggests
-  url: https://lifecycle.r-lib.org/
-  repository: https://CRAN.R-project.org/package=lifecycle
-  authors:
-  - family-names: Henry
-    given-names: Lionel
-    email: lionel@posit.co
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@posit.co
-    orcid: https://orcid.org/0000-0003-4757-117X
-  year: '2026'
-  doi: 10.32614/CRAN.package.lifecycle
 - type: software
   title: quarto
   abstract: 'quarto: R Interface to ''Quarto'' Markdown Publishing System'

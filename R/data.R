@@ -7,7 +7,10 @@
 #'
 #' @details
 #'
-#' ```{r child = "man/chunks/bde_ind_db_meta.Rmd"}
+#' ```{r, echo=FALSE}
+#' tb <- bde_ind_db
+#' colnames(tb) <- paste0("**", colnames(tb), "**")
+#' knitr::kable(tb)
 #' ```
 #'
 #' @format

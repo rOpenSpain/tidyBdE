@@ -59,6 +59,8 @@ corresponding value.
 \code{"long"} format is more suitable for creating plots using
 \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}. See also \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}} and
 \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.
+
+See \code{vignette("csv_manual", package = "tidyBdE")} for details.
 }
 \description{
 Load a single BdE time series.

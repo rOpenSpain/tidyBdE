@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.6.0 (2026-04-24 ucrt)",
+  "runtimePlatform": "R version 4.5.3 (2026-03-11)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -37,6 +37,10 @@
       "familyName": "H. Herrero",
       "email": "dev.dieghernan@gmail.com",
       "@id": "https://orcid.org/0000-0001-8457-4658"
+    },
+    {
+      "@type": "Organization",
+      "name": "Banco de España"
     }
   ],
   "maintainer": [
@@ -60,18 +64,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=knitr"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "lifecycle",
-      "name": "lifecycle",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=lifecycle"
     },
     {
       "@type": "SoftwareApplication",
@@ -146,6 +138,18 @@
     },
     "5": {
       "@type": "SoftwareApplication",
+      "identifier": "lifecycle",
+      "name": "lifecycle",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=lifecycle"
+    },
+    "6": {
+      "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
       "version": ">= 1.0.0",
@@ -157,7 +161,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readr"
     },
-    "6": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "scales",
       "name": "scales",
@@ -170,7 +174,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=scales"
     },
-    "7": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
@@ -183,7 +187,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
-    "8": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "tidyr",
       "name": "tidyr",
@@ -195,7 +199,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tidyr"
     },
-    "9": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
@@ -205,7 +209,7 @@
   "applicationCategory": "Macroeconomics",
   "isPartOf": "https://ropenspain.es/",
   "keywords": ["api", "bde", "cran", "ggplot2", "macroeconomics", "r", "r-package", "ropenspain", "rstats", "series-data", "spain"],
-  "fileSize": "306.44KB",
+  "fileSize": "1252.591KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
