@@ -158,6 +158,7 @@ test_that("Series API load handles empty codes", {
 
 test_that("Latest: Empty results", {
   skip_on_cran()
+  skip_if_bde_offline()
 
   expect_snapshot(
     empty <- bde_series_api_latest("XXX"),
@@ -262,6 +263,7 @@ test_that("Series API real test", {
 
 test_that("Error on time_range", {
   skip_on_cran()
+  skip_if_bde_offline()
 
   expect_snapshot(
     error = TRUE,

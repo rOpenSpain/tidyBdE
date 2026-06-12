@@ -10,6 +10,8 @@ vignette: >
 
 <!-- tidyBdE.qmd is generated from tidyBdE.qmd.orig. Please edit that file -->
 
+
+
 **tidyBdE** is an **R** package that retrieves time series data from [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html)
 bulk CSV files and the
@@ -27,6 +29,7 @@ institution or compiled from other sources, such as
 
 The basic entry point for discovering time series is the catalog. You can
 search for time series by name:
+
 
 ``` r
 library(tidyBdE)
@@ -50,6 +53,8 @@ xr_gbp |>
 | Numero_secuencial|Descripcion_de_la_serie                                            |
 |-----------------:|:------------------------------------------------------------------|
 |            573214|Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+
+
 
 Search results
 :::

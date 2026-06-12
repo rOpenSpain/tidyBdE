@@ -115,8 +115,10 @@ xr |>
 xr |>
   slice_head(n = 1) |>
   pull(Nombre_de_la_serie) |>
-  bde_series_api_load(language = "en", time_range = "12M",
-                      extract_metadata = TRUE) |>
+  bde_series_api_load(
+    language = "en", time_range = "12M",
+    extract_metadata = TRUE
+  ) |>
   glimpse()
 }
 \dontshow{\}) # examplesIf}

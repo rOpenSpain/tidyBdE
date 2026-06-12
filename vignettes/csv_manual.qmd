@@ -65,8 +65,8 @@ They can be classified into two different types according to their content.
 
 **Catalog file**
 
-The catalog file contains a list of all the series as well as information on
-the characteristics of each series included in statistical publications.
+The catalog file contains a list of all the series as well as information on the
+characteristics of each series included in statistical publications.
 
 For example, the file for all the Statistical Bulletin series is called
 `catalogo_be.csv`.
@@ -93,8 +93,8 @@ observaciones","Título de la serie","Fuente","Notas"
 These files cover the entire sample period of every series of a table. There is
 one file for each table.
 
-These files are **updated on a daily basis**, which means that each CSV file
-is updated whenever data for the table in question change.
+These files are **updated on a daily basis**, which means that each CSV file is
+updated whenever data for the table in question change.
 
 **Example:** Records of a table file
 
@@ -114,10 +114,10 @@ is updated whenever data for the table in question change.
 
 The names of time series files follow the pattern `ppccaaa.csv`, where:
 
--   `pp` is the publication code.
--   `cc` is the chapter number.
--   `aaa` is the table code.
--   `csv` is the file extension.
+- `pp` is the publication code.
+- `cc` is the chapter number.
+- `aaa` is the table code.
+- `csv` is the file extension.
 
 For example, `be0101.csv` contains the series of Table 1 in Chapter 1 of the
 Statistical Bulletin.
@@ -127,20 +127,15 @@ is provided for users who wish to download this content. For users interested in
 downloading all files of a chapter, compressed files following the pattern below
 are also available: `ppcc.zip`.
 
-[^1]: Files are compressed with WinZip.
-
 For example, `be01.zip` contains all the time series files of Chapter 1 of the
 Statistical Bulletin.
 
-The download URL can be obtained by appending the CSV or ZIP file name to
-<https://www.bde.es/wbe/es/estadisticas/>.
-
 ### Content of the catalog file
 
-The catalog file has a line or record for each time series of the tables in
-the publication. When the same series is included in several tables, the
-catalog file will have a line for each table in which it appears. Each column
-or field contains a characteristic of the time series.
+The catalog file has a line or record for each time series of the tables in the
+publication. When the same series is included in several tables, the catalog
+file will have a line for each table in which it appears. Each column or field
+contains a characteristic of the time series.
 
 **Alias de la serie (series alias)**
 
@@ -149,12 +144,12 @@ The alias shows where this series can be found in the publication. Pattern:
 
 Where:
 
--   `pp`: publication code.
--   `c`: chapter number.
--   `a`: table number or code.
--   `o`: column number in vertical or double-entry tables, or row number in
-    horizontal tables.
--   `f`: row number in double-entry tables.
+- `pp`: publication code.
+- `c`: chapter number.
+- `a`: table number or code.
+- `o`: column number in vertical or double-entry tables, or row number in
+  horizontal tables.
+- `f`: row number in double-entry tables.
 
 Each alias is unique but should not be used as a stable series identifier
 because it may change whenever a table is reorganized.
@@ -162,8 +157,8 @@ because it may change whenever a table is reorganized.
 **Número secuencial (sequential number)**
 
 Series aliases are positional and may change when tables are reorganized. To
-ensure series can always be identified, a sequential number is
-assigned to each series and remains unchanged throughout its lifetime.
+ensure series can always be identified, a sequential number is assigned to each
+series and remains unchanged throughout its lifetime.
 
 **Nombre de la serie/Código de la serie (series code)**
 
@@ -225,12 +220,12 @@ table. For example, if a series appears in a table with monthly and annual
 frequencies, the series frequency displayed in the file will be monthly. These
 frequencies can be:
 
--   DIARIA (daily),
--   LABORABLE (business days),
--   MENSUAL (monthly),
--   TRIMESTRAL (quarterly),
--   SEMESTRAL (half-yearly),
--   ANUAL (yearly)
+- DIARIA (daily),
+- LABORABLE (business days),
+- MENSUAL (monthly),
+- TRIMESTRAL (quarterly),
+- SEMESTRAL (half-yearly),
+- ANUAL (yearly)
 
 Note: LABORABLE frequency means Monday to Friday. DIARIA frequency also includes
 Saturdays and Sundays.
@@ -293,23 +288,23 @@ expressed using the number of decimals specified in the catalog file.
 
 When data are not available, symbols are used instead of values:
 
--   `_`: The phenomenon in question does not exist.
--   `...`: Data not available.
+- `_`: The phenomenon in question does not exist.
+- `...`: Data not available.
 
 **Last lines**
 
 The final lines contain:
 
--   Source.
--   Notes.
+- Source.
+- Notes.
 
 ## Loading CSV files
 
 CSV files are generated using:
 
--   Decimal separator: full stop (`.`)
--   Thousands separator: none.
--   List separator: comma (`,`).
+- Decimal separator: full stop (`.`)
+- Thousands separator: none.
+- List separator: comma (`,`).
 
 If regional settings differ from these conventions, values may not be loaded
 correctly.
@@ -336,7 +331,7 @@ identification of the corresponding file containing the series values.
 ## Annex II: Date formats
 
 |  |  |  |
-|----|----|----|
+|---------------------------|---------------------------|---------------------------|
 | Frequency | Format | Examples |
 | Daily / Business day | `DD MMMMYYYY` | `02 FEB2019` |
 | Monthly | `MMM YYYY` | `MAR 2020` |
@@ -345,3 +340,5 @@ identification of the corresponding file containing the series values.
 | Annual | `YYYY` | `2020` |
 
 : Banco de España date formats.
+
+[^1]: Files are compressed with WinZip.

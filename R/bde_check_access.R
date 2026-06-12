@@ -21,8 +21,8 @@ bde_check_access <- function() {
   }
 
   url <- paste0(
-    "https://www.bde.es/webbde/es/",
-    "estadis/infoest/series/catalogo_tc.csv"
+    "https://www.bde.es/webbe/es/estadisticas/",
+    "compartido/datos/zip/be01.zip"
   )
 
   # nocov start

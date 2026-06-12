@@ -79,6 +79,7 @@ test_that("Help to char", {
 
 test_that("Errors on download", {
   skip_on_cran()
+  skip_if_bde_offline()
 
   tmp <- tempfile()
   expect_snapshot(
