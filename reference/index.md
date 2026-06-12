@@ -2,28 +2,25 @@
 
 ## Catalogs
 
-Search, update and load BdE time series catalog metadata.
+Load, update and search BdE time series catalog metadata.
 
-- [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md)
-  : Load BdE catalog metadata
-- [`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_search.md)
-  : Search BdE catalogs
-- [`bde_catalog_update()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_update.md)
-  : Update BdE catalog files
+- [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
+  [`bde_catalog_update()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
+  [`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
+  : Load, update and search BdE catalog metadata
 
 ## Series
 
-Load CSV series by sequential number, complete BdE time series files and
-API data by series code.
+Load bulk CSV series by sequential number and API data by API series
+code.
 
+- [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
+  [`bde_series_full_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
+  : Load BdE time series from bulk CSV files
 - [`bde_series_api_latest()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
   [`bde_series_api_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
   **\[experimental\]** : Load BdE time series from the Statistics web
   service (API)
-- [`bde_series_full_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_full_load.md)
-  : Load full BdE time series files
-- [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
-  : Load a single BdE time series
 
 ## Selected indicators
 

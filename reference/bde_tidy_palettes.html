@@ -29,7 +29,7 @@ at most six colors."><meta property="og:image" content="https://ropenspain.githu
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
-    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España CSV time series format</a></li>
+    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España bulk CSV time series format</a></li>
     <li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic indicators</a></li>
     <li><a class="dropdown-item" href="../articles/seriesindex.html">Series index</a></li>
   </ul></li>
@@ -51,7 +51,7 @@ at most six colors."><meta property="og:image" content="https://ropenspain.githu
     <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>BdE color palettes</h1>
-      <small class="dont-index">Source: <a href="https://github.com/rOpenSpain/tidyBdE/blob/main/R/bde_tidy_palettes.R" class="external-link"><code>R/bde_tidy_palettes.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/rOpenSpain/tidyBdE/blob/main/R/bde-tidy-palettes.R" class="external-link"><code>R/bde-tidy-palettes.R</code></a></small>
       <div class="d-none name"><code>bde_tidy_palettes.Rd</code></div>
     </div>
 
@@ -75,7 +75,7 @@ at most six colors.</p>
 
 
 <dl><dt id="arg-n">n<a class="anchor" aria-label="anchor" href="#arg-n"></a></dt>
-<dd><p>The number of colors (<code>&gt;= 1</code>) to return.</p></dd>
+<dd><p>Number of colors (<code>&gt;= 1</code>) to return.</p></dd>
 
 
 <dt id="arg-palette">palette<a class="anchor" aria-label="anchor" href="#arg-palette"></a></dt>
@@ -90,7 +90,7 @@ append opacity codes (<code>"FF"</code>) to individual color hex codes. See
 
 
 <dt id="arg-rev">rev<a class="anchor" aria-label="anchor" href="#arg-rev"></a></dt>
-<dd><p>Logical indicating whether to reverse the color order.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, reverse the color order.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -99,7 +99,7 @@ append opacity codes (<code>"FF"</code>) to individual color hex codes. See
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Other bde_plot:
+    <div class="dont-index"><p>Plot utilities:
 <code><a href="scales_bde.html">scales_bde</a></code>,
 <code><a href="theme_tidybde.html">theme_tidybde()</a></code></p></div>
     </div>
@@ -123,6 +123,7 @@ append opacity codes (<code>"FF"</code>) to individual color hex codes. See
 <span class="r-in"><span>  labels <span class="op">=</span> <span class="cn">FALSE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="bde_tidy_palettes-3.png" alt="" width="2188" height="1352"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

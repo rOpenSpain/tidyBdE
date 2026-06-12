@@ -1,4 +1,4 @@
-# Banco de España CSV time series format
+# Banco de España bulk CSV time series format
 
 *Adaptation of
 <https://www.bde.es/webbe/en/estadisticas/compartido/docs/manual_archivos_csv_en.pdf>*
@@ -59,9 +59,8 @@ content.
 
 **Catalog file**
 
-The catalog file contains a list of all the series as well as
-information on the characteristics of each series included in
-statistical publications.
+The catalog file contains a list of all series and metadata on the
+characteristics of each series included in statistical publications.
 
 For example, the file for all the Statistical Bulletin series is called
 `catalogo_be.csv`.
@@ -152,12 +151,12 @@ reorganized. To ensure series can always be identified, a sequential
 number is assigned to each series and remains unchanged throughout its
 lifetime.
 
-**Nombre de la serie/Código de la serie (series code)**
+**Nombre de la serie/Código de la serie (API series code)**
 
-The BdE series code in the Banco de España databases. It is unique and
-invariable. In **tidyBdE**, this field is passed through the
-`series_code` argument of the Statistics web service (API) helpers and
-corresponds to the API `series_list` parameter.
+The API series code in the Banco de España databases. It is unique and
+invariable. In **tidyBdE**, this field is passed through `series_code`
+in the Statistics web service (API) helpers and corresponds to the API
+`series_list` parameter.
 
 **Nombre del archivo con los valores de la serie (name of the file
 containing the series values)**
@@ -271,7 +270,7 @@ The six header lines contain:
 
 1.  Series aliases.
 2.  Sequential numbers.
-3.  Series code.
+3.  API series code.
 4.  Series description.
 5.  Description of units.
 6.  Frequency.
@@ -304,7 +303,7 @@ CSV files are generated using:
 If regional settings differ from these conventions, values may not be
 loaded correctly.
 
-The catalog file can be used to locate series by searching for specific
+Catalog metadata can be used to locate series by searching for specific
 characteristics.
 
 For example, searching for a text string in the title field allows

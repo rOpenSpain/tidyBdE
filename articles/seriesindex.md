@@ -1,17 +1,17 @@
 # Series index
 
-This table lists time series available in the catalog. Last updated:
-**12-June-2026**.
+This table lists time series available in the catalog metadata. Last
+updated: **12-June-2026**.
 
 Use the sequential number (`Numero_secuencial`) to load a time series
 from bulk CSV files, as shown in the example. Use `Nombre_de_la_serie`
-as the API series code for Statistics web service (API) helpers.
+as the API series code for the Statistics web service (API) helpers.
 
 ## Summary
 
 ## Example
 
-Workflow for searching for and extracting a specific time series:
+Workflow for searching for and extracting a specific time series.
 
 ``` r
 

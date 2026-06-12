@@ -13,16 +13,19 @@
   `devtools:::test_coverage()`.
 - New vignette
   [`vignette("csv_manual", package = "tidyBdE")`](https://ropenspain.github.io/tidyBdE/articles/csv_manual.md)
-  explaining the structure of Banco de España bulk CSV files and catalog
-  identifiers.
-- [`bde_series_api_latest()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
-  added to query the Latest Data request of the Banco de España
-  [Statistics web service
-  (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
-- [`bde_series_api_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
-  added to query the Series List request of the Banco de España
-  Statistics web service (API), with support for wide and long output,
-  metadata extraction and time range validation.
+  explaining the structure of Banco de España bulk CSV files, catalog
+  metadata and series identifiers
+  ([\#64](https://github.com/rOpenSpain/tidyBdE/issues/64)).
+- New functions added
+  ([\#65](https://github.com/rOpenSpain/tidyBdE/issues/65)):
+  - [`bde_series_api_latest()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
+    added to query the Latest Data request of the Banco de España
+    [Statistics web service
+    (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
+  - [`bde_series_api_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
+    added to query the Series List request of the Banco de España
+    Statistics web service (API), with support for wide and long output,
+    metadata extraction and time range validation.
 
 ## tidyBdE 0.6.1
 
@@ -141,7 +144,7 @@ CRAN release: 2022-11-16
 
 - Add **tidyr** as a new dependency.
 - Add the `out_format` parameter to
-  [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md).
+  [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md).
 - Apply best practices and small adjustments to
   [`theme_tidybde()`](https://ropenspain.github.io/tidyBdE/reference/theme_tidybde.md).
 
@@ -194,7 +197,7 @@ CRAN release: 2021-10-29
 
 CRAN release: 2021-10-07
 
-- [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
+- [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
   now tries to coerce characters to numeric values.
 - Export
   [`bde_check_access()`](https://ropenspain.github.io/tidyBdE/reference/bde_check_access.md).

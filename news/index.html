@@ -27,7 +27,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
-    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España CSV time series format</a></li>
+    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España bulk CSV time series format</a></li>
     <li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic indicators</a></li>
     <li><a class="dropdown-item" href="../articles/seriesindex.html">Series index</a></li>
   </ul></li>
@@ -58,11 +58,13 @@
 <li>Messages and package errors now use <strong>cli</strong>, with AI-assisted wording updates and without the former <code>tidyBdE&gt;</code> prefix.</li>
 <li>Roxygen2 documentation was reviewed with AI assistance and tag order was made consistent across source files.</li>
 <li>Tests were refactored and expanded with local fixtures, mocks and snapshot updates, reaching 100% line coverage in <code>devtools:::test_coverage()</code>.</li>
-<li>New vignette <code><a href="../articles/csv_manual.html">vignette("csv_manual", package = "tidyBdE")</a></code> explaining the structure of Banco de España bulk CSV files and catalog identifiers.</li>
-<li>
+<li>New vignette <code><a href="../articles/csv_manual.html">vignette("csv_manual", package = "tidyBdE")</a></code> explaining the structure of Banco de España bulk CSV files, catalog metadata and series identifiers (<a href="https://github.com/rOpenSpain/tidyBdE/issues/64" class="external-link">#64</a>).</li>
+<li>New functions added (<a href="https://github.com/rOpenSpain/tidyBdE/issues/65" class="external-link">#65</a>):
+<ul><li>
 <code><a href="../reference/bde_series_api.html">bde_series_api_latest()</a></code> added to query the Latest Data request of the Banco de España <a href="https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html" class="external-link">Statistics web service (API)</a>.</li>
 <li>
 <code><a href="../reference/bde_series_api.html">bde_series_api_load()</a></code> added to query the Series List request of the Banco de España Statistics web service (API), with support for wide and long output, metadata extraction and time range validation.</li>
+</ul></li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.1" id="tidybde-061">tidyBdE 0.6.1<a class="anchor" aria-label="anchor" href="#tidybde-061"></a></h2><p class="text-muted">CRAN release: 2026-05-21</p>
@@ -125,7 +127,7 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.1" id="tidybde-031">tidyBdE 0.3.1<a class="anchor" aria-label="anchor" href="#tidybde-031"></a></h2><p class="text-muted">CRAN release: 2022-11-16</p>
 <ul><li>Add <strong>tidyr</strong> as a new dependency.</li>
-<li>Add the <code>out_format</code> parameter to <code><a href="../reference/bde_series_load.html">bde_series_load()</a></code>.</li>
+<li>Add the <code>out_format</code> parameter to <code><a href="../reference/bde_series.html">bde_series_load()</a></code>.</li>
 <li>Apply best practices and small adjustments to <code><a href="../reference/theme_tidybde.html">theme_tidybde()</a></code>.</li>
 </ul></div>
     <div class="section level2">
@@ -154,7 +156,7 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.1" id="tidybde-021">tidyBdE 0.2.1<a class="anchor" aria-label="anchor" href="#tidybde-021"></a></h2><p class="text-muted">CRAN release: 2021-10-07</p>
 <ul><li>
-<code><a href="../reference/bde_series_load.html">bde_series_load()</a></code> now tries to coerce characters to numeric values.</li>
+<code><a href="../reference/bde_series.html">bde_series_load()</a></code> now tries to coerce characters to numeric values.</li>
 <li>Export <code><a href="../reference/bde_check_access.html">bde_check_access()</a></code>.</li>
 <li>Improve messages when inconsistencies occur between the catalog and series.</li>
 <li>Update documentation and vignettes.</li>

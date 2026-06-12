@@ -1,7 +1,7 @@
 # Selected Spanish macroeconomic indicators
 
-Convenience functions for downloading selected Spanish macroeconomic
-indicators. Metadata is available in
+Download selected Spanish macroeconomic indicators. Metadata is
+available in
 [bde_ind_db](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md).
 
 ## Usage
@@ -36,7 +36,7 @@ bde_ind_population(series_label = "Population_Spain", ...)
 - ...:
 
   Arguments passed on to
-  [`bde_series_load`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
+  [`bde_series`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
 
   `out_format`
 
@@ -75,21 +75,21 @@ bde_ind_population(series_label = "Population_Spain", ...)
 ## Value
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
-with the required series.
+with the requested indicator series.
 
 ## Details
 
 These functions are convenient wrappers around
-[`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
+[`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
 for specific series. Use `verbose = TRUE, extract_metadata = TRUE` to
 inspect the metadata and source.
 
 ## See also
 
-[`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md),
-[`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_search.md)
+[`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md),
+[`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
 
-Other indicators:
+Indicator functions:
 [`bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md)
 
 ## Examples

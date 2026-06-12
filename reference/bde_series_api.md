@@ -6,22 +6,22 @@ These functions query BdE time series through the [Statistics web
 service
 (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
 
-The API is a JSON web service that provides access through URL requests
-to information available in the Statistics section of the Banco de
-España and the BIEST application.
+The API is a JSON web service that provides URL-based access to
+information available in the Statistics section of Banco de España and
+the BIEST application.
 
 The API defines two request types. `bde_series_api_latest()` uses the
 Latest Data request to obtain the latest published observation for one
 or more series. `bde_series_api_load()` uses the Series List request to
 obtain the details of one or more complete series and their metadata.
 
-The API uses BdE series codes as identifiers. In this package, pass
+The API uses API series codes as identifiers. In this package, pass
 those codes through `series_code`. They are available in the
 `Nombre_de_la_serie` field of
-[`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md)
+[`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
 and correspond to the API `series_list` parameter. This is different
 from the numeric sequential number (`Número secuencial`) used by
-[`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
+[`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
 for bulk CSV files.
 
 ## Usage
@@ -44,16 +44,16 @@ bde_series_api_load(
 
 - series_code:
 
-  Character string or vector with BdE API series codes, taken from the
+  Character string or vector with API series codes, taken from the
   `Nombre_de_la_serie` field of the corresponding catalog. This is the
   value passed to the API `series_list` parameter, not the numeric
   sequential number used by
-  [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md).
+  [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md).
 
 - language:
 
-  Character string. It can take the values `"es"` or `"en"` to obtain
-  results in Spanish or English, respectively.
+  Character string. Use `"es"` or `"en"` to obtain results in Spanish or
+  English, respectively.
 
 - verbose:
 
@@ -103,7 +103,7 @@ fields returned by the Series List request, including `fechaInicio`,
 
 ## Details
 
-`time_range` allowed values based on the frequency of the series are:
+Allowed `time_range` values depend on the series frequency:
 
 - Daily frequency (`D`): `"3M"` (last 3 months), `"12M"` and `"36M"`.
 
@@ -118,13 +118,12 @@ for the series frequency. For example, monthly series return `"30M"`.
 
 ## See also
 
-[`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md),
-[`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_search.md),
+[`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md),
+[`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md),
 [`bde_indicators()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
 
-Other series:
-[`bde_series_full_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_full_load.md),
-[`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
+Series functions:
+[`bde_series`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
 
 ## Examples
 

@@ -2,7 +2,7 @@
 
 Parse strings representing dates with
 [`as.Date()`](https://rdrr.io/r/base/as.Date.html). This function is
-tailored to date formats used in this package and may fail with other
+tailored to date formats used in this package and may fail for other
 datasets. See **Examples** for formats that are supported.
 
 ### Date formats
@@ -30,7 +30,7 @@ bde_parse_dates(dates_to_parse)
 
 - dates_to_parse:
 
-  Character vector of dates to parse.
+  Character vector of date strings to parse.
 
 ## Value
 

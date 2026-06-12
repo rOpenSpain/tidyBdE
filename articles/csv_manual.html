@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Banco de España CSV time series format • tidyBdE</title>
+<title>Banco de España bulk CSV time series format • tidyBdE</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -19,7 +19,7 @@
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="csv_manual_files/libs/quarto-html/popper.min.js"></script><script src="csv_manual_files/libs/quarto-html/tippy.umd.min.js"></script><link href="csv_manual_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="csv_manual_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Banco de España CSV time series format">
+<!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Banco de España bulk CSV time series format">
 <meta property="og:image" content="https://ropenspain.github.io/tidyBdE/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@dhernangomez">
@@ -56,7 +56,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
-    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España CSV time series format</a></li>
+    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España bulk CSV time series format</a></li>
     <li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic indicators</a></li>
     <li><a class="dropdown-item" href="../articles/seriesindex.html">Series index</a></li>
   </ul>
@@ -84,7 +84,7 @@
 </nav><div class="container template-quarto">
     <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Banco de España CSV time series format</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Banco de España bulk CSV time series format</h1>
 
 
 
@@ -118,7 +118,7 @@
 <p>The decimal separator is the full stop <code>"."</code> and the thousand separator is a blank space.</p>
 <p>They can be classified into two different types according to their content.</p>
 <p><strong>Catalog file</strong></p>
-<p>The catalog file contains a list of all the series as well as information on the characteristics of each series included in statistical publications.</p>
+<p>The catalog file contains a list of all series and metadata on the characteristics of each series included in statistical publications.</p>
 <p>For example, the file for all the Statistical Bulletin series is called <code>catalogo_be.csv</code>.</p>
 <p>The catalog file is updated on a <strong>daily or a quarterly basis</strong>, depending on the type of publication.</p>
 <p><strong>Example:</strong> Records of the <code>catalogo_be.csv</code> file</p>
@@ -180,8 +180,8 @@ observaciones","Título de la serie","Fuente","Notas"
 <p>Each alias is unique but should not be used as a stable series identifier because it may change whenever a table is reorganized.</p>
 <p><strong>Número secuencial (sequential number)</strong></p>
 <p>Series aliases are positional and may change when tables are reorganized. To ensure series can always be identified, a sequential number is assigned to each series and remains unchanged throughout its lifetime.</p>
-<p><strong>Nombre de la serie/Código de la serie (series code)</strong></p>
-<p>The BdE series code in the Banco de España databases. It is unique and invariable. In <strong>tidyBdE</strong>, this field is passed through the <code>series_code</code> argument of the Statistics web service (API) helpers and corresponds to the API <code>series_list</code> parameter.</p>
+<p><strong>Nombre de la serie/Código de la serie (API series code)</strong></p>
+<p>The API series code in the Banco de España databases. It is unique and invariable. In <strong>tidyBdE</strong>, this field is passed through <code>series_code</code> in the Statistics web service (API) helpers and corresponds to the API <code>series_list</code> parameter.</p>
 <p><strong>Nombre del archivo con los valores de la serie (name of the file containing the series values)</strong></p>
 <p>The name of the file corresponding to the table to which the series belongs and which contains the series observations.</p>
 <p><strong>Descripción de la serie (series description)</strong></p>
@@ -256,7 +256,7 @@ observaciones","Título de la serie","Fuente","Notas"
 <ol type="1">
 <li>Series aliases.</li>
 <li>Sequential numbers.</li>
-<li>Series code.</li>
+<li>API series code.</li>
 <li>Series description.</li>
 <li>Description of units.</li>
 <li>Frequency.</li>
@@ -284,7 +284,7 @@ observaciones","Título de la serie","Fuente","Notas"
 <li>List separator: comma (<code>,</code>).</li>
 </ul>
 <p>If regional settings differ from these conventions, values may not be loaded correctly.</p>
-<p>The catalog file can be used to locate series by searching for specific characteristics.</p>
+<p>Catalog metadata can be used to locate series by searching for specific characteristics.</p>
 <p>For example, searching for a text string in the title field allows identification of the corresponding file containing the series values.</p>
 </section><section class="level2"><h2 id="annex-i-statistical-publications">Annex I: Statistical publications<a class="anchor" aria-label="anchor" href="#annex-i-statistical-publications"></a>
 </h2>

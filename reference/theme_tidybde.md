@@ -1,7 +1,7 @@
 # BdE ggplot2 theme
 
-Custom [ggplot2](https://CRAN.R-project.org/package=ggplot2) theme based
-on BdE publications.
+A custom [ggplot2](https://CRAN.R-project.org/package=ggplot2) theme
+based on BdE publications.
 
 ## Usage
 
@@ -49,14 +49,14 @@ A [ggplot2](https://CRAN.R-project.org/package=ggplot2) theme object.
 
 ## Details
 
-This theme is based on
+This theme extends
 [`ggplot2::theme_classic()`](https://ggplot2.tidyverse.org/reference/ggtheme.html).
 
 ## See also
 
 [`ggplot2::theme_classic()`](https://ggplot2.tidyverse.org/reference/ggtheme.html)
 
-Other bde_plot:
+Plot utilities:
 [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md),
 [`scales_bde`](https://ropenspain.github.io/tidyBdE/reference/scales_bde.md)
 

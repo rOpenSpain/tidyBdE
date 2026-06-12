@@ -1,7 +1,7 @@
 # Main macroeconomic indicators
 
 This article shows selected Spanish macroeconomic indicators using Banco
-de España time series data.
+de España time series data from bulk CSV files.
 
 Last updated: **12-June-2026**.
 

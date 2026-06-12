@@ -27,7 +27,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
-    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España CSV time series format</a></li>
+    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España bulk CSV time series format</a></li>
     <li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic indicators</a></li>
     <li><a class="dropdown-item" href="../articles/seriesindex.html">Series index</a></li>
   </ul></li>
@@ -54,7 +54,7 @@
     <div class="section level2">
       <h2 id="catalogs">Catalogs<a class="anchor" aria-label="anchor" href="#catalogs"></a></h2>
 
-      <div class="section-desc"><p>Search, update and load BdE time series catalog metadata.</p></div>
+      <div class="section-desc"><p>Load, update and search BdE time series catalog metadata.</p></div>
 
       <dl></dl></div><div class="section level2">
 
@@ -63,28 +63,14 @@
 
       <dl><dt>
 
-          <code><a href="bde_catalog_load.html">bde_catalog_load()</a></code>
+          <code><a href="bde_catalogs.html">bde_catalog_load()</a></code> <code><a href="bde_catalogs.html">bde_catalog_update()</a></code> <code><a href="bde_catalogs.html">bde_catalog_search()</a></code>
 
         </dt>
-        <dd>Load BdE catalog metadata</dd>
-
-        <dt>
-
-          <code><a href="bde_catalog_search.html">bde_catalog_search()</a></code>
-
-        </dt>
-        <dd>Search BdE catalogs</dd>
-
-        <dt>
-
-          <code><a href="bde_catalog_update.html">bde_catalog_update()</a></code>
-
-        </dt>
-        <dd>Update BdE catalog files</dd>
+        <dd>Load, update and search BdE catalog metadata</dd>
       </dl></div><div class="section level2">
       <h2 id="series">Series<a class="anchor" aria-label="anchor" href="#series"></a></h2>
 
-      <div class="section-desc"><p>Load CSV series by sequential number, complete BdE time series files and API data by series code.</p></div>
+      <div class="section-desc"><p>Load bulk CSV series by sequential number and API data by API series code.</p></div>
 
       <dl></dl></div><div class="section level2">
 
@@ -92,25 +78,18 @@
 
 
       <dl><dt>
+
+          <code><a href="bde_series.html">bde_series_load()</a></code> <code><a href="bde_series.html">bde_series_full_load()</a></code>
+
+        </dt>
+        <dd>Load BdE time series from bulk CSV files</dd>
+
+        <dt>
 
           <code><a href="bde_series_api.html">bde_series_api_latest()</a></code> <code><a href="bde_series_api.html">bde_series_api_load()</a></code>
           <span class="badge lifecycle lifecycle-experimental">experimental</span>
         </dt>
         <dd>Load BdE time series from the Statistics web service (API)</dd>
-
-        <dt>
-
-          <code><a href="bde_series_full_load.html">bde_series_full_load()</a></code>
-
-        </dt>
-        <dd>Load full BdE time series files</dd>
-
-        <dt>
-
-          <code><a href="bde_series_load.html">bde_series_load()</a></code>
-
-        </dt>
-        <dd>Load a single BdE time series</dd>
       </dl></div><div class="section level2">
       <h2 id="selected-indicators">Selected indicators<a class="anchor" aria-label="anchor" href="#selected-indicators"></a></h2>
 

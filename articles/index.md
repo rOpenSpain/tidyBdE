@@ -9,10 +9,10 @@
 
 ### Articles
 
-- [Banco de España CSV time series
+- [Banco de España bulk CSV time series
   format](https://ropenspain.github.io/tidyBdE/articles/csv_manual.md):
 
-  Structure and content of Banco de España time series CSV files.
+  Structure and content of Banco de España bulk CSV time series files.
 
 - [Main macroeconomic
   indicators](https://ropenspain.github.io/tidyBdE/articles/mainseries.md):
@@ -22,4 +22,4 @@
 - [Series
   index](https://ropenspain.github.io/tidyBdE/articles/seriesindex.md):
 
-  Summary of time series available through tidyBdE catalogs.
+  Summary of time series available through tidyBdE catalog metadata.
