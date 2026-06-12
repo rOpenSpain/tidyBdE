@@ -10,27 +10,27 @@
 #'       "/api-estadisticas-bde.html)."))
 #' ```
 #'
-#' The API is a JSON web service that provides access through URL requests to
-#' information available in the Statistics section of the Banco de España and
-#' the BIEST application.
+#' The API is a JSON web service that provides URL-based access to information
+#' available in the Statistics section of Banco de España and the BIEST
+#' application.
 #'
 #' The API defines two request types. [bde_series_api_latest()] uses the Latest
 #' Data request to obtain the latest published observation for one or more
 #' series. [bde_series_api_load()] uses the Series List request to obtain the
 #' details of one or more complete series and their metadata.
 #'
-#' The API uses BdE series codes as identifiers. In this package, pass those
+#' The API uses API series codes as identifiers. In this package, pass those
 #' codes through `series_code`. They are available in the `Nombre_de_la_serie`
 #' field of [bde_catalog_load()] and correspond to the API `series_list`
 #' parameter. This is different from the numeric sequential number
 #' (`Número secuencial`) used by [bde_series_load()] for bulk CSV files.
 #'
-#' @param series_code Character string or vector with BdE API series codes,
+#' @param series_code Character string or vector with API series codes,
 #'   taken from the `Nombre_de_la_serie` field of the corresponding catalog.
 #'   This is the value passed to the API `series_list` parameter, not the
 #'   numeric sequential number used by [bde_series_load()].
-#' @param language Character string. It can take the values `"es"` or `"en"` to
-#'   obtain results in Spanish or English, respectively.
+#' @param language Character string. Use `"es"` or `"en"` to obtain results in
+#'   Spanish or English, respectively.
 #' @param time_range Character string. Optional annual range or API range code.
 #'   It can be a year, such as `"2024"`, or a range code such as `"3M"`,
 #'   `"12M"`, `"30M"`, `"36M"`, `"60M"` or `"MAX"`. If `NULL`, the API returns
@@ -38,10 +38,10 @@
 #'   against the frequency returned by [bde_series_api_latest()]. See
 #'   **Details**.
 #'
-#' @inheritParams bde_series_load
+#' @inheritParams bde_series
 #'
 #' @details
-#' `time_range` allowed values based on the frequency of the series are:
+#' Allowed `time_range` values depend on the series frequency:
 #'
 #' - Daily frequency (`D`): `"3M"` (last 3 months), `"12M"` and `"36M"`.
 #' - Monthly frequency (`M`): `"30M"`, `"60M"` and `"MAX"` (entire series).
@@ -72,9 +72,6 @@
 #' @rdname bde_series_api
 #' @name bde_series_api
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @examplesIf bde_check_access()
 #' \donttest{
 #' xr <- bde_catalog_load(catalog = "TC")
@@ -104,6 +101,9 @@
 #'   ) |>
 #'   glimpse()
 #' }
+#'
+#' @export
+#' @encoding UTF-8
 bde_series_api_latest <- function(
   series_code,
   language = c("en", "es"),
@@ -161,7 +161,7 @@ bde_series_api_latest <- function(
             "for {.arg series_code} {.str {series_code[i]}}."
           )
         )
-        cli::cli_alert_info("Value omitted from the results.")
+        cli::cli_alert_info("Series omitted from the results.")
         return(FALSE)
       }
 
@@ -171,7 +171,7 @@ bde_series_api_latest <- function(
   )
 
   if (!any(ok_results)) {
-    cli::cli_alert_warning("No valid results with query {.url {base_url}}.")
+    cli::cli_alert_warning("No valid results for query {.url {base_url}}.")
     s <- bde_hlp_return_null("Returning an empty tibble.")
     return(s)
   }
@@ -342,7 +342,7 @@ bde_series_api_load <- function(
 
 #' Validate the Series List time range against each series frequency
 #'
-#' @param series_code Character vector of BdE series codes.
+#' @param series_code Character vector of API series codes.
 #' @param language API language code.
 #' @param time_range API time range code.
 #' @param verbose Logical indicating whether to display informative messages.

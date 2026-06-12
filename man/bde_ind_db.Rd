@@ -19,9 +19,9 @@ A \link[tibble:tbl_df]{tibble} of 9 rows and
 }
 }
 \description{
-Minimal metadata for the selected Spanish macroeconomic indicators included
-in the convenience functions of \CRANpkg{tidyBdE} (see \link{bde_indicators}).
-Full metadata can be accessed with \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
+Minimal metadata for selected Spanish macroeconomic indicators included in
+the convenience functions of \CRANpkg{tidyBdE}. See \link{bde_indicators}.
+Full catalog metadata is available with \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
 }
 \details{
 \tabular{lllllll}{
@@ -40,9 +40,10 @@ Full metadata can be accessed with \code{\link[=bde_catalog_load]{bde_catalog_lo
 \examples{
 data("bde_ind_db")
 bde_ind_db
+
 }
 \seealso{
-Other indicators:
+Indicator functions:
 \code{\link{bde_indicators}}
 }
 \concept{indicators}

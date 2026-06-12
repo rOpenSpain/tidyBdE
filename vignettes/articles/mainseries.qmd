@@ -15,7 +15,7 @@ knitr:
 ---
 
 This article shows selected Spanish macroeconomic indicators using Banco de
-España time series data.
+España time series data from bulk CSV files.
 
 Last updated: **`r format(Sys.Date(), "%d-%B-%Y")`**.
 

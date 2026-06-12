@@ -172,7 +172,7 @@ test_that("Mock files series", {
       out_format = "long",
       extract_metadata = TRUE
     ),
-    "BdE is offline"
+    "BdE resources are unavailable"
   )
   local_mocked_bindings(
     bde_series_full_load = function(...) {
@@ -186,7 +186,7 @@ test_that("Mock files series", {
       out_format = "long",
       verbose = TRUE
     ),
-    "BdE is offline"
+    "BdE resources are unavailable"
   )
 })
 

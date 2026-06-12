@@ -1,15 +1,26 @@
-#' Load BdE catalog metadata
+#' Load, update and search BdE catalog metadata
 #'
 #' @description
-#' Load BdE time series catalog metadata.
+#' These functions manage BdE time series catalog metadata from the bulk CSV
+#' files published by Banco de España.
 #'
-#' @param catalog A single catalog identifier to load, or `"ALL"` to load every
-#'   catalog. See **Details**.
+#' `bde_catalog_load()` loads catalog metadata into a tibble,
+#' `bde_catalog_update()` refreshes the cached catalog files and
+#' `bde_catalog_search()` searches catalog metadata for keywords.
+#'
+#' @param catalog A single catalog identifier, or `"ALL"` to load or update
+#'   every catalog. See **Details**.
 #' @param parse_dates Logical. If `TRUE`, date columns are parsed with
 #'   [bde_parse_dates()].
 #' @param update_cache Logical. If `TRUE`, the requested file is refreshed in
 #'   `cache_dir`.
-#' @inheritParams bde_catalog_update
+#' @param cache_dir Path to a cache directory. The directory can also be set
+#'   with `options(bde_cache_dir = "path/to/dir")`.
+#' @param verbose Logical. If `TRUE`, display information useful for debugging.
+#' @param pattern Regular expression pattern to search. See **Details** and
+#'   **Examples**.
+#' @param ... Additional arguments passed to [bde_catalog_load()] by
+#'   `bde_catalog_search()`.
 #'
 #' @details
 #' Accepted values for `catalog` are:
@@ -31,14 +42,28 @@
 #'
 #' knitr::kable(t)
 #' ```
-#' Use `"ALL"` as a shorthand for loading all catalogs at once.
+#' Use `"ALL"` as a shorthand for loading or updating all catalogs at once.
 #'
-#' If the requested catalog is not cached, this function calls
+#' If the requested catalog is not cached, `bde_catalog_load()` calls
 #' [bde_catalog_update()].
 #'
+#' **Note:** BdE catalog metadata is currently available in Spanish only.
+#' Therefore, search terms passed to `bde_catalog_search()` must be in Spanish
+#' to retrieve results.
+#'
+#' `bde_catalog_search()` uses [base::grep()] to find matches in the catalog
+#' metadata. You can pass [regular expressions][base::regex] to broaden the
+#' search.
+#'
 #' @return
-#' A [tibble][tibble::tbl_df] with the requested catalog metadata. See
-#' `vignette("csv_manual", package = "tidyBdE")` for details.
+#' `bde_catalog_load()` returns a [tibble][tibble::tbl_df] with the requested
+#' catalog metadata. See `vignette("csv_manual", package = "tidyBdE")` for
+#' details.
+#'
+#' `bde_catalog_update()` returns an invisible list of download results.
+#'
+#' `bde_catalog_search()` returns a [tibble][tibble::tbl_df] with matching
+#' catalog rows.
 #'
 #' @source
 #'
@@ -52,13 +77,28 @@
 #'
 #' @family catalog
 #'
-#' @export
-#' @encoding UTF-8
+#' @rdname bde_catalogs
+#' @name bde_catalogs
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{
 #' bde_catalog_load("TI", verbose = TRUE)
+#'
+#' # Simple search. Search terms must be in Spanish.
+#' # PIB [es] == GDP [en].
+#' bde_catalog_search("PIB")
+#'
+#' # Search with a single complex condition.
+#' bde_catalog_search("Francia(.*)PIB")
+#'
+#' # Search with multiple complex conditions.
+#' bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
+#'
+#' bde_catalog_update("TI", verbose = TRUE)
 #' }
+#'
+#' @export
+#' @encoding UTF-8
 bde_catalog_load <- function(
   catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
   parse_dates = TRUE,
@@ -205,61 +245,10 @@ bde_catalog_load <- function(
   final_catalog
 }
 
-#' Update BdE catalog files
-#'
-#' @description
-#' Update BdE time series catalog files.
-#'
-#' @param catalog A single catalog identifier to update, or `"ALL"` to update
-#'   every catalog. See **Details**.
-#' @param cache_dir Path to a cache directory. The directory can also be set
-#'   with `options(bde_cache_dir = "path/to/dir")`.
-#' @param verbose Logical. If `TRUE`, display information useful for debugging.
-#'
-#' @details
-#' Accepted values for `catalog` are:
-#'
-#' ```{r, echo=FALSE}
-#'
-#' t <- tibble::tribble(
-#' ~CODE, ~PUBLICATION, ~UPDATEFREQUENCY, ~FREQUENCY,
-#' '`"BE"`', "Statistical Bulletin", "Daily", "Monthly",
-#' '`"SI"`', "Summary Indicators", "Daily", "Daily",
-#' '`"TC"`', "Exchange Rates", "Daily", "Daily",
-#' '`"TI"`', "Interest Rates", "Daily", "Daily",
-#' '`"PB"`', "Bank Lending Survey", "Quarterly", "Quarterly",
-#' )
-#'
-#' names(t) <- paste0("**",
-#'   c("CODE", "PUBLICATION", "UPDATE FREQUENCY", "FREQUENCY"),
-#'   "**")
-#'
-#' knitr::kable(t)
-#'
-#' ```
-#' Use `"ALL"` as a shorthand for updating all catalogs at once.
-#'
-#' @return An invisible list of download results.
-#'
-#' @source
-#'
-#' ```{r, echo=FALSE, results='asis'}
-#'
-#' cat(paste0("[Time series bulk data download]",
-#'       "(https://www.bde.es/webbe/en/estadisticas/recursos/",
-#'       "descargas-completas.html)."))
-#'
-#' ```
-#'
-#' @family catalog
+#' @rdname bde_catalogs
 #'
 #' @export
 #' @encoding UTF-8
-#'
-#' @examplesIf bde_check_access()
-#' \donttest{
-#' bde_catalog_update("TI", verbose = TRUE)
-#' }
 bde_catalog_update <- function(
   catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
   cache_dir = NULL,
@@ -317,44 +306,10 @@ bde_catalog_update <- function(
   invisible(res)
 }
 
-#' Search BdE catalogs
-#'
-#' @description
-#' Search BdE time series catalog metadata for keywords.
-#'
-#' @param pattern [`regex`][base::regex] pattern to search. See **Details**
-#'   and **Examples**.
-#' @inheritDotParams bde_catalog_load
-#'
-#' @details
-#' **Note:** BdE metadata is currently available in Spanish only. Therefore,
-#' search terms must be in Spanish to retrieve results.
-#'
-#' This function uses [base::grep()] to find matches in the catalogs. You can
-#' pass [regular expressions][base::regex] to broaden the search.
-#'
-#' @return A [tibble][tibble::tbl_df] object with the results of the query.
-#'
-#' @seealso [bde_catalog_load()], [base::regex()]
-#'
-#' @family catalog
+#' @rdname bde_catalogs
 #'
 #' @export
 #' @encoding UTF-8
-#'
-#' @examplesIf bde_check_access()
-#' \donttest{
-#' # Simple search. Search terms must be in Spanish.
-#' # PIB [es] == GDP [en].
-#'
-#' bde_catalog_search("PIB")
-#'
-#' # Search with a single complex condition.
-#' bde_catalog_search("Francia(.*)PIB")
-#'
-#' # Search with multiple complex conditions.
-#' bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
-#' }
 bde_catalog_search <- function(pattern, ...) {
   # Reuse the catalog loader so search honors the same cache and parsing rules.
   catalog_search <- bde_catalog_load(...)
@@ -367,7 +322,7 @@ bde_catalog_search <- function(pattern, ...) {
   if (!tibble::is_tibble(catalog_search)) {
     cli::cli_alert_warning(
       paste0(
-        "Catalog data is not a tibble. Try downloading it again with ",
+        "Catalog data is not a tibble. Try downloading the catalog again with ",
         "bde_catalog_update()."
       )
     )
@@ -389,7 +344,7 @@ bde_catalog_search <- function(pattern, ...) {
 
   search_results <- catalog_search[search_match_rows, ]
   if (nrow(search_results) == 0) {
-    cli::cli_abort("No matches found for {.val {pattern}}.")
+    cli::cli_abort("No matches found for {.arg pattern} {.val {pattern}}.")
   }
   search_results
 }

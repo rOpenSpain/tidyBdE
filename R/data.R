@@ -1,9 +1,9 @@
 #' Database of selected Spanish macroeconomic indicators
 #'
 #' @description
-#' Minimal metadata for the selected Spanish macroeconomic indicators included
-#' in the convenience functions of \CRANpkg{tidyBdE} (see [bde_indicators]).
-#' Full metadata can be accessed with [bde_catalog_load()].
+#' Minimal metadata for selected Spanish macroeconomic indicators included in
+#' the convenience functions of \CRANpkg{tidyBdE}. See [bde_indicators].
+#' Full catalog metadata is available with [bde_catalog_load()].
 #'
 #' @details
 #'
@@ -30,9 +30,10 @@
 #'
 #' @name bde_ind_db
 #' @docType data
-#' @encoding UTF-8
 #'
 #' @examples
 #' data("bde_ind_db")
 #' bde_ind_db
+#'
+#' @encoding UTF-8
 NULL

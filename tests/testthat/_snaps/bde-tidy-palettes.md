@@ -11,5 +11,5 @@
     Code
       nmore <- bde_tidy_palettes(n = 23)
     Message
-      ! Palette "bde_vivid_pal" contains 6 colors. You requested 23. Returning 6 colors.
+      ! Palette "bde_vivid_pal" has 6 colors. You requested 23, so only 6 colors are returned.
 

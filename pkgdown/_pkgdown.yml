@@ -16,12 +16,12 @@ repo:
 
 reference:
 - title: Catalogs
-  desc: Search, update and load BdE time series catalog metadata.
+  desc: Load, update and search BdE time series catalog metadata.
   contents:
   - has_concept("catalog")
 
 - title: Series
-  desc: Load CSV series by sequential number, complete BdE time series files and API data by series code.
+  desc: Load bulk CSV series by sequential number and API data by API series code.
   contents:
   - has_concept("series")
 

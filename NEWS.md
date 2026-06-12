@@ -1,159 +1,159 @@
 # tidyBdE (development version)
 
--   Internal code was refactored with AI assistance to reduce duplication in
-    indicator wrappers and **ggplot2** scale helpers.
--   Messages and package errors now use **cli**, with AI-assisted wording
-    updates and without the former `tidyBdE>` prefix.
--   Roxygen2 documentation was reviewed with AI assistance and tag order was
-    made consistent across source files.
--   Tests were refactored and expanded with local fixtures, mocks and snapshot
-    updates, reaching 100% line coverage in `devtools:::test_coverage()`.
--   New vignette `vignette("csv_manual", package = "tidyBdE")` explaining the
-    structure of Banco de España bulk CSV files and catalog identifiers.
--   `bde_series_api_latest()` added to query the Latest Data request of the
+- Internal code was refactored with AI assistance to reduce duplication in
+  indicator wrappers and **ggplot2** scale helpers.
+- Messages and package errors now use **cli**, with AI-assisted wording updates
+  and without the former `tidyBdE>` prefix.
+- Roxygen2 documentation was reviewed with AI assistance and tag order was made
+  consistent across source files.
+- Tests were refactored and expanded with local fixtures, mocks and snapshot
+  updates, reaching 100% line coverage in `devtools:::test_coverage()`.
+- New vignette `vignette("csv_manual", package = "tidyBdE")` explaining the
+  structure of Banco de España bulk CSV files, catalog metadata and series
+  identifiers (#64).
+- New functions added (#65):
+  - `bde_series_api_latest()` added to query the Latest Data request of the
     Banco de España [Statistics web service
     (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
--   `bde_series_api_load()` added to query the Series List request of the Banco
+  - `bde_series_api_load()` added to query the Series List request of the Banco
     de España Statistics web service (API), with support for wide and long
     output, metadata extraction and time range validation.
 
 # tidyBdE 0.6.1
 
--   Improve reading of external `.csv` files by detecting file encoding with
-    `readr::guess_encoding()`.
--   Package documentation was reviewed and updated with AI-assisted editing.
+- Improve reading of external `.csv` files by detecting file encoding with
+  `readr::guess_encoding()`.
+- Package documentation was reviewed and updated with AI-assisted editing.
 
 # tidyBdE 0.6.0
 
--   Migrate vignettes to Quarto.
--   Update the sequential number used by `bde_ind_cpi_var()` (see
-    `?bde_ind_db`).
+- Migrate vignettes to Quarto.
+- Update the sequential number used by `bde_ind_cpi_var()` (see `?bde_ind_db`).
 
 # tidyBdE 0.5.0
 
--   Improve documentation with AI-assisted review.
--   Update the minimum required **R** version to `4.1.0`.
+- Improve documentation with AI-assisted review.
+- Update the minimum required **R** version to `4.1.0`.
 
 # tidyBdE 0.4.0
 
--   `?bde_indicators` is now based on data from the new `?bde_ind_db` database,
-    which clarifies the underlying sequential numbers and makes maintenance
-    easier.
+- `?bde_indicators` is now based on data from the new `?bde_ind_db` database,
+  which clarifies the underlying sequential numbers and makes maintenance
+  easier.
 
 # tidyBdE 0.3.8
 
--   Update `bde_ind_gdp_quarterly()` because the underlying identifier changed.
+- Update `bde_ind_gdp_quarterly()` because the underlying identifier changed.
 
 # tidyBdE 0.3.7
 
--   DOI changed to the **CRAN** URL:
-    <https://doi.org/10.32614/CRAN.package.tidyBdE>.
--   Native encoding when reading `.csv` files changed to `"latin1"`.
--   Update `bde_ind_unemployment_rate()` and `bde_ind_population()` because the
-    underlying identifiers changed.
+- DOI changed to the **CRAN** URL:
+  <https://doi.org/10.32614/CRAN.package.tidyBdE>.
+- Native encoding when reading `.csv` files changed to `"latin1"`.
+- Update `bde_ind_unemployment_rate()` and `bde_ind_population()` because the
+  underlying identifiers changed.
 
 # tidyBdE 0.3.6
 
--   Adapt `scale_color_bde_d()` and related functions to **ggplot2** 3.5.0,
-    exposing the `guide` argument instead of hard-coding it.
+- Adapt `scale_color_bde_d()` and related functions to **ggplot2** 3.5.0,
+  exposing the `guide` argument instead of hard-coding it.
 
 # tidyBdE 0.3.5
 
 Mainly changes to the color functions:
 
--   Add the new `bde_qual_pal` palette.
--   `bde_vivid_pal()` and `bde_rose_pal()` have been superseded. Use
-    `bde_tidy_palettes()` instead.
--   `scale_color_bde_d()` and related functions now use `bde_tidy_palettes()`
-    and gain two new arguments: `alpha` and `rev`.
--   Update and review documentation.
+- Add the new `bde_qual_pal` palette.
+- `bde_vivid_pal()` and `bde_rose_pal()` have been superseded. Use
+  `bde_tidy_palettes()` instead.
+- `scale_color_bde_d()` and related functions now use `bde_tidy_palettes()` and
+  gain two new arguments: `alpha` and `rev`.
+- Update and review documentation.
 
 # tidyBdE 0.3.4
 
--   Update API entry points.
+- Update API entry points.
 
 # tidyBdE 0.3.3
 
--   Update tests and documentation.
+- Update tests and documentation.
 
 # tidyBdE 0.3.2
 
--   Indicators: `bde_ind_ibex()` was renamed to `bde_ind_ibex_monthly()`.
--   Indicators: Add the new `bde_ind_ibex_daily()` indicator.
--   Remove **tidyverse** from Suggests.
+- Indicators: `bde_ind_ibex()` was renamed to `bde_ind_ibex_monthly()`.
+- Indicators: Add the new `bde_ind_ibex_daily()` indicator.
+- Remove **tidyverse** from Suggests.
 
 # tidyBdE 0.3.1
 
--   Add **tidyr** as a new dependency.
--   Add the `out_format` parameter to `bde_series_load()`.
--   Apply best practices and small adjustments to `theme_tidybde()`.
+- Add **tidyr** as a new dependency.
+- Add the `out_format` parameter to `bde_series_load()`.
+- Apply best practices and small adjustments to `theme_tidybde()`.
 
 # tidyBdE 0.3.0
 
--   **Breaking change**: `theme_bde()` was renamed to `theme_tidybde()`.
--   Improve file downloading by removing empty local CSV files when URLs are not
-    reachable, improving the download process, providing more informative user
-    messages and making internal performance improvements.
+- **Breaking change**: `theme_bde()` was renamed to `theme_tidybde()`.
+- Improve file downloading by removing empty local CSV files when URLs are not
+  reachable, improving the download process, providing more informative user
+  messages and making internal performance improvements.
 
 # tidyBdE 0.2.5
 
--   Update HTML5 markup to satisfy the **CRAN** request.
+- Update HTML5 markup to satisfy the **CRAN** request.
 
 # tidyBdE 0.2.4
 
--   Update the sequential number used by `bde_ind_cpi_var()`.
+- Update the sequential number used by `bde_ind_cpi_var()`.
 
 # tidyBdE 0.2.3
 
--   Update the package because the **CF** (Financial Accounts of the Spanish
-    Economy) and **IE** (Economic Indicators) catalogs were deprecated in the
-    API.
+- Update the package because the **CF** (Financial Accounts of the Spanish
+  Economy) and **IE** (Economic Indicators) catalogs were deprecated in the API.
 
 # tidyBdE 0.2.2
 
--   BdE started migrating "Indicadores Económicos" (Economic Indicators) series
-    to the Statistical Bulletin. Some series in `?bde_indicators` are likely to
-    break during the transition. So far, `bde_ind_euribor_12m_monthly()` has
-    been updated to use the new sequential number `587853`. See
-    <https://www.bde.es/wbe/en/estadisticas/>.
--   Update documentation and examples.
+- BdE started migrating "Indicadores Económicos" (Economic Indicators) series to
+  the Statistical Bulletin. Some series in `?bde_indicators` are likely to break
+  during the transition. So far, `bde_ind_euribor_12m_monthly()` has been
+  updated to use the new sequential number `587853`. See
+  <https://www.bde.es/wbe/en/estadisticas/>.
+- Update documentation and examples.
 
 # tidyBdE 0.2.1
 
--   `bde_series_load()` now tries to coerce characters to numeric values.
--   Export `bde_check_access()`.
--   Improve messages when inconsistencies occur between the catalog and series.
--   Update documentation and vignettes.
+- `bde_series_load()` now tries to coerce characters to numeric values.
+- Export `bde_check_access()`.
+- Improve messages when inconsistencies occur between the catalog and series.
+- Update documentation and vignettes.
 
 # tidyBdE 0.2.0
 
--   Add a series index article.
--   Add new series: `bde_ind_gdp_quarterly()` and `bde_ind_population()`.
--   Improve package coverage and documentation.
--   Move tests to **testthat**.
--   Remove the following scales: `bde_scale_colour_vivid()`,
-    `bde_scale_color_vivid()`, `bde_scale_fill_vivid()`,
-    `bde_scale_colour_rose()`, `bde_scale_color_rose()` and
-    `bde_scale_fill_rose()`. Use `scale_color_bde_c()` instead.
+- Add a series index article.
+- Add new series: `bde_ind_gdp_quarterly()` and `bde_ind_population()`.
+- Improve package coverage and documentation.
+- Move tests to **testthat**.
+- Remove the following scales: `bde_scale_colour_vivid()`,
+  `bde_scale_color_vivid()`, `bde_scale_fill_vivid()`,
+  `bde_scale_colour_rose()`, `bde_scale_color_rose()` and
+  `bde_scale_fill_rose()`. Use `scale_color_bde_c()` instead.
 
 # tidyBdE 0.1.2
 
--   Improve error handling according to **CRAN** rules.
--   Precompile the vignette.
--   Update examples.
+- Improve error handling according to **CRAN** rules.
+- Precompile the vignette.
+- Update examples.
 
 # tidyBdE 0.1.1
 
--   Add a DOI: <https://doi.org/10.5281/zenodo.4673496>.
--   Add the package vignette.
--   Add new palettes for **ggplot2**: `scale_color_bde_c()`,
-    `scale_color_bde_d()`, `scale_fill_bde_c()` and `scale_fill_bde_d()`.
--   Adjust colors in `bde_rose_pal()`: the HCL spectrum is now more consistent
-    between roses and blues according to `colorspace::specplot()`.
--   Deprecate scales: `bde_scale_colour_vivid()`, `bde_scale_color_vivid()`,
-    `bde_scale_fill_vivid()`, `bde_scale_colour_rose()`,
-    `bde_scale_color_rose()` and `bde_scale_fill_rose()`.
+- Add a DOI: <https://doi.org/10.5281/zenodo.4673496>.
+- Add the package vignette.
+- Add new palettes for **ggplot2**: `scale_color_bde_c()`,
+  `scale_color_bde_d()`, `scale_fill_bde_c()` and `scale_fill_bde_d()`.
+- Adjust colors in `bde_rose_pal()`: the HCL spectrum is now more consistent
+  between roses and blues according to `colorspace::specplot()`.
+- Deprecate scales: `bde_scale_colour_vivid()`, `bde_scale_color_vivid()`,
+  `bde_scale_fill_vivid()`, `bde_scale_colour_rose()`, `bde_scale_color_rose()`
+  and `bde_scale_fill_rose()`.
 
 # tidyBdE 0.1.0
 
--   Initial release.
+- Initial release.

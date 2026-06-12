@@ -4,20 +4,17 @@
 #' Manually defined palettes based on BdE publications. Each palette contains
 #' at most six colors.
 #'
-#' @param n The number of colors (`>= 1`) to return.
+#' @param n Number of colors (`>= 1`) to return.
 #' @param palette A valid palette name.
 #' @param alpha Alpha transparency level in the range `[0, 1]`, where `0` is
 #'   transparent and `1` is opaque. If `alpha = NULL`, the function does not
 #'   append opacity codes (`"FF"`) to individual color hex codes. See
 #'   [ggplot2::alpha()].
-#' @param rev Logical indicating whether to reverse the color order.
+#' @param rev Logical. If `TRUE`, reverse the color order.
 #'
 #' @return A character vector of hex color codes.
 #'
 #' @family bde_plot
-#'
-#' @export
-#' @encoding UTF-8
 #'
 #' @examples
 #' # Show the BdE vivid palette.
@@ -34,6 +31,9 @@
 #' scales::show_col(bde_tidy_palettes(palette = "bde_qual_pal"),
 #'   labels = FALSE
 #' )
+#'
+#' @export
+#' @encoding UTF-8
 bde_tidy_palettes <- function(
   n = 6,
   palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"),
@@ -73,8 +73,8 @@ bde_tidy_palettes <- function(
   if (n > n_col) {
     cli::cli_alert_warning(
       paste0(
-        "Palette {.val {palette}} contains {n_col} colors. ",
-        "You requested {n}. Returning {n_col} colors."
+        "Palette {.val {palette}} has {n_col} colors. ",
+        "You requested {n}, so only {n_col} colors are returned."
       )
     )
 

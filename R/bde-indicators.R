@@ -1,18 +1,18 @@
 #' Selected Spanish macroeconomic indicators
 #'
 #' @description
-#' Convenience functions for downloading selected Spanish macroeconomic
-#' indicators. Metadata is available in [bde_ind_db].
+#' Download selected Spanish macroeconomic indicators. Metadata is available in
+#' [bde_ind_db].
 #'
-#' @inheritParams bde_series_load
-#' @inheritDotParams bde_series_load -series_code
+#' @inheritParams bde_series
+#' @inheritDotParams bde_series -series_code -series_csv
 #'
 #' @details
 #' These functions are convenient wrappers around [bde_series_load()] for
 #' specific series. Use `verbose = TRUE, extract_metadata = TRUE` to inspect the
 #' metadata and source.
 #'
-#' @return A [tibble][tibble::tbl_df] with the required series.
+#' @return A [tibble][tibble::tbl_df] with the requested indicator series.
 #'
 #' @seealso [bde_series_load()], [bde_catalog_search()]
 #'
@@ -21,13 +21,13 @@
 #' @rdname bde_indicators
 #' @name bde_indicators
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @examplesIf bde_check_access()
 #' \donttest{
 #' bde_ind_gdp_var()
 #' }
+#'
+#' @export
+#' @encoding UTF-8
 bde_ind_gdp_var <- function(series_label = "GDP_YoY", ...) {
   bde_hlp_indicator("bde_ind_gdp_var", series_label, ...)
 }
@@ -109,7 +109,7 @@ bde_ind_ibex <- bde_ind_ibex_monthly
 #' Load one indicator wrapper
 #'
 #' @param function_name Name used in `bde_ind_db$tidyBdE_fun`.
-#' @param series_label Series label to pass to [bde_series_load()].
+#' @param series_label Series label passed to [bde_series_load()].
 #' @param ... Additional arguments passed to [bde_series_load()].
 #'
 #' @noRd

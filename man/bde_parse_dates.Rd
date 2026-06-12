@@ -8,14 +8,14 @@
 bde_parse_dates(dates_to_parse)
 }
 \arguments{
-\item{dates_to_parse}{Character vector of dates to parse.}
+\item{dates_to_parse}{Character vector of date strings to parse.}
 }
 \value{
 A vector of \code{\link[=as.Date]{Date}} values.
 }
 \description{
 Parse strings representing dates with \code{\link[=as.Date]{as.Date()}}. This function is tailored
-to date formats used in this package and may fail with other datasets. See
+to date formats used in this package and may fail for other datasets. See
 \strong{Examples} for formats that are supported.
 \subsection{Date formats}{\tabular{lll}{
    \strong{FREQUENCY} \tab \strong{FORMAT} \tab \strong{EXAMPLES} \cr
@@ -52,6 +52,7 @@ parsed_fail <- bde_parse_dates(wont_parse)
 class(parsed_fail)
 
 tibble::tibble(raw = wont_parse, parsed = parsed_fail)
+
 }
 \seealso{
 \code{\link[=as.Date]{as.Date()}}

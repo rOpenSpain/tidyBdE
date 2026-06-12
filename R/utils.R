@@ -2,7 +2,7 @@
 #'
 #' @description
 #' Parse strings representing dates with [as.Date()]. This function is tailored
-#' to date formats used in this package and may fail with other datasets. See
+#' to date formats used in this package and may fail for other datasets. See
 #' **Examples** for formats that are supported.
 #'
 #' ## Date formats
@@ -34,16 +34,13 @@
 #' ```
 #' See `vignette("csv_manual", package = "tidyBdE")` for details.
 #'
-#' @param dates_to_parse Character vector of dates to parse.
+#' @param dates_to_parse Character vector of date strings to parse.
 #'
 #' @return A vector of [`Date`][as.Date()] values.
 #'
 #' @seealso [as.Date()]
 #'
 #' @family utils
-#'
-#' @export
-#' @encoding UTF-8
 #'
 #' @examples
 #' # Supported formats.
@@ -67,6 +64,9 @@
 #' class(parsed_fail)
 #'
 #' tibble::tibble(raw = wont_parse, parsed = parsed_fail)
+#'
+#' @export
+#' @encoding UTF-8
 bde_parse_dates <- function(dates_to_parse) {
   dateformat <- gsub(" ", "", toupper(dates_to_parse), fixed = TRUE)
   dateformat <- gsub("-", "", dateformat, fixed = TRUE)
@@ -116,7 +116,7 @@ bde_parse_dates <- function(dates_to_parse) {
 #' Resolve a cache directory
 #'
 #' @param cache_dir Path to a cache directory.
-#' @param verbose Logical indicating whether to display informative messages.
+#' @param verbose Logical. If `TRUE`, display informative messages.
 #' @param suffix Optional suffix to append to the path.
 #'
 #' @noRd
@@ -173,7 +173,7 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
 #'
 #' @param url Resource URL.
 #' @param local_file Local file path to create or overwrite.
-#' @param verbose Logical indicating whether to display informative messages.
+#' @param verbose Logical. If `TRUE`, display informative messages.
 #' @param retry Logical indicating whether to retry once after a failed
 #'   download.
 #'
@@ -193,7 +193,7 @@ bde_hlp_download <- function(url, local_file, verbose, retry = TRUE) {
   # Retry once because intermittent warnings are common for remote files.
   if (isTRUE(err_dwnload) && isTRUE(retry)) {
     if (verbose) {
-      cli::cli_alert_warning("Download failed. Trying again.")
+      cli::cli_alert_warning("Download failed, trying again.")
     }
 
     err_dwnload <- tryCatch(
@@ -278,7 +278,7 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
 #'
 #' @noRd
 bde_hlp_return_null <- function(
-  msg = "BdE is offline. Returning an empty tibble."
+  msg = "BdE resources are unavailable. Returning an empty tibble."
 ) {
   cli::cli_alert_info(msg)
   tbl <- tibble::tibble(x = NULL)

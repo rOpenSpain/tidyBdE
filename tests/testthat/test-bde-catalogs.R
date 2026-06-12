@@ -54,9 +54,10 @@ test_that("Messages", {
   dir <- file.path(tempdir(), "test_catalogs2")
 
   expect_message(
-    bde_catalog_load("TC", verbose = TRUE, cache_dir = dir),
+    s <- bde_catalog_load("TC", verbose = TRUE, cache_dir = dir),
     "Downloading catalog|Using cached catalog"
   )
+  expect_snapshot(names(s))
   expect_message(
     bde_catalog_load("TC", verbose = TRUE, cache_dir = dir),
     "Using cached catalog"

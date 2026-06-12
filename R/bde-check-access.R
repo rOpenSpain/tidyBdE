@@ -1,19 +1,19 @@
-#' Check BdE access
+#' Check access to BdE resources
 #'
 #' @description
-#' Check whether \R can access resources at
+#' Check whether \R can access BdE resources at
 #' <https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html>.
 #'
 #' @return A logical value indicating whether BdE resources are reachable.
-#'
-#' @export
-#' @encoding UTF-8
-#' @keywords internal
 #'
 #' @examples
 #' \donttest{
 #' bde_check_access()
 #' }
+#'
+#' @export
+#' @encoding UTF-8
+#' @keywords internal
 bde_check_access <- function() {
   # Use an internal option for testing purposes only.
   if (on_cran()) {

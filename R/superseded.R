@@ -12,16 +12,16 @@
 #' @rdname bde_pals
 #' @name bde_vivid_pal
 #'
-#' @export
-#' @encoding UTF-8
-#' @keywords internal
-#'
 #' @examples
 #' # Show the vivid palette.
 #' scales::show_col(bde_vivid_pal()(6), labels = FALSE)
 #'
 #' # Show the rose palette.
 #' scales::show_col(bde_rose_pal()(6), labels = FALSE)
+#'
+#' @export
+#' @encoding UTF-8
+#' @keywords internal
 bde_vivid_pal <- function(...) {
   lifecycle::deprecate_soft(
     "0.3.5",

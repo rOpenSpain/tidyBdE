@@ -1,8 +1,8 @@
 #' BdE color scales
 #'
 #' @description
-#' Color scales for the \CRANpkg{ggplot2} package. Discrete scales are
-#' named `scale_*_bde_d`, while continuous palettes are named `scale_*_bde_c`.
+#' Color scales for \CRANpkg{ggplot2}. Discrete scales are named
+#' `scale_*_bde_d`, while continuous palettes are named `scale_*_bde_c`.
 #'
 #' @param palette BdE palette to apply. See [bde_tidy_palettes()] for details.
 #' @inheritParams bde_tidy_palettes
@@ -18,9 +18,6 @@
 #'
 #' @rdname scales_bde
 #' @name scales_bde
-#'
-#' @export
-#' @encoding UTF-8
 #'
 #' @examples
 #' library(ggplot2)
@@ -44,6 +41,8 @@
 #'   scale_color_bde_d("bde_qual_pal") +
 #'   theme_minimal()
 #'
+#' @export
+#' @encoding UTF-8
 scale_color_bde_d <- function(
   palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"),
   alpha = NULL,
@@ -145,7 +144,7 @@ scale_fill_bde_c <- function(
 
 #' Build a discrete BdE scale
 #'
-#' @param aesthetics Scale aesthetics.
+#' @param aesthetics Scale aesthetics to map.
 #' @param palette BdE palette to apply.
 #' @inheritParams bde_tidy_palettes
 #' @param ... Additional arguments passed to [ggplot2::discrete_scale()].
@@ -162,7 +161,7 @@ bde_scale_bde_d <- function(aesthetics, palette, alpha, rev, ...) {
 
 #' Build a continuous BdE scale
 #'
-#' @param aesthetics Scale aesthetics.
+#' @param aesthetics Scale aesthetics to map.
 #' @param palette BdE palette to apply.
 #' @inheritParams bde_tidy_palettes
 #' @inheritParams ggplot2::continuous_scale

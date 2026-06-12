@@ -1,31 +1,52 @@
-#' Load a single BdE time series
+#' Load BdE time series from bulk CSV files
 #'
 #' @description
-#' Load a single BdE time series.
+#' These functions load BdE time series from the bulk CSV files published by
+#' Banco de España.
 #'
-#' The series alias is a positional code showing the location (column and/or
-#' row) of the series in the table. Although it is unique, it is not stable
-#' enough to identify a time series because it may change when the series moves.
+#' `bde_series_load()` extracts one or more series by their stable sequential
+#' number. `bde_series_full_load()` loads a complete CSV file and returns all
+#' series included in that file.
 #'
-#' For bulk CSV files, BdE also assigns each series a stable sequential number
-#' (`Número secuencial`). This function uses that sequential number through
-#' `series_code`, not the API series code used by the Statistics web service
-#' (API) helpers.
+#' The series alias is a positional code showing the location, column and/or
+#' row, of the series in the table. Although it is unique, it is not stable
+#' enough to identify a time series because it may change when a series moves.
+#'
+#' BdE also assigns each series a stable sequential number
+#' (`Número secuencial`). `bde_series_load()` uses that sequential number
+#' through `series_code`, not the API series code used by the Statistics web
+#' service (API) helpers.
 #'
 #' A single time series may appear in different tables, so it can have several
-#' aliases. If you need to search by alias, use [bde_series_full_load()].
+#' aliases. Use `bde_series_full_load()` when you need to work with aliases or
+#' load a complete file.
+#'
+#' ## About BdE file naming
+#'
+#' The series alias is also used in full CSV files. For example, table
+#' **be_6_1** represents Table 1, Chapter 6 of the Statistical Bulletin
+#' ("BE"). Although it is unique, it is subject to change, for example when a
+#' new table is inserted before it.
 #'
 #' @param series_code Numeric vector of BdE sequential numbers, or values
 #'   coercible with [base::as.double()], from the `Número secuencial` field of
 #'   the corresponding series. This is not the API series code. See
 #'   [bde_catalog_load()].
+#' @param series_csv CSV file name for a series, as defined in the field
+#'   `Nombre del archivo con los valores de la serie` of the corresponding
+#'   catalog. See [bde_catalog_load()].
 #' @param series_label Optional character string or vector of labels to assign
 #'   to the extracted series.
 #' @param out_format The format to return, either `"wide"` or `"long"`. See
 #'   **Value** for details and the **Examples** section.
-#' @inheritParams bde_series_full_load
+#' @inheritParams bde_catalogs
+#' @param parse_numeric Logical. If `TRUE`, the columns are parsed to
+#'   double (numeric) values. See **Note**.
+#' @param extract_metadata Logical. If `TRUE`, the output is the metadata of the
+#'   requested series.
 #'
-#' @return A [tibble][tibble::tbl_df] with a `Date` column:
+#' @return
+#' `bde_series_load()` returns a [tibble][tibble::tbl_df] with a `Date` column:
 #'
 #' - With `out_format = "wide"`, each series is presented in a separate column
 #'   with the name defined by `series_label`.
@@ -38,19 +59,23 @@
 #' [ggplot2::ggplot()]. See also [tidyr::pivot_longer()] and
 #' [tidyr::pivot_wider()].
 #'
-#' See `vignette("csv_manual", package = "tidyBdE")` for details.
+#' `bde_series_full_load()` returns a [tibble][tibble::tbl_df] with a `Date`
+#' column and the aliases of the time series columns as described in catalog
+#' metadata. See [bde_catalog_load()] and
+#' `vignette("csv_manual", package = "tidyBdE")` for details.
 #'
 #' @note
-#' This function attempts to coerce the columns to numbers. For some time
-#' series, a warning may be displayed if the parsing fails.
+#' These functions attempt to coerce the columns to numbers. For some time
+#' series, a warning may be displayed if parsing fails. You can override
+#' the default behavior with `parse_numeric = FALSE`.
 #'
 #' @seealso [bde_catalog_load()], [bde_catalog_search()],
 #'   [bde_indicators()]
 #'
 #' @family series
 #'
-#' @export
-#' @encoding UTF-8
+#' @rdname bde_series
+#' @name bde_series
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{
@@ -88,7 +113,16 @@
 #'   geom_line(aes(group = serie_name, color = serie_name)) +
 #'   scale_color_bde_d() +
 #'   theme_tidybde()
+#'
+#' # Show metadata for a full file.
+#' bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
+#'
+#' # Load a full file.
+#' bde_series_full_load("TI_1_1.csv")
 #' }
+#'
+#' @export
+#' @encoding UTF-8
 bde_series_load <- function(
   series_code,
   series_label = NULL,
@@ -123,7 +157,7 @@ bde_series_load <- function(
     )
   }
 
-  # Search the catalogs.
+  # Search catalog metadata.
   all_catalogs <- bde_catalog_load(
     catalog = "ALL",
     parse_dates = parse_dates,
@@ -149,7 +183,7 @@ bde_series_load <- function(
 
     if (nrow(csv_file) == 0) {
       cli::cli_alert_warning(
-        "{.arg series_code} was not found in the catalogs."
+        "{.arg series_code} {.val {x}} was not found in catalog metadata."
       )
       tbl <- bde_hlp_return_null()
       return(tbl)
@@ -187,7 +221,7 @@ bde_series_load <- function(
       if (verbose) {
         cli::cli_alert_warning(
           paste0(
-            "Series with alias {.val {alias_serie}} is not available in ",
+            "Series alias {.val {alias_serie}} is not available in ",
             "{.file {csv_file_name}}."
           )
         )
@@ -247,53 +281,10 @@ bde_series_load <- function(
   end
 }
 
-#' Load full BdE time series files
-#'
-#' @description
-#' Load a full BdE time series file.
-#'
-#' ## About BdE file naming
-#'
-#' The series alias is a positional code showing the location of the table. For
-#' example, table **be_6_1** represents Table 1, Chapter 6 of the Statistical
-#' Bulletin ("BE"). Although it is unique, it is subject to change, for
-#' example when a new table is inserted before it.
-#'
-#' For that reason, [bde_series_load()] is more suitable for extracting
-#' specific time series.
-#'
-#' @param series_csv CSV file name for a series, as defined in the field
-#'   `Nombre del archivo con los valores de la serie` of the corresponding
-#'   catalog. See [bde_catalog_load()].
-#' @inheritParams bde_catalog_load
-#' @param parse_numeric Logical. If `TRUE`, the columns are parsed to
-#'   double (numeric) values. See **Note**.
-#' @param extract_metadata Logical. If `TRUE`, the output is the metadata of the
-#'   requested series.
-#'
-#' @return
-#' A [tibble][tibble::tbl_df] with a `Date` field and the aliases of the time
-#' series fields as described in the catalogs. See [bde_catalog_load()] and
-#' `vignette("csv_manual", package = "tidyBdE")` for details.
-#'
-#' @note
-#' This function tries to coerce the columns to numbers. For some time series,
-#' a warning may be displayed if the parser fails. You can override the default
-#' behavior with `parse_numeric = FALSE`.
-#'
-#' @family series
+#' @rdname bde_series
 #'
 #' @export
 #' @encoding UTF-8
-#'
-#' @examplesIf bde_check_access()
-#' \donttest{
-#' # Show metadata.
-#' bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
-#'
-#' # Load data.
-#' bde_series_full_load("TI_1_1.csv")
-#' }
 bde_series_full_load <- function(
   series_csv,
   parse_dates = TRUE,

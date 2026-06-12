@@ -1,12 +1,12 @@
 #' BdE ggplot2 theme
 #'
 #' @description
-#' Custom \CRANpkg{ggplot2} theme based on BdE publications.
+#' A custom \CRANpkg{ggplot2} theme based on BdE publications.
 #'
 #' @inheritDotParams ggplot2::theme_classic
 #'
 #' @details
-#' This theme is based on [ggplot2::theme_classic()].
+#' This theme extends [ggplot2::theme_classic()].
 #'
 #' @return A \CRANpkg{ggplot2} theme object.
 #'
@@ -15,8 +15,6 @@
 #' @family bde_plot
 #'
 #' @importFrom ggplot2 %+replace% rel margin
-#' @export
-#' @encoding UTF-8
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{
@@ -49,6 +47,8 @@
 #' }
 #' }
 #'
+#' @export
+#' @encoding UTF-8
 theme_tidybde <- function(...) {
   ggplot2::theme_classic(...) %+replace%
     ggplot2::theme(

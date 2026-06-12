@@ -36,8 +36,8 @@
       empty <- bde_series_api_latest("XXX")
     Message
       ! The query returned an error XXX for `series_code` "XXX".
-      i Value omitted from the results.
-      ! No valid results with query <https://app.bde.es/bierest/resources/srdatosapp/favoritas?idioma=en&series=XXX>.
+      i Series omitted from the results.
+      ! No valid results for query <https://app.bde.es/bierest/resources/srdatosapp/favoritas?idioma=en&series=XXX>.
       i Returning an empty tibble.
 
 ---
@@ -53,9 +53,9 @@
       tb_es_invalid <- bde_series_api_latest(sname_invalid, language = "es")
     Message
       ! The query returned an error XXX for `series_code` "AN_ERROR".
-      i Value omitted from the results.
+      i Series omitted from the results.
       ! The query returned an error XXX for `series_code` "ANOTHER_ERROR".
-      i Value omitted from the results.
+      i Series omitted from the results.
 
 # Series API real test
 
