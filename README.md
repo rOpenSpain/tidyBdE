@@ -30,8 +30,8 @@ bulk CSV files and the [Statistics web service
 Data are returned as [**tibble**](https://tibble.tidyverse.org/)
 objects. The package infers date, character and numeric fields where
 possible. Bulk CSV helpers identify series with the stable sequential
-number (`Numero_secuencial`), while API helpers use
-`Nombre_de_la_serie` as the API series code.
+number (`Numero_secuencial`), while API helpers use `Nombre_de_la_serie`
+as the API series code.
 
 > [!IMPORTANT]
 >
