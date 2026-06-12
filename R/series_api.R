@@ -19,28 +19,37 @@
 #' series. [bde_series_api_load()] uses the Series List request to obtain the
 #' details of one or more complete series and their metadata.
 #'
-#' This API service uses the series alias as the identifier (see
-#' `vignette("csv_manual", package = "tidyBdE")`). The series alias is a
-#' positional code showing the location (column and/or row) of the series in
-#' the table. However, although it is unique, it is not a good candidate to be
-#' used as the series ID because it is subject to change.
+#' The API uses BdE series codes as identifiers. In this package, pass those
+#' codes through `series_code`. They are available in the `Nombre_de_la_serie`
+#' field of [bde_catalog_load()] and correspond to the API `series_list`
+#' parameter. This is different from the numeric sequential number
+#' (`Número secuencial`) used by [bde_series_load()] for bulk CSV files.
 #'
-#' - If a series changes position in the table, its alias will also change.
-#' - If a new series is inserted into a table, all the aliases that come after
-#'   it will change and will not represent the same series.
-#'
-#' @param series_alias Character string or vector of time series aliases from
-#'   the `Nombre_de_la_serie` field of the corresponding series. See
-#'   [bde_catalog_load()].
+#' @param series_code Character string or vector with BdE API series codes,
+#'   taken from the `Nombre_de_la_serie` field of the corresponding catalog.
+#'   This is the value passed to the API `series_list` parameter, not the
+#'   numeric sequential number used by [bde_series_load()].
 #' @param language Character string. It can take the values `"es"` or `"en"` to
 #'   obtain results in Spanish or English, respectively.
 #' @param time_range Character string. Optional annual range or API range code.
 #'   It can be a year, such as `"2024"`, or a range code such as `"3M"`,
 #'   `"12M"`, `"30M"`, `"36M"`, `"60M"` or `"MAX"`. If `NULL`, the API returns
 #'   the smallest range for the series frequency. Range codes are validated
-#'   against the frequency returned by [bde_series_api_latest()].
+#'   against the frequency returned by [bde_series_api_latest()]. See
+#'   **Details**.
 #'
 #' @inheritParams bde_series_load
+#'
+#' @details
+#' `time_range` allowed values based on the frequency of the series are:
+#'
+#' - Daily frequency (`D`): `"3M"` (last 3 months), `"12M"` and `"36M"`.
+#' - Monthly frequency (`M`): `"30M"`, `"60M"` and `"MAX"` (entire series).
+#' - Quarterly frequency (`Q`): `"30M"`, `"60M"` and `"MAX"`.
+#' - Annual frequency (`A`): `"60M"` and `"MAX"`.
+#'
+#' If `time_range` is not specified, the request returns the smallest range for
+#' the series frequency. For example, monthly series return `"30M"`.
 #'
 #' @return
 #' `bde_series_api_latest()` returns a [tibble][tibble::tbl_df] with the latest
@@ -49,10 +58,11 @@
 #' `decimales`, `simbolo`, `tendencia`, `fechaValor` and `valor`.
 #'
 #' `bde_series_api_load()` returns a [tibble][tibble::tbl_df]. When
-#' `extract_metadata = FALSE`, it returns observations in wide or long format
-#' according to `out_format`. When `extract_metadata = TRUE`, it returns one row
-#' per valid series with fields returned by the Series List request, including
-#' list columns for `informacion`, `fechas` and `valores`.
+#' `extract_metadata = FALSE`, API dates are parsed as [`Date`][as.Date()]
+#' values and observations are returned in wide or long format according to
+#' `out_format`. When `extract_metadata = TRUE`, it returns one row per valid
+#' series with fields returned by the Series List request, including
+#' `fechaInicio`, `fechaFin` and metadata fields derived from `informacion`.
 #'
 #' @seealso [bde_catalog_load()], [bde_catalog_search()],
 #'   [bde_indicators()]
@@ -83,23 +93,31 @@
 #'   pull(Nombre_de_la_serie) |>
 #'   bde_series_api_load(language = "en", time_range = "12M") |>
 #'   glimpse()
+#'
+#' # Extract metadata.
+#' xr |>
+#'   slice_head(n = 1) |>
+#'   pull(Nombre_de_la_serie) |>
+#'   bde_series_api_load(language = "en", time_range = "12M",
+#'                       extract_metadata = TRUE) |>
+#'   glimpse()
 #' }
 bde_series_api_latest <- function(
-  series_alias,
+  series_code,
   language = c("en", "es"),
   verbose = FALSE
 ) {
-  if (missing(series_alias)) {
-    cli::cli_abort("{.arg series_alias} cannot be missing.")
+  if (missing(series_code)) {
+    cli::cli_abort("{.arg series_code} cannot be missing.")
   }
   language <- match.arg(language)
 
-  series_alias <- trimws(as.character(series_alias))
-  # Drop invalid codes created by coercion.
-  series_alias <- series_alias[!is.na(series_alias)]
-  series_alias <- series_alias[nzchar(series_alias)]
+  series_code <- trimws(as.character(series_code))
+  # Drop invalid series codes created by coercion.
+  series_code <- series_code[!is.na(series_code)]
+  series_code <- series_code[nzchar(series_code)]
 
-  if (length(series_alias) == 0) {
+  if (length(series_code) == 0) {
     return(tibble::tibble())
   }
 
@@ -109,25 +127,25 @@ bde_series_api_latest <- function(
     "idioma=",
     language,
     "&series=",
-    paste0(series_alias, collapse = ",")
+    paste0(series_code, collapse = ",")
   )
 
   base_url <- utils::URLencode(base_url)
 
   # Try download.
   tmpjson <- tempfile("bdeapi_", fileext = ".json")
-  result <- bde_hlp_api_download(base_url, tmpjson, verbose)
+  result <- bde_hlp_download(base_url, tmpjson, verbose)
   if (isFALSE(result)) {
     unlink(tmpjson)
     s <- bde_hlp_return_null("Returning an empty tibble.")
     return(s)
   }
 
-  # Read json.
+  # Read JSON.
   api_res <- jsonlite::read_json(tmpjson)
 
   # Iterate over API errors.
-  n_series <- seq_along(series_alias)
+  n_series <- seq_along(series_code)
 
   ok_results <- vapply(
     n_series,
@@ -138,7 +156,7 @@ bde_series_api_latest <- function(
         cli::cli_alert_warning(
           c(
             "The query returned an error {.str {err_num}} ",
-            "for {.arg series_alias} {.str {series_alias[i]}}."
+            "for {.arg series_code} {.str {series_code[i]}}."
           )
         )
         cli::cli_alert_info("Value omitted from the results.")
@@ -175,37 +193,35 @@ bde_series_api_latest <- function(
 #' @export
 #' @encoding UTF-8
 bde_series_api_load <- function(
-  series_alias,
+  series_code,
   series_label = NULL,
   out_format = "wide",
-  parse_dates = TRUE,
   language = c("en", "es"),
   time_range = NULL,
   verbose = FALSE,
   extract_metadata = FALSE
 ) {
-  if (missing(series_alias)) {
-    cli::cli_abort("{.arg series_alias} cannot be missing.")
+  if (missing(series_code)) {
+    cli::cli_abort("{.arg series_code} cannot be missing.")
   }
   stopifnot(
-    is.logical(parse_dates),
     is.logical(verbose),
     is.logical(extract_metadata)
   )
   language <- match.arg(language)
   out_format <- match.arg(out_format, c("wide", "long"))
 
-  series_alias <- trimws(as.character(series_alias))
-  # Drop invalid codes created by coercion.
-  series_alias <- series_alias[!is.na(series_alias)]
-  series_alias <- series_alias[nzchar(series_alias)]
+  series_code <- trimws(as.character(series_code))
+  # Drop invalid series codes created by coercion.
+  series_code <- series_code[!is.na(series_code)]
+  series_code <- series_code[nzchar(series_code)]
 
-  if (length(series_alias) == 0) {
+  if (length(series_code) == 0) {
     return(tibble::tibble())
   }
 
   if (is.null(series_label)) {
-    series_label <- series_alias
+    series_label <- series_code
   }
   if (anyNA(series_label)) {
     cli::cli_abort("{.arg series_label} must not contain missing values.")
@@ -213,9 +229,9 @@ bde_series_api_load <- function(
 
   series_label <- unique(as.character(series_label))
 
-  if (length(series_alias) != length(series_label)) {
+  if (length(series_code) != length(series_label)) {
     cli::cli_abort(
-      "{.arg series_label} and {.arg series_alias} must have the same length."
+      "{.arg series_label} and {.arg series_code} must have the same length."
     )
   }
 
@@ -227,7 +243,7 @@ bde_series_api_load <- function(
   }
 
   bde_hlp_api_check_range(
-    series_alias = series_alias,
+    series_code = series_code,
     language = language,
     time_range = time_range,
     verbose = verbose
@@ -239,7 +255,7 @@ bde_series_api_load <- function(
     "idioma=",
     language,
     "&series=",
-    paste0(series_alias, collapse = ",")
+    paste0(series_code, collapse = ",")
   )
 
   if (!is.null(time_range)) {
@@ -250,88 +266,63 @@ bde_series_api_load <- function(
 
   # Try download.
   tmpjson <- tempfile("bdeapi_", fileext = ".json")
-  result <- bde_hlp_api_download(base_url, tmpjson, verbose)
+  result <- bde_hlp_download(base_url, tmpjson, verbose)
   if (isFALSE(result)) {
     unlink(tmpjson)
     s <- bde_hlp_return_null("Returning an empty tibble.")
     return(s)
   }
 
-  # Read json.
+  # Read JSON.
   api_res <- jsonlite::read_json(tmpjson)
 
-  if (length(api_res) == 0) {
-    return(tibble::tibble())
+  if (extract_metadata) {
+    meta <- lapply(api_res, function(x) {
+      no_list <- x[!vapply(x, is.list, FUN.VALUE = logical(1))]
+      tb <- dplyr::as_tibble(no_list)
+      tb$fechaInicio <- as.Date(tb$fechaInicio)
+      tb$fechaFin <- as.Date(tb$fechaFin)
+      info <- lapply(x$informacion, function(y) {
+        vals <- unlist(y, use.names = FALSE)
+        tb <- dplyr::tibble(value = vals[2])
+        names(tb) <- vals[1]
+        tb
+      })
+
+      dplyr::bind_cols(tb, info)
+    })
+    meta <- dplyr::bind_rows(meta)
+    return(dplyr::as_tibble(meta))
   }
 
-  # Iterate over API errors.
-  n_series <- seq_along(api_res)
+  iter <- seq_along(series_code)
 
-  ok_results <- vapply(
-    n_series,
-    function(i) {
-      err_num <- api_res[[i]]$errNum
+  df_list <- lapply(iter, function(i) {
+    f <- api_res[[i]]$fechas
+    v <- api_res[[i]]$valores
 
-      if (!is.null(err_num)) {
-        cli::cli_alert_warning(
-          c(
-            "The query returned an error {.str {err_num}} ",
-            "for {.arg series_alias} {.str {series_alias[i]}}."
-          )
-        )
-        cli::cli_alert_info("Value omitted from the results.")
-        return(FALSE)
+    # Replace NULL with NA.
+    v <- lapply(v, function(x) {
+      if (!is.null(x)) {
+        return(x)
       }
+      NA
+    })
 
-      TRUE
-    },
-    FUN.VALUE = logical(1)
-  )
-
-  if (!any(ok_results)) {
-    cli::cli_alert_warning("No valid results with query {.url {base_url}}.")
-    s <- bde_hlp_return_null("Returning an empty tibble.")
-    return(s)
-  }
-
-  api_res <- api_res[ok_results]
-
-  meta <- lapply(
-    api_res,
-    bde_hlp_api_metadata,
-    parse_dates = parse_dates
-  )
-  meta <- dplyr::bind_rows(meta)
-  i <- match(meta$serie, series_alias)
-  meta$serie_name <- as.character(series_label[i])
-  meta <- meta[c(
-    "serie",
-    "serie_name",
-    setdiff(names(meta), c("serie", "serie_name"))
-  )]
-
-  if (isTRUE(extract_metadata)) {
-    return(tibble::as_tibble(meta))
-  }
-
-  end <- lapply(seq_len(nrow(meta)), function(i) {
-    if (length(meta$fechas[[i]]) == 0) {
-      return(tibble::tibble())
-    }
-
-    tibble::tibble(
-      Date = meta$fechas[[i]],
-      serie_name = meta$serie_name[i],
-      serie_value = meta$valores[[i]]
+    tb_ind <- dplyr::tibble(
+      a = unlist(f),
+      b = rep(series_label[i], length(v)),
+      c = unlist(v)
     )
+    names(tb_ind) <- c("Date", "serie_name", "serie_value")
+    tb_ind
   })
 
-  end <- dplyr::bind_rows(end)
+  # Bind the successfully loaded series before final reshaping.
+  end <- dplyr::bind_rows(df_list)
+  end$Date <- as.Date(end$Date)
 
-  if (nrow(end) == 0) {
-    return(bde_hlp_return_null())
-  }
-
+  # Preserve the requested series order in plots.
   end$serie_name <- factor(end$serie_name, levels = unique(end$serie_name))
 
   if (out_format == "wide") {
@@ -349,14 +340,14 @@ bde_series_api_load <- function(
 
 #' Validate the Series List time range against each series frequency
 #'
-#' @param series_alias Character vector of series aliases.
+#' @param series_code Character vector of BdE series codes.
 #' @param language API language code.
 #' @param time_range API time range code.
 #' @param verbose Logical indicating whether to display informative messages.
 #'
 #' @noRd
 bde_hlp_api_check_range <- function(
-  series_alias,
+  series_code,
   language,
   time_range,
   verbose
@@ -373,7 +364,7 @@ bde_hlp_api_check_range <- function(
   )
 
   latest <- bde_series_api_latest(
-    series_alias = series_alias,
+    series_code = series_code,
     language = language,
     verbose = verbose
   )
@@ -400,11 +391,13 @@ bde_hlp_api_check_range <- function(
   if (any(invalid)) {
     invalid_series <- latest$serie[invalid] # nolint
     invalid_frequency <- unique(latest$codFrecuencia[invalid]) # nolint
+    ok_ranges <- unlist(allowed_ranges[invalid_frequency]) # nolint
     cli::cli_abort(
       c(
         paste0(
           "{.arg time_range} {.str {time_range}} is not valid for ",
-          "series frequency {.str {invalid_frequency}}."
+          "series frequency {.str {invalid_frequency}}. ",
+          "Use any of {.or {.str {ok_ranges}}}."
         ),
         "i" = "Invalid series: {.val {invalid_series}}."
       )
@@ -412,56 +405,4 @@ bde_hlp_api_check_range <- function(
   }
 
   invisible(TRUE)
-}
-
-#' Download from the BdE API with an API-specific timeout
-#'
-#' @param url Resource URL.
-#' @param local_file Local file path to create or overwrite.
-#' @param verbose Logical indicating whether to display informative messages.
-#'
-#' @noRd
-bde_hlp_api_download <- function(url, local_file, verbose) {
-  old_timeout <- getOption("timeout")
-  on.exit(options(timeout = old_timeout), add = TRUE)
-
-  timeout <- getOption("bde_api_timeout", 10)
-  options(timeout = min(old_timeout, timeout))
-
-  bde_hlp_download(url, local_file, verbose, retry = FALSE)
-}
-
-#' Normalize metadata from a single Series List API result
-#'
-#' @param result Parsed JSON object for one series.
-#' @param parse_dates Logical indicating whether to parse API dates.
-#'
-#' @noRd
-bde_hlp_api_metadata <- function(result, parse_dates = TRUE) {
-  info <- lapply(result$informacion, dplyr::as_tibble)
-  info <- dplyr::bind_rows(info)
-
-  fecha_inicio <- result$fechaInicio
-  fecha_fin <- result$fechaFin
-  fechas <- unlist(result$fechas)
-
-  if (isTRUE(parse_dates)) {
-    fecha_inicio <- as.Date(fecha_inicio)
-    fecha_fin <- as.Date(fecha_fin)
-    fechas <- as.Date(fechas)
-  }
-
-  tibble::tibble(
-    serie = result$serie,
-    descripcion = result$descripcion,
-    descripcionCorta = result$descripcionCorta,
-    codFrecuencia = result$codFrecuencia,
-    decimales = result$decimales,
-    simbolo = result$simbolo,
-    informacion = list(info),
-    fechaInicio = fecha_inicio,
-    fechaFin = fecha_fin,
-    fechas = list(fechas),
-    valores = list(unlist(result$valores))
-  )
 }

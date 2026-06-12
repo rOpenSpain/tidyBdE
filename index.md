@@ -29,7 +29,8 @@ bulk CSV files and the [Statistics web service
 (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
 Data are returned as [**tibble**](https://tibble.tidyverse.org/)
 objects. The package infers date, character and numeric fields where
-possible.
+possible. Bulk CSV helpers identify series with `Numero_secuencial`,
+while API helpers use `Nombre_de_la_serie` as the API series code.
 
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -122,7 +123,7 @@ English version.
 </div>
 
 After finding a time series, you can load the GBP/EUR exchange rate
-using the sequential number (`Numero_secuencial`):
+from bulk CSV files using the sequential number (`Numero_secuencial`):
 
 ``` r
 seq_number <- xr_gbp |>
@@ -263,5 +264,5 @@ A BibTeX entry for LaTeX users is:
       year = {2026},
       version = {0.6.1.9000},
       url = {https://ropenspain.github.io/tidyBdE/},
-      abstract = {Tools for retrieving time series data from Banco de España (BdE) bulk CSV files and the Statistics web service (API) as tibble objects. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by Banco de España.},
+      abstract = {Tools for retrieving time series data as tibble objects from Banco de España (BdE) bulk CSV files and the Statistics web service (API). Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by Banco de España.},
     }

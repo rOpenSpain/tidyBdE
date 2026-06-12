@@ -7,13 +7,12 @@
 \alias{bde_series_api_load}
 \title{Load BdE time series from the Statistics web service (API)}
 \usage{
-bde_series_api_latest(series_alias, language = c("en", "es"), verbose = FALSE)
+bde_series_api_latest(series_code, language = c("en", "es"), verbose = FALSE)
 
 bde_series_api_load(
-  series_alias,
+  series_code,
   series_label = NULL,
   out_format = "wide",
-  parse_dates = TRUE,
   language = c("en", "es"),
   time_range = NULL,
   verbose = FALSE,
@@ -21,9 +20,10 @@ bde_series_api_load(
 )
 }
 \arguments{
-\item{series_alias}{Character string or vector of time series aliases from
-the \code{Nombre_de_la_serie} field of the corresponding series. See
-\code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
+\item{series_code}{Character string or vector with BdE API series codes,
+taken from the \code{Nombre_de_la_serie} field of the corresponding catalog.
+This is the value passed to the API \code{series_list} parameter, not the
+numeric sequential number used by \code{\link[=bde_series_load]{bde_series_load()}}.}
 
 \item{language}{Character string. It can take the values \code{"es"} or \code{"en"} to
 obtain results in Spanish or English, respectively.}
@@ -36,14 +36,12 @@ to the extracted series.}
 \item{out_format}{The format to return, either \code{"wide"} or \code{"long"}. See
 \strong{Value} for details and the \strong{Examples} section.}
 
-\item{parse_dates}{Logical. If \code{TRUE}, date columns are parsed with
-\code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
-
 \item{time_range}{Character string. Optional annual range or API range code.
 It can be a year, such as \code{"2024"}, or a range code such as \code{"3M"},
 \code{"12M"}, \code{"30M"}, \code{"36M"}, \code{"60M"} or \code{"MAX"}. If \code{NULL}, the API returns
 the smallest range for the series frequency. Range codes are validated
-against the frequency returned by \code{\link[=bde_series_api_latest]{bde_series_api_latest()}}.}
+against the frequency returned by \code{\link[=bde_series_api_latest]{bde_series_api_latest()}}. See
+\strong{Details}.}
 
 \item{extract_metadata}{Logical. If \code{TRUE}, the output is the metadata of the
 requested series.}
@@ -55,10 +53,11 @@ Latest Data request such as \code{serie}, \code{descripcionCorta}, \code{codFrec
 \code{decimales}, \code{simbolo}, \code{tendencia}, \code{fechaValor} and \code{valor}.
 
 \code{bde_series_api_load()} returns a \link[tibble:tbl_df]{tibble}. When
-\code{extract_metadata = FALSE}, it returns observations in wide or long format
-according to \code{out_format}. When \code{extract_metadata = TRUE}, it returns one row
-per valid series with fields returned by the Series List request, including
-list columns for \code{informacion}, \code{fechas} and \code{valores}.
+\code{extract_metadata = FALSE}, API dates are parsed as \code{\link[=as.Date]{Date}}
+values and observations are returned in wide or long format according to
+\code{out_format}. When \code{extract_metadata = TRUE}, it returns one row per valid
+series with fields returned by the Series List request, including
+\code{fechaInicio}, \code{fechaFin} and metadata fields derived from \code{informacion}.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
@@ -74,16 +73,23 @@ Data request to obtain the latest published observation for one or more
 series. \code{\link[=bde_series_api_load]{bde_series_api_load()}} uses the Series List request to obtain the
 details of one or more complete series and their metadata.
 
-This API service uses the series alias as the identifier (see
-\code{vignette("csv_manual", package = "tidyBdE")}). The series alias is a
-positional code showing the location (column and/or row) of the series in
-the table. However, although it is unique, it is not a good candidate to be
-used as the series ID because it is subject to change.
-\itemize{
-\item If a series changes position in the table, its alias will also change.
-\item If a new series is inserted into a table, all the aliases that come after
-it will change and will not represent the same series.
+The API uses BdE series codes as identifiers. In this package, pass those
+codes through \code{series_code}. They are available in the \code{Nombre_de_la_serie}
+field of \code{\link[=bde_catalog_load]{bde_catalog_load()}} and correspond to the API \code{series_list}
+parameter. This is different from the numeric sequential number
+(\verb{Número secuencial}) used by \code{\link[=bde_series_load]{bde_series_load()}} for bulk CSV files.
 }
+\details{
+\code{time_range} allowed values based on the frequency of the series are:
+\itemize{
+\item Daily frequency (\code{D}): \code{"3M"} (last 3 months), \code{"12M"} and \code{"36M"}.
+\item Monthly frequency (\code{M}): \code{"30M"}, \code{"60M"} and \code{"MAX"} (entire series).
+\item Quarterly frequency (\code{Q}): \code{"30M"}, \code{"60M"} and \code{"MAX"}.
+\item Annual frequency (\code{A}): \code{"60M"} and \code{"MAX"}.
+}
+
+If \code{time_range} is not specified, the request returns the smallest range for
+the series frequency. For example, monthly series return \code{"30M"}.
 }
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
@@ -103,6 +109,14 @@ xr |>
   slice_head(n = 1) |>
   pull(Nombre_de_la_serie) |>
   bde_series_api_load(language = "en", time_range = "12M") |>
+  glimpse()
+
+# Extract metadata.
+xr |>
+  slice_head(n = 1) |>
+  pull(Nombre_de_la_serie) |>
+  bde_series_api_load(language = "en", time_range = "12M",
+                      extract_metadata = TRUE) |>
   glimpse()
 }
 \dontshow{\}) # examplesIf}

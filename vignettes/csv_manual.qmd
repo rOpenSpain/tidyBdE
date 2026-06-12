@@ -156,7 +156,7 @@ Where:
     horizontal tables.
 -   `f`: row number in double-entry tables.
 
-The series alias is unique but should not be used as the series ID
+Each alias is unique but should not be used as a stable series identifier
 because it may change whenever a table is reorganized.
 
 **Número secuencial (sequential number)**
@@ -165,10 +165,12 @@ Series aliases are positional and may change when tables are reorganized. To
 ensure series can always be identified, a sequential number is
 assigned to each series and remains unchanged throughout its lifetime.
 
-**Nombre de la serie/Código de la serie (series name/series code)**
+**Nombre de la serie/Código de la serie (series code)**
 
-The series code or ID in the Banco de España databases. It is a unique and
-invariable identifier.
+The BdE series code in the Banco de España databases. It is unique and
+invariable. In **tidyBdE**, this field is passed through the `series_code`
+argument of the Statistics web service (API) helpers and corresponds to the API
+`series_list` parameter.
 
 **Nombre del archivo con los valores de la serie (name of the file containing
 the series values)**
@@ -278,8 +280,8 @@ lines with the source and notes.
 The six header lines contain:
 
 1.  Series aliases.
-2.  Sequential codes.
-3.  Series code or ID.
+2.  Sequential numbers.
+3.  Series code.
 4.  Series description.
 5.  Description of units.
 6.  Frequency.

@@ -19,8 +19,9 @@ knitr:
 This table lists time series available in the catalog. Last updated:
 **`r format(Sys.Date(), "%d-%B-%Y")`**.
 
-Use the sequential number (`Numero_secuencial`) to load a time series, as shown
-in the example.
+Use the sequential number (`Numero_secuencial`) to load a time series from bulk
+CSV files, as shown in the example. Use `Nombre_de_la_serie` as the API series
+code for Statistics web service (API) helpers.
 
 ## Summary
 

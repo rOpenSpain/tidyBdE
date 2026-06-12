@@ -18,9 +18,10 @@ bde_series_load(
 )
 }
 \arguments{
-\item{series_code}{Numeric vector of sequential numbers, or values coercible
-with \code{\link[base:as.double]{base::as.double()}}, from the \verb{Número secuencial} field of the
-corresponding series. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
+\item{series_code}{Numeric vector of BdE sequential numbers, or values
+coercible with \code{\link[base:as.double]{base::as.double()}}, from the \verb{Número secuencial} field of
+the corresponding series. This is not the API series code. See
+\code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 
 \item{series_label}{Optional character string or vector of labels to assign
 to the extracted series.}
@@ -51,7 +52,7 @@ A \link[tibble:tbl_df]{tibble} with a \code{Date} column:
 \item With \code{out_format = "wide"}, each series is presented in a separate column
 with the name defined by \code{series_label}.
 \item With \code{out_format = "long"}, the tibble has two additional columns:
-\code{serie_name}, with the label of each series, and \code{serie_value}, with the
+\code{serie_name}, with the label of each series and \code{serie_value}, with the
 corresponding value.
 }
 
@@ -69,8 +70,10 @@ The series alias is a positional code showing the location (column and/or
 row) of the series in the table. Although it is unique, it is not stable
 enough to identify a time series because it may change when the series moves.
 
-To ensure series can still be identified after these changes, they are
-assigned a sequential number, referred to as \code{series_code} in this function.
+For bulk CSV files, BdE also assigns each series a stable sequential number
+(\verb{Número secuencial}). This function uses that sequential number through
+\code{series_code}, not the API series code used by the Statistics web service
+(API) helpers.
 
 A single time series may appear in different tables, so it can have several
 aliases. If you need to search by alias, use \code{\link[=bde_series_full_load]{bde_series_full_load()}}.

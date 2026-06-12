@@ -7,15 +7,18 @@
 #' row) of the series in the table. Although it is unique, it is not stable
 #' enough to identify a time series because it may change when the series moves.
 #'
-#' To ensure series can still be identified after these changes, they are
-#' assigned a sequential number, referred to as `series_code` in this function.
+#' For bulk CSV files, BdE also assigns each series a stable sequential number
+#' (`Número secuencial`). This function uses that sequential number through
+#' `series_code`, not the API series code used by the Statistics web service
+#' (API) helpers.
 #'
 #' A single time series may appear in different tables, so it can have several
 #' aliases. If you need to search by alias, use [bde_series_full_load()].
 #'
-#' @param series_code Numeric vector of sequential numbers, or values coercible
-#'   with [base::as.double()], from the `Número secuencial` field of the
-#'   corresponding series. See [bde_catalog_load()].
+#' @param series_code Numeric vector of BdE sequential numbers, or values
+#'   coercible with [base::as.double()], from the `Número secuencial` field of
+#'   the corresponding series. This is not the API series code. See
+#'   [bde_catalog_load()].
 #' @param series_label Optional character string or vector of labels to assign
 #'   to the extracted series.
 #' @param out_format The format to return, either `"wide"` or `"long"`. See
@@ -27,7 +30,7 @@
 #' - With `out_format = "wide"`, each series is presented in a separate column
 #'   with the name defined by `series_label`.
 #' - With `out_format = "long"`, the tibble has two additional columns:
-#'   `serie_name`, with the label of each series, and `serie_value`, with the
+#'   `serie_name`, with the label of each series and `serie_value`, with the
 #'   corresponding value.
 #'
 #' `"wide"` format is more suitable for exporting to a `.csv` file, while
