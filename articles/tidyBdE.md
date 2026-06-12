@@ -1,10 +1,14 @@
 # Get started with tidyBdE
 
-**tidyBdE** is an **R** package that retrieves data from [Banco de
-España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
+**tidyBdE** is an **R** package that retrieves time series data from
+[Banco de
+España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html)
+bulk CSV files and the [Statistics web service
+(API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
 Data are returned as [**tibble**](https://tibble.tidyverse.org/)
-objects. The package automatically detects the format of each time
-series field, including dates, character fields and numeric fields.
+objects. The package infers date, character and numeric fields where
+possible. Bulk CSV helpers identify series with `Numero_secuencial`,
+while API helpers use `Nombre_de_la_serie` as the API series code.
 
 ## Search time series
 
@@ -12,8 +16,8 @@ Banco de España (**BdE**) provides several time series, either produced
 by the institution or compiled from other sources, such as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
-The basic entry point for searching time series is the catalog. You can
-search for time series by name:
+The basic entry point for discovering time series is the catalog. You
+can search for time series by name:
 
 ``` r
 
@@ -42,15 +46,15 @@ Table 1: Search results
 terms must be in Spanish to retrieve results. The institution is working
 on an English version.
 
-After finding a time series, load the GBP/EUR exchange rate using the
-sequential number reference (`Numero_secuencial`):
+After finding a time series, load the GBP/EUR exchange rate from bulk
+CSV files using the sequential number (`Numero_secuencial`):
 
 ``` r
 
 seq_number <- xr_gbp |>
   # Select the first record.
   slice(1) |>
-  # Get the series code.
+  # Get the sequential number.
   pull(Numero_secuencial) |>
   # Convert to numeric.
   as.double()
@@ -112,7 +116,8 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
 Figure 1: EUR/GBP Exchange Rate (2010-2020)
 
 The package also provides convenience functions for selected Spanish
-macroeconomic indicators, so you do not need to search manually:
+macroeconomic indicators, so you do not need to search for them
+manually:
 
 ``` r
 
@@ -162,5 +167,5 @@ bde_catalog_update()
 
 # Or use `update_cache = TRUE` in most functions.
 
-bde_series_load("SOME ID", update_cache = TRUE)
+bde_series_load(573214, update_cache = TRUE)
 ```

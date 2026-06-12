@@ -56,7 +56,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
-    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España CSV Time-Series Format</a></li>
+    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España CSV time series format</a></li>
     <li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic indicators</a></li>
     <li><a class="dropdown-item" href="../articles/seriesindex.html">Series index</a></li>
   </ul>
@@ -98,11 +98,11 @@
 
 
 
-    <!-- tidyBdE.qmd is generated from tidyBdE.qmd.orig. Please edit that file --><p><strong>tidyBdE</strong> is an <strong>R</strong> package that retrieves data from <a href="https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html" class="external-link">Banco de España</a>. Data are returned as <a href="https://tibble.tidyverse.org/" class="external-link"><strong>tibble</strong></a> objects. The package automatically detects the format of each time series field, including dates, character fields and numeric fields.</p>
+    <!-- tidyBdE.qmd is generated from tidyBdE.qmd.orig. Please edit that file --><p><strong>tidyBdE</strong> is an <strong>R</strong> package that retrieves time series data from <a href="https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html" class="external-link">Banco de España</a> bulk CSV files and the <a href="https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html" class="external-link">Statistics web service (API)</a>. Data are returned as <a href="https://tibble.tidyverse.org/" class="external-link"><strong>tibble</strong></a> objects. The package infers date, character and numeric fields where possible. Bulk CSV helpers identify series with <code>Numero_secuencial</code>, while API helpers use <code>Nombre_de_la_serie</code> as the API series code.</p>
 <section class="level2"><h2 id="search-time-series">Search time series<a class="anchor" aria-label="anchor" href="#search-time-series"></a>
 </h2>
 <p>Banco de España (<strong>BdE</strong>) provides several time series, either produced by the institution or compiled from other sources, such as <a href="https://ec.europa.eu/eurostat" class="external-link">Eurostat</a> or <a href="https://www.ine.es/" class="external-link">INE</a>.</p>
-<p>The basic entry point for searching time series is the catalog. You can search for time series by name:</p>
+<p>The basic entry point for discovering time series is the catalog. You can search for time series by name:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropenspain.github.io/tidyBdE/">tidyBdE</a></span><span class="op">)</span></span>
 <span></span>
@@ -121,8 +121,8 @@
 <figure class="quarto-float quarto-float-tbl"><div aria-describedby="tbl-search-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 21%">
+<col style="width: 78%">
 </colgroup>
 <thead><tr class="header">
 <th style="text-align: right;">Numero_secuencial</th>
@@ -139,12 +139,12 @@ Table 1: Search results
 </figcaption></figure>
 </div>
 <p><strong>Note:</strong> BdE metadata is currently available in Spanish only, so search terms must be in Spanish to retrieve results. The institution is working on an English version.</p>
-<p>After finding a time series, load the GBP/EUR exchange rate using the sequential number reference (<code>Numero_secuencial</code>):</p>
+<p>After finding a time series, load the GBP/EUR exchange rate from bulk CSV files using the sequential number (<code>Numero_secuencial</code>):</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">seq_number</span> <span class="op">&lt;-</span> <span class="va">xr_gbp</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># Select the first record.</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="co"># Get the series code.</span></span>
+<span>  <span class="co"># Get the sequential number.</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">Numero_secuencial</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># Convert to numeric.</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/double.html" class="external-link">as.double</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -195,13 +195,11 @@ Table 1: Search results
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html" class="external-link">coord_cartesian</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_tidybde.html">theme_tidybde</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<p><img src="./chart-1.png" alt="Figure 1: EUR/GBP Exchange Rate (2010-2020)" width="100%"></p>
-<p class="caption">
+<img src="./chart-1.png" alt="Figure 1: EUR/GBP Exchange Rate (2010-2020)" width="100%"><p class="caption">
+Figure 1: EUR/GBP Exchange Rate (2010-2020)
 </p>
-<p>Figure 1: EUR/GBP Exchange Rate (2010-2020)</p>
-<p></p>
 </div>
-<p>The package also provides convenience functions for selected Spanish macroeconomic indicators, so you do not need to search manually:</p>
+<p>The package also provides convenience functions for selected Spanish macroeconomic indicators, so you do not need to search for them manually:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Data in long format.</span></span>
 <span></span>
@@ -222,11 +220,9 @@ Table 1: Search results
 <span>  <span class="fu"><a href="../reference/theme_tidybde.html">theme_tidybde</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/scales_bde.html">scale_color_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_vivid_pal"</span><span class="op">)</span> <span class="co"># Use a custom package palette.</span></span></code></pre></div>
 <div class="figure">
-<p><img src="./macroseries-1.png" alt="Figure 2: Spanish Economic Indicators (2010-2019)" width="100%"></p>
-<p class="caption">
+<img src="./macroseries-1.png" alt="Figure 2: Spanish Economic Indicators (2010-2019)" width="100%"><p class="caption">
+Figure 2: Spanish Economic Indicators (2010-2019)
 </p>
-<p>Figure 2: Spanish Economic Indicators (2010-2019)</p>
-<p></p>
 </div>
 </section><section class="level2"><h2 id="a-note-on-caching">A note on caching<a class="anchor" aria-label="anchor" href="#a-note-on-caching"></a>
 </h2>
@@ -240,7 +236,7 @@ Table 1: Search results
 <span></span>
 <span><span class="co"># Or use `update_cache = TRUE` in most functions.</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span><span class="st">"SOME ID"</span>, update_cache <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/bde_series_load.html">bde_series_load</a></span><span class="op">(</span><span class="fl">573214</span>, update_cache <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </section><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);

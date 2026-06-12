@@ -13,7 +13,16 @@
   `devtools:::test_coverage()`.
 - New vignette
   [`vignette("csv_manual", package = "tidyBdE")`](https://ropenspain.github.io/tidyBdE/articles/csv_manual.md)
-  explaining the structure of the CSV files provided by BdE.
+  explaining the structure of Banco de España bulk CSV files and catalog
+  identifiers.
+- [`bde_series_api_latest()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
+  added to query the Latest Data request of the Banco de España
+  [Statistics web service
+  (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
+- [`bde_series_api_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
+  added to query the Series List request of the Banco de España
+  Statistics web service (API), with support for wide and long output,
+  metadata extraction and time range validation.
 
 ## tidyBdE 0.6.1
 
@@ -30,7 +39,7 @@ CRAN release: 2026-05-21
 CRAN release: 2026-03-23
 
 - Migrate vignettes to Quarto.
-- Update the series code used by
+- Update the sequential number used by
   [`bde_ind_cpi_var()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
   (see
   [`?bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md)).
@@ -49,7 +58,7 @@ CRAN release: 2025-06-22
 - [`?bde_indicators`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
   is now based on data from the new
   [`?bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md)
-  database, which clarifies the underlying series codes and makes
+  database, which clarifies the underlying sequential numbers and makes
   maintenance easier.
 
 ## tidyBdE 0.3.8
@@ -157,7 +166,7 @@ CRAN release: 2022-08-13
 
 CRAN release: 2022-02-23
 
-- Update the series code used by
+- Update the sequential number used by
   [`bde_ind_cpi_var()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md).
 
 ## tidyBdE 0.2.3
@@ -177,7 +186,7 @@ CRAN release: 2021-10-29
   [`?bde_indicators`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
   are likely to break during the transition. So far,
   [`bde_ind_euribor_12m_monthly()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
-  has been updated to use the new series code `587853`. See
+  has been updated to use the new sequential number `587853`. See
   <https://www.bde.es/wbe/en/estadisticas/>.
 - Update documentation and examples.
 

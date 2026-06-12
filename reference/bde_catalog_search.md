@@ -61,7 +61,7 @@ expressions](https://rdrr.io/r/base/regex.html) to broaden the search.
 ## See also
 
 [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md),
-[base::regex](https://rdrr.io/r/base/regex.html)
+[`base::regex()`](https://rdrr.io/r/base/regex.html)
 
 Other catalog:
 [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md),

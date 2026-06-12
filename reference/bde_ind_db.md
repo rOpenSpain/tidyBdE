@@ -19,7 +19,7 @@ A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) of
 
 - Numero_secuencial:
 
-  Series code. See
+  Sequential number. See
   [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md).
 
 - Descripcion_de_la_serie:

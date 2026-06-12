@@ -27,7 +27,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
-    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España CSV Time-Series Format</a></li>
+    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España CSV time series format</a></li>
     <li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic indicators</a></li>
     <li><a class="dropdown-item" href="../articles/seriesindex.html">Series index</a></li>
   </ul></li>
@@ -58,7 +58,11 @@
 <li>Messages and package errors now use <strong>cli</strong>, with AI-assisted wording updates and without the former <code>tidyBdE&gt;</code> prefix.</li>
 <li>Roxygen2 documentation was reviewed with AI assistance and tag order was made consistent across source files.</li>
 <li>Tests were refactored and expanded with local fixtures, mocks and snapshot updates, reaching 100% line coverage in <code>devtools:::test_coverage()</code>.</li>
-<li>New vignette <code><a href="../articles/csv_manual.html">vignette("csv_manual", package = "tidyBdE")</a></code> explaining the structure of the CSV files provided by BdE.</li>
+<li>New vignette <code><a href="../articles/csv_manual.html">vignette("csv_manual", package = "tidyBdE")</a></code> explaining the structure of Banco de España bulk CSV files and catalog identifiers.</li>
+<li>
+<code><a href="../reference/bde_series_api.html">bde_series_api_latest()</a></code> added to query the Latest Data request of the Banco de España <a href="https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html" class="external-link">Statistics web service (API)</a>.</li>
+<li>
+<code><a href="../reference/bde_series_api.html">bde_series_api_load()</a></code> added to query the Series List request of the Banco de España Statistics web service (API), with support for wide and long output, metadata extraction and time range validation.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.1" id="tidybde-061">tidyBdE 0.6.1<a class="anchor" aria-label="anchor" href="#tidybde-061"></a></h2><p class="text-muted">CRAN release: 2026-05-21</p>
@@ -68,7 +72,7 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.0" id="tidybde-060">tidyBdE 0.6.0<a class="anchor" aria-label="anchor" href="#tidybde-060"></a></h2><p class="text-muted">CRAN release: 2026-03-23</p>
 <ul><li>Migrate vignettes to Quarto.</li>
-<li>Update the series code used by <code><a href="../reference/bde_indicators.html">bde_ind_cpi_var()</a></code> (see <code><a href="../reference/bde_ind_db.html">?bde_ind_db</a></code>).</li>
+<li>Update the sequential number used by <code><a href="../reference/bde_indicators.html">bde_ind_cpi_var()</a></code> (see <code><a href="../reference/bde_ind_db.html">?bde_ind_db</a></code>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5.0" id="tidybde-050">tidyBdE 0.5.0<a class="anchor" aria-label="anchor" href="#tidybde-050"></a></h2><p class="text-muted">CRAN release: 2026-01-13</p>
@@ -78,7 +82,7 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.0" id="tidybde-040">tidyBdE 0.4.0<a class="anchor" aria-label="anchor" href="#tidybde-040"></a></h2><p class="text-muted">CRAN release: 2025-06-22</p>
 <ul><li>
-<code><a href="../reference/bde_indicators.html">?bde_indicators</a></code> is now based on data from the new <code><a href="../reference/bde_ind_db.html">?bde_ind_db</a></code> database, which clarifies the underlying series codes and makes maintenance easier.</li>
+<code><a href="../reference/bde_indicators.html">?bde_indicators</a></code> is now based on data from the new <code><a href="../reference/bde_ind_db.html">?bde_ind_db</a></code> database, which clarifies the underlying sequential numbers and makes maintenance easier.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.8" id="tidybde-038">tidyBdE 0.3.8<a class="anchor" aria-label="anchor" href="#tidybde-038"></a></h2><p class="text-muted">CRAN release: 2024-12-20</p>
@@ -136,7 +140,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.4" id="tidybde-024">tidyBdE 0.2.4<a class="anchor" aria-label="anchor" href="#tidybde-024"></a></h2><p class="text-muted">CRAN release: 2022-02-23</p>
-<ul><li>Update the series code used by <code><a href="../reference/bde_indicators.html">bde_ind_cpi_var()</a></code>.</li>
+<ul><li>Update the sequential number used by <code><a href="../reference/bde_indicators.html">bde_ind_cpi_var()</a></code>.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.3" id="tidybde-023">tidyBdE 0.2.3<a class="anchor" aria-label="anchor" href="#tidybde-023"></a></h2><p class="text-muted">CRAN release: 2022-01-19</p>
@@ -144,7 +148,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.2" id="tidybde-022">tidyBdE 0.2.2<a class="anchor" aria-label="anchor" href="#tidybde-022"></a></h2><p class="text-muted">CRAN release: 2021-10-29</p>
-<ul><li>BdE started migrating “Indicadores Económicos” (Economic Indicators) series to the Statistical Bulletin. Some series in <code><a href="../reference/bde_indicators.html">?bde_indicators</a></code> are likely to break during the transition. So far, <code><a href="../reference/bde_indicators.html">bde_ind_euribor_12m_monthly()</a></code> has been updated to use the new series code <code>587853</code>. See <a href="https://www.bde.es/wbe/en/estadisticas/" class="external-link uri">https://www.bde.es/wbe/en/estadisticas/</a>.</li>
+<ul><li>BdE started migrating “Indicadores Económicos” (Economic Indicators) series to the Statistical Bulletin. Some series in <code><a href="../reference/bde_indicators.html">?bde_indicators</a></code> are likely to break during the transition. So far, <code><a href="../reference/bde_indicators.html">bde_ind_euribor_12m_monthly()</a></code> has been updated to use the new sequential number <code>587853</code>. See <a href="https://www.bde.es/wbe/en/estadisticas/" class="external-link uri">https://www.bde.es/wbe/en/estadisticas/</a>.</li>
 <li>Update documentation and examples.</li>
 </ul></div>
     <div class="section level2">

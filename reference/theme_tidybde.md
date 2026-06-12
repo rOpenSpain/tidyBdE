@@ -66,14 +66,6 @@ Other bde_plot:
 # \donttest{
 library(ggplot2)
 library(dplyr)
-#> 
-#> Attaching package: ‘dplyr’
-#> The following objects are masked from ‘package:stats’:
-#> 
-#>     filter, lag
-#> The following objects are masked from ‘package:base’:
-#> 
-#>     intersect, setdiff, setequal, union
 library(tidyr)
 
 series_TC <- bde_series_full_load("TC_1_1.csv")

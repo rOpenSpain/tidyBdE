@@ -1,8 +1,10 @@
 # tidyBdE: Retrieve Time Series Data from 'Banco de España'
 
-Tools for retrieving time series data from 'Banco de España' ('BdE') as
-'tibble' objects. 'Banco de España' is the national central bank and,
-within the framework of the Single Supervisory Mechanism ('SSM'), the
+Tools for retrieving time series data as 'tibble' objects from 'Banco de
+España' ('BdE') bulk CSV files and the 'Statistics web service (API)'.
+Bulk CSV helpers use BdE sequential numbers and API helpers use BdE
+series codes. 'Banco de España' is the national central bank and, within
+the framework of the Single Supervisory Mechanism ('SSM'), the
 supervisor of the Spanish banking system alongside the European Central
 Bank. This package is not sponsored, endorsed or administered by 'Banco
 de España'.

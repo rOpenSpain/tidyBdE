@@ -1,10 +1,10 @@
-# Load BdE full time series files
+# Load full BdE time series files
 
 Load a full BdE time series file.
 
 ### About BdE file naming
 
-The series name is a positional code showing the location of the table.
+The series alias is a positional code showing the location of the table.
 For example, table **be_6_1** represents Table 1, Chapter 6 of the
 Statistical Bulletin ("BE"). Although it is unique, it is subject to
 change, for example when a new table is inserted before it.
@@ -83,6 +83,7 @@ the default behavior with `parse_numeric = FALSE`.
 ## See also
 
 Other series:
+[`bde_series_api`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md),
 [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_load.md)
 
 ## Examples

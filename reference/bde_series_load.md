@@ -7,9 +7,10 @@ and/or row) of the series in the table. Although it is unique, it is not
 stable enough to identify a time series because it may change when the
 series moves.
 
-To ensure series can still be identified after these changes, they are
-assigned a sequential number, referred to as `series_code` in this
-function.
+For bulk CSV files, BdE also assigns each series a stable sequential
+number (`Número secuencial`). This function uses that sequential number
+through `series_code`, not the API series code used by the Statistics
+web service (API) helpers.
 
 A single time series may appear in different tables, so it can have
 several aliases. If you need to search by alias, use
@@ -35,10 +36,10 @@ bde_series_load(
 
 - series_code:
 
-  Numeric value, value coercible with
-  [`base::as.double()`](https://rdrr.io/r/base/double.html), or vector
-  of time series codes from the `Número secuencial` field of the
-  corresponding series. See
+  Numeric vector of BdE sequential numbers, or values coercible with
+  [`base::as.double()`](https://rdrr.io/r/base/double.html), from the
+  `Número secuencial` field of the corresponding series. This is not the
+  API series code. See
   [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalog_load.md).
 
 - series_label:
@@ -88,7 +89,7 @@ with a `Date` column:
   column with the name defined by `series_label`.
 
 - With `out_format = "long"`, the tibble has two additional columns:
-  `serie_name`, with the label of each series, and `serie_value`, with
+  `serie_name`, with the label of each series and `serie_value`, with
   the corresponding value.
 
 `"wide"` format is more suitable for exporting to a `.csv` file, while
@@ -115,6 +116,7 @@ series, a warning may be displayed if the parsing fails.
 [`bde_indicators()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
 
 Other series:
+[`bde_series_api`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md),
 [`bde_series_full_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_full_load.md)
 
 ## Examples
@@ -123,7 +125,7 @@ Other series:
 # \donttest{
 # Show metadata.
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmptZNIjE.
+#> ℹ Using temporary cache directory /tmp/RtmpRlLDJp.
 #> ✔ Using cached catalog "BE".
 #> ✔ Using cached catalog "SI".
 #> ✔ Using cached catalog "TC".
@@ -132,7 +134,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> ℹ Parsing date columns.
 #> ℹ Extracting series 573234.
 #> ℹ Downloading series 573234 from file TC_1_1.csv (alias "TC_1_1.1").
-#> ℹ Using temporary cache directory /tmp/RtmptZNIjE/TC.
+#> ℹ Using temporary cache directory /tmp/RtmpRlLDJp/TC.
 #> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv>.
 #> # A tibble: 6 × 2
 #>   Date                        `573234`                                          

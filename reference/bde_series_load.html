@@ -3,15 +3,19 @@
 The series alias is a positional code showing the location (column and/or
 row) of the series in the table. Although it is unique, it is not stable
 enough to identify a time series because it may change when the series moves.
-To ensure series can still be identified after these changes, they are
-assigned a sequential number, referred to as series_code in this function.
+For bulk CSV files, BdE also assigns each series a stable sequential number
+(Número secuencial). This function uses that sequential number through
+series_code, not the API series code used by the Statistics web service
+(API) helpers.
 A single time series may appear in different tables, so it can have several
 aliases. If you need to search by alias, use bde_series_full_load()."><meta property="og:description" content="Load a single BdE time series.
 The series alias is a positional code showing the location (column and/or
 row) of the series in the table. Although it is unique, it is not stable
 enough to identify a time series because it may change when the series moves.
-To ensure series can still be identified after these changes, they are
-assigned a sequential number, referred to as series_code in this function.
+For bulk CSV files, BdE also assigns each series a stable sequential number
+(Número secuencial). This function uses that sequential number through
+series_code, not the API series code used by the Statistics web service
+(API) helpers.
 A single time series may appear in different tables, so it can have several
 aliases. If you need to search by alias, use bde_series_full_load()."><meta property="og:image" content="https://ropenspain.github.io/tidyBdE/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@rOpenSpain"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-CW2RTVRRVF"></script><script>
   window.dataLayer = window.dataLayer || [];
@@ -41,7 +45,7 @@ aliases. If you need to search by alias, use bde_series_full_load()."><meta prop
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
-    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España CSV Time-Series Format</a></li>
+    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España CSV time series format</a></li>
     <li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic indicators</a></li>
     <li><a class="dropdown-item" href="../articles/seriesindex.html">Series index</a></li>
   </ul></li>
@@ -72,8 +76,10 @@ aliases. If you need to search by alias, use bde_series_full_load()."><meta prop
 <p>The series alias is a positional code showing the location (column and/or
 row) of the series in the table. Although it is unique, it is not stable
 enough to identify a time series because it may change when the series moves.</p>
-<p>To ensure series can still be identified after these changes, they are
-assigned a sequential number, referred to as <code>series_code</code> in this function.</p>
+<p>For bulk CSV files, BdE also assigns each series a stable sequential number
+(<code>Número secuencial</code>). This function uses that sequential number through
+<code>series_code</code>, not the API series code used by the Statistics web service
+(API) helpers.</p>
 <p>A single time series may appear in different tables, so it can have several
 aliases. If you need to search by alias, use <code><a href="bde_series_full_load.html">bde_series_full_load()</a></code>.</p>
     </div>
@@ -98,9 +104,10 @@ aliases. If you need to search by alias, use <code><a href="bde_series_full_load
 
 
 <dl><dt id="arg-series-code">series_code<a class="anchor" aria-label="anchor" href="#arg-series-code"></a></dt>
-<dd><p>Numeric value, value coercible with <code><a href="https://rdrr.io/r/base/double.html" class="external-link">base::as.double()</a></code>,
-or vector of time series codes from the <code>Número secuencial</code> field of the
-corresponding series. See <code><a href="bde_catalog_load.html">bde_catalog_load()</a></code>.</p></dd>
+<dd><p>Numeric vector of BdE sequential numbers, or values
+coercible with <code><a href="https://rdrr.io/r/base/double.html" class="external-link">base::as.double()</a></code>, from the <code>Número secuencial</code> field of
+the corresponding series. This is not the API series code. See
+<code><a href="bde_catalog_load.html">bde_catalog_load()</a></code>.</p></dd>
 
 
 <dt id="arg-series-label">series_label<a class="anchor" aria-label="anchor" href="#arg-series-label"></a></dt>
@@ -147,7 +154,7 @@ requested series.</p></dd>
     <p>A <a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble</a> with a <code>Date</code> column:</p><ul><li><p>With <code>out_format = "wide"</code>, each series is presented in a separate column
 with the name defined by <code>series_label</code>.</p></li>
 <li><p>With <code>out_format = "long"</code>, the tibble has two additional columns:
-<code>serie_name</code>, with the label of each series, and <code>serie_value</code>, with the
+<code>serie_name</code>, with the label of each series and <code>serie_value</code>, with the
 corresponding value.</p></li>
 </ul><p><code>"wide"</code> format is more suitable for exporting to a <code>.csv</code> file, while
 <code>"long"</code> format is more suitable for creating plots using
@@ -162,9 +169,10 @@ series, a warning may be displayed if the parsing fails.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="bde_catalog_load.html">bde_catalog_load()</a></code>,
-<code><a href="bde_catalog_search.html">bde_catalog_search()</a></code>, <code><a href="bde_indicators.html">bde_indicators()</a></code></p>
+    <div class="dont-index"><p><code><a href="bde_catalog_load.html">bde_catalog_load()</a></code>, <code><a href="bde_catalog_search.html">bde_catalog_search()</a></code>,
+<code><a href="bde_indicators.html">bde_indicators()</a></code></p>
 <p>Other series:
+<code><a href="bde_series_api.html">bde_series_api</a></code>,
 <code><a href="bde_series_full_load.html">bde_series_full_load()</a></code></p></div>
     </div>
 
@@ -173,7 +181,7 @@ series, a warning may be displayed if the parsing fails.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># Show metadata.</span></span></span>
 <span class="r-in"><span><span class="fu">bde_series_load</span><span class="op">(</span><span class="fl">573234</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>, extract_metadata <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/RtmptZNIjE</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/RtmpRlLDJp</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Using cached catalog <span style="color: #0000BB;">"BE"</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Using cached catalog <span style="color: #0000BB;">"SI"</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Using cached catalog <span style="color: #0000BB;">"TC"</span>.</span>
@@ -182,7 +190,7 @@ series, a warning may be displayed if the parsing fails.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Parsing date columns.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Extracting series <span style="color: #0000BB;">573234</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading series <span style="color: #0000BB;">573234</span> from file <span style="color: #0000BB;">TC_1_1.csv</span> (alias <span style="color: #0000BB;">"TC_1_1.1"</span>).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/RtmptZNIjE/TC</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/RtmpRlLDJp/TC</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading file from <span style="color: #0000BB; font-style: italic;">&lt;https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv&gt;</span>.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Date                        `573234`                                          </span>
