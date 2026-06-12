@@ -55,7 +55,7 @@ bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[=bde_catalog_load]{bde_catalog_load()}}, \link[base:regex]{base::regex}
+\code{\link[=bde_catalog_load]{bde_catalog_load()}}, \code{\link[base:regex]{base::regex()}}
 
 Other catalog:
 \code{\link[=bde_catalog_load]{bde_catalog_load()}},

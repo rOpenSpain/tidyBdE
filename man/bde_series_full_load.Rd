@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{bde_series_full_load}
 \alias{bde_series_full_load}
-\title{Load BdE full time series files}
+\title{Load full BdE time series files}
 \usage{
 bde_series_full_load(
   series_csv,
@@ -46,7 +46,7 @@ series fields as described in the catalogs. See \code{\link[=bde_catalog_load]{b
 Load a full BdE time series file.
 \subsection{About BdE file naming}{
 
-The series name is a positional code showing the location of the table. For
+The series alias is a positional code showing the location of the table. For
 example, table \strong{be_6_1} represents Table 1, Chapter 6 of the Statistical
 Bulletin ("BE"). Although it is unique, it is subject to change, for
 example when a new table is inserted before it.
@@ -73,6 +73,7 @@ bde_series_full_load("TI_1_1.csv")
 }
 \seealso{
 Other series:
+\code{\link{bde_series_api}},
 \code{\link[=bde_series_load]{bde_series_load()}}
 }
 \concept{series}

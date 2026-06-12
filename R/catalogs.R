@@ -40,7 +40,6 @@
 #' A [tibble][tibble::tbl_df] with the requested catalog metadata. See
 #' `vignette("csv_manual", package = "tidyBdE")` for details.
 #'
-#'
 #' @source
 #'
 #' ```{r, echo=FALSE, results='asis'}
@@ -116,13 +115,12 @@ bde_catalog_load <- function(
     }
 
     # Reject empty files before encoding detection.
-    # nocov start
     r <- readLines(catalog_file, warn = FALSE, n = 1000)
     if (length(r) == 0) {
       cli::cli_alert_warning("File {.file {catalog_file}} is not valid.")
+      unlink(catalog_file)
       return(invisible())
     }
-    # nocov end
 
     enc <- readr::guess_encoding(catalog_file)[[1]][[1]]
 
@@ -276,12 +274,10 @@ bde_catalog_update <- function(
     is.logical(verbose)
   )
 
-  # nocov start
   if (!bde_check_access()) {
     tbl <- bde_hlp_return_null()
     return(tbl)
   }
-  # nocov end
 
   # Honor the configured cache location before downloading files.
   cache_dir <- bde_hlp_cachedir(cache_dir = cache_dir, verbose = verbose)
@@ -339,7 +335,7 @@ bde_catalog_update <- function(
 #'
 #' @return A [tibble][tibble::tbl_df] object with the results of the query.
 #'
-#' @seealso [bde_catalog_load()], [base::regex]
+#' @seealso [bde_catalog_load()], [base::regex()]
 #'
 #' @family catalog
 #'
@@ -363,7 +359,6 @@ bde_catalog_search <- function(pattern, ...) {
   # Reuse the catalog loader so search honors the same cache and parsing rules.
   catalog_search <- bde_catalog_load(...)
 
-  # nocov start
   if (nrow(catalog_search) == 0) {
     tbl <- bde_hlp_return_null()
     return(tbl)
@@ -372,13 +367,12 @@ bde_catalog_search <- function(pattern, ...) {
   if (!tibble::is_tibble(catalog_search)) {
     cli::cli_alert_warning(
       paste0(
-        "Catalog data is not a tibble. Try redownloading it with ",
+        "Catalog data is not a tibble. Try downloading it again with ",
         "bde_catalog_update()."
       )
     )
     return(invisible())
   }
-  # nocov end
 
   # Search the metadata fields most useful for discovery.
   col_ind <- c(2, 3, 4, 5, 15)

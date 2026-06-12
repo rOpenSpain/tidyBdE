@@ -19,7 +19,7 @@
 #'
 #' \describe{
 #'   \item{tidyBdE_fun}{Function name. See [bde_indicators].}
-#'   \item{Numero_secuencial}{Series code. See [bde_series_load()].}
+#'   \item{Numero_secuencial}{Sequential number. See [bde_series_load()].}
 #'   \item{Descripcion_de_la_serie}{Description of the series in Spanish.}
 #'   \item{Fecha_de_la_primera_observacion}{Starting date of the indicator.}
 #'   \item{Fecha_de_la_ultima_observacion}{Most recent date available.}
@@ -35,5 +35,4 @@
 #' @examples
 #' data("bde_ind_db")
 #' bde_ind_db
-#'
 NULL

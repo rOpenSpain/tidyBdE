@@ -1,3 +1,10 @@
+test_that("Series load returns null when catalog is empty", {
+  local_mocked_bindings(
+    bde_catalog_load = function(...) tibble::tibble()
+  )
+  expect_identical(bde_series_load(573234), bde_hlp_return_null())
+})
+
 test_that("Indicators", {
   expect_error(bde_series_load(), "`series_code` cannot be missing")
 
@@ -116,11 +123,17 @@ test_that("Series full", {
   expect_s3_class(full_1, "data.frame")
   expect_gt(nrow(full_1), 5)
 
-  options(bde_test_offline = TRUE)
+  # Test offline
+  local_mocked_bindings(
+    on_cran = function(...) {
+      TRUE
+    }
+  )
+
   # Can't download series
   expect_message(
     bde_series_full_load(all_names[2], cache_dir = dir),
-    "Testing offline mode\\."
+    "empty tibble"
   )
 
   fail <- bde_series_full_load(all_names[2], cache_dir = dir)
@@ -133,8 +146,111 @@ test_that("Series full", {
   expect_identical(full_1, full_2)
 
   # Now try online
-  options(bde_test_offline = FALSE)
+  local_mocked_bindings(
+    on_cran = function(...) {
+      FALSE
+    }
+  )
 
   failfix <- bde_series_full_load(all_names[2], cache_dir = dir)
   expect_gt(nrow(failfix), 10)
+})
+test_that("Mock files series", {
+  skip_on_cran()
+  skip_if_bde_offline()
+
+  local_mocked_bindings(
+    bde_series_full_load = function(...) {
+      dplyr::tibble()
+    }
+  )
+
+  expect_message(
+    long <- bde_series_load(
+      c(573234, 573214),
+      series_label = c("a", "b"),
+      out_format = "long",
+      extract_metadata = TRUE
+    ),
+    "BdE is offline"
+  )
+  local_mocked_bindings(
+    bde_series_full_load = function(...) {
+      dplyr::tibble(no_name = 1, another = 2, more = 2, and_more = 2)
+    }
+  )
+  expect_message(
+    long <- bde_series_load(
+      c(573234, 573214),
+      series_label = c("a", "b"),
+      out_format = "long",
+      verbose = TRUE
+    ),
+    "BdE is offline"
+  )
+})
+
+test_that("Mock files all", {
+  skip_on_cran()
+  skip_if_bde_offline()
+
+  fpath <- file.path(tempdir(), "TI", "ti_1_1.csv")
+  writeLines(" ", fpath)
+
+  expect_true(file.exists(fpath))
+  local_mocked_bindings(
+    bde_hlp_download = function(...) {
+      TRUE
+    }
+  )
+
+  expect_silent(
+    ss <- bde_series_full_load(
+      "TI_1_1.csv",
+      cache_dir = tempdir(),
+      verbose = FALSE
+    )
+  )
+  unlink(fpath)
+})
+
+test_that("Mock files cleanup", {
+  skip_on_cran()
+  skip_if_bde_offline()
+
+  local_mocked_bindings(
+    bde_hlp_download = function(url, local_file, verbose) {
+      writeLines("a", local_file)
+      FALSE
+    }
+  )
+
+  expect_silent(
+    ss <- bde_series_full_load(
+      "TI_1_1.csv",
+      cache_dir = tempdir(),
+      verbose = FALSE
+    )
+  )
+})
+
+test_that("Mock files cleanup", {
+  skip_on_cran()
+  skip_if_bde_offline()
+
+  local_mocked_bindings(
+    bde_hlp_download = function(url, local_file, verbose) {
+      file.create(local_file, showWarnings = FALSE)
+      TRUE
+    }
+  )
+
+  expect_message(
+    ss <- bde_series_full_load(
+      "TI_1_1.csv",
+      cache_dir = tempdir(),
+      verbose = FALSE
+    ),
+    "is not valid"
+  )
 })

@@ -13,11 +13,12 @@ doi: 10.32614/CRAN.package.tidyBdE
 identifiers:
 - type: doi
   value: 10.32614/CRAN.package.tidyBdE
-abstract: Tools for retrieving time series data from 'Banco de España' ('BdE') as
-  'tibble' objects. 'Banco de España' is the national central bank and, within the
-  framework of the Single Supervisory Mechanism ('SSM'), the supervisor of the Spanish
-  banking system alongside the European Central Bank. This package is not sponsored,
-  endorsed or administered by 'Banco de España'.
+abstract: Tools for retrieving time series data from 'Banco de España' ('BdE') bulk
+  CSV files and the 'Statistics web service (API)' as 'tibble' objects. 'Banco de
+  España' is the national central bank and, within the framework of the Single Supervisory
+  Mechanism ('SSM'), the supervisor of the Spanish banking system alongside the European
+  Central Bank. This package is not sponsored, endorsed or administered by 'Banco
+  de España'.
 authors:
 - family-names: H. Herrero
   given-names: Diego
@@ -35,11 +36,12 @@ preferred-citation:
   year: '2026'
   version: 0.6.1.9000
   url: https://ropenspain.github.io/tidyBdE/
-  abstract: Tools for retrieving time series data from Banco de España (BdE) as tibble
-    objects. Banco de España is the national central bank and, within the framework
-    of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking
-    system alongside the European Central Bank. This package is not sponsored, endorsed
-    or administered by Banco de España.
+  abstract: Tools for retrieving time series data from Banco de España (BdE) bulk
+    CSV files and the Statistics web service (API) as tibble objects. Banco de España
+    is the national central bank and, within the framework of the Single Supervisory
+    Mechanism (SSM), the supervisor of the Spanish banking system alongside the European
+    Central Bank. This package is not sponsored, endorsed or administered by Banco
+    de España.
 repository: https://CRAN.R-project.org/package=tidyBdE
 repository-code: https://github.com/rOpenSpain/tidyBdE
 url: https://ropenspain.github.io/tidyBdE/
@@ -67,10 +69,13 @@ references:
   url: https://www.R-project.org/
   authors:
   - name: R Core Team
+    website: https://ror.org/02zz1nj61
   institution:
     name: R Foundation for Statistical Computing
+    website: https://ror.org/05qewa988
     address: Vienna, Austria
   year: '2026'
+  doi: 10.32614/R.manuals
   version: '>= 4.1.0'
 - type: software
   title: cli
@@ -151,6 +156,19 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.ggplot2
   version: '>= 3.5.0'
+- type: software
+  title: jsonlite
+  abstract: 'jsonlite: A Simple and Robust JSON Parser and Generator for R'
+  notes: Imports
+  url: https://jeroen.r-universe.dev/jsonlite
+  repository: https://CRAN.R-project.org/package=jsonlite
+  authors:
+  - family-names: Ooms
+    given-names: Jeroen
+    email: jeroenooms@gmail.com
+    orcid: https://orcid.org/0000-0002-4035-0289
+  year: '2026'
+  doi: 10.32614/CRAN.package.jsonlite
 - type: software
   title: lifecycle
   abstract: 'lifecycle: Manage the Life Cycle of your Package Functions'
@@ -245,10 +263,13 @@ references:
   notes: Imports
   authors:
   - name: R Core Team
+    website: https://ror.org/02zz1nj61
   institution:
     name: R Foundation for Statistical Computing
+    website: https://ror.org/05qewa988
     address: Vienna, Austria
   year: '2026'
+  doi: 10.32614/R.manuals
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'

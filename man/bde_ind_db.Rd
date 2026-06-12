@@ -11,7 +11,7 @@ A \link[tibble:tbl_df]{tibble} of 9 rows and
 
 \describe{
 \item{tidyBdE_fun}{Function name. See \link{bde_indicators}.}
-\item{Numero_secuencial}{Series code. See \code{\link[=bde_series_load]{bde_series_load()}}.}
+\item{Numero_secuencial}{Sequential number. See \code{\link[=bde_series_load]{bde_series_load()}}.}
 \item{Descripcion_de_la_serie}{Description of the series in Spanish.}
 \item{Fecha_de_la_primera_observacion}{Starting date of the indicator.}
 \item{Fecha_de_la_ultima_observacion}{Most recent date available.}
@@ -40,7 +40,6 @@ Full metadata can be accessed with \code{\link[=bde_catalog_load]{bde_catalog_lo
 \examples{
 data("bde_ind_db")
 bde_ind_db
-
 }
 \seealso{
 Other indicators:

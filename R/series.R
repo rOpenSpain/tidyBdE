@@ -7,15 +7,18 @@
 #' row) of the series in the table. Although it is unique, it is not stable
 #' enough to identify a time series because it may change when the series moves.
 #'
-#' To ensure series can still be identified after these changes, they are
-#' assigned a sequential number, referred to as `series_code` in this function.
+#' For bulk CSV files, BdE also assigns each series a stable sequential number
+#' (`Número secuencial`). This function uses that sequential number through
+#' `series_code`, not the API series code used by the Statistics web service
+#' (API) helpers.
 #'
 #' A single time series may appear in different tables, so it can have several
 #' aliases. If you need to search by alias, use [bde_series_full_load()].
 #'
-#' @param series_code Numeric value, value coercible with [base::as.double()],
-#'   or vector of time series codes from the `Número secuencial` field of the
-#'   corresponding series. See [bde_catalog_load()].
+#' @param series_code Numeric vector of BdE sequential numbers, or values
+#'   coercible with [base::as.double()], from the `Número secuencial` field of
+#'   the corresponding series. This is not the API series code. See
+#'   [bde_catalog_load()].
 #' @param series_label Optional character string or vector of labels to assign
 #'   to the extracted series.
 #' @param out_format The format to return, either `"wide"` or `"long"`. See
@@ -27,7 +30,7 @@
 #' - With `out_format = "wide"`, each series is presented in a separate column
 #'   with the name defined by `series_label`.
 #' - With `out_format = "long"`, the tibble has two additional columns:
-#'   `serie_name`, with the label of each series, and `serie_value`, with the
+#'   `serie_name`, with the label of each series and `serie_value`, with the
 #'   corresponding value.
 #'
 #' `"wide"` format is more suitable for exporting to a `.csv` file, while
@@ -41,8 +44,8 @@
 #' This function attempts to coerce the columns to numbers. For some time
 #' series, a warning may be displayed if the parsing fails.
 #'
-#' @seealso [bde_catalog_load()],
-#' [bde_catalog_search()], [bde_indicators()]
+#' @seealso [bde_catalog_load()], [bde_catalog_search()],
+#'   [bde_indicators()]
 #'
 #' @family series
 #'
@@ -129,12 +132,10 @@ bde_series_load <- function(
     verbose = verbose
   )
 
-  # nocov start
   if (nrow(all_catalogs) == 0) {
     tbl <- bde_hlp_return_null()
     return(tbl)
   }
-  # nocov end
 
   all_catalogs <- all_catalogs[!is.na(all_catalogs[[2]]), c(2, 3, 4)]
 
@@ -143,11 +144,13 @@ bde_series_load <- function(
       cli::cli_alert_info("Extracting series {.val {x}}.")
     }
 
-    # Match the sequential code to the first catalog record available.
+    # Match the sequential number to the first catalog record available.
     csv_file <- all_catalogs[all_catalogs[[1]] == x, c(2, 3)]
 
     if (nrow(csv_file) == 0) {
-      cli::cli_alert_warning("{.arg series_code} was not found in catalogs.")
+      cli::cli_alert_warning(
+        "{.arg series_code} was not found in the catalogs."
+      )
       tbl <- bde_hlp_return_null()
       return(tbl)
     }
@@ -176,7 +179,6 @@ bde_series_load <- function(
       extract_metadata = extract_metadata
     )
 
-    # nocov start
     if (nrow(serie_file) == 0) {
       tbl <- bde_hlp_return_null()
       return(tbl)
@@ -193,8 +195,6 @@ bde_series_load <- function(
 
       # Return an empty tibble if the alias is not available.
       return(bde_hlp_return_null())
-
-      # nocov end
     } else {
       serie_file <- serie_file[c("Date", alias_serie)]
     }
@@ -247,14 +247,14 @@ bde_series_load <- function(
   end
 }
 
-#' Load BdE full time series files
+#' Load full BdE time series files
 #'
 #' @description
 #' Load a full BdE time series file.
 #'
 #' ## About BdE file naming
 #'
-#' The series name is a positional code showing the location of the table. For
+#' The series alias is a positional code showing the location of the table. For
 #' example, table **be_6_1** represents Table 1, Chapter 6 of the Statistical
 #' Bulletin ("BE"). Although it is unique, it is subject to change, for
 #' example when a new table is inserted before it.
@@ -366,13 +366,12 @@ bde_series_full_load <- function(
   }
 
   # Reject empty files before encoding detection.
-  # nocov start
   r <- readLines(local_file, warn = FALSE, n = 1000)
   if (length(r) == 0) {
     cli::cli_alert_warning("File {.file {local_file}} is not valid.")
+    unlink(local_file)
     return(invisible())
   }
-  # nocov end
 
   # Read the raw CSV after detecting its encoding.
   enc <- readr::guess_encoding(local_file)[[1]][[1]]

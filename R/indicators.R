@@ -101,6 +101,7 @@ bde_ind_population <- function(series_label = "Population_Spain", ...) {
 
 #' @rdname bde_indicators
 #' @usage NULL
+#'
 #' @export
 #' @encoding UTF-8
 bde_ind_ibex <- bde_ind_ibex_monthly
@@ -110,6 +111,7 @@ bde_ind_ibex <- bde_ind_ibex_monthly
 #' @param function_name Name used in `bde_ind_db$tidyBdE_fun`.
 #' @param series_label Series label to pass to [bde_series_load()].
 #' @param ... Additional arguments passed to [bde_series_load()].
+#'
 #' @noRd
 bde_hlp_indicator <- function(function_name, series_label, ...) {
   db <- tidyBdE::bde_ind_db

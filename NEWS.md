@@ -9,7 +9,13 @@
 -   Tests were refactored and expanded with local fixtures, mocks and snapshot
     updates, reaching 100% line coverage in `devtools:::test_coverage()`.
 -   New vignette `vignette("csv_manual", package = "tidyBdE")` explaining the
-    structure of the CSV files provided by BdE.
+    structure of Banco de España bulk CSV files and catalog identifiers.
+-   `bde_series_api_latest()` added to query the Latest Data request of the
+    Banco de España [Statistics web service
+    (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
+-   `bde_series_api_load()` added to query the Series List request of the Banco
+    de España Statistics web service (API), with support for wide and long
+    output, metadata extraction and time range validation.
 
 # tidyBdE 0.6.1
 
@@ -20,7 +26,8 @@
 # tidyBdE 0.6.0
 
 -   Migrate vignettes to Quarto.
--   Update the series code used by `bde_ind_cpi_var()` (see `?bde_ind_db`).
+-   Update the sequential number used by `bde_ind_cpi_var()` (see
+    `?bde_ind_db`).
 
 # tidyBdE 0.5.0
 
@@ -30,7 +37,8 @@
 # tidyBdE 0.4.0
 
 -   `?bde_indicators` is now based on data from the new `?bde_ind_db` database,
-    which clarifies the underlying series codes and makes maintenance easier.
+    which clarifies the underlying sequential numbers and makes maintenance
+    easier.
 
 # tidyBdE 0.3.8
 
@@ -93,7 +101,7 @@ Mainly changes to the color functions:
 
 # tidyBdE 0.2.4
 
--   Update the series code used by `bde_ind_cpi_var()`.
+-   Update the sequential number used by `bde_ind_cpi_var()`.
 
 # tidyBdE 0.2.3
 
@@ -106,7 +114,7 @@ Mainly changes to the color functions:
 -   BdE started migrating "Indicadores Económicos" (Economic Indicators) series
     to the Statistical Bulletin. Some series in `?bde_indicators` are likely to
     break during the transition. So far, `bde_ind_euribor_12m_monthly()` has
-    been updated to use the new series code `587853`. See
+    been updated to use the new sequential number `587853`. See
     <https://www.bde.es/wbe/en/estadisticas/>.
 -   Update documentation and examples.
 

@@ -7,8 +7,10 @@ Authors@R: c(
     person("Banco de España", role = "cph",
            comment = c(ROR = "02f26yq04", "Data copyright holder"))
   )
-Description: Tools for retrieving time series data from 'Banco de España'
-    ('BdE') as 'tibble' objects. 'Banco de España' is the national central
+Description: Tools for retrieving time series data as 'tibble' objects from
+    'Banco de España' ('BdE') bulk CSV files and the 'Statistics web
+    service (API)'. Bulk CSV helpers use BdE sequential numbers and API
+    helpers use BdE series codes. 'Banco de España' is the national central
     bank and, within the framework of the Single Supervisory Mechanism
     ('SSM'), the supervisor of the Spanish banking system alongside the
     European Central Bank. This package is not sponsored, endorsed or
@@ -23,6 +25,7 @@ Imports:
     cli,
     dplyr (>= 0.7.0),
     ggplot2 (>= 3.5.0),
+    jsonlite,
     lifecycle,
     readr (>= 1.0.0),
     scales (>= 1.1.0),

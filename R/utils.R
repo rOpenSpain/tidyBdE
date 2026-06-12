@@ -172,36 +172,32 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
 #' Download a file
 #'
 #' @param url Resource URL.
-#'
 #' @param local_file Local file path to create or overwrite.
-#'
 #' @param verbose Logical indicating whether to display informative messages.
+#' @param retry Logical indicating whether to retry once after a failed
+#'   download.
 #'
 #' @noRd
-bde_hlp_download <- function(url, local_file, verbose) {
+bde_hlp_download <- function(url, local_file, verbose, retry = TRUE) {
   if (verbose) {
     cli::cli_alert_info("Downloading file from {.url {url}}.")
   }
 
   err_dwnload <- tryCatch(
     download.file(url, local_file, quiet = isFALSE(verbose), mode = "wb"),
-    # nocov start
     warning = function(e) {
       TRUE
     }
   )
-  # nocov end
-  # Retry once because intermittent warnings are common for remote files.
 
-  # nocov start
-  if (isTRUE(err_dwnload)) {
+  # Retry once because intermittent warnings are common for remote files.
+  if (isTRUE(err_dwnload) && isTRUE(retry)) {
     if (verbose) {
       cli::cli_alert_warning("Download failed. Trying again.")
     }
 
     err_dwnload <- tryCatch(
       download.file(url, local_file, quiet = isFALSE(verbose), mode = "wb"),
-      # nocov start
       warning = function(e) {
         cli::cli_alert_warning(
           paste0(
@@ -213,12 +209,10 @@ bde_hlp_download <- function(url, local_file, verbose) {
       }
     )
   }
-  # nocov end
 
   # Signal download failure without raising an error.
   if (isTRUE(err_dwnload)) {
     return(FALSE)
-    # nocov end
   }
   TRUE
 }
@@ -286,9 +280,7 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
 bde_hlp_return_null <- function(
   msg = "BdE is offline. Returning an empty tibble."
 ) {
-  # nocov start
   cli::cli_alert_info(msg)
   tbl <- tibble::tibble(x = NULL)
   tbl
-  # nocov end
 }

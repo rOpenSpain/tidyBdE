@@ -50,7 +50,6 @@
 #' }
 #'
 theme_tidybde <- function(...) {
-  # nocov start
   ggplot2::theme_classic(...) %+replace%
     ggplot2::theme(
       line = element_line(linewidth = rel(0.5)),
@@ -99,5 +98,4 @@ theme_tidybde <- function(...) {
       legend.key.width = unit(25, "pt"),
       legend.text = element_text(size = rel(0.9))
     )
-  # nocov end
 }
