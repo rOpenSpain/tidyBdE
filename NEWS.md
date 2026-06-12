@@ -7,7 +7,7 @@
 - Roxygen2 documentation was reviewed with AI assistance and tag order was made
   consistent across source files.
 - Tests were refactored and expanded with local fixtures, mocks and snapshot
-  updates, reaching 100% line coverage in `devtools:::test_coverage()`.
+  updates, reaching 100% line coverage in `devtools::test_coverage()`.
 - New vignette `vignette("csv_manual", package = "tidyBdE")` explaining the
   structure of Banco de España bulk CSV files, catalog metadata and series
   identifiers (#64).
