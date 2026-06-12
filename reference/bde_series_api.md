@@ -154,9 +154,9 @@ xr |>
 #> $ codFrecuencia    <chr> "D", "D", "D"
 #> $ decimales        <int> 4, 4, 4
 #> $ simbolo          <chr> "USD", "JPY", "CHF"
-#> $ tendencia        <chr> "-", "-", "+"
-#> $ fechaValor       <date> 2026-06-10, 2026-06-10, 2026-06-10
-#> $ valor            <dbl> 1.1539, 185.1900, 0.9222
+#> $ tendencia        <chr> "-", "+", "-"
+#> $ fechaValor       <date> 2026-06-11, 2026-06-11, 2026-06-11
+#> $ valor            <dbl> 1.1537, 185.2100, 0.9221
 
 # Extract the latest months.
 xr |>
@@ -166,15 +166,17 @@ xr |>
   glimpse()
 #> Rows: 262
 #> Columns: 2
-#> $ Date            <date> 2026-06-10, 2026-06-09, 2026-06-08, 2026-06-05, 2026-…
-#> $ DTCCBCEUSDEUR.B <dbl> 1.1539, 1.1573, 1.1540, 1.1640, 1.1640, 1.1614, 1.1649…
+#> $ Date            <date> 2026-06-11, 2026-06-10, 2026-06-09, 2026-06-08, 2026-…
+#> $ DTCCBCEUSDEUR.B <dbl> 1.1537, 1.1539, 1.1573, 1.1540, 1.1640, 1.1640, 1.1614…
 
 # Extract metadata.
 xr |>
   slice_head(n = 1) |>
   pull(Nombre_de_la_serie) |>
-  bde_series_api_load(language = "en", time_range = "12M",
-                      extract_metadata = TRUE) |>
+  bde_series_api_load(
+    language = "en", time_range = "12M",
+    extract_metadata = TRUE
+  ) |>
   glimpse()
 #> Rows: 1
 #> Columns: 18
@@ -185,14 +187,14 @@ xr |>
 #> $ decimales                <int> 4
 #> $ simbolo                  <chr> "USD"
 #> $ fechaInicio              <date> 1999-01-04
-#> $ fechaFin                 <date> 2026-06-10
+#> $ fechaFin                 <date> 2026-06-11
 #> $ Name                     <chr> "Exchange rate. US dollars per euro (USD/EUR)…
 #> $ Description              <chr> "Currency exchange rates. European Central Ba…
 #> $ Units                    <chr> "Dólares de Estados Unidos por Euro"
 #> $ Decimals                 <chr> "4"
-#> $ `Number of observations` <chr> "7.158"
-#> $ `First value`            <chr> "[04/01/1999] 1.1539 USD"
-#> $ `Last value`             <chr> "[10/06/2026] 1.1539 USD"
+#> $ `Number of observations` <chr> "7.159"
+#> $ `First value`            <chr> "[04/01/1999] 1.1537 USD"
+#> $ `Last value`             <chr> "[11/06/2026] 1.1537 USD"
 #> $ `Min value`              <chr> "[26/10/2000] 0.8252 USD"
 #> $ `Max value`              <chr> "[15/07/2008] 1.5990 USD"
 #> $ Source                   <chr> "BANCO CENTRAL EUROPEO"

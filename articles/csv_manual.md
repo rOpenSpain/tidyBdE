@@ -121,9 +121,6 @@ following the pattern below are also available: `ppcc.zip`.
 For example, `be01.zip` contains all the time series files of Chapter 1
 of the Statistical Bulletin.
 
-The download URL can be obtained by appending the CSV or ZIP file name
-to <https://www.bde.es/wbe/es/estadisticas/>.
-
 ### Content of the catalog file
 
 The catalog file has a line or record for each time series of the tables
