@@ -10,7 +10,7 @@
   was made consistent across source files.
 - Tests were refactored and expanded with local fixtures, mocks and
   snapshot updates, reaching 100% line coverage in
-  `devtools:::test_coverage()`.
+  [`devtools::test_coverage()`](https://devtools.r-lib.org/reference/test.html).
 - New vignette
   [`vignette("csv_manual", package = "tidyBdE")`](https://ropenspain.github.io/tidyBdE/articles/csv_manual.md)
   explaining the structure of Banco de España bulk CSV files, catalog
