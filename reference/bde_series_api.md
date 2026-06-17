@@ -20,7 +20,7 @@ those codes through `series_code`. They are available in the
 `Nombre_de_la_serie` field of
 [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
 and correspond to the API `series_list` parameter. This is different
-from the numeric sequential number (`Número secuencial`) used by
+from the stable sequential number (`Número secuencial`) used by
 [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
 for bulk CSV files.
 
@@ -46,7 +46,7 @@ bde_series_api_load(
 
   Character string or vector with API series codes, taken from the
   `Nombre_de_la_serie` field of the corresponding catalog. This is the
-  value passed to the API `series_list` parameter, not the numeric
+  value passed to the API `series_list` parameter, not the stable
   sequential number used by
   [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md).
 
@@ -120,7 +120,7 @@ for the series frequency. For example, monthly series return `"30M"`.
 
 [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md),
 [`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md),
-[`bde_indicators()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
+[`bde_indicators()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md).
 
 Series functions:
 [`bde_series`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
@@ -153,9 +153,9 @@ xr |>
 #> $ codFrecuencia    <chr> "D", "D", "D"
 #> $ decimales        <int> 4, 4, 4
 #> $ simbolo          <chr> "USD", "JPY", "CHF"
-#> $ tendencia        <chr> "+", "+", "-"
-#> $ fechaValor       <date> 2026-06-12, 2026-06-12, 2026-06-12
-#> $ valor            <dbl> 1.1567, 185.3000, 0.9217
+#> $ tendencia        <chr> "-", "-", "-"
+#> $ fechaValor       <date> 2026-06-17, 2026-06-17, 2026-06-17
+#> $ valor            <dbl> 1.1591, 185.8200, 0.9193
 
 # Extract the latest months.
 xr |>
@@ -165,8 +165,8 @@ xr |>
   glimpse()
 #> Rows: 262
 #> Columns: 2
-#> $ Date            <date> 2026-06-12, 2026-06-11, 2026-06-10, 2026-06-09, 2026-…
-#> $ DTCCBCEUSDEUR.B <dbl> 1.1567, 1.1537, 1.1539, 1.1573, 1.1540, 1.1640, 1.1640…
+#> $ Date            <date> 2026-06-17, 2026-06-16, 2026-06-15, 2026-06-12, 2026-…
+#> $ DTCCBCEUSDEUR.B <dbl> 1.1591, 1.1594, 1.1607, 1.1567, 1.1537, 1.1539, 1.1573…
 
 # Extract metadata.
 xr |>
@@ -186,14 +186,14 @@ xr |>
 #> $ decimales                <int> 4
 #> $ simbolo                  <chr> "USD"
 #> $ fechaInicio              <date> 1999-01-04
-#> $ fechaFin                 <date> 2026-06-12
+#> $ fechaFin                 <date> 2026-06-17
 #> $ Name                     <chr> "Exchange rate. US dollars per euro (USD/EUR)…
 #> $ Description              <chr> "Currency exchange rates. European Central Ba…
 #> $ Units                    <chr> "Dólares de Estados Unidos por Euro"
 #> $ Decimals                 <chr> "4"
-#> $ `Number of observations` <chr> "7.160"
-#> $ `First value`            <chr> "[04/01/1999] 1.1567 USD"
-#> $ `Last value`             <chr> "[12/06/2026] 1.1567 USD"
+#> $ `Number of observations` <chr> "7.163"
+#> $ `First value`            <chr> "[04/01/1999] 1.1591 USD"
+#> $ `Last value`             <chr> "[17/06/2026] 1.1591 USD"
 #> $ `Min value`              <chr> "[26/10/2000] 0.8252 USD"
 #> $ `Max value`              <chr> "[15/07/2008] 1.5990 USD"
 #> $ Source                   <chr> "BANCO CENTRAL EUROPEO"

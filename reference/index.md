@@ -11,8 +11,7 @@ Load, update and search BdE time series catalog metadata.
 
 ## Series
 
-Load bulk CSV series by sequential number and API data by API series
-code.
+Load series by stable sequential number or API series code.
 
 - [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
   [`bde_series_full_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)

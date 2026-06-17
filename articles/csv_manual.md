@@ -1,14 +1,14 @@
-# Banco de España bulk CSV time series format
+# Banco de España bulk CSV files
 
 *Adaptation of
 <https://www.bde.es/webbe/en/estadisticas/compartido/docs/manual_archivos_csv_en.pdf>*
 
 ## Introduction
 
-The aim of this document is to describe the information in the files
-containing the time series of the statistical tables and charts that the
-Banco de España publishes on its website, and to provide guidance on the
-possible uses of these files.
+This document describes the information in the files containing the time
+series of the statistical tables and charts that Banco de España
+publishes on its website, and provides guidance on possible uses of
+these files.
 
 Data for the full available sample period are provided for each series,
 along with qualitative information or metadata. This information gives
@@ -28,7 +28,7 @@ potential users can be distinguished:
 
 The information provided is geared to both types of users.
 
-The statistics provided by the Banco de España as statistical charts or
+The statistics provided by Banco de España as statistical charts or
 tables are organized in two different ways on its website: by
 statistical publication, which is the approach covered by this document,
 or by subject, which is the main organization used in the Statistics
@@ -43,7 +43,7 @@ automatically uploading the information to a database.
 
 Because the tables in the theme-based classification are the same as
 those in the publications, only organized differently, everything
-mentioned in this manual about CSV files is valid for both.
+mentioned in this manual about bulk CSV files is valid for both.
 
 ## Time-series files
 
@@ -329,8 +329,8 @@ Banco de España statistical publications. {.table}
 | Frequency | Format | Examples |
 | Daily / Business day | `DD MMMMYYYY` | `02 FEB2019` |
 | Monthly | `MMM YYYY` | `MAR 2020` |
-| Quarterly | `MMM YYYY`, where `MMM` is the first or the last month of the quarter, depending on the value of its variable OBSERVED | `ENE 2020` / `MAR 2020` |
-| Half-yearly | `MMM YYYY`, where `MMM` is the first or the last month of the half-year period, depending on the value of its variable OBSERVED | `ENE 2020` / `JUN 2020` |
+| Quarterly | `MMM YYYY`, where `MMM` is the first or last month of the quarter, depending on the value of the `OBSERVED` variable | `ENE 2020` / `MAR 2020` |
+| Half-yearly | `MMM YYYY`, where `MMM` is the first or last month of the half-year period, depending on the value of its `OBSERVED` variable | `ENE 2020` / `JUN 2020` |
 | Annual | `YYYY` | `2020` |
 
 Banco de España date formats. {.table}

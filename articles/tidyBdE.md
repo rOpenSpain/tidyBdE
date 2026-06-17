@@ -48,14 +48,14 @@ so search terms must be in Spanish to retrieve results. Banco de España
 is working on an English version.
 
 After finding a time series, load the GBP/EUR exchange rate from bulk
-CSV files using the sequential number (`Numero_secuencial`):
+CSV files using its stable sequential number (`Numero_secuencial`):
 
 ``` r
 
 seq_number <- xr_gbp |>
   # Select the first record.
   slice(1) |>
-  # Get the sequential number.
+  # Get the stable sequential number.
   pull(Numero_secuencial) |>
   # Convert to numeric.
   as.double()

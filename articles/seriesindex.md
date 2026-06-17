@@ -1,11 +1,12 @@
 # Series index
 
 This table lists time series available in the catalog metadata. Last
-updated: **15-June-2026**.
+updated: **17-June-2026**.
 
-Use the sequential number (`Numero_secuencial`) to load a time series
-from bulk CSV files, as shown in the example. Use `Nombre_de_la_serie`
-as the API series code for the Statistics web service (API) helpers.
+Use the stable sequential number (`Numero_secuencial`) to load a time
+series from bulk CSV files, as shown in the example. Use
+`Nombre_de_la_serie` as the API series code for the Statistics web
+service (API) helpers.
 
 ## Summary
 
@@ -38,7 +39,7 @@ Table 1: Search results
 
 # Extract the first matching time series.
 fr |>
-  # Select the sequential number.
+  # Select the stable sequential number.
   select(Numero_secuencial) |>
   # Select the first record.
   slice(1) |>
@@ -63,7 +64,7 @@ fr |>
 
 # Show the series metadata.
 fr |>
-  # Select the sequential number.
+  # Select the stable sequential number.
   select(Numero_secuencial) |>
   # Select the first record.
   slice(1) |>

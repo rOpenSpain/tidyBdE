@@ -55,10 +55,14 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
-    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España bulk CSV time series format</a></li>
-    <li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic indicators</a></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Data</h6></li>
+    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España bulk CSV files</a></li>
     <li><a class="dropdown-item" href="../articles/seriesindex.html">Series index</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Examples</h6></li>
+    <li><a class="dropdown-item" href="../articles/mainseries.html">Selected macroeconomic indicators</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -139,12 +143,12 @@ Table 1: Search results
 </figcaption></figure>
 </div>
 <p><strong>Note:</strong> BdE catalog metadata is currently available in Spanish only, so search terms must be in Spanish to retrieve results. Banco de España is working on an English version.</p>
-<p>After finding a time series, load the GBP/EUR exchange rate from bulk CSV files using the sequential number (<code>Numero_secuencial</code>):</p>
+<p>After finding a time series, load the GBP/EUR exchange rate from bulk CSV files using its stable sequential number (<code>Numero_secuencial</code>):</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">seq_number</span> <span class="op">&lt;-</span> <span class="va">xr_gbp</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># Select the first record.</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="co"># Get the sequential number.</span></span>
+<span>  <span class="co"># Get the stable sequential number.</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">Numero_secuencial</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># Convert to numeric.</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/double.html" class="external-link">as.double</a></span><span class="op">(</span><span class="op">)</span></span>

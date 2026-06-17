@@ -54,7 +54,7 @@ This theme extends
 
 ## See also
 
-[`ggplot2::theme_classic()`](https://ggplot2.tidyverse.org/reference/ggtheme.html)
+[`ggplot2::theme_classic()`](https://ggplot2.tidyverse.org/reference/ggtheme.html).
 
 Plot utilities:
 [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md),

@@ -86,8 +86,9 @@ inspect the metadata and source.
 
 ## See also
 
-[`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md),
-[`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
+[`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
+and
+[`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md).
 
 Indicator functions:
 [`bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md)

@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Banco de España bulk CSV time series format • tidyBdE</title>
+<title>Banco de España bulk CSV files • tidyBdE</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -19,7 +19,7 @@
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="csv_manual_files/libs/quarto-html/popper.min.js"></script><script src="csv_manual_files/libs/quarto-html/tippy.umd.min.js"></script><link href="csv_manual_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="csv_manual_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Banco de España bulk CSV time series format">
+<!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Banco de España bulk CSV files">
 <meta property="og:image" content="https://ropenspain.github.io/tidyBdE/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@dhernangomez">
@@ -55,10 +55,14 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>Articles</h6></li>
-    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España bulk CSV time series format</a></li>
-    <li><a class="dropdown-item" href="../articles/mainseries.html">Main macroeconomic indicators</a></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Data</h6></li>
+    <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España bulk CSV files</a></li>
     <li><a class="dropdown-item" href="../articles/seriesindex.html">Series index</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Examples</h6></li>
+    <li><a class="dropdown-item" href="../articles/mainseries.html">Selected macroeconomic indicators</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -84,7 +88,7 @@
 </nav><div class="container template-quarto">
     <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Banco de España bulk CSV time series format</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Banco de España bulk CSV files</h1>
 
 
 
@@ -101,7 +105,7 @@
     <p><em>Adaptation of <a href="https://www.bde.es/webbe/en/estadisticas/compartido/docs/manual_archivos_csv_en.pdf" class="external-link uri">https://www.bde.es/webbe/en/estadisticas/compartido/docs/manual_archivos_csv_en.pdf</a></em></p>
 <section class="level2"><h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>The aim of this document is to describe the information in the files containing the time series of the statistical tables and charts that the Banco de España publishes on its website, and to provide guidance on the possible uses of these files.</p>
+<p>This document describes the information in the files containing the time series of the statistical tables and charts that Banco de España publishes on its website, and provides guidance on possible uses of these files.</p>
 <p>Data for the full available sample period are provided for each series, along with qualitative information or metadata. This information gives users details about each series, such as the economic concept it represents, the units in which the data are expressed, the source and any notes.</p>
 <p>The target audience for this information is as wide as the network through which it is distributed. Nevertheless, two categories of potential users can be distinguished:</p>
 <ol type="1">
@@ -109,9 +113,9 @@
 <li>Users or institutions who download all or most of the information to upload it to a database and combine it with other sources of statistical data or even with the institution’s own information.</li>
 </ol>
 <p>The information provided is geared to both types of users.</p>
-<p>The statistics provided by the Banco de España as statistical charts or tables are organized in two different ways on its website: by statistical publication, which is the approach covered by this document, or by subject, which is the main organization used in the Statistics section. The tables and download URLs are the same in both cases.</p>
+<p>The statistics provided by Banco de España as statistical charts or tables are organized in two different ways on its website: by statistical publication, which is the approach covered by this document, or by subject, which is the main organization used in the Statistics section. The tables and download URLs are the same in both cases.</p>
 <p>This document focuses on publications and is organized as follows. The second section explains the two types of files released, their format and their content. The third section provides guidance for users who want to process the information with a spreadsheet. The fourth section provides guidance for institutions that want to develop software for automatically uploading the information to a database.</p>
-<p>Because the tables in the theme-based classification are the same as those in the publications, only organized differently, everything mentioned in this manual about CSV files is valid for both.</p>
+<p>Because the tables in the theme-based classification are the same as those in the publications, only organized differently, everything mentioned in this manual about bulk CSV files is valid for both.</p>
 </section><section class="level2"><h2 id="time-series-files">Time-series files<a class="anchor" aria-label="anchor" href="#time-series-files"></a>
 </h2>
 <p>Files containing the time series of the tables of the relevant publication are in CSV (comma-separated value) format, where fields or values in each line or record are separated by commas.</p>
@@ -362,7 +366,7 @@ observaciones","Título de la serie","Fuente","Notas"
 <tr class="even">
 <td>Quarterly</td>
 <td>
-<code>MMM YYYY</code>, where <code>MMM</code> is the first or the last month of the quarter, depending on the value of its variable OBSERVED</td>
+<code>MMM YYYY</code>, where <code>MMM</code> is the first or last month of the quarter, depending on the value of the <code>OBSERVED</code> variable</td>
 <td>
 <code>ENE 2020</code> / <code>MAR 2020</code>
 </td>
@@ -370,7 +374,7 @@ observaciones","Título de la serie","Fuente","Notas"
 <tr class="odd">
 <td>Half-yearly</td>
 <td>
-<code>MMM YYYY</code>, where <code>MMM</code> is the first or the last month of the half-year period, depending on the value of its variable OBSERVED</td>
+<code>MMM YYYY</code>, where <code>MMM</code> is the first or last month of the half-year period, depending on the value of its <code>OBSERVED</code> variable</td>
 <td>
 <code>ENE 2020</code> / <code>JUN 2020</code>
 </td>

@@ -4,13 +4,13 @@ These functions load BdE time series from the bulk CSV files published
 by Banco de España.
 
 `bde_series_load()` extracts one or more series by their stable
-sequential number. `bde_series_full_load()` loads a complete CSV file
-and returns all series included in that file.
+sequential number. `bde_series_full_load()` loads a complete bulk CSV
+file and returns all series included in that file.
 
-The series alias is a positional code showing the location, column
-and/or row, of the series in the table. Although it is unique, it is not
-stable enough to identify a time series because it may change when a
-series moves.
+The series alias is a positional code showing the location, column or
+row of the series in the table. Although it is unique, it is not stable
+enough to identify a time series because it may change when a series
+moves.
 
 BdE also assigns each series a stable sequential number
 (`Número secuencial`). `bde_series_load()` uses that sequential number
@@ -58,10 +58,10 @@ bde_series_full_load(
 
 - series_code:
 
-  Numeric vector of BdE sequential numbers, or values coercible with
-  [`base::as.double()`](https://rdrr.io/r/base/double.html), from the
-  `Número secuencial` field of the corresponding series. This is not the
-  API series code. See
+  Numeric vector of stable BdE sequential numbers, or values coercible
+  with [`base::as.double()`](https://rdrr.io/r/base/double.html), from
+  the `Número secuencial` field of the corresponding series. This is not
+  the API series code. See
   [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md).
 
 - series_label:
@@ -104,7 +104,7 @@ bde_series_full_load(
 
 - series_csv:
 
-  CSV file name for a series, as defined in the field
+  Bulk CSV file name for a series, as defined in the field
   `Nombre del archivo con los valores de la serie` of the corresponding
   catalog. See
   [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md).
@@ -122,8 +122,8 @@ a `Date` column:
   `serie_name`, with the label of each series and `serie_value`, with
   the corresponding value.
 
-`"wide"` format is more suitable for exporting to a `.csv` file, while
-`"long"` format is more suitable for creating plots using
+`"wide"` format is more suitable for exporting to a CSV file, while
+`"long"` format is more suitable for creating plots with
 [`ggplot2::ggplot()`](https://ggplot2.tidyverse.org/reference/ggplot.html).
 See also
 [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)
@@ -149,7 +149,7 @@ the default behavior with `parse_numeric = FALSE`.
 
 [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md),
 [`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md),
-[`bde_indicators()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
+[`bde_indicators()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md).
 
 Series functions:
 [`bde_series_api`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
@@ -160,7 +160,7 @@ Series functions:
 # \donttest{
 # Show metadata.
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmpQ8h2QQ.
+#> ℹ Using temporary cache directory /tmp/RtmpeNLirv.
 #> ✔ Using cached catalog "BE".
 #> ✔ Using cached catalog "SI".
 #> ✔ Using cached catalog "TC".
@@ -169,7 +169,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> ℹ Parsing date columns.
 #> ℹ Extracting series 573234.
 #> ℹ Downloading series 573234 from file TC_1_1.csv (alias "TC_1_1.1").
-#> ℹ Using temporary cache directory /tmp/RtmpQ8h2QQ/TC.
+#> ℹ Using temporary cache directory /tmp/RtmpeNLirv/TC.
 #> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv>.
 #> # A tibble: 6 × 2
 #>   Date                        `573234`                                          
@@ -183,7 +183,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 
 # Load data.
 bde_series_load(573234, extract_metadata = FALSE)
-#> # A tibble: 7,160 × 2
+#> # A tibble: 7,162 × 2
 #>    Date       `573234`
 #>    <date>        <dbl>
 #>  1 1999-01-04     1.18
@@ -196,7 +196,7 @@ bde_series_load(573234, extract_metadata = FALSE)
 #>  8 1999-01-13     1.17
 #>  9 1999-01-14     1.17
 #> 10 1999-01-15     1.16
-#> # ℹ 7,150 more rows
+#> # ℹ 7,152 more rows
 
 # Load multiple series.
 bde_series_load(c(573234, 573214),
@@ -219,7 +219,7 @@ wide <- bde_series_load(c(573234, 573214),
 
 # Show wide output.
 wide
-#> # A tibble: 7,160 × 3
+#> # A tibble: 7,162 × 3
 #>    Date       `US/EUR` `GBP/EUR`
 #>    <date>        <dbl>     <dbl>
 #>  1 1999-01-04     1.18     0.711
@@ -232,7 +232,7 @@ wide
 #>  8 1999-01-13     1.17     0.708
 #>  9 1999-01-14     1.17     0.706
 #> 10 1999-01-15     1.16     0.704
-#> # ℹ 7,150 more rows
+#> # ℹ 7,152 more rows
 
 # Show long output.
 long <- bde_series_load(c(573234, 573214),
@@ -241,7 +241,7 @@ long <- bde_series_load(c(573234, 573214),
 )
 
 long
-#> # A tibble: 14,320 × 3
+#> # A tibble: 14,324 × 3
 #>    Date       serie_name serie_value
 #>    <date>     <fct>            <dbl>
 #>  1 1999-01-04 US/EUR            1.18
@@ -254,9 +254,9 @@ long
 #>  8 1999-01-13 US/EUR            1.17
 #>  9 1999-01-14 US/EUR            1.17
 #> 10 1999-01-15 US/EUR            1.16
-#> # ℹ 14,310 more rows
+#> # ℹ 14,314 more rows
 
-# Use with `ggplot2`.
+# Use with ggplot2.
 library(ggplot2)
 
 ggplot(long, aes(Date, serie_value)) +
@@ -265,7 +265,7 @@ ggplot(long, aes(Date, serie_value)) +
   theme_tidybde()
 
 
-# Show metadata for a full file.
+# Show metadata for a complete bulk CSV file.
 bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
 #> # A tibble: 6 × 5
 #>   Date                        TI_1_1.1                TI_1_1.2 TI_1_1.3 TI_1_1.4
@@ -277,9 +277,9 @@ bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
 #> 5 DESCRIPCIÓN DE LAS UNIDADES Porcentaje              Porcent… Porcent… Porcent…
 #> 6 FRECUENCIA                  LABORABLE               LABORAB… LABORAB… LABORAB…
 
-# Load a full file.
+# Load a complete bulk CSV file.
 bde_series_full_load("TI_1_1.csv")
-#> # A tibble: 7,161 × 5
+#> # A tibble: 7,163 × 5
 #>    Date       TI_1_1.1 TI_1_1.2 TI_1_1.3 TI_1_1.4
 #>    <date>        <dbl>    <dbl>    <dbl>    <dbl>
 #>  1 1999-01-01        3       NA     4.5      2   
@@ -292,6 +292,6 @@ bde_series_full_load("TI_1_1.csv")
 #>  8 1999-01-12        3       NA     3.25     2.75
 #>  9 1999-01-13        3       NA     3.25     2.75
 #> 10 1999-01-14        3       NA     3.25     2.75
-#> # ℹ 7,151 more rows
+#> # ℹ 7,153 more rows
 # }
 ```

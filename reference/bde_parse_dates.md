@@ -2,8 +2,8 @@
 
 Parse strings representing dates with
 [`as.Date()`](https://rdrr.io/r/base/as.Date.html). This function is
-tailored to date formats used in this package and may fail for other
-datasets. See **Examples** for formats that are supported.
+tailored to date formats used in this package and might not parse other
+datasets. See **Examples** for supported formats.
 
 ### Date formats
 
@@ -12,8 +12,8 @@ datasets. See **Examples** for formats that are supported.
 | **FREQUENCY** | **FORMAT** | **EXAMPLES** |
 | **Daily / Business day** | `DD MMMMYYYY` | `02 FEB2019` |
 | **Monthly** | `MMM YYYY` | `MAR 2020` |
-| **Quarterly** | `MMM YYYY`, where `MMM` is the first or the last month of the quarter, depending on the value of its variable OBSERVED. | For the first quarter of 2020: `ENE 2020`, `MAR 2020` |
-| **Half-yearly** | `MMM YYYY`, where `MMM` is the first or the last month of the half-year period, depending on the value of its variable OBSERVED. | For the first half of 2020: `ENE 2020`, `JUN 2020` |
+| **Quarterly** | `MMM YYYY`, where `MMM` is the first or last month of the quarter, depending on the value of the `OBSERVED` variable. | For the first quarter of 2020: `ENE 2020`, `MAR 2020` |
+| **Half-yearly** | `MMM YYYY`, where `MMM` is the first or last month of the half-year period, depending on the value of its `OBSERVED` variable. | For the first half of 2020: `ENE 2020`, `JUN 2020` |
 | **Annual** | `YYYY` | `2020` |
 
 See
@@ -38,7 +38,7 @@ A vector of [`Date`](https://rdrr.io/r/base/as.Date.html) values.
 
 ## See also
 
-[`as.Date()`](https://rdrr.io/r/base/as.Date.html)
+[`as.Date()`](https://rdrr.io/r/base/as.Date.html).
 
 ## Examples
 

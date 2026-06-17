@@ -3,7 +3,7 @@
 These functions manage BdE time series catalog metadata from the bulk
 CSV files published by Banco de España.
 
-`bde_catalog_load()` loads catalog metadata into a tibble,
+`bde_catalog_load()` loads time series catalog metadata into a tibble,
 `bde_catalog_update()` refreshes the cached catalog files and
 `bde_catalog_search()` searches catalog metadata for keywords.
 
@@ -36,7 +36,7 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
 
 - catalog:
 
-  A single catalog identifier, or `"ALL"` to load or update every
+  A single catalog identifier or `"ALL"` to load or update every
   catalog. See **Details**.
 
 - parse_dates:
@@ -71,7 +71,7 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
 
 `bde_catalog_load()` returns a
 [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) with
-the requested catalog metadata. See
+the requested time series catalog metadata. See
 [`vignette("csv_manual", package = "tidyBdE")`](https://ropenspain.github.io/tidyBdE/articles/csv_manual.md)
 for details.
 
@@ -113,10 +113,10 @@ expressions](https://rdrr.io/r/base/regex.html) to broaden the search.
 ``` r
 # \donttest{
 bde_catalog_load("TI", verbose = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmpQ8h2QQ.
+#> ℹ Using temporary cache directory /tmp/RtmpeNLirv.
 #> ℹ Downloading catalog "TI".
-#> ✔ Using cache directory /tmp/RtmpQ8h2QQ.
-#> ℹ Updating catalogs: TI.
+#> ✔ Using cache directory /tmp/RtmpeNLirv.
+#> ℹ Updating 1 catalog file: "TI".
 #> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv>.
 #> ℹ Parsing date columns.
 #> # A tibble: 49 × 17
@@ -199,8 +199,8 @@ bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 #> #   Titulo_de_la_serie <chr>, Fuente <chr>, Notas <chr>
 
 bde_catalog_update("TI", verbose = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmpQ8h2QQ.
-#> ℹ Updating catalogs: TI.
+#> ℹ Using temporary cache directory /tmp/RtmpeNLirv.
+#> ℹ Updating 1 catalog file: "TI".
 #> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv>.
 # }
 ```
