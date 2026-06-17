@@ -10,7 +10,7 @@
 #'
 #' @return A \CRANpkg{ggplot2} theme object.
 #'
-#' @seealso [ggplot2::theme_classic()]
+#' @seealso [ggplot2::theme_classic()].
 #'
 #' @family bde_plot
 #'
@@ -47,8 +47,8 @@
 #' }
 #' }
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 theme_tidybde <- function(...) {
   ggplot2::theme_classic(...) %+replace%
     ggplot2::theme(

@@ -75,7 +75,7 @@ bde_ind_gdp_var()
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[=bde_series_load]{bde_series_load()}}, \code{\link[=bde_catalog_search]{bde_catalog_search()}}
+\code{\link[=bde_series_load]{bde_series_load()}} and \code{\link[=bde_catalog_search]{bde_catalog_search()}}.
 
 Indicator functions:
 \code{\link{bde_ind_db}}

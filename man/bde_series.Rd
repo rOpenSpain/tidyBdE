@@ -30,9 +30,9 @@ bde_series_full_load(
 )
 }
 \arguments{
-\item{series_code}{Numeric vector of BdE sequential numbers, or values
-coercible with \code{\link[base:as.double]{base::as.double()}}, from the \verb{Número secuencial} field of
-the corresponding series. This is not the API series code. See
+\item{series_code}{Numeric vector of stable BdE sequential numbers, or
+values coercible with \code{\link[base:as.double]{base::as.double()}}, from the \verb{Número secuencial}
+field of the corresponding series. This is not the API series code. See
 \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 
 \item{series_label}{Optional character string or vector of labels to assign
@@ -58,7 +58,7 @@ with \code{options(bde_cache_dir = "path/to/dir")}.}
 \item{extract_metadata}{Logical. If \code{TRUE}, the output is the metadata of the
 requested series.}
 
-\item{series_csv}{CSV file name for a series, as defined in the field
+\item{series_csv}{Bulk CSV file name for a series, as defined in the field
 \verb{Nombre del archivo con los valores de la serie} of the corresponding
 catalog. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 }
@@ -72,8 +72,8 @@ with the name defined by \code{series_label}.
 corresponding value.
 }
 
-\code{"wide"} format is more suitable for exporting to a \code{.csv} file, while
-\code{"long"} format is more suitable for creating plots using
+\code{"wide"} format is more suitable for exporting to a CSV file, while
+\code{"long"} format is more suitable for creating plots with
 \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}. See also \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}} and
 \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.
 
@@ -87,11 +87,11 @@ These functions load BdE time series from the bulk CSV files published by
 Banco de España.
 
 \code{bde_series_load()} extracts one or more series by their stable sequential
-number. \code{bde_series_full_load()} loads a complete CSV file and returns all
-series included in that file.
+number. \code{bde_series_full_load()} loads a complete bulk CSV file and returns
+all series included in that file.
 
-The series alias is a positional code showing the location, column and/or
-row, of the series in the table. Although it is unique, it is not stable
+The series alias is a positional code showing the location, column or row
+of the series in the table. Although it is unique, it is not stable
 enough to identify a time series because it may change when a series moves.
 
 BdE also assigns each series a stable sequential number
@@ -145,7 +145,7 @@ long <- bde_series_load(c(573234, 573214),
 
 long
 
-# Use with `ggplot2`.
+# Use with ggplot2.
 library(ggplot2)
 
 ggplot(long, aes(Date, serie_value)) +
@@ -153,17 +153,17 @@ ggplot(long, aes(Date, serie_value)) +
   scale_color_bde_d() +
   theme_tidybde()
 
-# Show metadata for a full file.
+# Show metadata for a complete bulk CSV file.
 bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
 
-# Load a full file.
+# Load a complete bulk CSV file.
 bde_series_full_load("TI_1_1.csv")
 }
 \dontshow{\}) # examplesIf}
 }
 \seealso{
 \code{\link[=bde_catalog_load]{bde_catalog_load()}}, \code{\link[=bde_catalog_search]{bde_catalog_search()}},
-\code{\link[=bde_indicators]{bde_indicators()}}
+\code{\link[=bde_indicators]{bde_indicators()}}.
 
 Series functions:
 \code{\link{bde_series_api}}

@@ -64,7 +64,7 @@ if (nrow(series_TC) > 0) {
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[ggplot2:theme_classic]{ggplot2::theme_classic()}}
+\code{\link[ggplot2:theme_classic]{ggplot2::theme_classic()}}.
 
 Plot utilities:
 \code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}},

@@ -1,6 +1,6 @@
 ---
-title: "Main macroeconomic indicators"
-description: Evolution of selected Spanish macroeconomic indicators.
+title: "Selected macroeconomic indicators"
+description: Worked examples using selected Spanish macroeconomic indicators and BdE plotting helpers.
 date: "`r Sys.Date()`"
 knitr:
   opts_chunk:

@@ -11,9 +11,9 @@
 #' bde_check_access()
 #' }
 #'
-#' @export
-#' @encoding UTF-8
 #' @keywords internal
+#' @encoding UTF-8
+#' @export
 bde_check_access <- function() {
   # Use an internal option for testing purposes only.
   if (on_cran()) {

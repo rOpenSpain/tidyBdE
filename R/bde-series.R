@@ -5,11 +5,11 @@
 #' Banco de España.
 #'
 #' `bde_series_load()` extracts one or more series by their stable sequential
-#' number. `bde_series_full_load()` loads a complete CSV file and returns all
-#' series included in that file.
+#' number. `bde_series_full_load()` loads a complete bulk CSV file and returns
+#' all series included in that file.
 #'
-#' The series alias is a positional code showing the location, column and/or
-#' row, of the series in the table. Although it is unique, it is not stable
+#' The series alias is a positional code showing the location, column or row
+#' of the series in the table. Although it is unique, it is not stable
 #' enough to identify a time series because it may change when a series moves.
 #'
 #' BdE also assigns each series a stable sequential number
@@ -28,11 +28,11 @@
 #' ("BE"). Although it is unique, it is subject to change, for example when a
 #' new table is inserted before it.
 #'
-#' @param series_code Numeric vector of BdE sequential numbers, or values
-#'   coercible with [base::as.double()], from the `Número secuencial` field of
-#'   the corresponding series. This is not the API series code. See
+#' @param series_code Numeric vector of stable BdE sequential numbers, or
+#'   values coercible with [base::as.double()], from the `Número secuencial`
+#'   field of the corresponding series. This is not the API series code. See
 #'   [bde_catalog_load()].
-#' @param series_csv CSV file name for a series, as defined in the field
+#' @param series_csv Bulk CSV file name for a series, as defined in the field
 #'   `Nombre del archivo con los valores de la serie` of the corresponding
 #'   catalog. See [bde_catalog_load()].
 #' @param series_label Optional character string or vector of labels to assign
@@ -54,8 +54,8 @@
 #'   `serie_name`, with the label of each series and `serie_value`, with the
 #'   corresponding value.
 #'
-#' `"wide"` format is more suitable for exporting to a `.csv` file, while
-#' `"long"` format is more suitable for creating plots using
+#' `"wide"` format is more suitable for exporting to a CSV file, while
+#' `"long"` format is more suitable for creating plots with
 #' [ggplot2::ggplot()]. See also [tidyr::pivot_longer()] and
 #' [tidyr::pivot_wider()].
 #'
@@ -70,7 +70,7 @@
 #' the default behavior with `parse_numeric = FALSE`.
 #'
 #' @seealso [bde_catalog_load()], [bde_catalog_search()],
-#'   [bde_indicators()]
+#'   [bde_indicators()].
 #'
 #' @family series
 #'
@@ -106,7 +106,7 @@
 #'
 #' long
 #'
-#' # Use with `ggplot2`.
+#' # Use with ggplot2.
 #' library(ggplot2)
 #'
 #' ggplot(long, aes(Date, serie_value)) +
@@ -114,15 +114,15 @@
 #'   scale_color_bde_d() +
 #'   theme_tidybde()
 #'
-#' # Show metadata for a full file.
+#' # Show metadata for a complete bulk CSV file.
 #' bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
 #'
-#' # Load a full file.
+#' # Load a complete bulk CSV file.
 #' bde_series_full_load("TI_1_1.csv")
 #' }
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_series_load <- function(
   series_code,
   series_label = NULL,
@@ -152,9 +152,13 @@ bde_series_load <- function(
   series_label <- unique(as.character(series_label))
 
   if (length(series_code) != length(series_label)) {
-    cli::cli_abort(
-      "{.arg series_label} and {.arg series_code} must have the same length."
-    )
+    cli::cli_abort(c(
+      "{.arg series_label} and {.arg series_code} must have the same length.",
+      "i" = paste0(
+        "{.arg series_label} has length {.val {length(series_label)}} and ",
+        "{.arg series_code} has length {.val {length(series_code)}}."
+      )
+    ))
   }
 
   # Search catalog metadata.
@@ -178,7 +182,7 @@ bde_series_load <- function(
       cli::cli_alert_info("Extracting series {.val {x}}.")
     }
 
-    # Match the sequential number to the first catalog record available.
+    # Match the stable sequential number to the first catalog record available.
     csv_file <- all_catalogs[all_catalogs[[1]] == x, c(2, 3)]
 
     if (nrow(csv_file) == 0) {
@@ -283,8 +287,8 @@ bde_series_load <- function(
 
 #' @rdname bde_series
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_series_full_load <- function(
   series_csv,
   parse_dates = TRUE,
@@ -359,7 +363,7 @@ bde_series_full_load <- function(
   # Reject empty files before encoding detection.
   r <- readLines(local_file, warn = FALSE, n = 1000)
   if (length(r) == 0) {
-    cli::cli_alert_warning("File {.file {local_file}} is not valid.")
+    cli::cli_alert_warning("File {.file {local_file}} is empty.")
     unlink(local_file)
     return(invisible())
   }
@@ -411,7 +415,7 @@ bde_series_full_load <- function(
   # Parse date fields before numeric conversion.
   if (parse_dates) {
     if (verbose) {
-      cli::cli_alert_info("Parsing date columns.")
+      cli::cli_alert_info("Parsing date columns as {.cls Date}.")
     }
     date_fields <- names(data_serie)[grep(
       "Date",
@@ -428,7 +432,7 @@ bde_series_full_load <- function(
 
   if (parse_numeric) {
     if (verbose) {
-      cli::cli_alert_info("Parsing numeric fields as doubles.")
+      cli::cli_alert_info("Parsing numeric fields as {.cls double}.")
     }
     # Preserve dates while converting observations to double precision.
     data_serie <- bde_hlp_todouble(data_serie, preserve = "Date")

@@ -88,7 +88,7 @@ ggplot(txsamp, aes(x = sales, y = median)) +
 
 }
 \seealso{
-\code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}, \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}
+\code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} and \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}.
 
 Plot utilities:
 \code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}},

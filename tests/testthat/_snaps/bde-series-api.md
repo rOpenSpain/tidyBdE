@@ -29,41 +29,42 @@
     Condition
       Error in `bde_series_api_load()`:
       ! `series_label` and `series_code` must have the same length.
+      i `series_label` has length 2 and `series_code` has length 1.
 
 # Latest: Empty results
 
     Code
       empty <- bde_series_api_latest("XXX")
     Message
-      ! The query returned an error XXX for `series_code` "XXX".
-      i Series omitted from the results.
+      ! The query returned error XXX for `series_code` "XXX".
+      i This series was omitted from the results.
       ! No valid results for query <https://app.bde.es/bierest/resources/srdatosapp/favoritas?idioma=en&series=XXX>.
-      i Returning an empty tibble.
+      i Returning an empty <tibble>.
 
 ---
 
     Code
       empty <- bde_series_api_latest("XXX")
     Message
-      i Returning an empty tibble.
+      i Returning an empty <tibble>.
 
 # Latest: Several results
 
     Code
       tb_es_invalid <- bde_series_api_latest(sname_invalid, language = "es")
     Message
-      ! The query returned an error XXX for `series_code` "AN_ERROR".
-      i Series omitted from the results.
-      ! The query returned an error XXX for `series_code` "ANOTHER_ERROR".
-      i Series omitted from the results.
+      ! The query returned error XXX for `series_code` "AN_ERROR".
+      i This series was omitted from the results.
+      ! The query returned error XXX for `series_code` "ANOTHER_ERROR".
+      i This series was omitted from the results.
 
 # Series API real test
 
     Code
       tb_es_invalid <- bde_series_api_load(sname_invalid, language = "es")
     Message
-      ! URL <https://app.bde.es/bierest/resources/srdatosapp/listaSeries?idioma=es&series=AN_ERROR,DTCCBCEUSDEUR.B,DTCCBCEJPYEUR.B,ANOTHER_ERROR> is not reachable. If this looks like a bug, please open an issue.
-      i Returning an empty tibble.
+      ! URL <https://app.bde.es/bierest/resources/srdatosapp/listaSeries?idioma=es&series=AN_ERROR,DTCCBCEUSDEUR.B,DTCCBCEJPYEUR.B,ANOTHER_ERROR> is not reachable. If this looks like a bug, please open an issue at <https://github.com/rOpenSpain/tidyBdE/issues>.
+      i Returning an empty <tibble>.
 
 # Error on time_range
 
@@ -72,6 +73,6 @@
         time_range = "30M", verbose = FALSE)
     Condition
       Error in `bde_hlp_api_check_range()`:
-      ! `time_range` "30M" is not valid for series frequency "D". Use any of "3M", "12M", or "36M".
+      ! `time_range` "30M" is not valid for series frequency: "D". Use any of "3M", "12M", or "36M".
       i Invalid series: "DTCCBCEUSDEUR.B".
 

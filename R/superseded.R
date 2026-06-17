@@ -19,9 +19,9 @@
 #' # Show the rose palette.
 #' scales::show_col(bde_rose_pal()(6), labels = FALSE)
 #'
-#' @export
-#' @encoding UTF-8
 #' @keywords internal
+#' @encoding UTF-8
+#' @export
 bde_vivid_pal <- function(...) {
   lifecycle::deprecate_soft(
     "0.3.5",
@@ -35,9 +35,9 @@ bde_vivid_pal <- function(...) {
 
 #' @rdname bde_pals
 #'
-#' @export
-#' @encoding UTF-8
 #' @keywords internal
+#' @encoding UTF-8
+#' @export
 bde_rose_pal <- function(...) {
   lifecycle::deprecate_soft("0.3.5", "bde_rose_pal()", "bde_tidy_palettes()")
 

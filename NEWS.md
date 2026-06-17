@@ -4,8 +4,8 @@
   indicator wrappers and **ggplot2** scale helpers.
 - Messages and package errors now use **cli**, with AI-assisted wording updates
   and without the former `tidyBdE>` prefix.
-- Roxygen2 documentation was reviewed with AI assistance and tag order was made
-  consistent across source files.
+- **roxygen2** documentation was reviewed with AI assistance and tag order was
+  made consistent across source files.
 - Tests were refactored and expanded with local fixtures, mocks and snapshot
   updates, reaching 100% line coverage in `devtools::test_coverage()`.
 - New vignette `vignette("csv_manual", package = "tidyBdE")` explaining the
@@ -21,7 +21,7 @@
 
 # tidyBdE 0.6.1
 
-- Improve reading of external `.csv` files by detecting file encoding with
+- Improve reading of external CSV files by detecting file encoding with
   `readr::guess_encoding()`.
 - Package documentation was reviewed and updated with AI-assisted editing.
 
@@ -49,7 +49,7 @@
 
 - DOI changed to the **CRAN** URL:
   <https://doi.org/10.32614/CRAN.package.tidyBdE>.
-- Native encoding when reading `.csv` files changed to `"latin1"`.
+- Native encoding when reading CSV files changed to `"latin1"`.
 - Update `bde_ind_unemployment_rate()` and `bde_ind_population()` because the
   underlying identifiers changed.
 

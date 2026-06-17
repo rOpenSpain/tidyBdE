@@ -10,7 +10,7 @@ A \link[tibble:tbl_df]{tibble} of 9 rows and
 7 columns with the following fields:
 
 \describe{
-\item{tidyBdE_fun}{Function name. See \link{bde_indicators}.}
+\item{tidyBdE_fun}{Function name. See \code{\link[=bde_indicators]{bde_indicators()}}.}
 \item{Numero_secuencial}{Sequential number. See \code{\link[=bde_series_load]{bde_series_load()}}.}
 \item{Descripcion_de_la_serie}{Description of the series in Spanish.}
 \item{Fecha_de_la_primera_observacion}{Starting date of the indicator.}
@@ -20,7 +20,7 @@ A \link[tibble:tbl_df]{tibble} of 9 rows and
 }
 \description{
 Minimal metadata for selected Spanish macroeconomic indicators included in
-the convenience functions of \CRANpkg{tidyBdE}. See \link{bde_indicators}.
+the convenience functions of \CRANpkg{tidyBdE}. See \code{\link[=bde_indicators]{bde_indicators()}}.
 Full catalog metadata is available with \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
 }
 \details{

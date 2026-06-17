@@ -5,7 +5,7 @@
     Message
       i Downloading file from <https://www.invented_test_url.com>.
       ! Download failed, trying again.
-      ! URL <https://www.invented_test_url.com> is not reachable. If this looks like a bug, please open an issue.
+      ! URL <https://www.invented_test_url.com> is not reachable. If this looks like a bug, please open an issue at <https://github.com/rOpenSpain/tidyBdE/issues>.
 
 ---
 
@@ -20,7 +20,7 @@
     Code
       df <- bde_hlp_return_null()
     Message
-      i BdE resources are unavailable. Returning an empty tibble.
+      i BdE resources are unavailable. Returning an empty <tibble>.
 
 ---
 

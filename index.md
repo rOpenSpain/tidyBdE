@@ -124,13 +124,13 @@ on an English version.
 </div>
 
 After finding a time series, you can load the GBP/EUR exchange rate from
-bulk CSV files using the sequential number (`Numero_secuencial`):
+bulk CSV files using its stable sequential number (`Numero_secuencial`):
 
 ``` r
 seq_number <- xr_gbp |>
   # Select the first record.
   slice(1) |>
-  # Get the sequential number.
+  # Get the stable sequential number.
   select(Numero_secuencial) |>
   # Convert to numeric.
   as.double()
@@ -218,7 +218,7 @@ alt="Spanish economic indicators (2010-2019)" />
 ### Palettes
 
 Three custom palettes are available. They are based on colors used by
-BdE in some publications.
+BdE in selected publications.
 
 Apply these palettes to **ggplot2** plots with the scale functions
 provided by the package. See
@@ -265,5 +265,5 @@ A BibTeX entry for LaTeX users is:
       year = {2026},
       version = {0.6.1.9000},
       url = {https://ropenspain.github.io/tidyBdE/},
-      abstract = {Tools for retrieving time series data as tibble objects from Banco de España (BdE) bulk CSV files and the Statistics web service (API). Bulk CSV helpers use stable BdE sequential numbers and API helpers use API series codes. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by Banco de España.},
+      abstract = {Tools for retrieving Banco de España (BdE) time series data as tibble objects from bulk CSV files and the Statistics web service (API). Bulk CSV helpers use stable BdE sequential numbers, and API helpers use API series codes. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by Banco de España.},
     }

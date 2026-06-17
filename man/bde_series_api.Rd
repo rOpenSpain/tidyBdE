@@ -23,7 +23,7 @@ bde_series_api_load(
 \item{series_code}{Character string or vector with API series codes,
 taken from the \code{Nombre_de_la_serie} field of the corresponding catalog.
 This is the value passed to the API \code{series_list} parameter, not the
-numeric sequential number used by \code{\link[=bde_series_load]{bde_series_load()}}.}
+stable sequential number used by \code{\link[=bde_series_load]{bde_series_load()}}.}
 
 \item{language}{Character string. Use \code{"es"} or \code{"en"} to obtain results in
 Spanish or English, respectively.}
@@ -76,7 +76,7 @@ details of one or more complete series and their metadata.
 The API uses API series codes as identifiers. In this package, pass those
 codes through \code{series_code}. They are available in the \code{Nombre_de_la_serie}
 field of \code{\link[=bde_catalog_load]{bde_catalog_load()}} and correspond to the API \code{series_list}
-parameter. This is different from the numeric sequential number
+parameter. This is different from the stable sequential number
 (\verb{Número secuencial}) used by \code{\link[=bde_series_load]{bde_series_load()}} for bulk CSV files.
 }
 \details{
@@ -125,7 +125,7 @@ xr |>
 }
 \seealso{
 \code{\link[=bde_catalog_load]{bde_catalog_load()}}, \code{\link[=bde_catalog_search]{bde_catalog_search()}},
-\code{\link[=bde_indicators]{bde_indicators()}}
+\code{\link[=bde_indicators]{bde_indicators()}}.
 
 Series functions:
 \code{\link{bde_series}}

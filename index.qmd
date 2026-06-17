@@ -148,14 +148,14 @@ version.
 ```
 
 After finding a time series, you can load the GBP/EUR exchange rate from bulk
-CSV files using the sequential number (`Numero_secuencial`):
+CSV files using its stable sequential number (`Numero_secuencial`):
 
 ```{r}
 #| label: find
 seq_number <- xr_gbp |>
   # Select the first record.
   slice(1) |>
-  # Get the sequential number.
+  # Get the stable sequential number.
   select(Numero_secuencial) |>
   # Convert to numeric.
   as.double()
@@ -227,7 +227,7 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
 ### Palettes
 
 Three custom palettes are available. They are based on colors used by BdE in
-some publications.
+selected publications.
 
 Apply these palettes to **ggplot2** plots with the scale functions provided by
 the package. See `help("scale_color_bde_d", package = "tidyBdE")`.

@@ -4,11 +4,11 @@
 #' These functions manage BdE time series catalog metadata from the bulk CSV
 #' files published by Banco de España.
 #'
-#' `bde_catalog_load()` loads catalog metadata into a tibble,
+#' `bde_catalog_load()` loads time series catalog metadata into a tibble,
 #' `bde_catalog_update()` refreshes the cached catalog files and
 #' `bde_catalog_search()` searches catalog metadata for keywords.
 #'
-#' @param catalog A single catalog identifier, or `"ALL"` to load or update
+#' @param catalog A single catalog identifier or `"ALL"` to load or update
 #'   every catalog. See **Details**.
 #' @param parse_dates Logical. If `TRUE`, date columns are parsed with
 #'   [bde_parse_dates()].
@@ -57,8 +57,8 @@
 #'
 #' @return
 #' `bde_catalog_load()` returns a [tibble][tibble::tbl_df] with the requested
-#' catalog metadata. See `vignette("csv_manual", package = "tidyBdE")` for
-#' details.
+#' time series catalog metadata. See
+#' `vignette("csv_manual", package = "tidyBdE")` for details.
 #'
 #' `bde_catalog_update()` returns an invisible list of download results.
 #'
@@ -97,8 +97,8 @@
 #' bde_catalog_update("TI", verbose = TRUE)
 #' }
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_catalog_load <- function(
   catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
   parse_dates = TRUE,
@@ -157,7 +157,7 @@ bde_catalog_load <- function(
     # Reject empty files before encoding detection.
     r <- readLines(catalog_file, warn = FALSE, n = 1000)
     if (length(r) == 0) {
-      cli::cli_alert_warning("File {.file {catalog_file}} is not valid.")
+      cli::cli_alert_warning("File {.file {catalog_file}} is empty.")
       unlink(catalog_file)
       return(invisible())
     }
@@ -207,12 +207,10 @@ bde_catalog_load <- function(
   res_all <- unlist(lapply(final_catalog, is.null))
 
   if (any(res_all)) {
+    cats <- catalog_to_load[res_all] # nolint
+    ncats <- length(cats) # nolint
     cli::cli_alert_warning(
-      paste0(
-        "Could not load catalogs: ",
-        paste0(catalog_to_load[res_all], collapse = ", "),
-        "."
-      )
+      "Could not load {ncats} catalog{?s}: {.val {cats}}."
     )
   }
 
@@ -247,8 +245,8 @@ bde_catalog_load <- function(
 
 #' @rdname bde_catalogs
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_catalog_update <- function(
   catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
   cache_dir = NULL,
@@ -279,7 +277,10 @@ bde_catalog_update <- function(
 
   if (verbose) {
     cli::cli_alert_info(
-      "Updating catalogs: {paste0(catalog_download, collapse = ', ')}."
+      paste0(
+        "Updating {length(catalog_download)} catalog file{?s}: ",
+        "{.val {catalog_download}}."
+      )
     )
   }
 
@@ -308,8 +309,8 @@ bde_catalog_update <- function(
 
 #' @rdname bde_catalogs
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_catalog_search <- function(pattern, ...) {
   # Reuse the catalog loader so search honors the same cache and parsing rules.
   catalog_search <- bde_catalog_load(...)
@@ -322,8 +323,8 @@ bde_catalog_search <- function(pattern, ...) {
   if (!tibble::is_tibble(catalog_search)) {
     cli::cli_alert_warning(
       paste0(
-        "Catalog data is not a tibble. Try downloading the catalog again with ",
-        "bde_catalog_update()."
+        "Catalog data is not a {.cls tibble}. ",
+        "Try downloading it again with {.fn bde_catalog_update}."
       )
     )
     return(invisible())
@@ -344,7 +345,7 @@ bde_catalog_search <- function(pattern, ...) {
 
   search_results <- catalog_search[search_match_rows, ]
   if (nrow(search_results) == 0) {
-    cli::cli_abort("No matches found for {.arg pattern} {.val {pattern}}.")
+    cli::cli_abort("No matches found for {.arg pattern} {.str {pattern}}.")
   }
   search_results
 }

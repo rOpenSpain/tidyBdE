@@ -14,7 +14,7 @@
 #'
 #' @return A [tibble][tibble::tbl_df] with the requested indicator series.
 #'
-#' @seealso [bde_series_load()], [bde_catalog_search()]
+#' @seealso [bde_series_load()] and [bde_catalog_search()].
 #'
 #' @family indicators
 #'
@@ -26,24 +26,24 @@
 #' bde_ind_gdp_var()
 #' }
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_ind_gdp_var <- function(series_label = "GDP_YoY", ...) {
   bde_hlp_indicator("bde_ind_gdp_var", series_label, ...)
 }
 
 #' @rdname bde_indicators
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_ind_unemployment_rate <- function(series_label = "Unemployment_Rate", ...) {
   bde_hlp_indicator("bde_ind_unemployment_rate", series_label, ...)
 }
 
 #' @rdname bde_indicators
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_ind_euribor_12m_monthly <- function(
   series_label = "Euribor_12M_Monthly",
   ...
@@ -53,48 +53,48 @@ bde_ind_euribor_12m_monthly <- function(
 
 #' @rdname bde_indicators
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_ind_euribor_12m_daily <- function(series_label = "Euribor_12M_Daily", ...) {
   bde_hlp_indicator("bde_ind_euribor_12m_daily", series_label, ...)
 }
 
 #' @rdname bde_indicators
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_ind_cpi_var <- function(series_label = "Consumer_price_index_YoY", ...) {
   bde_hlp_indicator("bde_ind_cpi_var", series_label, ...)
 }
 
 #' @rdname bde_indicators
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_ind_ibex_monthly <- function(series_label = "IBEX_index_month", ...) {
   bde_hlp_indicator("bde_ind_ibex_monthly", series_label, ...)
 }
 
 #' @rdname bde_indicators
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_ind_ibex_daily <- function(series_label = "IBEX_index_day", ...) {
   bde_hlp_indicator("bde_ind_ibex_daily", series_label, ...)
 }
 
 #' @rdname bde_indicators
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_ind_gdp_quarterly <- function(series_label = "GDP_quarterly_value", ...) {
   bde_hlp_indicator("bde_ind_gdp_quarterly", series_label, ...)
 }
 
 #' @rdname bde_indicators
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_ind_population <- function(series_label = "Population_Spain", ...) {
   bde_hlp_indicator("bde_ind_population", series_label, ...)
 }
@@ -102,8 +102,8 @@ bde_ind_population <- function(series_label = "Population_Spain", ...) {
 #' @rdname bde_indicators
 #' @usage NULL
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_ind_ibex <- bde_ind_ibex_monthly
 
 #' Load one indicator wrapper

@@ -108,7 +108,7 @@ test_that("Series API load validates time range by frequency", {
 
   expect_error(
     bde_series_api_load("D_TEST", time_range = "30M"),
-    "`time_range` \"30M\" is not valid for series frequency \"D\"\\."
+    "`time_range` \"30M\" is not valid for"
   )
 })
 

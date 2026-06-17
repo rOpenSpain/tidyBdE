@@ -22,13 +22,13 @@
 #' The API uses API series codes as identifiers. In this package, pass those
 #' codes through `series_code`. They are available in the `Nombre_de_la_serie`
 #' field of [bde_catalog_load()] and correspond to the API `series_list`
-#' parameter. This is different from the numeric sequential number
+#' parameter. This is different from the stable sequential number
 #' (`Número secuencial`) used by [bde_series_load()] for bulk CSV files.
 #'
 #' @param series_code Character string or vector with API series codes,
 #'   taken from the `Nombre_de_la_serie` field of the corresponding catalog.
 #'   This is the value passed to the API `series_list` parameter, not the
-#'   numeric sequential number used by [bde_series_load()].
+#'   stable sequential number used by [bde_series_load()].
 #' @param language Character string. Use `"es"` or `"en"` to obtain results in
 #'   Spanish or English, respectively.
 #' @param time_range Character string. Optional annual range or API range code.
@@ -65,7 +65,7 @@
 #' `fechaInicio`, `fechaFin` and metadata fields derived from `informacion`.
 #'
 #' @seealso [bde_catalog_load()], [bde_catalog_search()],
-#'   [bde_indicators()]
+#'   [bde_indicators()].
 #'
 #' @family series
 #'
@@ -102,8 +102,8 @@
 #'   glimpse()
 #' }
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_series_api_latest <- function(
   series_code,
   language = c("en", "es"),
@@ -139,7 +139,7 @@ bde_series_api_latest <- function(
   result <- bde_hlp_download(base_url, tmpjson, verbose)
   if (isFALSE(result)) {
     unlink(tmpjson)
-    s <- bde_hlp_return_null("Returning an empty tibble.")
+    s <- bde_hlp_return_null("Returning an empty {.cls tibble}.")
     return(s)
   }
 
@@ -156,12 +156,12 @@ bde_series_api_latest <- function(
 
       if (!is.null(err_num)) {
         cli::cli_alert_warning(
-          c(
-            "The query returned an error {.str {err_num}} ",
-            "for {.arg series_code} {.str {series_code[i]}}."
+          paste0(
+            "The query returned error {.str {err_num}} for ",
+            "{.arg series_code} {.str {series_code[i]}}."
           )
         )
-        cli::cli_alert_info("Series omitted from the results.")
+        cli::cli_alert_info("This series was omitted from the results.")
         return(FALSE)
       }
 
@@ -172,7 +172,7 @@ bde_series_api_latest <- function(
 
   if (!any(ok_results)) {
     cli::cli_alert_warning("No valid results for query {.url {base_url}}.")
-    s <- bde_hlp_return_null("Returning an empty tibble.")
+    s <- bde_hlp_return_null("Returning an empty {.cls tibble}.")
     return(s)
   }
 
@@ -192,8 +192,8 @@ bde_series_api_latest <- function(
 
 #' @rdname bde_series_api
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_series_api_load <- function(
   series_code,
   series_label = NULL,
@@ -232,15 +232,21 @@ bde_series_api_load <- function(
   series_label <- unique(as.character(series_label))
 
   if (length(series_code) != length(series_label)) {
-    cli::cli_abort(
-      "{.arg series_label} and {.arg series_code} must have the same length."
-    )
+    cli::cli_abort(c(
+      "{.arg series_label} and {.arg series_code} must have the same length.",
+      "i" = paste0(
+        "{.arg series_label} has length {.val {length(series_label)}} and ",
+        "{.arg series_code} has length {.val {length(series_code)}}."
+      )
+    ))
   }
 
   if (!is.null(time_range)) {
     time_range <- trimws(as.character(time_range))
     if (length(time_range) != 1 || is.na(time_range) || !nzchar(time_range)) {
-      cli::cli_abort("{.arg time_range} must be a non-empty string or `NULL`.")
+      cli::cli_abort(
+        "{.arg time_range} must be a non-empty string or {.code NULL}."
+      )
     }
   }
 
@@ -271,7 +277,7 @@ bde_series_api_load <- function(
   result <- bde_hlp_download(base_url, tmpjson, verbose)
   if (isFALSE(result)) {
     unlink(tmpjson)
-    s <- bde_hlp_return_null("Returning an empty tibble.")
+    s <- bde_hlp_return_null("Returning an empty {.cls tibble}.")
     return(s)
   }
 
@@ -398,7 +404,8 @@ bde_hlp_api_check_range <- function(
       c(
         paste0(
           "{.arg time_range} {.str {time_range}} is not valid for ",
-          "series frequency {.str {invalid_frequency}}. ",
+          "{qty(length(invalid_frequency))}series frequenc{?y/ies}: ",
+          "{.str {invalid_frequency}}. ",
           "Use any of {.or {.str {ok_ranges}}}."
         ),
         "i" = "Invalid series: {.val {invalid_series}}."

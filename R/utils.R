@@ -2,8 +2,8 @@
 #'
 #' @description
 #' Parse strings representing dates with [as.Date()]. This function is tailored
-#' to date formats used in this package and may fail for other datasets. See
-#' **Examples** for formats that are supported.
+#' to date formats used in this package and might not parse other datasets. See
+#' **Examples** for supported formats.
 #'
 #' ## Date formats
 #'
@@ -15,15 +15,15 @@
 #'   "**Monthly**", "`MMM YYYY`", "`MAR 2020`",
 #'   "**Quarterly**", paste(
 #'     "`MMM YYYY`, where `MMM` is the first",
-#'     "or the last month of the",
+#'     "or last month of the",
 #'     "quarter, depending on the value of",
-#'     "its variable OBSERVED."
+#'     "the `OBSERVED` variable."
 #'   ),
 #'   "For the first quarter of 2020: `ENE 2020`, `MAR 2020`",
 #'   "**Half-yearly**", paste(
-#'     "`MMM YYYY`, where `MMM` is the first or the last month",
+#'     "`MMM YYYY`, where `MMM` is the first or last month",
 #'     "of the half-year period, depending on the value of its",
-#'     "variable OBSERVED."
+#'     "`OBSERVED` variable."
 #'   ),
 #'   "For the first half of 2020: `ENE 2020`, `JUN 2020`",
 #'   "**Annual**", "`YYYY`", "`2020`"
@@ -38,7 +38,7 @@
 #'
 #' @return A vector of [`Date`][as.Date()] values.
 #'
-#' @seealso [as.Date()]
+#' @seealso [as.Date()].
 #'
 #' @family utils
 #'
@@ -65,8 +65,8 @@
 #'
 #' tibble::tibble(raw = wont_parse, parsed = parsed_fail)
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_parse_dates <- function(dates_to_parse) {
   dateformat <- gsub(" ", "", toupper(dates_to_parse), fixed = TRUE)
   dateformat <- gsub("-", "", dateformat, fixed = TRUE)
@@ -136,7 +136,7 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
 
       if (verbose) {
         cli::cli_alert_info(
-          "Using temporary cache directory {.path {cache_dir}}."
+          "Using temporary cache directory {.file {cache_dir}}."
         )
       }
       return(cache_dir)
@@ -144,7 +144,7 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
       # Report the configured cache location when requested.
       if (verbose) {
         cli::cli_alert_info(
-          "Using cache directory from options: {.path {cache_dir}}."
+          "Using cache directory from options: {.file {cache_dir}}."
         )
       }
     }
@@ -157,14 +157,14 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
 
   if (dir.exists(cache_dir)) {
     if (verbose) {
-      cli::cli_alert_success("Using cache directory {.path {cache_dir}}.")
+      cli::cli_alert_success("Using cache directory {.file {cache_dir}}.")
     }
     return(cache_dir)
   }
 
   dir.create(cache_dir, recursive = TRUE)
   if (verbose) {
-    cli::cli_alert_success("Created cache directory {.path {cache_dir}}.")
+    cli::cli_alert_success("Created cache directory {.file {cache_dir}}.")
   }
   cache_dir
 }
@@ -202,7 +202,8 @@ bde_hlp_download <- function(url, local_file, verbose, retry = TRUE) {
         cli::cli_alert_warning(
           paste0(
             "URL {.url {url}} is not reachable. ",
-            "If this looks like a bug, please open an issue."
+            "If this looks like a bug, please open an issue at ",
+            "{.url https://github.com/rOpenSpain/tidyBdE/issues}."
           )
         )
         TRUE
@@ -278,7 +279,7 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
 #'
 #' @noRd
 bde_hlp_return_null <- function(
-  msg = "BdE resources are unavailable. Returning an empty tibble."
+  msg = "BdE resources are unavailable. Returning an empty {.cls tibble}."
 ) {
   cli::cli_alert_info(msg)
   tbl <- tibble::tibble(x = NULL)

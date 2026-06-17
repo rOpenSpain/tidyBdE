@@ -17,45 +17,53 @@ repo:
 reference:
 - title: Catalogs
   desc: Load, update and search BdE time series catalog metadata.
-  contents:
+- contents:
   - has_concept("catalog")
 
 - title: Series
-  desc: Load bulk CSV series by sequential number and API data by API series code.
-  contents:
+  desc: Load series by stable sequential number or API series code.
+- contents:
   - has_concept("series")
 
 - title: Selected indicators
   desc: Convenience functions for selected Spanish macroeconomic indicators.
-  contents:
+- contents:
   - has_concept("indicators")
 
 - title: Plot utilities
   desc: BdE-inspired palettes, scales and themes for ggplot2 plots.
-  contents:
+- contents:
   - has_concept("bde_plot")
 
 - title: Utilities
   desc: Date parsing and supporting utilities.
-  contents:
+- contents:
   - has_concept("utils")
 
 - title: About the package
   desc: Package-level documentation.
-  contents:
+- contents:
   - tidyBdE-package
 
 articles:
 - title: Get started
-  navbar: ~
   contents:
   - tidyBdE
-- title: Articles
-  navbar: Articles
+- title: Data sources and formats
+  desc: >
+    Learn how Banco de España bulk CSV files are structured and how to use
+    catalog metadata to identify time series.
+  navbar: Data
   contents:
   - csv_manual
-  - articles/mainseries
   - articles/seriesindex
+- title: Examples
+  desc: >
+    Worked examples using selected Spanish macroeconomic indicators and
+    BdE-inspired plotting helpers.
+  navbar: Examples
+  contents:
+  - articles/mainseries
 
 authors:
   Banco de España:

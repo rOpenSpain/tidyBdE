@@ -28,7 +28,7 @@ bde_catalog_update(
 bde_catalog_search(pattern, ...)
 }
 \arguments{
-\item{catalog}{A single catalog identifier, or \code{"ALL"} to load or update
+\item{catalog}{A single catalog identifier or \code{"ALL"} to load or update
 every catalog. See \strong{Details}.}
 
 \item{parse_dates}{Logical. If \code{TRUE}, date columns are parsed with
@@ -50,8 +50,8 @@ with \code{options(bde_cache_dir = "path/to/dir")}.}
 }
 \value{
 \code{bde_catalog_load()} returns a \link[tibble:tbl_df]{tibble} with the requested
-catalog metadata. See \code{vignette("csv_manual", package = "tidyBdE")} for
-details.
+time series catalog metadata. See
+\code{vignette("csv_manual", package = "tidyBdE")} for details.
 
 \code{bde_catalog_update()} returns an invisible list of download results.
 
@@ -62,7 +62,7 @@ catalog rows.
 These functions manage BdE time series catalog metadata from the bulk CSV
 files published by Banco de España.
 
-\code{bde_catalog_load()} loads catalog metadata into a tibble,
+\code{bde_catalog_load()} loads time series catalog metadata into a tibble,
 \code{bde_catalog_update()} refreshes the cached catalog files and
 \code{bde_catalog_search()} searches catalog metadata for keywords.
 }

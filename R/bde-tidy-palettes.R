@@ -32,8 +32,8 @@
 #'   labels = FALSE
 #' )
 #'
-#' @export
 #' @encoding UTF-8
+#' @export
 bde_tidy_palettes <- function(
   n = 6,
   palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"),
@@ -73,8 +73,8 @@ bde_tidy_palettes <- function(
   if (n > n_col) {
     cli::cli_alert_warning(
       paste0(
-        "Palette {.val {palette}} has {n_col} colors. ",
-        "You requested {n}, so only {n_col} colors are returned."
+        "Palette {.val {palette}} has {n_col} color{?s}. ",
+        "You requested {n}. Returning {n_col} color{?s}."
       )
     )
 

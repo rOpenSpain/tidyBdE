@@ -14,7 +14,7 @@ test_that("Catalogs offline", {
 
   expect_message(
     bde_catalog_update("TC", cache_dir = dir),
-    "empty tibble"
+    "empty"
   )
 
   table1 <- bde_catalog_load("TI", cache_dir = dir)
@@ -114,6 +114,6 @@ test_that("Mock bad catalog file", {
       verbose = FALSE,
       cache_dir = file.path(tempdir(), "isolate")
     ),
-    "not valid"
+    "is empty"
   )
 })

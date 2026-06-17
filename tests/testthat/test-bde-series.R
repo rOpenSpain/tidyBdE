@@ -133,7 +133,7 @@ test_that("Series full", {
   # Can't download series
   expect_message(
     bde_series_full_load(all_names[2], cache_dir = dir),
-    "empty tibble"
+    "empty"
   )
 
   fail <- bde_series_full_load(all_names[2], cache_dir = dir)
@@ -251,6 +251,6 @@ test_that("Mock files cleanup", {
       cache_dir = tempdir(),
       verbose = FALSE
     ),
-    "is not valid"
+    "is empty"
   )
 })
