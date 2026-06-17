@@ -16,6 +16,9 @@
 #'
 #' @family bde_plot
 #'
+#' @encoding UTF-8
+#' @export
+#'
 #' @examples
 #' # Show the BdE vivid palette.
 #' scales::show_col(bde_tidy_palettes(palette = "bde_vivid_pal"),
@@ -31,9 +34,6 @@
 #' scales::show_col(bde_tidy_palettes(palette = "bde_qual_pal"),
 #'   labels = FALSE
 #' )
-#'
-#' @encoding UTF-8
-#' @export
 bde_tidy_palettes <- function(
   n = 6,
   palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"),

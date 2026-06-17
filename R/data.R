@@ -31,9 +31,9 @@
 #' @name bde_ind_db
 #' @docType data
 #'
+#' @encoding UTF-8
+#'
 #' @examples
 #' data("bde_ind_db")
 #' bde_ind_db
-#'
-#' @encoding UTF-8
 NULL

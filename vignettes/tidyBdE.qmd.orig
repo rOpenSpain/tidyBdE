@@ -25,6 +25,8 @@ knitr::opts_chunk$set(
 )
 
 library(tidyBdE)
+
+options(bde_cache_dir = "./.articles_cache")
 ```
 
 **tidyBdE** is an **R** package that retrieves time series data from [Banco de

@@ -18,6 +18,5 @@ Check whether \R can access BdE resources at
 \donttest{
 bde_check_access()
 }
-
 }
 \keyword{internal}

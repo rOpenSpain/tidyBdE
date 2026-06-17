@@ -39,11 +39,11 @@
 #'   to the extracted series.
 #' @param out_format The format to return, either `"wide"` or `"long"`. See
 #'   **Value** for details and the **Examples** section.
-#' @inheritParams bde_catalogs
 #' @param parse_numeric Logical. If `TRUE`, the columns are parsed to
 #'   double (numeric) values. See **Note**.
 #' @param extract_metadata Logical. If `TRUE`, the output is the metadata of the
 #'   requested series.
+#' @inheritParams bde_catalogs
 #'
 #' @return
 #' `bde_series_load()` returns a [tibble][tibble::tbl_df] with a `Date` column:
@@ -76,6 +76,9 @@
 #'
 #' @rdname bde_series
 #' @name bde_series
+#'
+#' @encoding UTF-8
+#' @export
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{
@@ -120,9 +123,6 @@
 #' # Load a complete bulk CSV file.
 #' bde_series_full_load("TI_1_1.csv")
 #' }
-#'
-#' @encoding UTF-8
-#' @export
 bde_series_load <- function(
   series_code,
   series_label = NULL,

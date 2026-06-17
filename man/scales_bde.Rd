@@ -85,7 +85,6 @@ ggplot(txsamp, aes(x = sales, y = median)) +
   geom_point(aes(colour = city)) +
   scale_color_bde_d("bde_qual_pal") +
   theme_minimal()
-
 }
 \seealso{
 \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} and \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}.

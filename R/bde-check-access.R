@@ -6,14 +6,14 @@
 #'
 #' @return A logical value indicating whether BdE resources are reachable.
 #'
+#' @keywords internal
+#' @encoding UTF-8
+#' @export
+#'
 #' @examples
 #' \donttest{
 #' bde_check_access()
 #' }
-#'
-#' @keywords internal
-#' @encoding UTF-8
-#' @export
 bde_check_access <- function() {
   # Use an internal option for testing purposes only.
   if (on_cran()) {
@@ -24,14 +24,6 @@ bde_check_access <- function() {
     "https://www.bde.es/webbe/es/estadisticas/",
     "compartido/datos/zip/be01.zip"
   )
-
-  # nocov start
-  old_timeout <- getOption("timeout")
-  on.exit(options(timeout = old_timeout), add = TRUE)
-
-  timeout <- getOption("bde_api_timeout", 10)
-  options(timeout = min(old_timeout, timeout))
-  # nocov end
 
   access <- tryCatch(
     download.file(url, destfile = tempfile(), quiet = TRUE, mode = "wb"),

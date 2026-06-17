@@ -40,7 +40,6 @@ Full catalog metadata is available with \code{\link[=bde_catalog_load]{bde_catal
 \examples{
 data("bde_ind_db")
 bde_ind_db
-
 }
 \seealso{
 Indicator functions:

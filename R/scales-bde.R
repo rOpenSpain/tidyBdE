@@ -5,10 +5,10 @@
 #' `scale_*_bde_d`, while continuous palettes are named `scale_*_bde_c`.
 #'
 #' @param palette BdE palette to apply. See [bde_tidy_palettes()] for details.
-#' @inheritParams bde_tidy_palettes
-#' @inheritParams ggplot2::continuous_scale
 #' @param ... Additional arguments passed to [ggplot2::discrete_scale()] or
 #'   [ggplot2::continuous_scale()].
+#' @inheritParams bde_tidy_palettes
+#' @inheritParams ggplot2::continuous_scale
 #'
 #' @return A \CRANpkg{ggplot2} scale object.
 #'
@@ -18,6 +18,9 @@
 #'
 #' @rdname scales_bde
 #' @name scales_bde
+#'
+#' @encoding UTF-8
+#' @export
 #'
 #' @examples
 #' library(ggplot2)
@@ -40,9 +43,6 @@
 #'   geom_point(aes(colour = city)) +
 #'   scale_color_bde_d("bde_qual_pal") +
 #'   theme_minimal()
-#'
-#' @encoding UTF-8
-#' @export
 scale_color_bde_d <- function(
   palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"),
   alpha = NULL,
@@ -146,8 +146,8 @@ scale_fill_bde_c <- function(
 #'
 #' @param aesthetics Scale aesthetics to map.
 #' @param palette BdE palette to apply.
-#' @inheritParams bde_tidy_palettes
 #' @param ... Additional arguments passed to [ggplot2::discrete_scale()].
+#' @inheritParams bde_tidy_palettes
 #'
 #' @noRd
 bde_scale_bde_d <- function(aesthetics, palette, alpha, rev, ...) {
@@ -163,9 +163,9 @@ bde_scale_bde_d <- function(aesthetics, palette, alpha, rev, ...) {
 #'
 #' @param aesthetics Scale aesthetics to map.
 #' @param palette BdE palette to apply.
+#' @param ... Additional arguments passed to [ggplot2::continuous_scale()].
 #' @inheritParams bde_tidy_palettes
 #' @inheritParams ggplot2::continuous_scale
-#' @param ... Additional arguments passed to [ggplot2::continuous_scale()].
 #'
 #' @noRd
 bde_scale_bde_c <- function(aesthetics, palette, alpha, rev, guide, ...) {

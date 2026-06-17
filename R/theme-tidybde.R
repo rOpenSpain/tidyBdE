@@ -16,6 +16,9 @@
 #'
 #' @importFrom ggplot2 %+replace% rel margin
 #'
+#' @encoding UTF-8
+#' @export
+#'
 #' @examplesIf bde_check_access()
 #' \donttest{
 #' library(ggplot2)
@@ -46,9 +49,6 @@
 #'     theme_tidybde()
 #' }
 #' }
-#'
-#' @encoding UTF-8
-#' @export
 theme_tidybde <- function(...) {
   ggplot2::theme_classic(...) %+replace%
     ggplot2::theme(

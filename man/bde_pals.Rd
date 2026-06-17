@@ -27,6 +27,5 @@ scales::show_col(bde_vivid_pal()(6), labels = FALSE)
 
 # Show the rose palette.
 scales::show_col(bde_rose_pal()(6), labels = FALSE)
-
 }
 \keyword{internal}

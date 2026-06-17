@@ -21,13 +21,13 @@
 #' @rdname bde_indicators
 #' @name bde_indicators
 #'
+#' @encoding UTF-8
+#' @export
+#'
 #' @examplesIf bde_check_access()
 #' \donttest{
 #' bde_ind_gdp_var()
 #' }
-#'
-#' @encoding UTF-8
-#' @export
 bde_ind_gdp_var <- function(series_label = "GDP_YoY", ...) {
   bde_hlp_indicator("bde_ind_gdp_var", series_label, ...)
 }

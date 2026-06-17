@@ -80,6 +80,9 @@
 #' @rdname bde_catalogs
 #' @name bde_catalogs
 #'
+#' @encoding UTF-8
+#' @export
+#'
 #' @examplesIf bde_check_access()
 #' \donttest{
 #' bde_catalog_load("TI", verbose = TRUE)
@@ -96,9 +99,6 @@
 #'
 #' bde_catalog_update("TI", verbose = TRUE)
 #' }
-#'
-#' @encoding UTF-8
-#' @export
 bde_catalog_load <- function(
   catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
   parse_dates = TRUE,

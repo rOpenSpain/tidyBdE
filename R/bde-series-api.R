@@ -72,6 +72,9 @@
 #' @rdname bde_series_api
 #' @name bde_series_api
 #'
+#' @encoding UTF-8
+#' @export
+#'
 #' @examplesIf bde_check_access()
 #' \donttest{
 #' xr <- bde_catalog_load(catalog = "TC")
@@ -101,9 +104,6 @@
 #'   ) |>
 #'   glimpse()
 #' }
-#'
-#' @encoding UTF-8
-#' @export
 bde_series_api_latest <- function(
   series_code,
   language = c("en", "es"),

@@ -42,6 +42,9 @@
 #'
 #' @family utils
 #'
+#' @encoding UTF-8
+#' @export
+#'
 #' @examples
 #' # Supported formats.
 #' would_parse <- c(
@@ -64,9 +67,6 @@
 #' class(parsed_fail)
 #'
 #' tibble::tibble(raw = wont_parse, parsed = parsed_fail)
-#'
-#' @encoding UTF-8
-#' @export
 bde_parse_dates <- function(dates_to_parse) {
   dateformat <- gsub(" ", "", toupper(dates_to_parse), fixed = TRUE)
   dateformat <- gsub("-", "", dateformat, fixed = TRUE)
@@ -274,10 +274,10 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
 #'
 #' @return A [tibble][tibble::tbl_df].
 #'
+#' @noRd
+#'
 #' @examples
 #' bde_hlp_return_null()
-#'
-#' @noRd
 bde_hlp_return_null <- function(
   msg = "BdE resources are unavailable. Returning an empty {.cls tibble}."
 ) {

@@ -52,7 +52,6 @@ parsed_fail <- bde_parse_dates(wont_parse)
 class(parsed_fail)
 
 tibble::tibble(raw = wont_parse, parsed = parsed_fail)
-
 }
 \seealso{
 \code{\link[=as.Date]{as.Date()}}.

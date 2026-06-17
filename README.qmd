@@ -82,6 +82,15 @@ install.packages(
 
 ## Examples
 
+```{r}
+#| label: cache_readme
+#| include: false
+
+# Add a cache directory.
+
+options(bde_cache_dir = "./.readme_cache")
+```
+
 Banco de España (**BdE**) provides several time series, either produced by the
 institution or compiled from other sources, such as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
