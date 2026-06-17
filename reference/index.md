@@ -1,17 +1,18 @@
 # Package index
 
-## Catalogs
+## Catalog metadata
 
-Load, update and search BdE time series catalog metadata.
+Discover, load and update Banco de España time series metadata.
 
 - [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
   [`bde_catalog_update()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
   [`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
   : Load, update and search BdE catalog metadata
 
-## Series
+## Time series
 
-Load series by stable sequential number or API series code.
+Retrieve time series from bulk CSV files or the Statistics web service
+using stable sequential numbers or API series codes.
 
 - [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
   [`bde_series_full_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
@@ -23,7 +24,7 @@ Load series by stable sequential number or API series code.
 
 ## Selected indicators
 
-Convenience functions for selected Spanish macroeconomic indicators.
+Retrieve commonly used Spanish macroeconomic indicators.
 
 - [`bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md)
   : Database of selected Spanish macroeconomic indicators
@@ -38,9 +39,9 @@ Convenience functions for selected Spanish macroeconomic indicators.
   [`bde_ind_population()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
   : Selected Spanish macroeconomic indicators
 
-## Plot utilities
+## Plotting
 
-BdE-inspired palettes, scales and themes for ggplot2 plots.
+Apply BdE-inspired palettes, scales and themes to **ggplot2** plots.
 
 - [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md)
   : BdE color palettes
@@ -54,14 +55,14 @@ BdE-inspired palettes, scales and themes for ggplot2 plots.
 
 ## Utilities
 
-Date parsing and supporting utilities.
+Parse date formats used in Banco de España datasets.
 
 - [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md)
   : Parse dates from strings
 
-## About the package
+## Package
 
-Package-level documentation.
+Learn about **tidyBdE** and its package-level metadata.
 
 - [`tidyBdE`](https://ropenspain.github.io/tidyBdE/reference/tidyBdE-package.md)
   [`tidyBdE-package`](https://ropenspain.github.io/tidyBdE/reference/tidyBdE-package.md)

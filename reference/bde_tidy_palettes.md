@@ -64,5 +64,4 @@ scales::show_col(bde_tidy_palettes(palette = "bde_rose_pal"),
 scales::show_col(bde_tidy_palettes(palette = "bde_qual_pal"),
   labels = FALSE
 )
-
 ```

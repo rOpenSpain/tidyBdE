@@ -2,12 +2,14 @@
 
 ### Get started
 
+Learn the main **tidyBdE** workflows and data retrieval options.
+
 - [Get started with
   tidyBdE](https://ropenspain.github.io/tidyBdE/articles/tidyBdE.md):
 
   Introduction to tidyBdE.
 
-### Data sources and formats
+### Data discovery and formats
 
 Learn how Banco de España bulk CSV files are structured and how to use
 catalog metadata to identify time series.
@@ -24,7 +26,7 @@ catalog metadata to identify time series.
   Catalog metadata for Banco de España time series, including stable
   sequential numbers and API series codes.
 
-### Examples
+### Worked examples
 
 Worked examples using selected Spanish macroeconomic indicators and
 BdE-inspired plotting helpers.
