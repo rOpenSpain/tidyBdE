@@ -7,20 +7,9 @@ by Banco de España.
 sequential number. `bde_series_full_load()` loads a complete bulk CSV
 file and returns all series included in that file.
 
-A series alias is a positional code that identifies the location, column
-or row of a series in a table. An alias is unique within its context but
-is not stable because it may change when a series moves.
-
-A single time series may appear in different tables, so it can have
-several aliases. Use `bde_series_full_load()` when you need to work with
-aliases or load a complete file.
-
-### About BdE file naming
-
-The series alias is also used in full CSV files. For example, table
-**be_6_1** represents Table 1, Chapter 6 of the Statistical Bulletin
-("BE"). Although it is unique, it is subject to change, for example when
-a new table is inserted before it.
+See
+[`vignette("csv_manual", package = "tidyBdE")`](https://ropenspain.github.io/tidyBdE/articles/csv_manual.md)
+for details.
 
 ## Usage
 
@@ -104,7 +93,8 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
   Bulk CSV file name for a series, as defined in the field
   `Nombre del archivo con los valores de la serie` of the corresponding
   catalog. See
-  [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md).
+  [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
+  and the **About BdE file naming** section.
 
 ## Value
 
@@ -142,9 +132,24 @@ These functions attempt to parse columns as double values. For some time
 series, a warning may be displayed if parsing fails. Set
 `parse_numeric = FALSE` to disable numeric parsing.
 
+## About BdE file naming
+
+A series alias is a positional code that identifies the location, column
+or row of a series in a table. An alias is unique within its context but
+is not stable because it may change when a series moves.
+
+A single time series may appear in different tables, so it can have
+several aliases. Use `bde_series_full_load()` when you need to work with
+aliases or load a complete file.
+
+The series alias is also used in full CSV files. For example, table
+**be_6_1** represents Table 1, Chapter 6 of the Statistical Bulletin
+("BE"). Although it is unique, it is subject to change, for example when
+a new table is inserted before it.
+
 ## Series identifiers
 
-Banco de España identifies each series with a stable sequential number
+BdE identifies each series with a stable sequential number
 (`Número secuencial`) in bulk CSV files and an API series code
 (`Nombre_de_la_serie`) in the Statistics web service.
 `bde_series_load()` accepts stable sequential numbers in `series_code`.
@@ -175,7 +180,7 @@ Time series functions:
 # \donttest{
 # Show metadata.
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmpgLA9SQ.
+#> ℹ Using temporary cache directory /tmp/RtmpmRzfY6.
 #> ✔ Using cached catalog "BE".
 #> ✔ Using cached catalog "SI".
 #> ✔ Using cached catalog "TC".
@@ -184,7 +189,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> ℹ Parsing date columns.
 #> ℹ Extracting series 573234.
 #> ℹ Downloading series 573234 from file TC_1_1.csv (alias "TC_1_1.1").
-#> ℹ Using temporary cache directory /tmp/RtmpgLA9SQ/TC.
+#> ℹ Using temporary cache directory /tmp/RtmpmRzfY6/TC.
 #> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv>.
 #> # A tibble: 6 × 2
 #>   Date                        `573234`                                          

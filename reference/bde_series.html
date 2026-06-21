@@ -4,40 +4,12 @@ Banco de España.
 bde_series_load() extracts one or more series by their stable sequential
 number. bde_series_full_load() loads a complete bulk CSV file and returns
 all series included in that file.
-A series alias is a positional code that identifies the location, column or
-row of a series in a table. An alias is unique within its context but is not
-stable because it may change when a series moves.
-A single time series may appear in different tables, so it can have several
-aliases. Use bde_series_full_load() when you need to work with aliases or
-load a complete file.
-About BdE file naming
-
-
-The series alias is also used in full CSV files. For example, table
-be_6_1 represents Table 1, Chapter 6 of the Statistical Bulletin
-("BE"). Although it is unique, it is subject to change, for example when a
-new table is inserted before it.
-
-'><meta property="og:description" content='These functions load BdE time series from the bulk CSV files published by
+See vignette("csv_manual", package = "tidyBdE") for details.'><meta property="og:description" content='These functions load BdE time series from the bulk CSV files published by
 Banco de España.
 bde_series_load() extracts one or more series by their stable sequential
 number. bde_series_full_load() loads a complete bulk CSV file and returns
 all series included in that file.
-A series alias is a positional code that identifies the location, column or
-row of a series in a table. An alias is unique within its context but is not
-stable because it may change when a series moves.
-A single time series may appear in different tables, so it can have several
-aliases. Use bde_series_full_load() when you need to work with aliases or
-load a complete file.
-About BdE file naming
-
-
-The series alias is also used in full CSV files. For example, table
-be_6_1 represents Table 1, Chapter 6 of the Statistical Bulletin
-("BE"). Although it is unique, it is subject to change, for example when a
-new table is inserted before it.
-
-'><meta property="og:image" content="https://ropenspain.github.io/tidyBdE/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@rOpenSpain"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-CW2RTVRRVF"></script><script>
+See vignette("csv_manual", package = "tidyBdE") for details.'><meta property="og:image" content="https://ropenspain.github.io/tidyBdE/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@rOpenSpain"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-CW2RTVRRVF"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -101,21 +73,7 @@ Banco de España.</p>
 <p><code>bde_series_load()</code> extracts one or more series by their stable sequential
 number. <code>bde_series_full_load()</code> loads a complete bulk CSV file and returns
 all series included in that file.</p>
-<p>A series alias is a positional code that identifies the location, column or
-row of a series in a table. An alias is unique within its context but is not
-stable because it may change when a series moves.</p>
-<p>A single time series may appear in different tables, so it can have several
-aliases. Use <code>bde_series_full_load()</code> when you need to work with aliases or
-load a complete file.</p><div class="section">
-<h3 id="about-bde-file-naming">About BdE file naming<a class="anchor" aria-label="anchor" href="#about-bde-file-naming"></a></h3>
-
-
-<p>The series alias is also used in full CSV files. For example, table
-<strong>be_6_1</strong> represents Table 1, Chapter 6 of the Statistical Bulletin
-("BE"). Although it is unique, it is subject to change, for example when a
-new table is inserted before it.</p>
-</div>
-
+<p>See <code><a href="../articles/csv_manual.html">vignette("csv_manual", package = "tidyBdE")</a></code> for details.</p>
     </div>
 
     <div class="section level2">
@@ -200,7 +158,8 @@ series.</p></dd>
 <dt id="arg-series-csv">series_csv<a class="anchor" aria-label="anchor" href="#arg-series-csv"></a></dt>
 <dd><p>Bulk CSV file name for a series, as defined in the field
 <code>Nombre del archivo con los valores de la serie</code> of the corresponding
-catalog. See <code><a href="bde_catalogs.html">bde_catalog_load()</a></code>.</p></dd>
+catalog. See <code><a href="bde_catalogs.html">bde_catalog_load()</a></code> and the <strong>About BdE file naming</strong>
+section.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -226,10 +185,25 @@ series, a warning may be displayed if parsing fails. Set
 <code>parse_numeric = FALSE</code> to disable numeric parsing.</p>
     </div>
     <div class="section level2">
+    <h2 id="about-bde-file-naming">About BdE file naming<a class="anchor" aria-label="anchor" href="#about-bde-file-naming"></a></h2>
+
+
+<p>A series alias is a positional code that identifies the location, column or
+row of a series in a table. An alias is unique within its context but is not
+stable because it may change when a series moves.</p>
+<p>A single time series may appear in different tables, so it can have several
+aliases. Use <code>bde_series_full_load()</code> when you need to work with aliases or
+load a complete file.</p>
+<p>The series alias is also used in full CSV files. For example, table
+<strong>be_6_1</strong> represents Table 1, Chapter 6 of the Statistical Bulletin
+("BE"). Although it is unique, it is subject to change, for example when a
+new table is inserted before it.</p>
+    </div>
+    <div class="section level2">
     <h2 id="series-identifiers">Series identifiers<a class="anchor" aria-label="anchor" href="#series-identifiers"></a></h2>
 
 
-<p>Banco de España identifies each series with a stable sequential number
+<p>BdE identifies each series with a stable sequential number
 (<code>Número secuencial</code>) in bulk CSV files and an API series code
 (<code>Nombre_de_la_serie</code>) in the Statistics web service.
 <code>bde_series_load()</code> accepts stable sequential numbers in <code>series_code</code>.
@@ -250,7 +224,7 @@ sequential numbers, and <code><a href="bde_indicators.html">bde_indicators()</a>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># Show metadata.</span></span></span>
 <span class="r-in"><span><span class="fu">bde_series_load</span><span class="op">(</span><span class="fl">573234</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>, extract_metadata <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/RtmpgLA9SQ</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/RtmpmRzfY6</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Using cached catalog <span style="color: #0000BB;">"BE"</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Using cached catalog <span style="color: #0000BB;">"SI"</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Using cached catalog <span style="color: #0000BB;">"TC"</span>.</span>
@@ -259,7 +233,7 @@ sequential numbers, and <code><a href="bde_indicators.html">bde_indicators()</a>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Parsing date columns.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Extracting series <span style="color: #0000BB;">573234</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading series <span style="color: #0000BB;">573234</span> from file <span style="color: #0000BB;">TC_1_1.csv</span> (alias <span style="color: #0000BB;">"TC_1_1.1"</span>).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/RtmpgLA9SQ/TC</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/RtmpmRzfY6/TC</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading file from <span style="color: #0000BB; font-style: italic;">&lt;https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv&gt;</span>.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Date                        `573234`                                          </span>

@@ -108,7 +108,7 @@ for the series frequency. For example, monthly series return `"30M"`.
 
 ## Series identifiers
 
-Banco de España identifies each series with a stable sequential number
+BdE identifies each series with a stable sequential number
 (`Número secuencial`) in bulk CSV files and an API series code
 (`Nombre_de_la_serie`) in the Statistics web service.
 [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
