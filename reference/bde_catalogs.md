@@ -123,9 +123,9 @@ for retrieving series through the Statistics web service.
 ``` r
 # \donttest{
 bde_catalog_load("TI", verbose = TRUE)
-#> ℹ Using temporary cache directory /tmp/Rtmp5Ccwg9.
+#> ℹ Using temporary cache directory /tmp/RtmpgLA9SQ.
 #> ℹ Downloading catalog "TI".
-#> ✔ Using cache directory /tmp/Rtmp5Ccwg9.
+#> ✔ Using cache directory /tmp/RtmpgLA9SQ.
 #> ℹ Updating 1 catalog file: "TI".
 #> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv>.
 #> ℹ Parsing date columns.
@@ -209,7 +209,7 @@ bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 #> #   Titulo_de_la_serie <chr>, Fuente <chr>, Notas <chr>
 
 bde_catalog_update("TI", verbose = TRUE)
-#> ℹ Using temporary cache directory /tmp/Rtmp5Ccwg9.
+#> ℹ Using temporary cache directory /tmp/RtmpgLA9SQ.
 #> ℹ Updating 1 catalog file: "TI".
 #> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv>.
 # }
