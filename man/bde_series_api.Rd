@@ -87,7 +87,7 @@ the series frequency. For example, monthly series return \code{"30M"}.
 }
 \section{Series identifiers}{
 
-Banco de España identifies each series with a stable sequential number
+BdE identifies each series with a stable sequential number
 (\verb{Número secuencial}) in bulk CSV files and an API series code
 (\code{Nombre_de_la_serie}) in the Statistics web service.
 \code{\link[=bde_series_load]{bde_series_load()}} accepts stable sequential numbers in \code{series_code}.

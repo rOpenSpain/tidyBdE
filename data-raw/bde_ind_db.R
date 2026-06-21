@@ -23,6 +23,7 @@ full_cat <- bde_catalog_load()
 bde_cat <- full_cat |>
   select(
     Numero_secuencial,
+    Nombre_de_la_serie,
     Descripcion_de_la_serie,
     Frecuencia_de_la_serie,
     Fecha_de_la_primera_observacion,

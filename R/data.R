@@ -21,6 +21,7 @@
 #' \describe{
 #'   \item{tidyBdE_fun}{Function name. See [bde_indicators()].}
 #'   \item{Numero_secuencial}{Sequential number. See [bde_series_load()].}
+#'   \item{Nombre_de_la_serie}{API series code. See [bde_series_api()]}
 #'   \item{Descripcion_de_la_serie}{Description of the series in Spanish.}
 #'   \item{Fecha_de_la_primera_observacion}{Starting date of the indicator.}
 #'   \item{Fecha_de_la_ultima_observacion}{Most recent date available.}
@@ -28,6 +29,7 @@
 #' }
 #'
 #' @family indicators
+#' @seealso `vignette("csv_manual", package = "tidyBdE")`.
 #'
 #' @name bde_ind_db
 #' @docType data

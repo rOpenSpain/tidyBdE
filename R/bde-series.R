@@ -8,20 +8,7 @@
 #' number. `bde_series_full_load()` loads a complete bulk CSV file and returns
 #' all series included in that file.
 #'
-#' A series alias is a positional code that identifies the location, column or
-#' row of a series in a table. An alias is unique within its context but is not
-#' stable because it may change when a series moves.
-#'
-#' A single time series may appear in different tables, so it can have several
-#' aliases. Use `bde_series_full_load()` when you need to work with aliases or
-#' load a complete file.
-#'
-#' ## About BdE file naming
-#'
-#' The series alias is also used in full CSV files. For example, table
-#' **be_6_1** represents Table 1, Chapter 6 of the Statistical Bulletin
-#' ("BE"). Although it is unique, it is subject to change, for example when a
-#' new table is inserted before it.
+#' See `vignette("csv_manual", package = "tidyBdE")` for details.
 #'
 #' @param series_code Numeric vector of stable BdE sequential numbers, or
 #'   values coercible with [base::as.double()], from the `Número secuencial`
@@ -29,7 +16,8 @@
 #'   [bde_catalog_load()].
 #' @param series_csv Bulk CSV file name for a series, as defined in the field
 #'   `Nombre del archivo con los valores de la serie` of the corresponding
-#'   catalog. See [bde_catalog_load()].
+#'   catalog. See [bde_catalog_load()] and the **About BdE file naming**
+#'   section.
 #' @param series_label Optional character string or vector of labels to assign
 #'   to the extracted series.
 #' @param out_format Output format, either `"wide"` or `"long"`. See
@@ -66,8 +54,22 @@
 #' series, a warning may be displayed if parsing fails. Set
 #' `parse_numeric = FALSE` to disable numeric parsing.
 #'
+#' @section About BdE file naming:
+#' A series alias is a positional code that identifies the location, column or
+#' row of a series in a table. An alias is unique within its context but is not
+#' stable because it may change when a series moves.
+#'
+#' A single time series may appear in different tables, so it can have several
+#' aliases. Use `bde_series_full_load()` when you need to work with aliases or
+#' load a complete file.
+#'
+#' The series alias is also used in full CSV files. For example, table
+#' **be_6_1** represents Table 1, Chapter 6 of the Statistical Bulletin
+#' ("BE"). Although it is unique, it is subject to change, for example when a
+#' new table is inserted before it.
+#'
 #' @section Series identifiers:
-#' Banco de España identifies each series with a stable sequential number
+#' BdE identifies each series with a stable sequential number
 #' (`Número secuencial`) in bulk CSV files and an API series code
 #' (`Nombre_de_la_serie`) in the Statistics web service.
 #' [bde_series_load()] accepts stable sequential numbers in `series_code`.

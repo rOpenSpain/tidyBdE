@@ -42,6 +42,7 @@
 ^\.quarto$
 ^vignettes/tidyBdE\.qmd\.orig$
 ^vignettes/*_files$
+^vignettes/*_cache$
 ^README\.qmd$
 ^inst/README\.qmd$
 ^README_files$
@@ -58,3 +59,4 @@
 ^\.gitattributes$
 ^\.readme_cache$
 ^vignettes/\.articles_cache$
+^\.articles_cache$

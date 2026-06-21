@@ -63,7 +63,8 @@ series.}
 
 \item{series_csv}{Bulk CSV file name for a series, as defined in the field
 \verb{Nombre del archivo con los valores de la serie} of the corresponding
-catalog. See \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
+catalog. See \code{\link[=bde_catalog_load]{bde_catalog_load()}} and the \strong{About BdE file naming}
+section.}
 }
 \value{
 \code{bde_series_load()} returns a \link[tibble:tbl_df]{tibble} with a \code{Date} column:
@@ -93,6 +94,15 @@ Banco de España.
 number. \code{bde_series_full_load()} loads a complete bulk CSV file and returns
 all series included in that file.
 
+See \code{vignette("csv_manual", package = "tidyBdE")} for details.
+}
+\note{
+These functions attempt to parse columns as double values. For some time
+series, a warning may be displayed if parsing fails. Set
+\code{parse_numeric = FALSE} to disable numeric parsing.
+}
+\section{About BdE file naming}{
+
 A series alias is a positional code that identifies the location, column or
 row of a series in a table. An alias is unique within its context but is not
 stable because it may change when a series moves.
@@ -100,22 +110,16 @@ stable because it may change when a series moves.
 A single time series may appear in different tables, so it can have several
 aliases. Use \code{bde_series_full_load()} when you need to work with aliases or
 load a complete file.
-\subsection{About BdE file naming}{
 
 The series alias is also used in full CSV files. For example, table
 \strong{be_6_1} represents Table 1, Chapter 6 of the Statistical Bulletin
 ("BE"). Although it is unique, it is subject to change, for example when a
 new table is inserted before it.
 }
-}
-\note{
-These functions attempt to parse columns as double values. For some time
-series, a warning may be displayed if parsing fails. Set
-\code{parse_numeric = FALSE} to disable numeric parsing.
-}
+
 \section{Series identifiers}{
 
-Banco de España identifies each series with a stable sequential number
+BdE identifies each series with a stable sequential number
 (\verb{Número secuencial}) in bulk CSV files and an API series code
 (\code{Nombre_de_la_serie}) in the Statistics web service.
 \code{\link[=bde_series_load]{bde_series_load()}} accepts stable sequential numbers in \code{series_code}.

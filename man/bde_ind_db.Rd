@@ -7,11 +7,12 @@
 \title{Database of selected Spanish macroeconomic indicators}
 \format{
 A \link[tibble:tbl_df]{tibble} of 9 rows and
-7 columns with the following fields:
+8 columns with the following fields:
 
 \describe{
 \item{tidyBdE_fun}{Function name. See \code{\link[=bde_indicators]{bde_indicators()}}.}
 \item{Numero_secuencial}{Sequential number. See \code{\link[=bde_series_load]{bde_series_load()}}.}
+\item{Nombre_de_la_serie}{API series code. See \code{\link[=bde_series_api]{bde_series_api()}}}
 \item{Descripcion_de_la_serie}{Description of the series in Spanish.}
 \item{Fecha_de_la_primera_observacion}{Starting date of the indicator.}
 \item{Fecha_de_la_ultima_observacion}{Most recent date available.}
@@ -25,17 +26,17 @@ through the convenience functions in \CRANpkg{tidyBdE}. See
 Full catalog metadata is available with \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
 }
 \details{
-\tabular{lllllll}{
-   \strong{tidyBdE_fun} \tab \strong{Numero_secuencial} \tab \strong{Descripcion_de_la_serie} \tab \strong{Frecuencia_de_la_serie} \tab \strong{Fecha_de_la_primera_observacion} \tab \strong{Fecha_de_la_ultima_observacion} \tab \strong{Fuente} \cr
-   bde_ind_cpi_var \tab 1489713 \tab Estadísticas Generales. IPCA. Base 2015. Índice general. Tasa interanual. España \tab MENSUAL \tab 1993-01-01 \tab 2025-12-01 \tab Eurostat \cr
-   bde_ind_euribor_12m_daily \tab 905842 \tab Tipo de interés. UEM. Mercado monetario. Euríbor. A 12 meses \tab LABORABLE \tab 2000-01-03 \tab 2026-02-13 \tab REFINITIV \cr
-   bde_ind_euribor_12m_monthly \tab 587853 \tab Tipo de interés. UEM. Mercado monetario. Euríbor. A 12 meses \tab MENSUAL \tab 1999-01-01 \tab 2026-01-01 \tab The European Money Market Institute (EMMI) \cr
-   bde_ind_gdp_quarterly \tab 4663160 \tab Estadísticas Generales. Cuentas Nacionales. SEC2010. Año base 2020. Precios corrientes. Producto interior bruto. Economía en su conjunto (Total de la economía) (Saldo). Datos corregidos de efectos estacionales y de calendario. TRIMESTRAL \tab TRIMESTRAL \tab 1995-03-01 \tab 2025-12-01 \tab Instituto Nacional de Estadistica \cr
-   bde_ind_gdp_var \tab 4663788 \tab Estadísticas Generales. CNTR. Base 2020. PIB. Precios constantes. Datos CVEC. Tasa interanual. España \tab TRIMESTRAL \tab 1996-03-01 \tab 2025-12-01 \tab Eurostat \cr
-   bde_ind_ibex_daily \tab 821340 \tab Cotización y contratación. Acciones. Sociedad de Bolsas y Sociedad Rectora de la Bolsa de Madrid. Índice cotización. Indice IBEX 35 \tab LABORABLE \tab 1999-01-04 \tab 2026-02-13 \tab Bolsa de Madrid y Comisión Nacional del Mercado de Valores \cr
-   bde_ind_ibex_monthly \tab 254433 \tab Cotización y contratación. Acciones. Sociedad de Bolsas y Sociedad Rectora de la Bolsa de Madrid. Índice cotización. Indice IBEX 35 \tab MENSUAL \tab 1987-01-01 \tab 2025-12-01 \tab SOCIEDAD RECTORA DE LA BOLSA DE MADRID \cr
-   bde_ind_population \tab 4637737 \tab Estadísticas generales. INE. EPA. Base 2021. Total Nacional. Ambos sexos. Todas las edades. Personas. Trimestral \tab TRIMESTRAL \tab 2002-03-01 \tab 2025-09-01 \tab Instituto Nacional de Estadística \cr
-   bde_ind_unemployment_rate \tab 4635980 \tab Estadísticas Generales. EPA. Base 2021. Total Nacional. Tasa de paro de la población. Ambos sexos. 16 y más años \tab TRIMESTRAL \tab 2002-03-01 \tab 2025-12-01 \tab Instituto Nacional de Estadística \cr
+\tabular{llllllll}{
+   \strong{tidyBdE_fun} \tab \strong{Numero_secuencial} \tab \strong{Nombre_de_la_serie} \tab \strong{Descripcion_de_la_serie} \tab \strong{Frecuencia_de_la_serie} \tab \strong{Fecha_de_la_primera_observacion} \tab \strong{Fecha_de_la_ultima_observacion} \tab \strong{Fuente} \cr
+   bde_ind_cpi_var \tab 1489713 \tab DPU1NEAC920 \tab Estadísticas Generales. IPCA. Base 2015. Índice general. Tasa interanual. España \tab MENSUAL \tab 1997-01-01 \tab 2026-05-01 \tab Eurostat \cr
+   bde_ind_euribor_12m_daily \tab 905842 \tab DPUDNBAF172 \tab Tipo de interés. UEM. Mercado monetario. Euríbor. A 12 meses \tab LABORABLE \tab 2000-01-03 \tab 2026-06-18 \tab REFINITIV \cr
+   bde_ind_euribor_12m_monthly \tab 587853 \tab D_1NBAF472 \tab Tipo de interés. UEM. Mercado monetario. Euríbor. A 12 meses \tab MENSUAL \tab 1999-01-01 \tab 2026-05-01 \tab The European Money Market Institute (EMMI) \cr
+   bde_ind_gdp_quarterly \tab 4663160 \tab DSPC102020CB1QB00_SS1_TSC.T \tab Estadísticas Generales. Cuentas Nacionales. SEC2010. Año base 2020. Precios corrientes. Producto interior bruto. Economía en su conjunto (Total de la economía) (Saldo). Datos corregidos de efectos estacionales y de calendario. TRIMESTRAL \tab TRIMESTRAL \tab 1995-03-01 \tab 2026-03-01 \tab Instituto Nacional de Estadistica \cr
+   bde_ind_gdp_var \tab 4663788 \tab DSPC102020VB1QB00_SS1_TSCTVA.T \tab Estadísticas Generales. CNTR. Base 2020. PIB. Precios constantes. Datos CVEC. Tasa interanual. España \tab TRIMESTRAL \tab 1996-03-01 \tab 2026-03-01 \tab Eurostat \cr
+   bde_ind_ibex_daily \tab 821340 \tab DBLEESI100000000IBDI.B \tab Cotización y contratación. Acciones. Sociedad de Bolsas y Sociedad Rectora de la Bolsa de Madrid. Índice cotización. Indice IBEX 35 \tab LABORABLE \tab 1999-01-04 \tab 2026-06-18 \tab Bolsa de Madrid y Comisión Nacional del Mercado de Valores \cr
+   bde_ind_ibex_monthly \tab 254433 \tab D_1TGC000A \tab Cotización y contratación. Acciones. Sociedad de Bolsas y Sociedad Rectora de la Bolsa de Madrid. Índice cotización. Indice IBEX 35 \tab MENSUAL \tab 1987-01-01 \tab 2026-04-01 \tab SOCIEDAD RECTORA DE LA BOLSA DE MADRID \cr
+   bde_ind_population \tab 4637737 \tab DEPA202110.T \tab Estadísticas generales. INE. EPA. Base 2021. Total Nacional. Ambos sexos. Todas las edades. Personas. Trimestral \tab TRIMESTRAL \tab 2002-03-01 \tab 2025-12-01 \tab Instituto Nacional de Estadística \cr
+   bde_ind_unemployment_rate \tab 4635980 \tab DEPA202140_TSPA.T \tab Estadísticas Generales. EPA. Base 2021. Total Nacional. Tasa de paro de la población. Ambos sexos. 16 y más años \tab TRIMESTRAL \tab 2002-03-01 \tab 2026-03-01 \tab Instituto Nacional de Estadística \cr
 }
 }
 \examples{
@@ -43,6 +44,8 @@ data("bde_ind_db")
 bde_ind_db
 }
 \seealso{
+\code{vignette("csv_manual", package = "tidyBdE")}.
+
 Selected indicators and metadata:
 \code{\link{bde_indicators}}
 }
