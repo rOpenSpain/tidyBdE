@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{theme_tidybde}
 \alias{theme_tidybde}
-\title{BdE ggplot2 theme}
+\title{BdE theme for ggplot2}
 \usage{
 theme_tidybde(...)
 }
@@ -64,9 +64,9 @@ if (nrow(series_TC) > 0) {
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[ggplot2:theme_classic]{ggplot2::theme_classic()}}.
+\code{\link[ggplot2:theme_classic]{ggplot2::theme_classic()}} for the base theme extended here.
 
-Plot utilities:
+Plotting functions:
 \code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}},
 \code{\link{scales_bde}}
 }

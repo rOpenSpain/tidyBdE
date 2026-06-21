@@ -3,7 +3,7 @@
 #' @description
 #' `r lifecycle::badge("experimental")`
 #'
-#' These functions query BdE time series through the
+#' These functions retrieve BdE time series using the
 #' ```{r, echo=FALSE, results='asis'}
 #' cat(paste0(" [Statistics web service (API)]",
 #'       "(https://www.bde.es/webbe/en/estadisticas/recursos",
@@ -19,26 +19,20 @@
 #' series. [bde_series_api_load()] uses the Series List request to obtain the
 #' details of one or more complete series and their metadata.
 #'
-#' The API uses API series codes as identifiers. In this package, pass those
-#' codes through `series_code`. They are available in the `Nombre_de_la_serie`
-#' field of [bde_catalog_load()] and correspond to the API `series_list`
-#' parameter. This is different from the stable sequential number
-#' (`Número secuencial`) used by [bde_series_load()] for bulk CSV files.
-#'
-#' @param series_code Character string or vector with API series codes,
+#' @param series_code Character string or vector of API series codes
 #'   taken from the `Nombre_de_la_serie` field of the corresponding catalog.
 #'   This is the value passed to the API `series_list` parameter, not the
 #'   stable sequential number used by [bde_series_load()].
-#' @param language Character string. Use `"es"` or `"en"` to obtain results in
-#'   Spanish or English, respectively.
-#' @param time_range Character string. Optional annual range or API range code.
-#'   It can be a year, such as `"2024"`, or a range code such as `"3M"`,
+#' @param language Character string specifying the output language. Use `"es"`
+#'   for Spanish or `"en"` for English.
+#' @param time_range Optional character string specifying an annual range or API
+#'   range code. It can be a year, such as `"2024"`, or a code such as `"3M"`,
 #'   `"12M"`, `"30M"`, `"36M"`, `"60M"` or `"MAX"`. If `NULL`, the API returns
 #'   the smallest range for the series frequency. Range codes are validated
 #'   against the frequency returned by [bde_series_api_latest()]. See
 #'   **Details**.
 #'
-#' @inheritParams bde_series
+#' @inheritParams bde_series series_label out_format extract_metadata verbose
 #'
 #' @details
 #' Allowed `time_range` values depend on the series frequency:
@@ -53,8 +47,8 @@
 #'
 #' @return
 #' `bde_series_api_latest()` returns a [tibble][tibble::tbl_df] with the latest
-#' published observation for each valid series, with fields returned by the
-#' Latest Data request such as `serie`, `descripcionCorta`, `codFrecuencia`,
+#' published observation for each valid series. It includes fields returned by
+#' the Latest Data request such as `serie`, `descripcionCorta`, `codFrecuencia`,
 #' `decimales`, `simbolo`, `tendencia`, `fechaValor` and `valor`.
 #'
 #' `bde_series_api_load()` returns a [tibble][tibble::tbl_df]. When
@@ -64,8 +58,10 @@
 #' series with fields returned by the Series List request, including
 #' `fechaInicio`, `fechaFin` and metadata fields derived from `informacion`.
 #'
-#' @seealso [bde_catalog_load()], [bde_catalog_search()],
-#'   [bde_indicators()].
+#' @inheritSection bde_series Series identifiers
+#'
+#' @seealso [bde_catalog_load()] and [bde_catalog_search()] for finding API
+#'   series codes, and [bde_series_load()] for loading bulk CSV series.
 #'
 #' @family series
 #'
@@ -351,7 +347,7 @@ bde_series_api_load <- function(
 #' @param series_code Character vector of API series codes.
 #' @param language API language code.
 #' @param time_range API time range code.
-#' @param verbose Logical indicating whether to display informative messages.
+#' @param verbose Logical. If `TRUE`, display informative messages.
 #'
 #' @noRd
 bde_hlp_api_check_range <- function(

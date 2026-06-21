@@ -62,7 +62,6 @@ RECTORA
 REFINITIV
 ROR
 Rectora
-Roxygen
 SEMESTRAL
 SOCIEDAD
 SSM
@@ -127,11 +126,11 @@ primera
 pts
 rOS
 rect
+roxygen
 secuencial
 serie
 sexos
 su
-summarising
 testthat
 tibble
 tidyr

@@ -28,10 +28,10 @@ España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.h
 bulk CSV files and the [Statistics web service
 (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
 Data are returned as [**tibble**](https://tibble.tidyverse.org/)
-objects. The package infers date, character and numeric fields where
-possible. Bulk CSV helpers identify series with the stable sequential
-number (`Numero_secuencial`), while API helpers use `Nombre_de_la_serie`
-as the API series code.
+objects. The package infers date, character and numeric column types
+where possible. Bulk CSV helpers identify series with stable sequential
+numbers (`Numero_secuencial`), while API helpers use
+`Nombre_de_la_serie` as the API series code.
 
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -76,11 +76,11 @@ install.packages(
 
 ## Examples
 
-Banco de España (**BdE**) provides several time series, either produced
-by the institution or compiled from other sources, such as
+Banco de España (**BdE**) publishes numerous time series produced by the
+institution or compiled from other sources, such as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
-The basic entry point for discovering time series is catalog metadata.
+Catalog metadata is the main entry point for discovering time series.
 You can search for time series by name:
 
 ``` r
@@ -217,8 +217,8 @@ alt="Spanish economic indicators (2010-2019)" />
 
 ### Palettes
 
-Three custom palettes are available. They are based on colors used by
-BdE in selected publications.
+Three custom palettes based on colors used by BdE in selected
+publications are available.
 
 Apply these palettes to **ggplot2** plots with the scale functions
 provided by the package. See

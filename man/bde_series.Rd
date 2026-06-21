@@ -6,6 +6,9 @@
 \alias{bde_series_load}
 \alias{bde_series_full_load}
 \title{Load BdE time series from bulk CSV files}
+\source{
+\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{Time series bulk data download}.
+}
 \usage{
 bde_series_load(
   series_code,
@@ -38,14 +41,14 @@ field of the corresponding series. This is not the API series code. See
 \item{series_label}{Optional character string or vector of labels to assign
 to the extracted series.}
 
-\item{out_format}{The format to return, either \code{"wide"} or \code{"long"}. See
+\item{out_format}{Output format, either \code{"wide"} or \code{"long"}. See
 \strong{Value} for details and the \strong{Examples} section.}
 
 \item{parse_dates}{Logical. If \code{TRUE}, date columns are parsed with
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
 
-\item{parse_numeric}{Logical. If \code{TRUE}, the columns are parsed to
-double (numeric) values. See \strong{Note}.}
+\item{parse_numeric}{Logical. If \code{TRUE}, parse columns as double values. See
+\strong{Note}.}
 
 \item{cache_dir}{Path to a cache directory. The directory can also be set
 with \code{options(bde_cache_dir = "path/to/dir")}.}
@@ -55,8 +58,8 @@ with \code{options(bde_cache_dir = "path/to/dir")}.}
 
 \item{verbose}{Logical. If \code{TRUE}, display information useful for debugging.}
 
-\item{extract_metadata}{Logical. If \code{TRUE}, the output is the metadata of the
-requested series.}
+\item{extract_metadata}{Logical. If \code{TRUE}, return metadata for the requested
+series.}
 
 \item{series_csv}{Bulk CSV file name for a series, as defined in the field
 \verb{Nombre del archivo con los valores de la serie} of the corresponding
@@ -90,14 +93,9 @@ Banco de España.
 number. \code{bde_series_full_load()} loads a complete bulk CSV file and returns
 all series included in that file.
 
-The series alias is a positional code showing the location, column or row
-of the series in the table. Although it is unique, it is not stable
-enough to identify a time series because it may change when a series moves.
-
-BdE also assigns each series a stable sequential number
-(\verb{Número secuencial}). \code{bde_series_load()} uses that sequential number
-through \code{series_code}, not the API series code used by the Statistics web
-service (API) helpers.
+A series alias is a positional code that identifies the location, column or
+row of a series in a table. An alias is unique within its context but is not
+stable because it may change when a series moves.
 
 A single time series may appear in different tables, so it can have several
 aliases. Use \code{bde_series_full_load()} when you need to work with aliases or
@@ -111,10 +109,21 @@ new table is inserted before it.
 }
 }
 \note{
-These functions attempt to coerce the columns to numbers. For some time
-series, a warning may be displayed if parsing fails. You can override
-the default behavior with \code{parse_numeric = FALSE}.
+These functions attempt to parse columns as double values. For some time
+series, a warning may be displayed if parsing fails. Set
+\code{parse_numeric = FALSE} to disable numeric parsing.
 }
+\section{Series identifiers}{
+
+Banco de España identifies each series with a stable sequential number
+(\verb{Número secuencial}) in bulk CSV files and an API series code
+(\code{Nombre_de_la_serie}) in the Statistics web service.
+\code{\link[=bde_series_load]{bde_series_load()}} accepts stable sequential numbers in \code{series_code}.
+\code{\link[=bde_series_api_latest]{bde_series_api_latest()}} and \code{\link[=bde_series_api_load]{bde_series_api_load()}} use the same argument
+for API series codes. Use \code{\link[=bde_catalog_load]{bde_catalog_load()}} or \code{\link[=bde_catalog_search]{bde_catalog_search()}} to
+find both identifiers.
+}
+
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
 \donttest{
@@ -162,10 +171,10 @@ bde_series_full_load("TI_1_1.csv")
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[=bde_catalog_load]{bde_catalog_load()}}, \code{\link[=bde_catalog_search]{bde_catalog_search()}},
-\code{\link[=bde_indicators]{bde_indicators()}}.
+\code{\link[=bde_catalog_load]{bde_catalog_load()}} and \code{\link[=bde_catalog_search]{bde_catalog_search()}} for finding stable
+sequential numbers, and \code{\link[=bde_indicators]{bde_indicators()}} for convenience wrappers.
 
-Series functions:
+Time series functions:
 \code{\link{bde_series_api}}
 }
 \concept{series}

@@ -13,7 +13,7 @@ bde_tidy_palettes(
 )
 }
 \arguments{
-\item{n}{Number of colors (\verb{>= 1}) to return.}
+\item{n}{Number of colors to return. Must be at least \code{1}.}
 
 \item{palette}{A valid palette name.}
 
@@ -48,7 +48,7 @@ scales::show_col(bde_tidy_palettes(palette = "bde_qual_pal"),
 )
 }
 \seealso{
-Plot utilities:
+Plotting functions:
 \code{\link{scales_bde}},
 \code{\link[=theme_tidybde]{theme_tidybde()}}
 }

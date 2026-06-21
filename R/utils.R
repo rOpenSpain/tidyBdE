@@ -2,7 +2,7 @@
 #'
 #' @description
 #' Parse strings representing dates with [as.Date()]. This function is tailored
-#' to date formats used in this package and might not parse other datasets. See
+#' to date formats used in this package and may not parse other datasets. See
 #' **Examples** for supported formats.
 #'
 #' ## Date formats
@@ -38,7 +38,7 @@
 #'
 #' @return A vector of [`Date`][as.Date()] values.
 #'
-#' @seealso [as.Date()].
+#' @seealso [as.Date()] for base R date conversion.
 #'
 #' @family utils
 #'
@@ -220,8 +220,8 @@ bde_hlp_download <- function(url, local_file, verbose, retry = TRUE) {
 
 #' Infer column types in a tibble
 #'
-#' @param tbl The tibble to process.
-#' @param preserve Vector of names to preserve.
+#' @param tbl A tibble to process.
+#' @param preserve Character vector of column names to preserve.
 #' @noRd
 bde_hlp_guess <- function(tbl, preserve = "") {
   for (i in names(tbl)) {
@@ -238,8 +238,8 @@ bde_hlp_guess <- function(tbl, preserve = "") {
 
 #' Convert columns to character vectors
 #'
-#' @param tbl A tibble.
-#' @param preserve Vector of names to preserve.
+#' @param tbl A tibble to process.
+#' @param preserve Character vector of column names to preserve.
 #' @noRd
 bde_hlp_tochar <- function(tbl, preserve = "") {
   for (i in names(tbl)) {
@@ -252,8 +252,8 @@ bde_hlp_tochar <- function(tbl, preserve = "") {
 
 #' Convert columns to double-precision numbers
 #'
-#' @param tbl A tibble.
-#' @param preserve Vector of names to preserve.
+#' @param tbl A tibble to process.
+#' @param preserve Character vector of column names to preserve.
 #' @noRd
 bde_hlp_todouble <- function(tbl, preserve = "") {
   for (i in names(tbl)) {

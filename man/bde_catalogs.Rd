@@ -42,11 +42,11 @@ with \code{options(bde_cache_dir = "path/to/dir")}.}
 
 \item{verbose}{Logical. If \code{TRUE}, display information useful for debugging.}
 
-\item{pattern}{Regular expression pattern to search. See \strong{Details} and
+\item{pattern}{Regular expression to search for. See \strong{Details} and
 \strong{Examples}.}
 
-\item{...}{Additional arguments passed to \code{\link[=bde_catalog_load]{bde_catalog_load()}} by
-\code{bde_catalog_search()}.}
+\item{...}{Additional arguments passed by \code{bde_catalog_search()} to
+\code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 }
 \value{
 \code{bde_catalog_load()} returns a \link[tibble:tbl_df]{tibble} with the requested
@@ -108,5 +108,10 @@ bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 bde_catalog_update("TI", verbose = TRUE)
 }
 \dontshow{\}) # examplesIf}
+}
+\seealso{
+\code{\link[=bde_series_load]{bde_series_load()}} and \code{\link[=bde_series_full_load]{bde_series_full_load()}} for loading bulk
+CSV series and \code{\link[=bde_series_api_load]{bde_series_api_load()}} and \code{\link[=bde_series_api_latest]{bde_series_api_latest()}} for
+retrieving series through the Statistics web service.
 }
 \concept{catalog}

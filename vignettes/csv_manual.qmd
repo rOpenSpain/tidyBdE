@@ -13,32 +13,29 @@ vignette: >
 
 ## Introduction
 
-This document describes the information in the files containing the time series
-of the statistical tables and charts that Banco de España publishes on its
-website, and provides guidance on possible uses of these files.
+This document describes the files containing the time series from statistical
+tables and charts published on the Banco de España website. It also provides
+guidance on using these files.
 
 Data for the full available sample period are provided for each series, along
-with qualitative information or metadata. This information gives users details
-about each series, such as the economic concept it represents, the units in
-which the data are expressed, the source and any notes.
+with metadata. This information describes the economic concept represented by
+each series, its units, source and any notes.
 
-The target audience for this information is as wide as the network through which
-it is distributed. Nevertheless, two categories of potential users can be
-distinguished:
+This information serves a broad audience, but users generally fall into two
+categories:
 
 1.  Users who download one or more tables to their computer to process them
     using a spreadsheet.
-2.  Users or institutions who download all or most of the information to upload
-    it to a database and combine it with other sources of statistical data or
-    even with the institution’s own information.
+2.  Users or institutions that download all or most of the information, upload
+    it to a database and combine it with other statistical data or their own
+    information.
 
-The information provided is geared to both types of users.
+The information provided serves both types of users.
 
-The statistics provided by Banco de España as statistical charts or tables are
-organized in two different ways on its website: by statistical publication,
-which is the approach covered by this document, or by subject, which is the main
-organization used in the Statistics section. The tables and download URLs are
-the same in both cases.
+Banco de España organizes statistical charts and tables on its website in two
+ways: by statistical publication, which is the approach covered here, or by
+subject, which is the main organization used in the Statistics section. The
+tables and download URLs are the same in both cases.
 
 This document focuses on publications and is organized as follows. The second
 section explains the two types of files released, their format and their
@@ -47,20 +44,20 @@ information with a spreadsheet. The fourth section provides guidance for
 institutions that want to develop software for automatically uploading the
 information to a database.
 
-Because the tables in the theme-based classification are the same as those in
+Because the tables in the subject-based classification are the same as those in
 the publications, only organized differently, everything mentioned in this
 manual about bulk CSV files is valid for both.
 
 ## Time-series files
 
-Files containing the time series of the tables of the relevant publication are
-in CSV (comma-separated value) format, where fields or values in each line or
-record are separated by commas.
+Files containing the time series for each publication table use CSV
+(comma-separated value) format. Commas separate the fields or values in each
+line or record.
 
-The decimal separator is the full stop `"."` and the thousand separator is a
+The decimal separator is the period `"."` and the thousands separator is a
 blank space.
 
-They can be classified into two different types according to their content.
+Two file types are available based on their content.
 
 **Catalog file**
 
@@ -70,8 +67,8 @@ characteristics of each series included in statistical publications.
 For example, the file for all the Statistical Bulletin series is called
 `catalogo_be.csv`.
 
-The catalog file is updated on a **daily or a quarterly basis**, depending on
-the type of publication.
+The catalog file is updated **daily or quarterly**, depending on the type of
+publication.
 
 **Example:** Records of the `catalogo_be.csv` file
 
@@ -87,13 +84,13 @@ observaciones","Título de la serie","Fuente","Notas"
 "SI_1_1.3",1832510,D_1KH99500_D09,"SI_1_1.csv",...
 ```
 
-**Files containing the time series data of a table**
+**Table time-series files**
 
 These files cover the entire sample period of every series of a table. There is
 one file for each table.
 
-These files are **updated on a daily basis**, which means that each CSV file is
-updated whenever data for the table in question change.
+These files are **updated daily** whenever data for the corresponding table
+change.
 
 **Example:** Records of a table file
 
@@ -138,8 +135,8 @@ contains a characteristic of the time series.
 
 **Alias de la serie (series alias)**
 
-The alias shows where this series can be found in the publication. Pattern:
-`pp_c_a.o[.f]`.
+The alias shows where a series can be found in the publication. It follows the
+pattern `pp_c_a.o[.f]`.
 
 Where:
 
@@ -156,31 +153,31 @@ because it may change whenever a table is reorganized.
 **Número secuencial (sequential number)**
 
 Series aliases are positional and may change when tables are reorganized. To
-ensure series can always be identified, a sequential number is assigned to each
-series and remains unchanged throughout its lifetime.
+ensure that a series can always be identified, it is assigned a sequential
+number that remains unchanged throughout its lifetime.
 
 **Nombre de la serie/Código de la serie (API series code)**
 
-The API series code in the Banco de España databases. It is unique and
-invariable. In **tidyBdE**, this field is passed through `series_code` in the
-Statistics web service (API) helpers and corresponds to the API `series_list`
-parameter.
+This field contains the API series code used in Banco de España databases. The
+code is unique and invariable. In **tidyBdE**, pass this field through
+`series_code` to the Statistics web service (API) helpers. It corresponds to
+the API `series_list` parameter.
 
 **Nombre del archivo con los valores de la serie (name of the file containing
 the series values)**
 
-The name of the file corresponding to the table to which the series belongs and
-which contains the series observations.
+This field gives the name of the table file that contains the series
+observations.
 
 **Descripción de la serie (series description)**
 
-A string of characters summarising the economic concept represented by the
-series. It is complemented by the title field.
+This field summarizes the economic concept represented by the series. The title
+field provides additional detail.
 
 **Tipo de variable (variable type)**
 
-Indicates whether the economic concept represented by the series is a flow,
-stock, average or annualized rate.
+This field indicates whether the economic concept represented by the series is
+a flow, stock, average or annualized rate.
 
 |                         |                                  |
 |-------------------------|----------------------------------|
@@ -195,73 +192,71 @@ stock, average or annualized rate.
 
 **Código de unidades (unit code)**
 
-A code showing the unit in which the series is expressed. The meaning of this
-code is detailed in the "description of units and exponent" field.
+This field contains a code for the unit in which the series is expressed. The
+"description of units and exponent" field explains the code.
 
 **Exponente (exponent)**
 
-It shows the power of ten by which the values of the series have to be
+This field shows the power of ten by which the series values must be
 multiplied to obtain the units. The meaning of this number is detailed in the
 "description of units and exponent" field.
 
 **Número de decimales (number of decimals)**
 
-It shows the precision with which the series is measured.
+This field shows the precision with which the series is measured.
 
 **Descripción de unidades y exponente (description of units and exponent)**
 
-It describes or decodes the unit and exponent codes.
+This field describes the unit and exponent codes.
 
 **Frecuencia (frequency)**
 
-The series frequency will be the highest of those with which it appears in the
-table. For example, if a series appears in a table with monthly and annual
-frequencies, the series frequency displayed in the file will be monthly. These
-frequencies can be:
+This field reports the highest frequency at which the series appears in the
+table. For example, if a series appears at monthly and annual frequencies, the
+file reports its frequency as monthly. Available frequencies are:
 
-- DIARIA (daily),
-- LABORABLE (business days),
-- MENSUAL (monthly),
-- TRIMESTRAL (quarterly),
-- SEMESTRAL (half-yearly),
-- ANUAL (yearly)
+- DIARIA (daily).
+- LABORABLE (business days).
+- MENSUAL (monthly).
+- TRIMESTRAL (quarterly).
+- SEMESTRAL (half-yearly).
+- ANUAL (yearly).
 
 Note: LABORABLE frequency means Monday to Friday. DIARIA frequency also includes
 Saturdays and Sundays.
 
 **Fecha de la primera observación (date of first observation)**
 
-Date of the first observation inside the sample period included in the file with
-the series values. The date of the first observation is expressed according to
-the frequency of the series. See [Annex II: Date formats] for date formats.
+This field gives the date of the first observation in the sample period covered
+by the series file. The date format depends on the series frequency. See
+[Annex II: Date formats] for details.
 
 **Fecha de la última observación (date of last observation)**
 
-Date of the last observation inside the sample period included in the file with
-the series values. The date of the last observation is expressed according to
-the frequency of the series. See [Annex II: Date formats] for date formats.
+This field gives the date of the last observation in the sample period covered
+by the series file. The date format depends on the series frequency. See
+[Annex II: Date formats] for details.
 
 **Número de observaciones (number of observations)**
 
-The number of observations contained in the sample period of the series, which
-are included in the file with the series values.
+This field gives the number of observations in the sample period covered by the
+series file.
 
 **Título (title)**
 
-It describes in detail the economic concept measured or represented by the
-series. It complements the description field. It consists of a set of character
-strings separated by the `/` character.
+This field describes the economic concept measured or represented by the
+series. It complements the description field and consists of character strings
+separated by `/`.
 
 **Fuente (source)**
 
-It describes the original source of the series. It consists of a set of
-character strings separated by the `/` character.
+This field describes the original source of the series and consists of
+character strings separated by `/`.
 
 **Notas (notes)**
 
-It contains general comments on how the series was compiled or on certain
-particular observations. It consists of a set of character strings separated by
-the `/` character.
+This field contains general comments on how the series was compiled or on
+particular observations. It consists of character strings separated by `/`.
 
 ### Content of files with series values
 
@@ -280,7 +275,7 @@ The six header lines contain:
 5.  Description of units.
 6.  Frequency.
 
-**Values lines**
+**Value lines**
 
 Each line contains values for one date of the sample period. Values are
 expressed using the number of decimals specified in the catalog file.
@@ -288,7 +283,7 @@ expressed using the number of decimals specified in the catalog file.
 When data are not available, symbols are used instead of values:
 
 - `_`: The phenomenon in question does not exist.
-- `...`: Data not available.
+- `...`: Data are not available.
 
 **Last lines**
 
@@ -301,7 +296,7 @@ The final lines contain:
 
 CSV files are generated using:
 
-- Decimal separator: full stop (`.`)
+- Decimal separator: period (`.`).
 - Thousands separator: none.
 - List separator: comma (`,`).
 
@@ -311,8 +306,8 @@ correctly.
 Catalog metadata can be used to locate series by searching for specific
 characteristics.
 
-For example, searching for a text string in the title field allows
-identification of the corresponding file containing the series values.
+For example, searching for text in the title field helps identify the file that
+contains the corresponding series values.
 
 ## Annex I: Statistical publications
 

@@ -17,10 +17,10 @@
 #' @param cache_dir Path to a cache directory. The directory can also be set
 #'   with `options(bde_cache_dir = "path/to/dir")`.
 #' @param verbose Logical. If `TRUE`, display information useful for debugging.
-#' @param pattern Regular expression pattern to search. See **Details** and
+#' @param pattern Regular expression to search for. See **Details** and
 #'   **Examples**.
-#' @param ... Additional arguments passed to [bde_catalog_load()] by
-#'   `bde_catalog_search()`.
+#' @param ... Additional arguments passed by `bde_catalog_search()` to
+#'   [bde_catalog_load()].
 #'
 #' @details
 #' Accepted values for `catalog` are:
@@ -74,6 +74,10 @@
 #'       "descargas-completas.html)."))
 #'
 #' ```
+#'
+#' @seealso [bde_series_load()] and [bde_series_full_load()] for loading bulk
+#'   CSV series and [bde_series_api_load()] and [bde_series_api_latest()] for
+#'   retrieving series through the Statistics web service.
 #'
 #' @family catalog
 #'

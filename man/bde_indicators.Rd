@@ -14,6 +14,9 @@
 \alias{bde_ind_population}
 \alias{bde_ind_ibex}
 \title{Selected Spanish macroeconomic indicators}
+\source{
+\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{Time series bulk data download}.
+}
 \usage{
 bde_ind_gdp_var(series_label = "GDP_YoY", ...)
 
@@ -40,12 +43,12 @@ to the extracted series.}
 \item{...}{
   Arguments passed on to \code{\link{bde_series}}
   \describe{
-    \item{\code{out_format}}{The format to return, either \code{"wide"} or \code{"long"}. See
+    \item{\code{out_format}}{Output format, either \code{"wide"} or \code{"long"}. See
 \strong{Value} for details and the \strong{Examples} section.}
-    \item{\code{parse_numeric}}{Logical. If \code{TRUE}, the columns are parsed to
-double (numeric) values. See \strong{Note}.}
-    \item{\code{extract_metadata}}{Logical. If \code{TRUE}, the output is the metadata of the
-requested series.}
+    \item{\code{parse_numeric}}{Logical. If \code{TRUE}, parse columns as double values. See
+\strong{Note}.}
+    \item{\code{extract_metadata}}{Logical. If \code{TRUE}, return metadata for the requested
+series.}
     \item{\code{parse_dates}}{Logical. If \code{TRUE}, date columns are parsed with
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
     \item{\code{update_cache}}{Logical. If \code{TRUE}, the requested file is refreshed in
@@ -59,13 +62,18 @@ with \code{options(bde_cache_dir = "path/to/dir")}.}
 A \link[tibble:tbl_df]{tibble} with the requested indicator series.
 }
 \description{
-Download selected Spanish macroeconomic indicators. Metadata is available in
+Retrieve selected Spanish macroeconomic indicators. Metadata is available in
 \link{bde_ind_db}.
 }
 \details{
-These functions are convenient wrappers around \code{\link[=bde_series_load]{bde_series_load()}} for
-specific series. Use \verb{verbose = TRUE, extract_metadata = TRUE} to inspect the
-metadata and source.
+These functions are convenient wrappers for \code{\link[=bde_series_load]{bde_series_load()}} that
+retrieve specific series. Use \verb{verbose = TRUE, extract_metadata = TRUE} to
+inspect the metadata and source.
+}
+\note{
+These functions attempt to parse columns as double values. For some time
+series, a warning may be displayed if parsing fails. Set
+\code{parse_numeric = FALSE} to disable numeric parsing.
 }
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
@@ -75,9 +83,10 @@ bde_ind_gdp_var()
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[=bde_series_load]{bde_series_load()}} and \code{\link[=bde_catalog_search]{bde_catalog_search()}}.
+\code{\link[=bde_series_load]{bde_series_load()}} for loading arbitrary bulk CSV series and
+\code{\link[=bde_catalog_search]{bde_catalog_search()}} for finding series in catalog metadata.
 
-Indicator functions:
+Selected indicators and metadata:
 \code{\link{bde_ind_db}}
 }
 \concept{indicators}

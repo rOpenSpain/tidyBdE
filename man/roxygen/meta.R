@@ -1,9 +1,9 @@
 list(
   rd_family_title = list(
-    catalog = "Catalog functions:",
-    series = "Series functions:",
-    indicators = "Indicator functions:",
-    bde_plot = "Plot utilities:",
-    utils = "Utility functions:"
+    catalog = "Catalog metadata:",
+    series = "Time series functions:",
+    indicators = "Selected indicators and metadata:",
+    bde_plot = "Plotting functions:",
+    utils = "Date parsing utilities:"
   )
 )

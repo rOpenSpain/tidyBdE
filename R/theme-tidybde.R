@@ -1,4 +1,4 @@
-#' BdE ggplot2 theme
+#' BdE theme for ggplot2
 #'
 #' @description
 #' A custom \CRANpkg{ggplot2} theme based on BdE publications.
@@ -10,7 +10,7 @@
 #'
 #' @return A \CRANpkg{ggplot2} theme object.
 #'
-#' @seealso [ggplot2::theme_classic()].
+#' @seealso [ggplot2::theme_classic()] for the base theme extended here.
 #'
 #' @family bde_plot
 #'

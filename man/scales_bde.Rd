@@ -62,7 +62,7 @@ A \CRANpkg{ggplot2} scale object.
 }
 \description{
 Color scales for \CRANpkg{ggplot2}. Discrete scales are named
-\verb{scale_*_bde_d}, while continuous palettes are named \verb{scale_*_bde_c}.
+\verb{scale_*_bde_d}, while continuous scales are named \verb{scale_*_bde_c}.
 }
 \examples{
 library(ggplot2)
@@ -87,9 +87,10 @@ ggplot(txsamp, aes(x = sales, y = median)) +
   theme_minimal()
 }
 \seealso{
-\code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} and \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}.
+\code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} and \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}} for
+the underlying scale constructors.
 
-Plot utilities:
+Plotting functions:
 \code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}},
 \code{\link[=theme_tidybde]{theme_tidybde()}}
 }

@@ -2,17 +2,18 @@
 #'
 #' @description
 #' Color scales for \CRANpkg{ggplot2}. Discrete scales are named
-#' `scale_*_bde_d`, while continuous palettes are named `scale_*_bde_c`.
+#' `scale_*_bde_d`, while continuous scales are named `scale_*_bde_c`.
 #'
 #' @param palette BdE palette to apply. See [bde_tidy_palettes()] for details.
 #' @param ... Additional arguments passed to [ggplot2::discrete_scale()] or
 #'   [ggplot2::continuous_scale()].
-#' @inheritParams bde_tidy_palettes
+#' @inheritParams bde_tidy_palettes alpha rev
 #' @inheritParams ggplot2::continuous_scale
 #'
 #' @return A \CRANpkg{ggplot2} scale object.
 #'
-#' @seealso [ggplot2::discrete_scale()] and [ggplot2::continuous_scale()].
+#' @seealso [ggplot2::discrete_scale()] and [ggplot2::continuous_scale()] for
+#'   the underlying scale constructors.
 #'
 #' @family bde_plot
 #'
@@ -147,7 +148,7 @@ scale_fill_bde_c <- function(
 #' @param aesthetics Scale aesthetics to map.
 #' @param palette BdE palette to apply.
 #' @param ... Additional arguments passed to [ggplot2::discrete_scale()].
-#' @inheritParams bde_tidy_palettes
+#' @inheritParams bde_tidy_palettes alpha rev
 #'
 #' @noRd
 bde_scale_bde_d <- function(aesthetics, palette, alpha, rev, ...) {
@@ -164,7 +165,7 @@ bde_scale_bde_d <- function(aesthetics, palette, alpha, rev, ...) {
 #' @param aesthetics Scale aesthetics to map.
 #' @param palette BdE palette to apply.
 #' @param ... Additional arguments passed to [ggplot2::continuous_scale()].
-#' @inheritParams bde_tidy_palettes
+#' @inheritParams bde_tidy_palettes alpha rev
 #' @inheritParams ggplot2::continuous_scale
 #'
 #' @noRd
@@ -181,7 +182,7 @@ bde_scale_bde_c <- function(aesthetics, palette, alpha, rev, guide, ...) {
 #' Return colors for continuous BdE scales
 #'
 #' @param palette BdE palette to apply.
-#' @inheritParams bde_tidy_palettes
+#' @inheritParams bde_tidy_palettes alpha rev
 #'
 #' @noRd
 bde_scale_bde_c_cols <- function(palette, alpha, rev) {

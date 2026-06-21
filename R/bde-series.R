@@ -8,14 +8,9 @@
 #' number. `bde_series_full_load()` loads a complete bulk CSV file and returns
 #' all series included in that file.
 #'
-#' The series alias is a positional code showing the location, column or row
-#' of the series in the table. Although it is unique, it is not stable
-#' enough to identify a time series because it may change when a series moves.
-#'
-#' BdE also assigns each series a stable sequential number
-#' (`Número secuencial`). `bde_series_load()` uses that sequential number
-#' through `series_code`, not the API series code used by the Statistics web
-#' service (API) helpers.
+#' A series alias is a positional code that identifies the location, column or
+#' row of a series in a table. An alias is unique within its context but is not
+#' stable because it may change when a series moves.
 #'
 #' A single time series may appear in different tables, so it can have several
 #' aliases. Use `bde_series_full_load()` when you need to work with aliases or
@@ -37,13 +32,13 @@
 #'   catalog. See [bde_catalog_load()].
 #' @param series_label Optional character string or vector of labels to assign
 #'   to the extracted series.
-#' @param out_format The format to return, either `"wide"` or `"long"`. See
+#' @param out_format Output format, either `"wide"` or `"long"`. See
 #'   **Value** for details and the **Examples** section.
-#' @param parse_numeric Logical. If `TRUE`, the columns are parsed to
-#'   double (numeric) values. See **Note**.
-#' @param extract_metadata Logical. If `TRUE`, the output is the metadata of the
-#'   requested series.
-#' @inheritParams bde_catalogs
+#' @param parse_numeric Logical. If `TRUE`, parse columns as double values. See
+#'   **Note**.
+#' @param extract_metadata Logical. If `TRUE`, return metadata for the requested
+#'   series.
+#' @inheritParams bde_catalogs parse_dates update_cache cache_dir verbose
 #'
 #' @return
 #' `bde_series_load()` returns a [tibble][tibble::tbl_df] with a `Date` column:
@@ -64,13 +59,24 @@
 #' metadata. See [bde_catalog_load()] and
 #' `vignette("csv_manual", package = "tidyBdE")` for details.
 #'
-#' @note
-#' These functions attempt to coerce the columns to numbers. For some time
-#' series, a warning may be displayed if parsing fails. You can override
-#' the default behavior with `parse_numeric = FALSE`.
+#' @inherit bde_catalogs source
 #'
-#' @seealso [bde_catalog_load()], [bde_catalog_search()],
-#'   [bde_indicators()].
+#' @note
+#' These functions attempt to parse columns as double values. For some time
+#' series, a warning may be displayed if parsing fails. Set
+#' `parse_numeric = FALSE` to disable numeric parsing.
+#'
+#' @section Series identifiers:
+#' Banco de España identifies each series with a stable sequential number
+#' (`Número secuencial`) in bulk CSV files and an API series code
+#' (`Nombre_de_la_serie`) in the Statistics web service.
+#' [bde_series_load()] accepts stable sequential numbers in `series_code`.
+#' [bde_series_api_latest()] and [bde_series_api_load()] use the same argument
+#' for API series codes. Use [bde_catalog_load()] or [bde_catalog_search()] to
+#' find both identifiers.
+#'
+#' @seealso [bde_catalog_load()] and [bde_catalog_search()] for finding stable
+#'   sequential numbers, and [bde_indicators()] for convenience wrappers.
 #'
 #' @family series
 #'

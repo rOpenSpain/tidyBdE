@@ -14,8 +14,8 @@ knitr:
     out.width: "100%"
 ---
 
-This article shows selected Spanish macroeconomic indicators using Banco de
-España time series data from bulk CSV files.
+This article presents selected Spanish macroeconomic indicators retrieved from
+Banco de España bulk CSV files.
 
 Last updated: **`r format(Sys.Date(), "%d-%B-%Y")`**.
 

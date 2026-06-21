@@ -1,20 +1,25 @@
 #' Selected Spanish macroeconomic indicators
 #'
 #' @description
-#' Download selected Spanish macroeconomic indicators. Metadata is available in
+#' Retrieve selected Spanish macroeconomic indicators. Metadata is available in
 #' [bde_ind_db].
 #'
-#' @inheritParams bde_series
+#' @inheritParams bde_series series_label
 #' @inheritDotParams bde_series -series_code -series_csv
 #'
 #' @details
-#' These functions are convenient wrappers around [bde_series_load()] for
-#' specific series. Use `verbose = TRUE, extract_metadata = TRUE` to inspect the
-#' metadata and source.
+#' These functions are convenient wrappers for [bde_series_load()] that
+#' retrieve specific series. Use `verbose = TRUE, extract_metadata = TRUE` to
+#' inspect the metadata and source.
 #'
 #' @return A [tibble][tibble::tbl_df] with the requested indicator series.
 #'
-#' @seealso [bde_series_load()] and [bde_catalog_search()].
+#' @inherit bde_catalogs source
+#'
+#' @inherit bde_series note
+#'
+#' @seealso [bde_series_load()] for loading arbitrary bulk CSV series and
+#'   [bde_catalog_search()] for finding series in catalog metadata.
 #'
 #' @family indicators
 #'

@@ -4,7 +4,7 @@
 #' Manually defined palettes based on BdE publications. Each palette contains
 #' at most six colors.
 #'
-#' @param n Number of colors (`>= 1`) to return.
+#' @param n Number of colors to return. Must be at least `1`.
 #' @param palette A valid palette name.
 #' @param alpha Alpha transparency level in the range `[0, 1]`, where `0` is
 #'   transparent and `1` is opaque. If `alpha = NULL`, the function does not

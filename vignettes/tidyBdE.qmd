@@ -17,13 +17,13 @@ España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.h
 bulk CSV files and the [Statistics web service
 (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
 Data are returned as [**tibble**](https://tibble.tidyverse.org/) objects. The
-package infers date, character and numeric fields where possible. Bulk CSV
-helpers identify series with the stable sequential number (`Numero_secuencial`),
+package infers date, character and numeric column types where possible. Bulk CSV
+helpers identify series with stable sequential numbers (`Numero_secuencial`),
 while API helpers use `Nombre_de_la_serie` as the API series code.
 
-## Search time series
+## Search for time series
 
-Banco de España (**BdE**) provides several time series, either produced by the
+Banco de España (**BdE**) publishes numerous time series produced by the
 institution or compiled from other sources, such as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 

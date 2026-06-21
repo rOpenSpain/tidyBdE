@@ -20,36 +20,36 @@ bde_series_api_load(
 )
 }
 \arguments{
-\item{series_code}{Character string or vector with API series codes,
+\item{series_code}{Character string or vector of API series codes
 taken from the \code{Nombre_de_la_serie} field of the corresponding catalog.
 This is the value passed to the API \code{series_list} parameter, not the
 stable sequential number used by \code{\link[=bde_series_load]{bde_series_load()}}.}
 
-\item{language}{Character string. Use \code{"es"} or \code{"en"} to obtain results in
-Spanish or English, respectively.}
+\item{language}{Character string specifying the output language. Use \code{"es"}
+for Spanish or \code{"en"} for English.}
 
 \item{verbose}{Logical. If \code{TRUE}, display information useful for debugging.}
 
 \item{series_label}{Optional character string or vector of labels to assign
 to the extracted series.}
 
-\item{out_format}{The format to return, either \code{"wide"} or \code{"long"}. See
+\item{out_format}{Output format, either \code{"wide"} or \code{"long"}. See
 \strong{Value} for details and the \strong{Examples} section.}
 
-\item{time_range}{Character string. Optional annual range or API range code.
-It can be a year, such as \code{"2024"}, or a range code such as \code{"3M"},
+\item{time_range}{Optional character string specifying an annual range or API
+range code. It can be a year, such as \code{"2024"}, or a code such as \code{"3M"},
 \code{"12M"}, \code{"30M"}, \code{"36M"}, \code{"60M"} or \code{"MAX"}. If \code{NULL}, the API returns
 the smallest range for the series frequency. Range codes are validated
 against the frequency returned by \code{\link[=bde_series_api_latest]{bde_series_api_latest()}}. See
 \strong{Details}.}
 
-\item{extract_metadata}{Logical. If \code{TRUE}, the output is the metadata of the
-requested series.}
+\item{extract_metadata}{Logical. If \code{TRUE}, return metadata for the requested
+series.}
 }
 \value{
 \code{bde_series_api_latest()} returns a \link[tibble:tbl_df]{tibble} with the latest
-published observation for each valid series, with fields returned by the
-Latest Data request such as \code{serie}, \code{descripcionCorta}, \code{codFrecuencia},
+published observation for each valid series. It includes fields returned by
+the Latest Data request such as \code{serie}, \code{descripcionCorta}, \code{codFrecuencia},
 \code{decimales}, \code{simbolo}, \code{tendencia}, \code{fechaValor} and \code{valor}.
 
 \code{bde_series_api_load()} returns a \link[tibble:tbl_df]{tibble}. When
@@ -62,7 +62,7 @@ series with fields returned by the Series List request, including
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
-These functions query BdE time series through the \href{https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html}{Statistics web service (API)}.
+These functions retrieve BdE time series using the \href{https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html}{Statistics web service (API)}.
 
 The API is a JSON web service that provides URL-based access to information
 available in the Statistics section of Banco de España and the BIEST
@@ -72,12 +72,6 @@ The API defines two request types. \code{\link[=bde_series_api_latest]{bde_serie
 Data request to obtain the latest published observation for one or more
 series. \code{\link[=bde_series_api_load]{bde_series_api_load()}} uses the Series List request to obtain the
 details of one or more complete series and their metadata.
-
-The API uses API series codes as identifiers. In this package, pass those
-codes through \code{series_code}. They are available in the \code{Nombre_de_la_serie}
-field of \code{\link[=bde_catalog_load]{bde_catalog_load()}} and correspond to the API \code{series_list}
-parameter. This is different from the stable sequential number
-(\verb{Número secuencial}) used by \code{\link[=bde_series_load]{bde_series_load()}} for bulk CSV files.
 }
 \details{
 Allowed \code{time_range} values depend on the series frequency:
@@ -91,6 +85,17 @@ Allowed \code{time_range} values depend on the series frequency:
 If \code{time_range} is not specified, the request returns the smallest range for
 the series frequency. For example, monthly series return \code{"30M"}.
 }
+\section{Series identifiers}{
+
+Banco de España identifies each series with a stable sequential number
+(\verb{Número secuencial}) in bulk CSV files and an API series code
+(\code{Nombre_de_la_serie}) in the Statistics web service.
+\code{\link[=bde_series_load]{bde_series_load()}} accepts stable sequential numbers in \code{series_code}.
+\code{\link[=bde_series_api_latest]{bde_series_api_latest()}} and \code{\link[=bde_series_api_load]{bde_series_api_load()}} use the same argument
+for API series codes. Use \code{\link[=bde_catalog_load]{bde_catalog_load()}} or \code{\link[=bde_catalog_search]{bde_catalog_search()}} to
+find both identifiers.
+}
+
 \examples{
 \dontshow{if (bde_check_access()) withAutoprint(\{ # examplesIf}
 \donttest{
@@ -124,10 +129,10 @@ xr |>
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[=bde_catalog_load]{bde_catalog_load()}}, \code{\link[=bde_catalog_search]{bde_catalog_search()}},
-\code{\link[=bde_indicators]{bde_indicators()}}.
+\code{\link[=bde_catalog_load]{bde_catalog_load()}} and \code{\link[=bde_catalog_search]{bde_catalog_search()}} for finding API
+series codes, and \code{\link[=bde_series_load]{bde_series_load()}} for loading bulk CSV series.
 
-Series functions:
+Time series functions:
 \code{\link{bde_series}}
 }
 \concept{series}
