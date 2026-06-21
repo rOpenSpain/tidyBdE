@@ -18,7 +18,7 @@ bde_tidy_palettes(
 
 - n:
 
-  Number of colors (`>= 1`) to return.
+  Number of colors to return. Must be at least `1`.
 
 - palette:
 
@@ -41,7 +41,7 @@ A character vector of hex color codes.
 
 ## See also
 
-Plot utilities:
+Plotting functions:
 [`scales_bde`](https://ropenspain.github.io/tidyBdE/reference/scales_bde.md),
 [`theme_tidybde()`](https://ropenspain.github.io/tidyBdE/reference/theme_tidybde.md)
 

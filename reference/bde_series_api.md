@@ -2,7 +2,7 @@
 
 **\[experimental\]**
 
-These functions query BdE time series through the [Statistics web
+These functions retrieve BdE time series using the [Statistics web
 service
 (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
 
@@ -14,15 +14,6 @@ The API defines two request types. `bde_series_api_latest()` uses the
 Latest Data request to obtain the latest published observation for one
 or more series. `bde_series_api_load()` uses the Series List request to
 obtain the details of one or more complete series and their metadata.
-
-The API uses API series codes as identifiers. In this package, pass
-those codes through `series_code`. They are available in the
-`Nombre_de_la_serie` field of
-[`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
-and correspond to the API `series_list` parameter. This is different
-from the stable sequential number (`Número secuencial`) used by
-[`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
-for bulk CSV files.
 
 ## Usage
 
@@ -44,7 +35,7 @@ bde_series_api_load(
 
 - series_code:
 
-  Character string or vector with API series codes, taken from the
+  Character string or vector of API series codes taken from the
   `Nombre_de_la_serie` field of the corresponding catalog. This is the
   value passed to the API `series_list` parameter, not the stable
   sequential number used by
@@ -52,8 +43,8 @@ bde_series_api_load(
 
 - language:
 
-  Character string. Use `"es"` or `"en"` to obtain results in Spanish or
-  English, respectively.
+  Character string specifying the output language. Use `"es"` for
+  Spanish or `"en"` for English.
 
 - verbose:
 
@@ -66,31 +57,30 @@ bde_series_api_load(
 
 - out_format:
 
-  The format to return, either `"wide"` or `"long"`. See **Value** for
-  details and the **Examples** section.
+  Output format, either `"wide"` or `"long"`. See **Value** for details
+  and the **Examples** section.
 
 - time_range:
 
-  Character string. Optional annual range or API range code. It can be a
-  year, such as `"2024"`, or a range code such as `"3M"`, `"12M"`,
-  `"30M"`, `"36M"`, `"60M"` or `"MAX"`. If `NULL`, the API returns the
-  smallest range for the series frequency. Range codes are validated
-  against the frequency returned by `bde_series_api_latest()`. See
-  **Details**.
+  Optional character string specifying an annual range or API range
+  code. It can be a year, such as `"2024"`, or a code such as `"3M"`,
+  `"12M"`, `"30M"`, `"36M"`, `"60M"` or `"MAX"`. If `NULL`, the API
+  returns the smallest range for the series frequency. Range codes are
+  validated against the frequency returned by `bde_series_api_latest()`.
+  See **Details**.
 
 - extract_metadata:
 
-  Logical. If `TRUE`, the output is the metadata of the requested
-  series.
+  Logical. If `TRUE`, return metadata for the requested series.
 
 ## Value
 
 `bde_series_api_latest()` returns a
 [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) with
-the latest published observation for each valid series, with fields
-returned by the Latest Data request such as `serie`, `descripcionCorta`,
-`codFrecuencia`, `decimales`, `simbolo`, `tendencia`, `fechaValor` and
-`valor`.
+the latest published observation for each valid series. It includes
+fields returned by the Latest Data request such as `serie`,
+`descripcionCorta`, `codFrecuencia`, `decimales`, `simbolo`,
+`tendencia`, `fechaValor` and `valor`.
 
 `bde_series_api_load()` returns a
 [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html). When
@@ -116,13 +106,30 @@ Allowed `time_range` values depend on the series frequency:
 If `time_range` is not specified, the request returns the smallest range
 for the series frequency. For example, monthly series return `"30M"`.
 
+## Series identifiers
+
+Banco de España identifies each series with a stable sequential number
+(`Número secuencial`) in bulk CSV files and an API series code
+(`Nombre_de_la_serie`) in the Statistics web service.
+[`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
+accepts stable sequential numbers in `series_code`.
+`bde_series_api_latest()` and `bde_series_api_load()` use the same
+argument for API series codes. Use
+[`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
+or
+[`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
+to find both identifiers.
+
 ## See also
 
-[`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md),
-[`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md),
-[`bde_indicators()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md).
+[`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
+and
+[`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
+for finding API series codes, and
+[`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
+for loading bulk CSV series.
 
-Series functions:
+Time series functions:
 [`bde_series`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
 
 ## Examples
@@ -153,9 +160,9 @@ xr |>
 #> $ codFrecuencia    <chr> "D", "D", "D"
 #> $ decimales        <int> 4, 4, 4
 #> $ simbolo          <chr> "USD", "JPY", "CHF"
-#> $ tendencia        <chr> "-", "-", "-"
-#> $ fechaValor       <date> 2026-06-17, 2026-06-17, 2026-06-17
-#> $ valor            <dbl> 1.1591, 185.8200, 0.9193
+#> $ tendencia        <chr> "-", "-", "+"
+#> $ fechaValor       <date> 2026-06-18, 2026-06-18, 2026-06-18
+#> $ valor            <dbl> 1.1461, 184.4400, 0.9218
 
 # Extract the latest months.
 xr |>
@@ -165,8 +172,8 @@ xr |>
   glimpse()
 #> Rows: 262
 #> Columns: 2
-#> $ Date            <date> 2026-06-17, 2026-06-16, 2026-06-15, 2026-06-12, 2026-…
-#> $ DTCCBCEUSDEUR.B <dbl> 1.1591, 1.1594, 1.1607, 1.1567, 1.1537, 1.1539, 1.1573…
+#> $ Date            <date> 2026-06-18, 2026-06-17, 2026-06-16, 2026-06-15, 2026-…
+#> $ DTCCBCEUSDEUR.B <dbl> 1.1461, 1.1591, 1.1594, 1.1607, 1.1567, 1.1537, 1.1539…
 
 # Extract metadata.
 xr |>
@@ -186,14 +193,14 @@ xr |>
 #> $ decimales                <int> 4
 #> $ simbolo                  <chr> "USD"
 #> $ fechaInicio              <date> 1999-01-04
-#> $ fechaFin                 <date> 2026-06-17
+#> $ fechaFin                 <date> 2026-06-18
 #> $ Name                     <chr> "Exchange rate. US dollars per euro (USD/EUR)…
 #> $ Description              <chr> "Currency exchange rates. European Central Ba…
 #> $ Units                    <chr> "Dólares de Estados Unidos por Euro"
 #> $ Decimals                 <chr> "4"
-#> $ `Number of observations` <chr> "7.163"
-#> $ `First value`            <chr> "[04/01/1999] 1.1591 USD"
-#> $ `Last value`             <chr> "[17/06/2026] 1.1591 USD"
+#> $ `Number of observations` <chr> "7.164"
+#> $ `First value`            <chr> "[04/01/1999] 1.1461 USD"
+#> $ `Last value`             <chr> "[18/06/2026] 1.1461 USD"
 #> $ `Min value`              <chr> "[26/10/2000] 0.8252 USD"
 #> $ `Max value`              <chr> "[15/07/2008] 1.5990 USD"
 #> $ Source                   <chr> "BANCO CENTRAL EUROPEO"

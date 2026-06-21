@@ -105,26 +105,26 @@
     <p><em>Adaptation of <a href="https://www.bde.es/webbe/en/estadisticas/compartido/docs/manual_archivos_csv_en.pdf" class="external-link uri">https://www.bde.es/webbe/en/estadisticas/compartido/docs/manual_archivos_csv_en.pdf</a></em></p>
 <section class="level2"><h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>This document describes the information in the files containing the time series of the statistical tables and charts that Banco de España publishes on its website, and provides guidance on possible uses of these files.</p>
-<p>Data for the full available sample period are provided for each series, along with qualitative information or metadata. This information gives users details about each series, such as the economic concept it represents, the units in which the data are expressed, the source and any notes.</p>
-<p>The target audience for this information is as wide as the network through which it is distributed. Nevertheless, two categories of potential users can be distinguished:</p>
+<p>This document describes the files containing the time series from statistical tables and charts published on the Banco de España website. It also provides guidance on using these files.</p>
+<p>Data for the full available sample period are provided for each series, along with metadata. This information describes the economic concept represented by each series, its units, source and any notes.</p>
+<p>This information serves a broad audience, but users generally fall into two categories:</p>
 <ol type="1">
 <li>Users who download one or more tables to their computer to process them using a spreadsheet.</li>
-<li>Users or institutions who download all or most of the information to upload it to a database and combine it with other sources of statistical data or even with the institution’s own information.</li>
+<li>Users or institutions that download all or most of the information, upload it to a database and combine it with other statistical data or their own information.</li>
 </ol>
-<p>The information provided is geared to both types of users.</p>
-<p>The statistics provided by Banco de España as statistical charts or tables are organized in two different ways on its website: by statistical publication, which is the approach covered by this document, or by subject, which is the main organization used in the Statistics section. The tables and download URLs are the same in both cases.</p>
+<p>The information provided serves both types of users.</p>
+<p>Banco de España organizes statistical charts and tables on its website in two ways: by statistical publication, which is the approach covered here, or by subject, which is the main organization used in the Statistics section. The tables and download URLs are the same in both cases.</p>
 <p>This document focuses on publications and is organized as follows. The second section explains the two types of files released, their format and their content. The third section provides guidance for users who want to process the information with a spreadsheet. The fourth section provides guidance for institutions that want to develop software for automatically uploading the information to a database.</p>
-<p>Because the tables in the theme-based classification are the same as those in the publications, only organized differently, everything mentioned in this manual about bulk CSV files is valid for both.</p>
+<p>Because the tables in the subject-based classification are the same as those in the publications, only organized differently, everything mentioned in this manual about bulk CSV files is valid for both.</p>
 </section><section class="level2"><h2 id="time-series-files">Time-series files<a class="anchor" aria-label="anchor" href="#time-series-files"></a>
 </h2>
-<p>Files containing the time series of the tables of the relevant publication are in CSV (comma-separated value) format, where fields or values in each line or record are separated by commas.</p>
-<p>The decimal separator is the full stop <code>"."</code> and the thousand separator is a blank space.</p>
-<p>They can be classified into two different types according to their content.</p>
+<p>Files containing the time series for each publication table use CSV (comma-separated value) format. Commas separate the fields or values in each line or record.</p>
+<p>The decimal separator is the period <code>"."</code> and the thousands separator is a blank space.</p>
+<p>Two file types are available based on their content.</p>
 <p><strong>Catalog file</strong></p>
 <p>The catalog file contains a list of all series and metadata on the characteristics of each series included in statistical publications.</p>
 <p>For example, the file for all the Statistical Bulletin series is called <code>catalogo_be.csv</code>.</p>
-<p>The catalog file is updated on a <strong>daily or a quarterly basis</strong>, depending on the type of publication.</p>
+<p>The catalog file is updated <strong>daily or quarterly</strong>, depending on the type of publication.</p>
 <p><strong>Example:</strong> Records of the <code>catalogo_be.csv</code> file</p>
 <pre><code>"Alias de la serie","Número secuencial","Nombre de la serie/Código de la
 serie","Nombre del archivo con los valores de la serie","Descripción de la
@@ -135,9 +135,9 @@ observaciones","Título de la serie","Fuente","Notas"
 "SI_1_1.1",3778094,DSPC102016VP30000_ES14A_TSC.T,"SI_1_1.csv",...
 "SI_1_1.2",805995,D_1KH90101,"SI_1_1.csv",...
 "SI_1_1.3",1832510,D_1KH99500_D09,"SI_1_1.csv",...</code></pre>
-<p><strong>Files containing the time series data of a table</strong></p>
+<p><strong>Table time-series files</strong></p>
 <p>These files cover the entire sample period of every series of a table. There is one file for each table.</p>
-<p>These files are <strong>updated on a daily basis</strong>, which means that each CSV file is updated whenever data for the table in question change.</p>
+<p>These files are <strong>updated daily</strong> whenever data for the corresponding table change.</p>
 <p><strong>Example:</strong> Records of a table file</p>
 <pre><code>"ALIAS DE LA SERIE","BE_23_A.1","BE_23_A.2","BE_23_A.3",...
 "NÚMERO SECUENCIAL",3777714,3777708,3777711,...
@@ -167,7 +167,7 @@ observaciones","Título de la serie","Fuente","Notas"
 </h3>
 <p>The catalog file has a line or record for each time series of the tables in the publication. When the same series is included in several tables, the catalog file will have a line for each table in which it appears. Each column or field contains a characteristic of the time series.</p>
 <p><strong>Alias de la serie (series alias)</strong></p>
-<p>The alias shows where this series can be found in the publication. Pattern: <code>pp_c_a.o[.f]</code>.</p>
+<p>The alias shows where a series can be found in the publication. It follows the pattern <code>pp_c_a.o[.f]</code>.</p>
 <p>Where:</p>
 <ul>
 <li>
@@ -183,15 +183,15 @@ observaciones","Título de la serie","Fuente","Notas"
 </ul>
 <p>Each alias is unique but should not be used as a stable series identifier because it may change whenever a table is reorganized.</p>
 <p><strong>Número secuencial (sequential number)</strong></p>
-<p>Series aliases are positional and may change when tables are reorganized. To ensure series can always be identified, a sequential number is assigned to each series and remains unchanged throughout its lifetime.</p>
+<p>Series aliases are positional and may change when tables are reorganized. To ensure that a series can always be identified, it is assigned a sequential number that remains unchanged throughout its lifetime.</p>
 <p><strong>Nombre de la serie/Código de la serie (API series code)</strong></p>
-<p>The API series code in the Banco de España databases. It is unique and invariable. In <strong>tidyBdE</strong>, this field is passed through <code>series_code</code> in the Statistics web service (API) helpers and corresponds to the API <code>series_list</code> parameter.</p>
+<p>This field contains the API series code used in Banco de España databases. The code is unique and invariable. In <strong>tidyBdE</strong>, pass this field through <code>series_code</code> to the Statistics web service (API) helpers. It corresponds to the API <code>series_list</code> parameter.</p>
 <p><strong>Nombre del archivo con los valores de la serie (name of the file containing the series values)</strong></p>
-<p>The name of the file corresponding to the table to which the series belongs and which contains the series observations.</p>
+<p>This field gives the name of the table file that contains the series observations.</p>
 <p><strong>Descripción de la serie (series description)</strong></p>
-<p>A string of characters summarising the economic concept represented by the series. It is complemented by the title field.</p>
+<p>This field summarizes the economic concept represented by the series. The title field provides additional detail.</p>
 <p><strong>Tipo de variable (variable type)</strong></p>
-<p>Indicates whether the economic concept represented by the series is a flow, stock, average or annualized rate.</p>
+<p>This field indicates whether the economic concept represented by the series is a flow, stock, average or annualized rate.</p>
 <table class="table">
 <caption>Explanations of the type of variable in the catalog file.</caption>
 <tbody>
@@ -222,36 +222,36 @@ observaciones","Título de la serie","Fuente","Notas"
 </tbody>
 </table>
 <p><strong>Código de unidades (unit code)</strong></p>
-<p>A code showing the unit in which the series is expressed. The meaning of this code is detailed in the “description of units and exponent” field.</p>
+<p>This field contains a code for the unit in which the series is expressed. The “description of units and exponent” field explains the code.</p>
 <p><strong>Exponente (exponent)</strong></p>
-<p>It shows the power of ten by which the values of the series have to be multiplied to obtain the units. The meaning of this number is detailed in the “description of units and exponent” field.</p>
+<p>This field shows the power of ten by which the series values must be multiplied to obtain the units. The meaning of this number is detailed in the “description of units and exponent” field.</p>
 <p><strong>Número de decimales (number of decimals)</strong></p>
-<p>It shows the precision with which the series is measured.</p>
+<p>This field shows the precision with which the series is measured.</p>
 <p><strong>Descripción de unidades y exponente (description of units and exponent)</strong></p>
-<p>It describes or decodes the unit and exponent codes.</p>
+<p>This field describes the unit and exponent codes.</p>
 <p><strong>Frecuencia (frequency)</strong></p>
-<p>The series frequency will be the highest of those with which it appears in the table. For example, if a series appears in a table with monthly and annual frequencies, the series frequency displayed in the file will be monthly. These frequencies can be:</p>
+<p>This field reports the highest frequency at which the series appears in the table. For example, if a series appears at monthly and annual frequencies, the file reports its frequency as monthly. Available frequencies are:</p>
 <ul>
-<li>DIARIA (daily),</li>
-<li>LABORABLE (business days),</li>
-<li>MENSUAL (monthly),</li>
-<li>TRIMESTRAL (quarterly),</li>
-<li>SEMESTRAL (half-yearly),</li>
-<li>ANUAL (yearly)</li>
+<li>DIARIA (daily).</li>
+<li>LABORABLE (business days).</li>
+<li>MENSUAL (monthly).</li>
+<li>TRIMESTRAL (quarterly).</li>
+<li>SEMESTRAL (half-yearly).</li>
+<li>ANUAL (yearly).</li>
 </ul>
 <p>Note: LABORABLE frequency means Monday to Friday. DIARIA frequency also includes Saturdays and Sundays.</p>
 <p><strong>Fecha de la primera observación (date of first observation)</strong></p>
-<p>Date of the first observation inside the sample period included in the file with the series values. The date of the first observation is expressed according to the frequency of the series. See <a href="#annex-ii-date-formats">Annex II: Date formats</a> for date formats.</p>
+<p>This field gives the date of the first observation in the sample period covered by the series file. The date format depends on the series frequency. See <a href="#annex-ii-date-formats">Annex II: Date formats</a> for details.</p>
 <p><strong>Fecha de la última observación (date of last observation)</strong></p>
-<p>Date of the last observation inside the sample period included in the file with the series values. The date of the last observation is expressed according to the frequency of the series. See <a href="#annex-ii-date-formats">Annex II: Date formats</a> for date formats.</p>
+<p>This field gives the date of the last observation in the sample period covered by the series file. The date format depends on the series frequency. See <a href="#annex-ii-date-formats">Annex II: Date formats</a> for details.</p>
 <p><strong>Número de observaciones (number of observations)</strong></p>
-<p>The number of observations contained in the sample period of the series, which are included in the file with the series values.</p>
+<p>This field gives the number of observations in the sample period covered by the series file.</p>
 <p><strong>Título (title)</strong></p>
-<p>It describes in detail the economic concept measured or represented by the series. It complements the description field. It consists of a set of character strings separated by the <code>/</code> character.</p>
+<p>This field describes the economic concept measured or represented by the series. It complements the description field and consists of character strings separated by <code>/</code>.</p>
 <p><strong>Fuente (source)</strong></p>
-<p>It describes the original source of the series. It consists of a set of character strings separated by the <code>/</code> character.</p>
+<p>This field describes the original source of the series and consists of character strings separated by <code>/</code>.</p>
 <p><strong>Notas (notes)</strong></p>
-<p>It contains general comments on how the series was compiled or on certain particular observations. It consists of a set of character strings separated by the <code>/</code> character.</p>
+<p>This field contains general comments on how the series was compiled or on particular observations. It consists of character strings separated by <code>/</code>.</p>
 </section><section class="level3"><h3 id="content-of-files-with-series-values">Content of files with series values<a class="anchor" aria-label="anchor" href="#content-of-files-with-series-values"></a>
 </h3>
 <p>Files with series values contain six header lines identifying the series, a line with values for each date of the sample period and, at the end of the file, two lines with the source and notes.</p>
@@ -265,14 +265,14 @@ observaciones","Título de la serie","Fuente","Notas"
 <li>Description of units.</li>
 <li>Frequency.</li>
 </ol>
-<p><strong>Values lines</strong></p>
+<p><strong>Value lines</strong></p>
 <p>Each line contains values for one date of the sample period. Values are expressed using the number of decimals specified in the catalog file.</p>
 <p>When data are not available, symbols are used instead of values:</p>
 <ul>
 <li>
 <code>_</code>: The phenomenon in question does not exist.</li>
 <li>
-<code>...</code>: Data not available.</li>
+<code>...</code>: Data are not available.</li>
 </ul>
 <p><strong>Last lines</strong></p>
 <p>The final lines contain:</p>
@@ -283,13 +283,13 @@ observaciones","Título de la serie","Fuente","Notas"
 </h2>
 <p>CSV files are generated using:</p>
 <ul>
-<li>Decimal separator: full stop (<code>.</code>)</li>
+<li>Decimal separator: period (<code>.</code>).</li>
 <li>Thousands separator: none.</li>
 <li>List separator: comma (<code>,</code>).</li>
 </ul>
 <p>If regional settings differ from these conventions, values may not be loaded correctly.</p>
 <p>Catalog metadata can be used to locate series by searching for specific characteristics.</p>
-<p>For example, searching for a text string in the title field allows identification of the corresponding file containing the series values.</p>
+<p>For example, searching for text in the title field helps identify the file that contains the corresponding series values.</p>
 </section><section class="level2"><h2 id="annex-i-statistical-publications">Annex I: Statistical publications<a class="anchor" aria-label="anchor" href="#annex-i-statistical-publications"></a>
 </h2>
 <table class="table">

@@ -51,7 +51,7 @@ Apply BdE-inspired palettes, scales and themes to **ggplot2** plots.
   [`scale_fill_bde_c()`](https://ropenspain.github.io/tidyBdE/reference/scales_bde.md)
   : BdE color scales
 - [`theme_tidybde()`](https://ropenspain.github.io/tidyBdE/reference/theme_tidybde.md)
-  : BdE ggplot2 theme
+  : BdE theme for ggplot2
 
 ## Utilities
 

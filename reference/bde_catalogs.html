@@ -125,13 +125,13 @@ with <code>options(bde_cache_dir = "path/to/dir")</code>.</p></dd>
 
 
 <dt id="arg-pattern">pattern<a class="anchor" aria-label="anchor" href="#arg-pattern"></a></dt>
-<dd><p>Regular expression pattern to search. See <strong>Details</strong> and
+<dd><p>Regular expression to search for. See <strong>Details</strong> and
 <strong>Examples</strong>.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Additional arguments passed to <code>bde_catalog_load()</code> by
-<code>bde_catalog_search()</code>.</p></dd>
+<dd><p>Additional arguments passed by <code>bde_catalog_search()</code> to
+<code>bde_catalog_load()</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -155,14 +155,20 @@ to retrieve results.</p>
 metadata. You can pass <a href="https://rdrr.io/r/base/regex.html" class="external-link">regular expressions</a> to broaden the
 search.</p>
     </div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p><code><a href="bde_series.html">bde_series_load()</a></code> and <code><a href="bde_series.html">bde_series_full_load()</a></code> for loading bulk
+CSV series and <code><a href="bde_series_api.html">bde_series_api_load()</a></code> and <code><a href="bde_series_api.html">bde_series_api_latest()</a></code> for
+retrieving series through the Statistics web service.</p></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">bde_catalog_load</span><span class="op">(</span><span class="st">"TI"</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/RtmpakFgcA</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/Rtmpg3YOOh</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading catalog <span style="color: #0000BB;">"TI"</span>.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Using cache directory <span style="color: #0000BB;">/tmp/RtmpakFgcA</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Using cache directory <span style="color: #0000BB;">/tmp/Rtmpg3YOOh</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Updating 1 catalog file: <span style="color: #0000BB;">"TI"</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading file from <span style="color: #0000BB; font-style: italic;">&lt;https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv&gt;</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Parsing date columns.</span>
@@ -246,7 +252,7 @@ search.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Titulo_de_la_serie &lt;chr&gt;, Fuente &lt;chr&gt;, Notas &lt;chr&gt;</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">bde_catalog_update</span><span class="op">(</span><span class="st">"TI"</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/RtmpakFgcA</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/Rtmpg3YOOh</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Updating 1 catalog file: <span style="color: #0000BB;">"TI"</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading file from <span style="color: #0000BB; font-style: italic;">&lt;https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv&gt;</span>.</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>

@@ -1,4 +1,4 @@
-# BdE ggplot2 theme
+# BdE theme for ggplot2
 
 A custom [ggplot2](https://CRAN.R-project.org/package=ggplot2) theme
 based on BdE publications.
@@ -54,9 +54,10 @@ This theme extends
 
 ## See also
 
-[`ggplot2::theme_classic()`](https://ggplot2.tidyverse.org/reference/ggtheme.html).
+[`ggplot2::theme_classic()`](https://ggplot2.tidyverse.org/reference/ggtheme.html)
+for the base theme extended here.
 
-Plot utilities:
+Plotting functions:
 [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md),
 [`scales_bde`](https://ropenspain.github.io/tidyBdE/reference/scales_bde.md)
 

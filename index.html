@@ -96,7 +96,7 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p><strong>tidyBdE</strong> is an <strong>R</strong> package that retrieves time series data from <a href="https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html" class="external-link">Banco de España</a> bulk CSV files and the <a href="https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html" class="external-link">Statistics web service (API)</a>. Data are returned as <a href="https://tibble.tidyverse.org/" class="external-link"><strong>tibble</strong></a> objects. The package infers date, character and numeric fields where possible. Bulk CSV helpers identify series with the stable sequential number (<code>Numero_secuencial</code>), while API helpers use <code>Nombre_de_la_serie</code> as the API series code.</p>
+<p><strong>tidyBdE</strong> is an <strong>R</strong> package that retrieves time series data from <a href="https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html" class="external-link">Banco de España</a> bulk CSV files and the <a href="https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html" class="external-link">Statistics web service (API)</a>. Data are returned as <a href="https://tibble.tidyverse.org/" class="external-link"><strong>tibble</strong></a> objects. The package infers date, character and numeric column types where possible. Bulk CSV helpers identify series with stable sequential numbers (<code>Numero_secuencial</code>), while API helpers use <code>Nombre_de_la_serie</code> as the API series code.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -133,8 +133,8 @@ Important
 <div class="section level2">
 <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h2>
-<p>Banco de España (<strong>BdE</strong>) provides several time series, either produced by the institution or compiled from other sources, such as <a href="https://ec.europa.eu/eurostat" class="external-link">Eurostat</a> or <a href="https://www.ine.es/" class="external-link">INE</a>.</p>
-<p>The basic entry point for discovering time series is catalog metadata. You can search for time series by name:</p>
+<p>Banco de España (<strong>BdE</strong>) publishes numerous time series produced by the institution or compiled from other sources, such as <a href="https://ec.europa.eu/eurostat" class="external-link">Eurostat</a> or <a href="https://www.ine.es/" class="external-link">INE</a>.</p>
+<p>Catalog metadata is the main entry point for discovering time series. You can search for time series by name:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropenspain.github.io/tidyBdE/">tidyBdE</a></span><span class="op">)</span></span>
 <span></span>
@@ -260,7 +260,7 @@ Note
 <div class="section level3">
 <h3 id="palettes">Palettes<a class="anchor" aria-label="anchor" href="#palettes"></a>
 </h3>
-<p>Three custom palettes are available. They are based on colors used by BdE in selected publications.</p>
+<p>Three custom palettes based on colors used by BdE in selected publications are available.</p>
 <p>Apply these palettes to <strong>ggplot2</strong> plots with the scale functions provided by the package. See <code><a href="reference/scales_bde.html">help("scale_color_bde_d", package = "tidyBdE")</a></code>.</p>
 </div>
 <div class="section level3">

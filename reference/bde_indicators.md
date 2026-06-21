@@ -1,6 +1,6 @@
 # Selected Spanish macroeconomic indicators
 
-Download selected Spanish macroeconomic indicators. Metadata is
+Retrieve selected Spanish macroeconomic indicators. Metadata is
 available in
 [bde_ind_db](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md).
 
@@ -26,6 +26,11 @@ bde_ind_gdp_quarterly(series_label = "GDP_quarterly_value", ...)
 bde_ind_population(series_label = "Population_Spain", ...)
 ```
 
+## Source
+
+[Time series bulk data
+download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
+
 ## Arguments
 
 - series_label:
@@ -40,18 +45,16 @@ bde_ind_population(series_label = "Population_Spain", ...)
 
   `out_format`
 
-  :   The format to return, either `"wide"` or `"long"`. See **Value**
-      for details and the **Examples** section.
+  :   Output format, either `"wide"` or `"long"`. See **Value** for
+      details and the **Examples** section.
 
   `parse_numeric`
 
-  :   Logical. If `TRUE`, the columns are parsed to double (numeric)
-      values. See **Note**.
+  :   Logical. If `TRUE`, parse columns as double values. See **Note**.
 
   `extract_metadata`
 
-  :   Logical. If `TRUE`, the output is the metadata of the requested
-      series.
+  :   Logical. If `TRUE`, return metadata for the requested series.
 
   `parse_dates`
 
@@ -79,18 +82,26 @@ with the requested indicator series.
 
 ## Details
 
-These functions are convenient wrappers around
+These functions are convenient wrappers for
 [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
-for specific series. Use `verbose = TRUE, extract_metadata = TRUE` to
-inspect the metadata and source.
+that retrieve specific series. Use
+`verbose = TRUE, extract_metadata = TRUE` to inspect the metadata and
+source.
+
+## Note
+
+These functions attempt to parse columns as double values. For some time
+series, a warning may be displayed if parsing fails. Set
+`parse_numeric = FALSE` to disable numeric parsing.
 
 ## See also
 
 [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
-and
-[`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md).
+for loading arbitrary bulk CSV series and
+[`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
+for finding series in catalog metadata.
 
-Indicator functions:
+Selected indicators and metadata:
 [`bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md)
 
 ## Examples

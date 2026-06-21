@@ -2,7 +2,7 @@
 
 Parse strings representing dates with
 [`as.Date()`](https://rdrr.io/r/base/as.Date.html). This function is
-tailored to date formats used in this package and might not parse other
+tailored to date formats used in this package and may not parse other
 datasets. See **Examples** for supported formats.
 
 ### Date formats
@@ -38,7 +38,8 @@ A vector of [`Date`](https://rdrr.io/r/base/as.Date.html) values.
 
 ## See also
 
-[`as.Date()`](https://rdrr.io/r/base/as.Date.html).
+[`as.Date()`](https://rdrr.io/r/base/as.Date.html) for base R date
+conversion.
 
 ## Examples
 
