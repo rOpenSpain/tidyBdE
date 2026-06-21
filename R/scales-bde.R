@@ -148,10 +148,32 @@ scale_fill_bde_c <- function(
 #' @param aesthetics Scale aesthetics to map.
 #' @param palette BdE palette to apply.
 #' @param ... Additional arguments passed to [ggplot2::discrete_scale()].
+#' @param .envir Environment to evaluate the glue expressions in.
 #' @inheritParams bde_tidy_palettes alpha rev
 #'
 #' @noRd
-bde_scale_bde_d <- function(aesthetics, palette, alpha, rev, ...) {
+bde_scale_bde_d <- function(
+  aesthetics,
+  palette,
+  alpha,
+  rev,
+  ...,
+  .envir = parent.frame()
+) {
+  # Validate input arguments.
+  cli_abort_if_not(
+    "{.arg alpha} must be {.cls numeric} or {.val NULL}." = any(
+      is.null(alpha),
+      is.numeric(alpha)
+    ),
+    "{.arg alpha} must be in [0, 1]." = any(
+      is.null(alpha),
+      all(alpha >= 0 & alpha <= 1)
+    ),
+    "{.arg rev} must be a {.cls logical}." = is.logical(rev),
+    .envir = .envir
+  )
+
   cols <- bde_tidy_palettes(palette = palette, alpha = alpha, rev = rev)
   ggplot2::discrete_scale(
     aesthetics = aesthetics,
@@ -165,11 +187,35 @@ bde_scale_bde_d <- function(aesthetics, palette, alpha, rev, ...) {
 #' @param aesthetics Scale aesthetics to map.
 #' @param palette BdE palette to apply.
 #' @param ... Additional arguments passed to [ggplot2::continuous_scale()].
+#' @param .envir Environment to evaluate the glue expressions in.
 #' @inheritParams bde_tidy_palettes alpha rev
 #' @inheritParams ggplot2::continuous_scale
 #'
 #' @noRd
-bde_scale_bde_c <- function(aesthetics, palette, alpha, rev, guide, ...) {
+bde_scale_bde_c <- function(
+  aesthetics,
+  palette,
+  alpha,
+  rev,
+  guide,
+  ...,
+  .envir = parent.frame()
+) {
+  # Validate input arguments.
+  cli_abort_if_not(
+    "{.arg alpha} must be {.cls numeric} or {.cls NULL}." = any(
+      is.null(alpha),
+      is.numeric(alpha)
+    ),
+    "{.arg alpha} must be in [0, 1]." = any(
+      is.null(alpha),
+      all(alpha >= 0 & alpha <= 1)
+    ),
+    "{.arg rev} must be a {.cls logical}." = is.logical(rev),
+    "{.arg guide} must be a {.cls character}." = is.character(guide),
+    .envir = .envir
+  )
+
   cols <- bde_scale_bde_c_cols(palette, alpha = alpha, rev = rev)
   ggplot2::continuous_scale(
     aesthetics = aesthetics,

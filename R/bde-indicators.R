@@ -116,9 +116,22 @@ bde_ind_ibex <- bde_ind_ibex_monthly
 #' @param function_name Name used in `bde_ind_db$tidyBdE_fun`.
 #' @param series_label Series label passed to [bde_series_load()].
 #' @param ... Additional arguments passed to [bde_series_load()].
+#' @param .envir Environment to evaluate the glue expressions in.
 #'
 #' @noRd
-bde_hlp_indicator <- function(function_name, series_label, ...) {
+bde_hlp_indicator <- function(
+  function_name,
+  series_label,
+  ...,
+  .envir = parent.frame()
+) {
+  # Validate input arguments.
+  cli_abort_if_not(
+    "{.arg series_label} must be a {.cls character}." = is.character(
+      series_label
+    ),
+    .envir = .envir
+  )
   db <- tidyBdE::bde_ind_db
   seq_num <- db[db$tidyBdE_fun == function_name, "Numero_secuencial"]
   seq_num <- as.character(seq_num)

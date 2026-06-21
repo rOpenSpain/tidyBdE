@@ -40,6 +40,20 @@ bde_tidy_palettes <- function(
   alpha = NULL,
   rev = FALSE
 ) {
+  # Validate input arguments.
+  cli_abort_if_not(
+    "{.arg n} must be a {.cls numeric}." = is.numeric(n),
+    "{.arg n} must be >= {.val {1}}." = n >= 1,
+    "{.arg alpha} must be {.cls numeric} or {.val NULL}." = any(
+      is.null(alpha),
+      is.numeric(alpha)
+    ),
+    "{.arg alpha} must be in [0, 1]." = any(
+      is.null(alpha),
+      all(alpha >= 0 & alpha <= 1)
+    ),
+    "{.arg rev} must be a {.cls logical}." = is.logical(rev)
+  )
   palette <- match_arg_pretty(palette)
 
   cols <- switch(palette,

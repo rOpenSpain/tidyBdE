@@ -95,3 +95,10 @@ test_that("Continous scale", {
 
   expect_identical(mod4, colfill2)
 })
+
+test_that("Errors", {
+  expect_snapshot(error = TRUE, scale_fill_bde_c(alpha = "a"))
+  expect_snapshot(error = TRUE, scale_color_bde_c(guide = TRUE))
+  expect_snapshot(error = TRUE, scale_fill_bde_d(alpha = Inf))
+  expect_snapshot(error = TRUE, scale_color_bde_d(rev = Inf))
+})

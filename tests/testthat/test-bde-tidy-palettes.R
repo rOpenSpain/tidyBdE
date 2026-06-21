@@ -1,5 +1,10 @@
 test_that("Test error", {
   expect_snapshot(bde_tidy_palettes(palette = "none"), error = TRUE)
+  expect_snapshot(bde_tidy_palettes(n = "a"), error = TRUE)
+  expect_snapshot(bde_tidy_palettes(n = 0), error = TRUE)
+  expect_snapshot(bde_tidy_palettes(alpha = "3"), error = TRUE)
+  expect_snapshot(bde_tidy_palettes(alpha = 3), error = TRUE)
+  expect_snapshot(bde_tidy_palettes(rev = 3), error = TRUE)
 })
 
 test_that("Max value", {
