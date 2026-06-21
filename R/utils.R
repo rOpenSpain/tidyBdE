@@ -285,3 +285,75 @@ bde_hlp_return_null <- function(
   tbl <- tibble::tibble(x = NULL)
   tbl
 }
+
+#' Match argument with pretty error message
+#'
+#' @param arg The argument to match.
+#' @param choices The possible choices for the argument.
+#'
+#' @return
+#' The matched argument.
+#'
+#' @noRd
+match_arg_pretty <- function(arg, choices) {
+  arg_name <- as.character(substitute(arg)) # nolint
+
+  if (missing(choices)) {
+    formal_args <- formals(sys.function(sys_par <- sys.parent()))
+    choices <- eval(
+      formal_args[[as.character(substitute(arg))]],
+      envir = sys.frame(sys_par)
+    )
+  }
+  choices <- as.character(choices)
+
+  if (is.null(arg)) {
+    return(choices[1L])
+  }
+
+  arg <- as.character(arg)
+
+  if (identical(arg, choices)) {
+    return(arg[1])
+  }
+
+  if (length(arg) == 1 && arg %in% choices) {
+    return(arg)
+  }
+
+  msg <- paste0(
+    "{.arg {arg_name}} must be {.or {.str {choices}}}, not ",
+    "{.or {.str {arg}}}."
+  )
+
+  hint <- NULL
+  if (length(arg) == 1) {
+    partial_match <- pmatch(arg, choices)[1]
+    if (!is.na(partial_match)) {
+      hint <- paste0("Did you mean {.str ", choices[partial_match], "}?")
+    }
+  }
+
+  cli::cli_abort(c(msg, i = hint), call = NULL)
+}
+
+# https://github.com/r-lib/cli/issues/672
+# Thanks to https://github.com/wurli
+cli_abort_if_not <- function(
+  ...,
+  .call = .envir,
+  .envir = parent.frame(),
+  .frame = .envir
+) {
+  for (i in seq_len(...length())) {
+    if (!all(...elt(i))) {
+      cli::cli_abort(
+        ...names()[i],
+        .call = .call,
+        .envir = .envir,
+        .frame = .frame
+      )
+    }
+  }
+  invisible(NULL)
+}

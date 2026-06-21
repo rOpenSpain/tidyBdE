@@ -108,7 +108,7 @@ bde_series_api_latest <- function(
   if (missing(series_code)) {
     cli::cli_abort("{.arg series_code} cannot be missing.")
   }
-  language <- match.arg(language)
+  language <- match_arg_pretty(language)
 
   series_code <- trimws(as.character(series_code))
   # Drop invalid series codes created by coercion.
@@ -202,12 +202,14 @@ bde_series_api_load <- function(
   if (missing(series_code)) {
     cli::cli_abort("{.arg series_code} cannot be missing.")
   }
-  stopifnot(
-    is.logical(verbose),
-    is.logical(extract_metadata)
+  cli_abort_if_not(
+    "{.arg verbose} must be a {.cls logical}." = is.logical(verbose),
+    "{.arg extract_metadata} must be a {.cls logical}." = is.logical(
+      extract_metadata
+    )
   )
-  language <- match.arg(language)
-  out_format <- match.arg(out_format, c("wide", "long"))
+  language <- match_arg_pretty(language)
+  out_format <- match_arg_pretty(out_format, c("wide", "long"))
 
   series_code <- trimws(as.character(series_code))
   # Drop invalid series codes created by coercion.

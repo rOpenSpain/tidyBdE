@@ -119,3 +119,73 @@ test_that("Messages", {
   expect_identical(df, dplyr::tibble())
   expect_identical(df, df2)
 })
+
+
+test_that("Pretty match", {
+  skip_on_cran()
+  my_fun <- function(arg_one = c(10, 1000, 3000, 5000)) {
+    match_arg_pretty(arg_one)
+  }
+
+  # OK, returns character
+  expect_identical(my_fun(1000), "1000")
+  expect_identical(my_fun("1000"), "1000")
+  expect_identical(my_fun(NULL), "10")
+  expect_identical(my_fun(), "10")
+  # Some errors here
+  # Single value no match
+  expect_snapshot(my_fun("error here"), error = TRUE)
+
+  # Several values no match
+  expect_snapshot(my_fun(c("an", "error")), error = TRUE)
+
+  # One value regex
+  expect_snapshot(my_fun("5"), error = TRUE)
+  # Several value regex
+  expect_snapshot(my_fun("00"), error = TRUE)
+
+  my_fun2 <- function(year = 20) {
+    match_arg_pretty(year)
+  }
+
+  # Pass more options than expected
+  expect_snapshot(my_fun2(c(1, 2)), error = TRUE)
+
+  # With custom options
+  my_fun3 <- function(an_arg = 20) {
+    match_arg_pretty(an_arg, c("30", "20"))
+  }
+  expect_identical(my_fun3(), "20")
+  expect_snapshot(my_fun3("3"), error = TRUE)
+  # Pass more options than expected
+  expect_snapshot(my_fun2(c(1, 2)), error = TRUE)
+})
+
+test_that("Argument matching returns defaults and exact values", {
+  match_year <- function(year = c(2020, 2024)) {
+    match_arg_pretty(year)
+  }
+
+  expect_identical(match_year(), "2020")
+  expect_identical(match_year(NULL), "2020")
+  expect_identical(match_year(2024), "2024")
+})
+
+test_that("Argument matching reports invalid values", {
+  match_year <- function(year = c(2020, 2024)) {
+    match_arg_pretty(year)
+  }
+
+  expect_error(match_year(2030), "must be")
+  expect_error(match_year(c(2020, 2030)), "must be")
+})
+
+
+test_that("cli_abort_if_not", {
+  skip_on_cran()
+
+  expect_snapshot(error = TRUE, bde_catalog_load(cache_dir = 1))
+  expect_snapshot(error = TRUE, bde_catalog_load(verbose = 1))
+  expect_snapshot(error = TRUE, bde_catalog_load(parse_dates = 1))
+  expect_snapshot(error = TRUE, bde_catalog_load(update_cache = 1))
+})

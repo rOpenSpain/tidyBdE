@@ -29,3 +29,93 @@
     Message
       i An example message.
 
+# Pretty match
+
+    Code
+      my_fun("error here")
+    Condition
+      Error:
+      ! `arg_one` must be "10", "1000", "3000", or "5000", not "error here".
+
+---
+
+    Code
+      my_fun(c("an", "error"))
+    Condition
+      Error:
+      ! `arg_one` must be "10", "1000", "3000", or "5000", not "an" or "error".
+
+---
+
+    Code
+      my_fun("5")
+    Condition
+      Error:
+      ! `arg_one` must be "10", "1000", "3000", or "5000", not "5".
+      i Did you mean "5000"?
+
+---
+
+    Code
+      my_fun("00")
+    Condition
+      Error:
+      ! `arg_one` must be "10", "1000", "3000", or "5000", not "00".
+
+---
+
+    Code
+      my_fun2(c(1, 2))
+    Condition
+      Error:
+      ! `year` must be "20", not "1" or "2".
+
+---
+
+    Code
+      my_fun3("3")
+    Condition
+      Error:
+      ! `an_arg` must be "30" or "20", not "3".
+      i Did you mean "30"?
+
+---
+
+    Code
+      my_fun2(c(1, 2))
+    Condition
+      Error:
+      ! `year` must be "20", not "1" or "2".
+
+# cli_abort_if_not
+
+    Code
+      bde_catalog_load(cache_dir = 1)
+    Condition
+      Error in `bde_catalog_load()`:
+      ! `cache_dir` must be a <character>.
+
+---
+
+    Code
+      bde_catalog_load(verbose = 1)
+    Condition
+      Error in `bde_catalog_load()`:
+      ! `verbose` must be a <logical>.
+
+---
+
+    Code
+      bde_catalog_load(parse_dates = 1)
+    Condition
+      Error in `bde_catalog_load()`:
+      ! `parse_dates` must be a <logical>.
+
+---
+
+    Code
+      bde_catalog_load(update_cache = 1)
+    Condition
+      Error in `bde_catalog_load()`:
+      ! `update_cache` must be a <logical>.
+

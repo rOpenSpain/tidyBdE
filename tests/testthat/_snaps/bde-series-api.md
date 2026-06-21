@@ -11,10 +11,18 @@
     Code
       bde_series_api_latest("An_example", language = "aaa")
     Condition
-      Error in `match.arg()`:
-      ! 'arg' should be one of "en", "es"
+      Error:
+      ! `language` must be "en" or "es", not "aaa".
 
 # Series API load checks inputs
+
+    Code
+      bde_series_api_load("An_example", language = "aaa")
+    Condition
+      Error:
+      ! `language` must be "en" or "es", not "aaa".
+
+---
 
     Code
       bde_series_api_load("a", c("A", NA))

@@ -110,16 +110,17 @@ bde_catalog_load <- function(
   update_cache = FALSE,
   verbose = FALSE
 ) {
-  catalog <- match.arg(catalog)
+  catalog <- match_arg_pretty(catalog)
   # Validate input arguments.
   valid_catalogs <- c("BE", "SI", "TC", "TI", "PB", "ALL")
-  stopifnot(
-    catalog %in% valid_catalogs,
-    length(catalog) == 1,
-    any(is.null(cache_dir), is.character(cache_dir)),
-    is.logical(verbose),
-    is.logical(parse_dates),
-    is.logical(update_cache)
+  cli_abort_if_not(
+    "{.arg cache_dir} must be a {.cls character}." = any(
+      is.null(cache_dir),
+      is.character(cache_dir)
+    ),
+    "{.arg verbose} must be a {.cls logical}." = is.logical(verbose),
+    "{.arg parse_dates} must be a {.cls logical}." = is.logical(parse_dates),
+    "{.arg update_cache} must be a {.cls logical}." = is.logical(update_cache)
   )
 
   catalog_to_load <- catalog
@@ -256,13 +257,15 @@ bde_catalog_update <- function(
   cache_dir = NULL,
   verbose = FALSE
 ) {
-  catalog <- match.arg(catalog)
+  catalog <- match_arg_pretty(catalog)
   # Validate input arguments.
   valid_catalogs <- c("BE", "SI", "TC", "TI", "PB", "ALL")
-  stopifnot(
-    catalog %in% valid_catalogs,
-    any(is.null(cache_dir), is.character(cache_dir)),
-    is.logical(verbose)
+  cli_abort_if_not(
+    "{.arg cache_dir} must be a {.cls character}." = any(
+      is.null(cache_dir),
+      is.character(cache_dir)
+    ),
+    "{.arg verbose} must be a {.cls logical}." = is.logical(verbose)
   )
 
   if (!bde_check_access()) {

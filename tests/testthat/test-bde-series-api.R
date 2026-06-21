@@ -12,9 +12,9 @@ test_that("Series API load checks inputs", {
     bde_series_api_load(),
     "`series_code` cannot be missing"
   )
-  expect_error(
-    bde_series_api_load("An_example", language = "aaa"),
-    "'arg' should be one of"
+  expect_snapshot(
+    error = TRUE,
+    bde_series_api_load("An_example", language = "aaa")
   )
   expect_error(
     bde_series_api_load("An_example", time_range = c("30M", "60M")),

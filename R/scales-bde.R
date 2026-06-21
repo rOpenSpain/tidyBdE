@@ -50,7 +50,7 @@ scale_color_bde_d <- function(
   rev = FALSE,
   ...
 ) {
-  palette <- match.arg(palette)
+  palette <- match_arg_pretty(palette)
   bde_scale_bde_d(
     aesthetics = "color",
     palette = palette,
@@ -79,7 +79,7 @@ scale_fill_bde_d <- function(
   rev = FALSE,
   ...
 ) {
-  palette <- match.arg(palette)
+  palette <- match_arg_pretty(palette)
   bde_scale_bde_d(
     aesthetics = "fill",
     palette = palette,
@@ -101,7 +101,7 @@ scale_color_bde_c <- function(
   guide = "colorbar",
   ...
 ) {
-  palette <- match.arg(palette)
+  palette <- match_arg_pretty(palette)
   bde_scale_bde_c(
     aesthetics = "color",
     palette = palette,
@@ -132,7 +132,7 @@ scale_fill_bde_c <- function(
   guide = "colorbar",
   ...
 ) {
-  palette <- match.arg(palette)
+  palette <- match_arg_pretty(palette)
   bde_scale_bde_c(
     aesthetics = "fill",
     palette = palette,

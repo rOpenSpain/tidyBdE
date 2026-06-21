@@ -56,3 +56,5 @@
 ^\.positai$
 ^\.claude$
 ^\.gitattributes$
+^\.readme_cache$
+^vignettes/\.articles_cache$

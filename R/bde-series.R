@@ -304,11 +304,14 @@ bde_series_full_load <- function(
   verbose = FALSE,
   extract_metadata = FALSE
 ) {
-  stopifnot(
-    is.null(cache_dir) || is.character(cache_dir),
-    is.logical(verbose),
-    is.logical(parse_dates),
-    is.logical(update_cache)
+  cli_abort_if_not(
+    "{.arg cache_dir} must be a {.cls character}." = any(
+      is.null(cache_dir),
+      is.character(cache_dir)
+    ),
+    "{.arg verbose} must be a {.cls logical}." = is.logical(verbose),
+    "{.arg parse_dates} must be a {.cls logical}." = is.logical(parse_dates),
+    "{.arg update_cache} must be a {.cls logical}." = is.logical(update_cache)
   )
 
   if (length(grep(".csv", series_csv)) == 0) {

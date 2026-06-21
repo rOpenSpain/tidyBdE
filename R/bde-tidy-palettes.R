@@ -40,7 +40,7 @@ bde_tidy_palettes <- function(
   alpha = NULL,
   rev = FALSE
 ) {
-  palette <- match.arg(palette)
+  palette <- match_arg_pretty(palette)
 
   cols <- switch(palette,
     "bde_vivid_pal" = c(

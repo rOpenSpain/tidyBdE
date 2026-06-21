@@ -3,8 +3,8 @@
     Code
       bde_tidy_palettes(palette = "none")
     Condition
-      Error in `match.arg()`:
-      ! 'arg' should be one of "bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"
+      Error:
+      ! `palette` must be "bde_vivid_pal", "bde_rose_pal", or "bde_qual_pal", not "none".
 
 # Max value
 
