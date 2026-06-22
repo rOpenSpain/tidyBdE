@@ -20,15 +20,11 @@ bde_check_access <- function() {
     return(FALSE)
   }
 
-  url <- paste0(
-    "https://www.bde.es/webbe/es/estadisticas/",
-    "compartido/datos/zip/be01.zip"
-  )
-
+  url <- bde_check_url()
   access <- tryCatch(
     download.file(url, destfile = tempfile(), quiet = TRUE, mode = "wb"),
     warning = function(e) {
-      FALSE # nocov
+      FALSE
     }
   )
 
@@ -41,12 +37,18 @@ bde_check_access <- function() {
 #'
 #' @noRd
 on_cran <- function() {
-  # nocov start
   env <- Sys.getenv("NOT_CRAN")
   if (identical(env, "")) {
     !interactive()
   } else {
     !isTRUE(as.logical(env))
   }
-  # nocov end
+}
+
+bde_check_url <- function() {
+  url <- paste0(
+    "https://www.bde.es/webbe/es/estadisticas/",
+    "compartido/datos/zip/be01.zip"
+  )
+  url
 }

@@ -26,6 +26,7 @@ knitr::opts_chunk$set(
 
 library(tidyBdE)
 
+opts <- options()
 options(bde_cache_dir = "./.articles_cache")
 ```
 
@@ -183,4 +184,10 @@ bde_catalog_update()
 # Or use `update_cache = TRUE` in most functions.
 
 bde_series_load(573214, update_cache = TRUE)
+```
+
+```{r}
+#| label: restore
+#| include: false
+options(opts)
 ```

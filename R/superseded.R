@@ -23,7 +23,7 @@
 #' # Show the rose palette.
 #' scales::show_col(bde_rose_pal()(6), labels = FALSE)
 bde_vivid_pal <- function(...) {
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "0.3.5",
     "bde_vivid_pal()",
     "bde_tidy_palettes()"
@@ -39,7 +39,7 @@ bde_vivid_pal <- function(...) {
 #' @encoding UTF-8
 #' @export
 bde_rose_pal <- function(...) {
-  lifecycle::deprecate_soft("0.3.5", "bde_rose_pal()", "bde_tidy_palettes()")
+  lifecycle::deprecate_warn("0.3.5", "bde_rose_pal()", "bde_tidy_palettes()")
 
   pal <- c("#b7365c", "#cb6e8a", "#db9aad", "#0a50a1", "#5385bd", "#89AEDA")
   scales::manual_pal(pal)

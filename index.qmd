@@ -41,10 +41,9 @@ España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.h
 bulk CSV files and the [Statistics web service
 (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
 Data are returned as [**tibble**](https://tibble.tidyverse.org/) objects. The
-package infers date, character and numeric column types where possible. Bulk
-CSV helpers identify series with stable sequential numbers
-(`Numero_secuencial`), while API helpers use `Nombre_de_la_serie` as the API
-series code.
+package infers date, character and numeric column types where possible. Bulk CSV
+helpers identify series with stable sequential numbers (`Numero_secuencial`),
+while API helpers use `Nombre_de_la_serie` as the API series code.
 
 ```{=html}
 <div class="callout callout-style-default callout-important callout-titled">
@@ -98,9 +97,9 @@ install.packages(
 #| label: cache_readme
 #| include: false
 
+opts <- options()
 # Add a cache directory.
-
-options(bde_cache_dir = "./.readme_cache")
+options(bde_cache_dir = "./vignettes/.articles_cache")
 ```
 
 Banco de España (**BdE**) publishes numerous time series produced by the
@@ -279,4 +278,10 @@ A BibTeX entry for LaTeX users is:
 #| echo: false
 #| comment: ''
 toBibtex(citation("tidyBdE"))
+```
+
+```{r}
+#| label: restore
+#| include: false
+options(opts)
 ```

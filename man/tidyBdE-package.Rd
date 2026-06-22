@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Tools for retrieving 'Banco de España' ('BdE') time series data as 'tibble' objects from bulk CSV files and the 'Statistics web service (API)'. Bulk CSV helpers use stable BdE sequential numbers, and API helpers use API series codes. 'Banco de España' is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by 'Banco de España'.
+Tools for retrieving 'Banco de España' ('BdE') time series data as 'tibble' objects from bulk CSV files and the 'Statistics web service (API)'. Bulk CSV helpers use stable 'BdE' sequential numbers, and API helpers use API series codes. 'Banco de España' is the national central bank and, within the framework of the Single Supervisory Mechanism ('SSM'), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by 'Banco de España'.
 }
 \seealso{
 Useful links:

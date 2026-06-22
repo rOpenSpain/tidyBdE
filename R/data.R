@@ -29,6 +29,8 @@
 #' }
 #'
 #' @family indicators
+#' @keywords datasets
+#' @concept datasets
 #' @seealso `vignette("csv_manual", package = "tidyBdE")`.
 #'
 #' @name bde_ind_db

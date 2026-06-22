@@ -49,4 +49,6 @@ bde_ind_db
 Selected indicators and metadata:
 \code{\link{bde_indicators}}
 }
+\concept{datasets}
 \concept{indicators}
+\keyword{datasets}
