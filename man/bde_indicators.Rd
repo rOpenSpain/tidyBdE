@@ -15,7 +15,7 @@
 \alias{bde_ind_ibex}
 \title{Selected Spanish macroeconomic indicators}
 \source{
-\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{Time series bulk data download}.
+\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{Banco de España time series bulk data download}.
 }
 \usage{
 bde_ind_gdp_var(series_label = "GDP_YoY", ...)
@@ -37,25 +37,25 @@ bde_ind_gdp_quarterly(series_label = "GDP_quarterly_value", ...)
 bde_ind_population(series_label = "Population_Spain", ...)
 }
 \arguments{
-\item{series_label}{Optional character string or vector of labels to assign
-to the extracted series.}
+\item{series_label}{An optional character vector of labels to assign to the
+extracted series.}
 
 \item{...}{
   Arguments passed on to \code{\link{bde_series}}
   \describe{
-    \item{\code{out_format}}{Output format, either \code{"wide"} or \code{"long"}. See
+    \item{\code{out_format}}{The output format, either \code{"wide"} or \code{"long"}. See
 \strong{Value} for details and the \strong{Examples} section.}
-    \item{\code{parse_numeric}}{Logical. If \code{TRUE}, parse columns as double values. See
-\strong{Note}.}
-    \item{\code{extract_metadata}}{Logical. If \code{TRUE}, return metadata for the requested
-series.}
+    \item{\code{parse_numeric}}{Logical. If \code{TRUE}, parse observation columns as double
+vectors. See \strong{Note}.}
+    \item{\code{extract_metadata}}{Logical. If \code{TRUE}, return the metadata associated
+with the requested series.}
     \item{\code{parse_dates}}{Logical. If \code{TRUE}, date columns are parsed with
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
     \item{\code{update_cache}}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
     \item{\code{cache_dir}}{Path to a cache directory. The directory can also be set
 with \code{options(bde_cache_dir = "path/to/dir")}.}
-    \item{\code{verbose}}{Logical. If \code{TRUE}, display information useful for debugging.}
+    \item{\code{verbose}}{Logical. If \code{TRUE}, display informative messages.}
   }}
 }
 \value{

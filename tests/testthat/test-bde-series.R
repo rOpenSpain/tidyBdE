@@ -1,7 +1,5 @@
 test_that("Series load returns null when catalog is empty", {
-  local_mocked_bindings(
-    bde_catalog_load = function(...) tibble::tibble()
-  )
+  local_mocked_bindings(bde_catalog_load = function(...) tibble::tibble())
   expect_identical(bde_series_load(573234), bde_hlp_return_null())
 })
 
@@ -15,27 +13,15 @@ test_that("Indicators", {
   expect_null(bde_series_full_load("aa"))
 
   expect_message(
-    bde_series_full_load(
-      "TI_1_1.csv",
-      cache_dir = tempdir(),
-      verbose = TRUE
-    ),
+    bde_series_full_load("TI_1_1.csv", cache_dir = tempdir(), verbose = TRUE),
     "Reading file .*ti_1_1.csv.* from cache\\.|Downloading file from"
   )
   expect_message(
-    bde_series_full_load(
-      "TI_1_1.csv",
-      cache_dir = NULL,
-      verbose = TRUE
-    ),
+    bde_series_full_load("TI_1_1.csv", cache_dir = NULL, verbose = TRUE),
     "Reading file .*ti_1_1.csv.* from cache\\.|Downloading file from"
   )
   expect_message(
-    bde_series_full_load(
-      "CF0101.csv",
-      cache_dir = NULL,
-      verbose = TRUE
-    ),
+    bde_series_full_load("CF0101.csv", cache_dir = NULL, verbose = TRUE),
     "Reading file .*cf0101.csv.* from cache\\.|Downloading file from"
   )
   expect_silent(bde_series_full_load("CF0101"))
@@ -68,10 +54,7 @@ test_that("Indicators", {
   expect_warning(bde_series_load(c("573234", "a")))
   expect_silent(bde_series_load(573234, series_label = NULL))
   expect_silent(bde_series_load(573234, extract_metadata = TRUE))
-  expect_message(
-    bde_series_load(573234, verbose = TRUE),
-    "Extracting series"
-  )
+  expect_message(bde_series_load(573234, verbose = TRUE), "Extracting series")
 
   meta <- bde_series_load(573234, extract_metadata = TRUE)
   data <- bde_series_load(573234, extract_metadata = FALSE)
@@ -124,17 +107,12 @@ test_that("Series full", {
   expect_gt(nrow(full_1), 5)
 
   # Test offline
-  local_mocked_bindings(
-    on_cran = function(...) {
-      TRUE
-    }
-  )
+  local_mocked_bindings(on_cran = function(...) {
+    TRUE
+  })
 
   # Can't download series
-  expect_message(
-    bde_series_full_load(all_names[2], cache_dir = dir),
-    "empty"
-  )
+  expect_message(bde_series_full_load(all_names[2], cache_dir = dir), "empty")
 
   fail <- bde_series_full_load(all_names[2], cache_dir = dir)
   expect_equal(nrow(fail), 0)
@@ -146,20 +124,23 @@ test_that("Series full", {
   expect_identical(full_1, full_2)
 
   # Now try online
-  local_mocked_bindings(
-    on_cran = function(...) {
-      FALSE
-    }
-  )
+  local_mocked_bindings(on_cran = function(...) {
+    FALSE
+  })
 
   failfix <- bde_series_full_load(all_names[2], cache_dir = dir)
   expect_gt(nrow(failfix), 10)
 })
 test_that("Mock files series", {
-  skip_on_cran()
-  skip_if_bde_offline()
-
   local_mocked_bindings(
+    bde_catalog_load = function(...) {
+      tibble::tibble(
+        catalog = c("TI", "TI"),
+        Numero_secuencial = c(573234, 573214),
+        Alias_de_la_serie = c("A", "B"),
+        Nombre_del_archivo_con_los_valores_de_la_serie = c("a.csv", "b.csv")
+      )
+    },
     bde_series_full_load = function(...) {
       dplyr::tibble()
     }
@@ -174,11 +155,9 @@ test_that("Mock files series", {
     ),
     "BdE resources are unavailable"
   )
-  local_mocked_bindings(
-    bde_series_full_load = function(...) {
-      dplyr::tibble(no_name = 1, another = 2, more = 2, and_more = 2)
-    }
-  )
+  local_mocked_bindings(bde_series_full_load = function(...) {
+    dplyr::tibble(no_name = 1, another = 2, more = 2, and_more = 2)
+  })
   expect_message(
     long <- bde_series_load(
       c(573234, 573214),
@@ -191,18 +170,14 @@ test_that("Mock files series", {
 })
 
 test_that("Mock files all", {
-  skip_on_cran()
-  skip_if_bde_offline()
-
   fpath <- file.path(tempdir(), "TI", "ti_1_1.csv")
+  dir.create(dirname(fpath), recursive = TRUE, showWarnings = FALSE)
   writeLines(" ", fpath)
 
   expect_true(file.exists(fpath))
-  local_mocked_bindings(
-    bde_hlp_download = function(...) {
-      TRUE
-    }
-  )
+  local_mocked_bindings(bde_hlp_download = function(...) {
+    TRUE
+  })
 
   expect_silent(
     ss <- bde_series_full_load(
@@ -215,10 +190,10 @@ test_that("Mock files all", {
 })
 
 test_that("Mock files cleanup", {
-  skip_on_cran()
-  skip_if_bde_offline()
-
   local_mocked_bindings(
+    bde_check_access = function(...) {
+      TRUE
+    },
     bde_hlp_download = function(url, local_file, verbose) {
       writeLines("a", local_file)
       FALSE
@@ -234,11 +209,11 @@ test_that("Mock files cleanup", {
   )
 })
 
-test_that("Mock files cleanup", {
-  skip_on_cran()
-  skip_if_bde_offline()
-
+test_that("Mock files empty download", {
   local_mocked_bindings(
+    bde_check_access = function(...) {
+      TRUE
+    },
     bde_hlp_download = function(url, local_file, verbose) {
       file.create(local_file, showWarnings = FALSE)
       TRUE

@@ -8,7 +8,7 @@
 bde_parse_dates(dates_to_parse)
 }
 \arguments{
-\item{dates_to_parse}{Character vector of date strings to parse.}
+\item{dates_to_parse}{A character vector of date strings to parse.}
 }
 \value{
 A vector of \code{\link[=as.Date]{Date}} values.
@@ -17,6 +17,8 @@ A vector of \code{\link[=as.Date]{Date}} values.
 Parse strings representing dates with \code{\link[=as.Date]{as.Date()}}. This function is tailored
 to date formats used in this package and may not parse other datasets. See
 \strong{Examples} for supported formats.
+}
+\details{
 \subsection{Date formats}{\tabular{lll}{
    \strong{FREQUENCY} \tab \strong{FORMAT} \tab \strong{EXAMPLES} \cr
    \strong{Daily / Business day} \tab \verb{DD MMMMYYYY} \tab \verb{02 FEB2019} \cr
@@ -54,6 +56,9 @@ class(parsed_fail)
 tibble::tibble(raw = wont_parse, parsed = parsed_fail)
 }
 \seealso{
-\code{\link[=as.Date]{as.Date()}} for base R date conversion.
+\itemize{
+\item \code{\link[=bde_catalog_load]{bde_catalog_load()}} and \code{\link[=bde_series_load]{bde_series_load()}} use this parser.
+\item \code{\link[=as.Date]{as.Date()}} provides base R date conversion.
+}
 }
 \concept{utils}

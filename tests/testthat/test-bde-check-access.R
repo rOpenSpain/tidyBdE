@@ -29,11 +29,11 @@ test_that("Check url access", {
   skip_if_bde_offline()
 
   expect_true(bde_check_access())
+})
 
-  local_mocked_bindings(
-    bde_check_url = function(...) {
-      "http://ropenspain.github.io/tidyBdE/donotexist"
-    }
-  )
+test_that("Check url access handles unreachable resources", {
+  local_mocked_bindings(bde_check_url = function(...) {
+    "http://ropenspain.github.io/tidyBdE/donotexist"
+  })
   expect_false(bde_check_access())
 })

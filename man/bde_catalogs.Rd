@@ -8,7 +8,7 @@
 \alias{bde_catalog_search}
 \title{Load, update and search BdE catalog metadata}
 \source{
-\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{Time series bulk data download}.
+\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{Banco de España time series bulk data download}.
 }
 \usage{
 bde_catalog_load(
@@ -28,8 +28,8 @@ bde_catalog_update(
 bde_catalog_search(pattern, ...)
 }
 \arguments{
-\item{catalog}{A single catalog identifier or \code{"ALL"} to load or update
-every catalog. See \strong{Details}.}
+\item{catalog}{A catalog identifier or \code{"ALL"} to load or update every
+catalog. See \strong{Details}.}
 
 \item{parse_dates}{Logical. If \code{TRUE}, date columns are parsed with
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
@@ -40,7 +40,7 @@ with \code{options(bde_cache_dir = "path/to/dir")}.}
 \item{update_cache}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
 
-\item{verbose}{Logical. If \code{TRUE}, display information useful for debugging.}
+\item{verbose}{Logical. If \code{TRUE}, display informative messages.}
 
 \item{pattern}{Regular expression to search for. See \strong{Details} and
 \strong{Examples}.}
@@ -110,8 +110,10 @@ bde_catalog_update("TI", verbose = TRUE)
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[=bde_series_load]{bde_series_load()}} and \code{\link[=bde_series_full_load]{bde_series_full_load()}} for loading bulk
-CSV series and \code{\link[=bde_series_api_load]{bde_series_api_load()}} and \code{\link[=bde_series_api_latest]{bde_series_api_latest()}} for
-retrieving series through the Statistics web service.
+\itemize{
+\item \code{\link[=bde_series_load]{bde_series_load()}} and \code{\link[=bde_series_full_load]{bde_series_full_load()}} load bulk CSV series.
+\item \code{\link[=bde_series_api_load]{bde_series_api_load()}} and \code{\link[=bde_series_api_latest]{bde_series_api_latest()}} retrieve series
+through the Statistics web service (API).
+}
 }
 \concept{catalog}

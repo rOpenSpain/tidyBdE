@@ -42,8 +42,8 @@ bulk CSV files and the [Statistics web service
 (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
 Data are returned as [**tibble**](https://tibble.tidyverse.org/) objects. The
 package infers date, character and numeric column types where possible. Bulk CSV
-helpers identify series with stable sequential numbers (`Numero_secuencial`),
-while API helpers use `Nombre_de_la_serie` as the API series code.
+functions use stable sequential numbers (`Numero_secuencial`), while Statistics
+web service functions use `Nombre_de_la_serie` API series codes.
 
 ```{=html}
 <div class="callout callout-style-default callout-important callout-titled">
@@ -148,8 +148,7 @@ cat("<p class=\"caption\">Table 1: Search results</p>")
 ```
 
 BdE catalog metadata is currently available in Spanish only, so search terms
-must be in Spanish to retrieve results. Banco de España is working on an English
-version.
+must be in Spanish to retrieve results.
 
 ```{=html}
 </div>
@@ -230,12 +229,12 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
     caption = "Source: BdE"
   ) +
   theme_tidybde() +
-  scale_color_bde_d(palette = "bde_vivid_pal") # Use a custom package palette.
+  scale_color_bde_d(palette = "bde_vivid_pal") # Use a tidyBdE palette.
 ```
 
 ### Palettes
 
-Three custom palettes based on colors used by BdE in selected publications are
+Three custom palettes based on colors used in selected BdE publications are
 available.
 
 Apply these palettes to **ggplot2** plots with the scale functions provided by
@@ -243,7 +242,7 @@ the package. See `help("scale_color_bde_d", package = "tidyBdE")`.
 
 ### A note on caching
 
-Create a local cache by setting the following option:
+Set the `bde_cache_dir` option to create a local cache:
 
 ``` r
 options(bde_cache_dir = "./path/to/location")

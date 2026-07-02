@@ -41,7 +41,7 @@ test_that("cache helper covers option, suffix and creation paths", {
 
   expect_message(
     from_option <- bde_hlp_cachedir(verbose = TRUE, suffix = "TC"),
-    "Using cache directory from options"
+    "Using cache directory from option"
   )
   expect_equal(basename(from_option), "TC")
 

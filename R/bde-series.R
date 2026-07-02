@@ -10,22 +10,22 @@
 #'
 #' See `vignette("csv_manual", package = "tidyBdE")` for details.
 #'
-#' @param series_code Numeric vector of stable BdE sequential numbers, or
-#'   values coercible with [base::as.double()], from the `Número secuencial`
+#' @param series_code A numeric vector of stable BdE sequential numbers, or
+#'   values coercible with [base::as.double()], from the `Numero_secuencial`
 #'   field of the corresponding series. This is not the API series code. See
 #'   [bde_catalog_load()].
-#' @param series_csv Bulk CSV file name for a series, as defined in the field
-#'   `Nombre del archivo con los valores de la serie` of the corresponding
+#' @param series_csv A bulk CSV file name for a series, as defined in the field
+#'   `Nombre_del_archivo_con_los_valores_de_la_serie` of the corresponding
 #'   catalog. See [bde_catalog_load()] and the **About BdE file naming**
 #'   section.
-#' @param series_label Optional character string or vector of labels to assign
-#'   to the extracted series.
-#' @param out_format Output format, either `"wide"` or `"long"`. See
+#' @param series_label An optional character vector of labels to assign to the
+#'   extracted series.
+#' @param out_format The output format, either `"wide"` or `"long"`. See
 #'   **Value** for details and the **Examples** section.
-#' @param parse_numeric Logical. If `TRUE`, parse columns as double values. See
-#'   **Note**.
-#' @param extract_metadata Logical. If `TRUE`, return metadata for the requested
-#'   series.
+#' @param parse_numeric Logical. If `TRUE`, parse observation columns as double
+#'   vectors. See **Note**.
+#' @param extract_metadata Logical. If `TRUE`, return the metadata associated
+#'   with the requested series.
 #' @inheritParams bde_catalogs parse_dates update_cache cache_dir verbose
 #'
 #' @return
@@ -34,10 +34,10 @@
 #' - With `out_format = "wide"`, each series is presented in a separate column
 #'   with the name defined by `series_label`.
 #' - With `out_format = "long"`, the tibble has two additional columns:
-#'   `serie_name`, with the label of each series and `serie_value`, with the
+#'   `serie_name` contains the label of each series; `serie_value` contains the
 #'   corresponding value.
 #'
-#' `"wide"` format is more suitable for exporting to a CSV file, while
+#' `"wide"` format is more suitable for exporting to a CSV file;
 #' `"long"` format is more suitable for creating plots with
 #' [ggplot2::ggplot()]. See also [tidyr::pivot_longer()] and
 #' [tidyr::pivot_wider()].
@@ -70,15 +70,18 @@
 #'
 #' @section Series identifiers:
 #' BdE identifies each series with a stable sequential number
-#' (`Número secuencial`) in bulk CSV files and an API series code
+#' (`Numero_secuencial`) in bulk CSV files and an API series code
 #' (`Nombre_de_la_serie`) in the Statistics web service.
 #' [bde_series_load()] accepts stable sequential numbers in `series_code`.
 #' [bde_series_api_latest()] and [bde_series_api_load()] use the same argument
 #' for API series codes. Use [bde_catalog_load()] or [bde_catalog_search()] to
 #' find both identifiers.
 #'
-#' @seealso [bde_catalog_load()] and [bde_catalog_search()] for finding stable
-#'   sequential numbers, and [bde_indicators()] for convenience wrappers.
+#' @seealso
+#' - [bde_catalog_load()] and [bde_catalog_search()] help find stable sequential
+#'   numbers.
+#' - [Indicator wrappers][bde_indicators] retrieve commonly used Spanish
+#'   macroeconomic series.
 #'
 #' @family series
 #'
@@ -206,12 +209,10 @@ bde_series_load <- function(
     alias_serie <- as.character(csv_file[1, 1])
 
     if (verbose) {
-      cli::cli_alert_info(
-        paste0(
-          "Downloading series {.val {x}} from file ",
-          "{.file {csv_file_name}} (alias {.val {alias_serie}})."
-        )
-      )
+      cli::cli_alert_info(paste0(
+        "Downloading series {.val {x}} from file ",
+        "{.file {csv_file_name}} (alias {.val {alias_serie}})."
+      ))
     }
 
     # Download and extract the series.
@@ -231,12 +232,10 @@ bde_series_load <- function(
     }
     if (!(alias_serie %in% names(serie_file))) {
       if (verbose) {
-        cli::cli_alert_warning(
-          paste0(
-            "Series alias {.val {alias_serie}} is not available in ",
-            "{.file {csv_file_name}}."
-          )
-        )
+        cli::cli_alert_warning(paste0(
+          "Series alias {.val {alias_serie}} is not available in ",
+          "{.file {csv_file_name}}."
+        ))
       }
 
       # Return an empty tibble if the alias is not available.
@@ -307,13 +306,17 @@ bde_series_full_load <- function(
   extract_metadata = FALSE
 ) {
   cli_abort_if_not(
-    "{.arg cache_dir} must be a {.cls character}." = any(
+    "{.arg cache_dir} must be a {.cls character} vector or {.val NULL}." = any(
       is.null(cache_dir),
       is.character(cache_dir)
     ),
-    "{.arg verbose} must be a {.cls logical}." = is.logical(verbose),
-    "{.arg parse_dates} must be a {.cls logical}." = is.logical(parse_dates),
-    "{.arg update_cache} must be a {.cls logical}." = is.logical(update_cache)
+    "{.arg verbose} must be a {.cls logical} vector." = is.logical(verbose),
+    "{.arg parse_dates} must be a {.cls logical} vector." = is.logical(
+      parse_dates
+    ),
+    "{.arg update_cache} must be a {.cls logical} vector." = is.logical(
+      update_cache
+    )
   )
 
   if (length(grep(".csv", series_csv)) == 0) {
@@ -382,16 +385,14 @@ bde_series_full_load <- function(
   # Read the raw CSV after detecting its encoding.
   enc <- readr::guess_encoding(local_file)[[1]][[1]]
 
-  serie_load <- suppressWarnings(
-    read.csv2(
-      local_file,
-      sep = ",",
-      stringsAsFactors = FALSE,
-      na.strings = c("", "-", "_"),
-      header = FALSE,
-      fileEncoding = enc
-    )
-  )
+  serie_load <- suppressWarnings(read.csv2(
+    local_file,
+    sep = ",",
+    stringsAsFactors = FALSE,
+    na.strings = c("", "-", "_"),
+    header = FALSE,
+    fileEncoding = enc
+  ))
 
   serie_load <- tibble::as_tibble(serie_load)
 
@@ -443,7 +444,7 @@ bde_series_full_load <- function(
 
   if (parse_numeric) {
     if (verbose) {
-      cli::cli_alert_info("Parsing numeric fields as {.cls double}.")
+      cli::cli_alert_info("Parsing numeric fields as {.cls numeric} vectors.")
     }
     # Preserve dates while converting observations to double precision.
     data_serie <- bde_hlp_todouble(data_serie, preserve = "Date")

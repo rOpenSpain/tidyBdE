@@ -48,14 +48,14 @@ Because the tables in the subject-based classification are the same as those in
 the publications, only organized differently, everything mentioned in this
 manual about bulk CSV files is valid for both.
 
-## Time-series files
+## Time series files
 
 Files containing the time series for each publication table use CSV
 (comma-separated value) format. Commas separate the fields or values in each
 line or record.
 
-The decimal separator is the period `"."` and the thousands separator is a
-blank space.
+The decimal separator is the period `"."` and the thousands separator is a blank
+space.
 
 Two file types are available based on their content.
 
@@ -84,7 +84,7 @@ observaciones","Título de la serie","Fuente","Notas"
 "SI_1_1.3",1832510,D_1KH99500_D09,"SI_1_1.csv",...
 ```
 
-**Table time-series files**
+**Table time series files**
 
 These files cover the entire sample period of every series of a table. There is
 one file for each table.
@@ -158,10 +158,10 @@ number that remains unchanged throughout its lifetime.
 
 **Nombre de la serie/Código de la serie (API series code)**
 
-This field contains the API series code used in Banco de España databases. The
-code is unique and invariable. In **tidyBdE**, pass this field through
-`series_code` to the Statistics web service (API) helpers. It corresponds to
-the API `series_list` parameter.
+This field contains the stable API series code used in Banco de España
+databases. In **tidyBdE**, it is returned as `Nombre_de_la_serie`. Pass this
+column to the `series_code` argument of the Statistics web service (API)
+functions. It corresponds to the API `series_list` parameter.
 
 **Nombre del archivo con los valores de la serie (name of the file containing
 the series values)**
@@ -176,8 +176,8 @@ field provides additional detail.
 
 **Tipo de variable (variable type)**
 
-This field indicates whether the economic concept represented by the series is
-a flow, stock, average or annualized rate.
+This field indicates whether the economic concept represented by the series is a
+flow, stock, average or annualized rate.
 
 |                         |                                  |
 |-------------------------|----------------------------------|
@@ -197,9 +197,9 @@ This field contains a code for the unit in which the series is expressed. The
 
 **Exponente (exponent)**
 
-This field shows the power of ten by which the series values must be
-multiplied to obtain the units. The meaning of this number is detailed in the
-"description of units and exponent" field.
+This field shows the power of ten by which the series values must be multiplied
+to obtain the units. The meaning of this number is detailed in the "description
+of units and exponent" field.
 
 **Número de decimales (number of decimals)**
 
@@ -228,14 +228,14 @@ Saturdays and Sundays.
 **Fecha de la primera observación (date of first observation)**
 
 This field gives the date of the first observation in the sample period covered
-by the series file. The date format depends on the series frequency. See
-[Annex II: Date formats] for details.
+by the series file. The date format depends on the series frequency. See [Annex
+II: Date formats] for details.
 
 **Fecha de la última observación (date of last observation)**
 
 This field gives the date of the last observation in the sample period covered
-by the series file. The date format depends on the series frequency. See
-[Annex II: Date formats] for details.
+by the series file. The date format depends on the series frequency. See [Annex
+II: Date formats] for details.
 
 **Número de observaciones (number of observations)**
 
@@ -244,14 +244,14 @@ series file.
 
 **Título (title)**
 
-This field describes the economic concept measured or represented by the
-series. It complements the description field and consists of character strings
-separated by `/`.
+This field describes the economic concept measured or represented by the series.
+It complements the description field and consists of character strings separated
+by `/`.
 
 **Fuente (source)**
 
-This field describes the original source of the series and consists of
-character strings separated by `/`.
+This field describes the original source of the series and consists of character
+strings separated by `/`.
 
 **Notas (notes)**
 

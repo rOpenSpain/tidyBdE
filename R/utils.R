@@ -5,6 +5,9 @@
 #' to date formats used in this package and may not parse other datasets. See
 #' **Examples** for supported formats.
 #'
+#' @param dates_to_parse A character vector of date strings to parse.
+#'
+#' @details
 #' ## Date formats
 #'
 #' ```{r, echo=FALSE}
@@ -34,13 +37,13 @@
 #' ```
 #' See `vignette("csv_manual", package = "tidyBdE")` for details.
 #'
-#' @param dates_to_parse Character vector of date strings to parse.
-#'
 #' @return A vector of [`Date`][as.Date()] values.
 #'
-#' @seealso [as.Date()] for base R date conversion.
+#' @seealso
+#' - [bde_catalog_load()] and [bde_series_load()] use this parser.
+#' - [as.Date()] provides base R date conversion.
 #'
-#' @family utils
+#' @concept utils
 #'
 #' @encoding UTF-8
 #' @export
@@ -143,9 +146,10 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
     } else {
       # Report the configured cache location when requested.
       if (verbose) {
-        cli::cli_alert_info(
-          "Using cache directory from options: {.file {cache_dir}}."
-        )
+        cli::cli_alert_info(paste0(
+          "Using cache directory from option {.code bde_cache_dir}: ",
+          "{.file {cache_dir}}."
+        ))
       }
     }
   }
@@ -193,19 +197,17 @@ bde_hlp_download <- function(url, local_file, verbose, retry = TRUE) {
   # Retry once because intermittent warnings are common for remote files.
   if (isTRUE(err_dwnload) && isTRUE(retry)) {
     if (verbose) {
-      cli::cli_alert_warning("Download failed, trying again.")
+      cli::cli_alert_warning("Download failed; trying again.")
     }
 
     err_dwnload <- tryCatch(
       download.file(url, local_file, quiet = isFALSE(verbose), mode = "wb"),
       warning = function(e) {
-        cli::cli_alert_warning(
-          paste0(
-            "URL {.url {url}} is not reachable. ",
-            "If this looks like a bug, please open an issue at ",
-            "{.url https://github.com/rOpenSpain/tidyBdE/issues}."
-          )
-        )
+        cli::cli_alert_warning(paste0(
+          "URL {.url {url}} is not reachable. ",
+          "If this looks like a bug, please open an issue at ",
+          "{.url https://github.com/rOpenSpain/tidyBdE/issues}."
+        ))
         TRUE
       }
     )
@@ -275,11 +277,8 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
 #' @return A [tibble][tibble::tbl_df].
 #'
 #' @noRd
-#'
-#' @examples
-#' bde_hlp_return_null()
 bde_hlp_return_null <- function(
-  msg = "BdE resources are unavailable. Returning an empty {.cls tibble}."
+  msg = "BdE resources are unavailable. Returning an empty {.cls tbl_df}."
 ) {
   cli::cli_alert_info(msg)
   tbl <- tibble::tibble(x = NULL)
@@ -346,7 +345,8 @@ cli_abort_if_not <- function(
   .frame = .envir
 ) {
   for (i in seq_len(...length())) {
-    if (!all(...elt(i))) {
+    condition <- ...elt(i)
+    if (length(condition) == 0L || !isTRUE(all(condition))) {
       cli::cli_abort(
         ...names()[i],
         .call = .call,

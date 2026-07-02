@@ -16,14 +16,14 @@ repo:
 
 reference:
 - title: Catalog metadata
-  desc: Discover, load and update Banco de España time series metadata.
+  desc: Discover, load and update Banco de España time series catalog metadata.
 - contents:
   - has_concept("catalog")
 
 - title: Time series
   desc: >
     Retrieve time series from bulk CSV files or the Statistics web service
-    using stable sequential numbers or API series codes.
+    (API) using stable sequential numbers or API series codes.
 - contents:
   - has_concept("series")
 
@@ -43,20 +43,16 @@ reference:
   - has_concept("utils")
 
 - title: Package
-  desc: Learn about **tidyBdE** and its package-level metadata.
+  desc: Learn about the **tidyBdE** package and its metadata.
 - contents:
   - tidyBdE-package
 
 articles:
-- title: Get started
-  desc: Learn the main **tidyBdE** workflows and data retrieval options.
-  contents:
-  - tidyBdE
-- title: Data discovery and formats
+- title: Data access and discovery
   desc: >
-    Learn how Banco de España bulk CSV files are structured and how to use
-    catalog metadata to identify time series.
-  navbar: Data
+    Understand Banco de España bulk CSV files and use catalog metadata to
+    identify and retrieve time series.
+  navbar: Data guides
   contents:
   - csv_manual
   - articles/seriesindex

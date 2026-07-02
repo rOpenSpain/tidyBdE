@@ -1,4 +1,4 @@
-#' BdE theme for ggplot2
+#' BdE theme for \CRANpkg{ggplot2}
 #'
 #' @description
 #' A custom \CRANpkg{ggplot2} theme based on BdE publications.
@@ -44,7 +44,7 @@
 #'     labs(
 #'       title = "Title",
 #'       subtitle = "Some metric",
-#'       caption = "Bank of Spain"
+#'       caption = "Banco de España"
 #'     ) +
 #'     theme_tidybde()
 #' }

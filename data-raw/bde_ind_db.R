@@ -33,8 +33,7 @@ bde_cat <- full_cat |>
   distinct()
 
 
-bde_ind_db <- bde_ind_db_init |>
-  left_join(bde_cat)
+bde_ind_db <- bde_ind_db_init |> left_join(bde_cat)
 
 
 # Re-check on publications
@@ -62,10 +61,7 @@ cpi <- bde_ind_db |>
 cpi_orig <- bde_series_load(cpi, "Consumer_price_index_YoY")
 
 diffs <- cpi_orig |>
-  inner_join(
-    cpi_alt |>
-      rename(alt = Consumer_price_index_YoY)
-  ) |>
+  inner_join(cpi_alt |> rename(alt = Consumer_price_index_YoY)) |>
   mutate(dif = Consumer_price_index_YoY - alt) |>
   filter_out(is.na(dif))
 

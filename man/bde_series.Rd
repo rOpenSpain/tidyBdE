@@ -7,7 +7,7 @@
 \alias{bde_series_full_load}
 \title{Load BdE time series from bulk CSV files}
 \source{
-\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{Time series bulk data download}.
+\href{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}{Banco de España time series bulk data download}.
 }
 \usage{
 bde_series_load(
@@ -33,22 +33,22 @@ bde_series_full_load(
 )
 }
 \arguments{
-\item{series_code}{Numeric vector of stable BdE sequential numbers, or
-values coercible with \code{\link[base:as.double]{base::as.double()}}, from the \verb{Número secuencial}
+\item{series_code}{A numeric vector of stable BdE sequential numbers, or
+values coercible with \code{\link[base:as.double]{base::as.double()}}, from the \code{Numero_secuencial}
 field of the corresponding series. This is not the API series code. See
 \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 
-\item{series_label}{Optional character string or vector of labels to assign
-to the extracted series.}
+\item{series_label}{An optional character vector of labels to assign to the
+extracted series.}
 
-\item{out_format}{Output format, either \code{"wide"} or \code{"long"}. See
+\item{out_format}{The output format, either \code{"wide"} or \code{"long"}. See
 \strong{Value} for details and the \strong{Examples} section.}
 
 \item{parse_dates}{Logical. If \code{TRUE}, date columns are parsed with
 \code{\link[=bde_parse_dates]{bde_parse_dates()}}.}
 
-\item{parse_numeric}{Logical. If \code{TRUE}, parse columns as double values. See
-\strong{Note}.}
+\item{parse_numeric}{Logical. If \code{TRUE}, parse observation columns as double
+vectors. See \strong{Note}.}
 
 \item{cache_dir}{Path to a cache directory. The directory can also be set
 with \code{options(bde_cache_dir = "path/to/dir")}.}
@@ -56,13 +56,13 @@ with \code{options(bde_cache_dir = "path/to/dir")}.}
 \item{update_cache}{Logical. If \code{TRUE}, the requested file is refreshed in
 \code{cache_dir}.}
 
-\item{verbose}{Logical. If \code{TRUE}, display information useful for debugging.}
+\item{verbose}{Logical. If \code{TRUE}, display informative messages.}
 
-\item{extract_metadata}{Logical. If \code{TRUE}, return metadata for the requested
-series.}
+\item{extract_metadata}{Logical. If \code{TRUE}, return the metadata associated
+with the requested series.}
 
-\item{series_csv}{Bulk CSV file name for a series, as defined in the field
-\verb{Nombre del archivo con los valores de la serie} of the corresponding
+\item{series_csv}{A bulk CSV file name for a series, as defined in the field
+\code{Nombre_del_archivo_con_los_valores_de_la_serie} of the corresponding
 catalog. See \code{\link[=bde_catalog_load]{bde_catalog_load()}} and the \strong{About BdE file naming}
 section.}
 }
@@ -72,11 +72,11 @@ section.}
 \item With \code{out_format = "wide"}, each series is presented in a separate column
 with the name defined by \code{series_label}.
 \item With \code{out_format = "long"}, the tibble has two additional columns:
-\code{serie_name}, with the label of each series and \code{serie_value}, with the
+\code{serie_name} contains the label of each series; \code{serie_value} contains the
 corresponding value.
 }
 
-\code{"wide"} format is more suitable for exporting to a CSV file, while
+\code{"wide"} format is more suitable for exporting to a CSV file;
 \code{"long"} format is more suitable for creating plots with
 \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}. See also \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}} and
 \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.
@@ -120,7 +120,7 @@ new table is inserted before it.
 \section{Series identifiers}{
 
 BdE identifies each series with a stable sequential number
-(\verb{Número secuencial}) in bulk CSV files and an API series code
+(\code{Numero_secuencial}) in bulk CSV files and an API series code
 (\code{Nombre_de_la_serie}) in the Statistics web service.
 \code{\link[=bde_series_load]{bde_series_load()}} accepts stable sequential numbers in \code{series_code}.
 \code{\link[=bde_series_api_latest]{bde_series_api_latest()}} and \code{\link[=bde_series_api_load]{bde_series_api_load()}} use the same argument
@@ -175,8 +175,12 @@ bde_series_full_load("TI_1_1.csv")
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[=bde_catalog_load]{bde_catalog_load()}} and \code{\link[=bde_catalog_search]{bde_catalog_search()}} for finding stable
-sequential numbers, and \code{\link[=bde_indicators]{bde_indicators()}} for convenience wrappers.
+\itemize{
+\item \code{\link[=bde_catalog_load]{bde_catalog_load()}} and \code{\link[=bde_catalog_search]{bde_catalog_search()}} help find stable sequential
+numbers.
+\item \link[=bde_indicators]{Indicator wrappers} retrieve commonly used Spanish
+macroeconomic series.
+}
 
 Time series functions:
 \code{\link{bde_series_api}}

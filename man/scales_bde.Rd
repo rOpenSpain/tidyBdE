@@ -42,7 +42,7 @@ scale_fill_bde_c(
 )
 }
 \arguments{
-\item{palette}{BdE palette to apply. See \code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}} for details.}
+\item{palette}{A BdE palette to apply. See \code{\link[=bde_tidy_palettes]{bde_tidy_palettes()}} for details.}
 
 \item{alpha}{Alpha transparency level in the range \verb{[0, 1]}, where \code{0} is
 transparent and \code{1} is opaque. If \code{alpha = NULL}, the function does not
@@ -62,7 +62,7 @@ A \CRANpkg{ggplot2} scale object.
 }
 \description{
 Color scales for \CRANpkg{ggplot2}. Discrete scales are named
-\verb{scale_*_bde_d}, while continuous scales are named \verb{scale_*_bde_c}.
+\verb{scale_*_bde_d}; continuous scales are named \verb{scale_*_bde_c}.
 }
 \examples{
 library(ggplot2)

@@ -11,7 +11,7 @@
 - New vignette `vignette("csv_manual", package = "tidyBdE")` explaining the
   structure of Banco de España bulk CSV files, catalog metadata and series
   identifiers (#64).
-- New `bde_series_api()` functions added (#65):
+- New Statistics web service (API) functions added (#65):
   - `bde_series_api_latest()` added to query the Latest Data request of the
     Banco de España [Statistics web service
     (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
@@ -19,7 +19,7 @@
     de España Statistics web service (API), with support for wide and long
     output, metadata extraction and time range validation.
 - `?bde_ind_db` has been updated, including the field `Nombre_de_la_serie` (API
-  series code), see `bde_series_api()`.
+  series code); see `?bde_series_api`.
 
 # tidyBdE 0.6.1
 

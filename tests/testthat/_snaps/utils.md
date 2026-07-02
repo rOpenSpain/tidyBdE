@@ -4,7 +4,7 @@
       a <- bde_hlp_download("https://www.invented_test_url.com", tmp, TRUE)
     Message
       i Downloading file from <https://www.invented_test_url.com>.
-      ! Download failed, trying again.
+      ! Download failed; trying again.
       ! URL <https://www.invented_test_url.com> is not reachable. If this looks like a bug, please open an issue at <https://github.com/rOpenSpain/tidyBdE/issues>.
 
 ---
@@ -20,7 +20,7 @@
     Code
       df <- bde_hlp_return_null()
     Message
-      i BdE resources are unavailable. Returning an empty <tibble>.
+      i BdE resources are unavailable. Returning an empty <tbl_df>.
 
 ---
 
@@ -93,7 +93,7 @@
       bde_catalog_load(cache_dir = 1)
     Condition
       Error in `bde_catalog_load()`:
-      ! `cache_dir` must be a <character>.
+      ! `cache_dir` must be a <character> vector or "NULL".
 
 ---
 
@@ -101,7 +101,7 @@
       bde_catalog_load(verbose = 1)
     Condition
       Error in `bde_catalog_load()`:
-      ! `verbose` must be a <logical>.
+      ! `verbose` must be a <logical> vector.
 
 ---
 
@@ -109,7 +109,7 @@
       bde_catalog_load(parse_dates = 1)
     Condition
       Error in `bde_catalog_load()`:
-      ! `parse_dates` must be a <logical>.
+      ! `parse_dates` must be a <logical> vector.
 
 ---
 
@@ -117,5 +117,5 @@
       bde_catalog_load(update_cache = 1)
     Condition
       Error in `bde_catalog_load()`:
-      ! `update_cache` must be a <logical>.
+      ! `update_cache` must be a <logical> vector.
 

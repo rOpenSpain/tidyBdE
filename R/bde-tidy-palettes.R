@@ -4,8 +4,9 @@
 #' Manually defined palettes based on BdE publications. Each palette contains
 #' at most six colors.
 #'
-#' @param n Number of colors to return. Must be at least `1`.
-#' @param palette A valid palette name.
+#' @param n The number of colors to return. Must be at least `1`.
+#' @param palette A palette name: `"bde_vivid_pal"`, `"bde_rose_pal"` or
+#'   `"bde_qual_pal"`.
 #' @param alpha Alpha transparency level in the range `[0, 1]`, where `0` is
 #'   transparent and `1` is opaque. If `alpha = NULL`, the function does not
 #'   append opacity codes (`"FF"`) to individual color hex codes. See
@@ -42,17 +43,17 @@ bde_tidy_palettes <- function(
 ) {
   # Validate input arguments.
   cli_abort_if_not(
-    "{.arg n} must be a {.cls numeric}." = is.numeric(n),
-    "{.arg n} must be >= {.val {1}}." = n >= 1,
-    "{.arg alpha} must be {.cls numeric} or {.val NULL}." = any(
+    "{.arg n} must be a {.cls numeric} vector." = is.numeric(n),
+    "{.arg n} must be greater than or equal to {.val 1}." = n >= 1,
+    "{.arg alpha} must be a {.cls numeric} vector or {.val NULL}." = any(
       is.null(alpha),
       is.numeric(alpha)
     ),
-    "{.arg alpha} must be in [0, 1]." = any(
+    "{.arg alpha} must contain values between {.val 0} and {.val 1}." = any(
       is.null(alpha),
       all(alpha >= 0 & alpha <= 1)
     ),
-    "{.arg rev} must be a {.cls logical}." = is.logical(rev)
+    "{.arg rev} must be a {.cls logical} vector." = is.logical(rev)
   )
   palette <- match_arg_pretty(palette)
 
@@ -85,12 +86,10 @@ bde_tidy_palettes <- function(
 
   n_col <- length(cols)
   if (n > n_col) {
-    cli::cli_alert_warning(
-      paste0(
-        "Palette {.val {palette}} has {n_col} color{?s}. ",
-        "You requested {n}. Returning {n_col} color{?s}."
-      )
-    )
+    cli::cli_alert_warning(paste0(
+      "Palette {.str {palette}} contains {n_col} color{?s}; ",
+      "{.arg n} requested {.val {n}}. Returning all {n_col} color{?s}."
+    ))
 
     n <- n_col
   }

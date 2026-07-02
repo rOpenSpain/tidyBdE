@@ -10,9 +10,11 @@ A \link[tibble:tbl_df]{tibble} of 9 rows and
 8 columns with the following fields:
 
 \describe{
-\item{tidyBdE_fun}{Function name. See \code{\link[=bde_indicators]{bde_indicators()}}.}
+\item{tidyBdE_fun}{Function name. See
+\link[=bde_indicators]{indicator wrappers}.}
 \item{Numero_secuencial}{Sequential number. See \code{\link[=bde_series_load]{bde_series_load()}}.}
-\item{Nombre_de_la_serie}{API series code. See \code{\link[=bde_series_api]{bde_series_api()}}}
+\item{Nombre_de_la_serie}{API series code. See
+\link[=bde_series_api]{API series functions}.}
 \item{Descripcion_de_la_serie}{Description of the series in Spanish.}
 \item{Fecha_de_la_primera_observacion}{Starting date of the indicator.}
 \item{Fecha_de_la_ultima_observacion}{Most recent date available.}
@@ -22,7 +24,7 @@ A \link[tibble:tbl_df]{tibble} of 9 rows and
 \description{
 Minimal metadata for the selected Spanish macroeconomic indicators available
 through the convenience functions in \CRANpkg{tidyBdE}. See
-\code{\link[=bde_indicators]{bde_indicators()}}.
+\link[=bde_indicators]{indicator wrappers}.
 Full catalog metadata is available with \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
 }
 \details{

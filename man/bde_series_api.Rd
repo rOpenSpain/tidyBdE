@@ -20,31 +20,30 @@ bde_series_api_load(
 )
 }
 \arguments{
-\item{series_code}{Character string or vector of API series codes
-taken from the \code{Nombre_de_la_serie} field of the corresponding catalog.
-This is the value passed to the API \code{series_list} parameter, not the
-stable sequential number used by \code{\link[=bde_series_load]{bde_series_load()}}.}
+\item{series_code}{A character vector of API series codes from the
+\code{Nombre_de_la_serie} field of the corresponding catalog. These values are
+passed to the API \code{series_list} parameter; they are not the stable
+sequential numbers used by \code{\link[=bde_series_load]{bde_series_load()}}.}
 
-\item{language}{Character string specifying the output language. Use \code{"es"}
-for Spanish or \code{"en"} for English.}
+\item{language}{A string specifying the output language: \code{"es"} for Spanish
+or \code{"en"} for English.}
 
-\item{verbose}{Logical. If \code{TRUE}, display information useful for debugging.}
+\item{verbose}{Logical. If \code{TRUE}, display informative messages.}
 
-\item{series_label}{Optional character string or vector of labels to assign
-to the extracted series.}
+\item{series_label}{An optional character vector of labels to assign to the
+extracted series.}
 
-\item{out_format}{Output format, either \code{"wide"} or \code{"long"}. See
+\item{out_format}{The output format, either \code{"wide"} or \code{"long"}. See
 \strong{Value} for details and the \strong{Examples} section.}
 
-\item{time_range}{Optional character string specifying an annual range or API
-range code. It can be a year, such as \code{"2024"}, or a code such as \code{"3M"},
-\code{"12M"}, \code{"30M"}, \code{"36M"}, \code{"60M"} or \code{"MAX"}. If \code{NULL}, the API returns
-the smallest range for the series frequency. Range codes are validated
-against the frequency returned by \code{\link[=bde_series_api_latest]{bde_series_api_latest()}}. See
-\strong{Details}.}
+\item{time_range}{An optional string specifying a year or API range code. It
+can be a year, such as \code{"2024"}, or one of \code{"3M"}, \code{"12M"}, \code{"30M"},
+\code{"36M"}, \code{"60M"} or \code{"MAX"}. If \code{NULL}, the API returns the smallest range
+for the series frequency. Range codes are validated against the frequency
+returned by \code{\link[=bde_series_api_latest]{bde_series_api_latest()}}. See \strong{Details}.}
 
-\item{extract_metadata}{Logical. If \code{TRUE}, return metadata for the requested
-series.}
+\item{extract_metadata}{Logical. If \code{TRUE}, return the metadata associated
+with the requested series.}
 }
 \value{
 \code{bde_series_api_latest()} returns a \link[tibble:tbl_df]{tibble} with the latest
@@ -62,7 +61,7 @@ series with fields returned by the Series List request, including
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
-These functions retrieve BdE time series using the \href{https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html}{Statistics web service (API)}.
+These functions retrieve BdE time series using the\href{https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html}{Statistics web service (API)}.
 
 The API is a JSON web service that provides URL-based access to information
 available in the Statistics section of Banco de España and the BIEST
@@ -88,7 +87,7 @@ the series frequency. For example, monthly series return \code{"30M"}.
 \section{Series identifiers}{
 
 BdE identifies each series with a stable sequential number
-(\verb{Número secuencial}) in bulk CSV files and an API series code
+(\code{Numero_secuencial}) in bulk CSV files and an API series code
 (\code{Nombre_de_la_serie}) in the Statistics web service.
 \code{\link[=bde_series_load]{bde_series_load()}} accepts stable sequential numbers in \code{series_code}.
 \code{\link[=bde_series_api_latest]{bde_series_api_latest()}} and \code{\link[=bde_series_api_load]{bde_series_api_load()}} use the same argument
@@ -129,8 +128,10 @@ xr |>
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[=bde_catalog_load]{bde_catalog_load()}} and \code{\link[=bde_catalog_search]{bde_catalog_search()}} for finding API
-series codes, and \code{\link[=bde_series_load]{bde_series_load()}} for loading bulk CSV series.
+\itemize{
+\item \code{\link[=bde_catalog_load]{bde_catalog_load()}} and \code{\link[=bde_catalog_search]{bde_catalog_search()}} help find API series codes.
+\item \code{\link[=bde_series_load]{bde_series_load()}} loads time series from bulk CSV files.
+}
 
 Time series functions:
 \code{\link{bde_series}}

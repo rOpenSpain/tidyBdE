@@ -11,7 +11,7 @@ bde_check_access()
 A logical value indicating whether BdE resources are reachable.
 }
 \description{
-Check whether \R can access BdE resources at
+Checks whether \R can access BdE resources at
 \url{https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html}.
 }
 \examples{

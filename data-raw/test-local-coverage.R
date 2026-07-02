@@ -109,11 +109,7 @@ test_that("series loaders work with local CSV files", {
   )
   expect_equal(nrow(meta), 6)
 
-  wide <- bde_series_load(
-    12345,
-    series_label = "Test series",
-    cache_dir = dir
-  )
+  wide <- bde_series_load(12345, series_label = "Test series", cache_dir = dir)
   expect_named(wide, c("Date", "Test series"))
 
   long <- bde_series_load(
@@ -169,11 +165,9 @@ test_that("full series loader covers download branches", {
   dir <- file.path(tempdir(), "tidybde-local-download")
   unlink(dir, recursive = TRUE, force = TRUE)
 
-  local_mocked_bindings(
-    on_cran = function(...) {
-      TRUE
-    }
-  )
+  local_mocked_bindings(on_cran = function(...) {
+    TRUE
+  })
 
   expect_message(
     offline <- bde_series_full_load("TC_1_2.csv", cache_dir = dir),
@@ -181,11 +175,9 @@ test_that("full series loader covers download branches", {
   )
   expect_equal(nrow(offline), 0)
 
-  local_mocked_bindings(
-    on_cran = function(...) {
-      FALSE
-    }
-  )
+  local_mocked_bindings(on_cran = function(...) {
+    FALSE
+  })
 
   local_mocked_bindings(
     bde_check_access = function() TRUE,
@@ -201,11 +193,9 @@ test_that("full series loader covers download branches", {
 
 test_that("full series loader creates default cache subdirectories", {
   unlink(file.path(tempdir(), "ZZ"), recursive = TRUE, force = TRUE)
-  local_mocked_bindings(
-    on_cran = function(...) {
-      TRUE
-    }
-  )
+  local_mocked_bindings(on_cran = function(...) {
+    TRUE
+  })
 
   expect_message(
     out <- bde_series_full_load("ZZ_1_1.csv", cache_dir = NULL),
@@ -218,11 +208,9 @@ test_that("full series loader creates default cache subdirectories", {
 
 test_that("download helper handles mocked warnings", {
   local_file <- tempfile()
-  testthat::local_mocked_bindings(
-    download.file = function(...) {
-      warning("offline")
-    }
-  )
+  testthat::local_mocked_bindings(download.file = function(...) {
+    warning("offline")
+  })
 
   expect_message(
     ok <- bde_hlp_download("https://example.com/file.csv", local_file, TRUE),
@@ -233,12 +221,10 @@ test_that("download helper handles mocked warnings", {
 
 test_that("download helper reports successful downloads", {
   local_file <- tempfile()
-  testthat::local_mocked_bindings(
-    download.file = function(url, destfile, ...) {
-      writeLines("ok", destfile)
-      0
-    }
-  )
+  testthat::local_mocked_bindings(download.file = function(url, destfile, ...) {
+    writeLines("ok", destfile)
+    0
+  })
 
   expect_message(
     ok <- bde_hlp_download("https://example.com/file.csv", local_file, TRUE),
@@ -249,11 +235,7 @@ test_that("download helper reports successful downloads", {
 })
 
 test_that("type conversion helpers convert non-preserved columns", {
-  tbl <- tibble::tibble(
-    keep = 1,
-    convert = 2,
-    text = "3"
-  )
+  tbl <- tibble::tibble(keep = 1, convert = 2, text = "3")
 
   as_char <- bde_hlp_tochar(tbl, preserve = "keep")
   expect_type(as_char$keep, "double")
@@ -265,14 +247,16 @@ test_that("type conversion helpers convert non-preserved columns", {
 })
 
 test_that("indicator wrappers delegate to the shared loader", {
-  testthat::local_mocked_bindings(
-    bde_series_load = function(series_code, series_label, ...) {
-      tibble::tibble(
-        Date = as.Date(c("2020-01-01", "2020-01-02")),
-        value = c(NA, 1)
-      )
-    }
-  )
+  testthat::local_mocked_bindings(bde_series_load = function(
+    series_code,
+    series_label,
+    ...
+  ) {
+    tibble::tibble(
+      Date = as.Date(c("2020-01-01", "2020-01-02")),
+      value = c(NA, 1)
+    )
+  })
 
   indicators <- list(
     bde_ind_gdp_var(),

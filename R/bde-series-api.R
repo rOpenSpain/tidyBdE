@@ -5,9 +5,11 @@
 #'
 #' These functions retrieve BdE time series using the
 #' ```{r, echo=FALSE, results='asis'}
-#' cat(paste0(" [Statistics web service (API)]",
-#'       "(https://www.bde.es/webbe/en/estadisticas/recursos",
-#'       "/api-estadisticas-bde.html)."))
+#' cat(paste0(
+#'   "[Statistics web service (API)]",
+#'   "(https://www.bde.es/webbe/en/estadisticas/recursos/",
+#'   "api-estadisticas-bde.html)."
+#' ))
 #' ```
 #'
 #' The API is a JSON web service that provides URL-based access to information
@@ -19,18 +21,17 @@
 #' series. [bde_series_api_load()] uses the Series List request to obtain the
 #' details of one or more complete series and their metadata.
 #'
-#' @param series_code Character string or vector of API series codes
-#'   taken from the `Nombre_de_la_serie` field of the corresponding catalog.
-#'   This is the value passed to the API `series_list` parameter, not the
-#'   stable sequential number used by [bde_series_load()].
-#' @param language Character string specifying the output language. Use `"es"`
-#'   for Spanish or `"en"` for English.
-#' @param time_range Optional character string specifying an annual range or API
-#'   range code. It can be a year, such as `"2024"`, or a code such as `"3M"`,
-#'   `"12M"`, `"30M"`, `"36M"`, `"60M"` or `"MAX"`. If `NULL`, the API returns
-#'   the smallest range for the series frequency. Range codes are validated
-#'   against the frequency returned by [bde_series_api_latest()]. See
-#'   **Details**.
+#' @param series_code A character vector of API series codes from the
+#'   `Nombre_de_la_serie` field of the corresponding catalog. These values are
+#'   passed to the API `series_list` parameter; they are not the stable
+#'   sequential numbers used by [bde_series_load()].
+#' @param language A string specifying the output language: `"es"` for Spanish
+#'   or `"en"` for English.
+#' @param time_range An optional string specifying a year or API range code. It
+#'   can be a year, such as `"2024"`, or one of `"3M"`, `"12M"`, `"30M"`,
+#'   `"36M"`, `"60M"` or `"MAX"`. If `NULL`, the API returns the smallest range
+#'   for the series frequency. Range codes are validated against the frequency
+#'   returned by [bde_series_api_latest()]. See **Details**.
 #'
 #' @inheritParams bde_series series_label out_format extract_metadata verbose
 #'
@@ -60,8 +61,9 @@
 #'
 #' @inheritSection bde_series Series identifiers
 #'
-#' @seealso [bde_catalog_load()] and [bde_catalog_search()] for finding API
-#'   series codes, and [bde_series_load()] for loading bulk CSV series.
+#' @seealso
+#' - [bde_catalog_load()] and [bde_catalog_search()] help find API series codes.
+#' - [bde_series_load()] loads time series from bulk CSV files.
 #'
 #' @family series
 #'
@@ -135,7 +137,7 @@ bde_series_api_latest <- function(
   result <- bde_hlp_download(base_url, tmpjson, verbose)
   if (isFALSE(result)) {
     unlink(tmpjson)
-    s <- bde_hlp_return_null("Returning an empty {.cls tibble}.")
+    s <- bde_hlp_return_null("Returning an empty {.cls tbl_df}.")
     return(s)
   }
 
@@ -151,12 +153,10 @@ bde_series_api_latest <- function(
       err_num <- api_res[[i]]$errNum
 
       if (!is.null(err_num)) {
-        cli::cli_alert_warning(
-          paste0(
-            "The query returned error {.str {err_num}} for ",
-            "{.arg series_code} {.str {series_code[i]}}."
-          )
-        )
+        cli::cli_alert_warning(paste0(
+          "The query returned error {.val {err_num}} for ",
+          "{.arg series_code} {.str {series_code[i]}}."
+        ))
         cli::cli_alert_info("This series was omitted from the results.")
         return(FALSE)
       }
@@ -168,7 +168,7 @@ bde_series_api_latest <- function(
 
   if (!any(ok_results)) {
     cli::cli_alert_warning("No valid results for query {.url {base_url}}.")
-    s <- bde_hlp_return_null("Returning an empty {.cls tibble}.")
+    s <- bde_hlp_return_null("Returning an empty {.cls tbl_df}.")
     return(s)
   }
 
@@ -203,8 +203,8 @@ bde_series_api_load <- function(
     cli::cli_abort("{.arg series_code} cannot be missing.")
   }
   cli_abort_if_not(
-    "{.arg verbose} must be a {.cls logical}." = is.logical(verbose),
-    "{.arg extract_metadata} must be a {.cls logical}." = is.logical(
+    "{.arg verbose} must be a {.cls logical} vector." = is.logical(verbose),
+    "{.arg extract_metadata} must be a {.cls logical} vector." = is.logical(
       extract_metadata
     )
   )
@@ -275,7 +275,7 @@ bde_series_api_load <- function(
   result <- bde_hlp_download(base_url, tmpjson, verbose)
   if (isFALSE(result)) {
     unlink(tmpjson)
-    s <- bde_hlp_return_null("Returning an empty {.cls tibble}.")
+    s <- bde_hlp_return_null("Returning an empty {.cls tbl_df}.")
     return(s)
   }
 
@@ -398,17 +398,15 @@ bde_hlp_api_check_range <- function(
     invalid_series <- latest$serie[invalid] # nolint
     invalid_frequency <- unique(latest$codFrecuencia[invalid]) # nolint
     ok_ranges <- unlist(allowed_ranges[invalid_frequency]) # nolint
-    cli::cli_abort(
-      c(
-        paste0(
-          "{.arg time_range} {.str {time_range}} is not valid for ",
-          "{qty(length(invalid_frequency))}series frequenc{?y/ies}: ",
-          "{.str {invalid_frequency}}. ",
-          "Use any of {.or {.str {ok_ranges}}}."
-        ),
-        "i" = "Invalid series: {.val {invalid_series}}."
-      )
-    )
+    cli::cli_abort(c(
+      paste0(
+        "{.arg time_range} {.str {time_range}} is not valid for ",
+        "{qty(length(invalid_frequency))}series frequenc{?y/ies}: ",
+        "{.str {invalid_frequency}}. ",
+        "Use one of {.or {.str {ok_ranges}}}."
+      ),
+      "i" = "Invalid series: {.val {invalid_series}}."
+    ))
   }
 
   invisible(TRUE)

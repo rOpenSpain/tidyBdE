@@ -8,15 +8,15 @@
 #' `bde_catalog_update()` refreshes the cached catalog files and
 #' `bde_catalog_search()` searches catalog metadata for keywords.
 #'
-#' @param catalog A single catalog identifier or `"ALL"` to load or update
-#'   every catalog. See **Details**.
+#' @param catalog A catalog identifier or `"ALL"` to load or update every
+#'   catalog. See **Details**.
 #' @param parse_dates Logical. If `TRUE`, date columns are parsed with
 #'   [bde_parse_dates()].
 #' @param update_cache Logical. If `TRUE`, the requested file is refreshed in
 #'   `cache_dir`.
 #' @param cache_dir Path to a cache directory. The directory can also be set
 #'   with `options(bde_cache_dir = "path/to/dir")`.
-#' @param verbose Logical. If `TRUE`, display information useful for debugging.
+#' @param verbose Logical. If `TRUE`, display informative messages.
 #' @param pattern Regular expression to search for. See **Details** and
 #'   **Examples**.
 #' @param ... Additional arguments passed by `bde_catalog_search()` to
@@ -66,23 +66,23 @@
 #' catalog rows.
 #'
 #' @source
-#'
 #' ```{r, echo=FALSE, results='asis'}
-#'
-#' cat(paste0("[Time series bulk data download]",
-#'       "(https://www.bde.es/webbe/en/estadisticas/recursos/",
-#'       "descargas-completas.html)."))
-#'
+#' cat(paste0(
+#'   "[Banco de España time series bulk data download]",
+#'   "(https://www.bde.es/webbe/en/estadisticas/recursos/",
+#'   "descargas-completas.html)."
+#' ))
 #' ```
 #'
-#' @seealso [bde_series_load()] and [bde_series_full_load()] for loading bulk
-#'   CSV series and [bde_series_api_load()] and [bde_series_api_latest()] for
-#'   retrieving series through the Statistics web service.
-#'
-#' @family catalog
+#' @seealso
+#' - [bde_series_load()] and [bde_series_full_load()] load bulk CSV series.
+#' - [bde_series_api_load()] and [bde_series_api_latest()] retrieve series
+#'   through the Statistics web service (API).
 #'
 #' @rdname bde_catalogs
 #' @name bde_catalogs
+#'
+#' @concept catalog
 #'
 #' @encoding UTF-8
 #' @export
@@ -114,13 +114,17 @@ bde_catalog_load <- function(
   # Validate input arguments.
   valid_catalogs <- c("BE", "SI", "TC", "TI", "PB", "ALL")
   cli_abort_if_not(
-    "{.arg cache_dir} must be a {.cls character}." = any(
+    "{.arg cache_dir} must be a {.cls character} vector or {.val NULL}." = any(
       is.null(cache_dir),
       is.character(cache_dir)
     ),
-    "{.arg verbose} must be a {.cls logical}." = is.logical(verbose),
-    "{.arg parse_dates} must be a {.cls logical}." = is.logical(parse_dates),
-    "{.arg update_cache} must be a {.cls logical}." = is.logical(update_cache)
+    "{.arg verbose} must be a {.cls logical} vector." = is.logical(verbose),
+    "{.arg parse_dates} must be a {.cls logical} vector." = is.logical(
+      parse_dates
+    ),
+    "{.arg update_cache} must be a {.cls logical} vector." = is.logical(
+      update_cache
+    )
   )
 
   catalog_to_load <- catalog
@@ -137,11 +141,11 @@ bde_catalog_load <- function(
     has_cache <- file.exists(catalog_file)
 
     if (all(has_cache, isFALSE(update_cache))) {
-      if (verbose) cli::cli_alert_success("Using cached catalog {.val {x}}.")
+      if (verbose) cli::cli_alert_success("Using cached catalog {.str {x}}.")
     } else {
       # Download the catalog when it is missing or must be refreshed.
       if (verbose) {
-        cli::cli_alert_info("Downloading catalog {.val {x}}.")
+        cli::cli_alert_info("Downloading catalog {.str {x}}.")
       }
 
       result <- bde_catalog_update(
@@ -153,7 +157,7 @@ bde_catalog_load <- function(
       # Handle download errors.
       if (any(is.data.frame(result), isFALSE(result))) {
         cli::cli_alert_warning(
-          "Catalog {.val {x}} is not available for download."
+          "Catalog {.str {x}} is not available for download."
         )
         return(NULL)
       }
@@ -169,16 +173,14 @@ bde_catalog_load <- function(
 
     enc <- readr::guess_encoding(catalog_file)[[1]][[1]]
 
-    catalog_load <- suppressWarnings(
-      read.csv2(
-        catalog_file,
-        sep = ",",
-        stringsAsFactors = FALSE,
-        na.strings = c("", "-", "_"),
-        header = FALSE,
-        fileEncoding = enc
-      )
-    )
+    catalog_load <- suppressWarnings(read.csv2(
+      catalog_file,
+      sep = ",",
+      stringsAsFactors = FALSE,
+      na.strings = c("", "-", "_"),
+      header = FALSE,
+      fileEncoding = enc
+    ))
 
     # Avoid UTF-8 check failures from upstream Spanish column names.
     names_catalog <- c(
@@ -214,9 +216,7 @@ bde_catalog_load <- function(
   if (any(res_all)) {
     cats <- catalog_to_load[res_all] # nolint
     ncats <- length(cats) # nolint
-    cli::cli_alert_warning(
-      "Could not load {ncats} catalog{?s}: {.val {cats}}."
-    )
+    cli::cli_alert_warning("Could not load {ncats} catalog{?s}: {.val {cats}}.")
   }
 
   # Combine catalogs and infer column types.
@@ -261,11 +261,11 @@ bde_catalog_update <- function(
   # Validate input arguments.
   valid_catalogs <- c("BE", "SI", "TC", "TI", "PB", "ALL")
   cli_abort_if_not(
-    "{.arg cache_dir} must be a {.cls character}." = any(
+    "{.arg cache_dir} must be a {.cls character} vector or {.val NULL}." = any(
       is.null(cache_dir),
       is.character(cache_dir)
     ),
-    "{.arg verbose} must be a {.cls logical}." = is.logical(verbose)
+    "{.arg verbose} must be a {.cls logical} vector." = is.logical(verbose)
   )
 
   if (!bde_check_access()) {
@@ -283,12 +283,10 @@ bde_catalog_update <- function(
   }
 
   if (verbose) {
-    cli::cli_alert_info(
-      paste0(
-        "Updating {length(catalog_download)} catalog file{?s}: ",
-        "{.val {catalog_download}}."
-      )
-    )
+    cli::cli_alert_info(paste0(
+      "Updating {length(catalog_download)} catalog file{?s}: ",
+      "{.val {catalog_download}}."
+    ))
   }
 
   res <- lapply(catalog_download, function(x) {
@@ -328,12 +326,10 @@ bde_catalog_search <- function(pattern, ...) {
   }
 
   if (!tibble::is_tibble(catalog_search)) {
-    cli::cli_alert_warning(
-      paste0(
-        "Catalog data is not a {.cls tibble}. ",
-        "Try downloading it again with {.fn bde_catalog_update}."
-      )
-    )
+    cli::cli_alert_warning(paste0(
+      "Catalog data does not inherit from {.cls tbl_df}. ",
+      "Try downloading it again with {.fn bde_catalog_update}."
+    ))
     return(invisible())
   }
 
@@ -342,12 +338,10 @@ bde_catalog_search <- function(pattern, ...) {
 
   search_match_rows <- NULL
   for (i in col_ind) {
-    search_match_rows <- unique(
-      c(
-        search_match_rows,
-        grep(pattern, catalog_search[[i]], ignore.case = TRUE, useBytes = TRUE)
-      )
-    )
+    search_match_rows <- unique(c(
+      search_match_rows,
+      grep(pattern, catalog_search[[i]], ignore.case = TRUE, useBytes = TRUE)
+    ))
   }
 
   search_results <- catalog_search[search_match_rows, ]

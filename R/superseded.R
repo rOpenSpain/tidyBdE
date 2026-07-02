@@ -23,11 +23,7 @@
 #' # Show the rose palette.
 #' scales::show_col(bde_rose_pal()(6), labels = FALSE)
 bde_vivid_pal <- function(...) {
-  lifecycle::deprecate_warn(
-    "0.3.5",
-    "bde_vivid_pal()",
-    "bde_tidy_palettes()"
-  )
+  lifecycle::deprecate_warn("0.3.5", "bde_vivid_pal()", "bde_tidy_palettes()")
 
   pal <- c("#4180C2", "#D86E7B", "#F89E63", "#5FBD6A", "#62C8D0", "#AC8771")
   scales::manual_pal(pal)

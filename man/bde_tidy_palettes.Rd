@@ -13,9 +13,10 @@ bde_tidy_palettes(
 )
 }
 \arguments{
-\item{n}{Number of colors to return. Must be at least \code{1}.}
+\item{n}{The number of colors to return. Must be at least \code{1}.}
 
-\item{palette}{A valid palette name.}
+\item{palette}{A palette name: \code{"bde_vivid_pal"}, \code{"bde_rose_pal"} or
+\code{"bde_qual_pal"}.}
 
 \item{alpha}{Alpha transparency level in the range \verb{[0, 1]}, where \code{0} is
 transparent and \code{1} is opaque. If \code{alpha = NULL}, the function does not

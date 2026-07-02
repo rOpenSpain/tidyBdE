@@ -4,9 +4,10 @@ library(showtext)
 library(tidyBdE)
 
 plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") |>
-  bind_rows(
-    bde_ind_unemployment_rate("Unemployment Rate", out_format = "long")
-  ) |>
+  bind_rows(bde_ind_unemployment_rate(
+    "Unemployment Rate",
+    out_format = "long"
+  )) |>
   drop_na() |>
   filter(Date >= "2010-01-01")
 

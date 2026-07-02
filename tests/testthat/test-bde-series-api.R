@@ -8,10 +8,7 @@ test_that("Latest: test errors", {
 })
 
 test_that("Series API load checks inputs", {
-  expect_error(
-    bde_series_api_load(),
-    "`series_code` cannot be missing"
-  )
+  expect_error(bde_series_api_load(), "`series_code` cannot be missing")
   expect_snapshot(
     error = TRUE,
     bde_series_api_load("An_example", language = "aaa")
@@ -28,51 +25,49 @@ test_that("Series API load checks inputs", {
 
 test_that("Series API load parses list results", {
   queried_url <- NULL
-  local_mocked_bindings(
-    bde_hlp_download = function(url, local_file, verbose) {
-      queried_url <<- url
-      if (grepl("favoritas", url, fixed = TRUE)) {
-        writeLines(
-          paste0(
-            "[{",
-            "\"serie\":\"D_TEST\",",
-            "\"descripcionCorta\":\"Test\",",
-            "\"codFrecuencia\":\"M\",",
-            "\"decimales\":1,",
-            "\"simbolo\":\"%\",",
-            "\"tendencia\":\"=\",",
-            "\"fechaValor\":\"2024-02-01T09:15:00Z\",",
-            "\"valor\":2.2",
-            "}]"
-          ),
-          local_file
-        )
-        return(TRUE)
-      }
+  local_mocked_bindings(bde_hlp_download = function(url, local_file, verbose) {
+    queried_url <<- url
+    if (grepl("favoritas", url, fixed = TRUE)) {
       writeLines(
         paste0(
           "[{",
           "\"serie\":\"D_TEST\",",
-          "\"descripcion\":\"Test series\",",
           "\"descripcionCorta\":\"Test\",",
           "\"codFrecuencia\":\"M\",",
           "\"decimales\":1,",
           "\"simbolo\":\"%\",",
-          "\"informacion\":[{\"titulo\":\"Name\",\"descripcion\":\"Test\"}],",
-          "\"fechaInicio\":\"2024-01-01T09:15:00Z\",",
-          "\"fechaFin\":\"2024-02-01T09:15:00Z\",",
-          "\"fechas\":[",
-          "\"2024-02-01T09:15:00Z\",",
-          "\"2024-01-01T09:15:00Z\"",
-          "],",
-          "\"valores\":[2.2,1.1]",
+          "\"tendencia\":\"=\",",
+          "\"fechaValor\":\"2024-02-01T09:15:00Z\",",
+          "\"valor\":2.2",
           "}]"
         ),
         local_file
       )
-      TRUE
+      return(TRUE)
     }
-  )
+    writeLines(
+      paste0(
+        "[{",
+        "\"serie\":\"D_TEST\",",
+        "\"descripcion\":\"Test series\",",
+        "\"descripcionCorta\":\"Test\",",
+        "\"codFrecuencia\":\"M\",",
+        "\"decimales\":1,",
+        "\"simbolo\":\"%\",",
+        "\"informacion\":[{\"titulo\":\"Name\",\"descripcion\":\"Test\"}],",
+        "\"fechaInicio\":\"2024-01-01T09:15:00Z\",",
+        "\"fechaFin\":\"2024-02-01T09:15:00Z\",",
+        "\"fechas\":[",
+        "\"2024-02-01T09:15:00Z\",",
+        "\"2024-01-01T09:15:00Z\"",
+        "],",
+        "\"valores\":[2.2,1.1]",
+        "}]"
+      ),
+      local_file
+    )
+    TRUE
+  })
 
   tb <- bde_series_api_load("D_TEST", language = "en", time_range = "30M")
 
@@ -85,26 +80,24 @@ test_that("Series API load parses list results", {
 })
 
 test_that("Series API load validates time range by frequency", {
-  local_mocked_bindings(
-    bde_hlp_download = function(url, local_file, verbose) {
-      writeLines(
-        paste0(
-          "[{",
-          "\"serie\":\"D_TEST\",",
-          "\"descripcionCorta\":\"Test\",",
-          "\"codFrecuencia\":\"D\",",
-          "\"decimales\":1,",
-          "\"simbolo\":\"%\",",
-          "\"tendencia\":\"=\",",
-          "\"fechaValor\":\"2024-02-01T09:15:00Z\",",
-          "\"valor\":2.2",
-          "}]"
-        ),
-        local_file
-      )
-      TRUE
-    }
-  )
+  local_mocked_bindings(bde_hlp_download = function(url, local_file, verbose) {
+    writeLines(
+      paste0(
+        "[{",
+        "\"serie\":\"D_TEST\",",
+        "\"descripcionCorta\":\"Test\",",
+        "\"codFrecuencia\":\"D\",",
+        "\"decimales\":1,",
+        "\"simbolo\":\"%\",",
+        "\"tendencia\":\"=\",",
+        "\"fechaValor\":\"2024-02-01T09:15:00Z\",",
+        "\"valor\":2.2",
+        "}]"
+      ),
+      local_file
+    )
+    TRUE
+  })
 
   expect_error(
     bde_series_api_load("D_TEST", time_range = "30M"),
@@ -113,29 +106,27 @@ test_that("Series API load validates time range by frequency", {
 })
 
 test_that("Series API load supports long format and metadata", {
-  local_mocked_bindings(
-    bde_hlp_download = function(url, local_file, verbose) {
-      writeLines(
-        paste0(
-          "[{",
-          "\"serie\":\"D_TEST\",",
-          "\"descripcion\":\"Test series\",",
-          "\"descripcionCorta\":\"Test\",",
-          "\"codFrecuencia\":\"M\",",
-          "\"decimales\":1,",
-          "\"simbolo\":\"%\",",
-          "\"informacion\":[{\"titulo\":\"Name\",\"descripcion\":\"Test\"}],",
-          "\"fechaInicio\":\"2024-01-01T09:15:00Z\",",
-          "\"fechaFin\":\"2024-02-01T09:15:00Z\",",
-          "\"fechas\":[\"2024-02-01T09:15:00Z\"],",
-          "\"valores\":[2.2]",
-          "}]"
-        ),
-        local_file
-      )
-      TRUE
-    }
-  )
+  local_mocked_bindings(bde_hlp_download = function(url, local_file, verbose) {
+    writeLines(
+      paste0(
+        "[{",
+        "\"serie\":\"D_TEST\",",
+        "\"descripcion\":\"Test series\",",
+        "\"descripcionCorta\":\"Test\",",
+        "\"codFrecuencia\":\"M\",",
+        "\"decimales\":1,",
+        "\"simbolo\":\"%\",",
+        "\"informacion\":[{\"titulo\":\"Name\",\"descripcion\":\"Test\"}],",
+        "\"fechaInicio\":\"2024-01-01T09:15:00Z\",",
+        "\"fechaFin\":\"2024-02-01T09:15:00Z\",",
+        "\"fechas\":[\"2024-02-01T09:15:00Z\"],",
+        "\"valores\":[2.2]",
+        "}]"
+      ),
+      local_file
+    )
+    TRUE
+  })
 
   long <- bde_series_api_load(
     "D_TEST",
@@ -167,17 +158,16 @@ test_that("Latest: Empty results", {
     }
   )
   expect_identical(empty, dplyr::tibble(x = NULL))
+})
 
+test_that("Latest handles empty codes and download failures", {
   expect_identical(bde_series_api_latest(""), dplyr::tibble())
 
-  local_mocked_bindings(
-    bde_hlp_download = function(...) {
-      FALSE
-    }
-  )
-  expect_snapshot(
-    empty <- bde_series_api_latest("XXX"),
-  )
+  local_mocked_bindings(bde_hlp_download = function(...) {
+    FALSE
+  })
+  expect_message(empty <- bde_series_api_latest("XXX"), "Returning an empty")
+  expect_identical(empty, dplyr::tibble(x = NULL))
 })
 
 test_that("Latest: Single result", {
@@ -238,7 +228,7 @@ test_that("Series API real test", {
   # With invalid series codes.
   sname_invalid <- c("AN_ERROR", sname, "ANOTHER_ERROR")
   expect_snapshot(
-    tb_es_invalid <- bde_series_api_load(sname_invalid, language = "es"),
+    tb_es_invalid <- bde_series_api_load(sname_invalid, language = "es")
   )
 
   expect_silent(
@@ -279,31 +269,23 @@ test_that("Error on time_range", {
 test_that("Mock time range", {
   skip_on_cran()
 
-  local_mocked_bindings(
-    bde_series_api_latest = function(...) {
-      dplyr::tibble()
-    }
-  )
-  expect_true(
-    bde_hlp_api_check_range(
-      series_code = "DTCCBCEUSDEUR.B",
-      language = "es",
-      time_range = "30M",
-      verbose = FALSE
-    )
-  )
+  local_mocked_bindings(bde_series_api_latest = function(...) {
+    dplyr::tibble()
+  })
+  expect_true(bde_hlp_api_check_range(
+    series_code = "DTCCBCEUSDEUR.B",
+    language = "es",
+    time_range = "30M",
+    verbose = FALSE
+  ))
 
-  local_mocked_bindings(
-    bde_series_api_latest = function(...) {
-      dplyr::tibble(codFrecuencia = "SOME_VALUE")
-    }
-  )
-  expect_true(
-    bde_hlp_api_check_range(
-      series_code = "DTCCBCEUSDEUR.B",
-      language = "es",
-      time_range = "30M",
-      verbose = FALSE
-    )
-  )
+  local_mocked_bindings(bde_series_api_latest = function(...) {
+    dplyr::tibble(codFrecuencia = "SOME_VALUE")
+  })
+  expect_true(bde_hlp_api_check_range(
+    series_code = "DTCCBCEUSDEUR.B",
+    language = "es",
+    time_range = "30M",
+    verbose = FALSE
+  ))
 })

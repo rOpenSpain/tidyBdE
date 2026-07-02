@@ -1,7 +1,7 @@
 #' Check access to BdE resources
 #'
 #' @description
-#' Check whether \R can access BdE resources at
+#' Checks whether \R can access BdE resources at
 #' <https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html>.
 #'
 #' @return A logical value indicating whether BdE resources are reachable.

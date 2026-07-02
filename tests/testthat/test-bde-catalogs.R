@@ -6,16 +6,11 @@ test_that("Catalogs offline", {
 
   expect_silent(bde_catalog_update("TI", cache_dir = dir))
 
-  local_mocked_bindings(
-    on_cran = function(...) {
-      TRUE
-    }
-  )
+  local_mocked_bindings(on_cran = function(...) {
+    TRUE
+  })
 
-  expect_message(
-    bde_catalog_update("TC", cache_dir = dir),
-    "empty"
-  )
+  expect_message(bde_catalog_update("TC", cache_dir = dir), "empty")
 
   table1 <- bde_catalog_load("TI", cache_dir = dir)
   all <- bde_catalog_load("ALL", cache_dir = dir)
@@ -37,11 +32,9 @@ test_that("Catalogs offline", {
   expect_equal(nrow(s2), 0)
 
   # Now try online
-  local_mocked_bindings(
-    on_cran = function(...) {
-      FALSE
-    }
-  )
+  local_mocked_bindings(on_cran = function(...) {
+    FALSE
+  })
 
   nonull <- bde_catalog_load("TC", cache_dir = dir)
   expect_gt(nrow(nonull), 0)
@@ -73,33 +66,35 @@ test_that("No results", {
   skip_on_cran()
   skip_if_bde_offline()
   expect_snapshot(error = TRUE, bde_catalog_search("GDP", catalog = "TI"))
+})
 
-  local_mocked_bindings(
-    bde_catalog_load = function(...) {
-      data.frame(a = 1)
-    }
+test_that("No results with malformed catalog data", {
+  local_mocked_bindings(bde_catalog_load = function(...) {
+    data.frame(a = 1)
+  })
+
+  expect_message(
+    bde_catalog_search("TC", catalog = "TC"),
+    "does not inherit from"
   )
-
-  expect_snapshot(bde_catalog_search("TC", catalog = "TC"))
 })
 
 test_that("Mocks expand all", {
-  skip_on_cran()
-  skip_if_bde_offline()
-
   # Expand all
-  local_mocked_bindings(bde_hlp_download = function(...) {
-    TRUE
-  })
+  local_mocked_bindings(
+    bde_check_access = function(...) {
+      TRUE
+    },
+    bde_hlp_download = function(...) {
+      TRUE
+    }
+  )
   res <- bde_catalog_update("ALL", cache_dir = tempdir())
   expect_all_true(unlist(res))
   expect_length(res, 5)
 })
 
 test_that("Mock bad catalog file", {
-  skip_on_cran()
-  skip_if_bde_offline()
-
   local_mocked_bindings(bde_catalog_update = function(
     catalog = "a",
     cache_dir = tempdir(),

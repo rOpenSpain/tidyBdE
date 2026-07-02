@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{theme_tidybde}
 \alias{theme_tidybde}
-\title{BdE theme for ggplot2}
+\title{BdE theme for \CRANpkg{ggplot2}}
 \usage{
 theme_tidybde(...)
 }
@@ -56,7 +56,7 @@ if (nrow(series_TC) > 0) {
     labs(
       title = "Title",
       subtitle = "Some metric",
-      caption = "Bank of Spain"
+      caption = "Banco de España"
     ) +
     theme_tidybde()
 }

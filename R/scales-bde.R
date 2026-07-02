@@ -2,9 +2,9 @@
 #'
 #' @description
 #' Color scales for \CRANpkg{ggplot2}. Discrete scales are named
-#' `scale_*_bde_d`, while continuous scales are named `scale_*_bde_c`.
+#' `scale_*_bde_d`; continuous scales are named `scale_*_bde_c`.
 #'
-#' @param palette BdE palette to apply. See [bde_tidy_palettes()] for details.
+#' @param palette A BdE palette to apply. See [bde_tidy_palettes()] for details.
 #' @param ... Additional arguments passed to [ggplot2::discrete_scale()] or
 #'   [ggplot2::continuous_scale()].
 #' @inheritParams bde_tidy_palettes alpha rev
@@ -61,7 +61,6 @@ scale_color_bde_d <- function(
 }
 
 #' @rdname scales_bde
-#' @name scales_bde
 #' @usage NULL
 #'
 #' @encoding UTF-8
@@ -69,7 +68,6 @@ scale_color_bde_d <- function(
 scale_colour_bde_d <- scale_color_bde_d
 
 #' @rdname scales_bde
-#' @name scales_bde
 #'
 #' @encoding UTF-8
 #' @export
@@ -90,7 +88,6 @@ scale_fill_bde_d <- function(
 }
 
 #' @rdname scales_bde
-#' @name scales_bde
 #'
 #' @encoding UTF-8
 #' @export
@@ -113,7 +110,6 @@ scale_color_bde_c <- function(
 }
 
 #' @rdname scales_bde
-#' @name scales_bde
 #' @usage NULL
 #'
 #' @encoding UTF-8
@@ -121,7 +117,6 @@ scale_color_bde_c <- function(
 scale_colour_bde_c <- scale_color_bde_c
 
 #' @rdname scales_bde
-#' @name scales_bde
 #'
 #' @encoding UTF-8
 #' @export
@@ -162,15 +157,15 @@ bde_scale_bde_d <- function(
 ) {
   # Validate input arguments.
   cli_abort_if_not(
-    "{.arg alpha} must be {.cls numeric} or {.val NULL}." = any(
+    "{.arg alpha} must be a {.cls numeric} vector or {.val NULL}." = any(
       is.null(alpha),
       is.numeric(alpha)
     ),
-    "{.arg alpha} must be in [0, 1]." = any(
+    "{.arg alpha} must contain values between {.val 0} and {.val 1}." = any(
       is.null(alpha),
       all(alpha >= 0 & alpha <= 1)
     ),
-    "{.arg rev} must be a {.cls logical}." = is.logical(rev),
+    "{.arg rev} must be a {.cls logical} vector." = is.logical(rev),
     .envir = .envir
   )
 
@@ -203,16 +198,16 @@ bde_scale_bde_c <- function(
 ) {
   # Validate input arguments.
   cli_abort_if_not(
-    "{.arg alpha} must be {.cls numeric} or {.cls NULL}." = any(
+    "{.arg alpha} must be a {.cls numeric} vector or {.val NULL}." = any(
       is.null(alpha),
       is.numeric(alpha)
     ),
-    "{.arg alpha} must be in [0, 1]." = any(
+    "{.arg alpha} must contain values between {.val 0} and {.val 1}." = any(
       is.null(alpha),
       all(alpha >= 0 & alpha <= 1)
     ),
-    "{.arg rev} must be a {.cls logical}." = is.logical(rev),
-    "{.arg guide} must be a {.cls character}." = is.character(guide),
+    "{.arg rev} must be a {.cls logical} vector." = is.logical(rev),
+    "{.arg guide} must be a {.cls character} vector." = is.character(guide),
     .envir = .envir
   )
 
