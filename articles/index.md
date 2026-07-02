@@ -1,18 +1,9 @@
 # Articles
 
-### Get started
+### Data access and discovery
 
-Learn the main **tidyBdE** workflows and data retrieval options.
-
-- [Get started with
-  tidyBdE](https://ropenspain.github.io/tidyBdE/articles/tidyBdE.md):
-
-  Introduction to tidyBdE.
-
-### Data discovery and formats
-
-Learn how Banco de España bulk CSV files are structured and how to use
-catalog metadata to identify time series.
+Understand Banco de España bulk CSV files and use catalog metadata to
+identify and retrieve time series.
 
 - [Banco de España bulk CSV
   files](https://ropenspain.github.io/tidyBdE/articles/csv_manual.md):

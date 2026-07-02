@@ -41,7 +41,7 @@ Because the tables in the subject-based classification are the same as
 those in the publications, only organized differently, everything
 mentioned in this manual about bulk CSV files is valid for both.
 
-## Time-series files
+## Time series files
 
 Files containing the time series for each publication table use CSV
 (comma-separated value) format. Commas separate the fields or values in
@@ -75,7 +75,7 @@ type of publication.
     "SI_1_1.2",805995,D_1KH90101,"SI_1_1.csv",...
     "SI_1_1.3",1832510,D_1KH99500_D09,"SI_1_1.csv",...
 
-**Table time-series files**
+**Table time series files**
 
 These files cover the entire sample period of every series of a table.
 There is one file for each table.
@@ -148,10 +148,10 @@ lifetime.
 
 **Nombre de la serie/Código de la serie (API series code)**
 
-This field contains the API series code used in Banco de España
-databases. The code is unique and invariable. In **tidyBdE**, pass this
-field through `series_code` to the Statistics web service (API) helpers.
-It corresponds to the API `series_list` parameter.
+This field contains the stable API series code used in Banco de España
+databases. In **tidyBdE**, it is returned as `Nombre_de_la_serie`. Pass
+this column to the `series_code` argument of the Statistics web service
+(API) functions. It corresponds to the API `series_list` parameter.
 
 **Nombre del archivo con los valores de la serie (name of the file
 containing the series values)**

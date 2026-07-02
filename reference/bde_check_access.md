@@ -1,6 +1,6 @@
 # Check access to BdE resources
 
-Check whether R can access BdE resources at
+Checks whether R can access BdE resources at
 <https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html>.
 
 ## Usage

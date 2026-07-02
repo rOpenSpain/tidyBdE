@@ -18,11 +18,12 @@ bde_tidy_palettes(
 
 - n:
 
-  Number of colors to return. Must be at least `1`.
+  The number of colors to return. Must be at least `1`.
 
 - palette:
 
-  A valid palette name.
+  A palette name: `"bde_vivid_pal"`, `"bde_rose_pal"` or
+  `"bde_qual_pal"`.
 
 - alpha:
 

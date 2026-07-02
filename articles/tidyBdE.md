@@ -7,9 +7,9 @@ bulk CSV files and the [Statistics web service
 (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
 Data are returned as [**tibble**](https://tibble.tidyverse.org/)
 objects. The package infers date, character and numeric column types
-where possible. Bulk CSV helpers identify series with stable sequential
-numbers (`Numero_secuencial`), while API helpers use
-`Nombre_de_la_serie` as the API series code.
+where possible. Bulk CSV functions use stable sequential numbers
+(`Numero_secuencial`), while Statistics web service functions use
+`Nombre_de_la_serie` API series codes.
 
 ## Search for time series
 
@@ -44,8 +44,7 @@ xr_gbp |>
 Table 1: Search results
 
 **Note:** BdE catalog metadata is currently available in Spanish only,
-so search terms must be in Spanish to retrieve results. Banco de España
-is working on an English version.
+so search terms must be in Spanish to retrieve results.
 
 After finding a time series, load the GBP/EUR exchange rate from bulk
 CSV files using its stable sequential number (`Numero_secuencial`):
@@ -139,7 +138,7 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
     caption = "Source: BdE"
   ) +
   theme_tidybde() +
-  scale_color_bde_d(palette = "bde_vivid_pal") # Use a custom package palette.
+  scale_color_bde_d(palette = "bde_vivid_pal") # Use a tidyBdE palette.
 ```
 
 ![Figure 2: Spanish economic indicators
@@ -149,7 +148,7 @@ Figure 2: Spanish economic indicators (2010-2019)
 
 ## A note on caching
 
-Create a local cache by setting the following option:
+Set the `bde_cache_dir` option to create a local cache:
 
 ``` r
 

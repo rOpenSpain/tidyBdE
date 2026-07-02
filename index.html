@@ -18,8 +18,8 @@
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Retrieve Time Series Data from Banco de España">
-<meta name="description" content="Tools for retrieving Banco de España (BdE) time series data as tibble objects from bulk CSV files and the Statistics web service (API). Bulk CSV helpers use stable BdE sequential numbers, and API helpers use API series codes. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by Banco de España.">
-<meta property="og:description" content="Tools for retrieving Banco de España (BdE) time series data as tibble objects from bulk CSV files and the Statistics web service (API). Bulk CSV helpers use stable BdE sequential numbers, and API helpers use API series codes. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by Banco de España.">
+<meta name="description" content="Tools for retrieving Banco de España (BdE) time series data as tibble objects from bulk CSV files and the Statistics web service (API). Bulk CSV functions use stable BdE sequential numbers, while API functions use API series codes. Catalog functions support discovery and local caching. Plotting helpers provide ggplot2 palettes, scales and themes. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by Banco de España.">
+<meta property="og:description" content="Tools for retrieving Banco de España (BdE) time series data as tibble objects from bulk CSV files and the Statistics web service (API). Bulk CSV functions use stable BdE sequential numbers, while API functions use API series codes. Catalog functions support discovery and local caching. Plotting helpers provide ggplot2 palettes, scales and themes. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by Banco de España.">
 <meta property="og:image" content="https://ropenspain.github.io/tidyBdE/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@dhernangomez">
@@ -55,14 +55,12 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>Data</h6></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Data guides</h6></li>
     <li><a class="dropdown-item" href="articles/csv_manual.html">Banco de España bulk CSV files</a></li>
     <li><a class="dropdown-item" href="articles/seriesindex.html">Series index</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Examples</h6></li>
     <li><a class="dropdown-item" href="articles/mainseries.html">Selected macroeconomic indicators</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="articles/index.html">More articles...</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
@@ -96,7 +94,7 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p><strong>tidyBdE</strong> is an <strong>R</strong> package that retrieves time series data from <a href="https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html" class="external-link">Banco de España</a> bulk CSV files and the <a href="https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html" class="external-link">Statistics web service (API)</a>. Data are returned as <a href="https://tibble.tidyverse.org/" class="external-link"><strong>tibble</strong></a> objects. The package infers date, character and numeric column types where possible. Bulk CSV helpers identify series with stable sequential numbers (<code>Numero_secuencial</code>), while API helpers use <code>Nombre_de_la_serie</code> as the API series code.</p>
+<p><strong>tidyBdE</strong> is an <strong>R</strong> package that retrieves time series data from <a href="https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html" class="external-link">Banco de España</a> bulk CSV files and the <a href="https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html" class="external-link">Statistics web service (API)</a>. Data are returned as <a href="https://tibble.tidyverse.org/" class="external-link"><strong>tibble</strong></a> objects. The package infers date, character and numeric column types where possible. Bulk CSV functions use stable sequential numbers (<code>Numero_secuencial</code>), while Statistics web service functions use <code>Nombre_de_la_serie</code> API series codes.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -177,7 +175,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>BdE catalog metadata is currently available in Spanish only, so search terms must be in Spanish to retrieve results. Banco de España is working on an English version.</p>
+<p>BdE catalog metadata is currently available in Spanish only, so search terms must be in Spanish to retrieve results.</p>
 </div>
 </div>
 <p>After finding a time series, you can load the GBP/EUR exchange rate from bulk CSV files using its stable sequential number (<code>Numero_secuencial</code>):</p>
@@ -254,19 +252,19 @@ Note
 <span>    caption <span class="op">=</span> <span class="st">"Source: BdE"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/theme_tidybde.html">theme_tidybde</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="reference/scales_bde.html">scale_color_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_vivid_pal"</span><span class="op">)</span> <span class="co"># Use a custom package palette.</span></span></code></pre></div>
+<span>  <span class="fu"><a href="reference/scales_bde.html">scale_color_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_vivid_pal"</span><span class="op">)</span> <span class="co"># Use a tidyBdE palette.</span></span></code></pre></div>
 <p><img src="reference/figures/README-macroseries-1.png" style="width:100.0%" alt="Spanish economic indicators (2010-2019)"></p>
 </div>
 <div class="section level3">
 <h3 id="palettes">Palettes<a class="anchor" aria-label="anchor" href="#palettes"></a>
 </h3>
-<p>Three custom palettes based on colors used by BdE in selected publications are available.</p>
+<p>Three custom palettes based on colors used in selected BdE publications are available.</p>
 <p>Apply these palettes to <strong>ggplot2</strong> plots with the scale functions provided by the package. See <code><a href="reference/scales_bde.html">help("scale_color_bde_d", package = "tidyBdE")</a></code>.</p>
 </div>
 <div class="section level3">
 <h3 id="a-note-on-caching">A note on caching<a class="anchor" aria-label="anchor" href="#a-note-on-caching"></a>
 </h3>
-<p>Create a local cache by setting the following option:</p>
+<p>Set the <code>bde_cache_dir</code> option to create a local cache:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>bde_cache_dir <span class="op">=</span> <span class="st">"./path/to/location"</span><span class="op">)</span></span></code></pre></div>
 <p>When this option is set, <strong>tidyBdE</strong> looks for cached bulk CSV files in the <code>bde_cache_dir</code> directory and loads them to speed up data retrieval.</p>
@@ -293,7 +291,7 @@ H. Herrero D (2026). <em>tidyBdE: Retrieve Time Series Data from Banco de Españ
 <span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2026</span>},</span>
 <span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="dv">6</span>.<span class="fl">1.9000</span>},</span>
 <span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>ropenspain.github.io<span class="sc">/</span>tidyBdE<span class="sc">/</span>},</span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools <span class="cf">for</span> retrieving Banco de España (BdE) time series data as tibble objects from bulk CSV files and the Statistics web <span class="fu">service</span> (API). Bulk CSV helpers use stable BdE sequential numbers, and API helpers use API series codes. Banco de España is the national central bank and, within the framework of the Single Supervisory <span class="fu">Mechanism</span> (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by Banco de España.},</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools <span class="cf">for</span> retrieving Banco de España (BdE) time series data as tibble objects from bulk CSV files and the Statistics web <span class="fu">service</span> (API). Bulk CSV functions use stable BdE sequential numbers, <span class="cf">while</span> API functions use API series codes. Catalog functions support discovery and local caching. Plotting helpers provide ggplot2 palettes, scales and themes. Banco de España is the national central bank and, within the framework of the Single Supervisory <span class="fu">Mechanism</span> (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by Banco de España.},</span>
 <span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 </div>

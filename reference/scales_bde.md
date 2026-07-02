@@ -1,8 +1,8 @@
 # BdE color scales
 
 Color scales for [ggplot2](https://CRAN.R-project.org/package=ggplot2).
-Discrete scales are named `scale_*_bde_d`, while continuous scales are
-named `scale_*_bde_c`.
+Discrete scales are named `scale_*_bde_d`; continuous scales are named
+`scale_*_bde_c`.
 
 ## Usage
 
@@ -42,7 +42,7 @@ scale_fill_bde_c(
 
 - palette:
 
-  BdE palette to apply. See
+  A BdE palette to apply. See
   [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md)
   for details.
 

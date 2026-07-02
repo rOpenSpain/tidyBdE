@@ -28,15 +28,15 @@ bde_ind_population(series_label = "Population_Spain", ...)
 
 ## Source
 
-[Time series bulk data
+[Banco de España time series bulk data
 download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
 
 ## Arguments
 
 - series_label:
 
-  Optional character string or vector of labels to assign to the
-  extracted series.
+  An optional character vector of labels to assign to the extracted
+  series.
 
 - ...:
 
@@ -45,16 +45,18 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
 
   `out_format`
 
-  :   Output format, either `"wide"` or `"long"`. See **Value** for
+  :   The output format, either `"wide"` or `"long"`. See **Value** for
       details and the **Examples** section.
 
   `parse_numeric`
 
-  :   Logical. If `TRUE`, parse columns as double values. See **Note**.
+  :   Logical. If `TRUE`, parse observation columns as double vectors.
+      See **Note**.
 
   `extract_metadata`
 
-  :   Logical. If `TRUE`, return metadata for the requested series.
+  :   Logical. If `TRUE`, return the metadata associated with the
+      requested series.
 
   `parse_dates`
 
@@ -73,7 +75,7 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
 
   `verbose`
 
-  :   Logical. If `TRUE`, display information useful for debugging.
+  :   Logical. If `TRUE`, display informative messages.
 
 ## Value
 

@@ -16,9 +16,7 @@
   explaining the structure of Banco de España bulk CSV files, catalog
   metadata and series identifiers
   ([\#64](https://github.com/rOpenSpain/tidyBdE/issues/64)).
-- New
-  [`bde_series_api()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
-  functions added
+- New Statistics web service (API) functions added
   ([\#65](https://github.com/rOpenSpain/tidyBdE/issues/65)):
   - [`bde_series_api_latest()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
     added to query the Latest Data request of the Banco de España
@@ -30,8 +28,8 @@
     metadata extraction and time range validation.
 - [`?bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md)
   has been updated, including the field `Nombre_de_la_serie` (API series
-  code), see
-  [`bde_series_api()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md).
+  code); see
+  [`?bde_series_api`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md).
 
 ## tidyBdE 0.6.1
 

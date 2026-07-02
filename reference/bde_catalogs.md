@@ -29,15 +29,15 @@ bde_catalog_search(pattern, ...)
 
 ## Source
 
-[Time series bulk data
+[Banco de España time series bulk data
 download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html).
 
 ## Arguments
 
 - catalog:
 
-  A single catalog identifier or `"ALL"` to load or update every
-  catalog. See **Details**.
+  A catalog identifier or `"ALL"` to load or update every catalog. See
+  **Details**.
 
 - parse_dates:
 
@@ -55,7 +55,7 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
 
 - verbose:
 
-  Logical. If `TRUE`, display information useful for debugging.
+  Logical. If `TRUE`, display informative messages.
 
 - pattern:
 
@@ -109,23 +109,24 @@ expressions](https://rdrr.io/r/base/regex.html) to broaden the search.
 
 ## See also
 
-[`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
-and
-[`bde_series_full_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
-for loading bulk CSV series and
-[`bde_series_api_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
-and
-[`bde_series_api_latest()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
-for retrieving series through the Statistics web service.
+- [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
+  and
+  [`bde_series_full_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
+  load bulk CSV series.
+
+- [`bde_series_api_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
+  and
+  [`bde_series_api_latest()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
+  retrieve series through the Statistics web service (API).
 
 ## Examples
 
 ``` r
 # \donttest{
 bde_catalog_load("TI", verbose = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmptkXxwt.
+#> ℹ Using temporary cache directory /tmp/RtmpHsP6mX.
 #> ℹ Downloading catalog "TI".
-#> ✔ Using cache directory /tmp/RtmptkXxwt.
+#> ✔ Using cache directory /tmp/RtmpHsP6mX.
 #> ℹ Updating 1 catalog file: "TI".
 #> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv>.
 #> ℹ Parsing date columns.
@@ -209,7 +210,7 @@ bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 #> #   Titulo_de_la_serie <chr>, Fuente <chr>, Notas <chr>
 
 bde_catalog_update("TI", verbose = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmptkXxwt.
+#> ℹ Using temporary cache directory /tmp/RtmpHsP6mX.
 #> ℹ Updating 1 catalog file: "TI".
 #> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv>.
 # }

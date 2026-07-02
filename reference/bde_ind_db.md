@@ -2,8 +2,8 @@
 
 Minimal metadata for the selected Spanish macroeconomic indicators
 available through the convenience functions in
-[tidyBdE](https://CRAN.R-project.org/package=tidyBdE). See
-[`bde_indicators()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md).
+[tidyBdE](https://CRAN.R-project.org/package=tidyBdE). See [indicator
+wrappers](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md).
 Full catalog metadata is available with
 [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md).
 
@@ -14,8 +14,8 @@ A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) of
 
 - tidyBdE_fun:
 
-  Function name. See
-  [`bde_indicators()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md).
+  Function name. See [indicator
+  wrappers](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md).
 
 - Numero_secuencial:
 
@@ -24,8 +24,8 @@ A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) of
 
 - Nombre_de_la_serie:
 
-  API series code. See
-  [`bde_series_api()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
+  API series code. See [API series
+  functions](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md).
 
 - Descripcion_de_la_serie:
 

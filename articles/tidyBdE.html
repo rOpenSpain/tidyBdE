@@ -55,14 +55,12 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>Data</h6></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Data guides</h6></li>
     <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España bulk CSV files</a></li>
     <li><a class="dropdown-item" href="../articles/seriesindex.html">Series index</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Examples</h6></li>
     <li><a class="dropdown-item" href="../articles/mainseries.html">Selected macroeconomic indicators</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -102,7 +100,7 @@
 
 
 
-    <!-- tidyBdE.qmd is generated from tidyBdE.qmd.orig. Please edit that file --><p><strong>tidyBdE</strong> is an <strong>R</strong> package that retrieves time series data from <a href="https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html" class="external-link">Banco de España</a> bulk CSV files and the <a href="https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html" class="external-link">Statistics web service (API)</a>. Data are returned as <a href="https://tibble.tidyverse.org/" class="external-link"><strong>tibble</strong></a> objects. The package infers date, character and numeric column types where possible. Bulk CSV helpers identify series with stable sequential numbers (<code>Numero_secuencial</code>), while API helpers use <code>Nombre_de_la_serie</code> as the API series code.</p>
+    <!-- tidyBdE.qmd is generated from tidyBdE.qmd.orig. Please edit that file --><p><strong>tidyBdE</strong> is an <strong>R</strong> package that retrieves time series data from <a href="https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html" class="external-link">Banco de España</a> bulk CSV files and the <a href="https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html" class="external-link">Statistics web service (API)</a>. Data are returned as <a href="https://tibble.tidyverse.org/" class="external-link"><strong>tibble</strong></a> objects. The package infers date, character and numeric column types where possible. Bulk CSV functions use stable sequential numbers (<code>Numero_secuencial</code>), while Statistics web service functions use <code>Nombre_de_la_serie</code> API series codes.</p>
 <section class="level2"><h2 id="search-for-time-series">Search for time series<a class="anchor" aria-label="anchor" href="#search-for-time-series"></a>
 </h2>
 <p>Banco de España (<strong>BdE</strong>) publishes numerous time series produced by the institution or compiled from other sources, such as <a href="https://ec.europa.eu/eurostat" class="external-link">Eurostat</a> or <a href="https://www.ine.es/" class="external-link">INE</a>.</p>
@@ -142,7 +140,7 @@
 Table 1: Search results
 </figcaption></figure>
 </div>
-<p><strong>Note:</strong> BdE catalog metadata is currently available in Spanish only, so search terms must be in Spanish to retrieve results. Banco de España is working on an English version.</p>
+<p><strong>Note:</strong> BdE catalog metadata is currently available in Spanish only, so search terms must be in Spanish to retrieve results.</p>
 <p>After finding a time series, load the GBP/EUR exchange rate from bulk CSV files using its stable sequential number (<code>Numero_secuencial</code>):</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">seq_number</span> <span class="op">&lt;-</span> <span class="va">xr_gbp</span> <span class="op">|&gt;</span></span>
@@ -222,7 +220,7 @@ Figure 1: EUR/GBP exchange rate (2010-2020)
 <span>    caption <span class="op">=</span> <span class="st">"Source: BdE"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_tidybde.html">theme_tidybde</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/scales_bde.html">scale_color_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_vivid_pal"</span><span class="op">)</span> <span class="co"># Use a custom package palette.</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/scales_bde.html">scale_color_bde_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"bde_vivid_pal"</span><span class="op">)</span> <span class="co"># Use a tidyBdE palette.</span></span></code></pre></div>
 <div class="figure">
 <img src="./macroseries-1.png" alt="Figure 2: Spanish economic indicators (2010-2019)" width="100%"><p class="caption">
 Figure 2: Spanish economic indicators (2010-2019)
@@ -230,7 +228,7 @@ Figure 2: Spanish economic indicators (2010-2019)
 </div>
 </section><section class="level2"><h2 id="a-note-on-caching">A note on caching<a class="anchor" aria-label="anchor" href="#a-note-on-caching"></a>
 </h2>
-<p>Create a local cache by setting the following option:</p>
+<p>Set the <code>bde_cache_dir</code> option to create a local cache:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>bde_cache_dir <span class="op">=</span> <span class="st">"./path/to/location"</span><span class="op">)</span></span></code></pre></div>
 <p>When this option is set, <strong>tidyBdE</strong> looks for cached bulk CSV files in the <code>bde_cache_dir</code> directory and loads them to speed up data retrieval.</p>

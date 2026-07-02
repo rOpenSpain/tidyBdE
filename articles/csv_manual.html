@@ -55,14 +55,12 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>Data</h6></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Data guides</h6></li>
     <li><a class="dropdown-item" href="../articles/csv_manual.html">Banco de España bulk CSV files</a></li>
     <li><a class="dropdown-item" href="../articles/seriesindex.html">Series index</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Examples</h6></li>
     <li><a class="dropdown-item" href="../articles/mainseries.html">Selected macroeconomic indicators</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -116,7 +114,7 @@
 <p>Banco de España organizes statistical charts and tables on its website in two ways: by statistical publication, which is the approach covered here, or by subject, which is the main organization used in the Statistics section. The tables and download URLs are the same in both cases.</p>
 <p>This document focuses on publications and is organized as follows. The second section explains the two types of files released, their format and their content. The third section provides guidance for users who want to process the information with a spreadsheet. The fourth section provides guidance for institutions that want to develop software for automatically uploading the information to a database.</p>
 <p>Because the tables in the subject-based classification are the same as those in the publications, only organized differently, everything mentioned in this manual about bulk CSV files is valid for both.</p>
-</section><section class="level2"><h2 id="time-series-files">Time-series files<a class="anchor" aria-label="anchor" href="#time-series-files"></a>
+</section><section class="level2"><h2 id="time-series-files">Time series files<a class="anchor" aria-label="anchor" href="#time-series-files"></a>
 </h2>
 <p>Files containing the time series for each publication table use CSV (comma-separated value) format. Commas separate the fields or values in each line or record.</p>
 <p>The decimal separator is the period <code>"."</code> and the thousands separator is a blank space.</p>
@@ -135,7 +133,7 @@ observaciones","Título de la serie","Fuente","Notas"
 "SI_1_1.1",3778094,DSPC102016VP30000_ES14A_TSC.T,"SI_1_1.csv",...
 "SI_1_1.2",805995,D_1KH90101,"SI_1_1.csv",...
 "SI_1_1.3",1832510,D_1KH99500_D09,"SI_1_1.csv",...</code></pre>
-<p><strong>Table time-series files</strong></p>
+<p><strong>Table time series files</strong></p>
 <p>These files cover the entire sample period of every series of a table. There is one file for each table.</p>
 <p>These files are <strong>updated daily</strong> whenever data for the corresponding table change.</p>
 <p><strong>Example:</strong> Records of a table file</p>
@@ -185,7 +183,7 @@ observaciones","Título de la serie","Fuente","Notas"
 <p><strong>Número secuencial (sequential number)</strong></p>
 <p>Series aliases are positional and may change when tables are reorganized. To ensure that a series can always be identified, it is assigned a sequential number that remains unchanged throughout its lifetime.</p>
 <p><strong>Nombre de la serie/Código de la serie (API series code)</strong></p>
-<p>This field contains the API series code used in Banco de España databases. The code is unique and invariable. In <strong>tidyBdE</strong>, pass this field through <code>series_code</code> to the Statistics web service (API) helpers. It corresponds to the API <code>series_list</code> parameter.</p>
+<p>This field contains the stable API series code used in Banco de España databases. In <strong>tidyBdE</strong>, it is returned as <code>Nombre_de_la_serie</code>. Pass this column to the <code>series_code</code> argument of the Statistics web service (API) functions. It corresponds to the API <code>series_list</code> parameter.</p>
 <p><strong>Nombre del archivo con los valores de la serie (name of the file containing the series values)</strong></p>
 <p>This field gives the name of the table file that contains the series observations.</p>
 <p><strong>Descripción de la serie (series description)</strong></p>

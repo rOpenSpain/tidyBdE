@@ -5,6 +5,24 @@ Parse strings representing dates with
 tailored to date formats used in this package and may not parse other
 datasets. See **Examples** for supported formats.
 
+## Usage
+
+``` r
+bde_parse_dates(dates_to_parse)
+```
+
+## Arguments
+
+- dates_to_parse:
+
+  A character vector of date strings to parse.
+
+## Value
+
+A vector of [`Date`](https://rdrr.io/r/base/as.Date.html) values.
+
+## Details
+
 ### Date formats
 
 |  |  |  |
@@ -20,26 +38,15 @@ See
 [`vignette("csv_manual", package = "tidyBdE")`](https://ropenspain.github.io/tidyBdE/articles/csv_manual.md)
 for details.
 
-## Usage
-
-``` r
-bde_parse_dates(dates_to_parse)
-```
-
-## Arguments
-
-- dates_to_parse:
-
-  Character vector of date strings to parse.
-
-## Value
-
-A vector of [`Date`](https://rdrr.io/r/base/as.Date.html) values.
-
 ## See also
 
-[`as.Date()`](https://rdrr.io/r/base/as.Date.html) for base R date
-conversion.
+- [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
+  and
+  [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
+  use this parser.
+
+- [`as.Date()`](https://rdrr.io/r/base/as.Date.html) provides base R
+  date conversion.
 
 ## Examples
 
