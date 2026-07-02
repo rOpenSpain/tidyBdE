@@ -42,7 +42,7 @@ bde_tidy_palettes <- function(
   rev = FALSE
 ) {
   # Validate input arguments.
-  cli_abort_if_not(
+  bde_hlp_abort_if_not(
     "{.arg n} must be a {.cls numeric} vector." = is.numeric(n),
     "{.arg n} must be greater than or equal to {.val 1}." = n >= 1,
     "{.arg alpha} must be a {.cls numeric} vector or {.val NULL}." = any(

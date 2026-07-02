@@ -126,7 +126,7 @@ bde_hlp_indicator <- function(
   .envir = parent.frame()
 ) {
   # Validate input arguments.
-  cli_abort_if_not(
+  bde_hlp_abort_if_not(
     "{.arg series_label} must be a {.cls character} vector." = is.character(
       series_label
     ),

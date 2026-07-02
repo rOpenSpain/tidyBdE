@@ -113,7 +113,7 @@ bde_catalog_load <- function(
   catalog <- match_arg_pretty(catalog)
   # Validate input arguments.
   valid_catalogs <- c("BE", "SI", "TC", "TI", "PB", "ALL")
-  cli_abort_if_not(
+  bde_hlp_abort_if_not(
     "{.arg cache_dir} must be a {.cls character} vector or {.val NULL}." = any(
       is.null(cache_dir),
       is.character(cache_dir)
@@ -260,7 +260,7 @@ bde_catalog_update <- function(
   catalog <- match_arg_pretty(catalog)
   # Validate input arguments.
   valid_catalogs <- c("BE", "SI", "TC", "TI", "PB", "ALL")
-  cli_abort_if_not(
+  bde_hlp_abort_if_not(
     "{.arg cache_dir} must be a {.cls character} vector or {.val NULL}." = any(
       is.null(cache_dir),
       is.character(cache_dir)

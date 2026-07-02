@@ -336,24 +336,57 @@ match_arg_pretty <- function(arg, choices) {
   cli::cli_abort(c(msg, i = hint), call = NULL)
 }
 
-# https://github.com/r-lib/cli/issues/672
-# Thanks to https://github.com/wurli
-cli_abort_if_not <- function(
+#' Abort when a condition is not true
+#'
+#' @param ... Named logical conditions. Each name is the error message emitted
+#'   when its condition is not true.
+#' @param .call The call to display in the error message.
+#' @param .envir The environment used to evaluate cli expressions.
+#' @param .frame The throwing context passed to [cli::cli_abort()].
+#'
+#' @returns
+#' `NULL`, invisibly, when every condition is true.
+#'
+#' @noRd
+bde_hlp_abort_if_not <- function(
   ...,
   .call = .envir,
   .envir = parent.frame(),
   .frame = .envir
 ) {
-  for (i in seq_len(...length())) {
-    condition <- ...elt(i)
-    if (length(condition) == 0L || !isTRUE(all(condition))) {
-      cli::cli_abort(
-        ...names()[i],
-        .call = .call,
-        .envir = .envir,
-        .frame = .frame
-      )
-    }
+  checks <- list(...)
+  messages <- names(checks)
+
+  if (length(checks) == 0L) {
+    return(invisible(NULL))
   }
+
+  if (is.null(messages) || !all(nzchar(messages))) {
+    cli::cli_abort(
+      "Every condition supplied to {.fn gb_abort_if_not} must be named.",
+      call = .call,
+      .envir = .envir,
+      .frame = .frame
+    )
+  }
+
+  passed <- vapply(
+    checks,
+    function(condition) {
+      length(condition) > 0L && isTRUE(all(condition))
+    },
+    logical(1)
+  )
+
+  failed <- which(!passed)
+  if (length(failed) > 0L) {
+    cli::cli_abort(
+      messages[[failed[[1L]]]],
+      call = .call,
+      .envir = .envir,
+      .frame = .frame
+    )
+  }
+
   invisible(NULL)
 }

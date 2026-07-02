@@ -87,7 +87,15 @@
       Error:
       ! `year` must be "20", not "1" or "2".
 
-# cli_abort_if_not
+# bde_hlp_abort_if_not
+
+    Code
+      bde_hlp_abort_if_not(isFALSE(TRUE))
+    Condition
+      Error:
+      ! Every condition supplied to `gb_abort_if_not()` must be named.
+
+---
 
     Code
       bde_catalog_load(cache_dir = 1)

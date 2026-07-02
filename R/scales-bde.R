@@ -156,7 +156,7 @@ bde_scale_bde_d <- function(
   .envir = parent.frame()
 ) {
   # Validate input arguments.
-  cli_abort_if_not(
+  bde_hlp_abort_if_not(
     "{.arg alpha} must be a {.cls numeric} vector or {.val NULL}." = any(
       is.null(alpha),
       is.numeric(alpha)
@@ -197,7 +197,7 @@ bde_scale_bde_c <- function(
   .envir = parent.frame()
 ) {
   # Validate input arguments.
-  cli_abort_if_not(
+  bde_hlp_abort_if_not(
     "{.arg alpha} must be a {.cls numeric} vector or {.val NULL}." = any(
       is.null(alpha),
       is.numeric(alpha)

@@ -202,7 +202,7 @@ bde_series_api_load <- function(
   if (missing(series_code)) {
     cli::cli_abort("{.arg series_code} cannot be missing.")
   }
-  cli_abort_if_not(
+  bde_hlp_abort_if_not(
     "{.arg verbose} must be a {.cls logical} vector." = is.logical(verbose),
     "{.arg extract_metadata} must be a {.cls logical} vector." = is.logical(
       extract_metadata

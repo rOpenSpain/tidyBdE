@@ -305,7 +305,7 @@ bde_series_full_load <- function(
   verbose = FALSE,
   extract_metadata = FALSE
 ) {
-  cli_abort_if_not(
+  bde_hlp_abort_if_not(
     "{.arg cache_dir} must be a {.cls character} vector or {.val NULL}." = any(
       is.null(cache_dir),
       is.character(cache_dir)

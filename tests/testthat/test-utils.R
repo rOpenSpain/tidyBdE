@@ -181,8 +181,12 @@ test_that("Argument matching reports invalid values", {
 })
 
 
-test_that("cli_abort_if_not", {
+test_that("bde_hlp_abort_if_not", {
   skip_on_cran()
+
+  expect_invisible(bde_hlp_abort_if_not())
+  expect_snapshot(error = TRUE, bde_hlp_abort_if_not(isFALSE(TRUE)))
+  expect_invisible(bde_hlp_abort_if_not("A" = is.character("a")))
 
   expect_snapshot(error = TRUE, bde_catalog_load(cache_dir = 1))
   expect_snapshot(error = TRUE, bde_catalog_load(verbose = 1))
