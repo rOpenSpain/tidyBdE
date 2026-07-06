@@ -262,7 +262,7 @@ A BibTeX entry for LaTeX users is:
       doi = {10.32614/CRAN.package.tidyBdE},
       author = {Diego {H. Herrero}},
       year = {2026},
-      version = {0.6.1.9000},
+      version = {0.7.0},
       url = {https://ropenspain.github.io/tidyBdE/},
       abstract = {Tools for retrieving Banco de España (BdE) time series data as tibble objects from bulk CSV files and the Statistics web service (API). Bulk CSV functions use stable BdE sequential numbers, while API functions use API series codes. Catalog functions support discovery and local caching. Plotting helpers provide ggplot2 palettes, scales and themes. Banco de España is the national central bank and, within the framework of the Single Supervisory Mechanism (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by Banco de España.},
     }

@@ -8,7 +8,7 @@ message: 'To cite package "tidyBdE" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'tidyBdE: Retrieve Time Series Data from ''Banco de España'''
-version: 0.6.1.9000
+version: 0.7.0
 doi: 10.32614/CRAN.package.tidyBdE
 identifiers:
 - type: doi
@@ -36,7 +36,7 @@ preferred-citation:
     orcid: https://orcid.org/0000-0001-8457-4658
   doi: 10.32614/CRAN.package.tidyBdE
   year: '2026'
-  version: 0.6.1.9000
+  version: 0.7.0
   url: https://ropenspain.github.io/tidyBdE/
   abstract: Tools for retrieving Banco de España (BdE) time series data as tibble
     objects from bulk CSV files and the Statistics web service (API). Bulk CSV functions
