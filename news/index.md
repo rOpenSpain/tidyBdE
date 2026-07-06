@@ -2,6 +2,8 @@
 
 ## tidyBdE 0.7.0
 
+CRAN release: 2026-07-06
+
 - Internal code was refactored with AI assistance to reduce duplication
   in indicator wrappers and **ggplot2** scale helpers.
 - Messages and package errors now use **cli**, with AI-assisted wording
