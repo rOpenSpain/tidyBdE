@@ -29,7 +29,7 @@ details of one or more complete series and their metadata."><meta property="og:i
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyBdE logo" height="34" width="34" class="d-inline-block me-1">tidyBdE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -211,9 +211,9 @@ find both identifiers.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ codFrecuencia    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "D"<span style="color: #949494;">, </span>"D"<span style="color: #949494;">, </span>"D"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ decimales        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 4<span style="color: #949494;">, </span>4<span style="color: #949494;">, </span>4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ simbolo          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "USD"<span style="color: #949494;">, </span>"JPY"<span style="color: #949494;">, </span>"CHF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ tendencia        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "-"<span style="color: #949494;">, </span>"+"<span style="color: #949494;">, </span>"+"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ fechaValor       <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2026-07-01<span style="color: #949494;">, </span>2026-07-01<span style="color: #949494;">, </span>2026-07-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ valor            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1.1383<span style="color: #949494;">, </span>185.2100<span style="color: #949494;">, </span>0.9234</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ tendencia        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "+"<span style="color: #949494;">, </span>"+"<span style="color: #949494;">, </span>"-"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ fechaValor       <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2026-07-03<span style="color: #949494;">, </span>2026-07-03<span style="color: #949494;">, </span>2026-07-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ valor            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1.1448<span style="color: #949494;">, </span>184.4800<span style="color: #949494;">, </span>0.9190</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Extract the latest months.</span></span></span>
 <span class="r-in"><span><span class="va">xr</span> <span class="op">|&gt;</span></span></span>
@@ -223,8 +223,8 @@ find both identifiers.</p>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 262</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ Date            <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2026-07-01<span style="color: #949494;">, </span>2026-06-30<span style="color: #949494;">, </span>2026-06-29<span style="color: #949494;">, </span>2026-06-26<span style="color: #949494;">, </span>2026-…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ DTCCBCEUSDEUR.B <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1.1383<span style="color: #949494;">, </span>1.1394<span style="color: #949494;">, </span>1.1406<span style="color: #949494;">, </span>1.1401<span style="color: #949494;">, </span>1.1342<span style="color: #949494;">, </span>1.1340<span style="color: #949494;">, </span>1.1392…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ Date            <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2026-07-03<span style="color: #949494;">, </span>2026-07-02<span style="color: #949494;">, </span>2026-07-01<span style="color: #949494;">, </span>2026-06-30<span style="color: #949494;">, </span>2026-…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ DTCCBCEUSDEUR.B <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1.1448<span style="color: #949494;">, </span>1.1399<span style="color: #949494;">, </span>1.1383<span style="color: #949494;">, </span>1.1394<span style="color: #949494;">, </span>1.1406<span style="color: #949494;">, </span>1.1401<span style="color: #949494;">, </span>1.1342…</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Extract metadata.</span></span></span>
 <span class="r-in"><span><span class="va">xr</span> <span class="op">|&gt;</span></span></span>
@@ -244,14 +244,14 @@ find both identifiers.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ decimales                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ simbolo                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "USD"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ fechaInicio              <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 1999-01-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ fechaFin                 <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2026-07-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ fechaFin                 <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2026-07-03</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ Name                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Exchange rate. US dollars per euro (USD/EUR)…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ Description              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Currency exchange rates. European Central Ba…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ Units                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Dólares de Estados Unidos por Euro"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ Decimals                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "4"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ `Number of observations` <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "7.173"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ `First value`            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "[04/01/1999] 1.1383 USD"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ `Last value`             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "[01/07/2026] 1.1383 USD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ `Number of observations` <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "7.175"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ `First value`            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "[04/01/1999] 1.1448 USD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ `Last value`             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "[03/07/2026] 1.1448 USD"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ `Min value`              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "[26/10/2000] 0.8252 USD"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ `Max value`              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "[15/07/2008] 1.5990 USD"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ Source                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "BANCO CENTRAL EUROPEO"</span>

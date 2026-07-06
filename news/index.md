@@ -1,6 +1,6 @@
 # Changelog
 
-## tidyBdE (development version)
+## tidyBdE 0.7.0
 
 - Internal code was refactored with AI assistance to reduce duplication
   in indicator wrappers and **ggplot2** scale helpers.
