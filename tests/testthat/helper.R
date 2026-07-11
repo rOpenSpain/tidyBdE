@@ -8,7 +8,9 @@ skip_if_bde_offline <- function() {
 }
 
 local_bde_cache <- function() {
-  withr::local_tempdir()
+  cache_dir <- withr::local_tempdir()
+  withr::local_options(bde_cache_dir = cache_dir)
+  cache_dir
 }
 
 write_test_catalog <- function(cache_dir, catalog = "TC") {
@@ -69,9 +71,11 @@ write_test_catalog <- function(cache_dir, catalog = "TC") {
 }
 
 write_test_series <- function(cache_dir, series_csv = "tc_1_1.csv") {
-  family_dir <- file.path(cache_dir, toupper(substr(series_csv, 1, 2)))
-  dir.create(family_dir, recursive = TRUE, showWarnings = FALSE)
-  series_file <- file.path(family_dir, tolower(series_csv))
+  family_dirs <- unique(file.path(
+    cache_dir,
+    c(substr(series_csv, 1, 2), toupper(substr(series_csv, 1, 2)))
+  ))
+  series_files <- file.path(family_dirs, tolower(series_csv))
   rows <- c(
     "Meta,A,B",
     "Meta,A,B",
@@ -84,8 +88,11 @@ write_test_series <- function(cache_dir, series_csv = "tc_1_1.csv") {
     "FUENTE,BdE,BdE",
     "NOTAS,Note A,Note B"
   )
-  writeLines(rows, series_file, useBytes = TRUE)
-  series_file
+  for (series_file in series_files) {
+    dir.create(dirname(series_file), recursive = TRUE, showWarnings = FALSE)
+    writeLines(rows, series_file, useBytes = TRUE)
+  }
+  series_files[[1]]
 }
 
 mock_catalog <- function() {
@@ -102,8 +109,14 @@ mock_catalog <- function() {
 }
 
 scrub_test_paths <- function(lines) {
-  gsub(
+  lines <- gsub(
     "C:[^']*(Rtmp|file)[^']*",
+    "<tempdir>",
+    lines,
+    perl = TRUE
+  )
+  gsub(
+    "(/private/var|/tmp)[^']*(Rtmp|file)[^']*",
     "<tempdir>",
     lines,
     perl = TRUE
