@@ -21,8 +21,11 @@ bde_check_access <- function() {
   }
 
   url <- bde_check_url()
+  tmp <- tempfile()
+  on.exit(unlink(tmp), add = TRUE)
+
   access <- tryCatch(
-    download.file(url, destfile = tempfile(), quiet = TRUE, mode = "wb"),
+    download.file(url, destfile = tmp, quiet = TRUE, mode = "wb"),
     warning = function(e) {
       FALSE
     }

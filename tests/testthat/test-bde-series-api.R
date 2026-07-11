@@ -24,8 +24,10 @@ test_that("Series API load checks inputs", {
 
 test_that("Series API load parses list results", {
   queried_url <- NULL
+  downloaded_file <- NULL
   local_mocked_bindings(bde_hlp_download = function(url, local_file, verbose) {
     queried_url <<- url
+    downloaded_file <<- local_file
     if (grepl("favoritas", url, fixed = TRUE)) {
       writeLines(
         paste0(
@@ -76,6 +78,7 @@ test_that("Series API load parses list results", {
   expect_identical(tb$D_TEST, c(2.2, 1.1))
   expect_match(queried_url, "listaSeries")
   expect_match(queried_url, "rango=30M")
+  expect_false(file.exists(downloaded_file))
 })
 
 test_that("Series API load validates time range by frequency", {

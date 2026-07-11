@@ -134,9 +134,9 @@ bde_series_api_latest <- function(
 
   # Try download.
   tmpjson <- tempfile("bdeapi_", fileext = ".json")
+  on.exit(unlink(tmpjson), add = TRUE)
   result <- bde_hlp_download(base_url, tmpjson, verbose)
   if (isFALSE(result)) {
-    unlink(tmpjson)
     s <- bde_hlp_return_null("Returning an empty {.cls tbl_df}.")
     return(s)
   }
@@ -272,9 +272,9 @@ bde_series_api_load <- function(
 
   # Try download.
   tmpjson <- tempfile("bdeapi_", fileext = ".json")
+  on.exit(unlink(tmpjson), add = TRUE)
   result <- bde_hlp_download(base_url, tmpjson, verbose)
   if (isFALSE(result)) {
-    unlink(tmpjson)
     s <- bde_hlp_return_null("Returning an empty {.cls tbl_df}.")
     return(s)
   }

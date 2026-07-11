@@ -24,3 +24,17 @@ test_that("Check url access handles unreachable resources", {
   })
   expect_false(bde_check_access())
 })
+
+test_that("Check url access cleans up temporary downloads", {
+  withr::local_envvar(NOT_CRAN = "true")
+  downloaded_file <- NULL
+
+  local_mocked_bindings(download.file = function(url, destfile, ...) {
+    downloaded_file <<- destfile
+    writeLines("ok", destfile)
+    0
+  })
+
+  expect_true(bde_check_access())
+  expect_false(file.exists(downloaded_file))
+})

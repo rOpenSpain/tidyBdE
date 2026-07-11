@@ -10,7 +10,16 @@ skip_if_bde_offline <- function() {
 local_bde_cache <- function() {
   cache_dir <- withr::local_tempdir()
   withr::local_options(bde_cache_dir = cache_dir)
+  local_test_paths(cache_dir)
   cache_dir
+}
+
+local_test_paths <- function(...) {
+  paths <- unlist(list(...), use.names = FALSE)
+  paths <- paths[!is.na(paths) & nzchar(paths)]
+  current_paths <- getOption("tidyBdE_test_paths", character())
+  withr::local_options(tidyBdE_test_paths = unique(c(current_paths, paths)))
+  invisible(paths)
 }
 
 write_test_catalog <- function(cache_dir, catalog = "TC") {
@@ -108,17 +117,61 @@ mock_catalog <- function() {
   )
 }
 
-scrub_test_paths <- function(lines) {
+scrub_test_paths <- function(
+  lines,
+  paths = getOption(
+    "tidyBdE_test_paths",
+    character()
+  )
+) {
+  paths <- unique(c(paths, tempdir()))
+  paths <- paths[!is.na(paths) & nzchar(paths)]
+
+  path_variants <- unique(unlist(lapply(paths, path_test_variants)))
+  path_variants <- path_variants[nzchar(path_variants)]
+  path_variants <- path_variants[order(nchar(path_variants), decreasing = TRUE)]
+
+  for (path in path_variants) {
+    escaped_path <- escape_regex(path)
+    lines <- gsub(
+      paste0("'", escaped_path, "[^']*'"),
+      "'<tempdir>'",
+      lines,
+      perl = TRUE
+    )
+    lines <- gsub(
+      paste0('"', escaped_path, '[^"]*"'),
+      '"<tempdir>"',
+      lines,
+      perl = TRUE
+    )
+    lines <- gsub(path, "<tempdir>", lines, fixed = TRUE)
+  }
+
   lines <- gsub(
-    "C:[^']*(Rtmp|file)[^']*",
-    "<tempdir>",
+    "('[^']*(Rtmp|file)[^']*')",
+    "'<tempdir>'",
     lines,
     perl = TRUE
   )
   gsub(
-    "(/private/var|/tmp)[^']*(Rtmp|file)[^']*",
-    "<tempdir>",
+    '("[^"]*(Rtmp|file)[^"]*")',
+    '"<tempdir>"',
     lines,
     perl = TRUE
   )
+}
+
+path_test_variants <- function(path) {
+  normalized <- normalizePath(path, winslash = "/", mustWork = FALSE)
+  unique(c(
+    path,
+    normalized,
+    gsub("/", "\\\\", normalized, fixed = TRUE),
+    gsub("\\\\", "/", path)
+  ))
+}
+
+escape_regex <- function(x) {
+  gsub("([][{}()+*^$|\\\\?.])", "\\\\\\1", x, perl = TRUE)
 }
