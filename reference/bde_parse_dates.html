@@ -112,7 +112,7 @@ to date formats used in this package and may not parse other datasets. See
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">parsed_ok</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Date"</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>raw <span class="op">=</span> <span class="va">would_parse</span>, parsed <span class="op">=</span> <span class="va">parsed_ok</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>raw <span class="op">=</span> <span class="va">would_parse</span>, parsed <span class="op">=</span> <span class="va">parsed_ok</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   raw         parsed    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>    </span>
@@ -134,7 +134,7 @@ to date formats used in this package and may not parse other datasets. See
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">parsed_fail</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Date"</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>raw <span class="op">=</span> <span class="va">wont_parse</span>, parsed <span class="op">=</span> <span class="va">parsed_fail</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>raw <span class="op">=</span> <span class="va">wont_parse</span>, parsed <span class="op">=</span> <span class="va">parsed_fail</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   raw         parsed   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>   </span>

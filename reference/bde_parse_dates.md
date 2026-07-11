@@ -62,7 +62,7 @@ parsed_ok <- bde_parse_dates(would_parse)
 class(parsed_ok)
 #> [1] "Date"
 
-tibble::tibble(raw = would_parse, parsed = parsed_ok)
+dplyr::tibble(raw = would_parse, parsed = parsed_ok)
 #> # A tibble: 8 × 2
 #>   raw         parsed    
 #>   <chr>       <date>    
@@ -84,7 +84,7 @@ parsed_fail <- bde_parse_dates(wont_parse)
 class(parsed_fail)
 #> [1] "Date"
 
-tibble::tibble(raw = wont_parse, parsed = parsed_fail)
+dplyr::tibble(raw = wont_parse, parsed = parsed_fail)
 #> # A tibble: 4 × 2
 #>   raw         parsed   
 #>   <chr>       <date>   

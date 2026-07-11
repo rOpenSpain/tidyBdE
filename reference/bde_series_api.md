@@ -76,14 +76,14 @@ bde_series_api_load(
 ## Value
 
 `bde_series_api_latest()` returns a
-[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) with
-the latest published observation for each valid series. It includes
-fields returned by the Latest Data request such as `serie`,
-`descripcionCorta`, `codFrecuencia`, `decimales`, `simbolo`,
-`tendencia`, `fechaValor` and `valor`.
+[tibble](https://tibble.tidyverse.org/reference/tibble.html) with the
+latest published observation for each valid series. It includes fields
+returned by the Latest Data request such as `serie`, `descripcionCorta`,
+`codFrecuencia`, `decimales`, `simbolo`, `tendencia`, `fechaValor` and
+`valor`.
 
 `bde_series_api_load()` returns a
-[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html). When
+[tibble](https://tibble.tidyverse.org/reference/tibble.html). When
 `extract_metadata = FALSE`, API dates are parsed as
 [`Date`](https://rdrr.io/r/base/as.Date.html) values and observations
 are returned in wide or long format according to `out_format`. When
@@ -161,9 +161,9 @@ xr |>
 #> $ codFrecuencia    <chr> "D", "D", "D"
 #> $ decimales        <int> 4, 4, 4
 #> $ simbolo          <chr> "USD", "JPY", "CHF"
-#> $ tendencia        <chr> "+", "-", "+"
-#> $ fechaValor       <date> 2026-07-07, 2026-07-07, 2026-07-07
-#> $ valor            <dbl> 1.1433, 185.0900, 0.9218
+#> $ tendencia        <chr> "+", "+", "+"
+#> $ fechaValor       <date> 2026-07-09, 2026-07-09, 2026-07-09
+#> $ valor            <dbl> 1.1435, 185.7200, 0.9227
 
 # Extract the latest months.
 xr |>
@@ -173,8 +173,8 @@ xr |>
   glimpse()
 #> Rows: 262
 #> Columns: 2
-#> $ Date            <date> 2026-07-07, 2026-07-06, 2026-07-03, 2026-07-02, 2026-…
-#> $ DTCCBCEUSDEUR.B <dbl> 1.1433, 1.1415, 1.1448, 1.1399, 1.1383, 1.1394, 1.1406…
+#> $ Date            <date> 2026-07-09, 2026-07-08, 2026-07-07, 2026-07-06, 2026-…
+#> $ DTCCBCEUSDEUR.B <dbl> 1.1435, 1.1404, 1.1433, 1.1415, 1.1448, 1.1399, 1.1383…
 
 # Extract metadata.
 xr |>
@@ -194,14 +194,14 @@ xr |>
 #> $ decimales                <int> 4
 #> $ simbolo                  <chr> "USD"
 #> $ fechaInicio              <date> 1999-01-04
-#> $ fechaFin                 <date> 2026-07-07
+#> $ fechaFin                 <date> 2026-07-09
 #> $ Name                     <chr> "Exchange rate. US dollars per euro (USD/EUR)…
 #> $ Description              <chr> "Currency exchange rates. European Central Ba…
 #> $ Units                    <chr> "Dólares de Estados Unidos por Euro"
 #> $ Decimals                 <chr> "4"
-#> $ `Number of observations` <chr> "7.177"
-#> $ `First value`            <chr> "[04/01/1999] 1.1433 USD"
-#> $ `Last value`             <chr> "[07/07/2026] 1.1433 USD"
+#> $ `Number of observations` <chr> "7.179"
+#> $ `First value`            <chr> "[04/01/1999] 1.1435 USD"
+#> $ `Last value`             <chr> "[09/07/2026] 1.1435 USD"
 #> $ `Min value`              <chr> "[26/10/2000] 0.8252 USD"
 #> $ `Max value`              <chr> "[15/07/2008] 1.5990 USD"
 #> $ Source                   <chr> "BANCO CENTRAL EUROPEO"

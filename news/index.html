@@ -56,7 +56,8 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.0" id="tidybde-070">tidyBdE 0.7.0<a class="anchor" aria-label="anchor" href="#tidybde-070"></a></h2><p class="text-muted">CRAN release: 2026-07-06</p>
-<ul><li>Internal code was refactored with AI assistance to reduce duplication in indicator wrappers and <strong>ggplot2</strong> scale helpers.</li>
+<ul><li>The package no longer imports <strong>tibble</strong> directly; tibble return types continue to be provided through <strong>dplyr</strong>.</li>
+<li>Internal code was refactored with AI assistance to reduce duplication in indicator wrappers and <strong>ggplot2</strong> scale helpers.</li>
 <li>Messages and package errors now use <strong>cli</strong>, with AI-assisted wording updates and without the former <code>tidyBdE&gt;</code> prefix.</li>
 <li>
 <strong>roxygen2</strong> documentation was reviewed with AI assistance and tag order was made consistent across source files.</li>

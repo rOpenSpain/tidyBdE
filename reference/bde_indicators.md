@@ -79,8 +79,8 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
 
 ## Value
 
-A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
-with the requested indicator series.
+A [tibble](https://tibble.tidyverse.org/reference/tibble.html) with the
+requested indicator series.
 
 ## Details
 
