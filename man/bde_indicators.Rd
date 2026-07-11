@@ -59,7 +59,7 @@ with \code{options(bde_cache_dir = "path/to/dir")}.}
   }}
 }
 \value{
-A \link[tibble:tbl_df]{tibble} with the requested indicator series.
+A \link[dplyr:tibble]{tibble} with the requested indicator series.
 }
 \description{
 Retrieve selected Spanish macroeconomic indicators. Metadata is available in

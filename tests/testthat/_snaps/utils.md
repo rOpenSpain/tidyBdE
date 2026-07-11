@@ -1,19 +1,18 @@
 # Errors on download
 
     Code
-      a <- bde_hlp_download("https://www.invented_test_url.com", tmp, TRUE)
+      a <- bde_hlp_download("https://example.invalid/file.csv", tmp, TRUE)
     Message
-      i Downloading file from <https://www.invented_test_url.com>.
+      i Downloading file from <https://example.invalid/file.csv>.
       ! Download failed; trying again.
-      ! URL <https://www.invented_test_url.com> is not reachable. If this looks like a bug, please open an issue at <https://github.com/rOpenSpain/tidyBdE/issues>.
+      ! URL <https://example.invalid/file.csv> is not reachable. If this looks like a bug, please open an issue at <https://github.com/rOpenSpain/tidyBdE/issues>.
 
 ---
 
     Code
-      b <- bde_hlp_download("https://ropenspain.github.io/tidyBdE/sitemap.xml", tmp2,
-        verbose = TRUE)
+      b <- bde_hlp_download("https://example.com/file.csv", tmp2, TRUE)
     Message
-      i Downloading file from <https://ropenspain.github.io/tidyBdE/sitemap.xml>.
+      i Downloading file from <https://example.com/file.csv>.
 
 # Messages
 
@@ -86,6 +85,22 @@
     Condition
       Error:
       ! `year` must be "20", not "1" or "2".
+
+# Argument matching reports invalid values
+
+    Code
+      match_year(2030)
+    Condition
+      Error:
+      ! `year` must be "2020" or "2024", not "2030".
+
+---
+
+    Code
+      match_year(c(2020, 2030))
+    Condition
+      Error:
+      ! `year` must be "2020" or "2024", not "2020" or "2030".
 
 # bde_hlp_abort_if_not
 

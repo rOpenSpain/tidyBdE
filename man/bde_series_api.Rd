@@ -46,12 +46,12 @@ returned by \code{\link[=bde_series_api_latest]{bde_series_api_latest()}}. See \
 with the requested series.}
 }
 \value{
-\code{bde_series_api_latest()} returns a \link[tibble:tbl_df]{tibble} with the latest
+\code{bde_series_api_latest()} returns a \link[dplyr:tibble]{tibble} with the latest
 published observation for each valid series. It includes fields returned by
 the Latest Data request such as \code{serie}, \code{descripcionCorta}, \code{codFrecuencia},
 \code{decimales}, \code{simbolo}, \code{tendencia}, \code{fechaValor} and \code{valor}.
 
-\code{bde_series_api_load()} returns a \link[tibble:tbl_df]{tibble}. When
+\code{bde_series_api_load()} returns a \link[dplyr:tibble]{tibble}. When
 \code{extract_metadata = FALSE}, API dates are parsed as \code{\link[=as.Date]{Date}}
 values and observations are returned in wide or long format according to
 \code{out_format}. When \code{extract_metadata = TRUE}, it returns one row per valid

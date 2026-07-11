@@ -15,7 +15,7 @@
 #' ```
 #'
 #' @format
-#' A [tibble][tibble::tbl_df] of `r nrow(tidyBdE::bde_ind_db)` rows and
+#' A [tibble][dplyr::tibble] of `r nrow(tidyBdE::bde_ind_db)` rows and
 #' `r ncol(tidyBdE::bde_ind_db)` columns with the following fields:
 #'
 #' \describe{

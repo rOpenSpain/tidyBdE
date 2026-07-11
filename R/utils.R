@@ -12,7 +12,7 @@
 #'
 #' ```{r, echo=FALSE}
 #'
-#' dates <- tibble::tribble(
+#' dates <- dplyr::tribble(
 #'   ~FREQUENCY, ~FORMAT, ~EXAMPLES,
 #'   "**Daily / Business day**", "`DD MMMMYYYY`", "`02 FEB2019`",
 #'   "**Monthly**", "`MMM YYYY`", "`MAR 2020`",
@@ -59,7 +59,7 @@
 #'
 #' class(parsed_ok)
 #'
-#' tibble::tibble(raw = would_parse, parsed = parsed_ok)
+#' dplyr::tibble(raw = would_parse, parsed = parsed_ok)
 #'
 #' # Unsupported formats.
 #'
@@ -69,7 +69,7 @@
 #'
 #' class(parsed_fail)
 #'
-#' tibble::tibble(raw = wont_parse, parsed = parsed_fail)
+#' dplyr::tibble(raw = wont_parse, parsed = parsed_fail)
 bde_parse_dates <- function(dates_to_parse) {
   dateformat <- gsub(" ", "", toupper(dates_to_parse), fixed = TRUE)
   dateformat <- gsub("-", "", dateformat, fixed = TRUE)
@@ -274,14 +274,14 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
 #'
 #' @param msg Message to display before returning the empty tibble.
 #'
-#' @return A [tibble][tibble::tbl_df].
+#' @return A [tibble][dplyr::tibble].
 #'
 #' @noRd
 bde_hlp_return_null <- function(
   msg = "BdE resources are unavailable. Returning an empty {.cls tbl_df}."
 ) {
   cli::cli_alert_info(msg)
-  tbl <- tibble::tibble(x = NULL)
+  tbl <- dplyr::tibble(x = NULL)
   tbl
 }
 

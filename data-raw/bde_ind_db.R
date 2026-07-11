@@ -3,7 +3,7 @@
 # Create data base with metadata of each of the indicators series
 library(tidyverse)
 
-bde_ind_db_init <- tribble(
+bde_ind_db_init <- dplyr::tribble(
   ~tidyBdE_fun, ~Numero_secuencial,
   "bde_ind_gdp_var", 4663788,
   "bde_ind_unemployment_rate", 4635980,

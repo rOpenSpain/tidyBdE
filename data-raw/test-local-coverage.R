@@ -235,7 +235,7 @@ test_that("download helper reports successful downloads", {
 })
 
 test_that("type conversion helpers convert non-preserved columns", {
-  tbl <- tibble::tibble(keep = 1, convert = 2, text = "3")
+  tbl <- dplyr::tibble(keep = 1, convert = 2, text = "3")
 
   as_char <- bde_hlp_tochar(tbl, preserve = "keep")
   expect_type(as_char$keep, "double")
@@ -252,7 +252,7 @@ test_that("indicator wrappers delegate to the shared loader", {
     series_label,
     ...
   ) {
-    tibble::tibble(
+    dplyr::tibble(
       Date = as.Date(c("2020-01-01", "2020-01-02")),
       value = c(NA, 1)
     )

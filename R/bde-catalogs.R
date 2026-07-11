@@ -27,7 +27,7 @@
 #'
 #' ```{r, echo=FALSE}
 #'
-#' t <- tibble::tribble(
+#' t <- dplyr::tribble(
 #' ~CODE, ~PUBLICATION, ~UPDATEFREQUENCY, ~FREQUENCY,
 #' '`"BE"`', "Statistical Bulletin", "Daily", "Monthly",
 #' '`"SI"`', "Summary Indicators", "Daily", "Daily",
@@ -56,13 +56,13 @@
 #' search.
 #'
 #' @return
-#' `bde_catalog_load()` returns a [tibble][tibble::tbl_df] with the requested
+#' `bde_catalog_load()` returns a [tibble][dplyr::tibble] with the requested
 #' time series catalog metadata. See
 #' `vignette("csv_manual", package = "tidyBdE")` for details.
 #'
 #' `bde_catalog_update()` returns an invisible list of download results.
 #'
-#' `bde_catalog_search()` returns a [tibble][tibble::tbl_df] with matching
+#' `bde_catalog_search()` returns a [tibble][dplyr::tibble] with matching
 #' catalog rows.
 #'
 #' @source
@@ -227,7 +227,7 @@ bde_catalog_load <- function(
   )
 
   # Keep the public return type stable.
-  final_catalog <- tibble::as_tibble(final_catalog)
+  final_catalog <- dplyr::as_tibble(final_catalog)
 
   # Parse date columns after type inference.
   if (parse_dates) {
@@ -325,7 +325,7 @@ bde_catalog_search <- function(pattern, ...) {
     return(tbl)
   }
 
-  if (!tibble::is_tibble(catalog_search)) {
+  if (!inherits(catalog_search, "tbl_df")) {
     cli::cli_alert_warning(paste0(
       "Catalog data does not inherit from {.cls tbl_df}. ",
       "Try downloading it again with {.fn bde_catalog_update}."

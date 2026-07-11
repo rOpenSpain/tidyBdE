@@ -8,15 +8,14 @@ test_that("Latest: test errors", {
 })
 
 test_that("Series API load checks inputs", {
-  expect_error(bde_series_api_load(), "`series_code` cannot be missing")
+  expect_snapshot(error = TRUE, bde_series_api_load())
   expect_snapshot(
     error = TRUE,
     bde_series_api_load("An_example", language = "aaa")
   )
-  expect_error(
-    bde_series_api_load("An_example", time_range = c("30M", "60M")),
-    "`time_range` must be a non-empty string or `NULL`\\."
-  )
+  expect_snapshot(error = TRUE, {
+    bde_series_api_load("An_example", time_range = c("30M", "60M"))
+  })
 
   expect_snapshot(error = TRUE, bde_series_api_load("a", c("A", NA)))
 
@@ -99,10 +98,9 @@ test_that("Series API load validates time range by frequency", {
     TRUE
   })
 
-  expect_error(
-    bde_series_api_load("D_TEST", time_range = "30M"),
-    "`time_range` \"30M\" is not valid for"
-  )
+  expect_snapshot(error = TRUE, {
+    bde_series_api_load("D_TEST", time_range = "30M")
+  })
 })
 
 test_that("Series API load supports long format and metadata", {
@@ -144,7 +142,7 @@ test_that("Series API load supports long format and metadata", {
 })
 
 test_that("Series API load handles empty codes", {
-  expect_identical(bde_series_api_load(""), tibble::tibble())
+  expect_identical(bde_series_api_load(""), dplyr::tibble())
 })
 
 test_that("Latest: Empty results", {
@@ -166,8 +164,92 @@ test_that("Latest handles empty codes and download failures", {
   local_mocked_bindings(bde_hlp_download = function(...) {
     FALSE
   })
-  expect_message(empty <- bde_series_api_latest("XXX"), "Returning an empty")
+  expect_snapshot(empty <- bde_series_api_latest("XXX"))
   expect_identical(empty, dplyr::tibble(x = NULL))
+})
+
+test_that("Latest parses valid and invalid mocked API responses", {
+  local_mocked_bindings(bde_hlp_download = function(url, local_file, verbose) {
+    writeLines(
+      paste0(
+        "[",
+        "{\"errNum\":\"404\"},",
+        "{",
+        "\"serie\":\"D_TEST\",",
+        "\"descripcionCorta\":\"Test\",",
+        "\"codFrecuencia\":\"M\",",
+        "\"decimales\":\"1\",",
+        "\"simbolo\":\"%\",",
+        "\"tendencia\":\"=\",",
+        "\"fechaValor\":\"2024-02-01T09:15:00Z\",",
+        "\"valor\":\"2.2\"",
+        "}",
+        "]"
+      ),
+      local_file
+    )
+    TRUE
+  })
+
+  expect_snapshot(
+    latest <- bde_series_api_latest(c("BAD", "D_TEST"), language = "en")
+  )
+  expect_named(
+    latest,
+    c(
+      "serie",
+      "descripcionCorta",
+      "codFrecuencia",
+      "decimales",
+      "simbolo",
+      "tendencia",
+      "fechaValor",
+      "valor"
+    )
+  )
+  expect_identical(latest$fechaValor, as.Date("2024-02-01"))
+  expect_type(latest$valor, "double")
+})
+
+test_that("Latest reports all-invalid mocked API responses", {
+  local_mocked_bindings(bde_hlp_download = function(url, local_file, verbose) {
+    writeLines("[{\"errNum\":\"404\"}]", local_file)
+    TRUE
+  })
+
+  expect_snapshot(empty <- bde_series_api_latest("BAD", language = "en"))
+  expect_identical(empty, dplyr::tibble())
+})
+
+test_that("Series API load handles download failures and null values", {
+  local_mocked_bindings(bde_hlp_download = function(...) FALSE)
+  expect_snapshot(empty <- bde_series_api_load("D_TEST"))
+  expect_identical(empty, dplyr::tibble())
+
+  local_mocked_bindings(bde_hlp_download = function(url, local_file, verbose) {
+    writeLines(
+      paste0(
+        "[{",
+        "\"serie\":\"D_TEST\",",
+        "\"descripcion\":\"Test series\",",
+        "\"descripcionCorta\":\"Test\",",
+        "\"codFrecuencia\":\"M\",",
+        "\"decimales\":1,",
+        "\"simbolo\":\"%\",",
+        "\"informacion\":[{\"titulo\":\"Name\",\"descripcion\":\"Test\"}],",
+        "\"fechaInicio\":\"2024-01-01T09:15:00Z\",",
+        "\"fechaFin\":\"2024-02-01T09:15:00Z\",",
+        "\"fechas\":[\"2024-02-01T09:15:00Z\"],",
+        "\"valores\":[null]",
+        "}]"
+      ),
+      local_file
+    )
+    TRUE
+  })
+
+  out <- bde_series_api_load("D_TEST", out_format = "long")
+  expect_equal(out$serie_value, NA)
 })
 
 test_that("Latest: Single result", {

@@ -60,3 +60,4 @@
 ^\.readme_cache$
 ^vignettes/\.articles_cache$
 ^\.articles_cache$
+^AGENTS\.md$

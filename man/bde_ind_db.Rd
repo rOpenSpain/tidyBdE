@@ -6,7 +6,7 @@
 \alias{bde_ind_db}
 \title{Database of selected Spanish macroeconomic indicators}
 \format{
-A \link[tibble:tbl_df]{tibble} of 9 rows and
+A \link[dplyr:tibble]{tibble} of 9 rows and
 8 columns with the following fields:
 
 \describe{

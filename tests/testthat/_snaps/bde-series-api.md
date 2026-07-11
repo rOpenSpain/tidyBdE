@@ -17,10 +17,26 @@
 # Series API load checks inputs
 
     Code
+      bde_series_api_load()
+    Condition
+      Error in `bde_series_api_load()`:
+      ! `series_code` cannot be missing.
+
+---
+
+    Code
       bde_series_api_load("An_example", language = "aaa")
     Condition
       Error:
       ! `language` must be "en" or "es", not "aaa".
+
+---
+
+    Code
+      bde_series_api_load("An_example", time_range = c("30M", "60M"))
+    Condition
+      Error in `bde_series_api_load()`:
+      ! `time_range` must be a non-empty string or `NULL`.
 
 ---
 
@@ -39,6 +55,15 @@
       ! `series_label` and `series_code` must have the same length.
       i `series_label` has length 2 and `series_code` has length 1.
 
+# Series API load validates time range by frequency
+
+    Code
+      bde_series_api_load("D_TEST", time_range = "30M")
+    Condition
+      Error in `bde_hlp_api_check_range()`:
+      ! `time_range` "30M" is not valid for series frequency: "D". Use one of "3M", "12M", or "36M".
+      i Invalid series: "D_TEST".
+
 # Latest: Empty results
 
     Code
@@ -47,6 +72,38 @@
       ! The query returned error XXX for `series_code` "XXX".
       i This series was omitted from the results.
       ! No valid results for query <https://app.bde.es/bierest/resources/srdatosapp/favoritas?idioma=en&series=XXX>.
+      i Returning an empty <tbl_df>.
+
+# Latest handles empty codes and download failures
+
+    Code
+      empty <- bde_series_api_latest("XXX")
+    Message
+      i Returning an empty <tbl_df>.
+
+# Latest parses valid and invalid mocked API responses
+
+    Code
+      latest <- bde_series_api_latest(c("BAD", "D_TEST"), language = "en")
+    Message
+      ! The query returned error "404" for `series_code` "BAD".
+      i This series was omitted from the results.
+
+# Latest reports all-invalid mocked API responses
+
+    Code
+      empty <- bde_series_api_latest("BAD", language = "en")
+    Message
+      ! The query returned error "404" for `series_code` "BAD".
+      i This series was omitted from the results.
+      ! No valid results for query <https://app.bde.es/bierest/resources/srdatosapp/favoritas?idioma=en&series=BAD>.
+      i Returning an empty <tbl_df>.
+
+# Series API load handles download failures and null values
+
+    Code
+      empty <- bde_series_api_load("D_TEST")
+    Message
       i Returning an empty <tbl_df>.
 
 # Latest: Several results

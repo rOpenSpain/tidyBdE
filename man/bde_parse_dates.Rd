@@ -43,7 +43,7 @@ parsed_ok <- bde_parse_dates(would_parse)
 
 class(parsed_ok)
 
-tibble::tibble(raw = would_parse, parsed = parsed_ok)
+dplyr::tibble(raw = would_parse, parsed = parsed_ok)
 
 # Unsupported formats.
 
@@ -53,7 +53,7 @@ parsed_fail <- bde_parse_dates(wont_parse)
 
 class(parsed_fail)
 
-tibble::tibble(raw = wont_parse, parsed = parsed_fail)
+dplyr::tibble(raw = wont_parse, parsed = parsed_fail)
 }
 \seealso{
 \itemize{

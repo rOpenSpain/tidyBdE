@@ -12,7 +12,7 @@
 #' retrieve specific series. Use `verbose = TRUE, extract_metadata = TRUE` to
 #' inspect the metadata and source.
 #'
-#' @return A [tibble][tibble::tbl_df] with the requested indicator series.
+#' @return A [tibble][dplyr::tibble] with the requested indicator series.
 #'
 #' @inherit bde_catalogs source
 #'

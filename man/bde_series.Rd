@@ -67,7 +67,7 @@ catalog. See \code{\link[=bde_catalog_load]{bde_catalog_load()}} and the \strong
 section.}
 }
 \value{
-\code{bde_series_load()} returns a \link[tibble:tbl_df]{tibble} with a \code{Date} column:
+\code{bde_series_load()} returns a \link[dplyr:tibble]{tibble} with a \code{Date} column:
 \itemize{
 \item With \code{out_format = "wide"}, each series is presented in a separate column
 with the name defined by \code{series_label}.
@@ -81,7 +81,7 @@ corresponding value.
 \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}. See also \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}} and
 \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.
 
-\code{bde_series_full_load()} returns a \link[tibble:tbl_df]{tibble} with a \code{Date}
+\code{bde_series_full_load()} returns a \link[dplyr:tibble]{tibble} with a \code{Date}
 column and the aliases of the time series columns as described in catalog
 metadata. See \code{\link[=bde_catalog_load]{bde_catalog_load()}} and
 \code{vignette("csv_manual", package = "tidyBdE")} for details.

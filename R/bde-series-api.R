@@ -47,12 +47,12 @@
 #' the series frequency. For example, monthly series return `"30M"`.
 #'
 #' @return
-#' `bde_series_api_latest()` returns a [tibble][tibble::tbl_df] with the latest
+#' `bde_series_api_latest()` returns a [tibble][dplyr::tibble] with the latest
 #' published observation for each valid series. It includes fields returned by
 #' the Latest Data request such as `serie`, `descripcionCorta`, `codFrecuencia`,
 #' `decimales`, `simbolo`, `tendencia`, `fechaValor` and `valor`.
 #'
-#' `bde_series_api_load()` returns a [tibble][tibble::tbl_df]. When
+#' `bde_series_api_load()` returns a [tibble][dplyr::tibble]. When
 #' `extract_metadata = FALSE`, API dates are parsed as [`Date`][as.Date()]
 #' values and observations are returned in wide or long format according to
 #' `out_format`. When `extract_metadata = TRUE`, it returns one row per valid
@@ -118,7 +118,7 @@ bde_series_api_latest <- function(
   series_code <- series_code[nzchar(series_code)]
 
   if (length(series_code) == 0) {
-    return(tibble::tibble())
+    return(dplyr::tibble())
   }
 
   # Prepare query.
@@ -217,7 +217,7 @@ bde_series_api_load <- function(
   series_code <- series_code[nzchar(series_code)]
 
   if (length(series_code) == 0) {
-    return(tibble::tibble())
+    return(dplyr::tibble())
   }
 
   if (is.null(series_label)) {
@@ -340,7 +340,7 @@ bde_series_api_load <- function(
     )
   }
 
-  end <- tibble::as_tibble(end)
+  end <- dplyr::as_tibble(end)
   end
 }
 

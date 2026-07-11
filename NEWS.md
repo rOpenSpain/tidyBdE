@@ -1,5 +1,6 @@
 # tidyBdE 0.7.0
 
+- The package no longer imports **tibble** directly; tibble return types continue to be provided through **dplyr**.
 - Internal code was refactored with AI assistance to reduce duplication in
   indicator wrappers and **ggplot2** scale helpers.
 - Messages and package errors now use **cli**, with AI-assisted wording updates

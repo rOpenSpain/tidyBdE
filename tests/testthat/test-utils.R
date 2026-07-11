@@ -21,7 +21,7 @@ test_that("Parse dates", {
 })
 
 test_that("cache helper covers option, suffix and creation paths", {
-  dir <- file.path(tempdir(), "tidybde-cache-helper")
+  dir <- file.path(local_bde_cache(), "tidybde-cache-helper")
   unlink(dir, recursive = TRUE, force = TRUE)
 
   expect_message(
@@ -36,8 +36,7 @@ test_that("cache helper covers option, suffix and creation paths", {
 
   expect_equal(created, dir)
 
-  options(bde_cache_dir = dir)
-  on.exit(options(bde_cache_dir = NULL))
+  withr::local_options(bde_cache_dir = dir)
 
   expect_message(
     from_option <- bde_hlp_cachedir(verbose = TRUE, suffix = "TC"),
@@ -45,7 +44,7 @@ test_that("cache helper covers option, suffix and creation paths", {
   )
   expect_equal(basename(from_option), "TC")
 
-  options(bde_cache_dir = NULL)
+  withr::local_options(bde_cache_dir = NULL)
   expect_message(
     temp_cache <- bde_hlp_cachedir(verbose = TRUE, suffix = "SI"),
     "Using temporary cache directory"
@@ -78,27 +77,43 @@ test_that("Help to char", {
 })
 
 test_that("Errors on download", {
-  skip_on_cran()
-  skip_if_bde_offline()
+  tmp <- withr::local_tempfile()
 
-  tmp <- tempfile()
+  local_mocked_bindings(download.file = function(...) {
+    warning("offline")
+  })
+
   expect_snapshot(
-    a <- bde_hlp_download("https://www.invented_test_url.com", tmp, TRUE)
+    a <- bde_hlp_download("https://example.invalid/file.csv", tmp, TRUE)
   )
-  unlink(tmp)
+  expect_false(a)
   expect_false(file.exists(tmp))
 
-  # Existing url
-  tmp2 <- tempfile()
+  tmp2 <- withr::local_tempfile()
+  local_mocked_bindings(download.file = function(url, destfile, ...) {
+    writeLines("ok", destfile)
+    0
+  })
   expect_snapshot(
-    b <- bde_hlp_download(
-      "https://ropenspain.github.io/tidyBdE/sitemap.xml",
-      tmp2,
-      verbose = TRUE
-    )
+    b <- bde_hlp_download("https://example.com/file.csv", tmp2, TRUE)
   )
+  expect_true(b)
   expect_true(file.exists(tmp2))
-  unlink(tmp2)
+})
+
+test_that("Download helper can skip retry", {
+  tmp <- withr::local_tempfile()
+
+  local_mocked_bindings(download.file = function(...) {
+    warning("offline")
+  })
+
+  expect_false(bde_hlp_download(
+    "https://example.invalid/file.csv",
+    tmp,
+    FALSE,
+    retry = FALSE
+  ))
 })
 
 test_that("Help guess to double", {
@@ -176,8 +191,8 @@ test_that("Argument matching reports invalid values", {
     match_arg_pretty(year)
   }
 
-  expect_error(match_year(2030), "must be")
-  expect_error(match_year(c(2020, 2030)), "must be")
+  expect_snapshot(error = TRUE, match_year(2030))
+  expect_snapshot(error = TRUE, match_year(c(2020, 2030)))
 })
 
 

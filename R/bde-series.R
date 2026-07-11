@@ -29,7 +29,7 @@
 #' @inheritParams bde_catalogs parse_dates update_cache cache_dir verbose
 #'
 #' @return
-#' `bde_series_load()` returns a [tibble][tibble::tbl_df] with a `Date` column:
+#' `bde_series_load()` returns a [tibble][dplyr::tibble] with a `Date` column:
 #'
 #' - With `out_format = "wide"`, each series is presented in a separate column
 #'   with the name defined by `series_label`.
@@ -42,7 +42,7 @@
 #' [ggplot2::ggplot()]. See also [tidyr::pivot_longer()] and
 #' [tidyr::pivot_wider()].
 #'
-#' `bde_series_full_load()` returns a [tibble][tibble::tbl_df] with a `Date`
+#' `bde_series_full_load()` returns a [tibble][dplyr::tibble] with a `Date`
 #' column and the aliases of the time series columns as described in catalog
 #' metadata. See [bde_catalog_load()] and
 #' `vignette("csv_manual", package = "tidyBdE")` for details.
@@ -288,7 +288,7 @@ bde_series_load <- function(
     )
   }
 
-  end <- tibble::as_tibble(end)
+  end <- dplyr::as_tibble(end)
   end
 }
 
@@ -394,7 +394,7 @@ bde_series_full_load <- function(
     fileEncoding = enc
   ))
 
-  serie_load <- tibble::as_tibble(serie_load)
+  serie_load <- dplyr::as_tibble(serie_load)
 
   # BdE series files store column names in the third row.
   newnames <- as.character(serie_load[3, ])
