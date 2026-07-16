@@ -5,12 +5,12 @@
 	--ros-white: #ffffff;
 	--ros-gray-100: #eeeeee;
 	--ros-gray-200: #dddddd;
-	--ros-gray-300: #cccccc;
+	--ros-gray-300: var(--brand-ros_light, #cccccc);
 	--ros-gray-600: #999999;
-	--ros-gray-700: #555555;
+	--ros-gray-700: var(--brand-ros_gray, #555555);
 	--ros-gray-800: #444444;
-	--ros-gray-850: #383838;
-	--ros-gray-900: #333333;
+	--ros-gray-850: #2f2f2f;
+	--ros-gray-900: var(--brand-ros_black, #333333);
 	--ros-violet: var(--brand-ros_violet, #986dbd);
 	--ros-violet-rgb: 152, 109, 189;
 	--ros-violet-dark: var(--brand-ros_violet_dark, #653d87);
@@ -22,8 +22,10 @@
 	--ros-nav-dropdown-hover-bg: rgba(var(--ros-violet-rgb), 0.1);
 	--ros-nav-active-bg: var(--ros-violet-dark);
 	--ros-nav-active-fg: var(--ros-white);
+	--ros-navbar-border: var(--ros-gray-300);
+	--ros-navbar-shadow: var(--ros-gray-300);
 	--ros-footer-bg: var(--ros-gray-700);
-	--ros-footer-fg: #d0d0d0;
+	--ros-footer-fg: #d8d8d8;
 	--ros-footer-heading: var(--ros-gray-100);
 	--ros-footer-link: #e3d4f0;
 	--ros-footer-link-hover: var(--ros-white);
@@ -50,7 +52,7 @@
 /* --- Dark theme tokens --- */
 [data-bs-theme="dark"] {
 	--bs-body-bg: var(--ros-gray-850);
-	--bs-body-bg-rgb: 56, 56, 56;
+	--bs-body-bg-rgb: 47, 47, 47;
 	--bs-body-color: rgb(180, 180, 180);
 	--bs-body-color-rgb: 180, 180, 180;
 
@@ -61,11 +63,9 @@
 	--bs-white: rgb(230, 230, 230);
 	--bs-white-rgb: 230, 230, 230;
 
-	/* Branding */
-	--brand-ros_light: var(--ros-gray-700);
-	--brand-ros_gray: var(--ros-white);
-	--brand-ros_pre_bg: var(--ros-code-dark-bg);
 	--ros-code-light-bg: var(--ros-code-dark-bg);
+	--ros-navbar-border: var(--ros-gray-700);
+	--ros-navbar-shadow: var(--ros-gray-700);
 
 	.dropdown-menu {
 		--bs-dropdown-bg: var(--ros-gray-900);
@@ -168,13 +168,13 @@ caption {
 	}
 
 	#navbar ul:first-of-type {
-		border-top: solid 1px var(--brand-ros_light);
+		border-top: solid 1px var(--ros-navbar-border);
 	}
 }
 /* Effects */
 .navbar {
-	-webkit-box-shadow: 0 0 5px var(--brand-ros_light);
-	box-shadow: 0 0 5px var(--brand-ros_light);
+	-webkit-box-shadow: 0 0 5px var(--ros-navbar-shadow);
+	box-shadow: 0 0 5px var(--ros-navbar-shadow);
 }
 .navbar-toggler:focus {
 	box-shadow: 0 0 0 0.25rem rgba(152, 109, 189, 0.3);
