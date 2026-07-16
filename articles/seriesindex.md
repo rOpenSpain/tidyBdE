@@ -1,7 +1,7 @@
 # Series index
 
 This article lists time series available in Banco de España catalog
-metadata. Last updated: **15-July-2026**.
+metadata. Last updated: **16-July-2026**.
 
 Use the stable sequential number (`Numero_secuencial`) to load a time
 series from bulk CSV files, as shown in the example. Use
@@ -81,7 +81,7 @@ fr |>
 |:---|:---|
 | CÓDIGO DE LA SERIE | DTNSEC2010_S0000P_APU_FR |
 | NÚMERO SECUENCIAL | 2563958 |
-| ALIAS DE LA SERIE | BE_1_6.8 |
+| ALIAS DE LA SERIE | BE_1_6.9 |
 | DESCRIPCIÓN DE LA SERIE | Economía internacional. Francia. AAPP. SEC2010. Capacidad (+) o necesidad (-) de financiación. Acum. 4 últimos trim. En % PIB pm |
 | DESCRIPCIÓN DE LAS UNIDADES | Porcentaje |
 | FRECUENCIA | TRIMESTRAL |

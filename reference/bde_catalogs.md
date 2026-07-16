@@ -124,9 +124,9 @@ expressions](https://rdrr.io/r/base/regex.html) to broaden the search.
 ``` r
 # \donttest{
 bde_catalog_load("TI", verbose = TRUE)
-#> ℹ Using temporary cache directory /tmp/Rtmp6spjv8.
+#> ℹ Using temporary cache directory /tmp/Rtmpc4uCZH.
 #> ℹ Downloading catalog "TI".
-#> ✔ Using cache directory /tmp/Rtmp6spjv8.
+#> ✔ Using cache directory /tmp/Rtmpc4uCZH.
 #> ℹ Updating 1 catalog file: "TI".
 #> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv>.
 #> ℹ Parsing date columns.
@@ -154,20 +154,20 @@ bde_catalog_load("TI", verbose = TRUE)
 # Simple search. Search terms must be in Spanish.
 # PIB [es] == GDP [en].
 bde_catalog_search("PIB")
-#> # A tibble: 400 × 17
+#> # A tibble: 402 × 17
 #>    Nombre_de_la_serie Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹
 #>    <chr>              <chr>             <chr>             <chr>                 
 #>  1 DSPC102020WB11000… 4669410           BE_1_1.7          BE0101.csv            
 #>  2 DTNSEC2010_S0000P… 2563971           BE_1_6.1          BE0106.csv            
 #>  3 DTNSEC2010_S0000P… 2563952           BE_1_6.2          BE0106.csv            
-#>  4 DTNSEC2010_S0000P… 2563953           BE_1_6.3          BE0106.csv            
-#>  5 DTNSEC2010_S0000P… 2563954           BE_1_6.4          BE0106.csv            
-#>  6 DTNSEC2010_S0000P… 2563955           BE_1_6.5          BE0106.csv            
-#>  7 DTNSEC2010_S0000P… 2563956           BE_1_6.6          BE0106.csv            
-#>  8 DTNSEC2010_S0000P… 2563957           BE_1_6.7          BE0106.csv            
-#>  9 DTNSEC2010_S0000P… 2563958           BE_1_6.8          BE0106.csv            
-#> 10 DTNSEC2010_S0000P… 4342489           BE_1_6.9          BE0106.csv            
-#> # ℹ 390 more rows
+#>  4 DTNSEC2010_S0000P… 5120157           BE_1_6.3          BE0106.csv            
+#>  5 DTNSEC2010_S0000P… 2563953           BE_1_6.4          BE0106.csv            
+#>  6 DTNSEC2010_S0000P… 2563954           BE_1_6.5          BE0106.csv            
+#>  7 DTNSEC2010_S0000P… 2563955           BE_1_6.6          BE0106.csv            
+#>  8 DTNSEC2010_S0000P… 2563956           BE_1_6.7          BE0106.csv            
+#>  9 DTNSEC2010_S0000P… 2563957           BE_1_6.8          BE0106.csv            
+#> 10 DTNSEC2010_S0000P… 2563958           BE_1_6.9          BE0106.csv            
+#> # ℹ 392 more rows
 #> # ℹ abbreviated name: ¹​Nombre_del_archivo_con_los_valores_de_la_serie
 #> # ℹ 13 more variables: Descripcion_de_la_serie <chr>, Tipo_de_variable <chr>,
 #> #   Codigo_de_unidades <chr>, Exponente <dbl>, Numero_de_decimales <dbl>,
@@ -180,8 +180,8 @@ bde_catalog_search("Francia(.*)PIB")
 #> # A tibble: 2 × 17
 #>   Nombre_de_la_serie  Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹
 #>   <chr>               <chr>             <chr>             <chr>                 
-#> 1 DTNSEC2010_S0000P_… 2563958           BE_1_6.8          BE0106.csv            
-#> 2 DTNPDE2010_P0000P_… 2563918           BE_1_7.8          BE0107.csv            
+#> 1 DTNSEC2010_S0000P_… 2563958           BE_1_6.9          BE0106.csv            
+#> 2 DTNPDE2010_P0000P_… 2563918           BE_1_7.9          BE0107.csv            
 #> # ℹ abbreviated name: ¹​Nombre_del_archivo_con_los_valores_de_la_serie
 #> # ℹ 13 more variables: Descripcion_de_la_serie <chr>, Tipo_de_variable <chr>,
 #> #   Codigo_de_unidades <chr>, Exponente <dbl>, Numero_de_decimales <dbl>,
@@ -195,12 +195,12 @@ bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 #> # A tibble: 6 × 17
 #>   Nombre_de_la_serie  Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹
 #>   <chr>               <chr>             <chr>             <chr>                 
-#> 1 DTNSEC2010_S0000P_… 2563953           BE_1_6.3          BE0106.csv            
-#> 2 DTNSEC2010_S0000P_… 2563958           BE_1_6.8          BE0106.csv            
-#> 3 DTNSEC2010_S0000P_… 2563959           BE_1_6.10         BE0106.csv            
-#> 4 DTNPDE2010_P0000P_… 2563913           BE_1_7.3          BE0107.csv            
-#> 5 DTNPDE2010_P0000P_… 2563918           BE_1_7.8          BE0107.csv            
-#> 6 DTNPDE2010_P0000P_… 2563919           BE_1_7.10         BE0107.csv            
+#> 1 DTNSEC2010_S0000P_… 2563953           BE_1_6.4          BE0106.csv            
+#> 2 DTNSEC2010_S0000P_… 2563958           BE_1_6.9          BE0106.csv            
+#> 3 DTNSEC2010_S0000P_… 2563959           BE_1_6.11         BE0106.csv            
+#> 4 DTNPDE2010_P0000P_… 2563913           BE_1_7.4          BE0107.csv            
+#> 5 DTNPDE2010_P0000P_… 2563918           BE_1_7.9          BE0107.csv            
+#> 6 DTNPDE2010_P0000P_… 2563919           BE_1_7.11         BE0107.csv            
 #> # ℹ abbreviated name: ¹​Nombre_del_archivo_con_los_valores_de_la_serie
 #> # ℹ 13 more variables: Descripcion_de_la_serie <chr>, Tipo_de_variable <chr>,
 #> #   Codigo_de_unidades <chr>, Exponente <dbl>, Numero_de_decimales <dbl>,
@@ -210,7 +210,7 @@ bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 #> #   Titulo_de_la_serie <chr>, Fuente <chr>, Notas <chr>
 
 bde_catalog_update("TI", verbose = TRUE)
-#> ℹ Using temporary cache directory /tmp/Rtmp6spjv8.
+#> ℹ Using temporary cache directory /tmp/Rtmpc4uCZH.
 #> ℹ Updating 1 catalog file: "TI".
 #> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv>.
 # }

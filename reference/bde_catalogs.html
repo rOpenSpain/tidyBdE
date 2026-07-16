@@ -13,7 +13,7 @@ bde_catalog_search() searches catalog metadata for keywords."><meta property="og
   gtag('js', new Date());
 
   gtag('config', 'G-CW2RTVRRVF');
-</script><!-- rogtemplate style sheet --><link href="../BS5/rostemplate.min.css" rel="stylesheet"></head><body>
+</script><!-- rostemplate style sheet --><link href="../BS5/rostemplate.min.css" rel="stylesheet"></head><body>
   <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -166,9 +166,9 @@ through the Statistics web service (API).</p></li>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">bde_catalog_load</span><span class="op">(</span><span class="st">"TI"</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/Rtmp6spjv8</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/Rtmpc4uCZH</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading catalog "TI".</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Using cache directory <span style="color: #0000BB;">/tmp/Rtmp6spjv8</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Using cache directory <span style="color: #0000BB;">/tmp/Rtmpc4uCZH</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Updating 1 catalog file: <span style="color: #0000BB;">"TI"</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading file from <span style="color: #0000BB; font-style: italic;">&lt;https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv&gt;</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Parsing date columns.</span>
@@ -196,20 +196,20 @@ through the Statistics web service (API).</p></li>
 <span class="r-in"><span><span class="co"># Simple search. Search terms must be in Spanish.</span></span></span>
 <span class="r-in"><span><span class="co"># PIB [es] == GDP [en].</span></span></span>
 <span class="r-in"><span><span class="fu">bde_catalog_search</span><span class="op">(</span><span class="st">"PIB"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 400 × 17</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 402 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Nombre_de_la_serie Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> DSPC102020WB11000… 4669410           BE_1_1.7          BE0101.csv            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> DTNSEC2010_S0000P… 2563971           BE_1_6.1          BE0106.csv            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> DTNSEC2010_S0000P… 2563952           BE_1_6.2          BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> DTNSEC2010_S0000P… 2563953           BE_1_6.3          BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> DTNSEC2010_S0000P… 2563954           BE_1_6.4          BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> DTNSEC2010_S0000P… 2563955           BE_1_6.5          BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> DTNSEC2010_S0000P… 2563956           BE_1_6.6          BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> DTNSEC2010_S0000P… 2563957           BE_1_6.7          BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> DTNSEC2010_S0000P… 2563958           BE_1_6.8          BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> DTNSEC2010_S0000P… 4342489           BE_1_6.9          BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 390 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> DTNSEC2010_S0000P… 5120157           BE_1_6.3          BE0106.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> DTNSEC2010_S0000P… 2563953           BE_1_6.4          BE0106.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> DTNSEC2010_S0000P… 2563954           BE_1_6.5          BE0106.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> DTNSEC2010_S0000P… 2563955           BE_1_6.6          BE0106.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> DTNSEC2010_S0000P… 2563956           BE_1_6.7          BE0106.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> DTNSEC2010_S0000P… 2563957           BE_1_6.8          BE0106.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> DTNSEC2010_S0000P… 2563958           BE_1_6.9          BE0106.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 392 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​Nombre_del_archivo_con_los_valores_de_la_serie</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 13 more variables: Descripcion_de_la_serie &lt;chr&gt;, Tipo_de_variable &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Codigo_de_unidades &lt;chr&gt;, Exponente &lt;dbl&gt;, Numero_de_decimales &lt;dbl&gt;,</span></span>
@@ -222,8 +222,8 @@ through the Statistics web service (API).</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Nombre_de_la_serie  Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> DTNSEC2010_S0000P_… 2563958           BE_1_6.8          BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> DTNPDE2010_P0000P_… 2563918           BE_1_7.8          BE0107.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> DTNSEC2010_S0000P_… 2563958           BE_1_6.9          BE0106.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> DTNPDE2010_P0000P_… 2563918           BE_1_7.9          BE0107.csv            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​Nombre_del_archivo_con_los_valores_de_la_serie</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 13 more variables: Descripcion_de_la_serie &lt;chr&gt;, Tipo_de_variable &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Codigo_de_unidades &lt;chr&gt;, Exponente &lt;dbl&gt;, Numero_de_decimales &lt;dbl&gt;,</span></span>
@@ -237,12 +237,12 @@ through the Statistics web service (API).</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Nombre_de_la_serie  Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> DTNSEC2010_S0000P_… 2563953           BE_1_6.3          BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> DTNSEC2010_S0000P_… 2563958           BE_1_6.8          BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> DTNSEC2010_S0000P_… 2563959           BE_1_6.10         BE0106.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> DTNPDE2010_P0000P_… 2563913           BE_1_7.3          BE0107.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> DTNPDE2010_P0000P_… 2563918           BE_1_7.8          BE0107.csv            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> DTNPDE2010_P0000P_… 2563919           BE_1_7.10         BE0107.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> DTNSEC2010_S0000P_… 2563953           BE_1_6.4          BE0106.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> DTNSEC2010_S0000P_… 2563958           BE_1_6.9          BE0106.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> DTNSEC2010_S0000P_… 2563959           BE_1_6.11         BE0106.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> DTNPDE2010_P0000P_… 2563913           BE_1_7.4          BE0107.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> DTNPDE2010_P0000P_… 2563918           BE_1_7.9          BE0107.csv            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> DTNPDE2010_P0000P_… 2563919           BE_1_7.11         BE0107.csv            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​Nombre_del_archivo_con_los_valores_de_la_serie</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 13 more variables: Descripcion_de_la_serie &lt;chr&gt;, Tipo_de_variable &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Codigo_de_unidades &lt;chr&gt;, Exponente &lt;dbl&gt;, Numero_de_decimales &lt;dbl&gt;,</span></span>
@@ -252,7 +252,7 @@ through the Statistics web service (API).</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Titulo_de_la_serie &lt;chr&gt;, Fuente &lt;chr&gt;, Notas &lt;chr&gt;</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">bde_catalog_update</span><span class="op">(</span><span class="st">"TI"</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/Rtmp6spjv8</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/Rtmpc4uCZH</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Updating 1 catalog file: <span style="color: #0000BB;">"TI"</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading file from <span style="color: #0000BB; font-style: italic;">&lt;https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv&gt;</span>.</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
@@ -273,14 +273,12 @@ through the Statistics web service (API).</p></li>
 </p>
         <hr class="d-md-none"></div>
       <div class="col-md offset-md-4">
-        <h4 data-toc-skip>About <img src="../ROS-logo.png" alt="ROpenSpain Logo" height="24" class="round-logo"><span class="ROS-light">
+        <h4 data-toc-skip>About <img src="../ROS-logo.png" alt="rOpenSpain logo" height="24" class="round-logo"><span class="ROS-light">
             rOpenSpain</span></h4>
         <p><a href="https://ropenspain.es/" class="external-link"><span class="ROS-light">rOpenSpain</span></a> is a community of
-          enthusiasts
-          of <strong>R</strong>, open data, and reproducibility that comes
-          together and organizes itself to create <strong>R</strong> packages of
-          the highest quality for the analysis
-          and use of Spanish data of general interest.
+          enthusiasts of <strong>R</strong>, open data and reproducibility that
+          works together to create high-quality <strong>R</strong> packages for
+          the analysis and use of Spanish data of general interest.
         </p>
         <p class="fst-italic text-md-end">"rOpenSci is our form, Spanish public
           data our matter"</p>
