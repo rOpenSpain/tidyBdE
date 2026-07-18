@@ -215,7 +215,7 @@ find both identifiers.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ fechaValor       <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2026-07-16<span style="color: #949494;">, </span>2026-07-16<span style="color: #949494;">, </span>2026-07-16</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ valor            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1.1467<span style="color: #949494;">, </span>185.9900<span style="color: #949494;">, </span>0.9250</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Extract the latest months.</span></span></span>
+<span class="r-in"><span><span class="co"># Extract the last 12 months.</span></span></span>
 <span class="r-in"><span><span class="va">xr</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">Nombre_de_la_serie</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>

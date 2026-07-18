@@ -22,7 +22,7 @@ two categories:
     upload it to a database and combine it with other statistical data
     or their own information.
 
-The information provided serves both types of users.
+The files support both workflows.
 
 Banco de España organizes statistical charts and tables on its website
 in two ways: by statistical publication, which is the approach covered
@@ -110,7 +110,7 @@ the Statistical Bulletin.
 A compressed `pp.zip` file[^1] containing all time series files of a
 publication is provided for users who wish to download this content. For
 users interested in downloading all files of a chapter, compressed files
-following the pattern below are also available: `ppcc.zip`.
+following the pattern `ppcc.zip` are also available.
 
 For example, `be01.zip` contains all the time series files of Chapter 1
 of the Statistical Bulletin.
@@ -215,8 +215,8 @@ frequencies are:
 - SEMESTRAL (half-yearly).
 - ANUAL (yearly).
 
-Note: LABORABLE frequency means Monday to Friday. DIARIA frequency also
-includes Saturdays and Sundays.
+Note: `LABORABLE` frequency means Monday to Friday. `DIARIA` frequency
+also includes Saturdays and Sundays.
 
 **Fecha de la primera observación (date of first observation)**
 
@@ -323,7 +323,7 @@ Banco de España statistical publications. {.table}
 |  |  |  |
 |----|----|----|
 | Frequency | Format | Examples |
-| Daily / Business day | `DD MMMMYYYY` | `02 FEB2019` |
+| Daily / Business day | `DD MMMYYYY` | `02 FEB2019` |
 | Monthly | `MMM YYYY` | `MAR 2020` |
 | Quarterly | `MMM YYYY`, where `MMM` is the first or last month of the quarter, depending on the value of the `OBSERVED` variable | `ENE 2020` / `MAR 2020` |
 | Half-yearly | `MMM YYYY`, where `MMM` is the first or last month of the half-year period, depending on the value of its `OBSERVED` variable | `ENE 2020` / `JUN 2020` |

@@ -28,7 +28,7 @@ A vector of [`Date`](https://rdrr.io/r/base/as.Date.html) values.
 |  |  |  |
 |----|----|----|
 | **FREQUENCY** | **FORMAT** | **EXAMPLES** |
-| **Daily / Business day** | `DD MMMMYYYY` | `02 FEB2019` |
+| **Daily / Business day** | `DD MMMYYYY` | `02 FEB2019` |
 | **Monthly** | `MMM YYYY` | `MAR 2020` |
 | **Quarterly** | `MMM YYYY`, where `MMM` is the first or last month of the quarter, depending on the value of the `OBSERVED` variable. | For the first quarter of 2020: `ENE 2020`, `MAR 2020` |
 | **Half-yearly** | `MMM YYYY`, where `MMM` is the first or last month of the half-year period, depending on the value of its `OBSERVED` variable. | For the first half of 2020: `ENE 2020`, `JUN 2020` |

@@ -110,7 +110,7 @@
 <li>Users who download one or more tables to their computer to process them using a spreadsheet.</li>
 <li>Users or institutions that download all or most of the information, upload it to a database and combine it with other statistical data or their own information.</li>
 </ol>
-<p>The information provided serves both types of users.</p>
+<p>The files support both workflows.</p>
 <p>Banco de España organizes statistical charts and tables on its website in two ways: by statistical publication, which is the approach covered here, or by subject, which is the main organization used in the Statistics section. The tables and download URLs are the same in both cases.</p>
 <p>This document focuses on publications and is organized as follows. The second section explains the two types of files released, their format and their content. The third section provides guidance for users who want to process the information with a spreadsheet. The fourth section provides guidance for institutions that want to develop software for automatically uploading the information to a database.</p>
 <p>Because the tables in the subject-based classification are the same as those in the publications, only organized differently, everything mentioned in this manual about bulk CSV files is valid for both.</p>
@@ -159,7 +159,7 @@ observaciones","Título de la serie","Fuente","Notas"
 <code>csv</code> is the file extension.</li>
 </ul>
 <p>For example, <code>be0101.csv</code> contains the series of Table 1 in Chapter 1 of the Statistical Bulletin.</p>
-<p>A compressed <code>pp.zip</code> file<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Files are compressed with WinZip.&lt;/p&gt;"><sup>1</sup></a> containing all time series files of a publication is provided for users who wish to download this content. For users interested in downloading all files of a chapter, compressed files following the pattern below are also available: <code>ppcc.zip</code>.</p>
+<p>A compressed <code>pp.zip</code> file<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Files are compressed with WinZip.&lt;/p&gt;"><sup>1</sup></a> containing all time series files of a publication is provided for users who wish to download this content. For users interested in downloading all files of a chapter, compressed files following the pattern <code>ppcc.zip</code> are also available.</p>
 <p>For example, <code>be01.zip</code> contains all the time series files of Chapter 1 of the Statistical Bulletin.</p>
 <section class="level3"><h3 id="content-of-the-catalog-file">Content of the catalog file<a class="anchor" aria-label="anchor" href="#content-of-the-catalog-file"></a>
 </h3>
@@ -237,7 +237,7 @@ observaciones","Título de la serie","Fuente","Notas"
 <li>SEMESTRAL (half-yearly).</li>
 <li>ANUAL (yearly).</li>
 </ul>
-<p>Note: LABORABLE frequency means Monday to Friday. DIARIA frequency also includes Saturdays and Sundays.</p>
+<p>Note: <code>LABORABLE</code> frequency means Monday to Friday. <code>DIARIA</code> frequency also includes Saturdays and Sundays.</p>
 <p><strong>Fecha de la primera observación (date of first observation)</strong></p>
 <p>This field gives the date of the first observation in the sample period covered by the series file. The date format depends on the series frequency. See <a href="#annex-ii-date-formats">Annex II: Date formats</a> for details.</p>
 <p><strong>Fecha de la última observación (date of last observation)</strong></p>
@@ -353,7 +353,7 @@ observaciones","Título de la serie","Fuente","Notas"
 </tr>
 <tr class="even">
 <td>Daily / Business day</td>
-<td><code>DD MMMMYYYY</code></td>
+<td><code>DD MMMYYYY</code></td>
 <td><code>02 FEB2019</code></td>
 </tr>
 <tr class="odd">

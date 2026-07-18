@@ -56,14 +56,14 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.0" id="tidybde-070">tidyBdE 0.7.0<a class="anchor" aria-label="anchor" href="#tidybde-070"></a></h2><p class="text-muted">CRAN release: 2026-07-06</p>
-<ul><li>The package no longer imports <strong>tibble</strong> directly; tibble return types continue to be provided through <strong>dplyr</strong>.</li>
+<ul><li>The package no longer imports <strong>tibble</strong> directly; <strong>tibble</strong> return types continue to be provided through <strong>dplyr</strong>.</li>
 <li>Internal code was refactored with AI assistance to reduce duplication in indicator wrappers and <strong>ggplot2</strong> scale helpers.</li>
 <li>Messages and package errors now use <strong>cli</strong>, with AI-assisted wording updates and without the former <code>tidyBdE&gt;</code> prefix.</li>
 <li>
 <strong>roxygen2</strong> documentation was reviewed with AI assistance and tag order was made consistent across source files.</li>
 <li>Tests were refactored and expanded with local fixtures, mocks and snapshot updates, reaching 100% line coverage in <code><a href="https://devtools.r-lib.org/reference/test.html" class="external-link">devtools::test_coverage()</a></code>.</li>
 <li>New vignette <code><a href="../articles/csv_manual.html">vignette("csv_manual", package = "tidyBdE")</a></code> explaining the structure of Banco de España bulk CSV files, catalog metadata and series identifiers (<a href="https://github.com/rOpenSpain/tidyBdE/issues/64" class="external-link">#64</a>).</li>
-<li>Add Statistics web service (API) functions (<a href="https://github.com/rOpenSpain/tidyBdE/issues/65" class="external-link">#65</a>):
+<li>Added Statistics web service (API) functions (<a href="https://github.com/rOpenSpain/tidyBdE/issues/65" class="external-link">#65</a>):
 <ul><li>
 <code><a href="../reference/bde_series_api.html">bde_series_api_latest()</a></code> added to query the Latest Data request of the Banco de España <a href="https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html" class="external-link">Statistics web service (API)</a>.</li>
 <li>

@@ -85,7 +85,7 @@ time_series
 
 ## Plot time series
 
-The package also provides a custom **ggplot2** theme based on BdE
+**tidyBdE** includes a custom **ggplot2** theme based on BdE
 publications:
 
 ``` r

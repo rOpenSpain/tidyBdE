@@ -4,8 +4,8 @@
 
 CRAN release: 2026-07-06
 
-- The package no longer imports **tibble** directly; tibble return types
-  continue to be provided through **dplyr**.
+- The package no longer imports **tibble** directly; **tibble** return
+  types continue to be provided through **dplyr**.
 - Internal code was refactored with AI assistance to reduce duplication
   in indicator wrappers and **ggplot2** scale helpers.
 - Messages and package errors now use **cli**, with AI-assisted wording
@@ -20,7 +20,7 @@ CRAN release: 2026-07-06
   explaining the structure of Banco de España bulk CSV files, catalog
   metadata and series identifiers
   ([\#64](https://github.com/rOpenSpain/tidyBdE/issues/64)).
-- Add Statistics web service (API) functions
+- Added Statistics web service (API) functions
   ([\#65](https://github.com/rOpenSpain/tidyBdE/issues/65)):
   - [`bde_series_api_latest()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
     added to query the Latest Data request of the Banco de España

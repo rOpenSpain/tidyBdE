@@ -165,7 +165,7 @@ xr |>
 #> $ fechaValor       <date> 2026-07-16, 2026-07-16, 2026-07-16
 #> $ valor            <dbl> 1.1467, 185.9900, 0.9250
 
-# Extract the latest months.
+# Extract the last 12 months.
 xr |>
   slice_head(n = 1) |>
   pull(Nombre_de_la_serie) |>

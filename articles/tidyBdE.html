@@ -175,7 +175,7 @@ Table 1: Search results
 <span><span class="co">#&gt; # ℹ 2,806 more rows</span></span></code></pre></div>
 </section><section class="level2"><h2 id="plot-time-series">Plot time series<a class="anchor" aria-label="anchor" href="#plot-time-series"></a>
 </h2>
-<p>The package also provides a custom <strong>ggplot2</strong> theme based on BdE publications:</p>
+<p><strong>tidyBdE</strong> includes a custom <strong>ggplot2</strong> theme based on BdE publications:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">time_series</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">EUR_GBP_XR</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="fu"><a href="../reference/bde_tidy_palettes.html">bde_tidy_palettes</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
