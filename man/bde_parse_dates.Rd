@@ -21,7 +21,7 @@ to date formats used in this package and may not parse other datasets. See
 \details{
 \subsection{Date formats}{\tabular{lll}{
    \strong{FREQUENCY} \tab \strong{FORMAT} \tab \strong{EXAMPLES} \cr
-   \strong{Daily / Business day} \tab \verb{DD MMMMYYYY} \tab \verb{02 FEB2019} \cr
+   \strong{Daily / Business day} \tab \verb{DD MMMYYYY} \tab \verb{02 FEB2019} \cr
    \strong{Monthly} \tab \verb{MMM YYYY} \tab \verb{MAR 2020} \cr
    \strong{Quarterly} \tab \verb{MMM YYYY}, where \code{MMM} is the first or last month of the quarter, depending on the value of the \code{OBSERVED} variable. \tab For the first quarter of 2020: \verb{ENE 2020}, \verb{MAR 2020} \cr
    \strong{Half-yearly} \tab \verb{MMM YYYY}, where \code{MMM} is the first or last month of the half-year period, depending on the value of its \code{OBSERVED} variable. \tab For the first half of 2020: \verb{ENE 2020}, \verb{JUN 2020} \cr

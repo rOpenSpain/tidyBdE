@@ -13,8 +13,8 @@
 #' @name bde_vivid_pal
 #'
 #' @keywords internal
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 #'
 #' @examples
 #' # Show the vivid palette.
@@ -32,8 +32,8 @@ bde_vivid_pal <- function(...) {
 #' @rdname bde_pals
 #'
 #' @keywords internal
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 bde_rose_pal <- function(...) {
   lifecycle::deprecate_warn("0.3.5", "bde_rose_pal()", "bde_tidy_palettes()")
 

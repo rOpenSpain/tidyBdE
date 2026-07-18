@@ -7,15 +7,15 @@
 #' @return A logical value indicating whether BdE resources are reachable.
 #'
 #' @keywords internal
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 #'
 #' @examples
 #' \donttest{
 #' bde_check_access()
 #' }
 bde_check_access <- function() {
-  # Use an internal option for testing purposes only.
+  # Skip the access check on CRAN.
   if (on_cran()) {
     return(FALSE)
   }

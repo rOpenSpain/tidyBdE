@@ -2,8 +2,8 @@
 #'
 #' @description
 #' Minimal metadata for the selected Spanish macroeconomic indicators available
-#' through the convenience functions in \CRANpkg{tidyBdE}. See
-#' [indicator wrappers][bde_indicators].
+#' through the convenience functions in this package. See [indicator
+#' wrappers][bde_indicators].
 #' Full catalog metadata is available with [bde_catalog_load()].
 #'
 #' @details
@@ -25,7 +25,8 @@
 #'   \item{Nombre_de_la_serie}{API series code. See
 #'     [API series functions][bde_series_api].}
 #'   \item{Descripcion_de_la_serie}{Description of the series in Spanish.}
-#'   \item{Fecha_de_la_primera_observacion}{Starting date of the indicator.}
+#'   \item{Fecha_de_la_primera_observacion}{First observation date of the
+#'     indicator.}
 #'   \item{Fecha_de_la_ultima_observacion}{Most recent date available.}
 #'   \item{Fuente}{Data source.}
 #' }

@@ -16,8 +16,8 @@
 #'
 #' @importFrom ggplot2 %+replace% rel margin
 #'
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{

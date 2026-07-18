@@ -108,7 +108,7 @@ xr |>
   bde_series_api_latest(language = "en") |>
   glimpse()
 
-# Extract the latest months.
+# Extract the last 12 months.
 xr |>
   slice_head(n = 1) |>
   pull(Nombre_de_la_serie) |>

@@ -14,7 +14,7 @@
 #'
 #' dates <- dplyr::tribble(
 #'   ~FREQUENCY, ~FORMAT, ~EXAMPLES,
-#'   "**Daily / Business day**", "`DD MMMMYYYY`", "`02 FEB2019`",
+#'   "**Daily / Business day**", "`DD MMMYYYY`", "`02 FEB2019`",
 #'   "**Monthly**", "`MMM YYYY`", "`MAR 2020`",
 #'   "**Quarterly**", paste(
 #'     "`MMM YYYY`, where `MMM` is the first",
@@ -45,8 +45,8 @@
 #'
 #' @concept utils
 #'
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 #'
 #' @examples
 #' # Supported formats.
@@ -363,7 +363,7 @@ bde_hlp_abort_if_not <- function(
 
   if (is.null(messages) || !all(nzchar(messages))) {
     cli::cli_abort(
-      "Every condition supplied to {.fn gb_abort_if_not} must be named.",
+      "Every condition supplied to {.fn bde_hlp_abort_if_not} must be named.",
       call = .call,
       .envir = .envir,
       .frame = .frame

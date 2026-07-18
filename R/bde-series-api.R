@@ -70,8 +70,8 @@
 #' @rdname bde_series_api
 #' @name bde_series_api
 #'
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{
@@ -85,7 +85,7 @@
 #'   bde_series_api_latest(language = "en") |>
 #'   glimpse()
 #'
-#' # Extract the latest months.
+#' # Extract the last 12 months.
 #' xr |>
 #'   slice_head(n = 1) |>
 #'   pull(Nombre_de_la_serie) |>
@@ -188,8 +188,8 @@ bde_series_api_latest <- function(
 
 #' @rdname bde_series_api
 #'
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 bde_series_api_load <- function(
   series_code,
   series_label = NULL,

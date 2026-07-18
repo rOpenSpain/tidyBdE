@@ -88,8 +88,8 @@
 #' @rdname bde_series
 #' @name bde_series
 #'
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{
@@ -294,8 +294,8 @@ bde_series_load <- function(
 
 #' @rdname bde_series
 #'
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 bde_series_full_load <- function(
   series_csv,
   parse_dates = TRUE,

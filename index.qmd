@@ -235,7 +235,7 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
 ### Palettes
 
 Three custom palettes based on colors used in selected BdE publications are
-available.
+available for **ggplot2** plots.
 
 Apply these palettes to **ggplot2** plots with the scale functions provided by
 the package. See `help("scale_color_bde_d", package = "tidyBdE")`.

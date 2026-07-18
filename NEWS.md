@@ -1,6 +1,6 @@
 # tidyBdE 0.7.0
 
-- The package no longer imports **tibble** directly; tibble return types continue to be provided through **dplyr**.
+- The package no longer imports **tibble** directly; **tibble** return types continue to be provided through **dplyr**.
 - Internal code was refactored with AI assistance to reduce duplication in
   indicator wrappers and **ggplot2** scale helpers.
 - Messages and package errors now use **cli**, with AI-assisted wording updates
@@ -12,7 +12,7 @@
 - New vignette `vignette("csv_manual", package = "tidyBdE")` explaining the
   structure of Banco de España bulk CSV files, catalog metadata and series
   identifiers (#64).
-- Add Statistics web service (API) functions (#65):
+- Added Statistics web service (API) functions (#65):
   - `bde_series_api_latest()` added to query the Latest Data request of the
     Banco de España [Statistics web service
     (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).

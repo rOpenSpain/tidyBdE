@@ -84,8 +84,8 @@
 #'
 #' @concept catalog
 #'
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 #'
 #' @examplesIf bde_check_access()
 #' \donttest{
@@ -250,8 +250,8 @@ bde_catalog_load <- function(
 
 #' @rdname bde_catalogs
 #'
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 bde_catalog_update <- function(
   catalog = c("ALL", "BE", "SI", "TC", "TI", "PB"),
   cache_dir = NULL,
@@ -314,8 +314,8 @@ bde_catalog_update <- function(
 
 #' @rdname bde_catalogs
 #'
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 bde_catalog_search <- function(pattern, ...) {
   # Reuse the catalog loader so search honors the same cache and parsing rules.
   catalog_search <- bde_catalog_load(...)

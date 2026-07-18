@@ -17,8 +17,8 @@
 #'
 #' @family bde_plot
 #'
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 #'
 #' @examples
 #' # Show the BdE vivid palette.

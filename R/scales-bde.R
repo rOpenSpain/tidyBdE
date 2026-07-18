@@ -20,8 +20,8 @@
 #' @rdname scales_bde
 #' @name scales_bde
 #'
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 #'
 #' @examples
 #' library(ggplot2)
@@ -63,14 +63,14 @@ scale_color_bde_d <- function(
 #' @rdname scales_bde
 #' @usage NULL
 #'
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 scale_colour_bde_d <- scale_color_bde_d
 
 #' @rdname scales_bde
 #'
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 scale_fill_bde_d <- function(
   palette = c("bde_vivid_pal", "bde_rose_pal", "bde_qual_pal"),
   alpha = NULL,
@@ -89,8 +89,8 @@ scale_fill_bde_d <- function(
 
 #' @rdname scales_bde
 #'
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 scale_color_bde_c <- function(
   palette = c("bde_rose_pal", "bde_vivid_pal", "bde_qual_pal"),
   alpha = NULL,
@@ -112,14 +112,14 @@ scale_color_bde_c <- function(
 #' @rdname scales_bde
 #' @usage NULL
 #'
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 scale_colour_bde_c <- scale_color_bde_c
 
 #' @rdname scales_bde
 #'
-#' @encoding UTF-8
 #' @export
+#' @encoding UTF-8
 scale_fill_bde_c <- function(
   palette = c("bde_rose_pal", "bde_vivid_pal", "bde_qual_pal"),
   alpha = NULL,
