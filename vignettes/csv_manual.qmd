@@ -297,7 +297,7 @@ The final lines contain:
 CSV files are generated using:
 
 - Decimal separator: period (`.`).
-- Thousands separator: none.
+- Thousands separator: blank space.
 - List separator: comma (`,`).
 
 If regional settings differ from these conventions, values may not be loaded

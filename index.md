@@ -130,7 +130,7 @@ seq_number <- xr_gbp |>
   # Select the first record.
   slice(1) |>
   # Get the stable sequential number.
-  select(Numero_secuencial) |>
+  pull(Numero_secuencial) |>
   # Convert to numeric.
   as.double()
 
