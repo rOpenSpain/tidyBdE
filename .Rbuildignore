@@ -76,3 +76,5 @@
 ^\.claude/
 ^index_files/
 ^README_files/
+^\.codex$
+^\.codex/
