@@ -124,9 +124,9 @@ expressions](https://rdrr.io/r/base/regex.html) to broaden the search.
 ``` r
 # \donttest{
 bde_catalog_load("TI", verbose = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmpBo5T4w.
+#> ℹ Using temporary cache directory /tmp/RtmpaHvNPt.
 #> ℹ Downloading catalog "TI".
-#> ✔ Using cache directory /tmp/RtmpBo5T4w.
+#> ✔ Using cache directory /tmp/RtmpaHvNPt.
 #> ℹ Updating 1 catalog file: "TI".
 #> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv>.
 #> ℹ Parsing date columns.
@@ -210,7 +210,7 @@ bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 #> #   Titulo_de_la_serie <chr>, Fuente <chr>, Notas <chr>
 
 bde_catalog_update("TI", verbose = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmpBo5T4w.
+#> ℹ Using temporary cache directory /tmp/RtmpaHvNPt.
 #> ℹ Updating 1 catalog file: "TI".
 #> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv>.
 # }

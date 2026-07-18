@@ -20,7 +20,7 @@ CRAN release: 2026-07-06
   explaining the structure of Banco de España bulk CSV files, catalog
   metadata and series identifiers
   ([\#64](https://github.com/rOpenSpain/tidyBdE/issues/64)).
-- New Statistics web service (API) functions added
+- Add Statistics web service (API) functions
   ([\#65](https://github.com/rOpenSpain/tidyBdE/issues/65)):
   - [`bde_series_api_latest()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
     added to query the Latest Data request of the Banco de España
