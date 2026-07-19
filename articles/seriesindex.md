@@ -1,7 +1,7 @@
 # Series index
 
 This article lists time series available in Banco de España catalog
-metadata. Last updated: **18-July-2026**.
+metadata. Last updated: **19-July-2026**.
 
 Use the stable sequential number (`Numero_secuencial`) to load a time
 series from bulk CSV files, as shown in the example. Use
