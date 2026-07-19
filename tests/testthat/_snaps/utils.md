@@ -108,7 +108,7 @@
       bde_hlp_abort_if_not(isFALSE(TRUE))
     Condition
       Error:
-      ! Every condition supplied to `gb_abort_if_not()` must be named.
+      ! Every condition supplied to `bde_hlp_abort_if_not()` must be named.
 
 ---
 
