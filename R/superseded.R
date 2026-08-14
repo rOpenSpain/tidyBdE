@@ -3,7 +3,7 @@
 #' @description
 #' `r lifecycle::badge('superseded')`
 #'
-#' These palettes are superseded. Use [bde_tidy_palettes()] instead.
+#' These palettes have been superseded. Use [bde_tidy_palettes()] instead.
 #'
 #' @param ... Additional arguments.
 #'

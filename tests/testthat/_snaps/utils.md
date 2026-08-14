@@ -1,25 +1,24 @@
-# Errors on download
+# Download helper retries warnings and cleans failed files
 
     Code
       a <- bde_hlp_download("https://example.invalid/file.csv", tmp, TRUE)
     Message
-      i Downloading file from <https://example.invalid/file.csv>.
-      ! Download failed; trying again.
-      ! URL <https://example.invalid/file.csv> is not reachable. If this looks like a bug, please open an issue at <https://github.com/rOpenSpain/tidyBdE/issues>.
+      i Downloading 'file.csv'.
+      ! Download failed, trying once more.
+      ! Could not download 'file.csv'.
+      i If this looks like a bug, please open an issue at <https://github.com/rOpenSpain/tidyBdE/issues>.
 
 ---
 
     Code
       b <- bde_hlp_download("https://example.com/file.csv", tmp2, TRUE)
     Message
-      i Downloading file from <https://example.com/file.csv>.
+      i Downloading 'file.csv'.
 
-# Messages
+# Empty result helper reports optional messages
 
     Code
       df <- bde_hlp_return_null()
-    Message
-      i BdE resources are unavailable. Returning an empty <tbl_df>.
 
 ---
 
@@ -28,7 +27,7 @@
     Message
       i An example message.
 
-# Pretty match
+# Argument matching handles defaults, exact and partial values
 
     Code
       my_fun("error here")
@@ -102,7 +101,7 @@
       Error:
       ! `year` must be "2020" or "2024", not "2020" or "2030".
 
-# bde_hlp_abort_if_not
+# Validation helper reports the first failed condition
 
     Code
       bde_hlp_abort_if_not(isFALSE(TRUE))

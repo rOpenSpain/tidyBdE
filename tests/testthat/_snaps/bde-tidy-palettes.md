@@ -1,4 +1,4 @@
-# Test error
+# Palette inputs are validated
 
     Code
       bde_tidy_palettes(palette = "none")
@@ -46,10 +46,10 @@
       Error in `bde_tidy_palettes()`:
       ! `rev` must be a <logical> vector.
 
-# Max value
+# Palette requests above the maximum return all colors
 
     Code
       nmore <- bde_tidy_palettes(n = 23)
     Message
-      ! Palette "bde_vivid_pal" contains 6 colors; `n` requested 23. Returning all 6 colors.
+      ! Palette "bde_vivid_pal" contains 6 colors, but `n` requested 23. Returning all 6 colors.
 

@@ -61,8 +61,8 @@ append opacity codes (\code{"FF"}) to individual color hex codes. See
 A \CRANpkg{ggplot2} scale object.
 }
 \description{
-Color scales for \CRANpkg{ggplot2}. Discrete scales are named
-\verb{scale_*_bde_d}; continuous scales are named \verb{scale_*_bde_c}.
+These are color scales for \CRANpkg{ggplot2}. Discrete scales are named
+\verb{scale_*_bde_d}. Continuous scales are named \verb{scale_*_bde_c}.
 }
 \examples{
 library(ggplot2)

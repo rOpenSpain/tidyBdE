@@ -12,8 +12,40 @@
       bde_series_load(c(101, 102), series_label = c("same", "same"))
     Condition
       Error in `bde_series_load()`:
+      ! `series_label` must contain unique values.
+      i Duplicate value: "same".
+
+---
+
+    Code
+      bde_series_load(101, series_label = c("one", "two"))
+    Condition
+      Error in `bde_series_load()`:
       ! `series_label` and `series_code` must have the same length.
-      i `series_label` has length 1 and `series_code` has length 2.
+      i `series_label` has length 2 and `series_code` has length 1.
+
+# Series load reports missing inputs
+
+    Code
+      bde_series_load()
+    Condition
+      Error in `bde_series_load()`:
+      ! `series_code` cannot be missing.
+
+# Series load reports invalid and unavailable codes offline
+
+    Code
+      invalid <- bde_series_load(c("101", "invalid"), cache_dir = dir)
+    Condition
+      Warning in `bde_series_load()`:
+      NAs introduced by coercion
+
+---
+
+    Code
+      missing <- bde_series_load(999, cache_dir = dir)
+    Message
+      ! `series_code` 999 was not found in catalog metadata.
 
 # Series full load reads cached CSV variants offline
 
@@ -32,20 +64,18 @@
     Message
       i Extracting series 999.
       ! `series_code` 999 was not found in catalog metadata.
-      i BdE resources are unavailable. Returning an empty <tbl_df>.
-      i BdE resources are unavailable. Returning an empty <tbl_df>.
 
 # Series full load handles offline download branches
 
     Code
       empty <- bde_series_full_load("tc_1_1.csv", cache_dir = dir, update_cache = TRUE)
     Message
-      i BdE resources are unavailable. Returning an empty <tbl_df>.
+      i BdE resources are unavailable. Returning an empty tibble.
 
 # Series full load creates family subdirectories
 
     Code
       empty <- bde_series_full_load("tc_1_1.csv", cache_dir = dir)
     Message
-      i BdE resources are unavailable. Returning an empty <tbl_df>.
+      i BdE resources are unavailable. Returning an empty tibble.
 

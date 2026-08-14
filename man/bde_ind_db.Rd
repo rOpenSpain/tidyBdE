@@ -18,13 +18,14 @@ A \link[dplyr:tibble]{tibble} of 9 rows and
 \item{Descripcion_de_la_serie}{Description of the series in Spanish.}
 \item{Fecha_de_la_primera_observacion}{First observation date of the
 indicator.}
-\item{Fecha_de_la_ultima_observacion}{Most recent date available.}
+\item{Fecha_de_la_ultima_observacion}{Most recent observation date.}
 \item{Fuente}{Data source.}
 }
 }
 \description{
-Minimal metadata for the selected Spanish macroeconomic indicators available
-through the convenience functions in this package. See \link[=bde_indicators]{indicator wrappers}.
+This dataset contains minimal metadata for the selected Spanish macroeconomic
+indicators available through the convenience functions in this package. See
+\link[=bde_indicators]{indicator wrappers}.
 Full catalog metadata is available with \code{\link[=bde_catalog_load]{bde_catalog_load()}}.
 }
 \details{

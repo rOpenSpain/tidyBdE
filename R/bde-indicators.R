@@ -1,8 +1,8 @@
 #' Selected Spanish macroeconomic indicators
 #'
 #' @description
-#' Retrieve selected Spanish macroeconomic indicators. Metadata is available in
-#' [bde_ind_db].
+#' These functions retrieve selected Spanish macroeconomic indicators. Metadata
+#' is available in [bde_ind_db].
 #'
 #' @inheritParams bde_series series_label
 #' @inheritDotParams bde_series -series_code -series_csv
@@ -116,7 +116,7 @@ bde_ind_ibex <- bde_ind_ibex_monthly
 #' @param function_name Name used in `bde_ind_db$tidyBdE_fun`.
 #' @param series_label Series label passed to [bde_series_load()].
 #' @param ... Additional arguments passed to [bde_series_load()].
-#' @param .envir Environment to evaluate the glue expressions in.
+#' @param .envir Environment in which to evaluate cli expressions.
 #'
 #' @noRd
 bde_hlp_indicator <- function(
@@ -125,7 +125,6 @@ bde_hlp_indicator <- function(
   ...,
   .envir = parent.frame()
 ) {
-  # Validate input arguments.
   bde_hlp_abort_if_not(
     "{.arg series_label} must be a {.cls character} vector." = is.character(
       series_label

@@ -1,4 +1,4 @@
-# Messages
+# Catalog load reports downloads and cache reuse
 
     Code
       names(s)
@@ -21,7 +21,7 @@
       [16] "Fuente"                                        
       [17] "Notas"                                         
 
-# Fully Deprecation of Series
+# Catalog update rejects retired catalog codes
 
     Code
       bde_catalog_update("IE", cache_dir = dir)
@@ -37,20 +37,12 @@
       Error:
       ! `catalog` must be "ALL", "BE", "SI", "TC", "TI", or "PB", not "CF".
 
-# No results
-
-    Code
-      bde_catalog_search("GDP", catalog = "TI")
-    Condition
-      Error in `bde_catalog_search()`:
-      ! No matches found for `pattern` "GDP".
-
-# No results with malformed catalog data
+# Catalog search reports malformed catalog data
 
     Code
       bde_catalog_search("TC", catalog = "TC")
     Message
-      ! Catalog data does not inherit from <tbl_df>. Try downloading it again with `bde_catalog_update()`.
+      ! Catalog data has an unexpected format. Try downloading it again with `bde_catalog_update()`.
 
 # Catalogs load cached files and parse search results offline
 
@@ -67,14 +59,15 @@
       bde_catalog_search("not-found", catalog = "TC", cache_dir = dir)
     Condition
       Error in `bde_catalog_search()`:
-      ! No matches found for `pattern` "not-found".
+      ! No catalog rows matched `pattern` "not-found".
+      i Search terms must match the metadata returned by `bde_catalog_load()`.
 
 # Catalogs report unavailable updates offline
 
     Code
       res <- bde_catalog_update("TC", cache_dir = dir, verbose = TRUE)
     Message
-      i BdE resources are unavailable. Returning an empty <tbl_df>.
+      i BdE resources are unavailable. Returning an empty tibble.
 
 ---
 
@@ -83,7 +76,7 @@
     Message
       v Created cache directory '<tempdir>'.
       i Downloading catalog "TC".
-      i BdE resources are unavailable. Returning an empty <tbl_df>.
+      i BdE resources are unavailable. Returning an empty tibble.
       ! Catalog "TC" is not available for download.
       ! Could not load 1 catalog: "TC".
       i Parsing date columns.
@@ -92,8 +85,6 @@
 
     Code
       empty <- bde_catalog_search("anything")
-    Message
-      i BdE resources are unavailable. Returning an empty <tbl_df>.
 
 # Catalog update reports verbose update plans
 

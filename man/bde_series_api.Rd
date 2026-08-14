@@ -22,7 +22,7 @@ bde_series_api_load(
 \arguments{
 \item{series_code}{A character vector of API series codes from the
 \code{Nombre_de_la_serie} field of the corresponding catalog. These values are
-passed to the API \code{series_list} parameter; they are not the stable
+passed to the API \code{series_list} parameter. They are not the stable
 sequential numbers used by \code{\link[=bde_series_load]{bde_series_load()}}.}
 
 \item{language}{A string specifying the output language: \code{"es"} for Spanish

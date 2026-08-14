@@ -1,37 +1,37 @@
-test_that("Indicators", {
+test_that("Smoke: indicators load from BdE resources", {
   skip_on_cran()
   skip_if_bde_offline()
 
   # Test indicators----
   n <- expect_silent(bde_ind_gdp_var())
-  expect_true(nrow(n) > 10)
+  expect_gt(nrow(n), 10)
 
   n2 <- expect_silent(bde_ind_unemployment_rate())
-  expect_true(nrow(n2) > 10)
+  expect_gt(nrow(n2), 10)
 
   n3 <- expect_silent(bde_ind_euribor_12m_monthly())
-  expect_true(nrow(n3) > 10)
+  expect_gt(nrow(n3), 10)
 
   n4 <- expect_silent(bde_ind_euribor_12m_daily())
-  expect_true(nrow(n4) > 10)
+  expect_gt(nrow(n4), 10)
 
   n5 <- expect_silent(bde_ind_cpi_var())
-  expect_true(nrow(n5) > 10)
+  expect_gt(nrow(n5), 10)
 
   n6 <- expect_silent(bde_ind_ibex())
-  expect_true(nrow(n6) > 10)
+  expect_gt(nrow(n6), 10)
 
   n6b <- expect_silent(bde_ind_ibex_monthly())
   expect_identical(n6, n6b)
 
   n7 <- expect_silent(bde_ind_gdp_quarterly())
-  expect_true(nrow(n7) > 10)
+  expect_gt(nrow(n7), 10)
 
   n8 <- expect_silent(bde_ind_population())
-  expect_true(nrow(n8) > 10)
+  expect_gt(nrow(n8), 10)
 
   n9 <- expect_silent(bde_ind_ibex_daily())
-  expect_true(nrow(n9) > 10)
+  expect_gt(nrow(n9), 10)
 })
 
 test_that("Indicators pass configured series and labels", {
@@ -61,20 +61,60 @@ test_that("Indicators pass configured series and labels", {
   expect_named(bde_ind_population(), c("Date", "value"))
 
   expect_length(calls, 10)
-  expect_setequal(
-    vapply(calls, `[[`, character(1), "series_label"),
-    c(
+  calls <- do.call(
+    rbind,
+    lapply(calls, function(x) {
+      data.frame(
+        series_code = x$series_code,
+        series_label = x$series_label,
+        stringsAsFactors = FALSE
+      )
+    })
+  )
+  expected <- data.frame(
+    series_code = as.character(c(
+      bde_ind_db$Numero_secuencial[bde_ind_db$tidyBdE_fun == "bde_ind_gdp_var"],
+      bde_ind_db$Numero_secuencial[
+        bde_ind_db$tidyBdE_fun == "bde_ind_unemployment_rate"
+      ],
+      bde_ind_db$Numero_secuencial[
+        bde_ind_db$tidyBdE_fun == "bde_ind_euribor_12m_monthly"
+      ],
+      bde_ind_db$Numero_secuencial[
+        bde_ind_db$tidyBdE_fun == "bde_ind_euribor_12m_daily"
+      ],
+      bde_ind_db$Numero_secuencial[bde_ind_db$tidyBdE_fun == "bde_ind_cpi_var"],
+      bde_ind_db$Numero_secuencial[
+        bde_ind_db$tidyBdE_fun == "bde_ind_ibex_monthly"
+      ],
+      bde_ind_db$Numero_secuencial[
+        bde_ind_db$tidyBdE_fun == "bde_ind_ibex_monthly"
+      ],
+      bde_ind_db$Numero_secuencial[
+        bde_ind_db$tidyBdE_fun == "bde_ind_ibex_daily"
+      ],
+      bde_ind_db$Numero_secuencial[
+        bde_ind_db$tidyBdE_fun == "bde_ind_gdp_quarterly"
+      ],
+      bde_ind_db$Numero_secuencial[
+        bde_ind_db$tidyBdE_fun == "bde_ind_population"
+      ]
+    )),
+    series_label = c(
       "GDP_YoY",
       "Unemployment_Rate",
       "Euribor_12M_Monthly",
       "Euribor_12M_Daily",
       "Consumer_price_index_YoY",
       "IBEX_index_month",
+      "IBEX_index_month",
       "IBEX_index_day",
       "GDP_quarterly_value",
       "Population_Spain"
-    )
+    ),
+    stringsAsFactors = FALSE
   )
+  expect_identical(calls, expected)
 })
 
 test_that("Indicators validate labels and drop missing rows", {

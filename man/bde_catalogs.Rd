@@ -45,7 +45,7 @@ with \code{options(bde_cache_dir = "path/to/dir")}.}
 \item{pattern}{Regular expression to search for. See \strong{Details} and
 \strong{Examples}.}
 
-\item{...}{Additional arguments passed by \code{bde_catalog_search()} to
+\item{...}{Additional arguments passed from \code{bde_catalog_search()} to
 \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 }
 \value{
@@ -96,7 +96,7 @@ search.
 bde_catalog_load("TI", verbose = TRUE)
 
 # Simple search. Search terms must be in Spanish.
-# PIB [es] == GDP [en].
+# PIB is the Spanish equivalent of GDP.
 bde_catalog_search("PIB")
 
 # Search with a single complex condition.

@@ -19,7 +19,7 @@
 #' @param verbose Logical. If `TRUE`, display informative messages.
 #' @param pattern Regular expression to search for. See **Details** and
 #'   **Examples**.
-#' @param ... Additional arguments passed by `bde_catalog_search()` to
+#' @param ... Additional arguments passed from `bde_catalog_search()` to
 #'   [bde_catalog_load()].
 #'
 #' @details
@@ -92,7 +92,7 @@
 #' bde_catalog_load("TI", verbose = TRUE)
 #'
 #' # Simple search. Search terms must be in Spanish.
-#' # PIB [es] == GDP [en].
+#' # PIB is the Spanish equivalent of GDP.
 #' bde_catalog_search("PIB")
 #'
 #' # Search with a single complex condition.
@@ -111,7 +111,6 @@ bde_catalog_load <- function(
   verbose = FALSE
 ) {
   catalog <- match_arg_pretty(catalog)
-  # Validate input arguments.
   valid_catalogs <- c("BE", "SI", "TC", "TI", "PB", "ALL")
   bde_hlp_abort_if_not(
     "{.arg cache_dir} must be a {.cls character} vector or {.val NULL}." = any(
@@ -154,7 +153,6 @@ bde_catalog_load <- function(
         verbose = verbose
       )
 
-      # Handle download errors.
       if (any(is.data.frame(result), isFALSE(result))) {
         cli::cli_alert_warning(
           "Catalog {.str {x}} is not available for download."
@@ -258,7 +256,6 @@ bde_catalog_update <- function(
   verbose = FALSE
 ) {
   catalog <- match_arg_pretty(catalog)
-  # Validate input arguments.
   valid_catalogs <- c("BE", "SI", "TC", "TI", "PB", "ALL")
   bde_hlp_abort_if_not(
     "{.arg cache_dir} must be a {.cls character} vector or {.val NULL}." = any(
@@ -269,7 +266,9 @@ bde_catalog_update <- function(
   )
 
   if (!bde_check_access()) {
-    tbl <- bde_hlp_return_null()
+    tbl <- bde_hlp_return_null(
+      "BdE resources are unavailable. Returning an empty tibble."
+    )
     return(tbl)
   }
 
@@ -300,7 +299,6 @@ bde_catalog_update <- function(
     full_url <- paste0(base_url, catalog_file)
     local_file <- file.path(cache_dir, catalog_file)
 
-    # Store each catalog in the resolved cache directory.
     result <- bde_hlp_download(
       url = full_url,
       local_file = local_file,
@@ -327,8 +325,8 @@ bde_catalog_search <- function(pattern, ...) {
 
   if (!inherits(catalog_search, "tbl_df")) {
     cli::cli_alert_warning(paste0(
-      "Catalog data does not inherit from {.cls tbl_df}. ",
-      "Try downloading it again with {.fn bde_catalog_update}."
+      "Catalog data has an unexpected format. Try downloading it again ",
+      "with {.fn bde_catalog_update}."
     ))
     return(invisible())
   }
@@ -346,7 +344,13 @@ bde_catalog_search <- function(pattern, ...) {
 
   search_results <- catalog_search[search_match_rows, ]
   if (nrow(search_results) == 0) {
-    cli::cli_abort("No matches found for {.arg pattern} {.str {pattern}}.")
+    cli::cli_abort(c(
+      "No catalog rows matched {.arg pattern} {.str {pattern}}.",
+      "i" = paste0(
+        "Search terms must match the metadata returned by ",
+        "{.fn bde_catalog_load}."
+      )
+    ))
   }
   search_results
 }

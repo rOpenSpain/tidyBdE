@@ -1,7 +1,7 @@
 #' BdE theme for \CRANpkg{ggplot2}
 #'
 #' @description
-#' A custom \CRANpkg{ggplot2} theme based on BdE publications.
+#' This custom \CRANpkg{ggplot2} theme is based on BdE publications.
 #'
 #' @inheritDotParams ggplot2::theme_classic
 #'

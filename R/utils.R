@@ -1,7 +1,7 @@
-#' Parse dates from strings
+#' Parse date strings
 #'
 #' @description
-#' Parse strings representing dates with [as.Date()]. This function is tailored
+#' Parse date strings with [as.Date()]. This function is tailored
 #' to date formats used in this package and may not parse other datasets. See
 #' **Examples** for supported formats.
 #'
@@ -90,28 +90,27 @@ bde_parse_dates <- function(dates_to_parse) {
     "DIC"
   )
 
-  # Map Spanish month names to numbers.
+  # Map Spanish month abbreviations to numbers.
   for (i in seq_along(months_esp)) {
     dateformat <- gsub(months_esp[i], sprintf("%02d", i), dateformat)
   }
 
-  # Normalize the date format to dd-mm-yyyy.
+  # Normalize dates to day-month-year order.
   for (j in seq_along(dateformat)) {
     s2 <- dateformat[j]
 
     if (is.na(s2) || nchar(s2) < 4) {
-      # Return missing values for incomplete dates.
+      # Use missing values for incomplete dates.
       dateformat[j] <- NA
     } else if (nchar(s2) == 4) {
-      # If only a year is provided, add month and day.
+      # Use December 31 when only a year is provided.
       dateformat[j] <- paste0("3112", s2)
     } else if (nchar(s2) == 6) {
-      # If month and year are provided, add day.
+      # Use the first day when only a month and year are provided.
       dateformat[j] <- paste0("01", s2)
     }
   }
 
-  # Convert normalized values to dates.
   dateformat <- as.Date(dateformat, "%d%m%Y")
   dateformat
 }
@@ -120,17 +119,15 @@ bde_parse_dates <- function(dates_to_parse) {
 #'
 #' @param cache_dir Path to a cache directory.
 #' @param verbose Logical. If `TRUE`, display informative messages.
-#' @param suffix Optional suffix to append to the path.
+#' @param suffix Optional suffix to append to the cache path.
 #'
 #' @noRd
 bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
   # Prefer an explicit cache directory, then an option, then a temp directory.
   if (is.null(cache_dir)) {
-    # Respect the global cache option when no directory is supplied.
     cache_dir <- getOption("bde_cache_dir", NULL)
 
     if (is.null(cache_dir)) {
-      # Keep default caching disposable when no cache is configured.
       cache_dir <- tempdir()
 
       if (!is.null(suffix)) {
@@ -144,7 +141,6 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
       }
       return(cache_dir)
     } else {
-      # Report the configured cache location when requested.
       if (verbose) {
         cli::cli_alert_info(paste0(
           "Using cache directory from option {.code bde_cache_dir}: ",
@@ -178,13 +174,17 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
 #' @param url Resource URL.
 #' @param local_file Local file path to create or overwrite.
 #' @param verbose Logical. If `TRUE`, display informative messages.
-#' @param retry Logical indicating whether to retry once after a failed
-#'   download.
+#' @param retry Logical. If `TRUE`, retry once after a failed download.
 #'
 #' @noRd
 bde_hlp_download <- function(url, local_file, verbose, retry = TRUE) {
+  resource <- basename(sub("\\?.*$", "", url))
+  if (!nzchar(resource)) {
+    resource <- basename(local_file)
+  }
+
   if (verbose) {
-    cli::cli_alert_info("Downloading file from {.url {url}}.")
+    cli::cli_alert_info("Downloading {.file {resource}}.")
   }
 
   err_dwnload <- tryCatch(
@@ -197,16 +197,21 @@ bde_hlp_download <- function(url, local_file, verbose, retry = TRUE) {
   # Retry once because intermittent warnings are common for remote files.
   if (isTRUE(err_dwnload) && isTRUE(retry)) {
     if (verbose) {
-      cli::cli_alert_warning("Download failed; trying again.")
+      cli::cli_alert_warning("Download failed, trying once more.")
     }
 
     err_dwnload <- tryCatch(
       download.file(url, local_file, quiet = isFALSE(verbose), mode = "wb"),
       warning = function(e) {
-        cli::cli_alert_warning(paste0(
-          "URL {.url {url}} is not reachable. ",
+        issue_url <- "https://github.com/rOpenSpain/tidyBdE/issues"
+        cli::cli_alert_warning(
+          "Could not download {.file {resource}}."
+        )
+        cli::cli_alert_info(paste0(
           "If this looks like a bug, please open an issue at ",
-          "{.url https://github.com/rOpenSpain/tidyBdE/issues}."
+          "{.url ",
+          issue_url,
+          "}."
         ))
         TRUE
       }
@@ -270,28 +275,27 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
   tbl
 }
 
-#' Return an empty tibble with an informative message
+#' Return an empty tibble with an optional informative message
 #'
-#' @param msg Message to display before returning the empty tibble.
+#' @param msg Optional message to display before returning the empty tibble.
 #'
 #' @return A [tibble][dplyr::tibble].
 #'
 #' @noRd
-bde_hlp_return_null <- function(
-  msg = "BdE resources are unavailable. Returning an empty {.cls tbl_df}."
-) {
-  cli::cli_alert_info(msg)
+bde_hlp_return_null <- function(msg = NULL) {
+  if (!is.null(msg)) {
+    cli::cli_alert_info(msg)
+  }
   tbl <- dplyr::tibble(x = NULL)
   tbl
 }
 
-#' Match argument with pretty error message
+#' Match an argument with a clear error message
 #'
 #' @param arg The argument to match.
-#' @param choices The possible choices for the argument.
+#' @param choices The valid choices for the argument.
 #'
-#' @return
-#' The matched argument.
+#' @return The matched argument.
 #'
 #' @noRd
 match_arg_pretty <- function(arg, choices) {
@@ -336,16 +340,15 @@ match_arg_pretty <- function(arg, choices) {
   cli::cli_abort(c(msg, i = hint), call = NULL)
 }
 
-#' Abort when a condition is not true
+#' Abort when a condition is false
 #'
 #' @param ... Named logical conditions. Each name is the error message emitted
-#'   when its condition is not true.
+#'   when the condition is false.
 #' @param .call The call to display in the error message.
-#' @param .envir The environment used to evaluate cli expressions.
+#' @param .envir Environment in which to evaluate cli expressions.
 #' @param .frame The throwing context passed to [cli::cli_abort()].
 #'
-#' @returns
-#' `NULL`, invisibly, when every condition is true.
+#' @returns `NULL`, invisibly, when every condition is true.
 #'
 #' @noRd
 bde_hlp_abort_if_not <- function(

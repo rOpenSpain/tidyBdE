@@ -72,11 +72,11 @@ section.}
 \item With \code{out_format = "wide"}, each series is presented in a separate column
 with the name defined by \code{series_label}.
 \item With \code{out_format = "long"}, the tibble has two additional columns:
-\code{serie_name} contains the label of each series; \code{serie_value} contains the
+\code{serie_name} contains the label of each series. \code{serie_value} contains the
 corresponding value.
 }
 
-\code{"wide"} format is more suitable for exporting to a CSV file;
+\code{"wide"} format is more suitable for exporting to a CSV file.
 \code{"long"} format is more suitable for creating plots with
 \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}. See also \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}} and
 \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.

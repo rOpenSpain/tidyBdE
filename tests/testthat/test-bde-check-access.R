@@ -1,23 +1,23 @@
-test_that("On CRAN", {
+test_that("CRAN mode disables BdE access checks", {
   # Imagine we are in CRAN
   withr::local_envvar(NOT_CRAN = "false")
   expect_true(on_cran())
   expect_false(bde_check_access())
 })
 
-test_that("On CRAN falls back to interactivity when NOT_CRAN is unset", {
+test_that("CRAN detection falls back to interactivity when NOT_CRAN is unset", {
   withr::local_envvar(NOT_CRAN = "")
   expect_identical(!interactive(), on_cran())
 })
 
-test_that("Check url access", {
+test_that("Access check reaches BdE resources", {
   skip_on_cran()
   skip_if_bde_offline()
 
   expect_true(bde_check_access())
 })
 
-test_that("Check url access handles unreachable resources", {
+test_that("Access check reports unreachable resources", {
   withr::local_envvar(NOT_CRAN = "true")
   local_mocked_bindings(bde_check_url = function(...) {
     "http://ropenspain.github.io/tidyBdE/donotexist"
@@ -25,7 +25,7 @@ test_that("Check url access handles unreachable resources", {
   expect_false(bde_check_access())
 })
 
-test_that("Check url access cleans up temporary downloads", {
+test_that("Access check cleans up temporary downloads", {
   withr::local_envvar(NOT_CRAN = "true")
   downloaded_file <- NULL
 

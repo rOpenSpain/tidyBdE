@@ -12,11 +12,31 @@ test_that("Series load validates labels offline", {
     error = TRUE,
     bde_series_load(c(101, 102), series_label = c("same", "same"))
   )
+  expect_snapshot(
+    error = TRUE,
+    bde_series_load(101, series_label = c("one", "two"))
+  )
 })
 
-test_that("Indicators", {
-  expect_error(bde_series_load(), "`series_code` cannot be missing")
+test_that("Series load reports missing inputs", {
+  expect_snapshot(error = TRUE, bde_series_load())
+})
 
+test_that("Series load reports invalid and unavailable codes offline", {
+  dir <- local_bde_cache()
+  write_test_series(dir, "tc_1_1.csv")
+  local_mocked_bindings(bde_catalog_load = function(...) mock_catalog())
+
+  expect_snapshot(
+    invalid <- bde_series_load(c("101", "invalid"), cache_dir = dir)
+  )
+  expect_named(invalid, c("Date", "101"))
+
+  expect_snapshot(missing <- bde_series_load(999, cache_dir = dir))
+  expect_identical(missing, dplyr::tibble())
+})
+
+test_that("Smoke: series load detects upstream BdE changes", {
   skip_on_cran()
   skip_if_bde_offline()
 
@@ -29,51 +49,35 @@ test_that("Indicators", {
       cache_dir = local_bde_cache(),
       verbose = TRUE
     ),
-    "Reading file .*ti_1_1.csv.* from cache\\.|Downloading file from"
+    "Reading file .*ti_1_1.csv.* from cache\\.|Downloading .*ti_1_1.csv"
   )
   expect_message(
     bde_series_full_load("TI_1_1.csv", cache_dir = NULL, verbose = TRUE),
-    "Reading file .*ti_1_1.csv.* from cache\\.|Downloading file from"
+    "Reading file .*ti_1_1.csv.* from cache\\.|Downloading .*ti_1_1.csv"
   )
   expect_message(
     bde_series_full_load("CF0101.csv", cache_dir = NULL, verbose = TRUE),
-    "Reading file .*cf0101.csv.* from cache\\.|Downloading file from"
+    "Reading file .*cf0101.csv.* from cache\\.|Downloading .*cf0101.csv"
   )
   expect_silent(bde_series_full_load("CF0101"))
 
   data <- bde_series_full_load("TI_1_1.csv")
   meta <- bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
 
-  expect_true(nrow(data) > nrow(meta))
+  expect_gt(nrow(data), nrow(meta))
 
   # Test load series ----
-  expect_warning(bde_series_load("aa"))
-  expect_identical(bde_series_load(12345678910), bde_hlp_return_null())
-  expect_error(
-    bde_series_load(c(573234, 573214), series_label = c(1, NA)),
-    "`series_label` must not contain missing values\\."
-  )
-  expect_error(
-    bde_series_load(c(573234, 573214), series_label = c("1", "1")),
-    "`series_label` and `series_code` must have the same length\\."
-  )
-  expect_error(
-    bde_series_load(573234, series_label = c("a", "b")),
-    "`series_label` and `series_code` must have the same length\\."
-  )
-
   expect_silent(bde_series_load(c(573234, 573214), series_label = c("a", "b")))
 
   expect_silent(bde_series_load(573234, series_label = "a"))
   expect_silent(bde_series_load("573234", series_label = "a"))
-  expect_warning(bde_series_load(c("573234", "a")))
   expect_silent(bde_series_load(573234, series_label = NULL))
   expect_silent(bde_series_load(573234, extract_metadata = TRUE))
   expect_message(bde_series_load(573234, verbose = TRUE), "Extracting series")
 
   meta <- bde_series_load(573234, extract_metadata = TRUE)
   data <- bde_series_load(573234, extract_metadata = FALSE)
-  expect_true(nrow(data) > nrow(meta))
+  expect_gt(nrow(data), nrow(meta))
 
   # Test long and wide
   wide <- bde_series_load(c(573234, 573214), series_label = c("a", "b"))
@@ -84,7 +88,7 @@ test_that("Indicators", {
   )
 
   expect_equal(ncol(long), 3)
-  expect_true(nrow(long) > nrow(wide))
+  expect_gt(nrow(long), nrow(wide))
   expect_s3_class(long$serie_name, "factor")
   expect_equal(levels(long$serie_name), names(wide[, -1]))
 
@@ -103,7 +107,7 @@ test_that("Indicators", {
   expect_identical(wide, long)
 })
 
-test_that("Series full", {
+test_that("Series full load smoke covers cache refresh paths", {
   skip_on_cran()
   skip_if_bde_offline()
   dir <- local_bde_cache()
@@ -146,7 +150,7 @@ test_that("Series full", {
   failfix <- bde_series_full_load(all_names[2], cache_dir = dir)
   expect_gt(nrow(failfix), 10)
 })
-test_that("Mock files series", {
+test_that("Series load handles unavailable aliases from mocked files", {
   local_mocked_bindings(
     bde_catalog_load = function(...) {
       dplyr::tibble(
@@ -161,15 +165,16 @@ test_that("Mock files series", {
     }
   )
 
-  expect_message(
+  expect_silent(
     long <- bde_series_load(
       c(573234, 573214),
       series_label = c("a", "b"),
       out_format = "long",
       extract_metadata = TRUE
-    ),
-    "BdE resources are unavailable"
+    )
   )
+  expect_identical(long, dplyr::tibble())
+
   local_mocked_bindings(bde_series_full_load = function(...) {
     dplyr::tibble(no_name = 1, another = 2, more = 2, and_more = 2)
   })
@@ -180,33 +185,30 @@ test_that("Mock files series", {
       out_format = "long",
       verbose = TRUE
     ),
-    "BdE resources are unavailable"
+    "Series alias"
   )
+  expect_identical(long, dplyr::tibble())
 })
 
-test_that("Mock files all", {
+test_that("Series full load reads cached files without downloading", {
   dir <- local_bde_cache()
-  fpath <- file.path(dir, "TI", "ti_1_1.csv")
-  dir.create(dirname(fpath), recursive = TRUE, showWarnings = FALSE)
-  writeLines(" ", fpath)
-
-  expect_true(file.exists(fpath))
+  write_test_series(dir, "ti_1_1.csv")
   local_mocked_bindings(bde_hlp_download = function(...) {
-    TRUE
+    cli::cli_abort("A cached file must not be downloaded again.")
   })
 
-  expect_silent(
-    ss <- bde_series_full_load(
-      "TI_1_1.csv",
-      cache_dir = dir,
-      verbose = FALSE
-    )
+  cached <- bde_series_full_load(
+    "TI_1_1.csv",
+    cache_dir = dir,
+    verbose = FALSE
   )
-  unlink(fpath)
+  expect_named(cached, c("Date", "A", "B"))
+  expect_equal(nrow(cached), 2)
 })
 
-test_that("Mock files cleanup", {
+test_that("Series full load removes failed mocked downloads", {
   dir <- local_bde_cache()
+  downloaded_file <- file.path(dir, "TI", "ti_1_1.csv")
 
   local_mocked_bindings(
     bde_check_access = function(...) {
@@ -218,17 +220,18 @@ test_that("Mock files cleanup", {
     }
   )
 
-  expect_silent(
-    ss <- bde_series_full_load(
-      "TI_1_1.csv",
-      cache_dir = dir,
-      verbose = FALSE
-    )
+  result <- bde_series_full_load(
+    "TI_1_1.csv",
+    cache_dir = dir,
+    verbose = FALSE
   )
+  expect_null(result)
+  expect_false(file.exists(downloaded_file))
 })
 
-test_that("Mock files empty download", {
+test_that("Series full load reports empty mocked downloads", {
   dir <- local_bde_cache()
+  downloaded_file <- file.path(dir, "TI", "ti_1_1.csv")
 
   local_mocked_bindings(
     bde_check_access = function(...) {
@@ -241,13 +244,15 @@ test_that("Mock files empty download", {
   )
 
   expect_message(
-    ss <- bde_series_full_load(
+    result <- bde_series_full_load(
       "TI_1_1.csv",
       cache_dir = dir,
       verbose = FALSE
     ),
     "is empty"
   )
+  expect_null(result)
+  expect_false(file.exists(downloaded_file))
 })
 
 test_that("Series full load reads cached CSV variants offline", {

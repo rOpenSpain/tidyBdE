@@ -8,54 +8,50 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-*Adaptation of
-<https://www.bde.es/webbe/en/estadisticas/compartido/docs/manual_archivos_csv_en.pdf>*
+*Adapted from the [Banco de España bulk CSV file
+manual](https://www.bde.es/webbe/en/estadisticas/compartido/docs/manual_archivos_csv_en.pdf).*
 
 ## Introduction
 
-This document describes the files containing the time series from statistical
-tables and charts published on the Banco de España website. It also provides
-guidance on using these files.
+This document describes the files containing time series from statistical
+tables and charts published on the Banco de España website. It also explains
+how to use these files.
 
-Data for the full available sample period are provided for each series, along
-with metadata. This information describes the economic concept represented by
-each series, its units, source and any notes.
+Data for the entire available sample period are provided for each series, along
+with metadata describing its economic concept, units, source and notes.
 
-This information serves a broad audience, but users generally fall into two
+These files serve a broad audience, but users generally fall into two
 categories:
 
 1.  Users who download one or more tables to their computer to process them
     using a spreadsheet.
-2.  Users or institutions that download all or most of the information, upload
-    it to a database and combine it with other statistical data or their own
+2.  Users or institutions that download all or most of the information, load it
+    into a database and combine it with other statistical data or their own
     information.
 
-The files support both workflows.
+The files are designed for both workflows.
 
-Banco de España organizes statistical charts and tables on its website in two
-ways: by statistical publication, which is the approach covered here, or by
-subject, which is the main organization used in the Statistics section. The
-tables and download URLs are the same in both cases.
+Banco de España organizes statistical charts and tables on its website by
+statistical publication or by subject. This document covers the publication
+classification. The Statistics section primarily uses the subject
+classification. Both classifications contain the same tables and download
+URLs.
 
-This document focuses on publications and is organized as follows. The second
-section explains the two types of files released, their format and their
-content. The third section provides guidance for users who want to process the
-information with a spreadsheet. The fourth section provides guidance for
-institutions that want to develop software for automatically uploading the
-information to a database.
+This document focuses on publications. The next section describes the available
+files, their format and their content. The section on loading CSV files
+summarizes the required delimiters and regional settings. The annexes list the
+statistical publications and date formats.
 
-Because the tables in the subject-based classification are the same as those in
-the publications, only organized differently, everything mentioned in this
-manual about bulk CSV files is valid for both.
+The guidance in this manual applies to both classifications because they
+contain the same tables, organized differently.
 
 ## Time series files
 
-Files containing the time series for each publication table use CSV
-(comma-separated value) format. Commas separate the fields or values in each
+Files containing the time series for each publication table use the CSV
+(comma-separated values) format. Commas separate the fields or values in each
 line or record.
 
-The decimal separator is the period `"."` and the thousands separator is a blank
-space.
+The decimal separator is a period (`.`) and the thousands separator is a space.
 
 Two file types are available based on their content.
 
@@ -67,8 +63,8 @@ characteristics of each series included in statistical publications.
 For example, the file for all the Statistical Bulletin series is called
 `catalogo_be.csv`.
 
-The catalog file is updated **daily or quarterly**, depending on the type of
-publication.
+The catalog file is updated **daily or quarterly**, depending on the
+publication type.
 
 **Example:** Records of the `catalogo_be.csv` file
 
@@ -86,8 +82,8 @@ observaciones","Título de la serie","Fuente","Notas"
 
 **Table time series files**
 
-These files cover the entire sample period of every series of a table. There is
-one file for each table.
+These files cover the entire sample period for every series in a table. There
+is one file for each table.
 
 These files are **updated daily** whenever data for the corresponding table
 change.
@@ -118,27 +114,26 @@ The names of time series files follow the pattern `ppccaaa.csv`, where:
 For example, `be0101.csv` contains the series of Table 1 in Chapter 1 of the
 Statistical Bulletin.
 
-A compressed `pp.zip` file[^1] containing all time series files of a publication
-is provided for users who wish to download this content. For users interested in
-downloading all files of a chapter, compressed files following the pattern
-`ppcc.zip` are also available.
+Users can download all time series files for a publication in a compressed
+`pp.zip` file[^1]. Compressed files following the pattern `ppcc.zip` contain
+all files for a chapter.
 
 For example, `be01.zip` contains all the time series files of Chapter 1 of the
 Statistical Bulletin.
 
 ### Content of the catalog file
 
-The catalog file has a line or record for each time series of the tables in the
-publication. When the same series is included in several tables, the catalog
-file will have a line for each table in which it appears. Each column or field
-contains a characteristic of the time series.
+The catalog file has one record for each time series in the publication tables.
+When the same series appears in several tables, the catalog has one record for
+each table in which it appears. Each field describes a characteristic of the
+time series.
 
 **Alias de la serie (series alias)**
 
 The alias shows where a series can be found in the publication. It follows the
 pattern `pp_c_a.o[.f]`.
 
-Where:
+In this pattern:
 
 - `pp`: publication code.
 - `c`: chapter number.
@@ -158,10 +153,10 @@ number that remains unchanged throughout its lifetime.
 
 **Nombre de la serie/Código de la serie (API series code)**
 
-This field contains the stable API series code used in Banco de España
-databases. In **tidyBdE**, it is returned as `Nombre_de_la_serie`. Pass this
-column to the `series_code` argument of the Statistics web service (API)
-functions. It corresponds to the API `series_list` parameter.
+This field contains the API series code used in Banco de España databases. In
+**tidyBdE**, it is returned as `Nombre_de_la_serie`. Pass this column to the
+`series_code` argument of `bde_series_api_latest()` or
+`bde_series_api_load()`. It corresponds to the API `series_list` parameter.
 
 **Nombre del archivo con los valores de la serie (name of the file containing
 the series values)**
@@ -176,8 +171,8 @@ field provides additional detail.
 
 **Tipo de variable (variable type)**
 
-This field indicates whether the economic concept represented by the series is a
-flow, stock, average or annualized rate.
+This field indicates whether the economic concept represented by the series is
+a flow, stock, average or annualized rate.
 
 |                         |                                  |
 |-------------------------|----------------------------------|
@@ -213,7 +208,7 @@ This field describes the unit and exponent codes.
 
 This field reports the highest frequency at which the series appears in the
 table. For example, if a series appears at monthly and annual frequencies, the
-file reports its frequency as monthly. Available frequencies are:
+file reports its frequency as monthly. The available frequencies are:
 
 - DIARIA (daily).
 - LABORABLE (business days).
@@ -222,20 +217,20 @@ file reports its frequency as monthly. Available frequencies are:
 - SEMESTRAL (half-yearly).
 - ANUAL (yearly).
 
-Note: `LABORABLE` frequency means Monday to Friday. `DIARIA` frequency also
-includes Saturdays and Sundays.
+The `LABORABLE` frequency covers Monday through Friday. The `DIARIA` frequency
+also includes Saturdays and Sundays.
 
 **Fecha de la primera observación (date of first observation)**
 
 This field gives the date of the first observation in the sample period covered
-by the series file. The date format depends on the series frequency. See [Annex
-II: Date formats] for details.
+by the series file. The date format depends on the series frequency. See
+[Annex II: Date formats](#annex-ii-date-formats) for details.
 
 **Fecha de la última observación (date of last observation)**
 
 This field gives the date of the last observation in the sample period covered
-by the series file. The date format depends on the series frequency. See [Annex
-II: Date formats] for details.
+by the series file. The date format depends on the series frequency. See
+[Annex II: Date formats](#annex-ii-date-formats) for details.
 
 **Número de observaciones (number of observations)**
 
@@ -245,8 +240,8 @@ series file.
 **Título (title)**
 
 This field describes the economic concept measured or represented by the series.
-It complements the description field and consists of character strings separated
-by `/`.
+It complements the description field and consists of character strings
+separated by `/`.
 
 **Fuente (source)**
 
@@ -260,9 +255,9 @@ particular observations. It consists of character strings separated by `/`.
 
 ### Content of files with series values
 
-Files with series values contain six header lines identifying the series, a line
-with values for each date of the sample period and, at the end of the file, two
-lines with the source and notes.
+Files with series values contain six header lines identifying the series, one
+line of values for each date in the sample period and two final lines containing
+the source and notes.
 
 **Header lines**
 
@@ -323,6 +318,10 @@ contains the corresponding series values.
 : Banco de España statistical publications.
 
 ## Annex II: Date formats
+
+<!-- FIXME:
+The Banco de España manual uses OBSERVED here but does not define it.
+-->
 
 |  |  |  |
 |----|----|----|
