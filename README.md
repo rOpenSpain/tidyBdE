@@ -93,9 +93,9 @@ xr_gbp |>
   knitr::kable()
 ```
 
-| Numero_secuencial | Descripcion_de_la_serie |
-|---:|:---|
-| 573214 | Tipo de cambio. Libras esterlinas por euro (GBP/EUR).Datos diarios |
+| Numero_secuencial | Descripcion_de_la_serie                               |
+|------------------:|:------------------------------------------------------|
+|            573214 | Tipos de cambio. Libras esterlinas por euro (GBP/EUR) |
 
 <p class="caption">
 

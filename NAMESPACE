@@ -30,13 +30,17 @@ export(scale_fill_bde_c)
 export(scale_fill_bde_d)
 export(theme_tidybde)
 importFrom(cli,qty)
-importFrom(ggplot2,"%+replace%")
-importFrom(ggplot2,element_blank)
-importFrom(ggplot2,element_line)
-importFrom(ggplot2,element_rect)
-importFrom(ggplot2,element_text)
-importFrom(ggplot2,margin)
-importFrom(ggplot2,rel)
-importFrom(ggplot2,unit)
-importFrom(utils,download.file)
-importFrom(utils,read.csv2)
+importFrom(ggplot2,
+  "%+replace%",
+  element_blank,
+  element_line,
+  element_rect,
+  element_text,
+  margin,
+  rel,
+  unit
+)
+importFrom(utils,
+  download.file,
+  read.csv2
+)
