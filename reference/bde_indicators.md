@@ -111,7 +111,7 @@ Selected indicators and metadata:
 ``` r
 # \donttest{
 bde_ind_gdp_var()
-#> # A tibble: 121 × 2
+#> # A tibble: 122 × 2
 #>    Date       GDP_YoY
 #>    <date>       <dbl>
 #>  1 1996-03-01    2.46
@@ -124,6 +124,6 @@ bde_ind_gdp_var()
 #>  8 1997-12-01    4.49
 #>  9 1998-03-01    4.33
 #> 10 1998-06-01    4.53
-#> # ℹ 111 more rows
+#> # ℹ 112 more rows
 # }
 ```
