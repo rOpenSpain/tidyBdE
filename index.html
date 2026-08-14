@@ -40,7 +40,7 @@
 
     <a class="navbar-brand me-2" href="index.html"><img src="apple-touch-icon.png" alt="tidyBdE logo" height="34" width="34" class="d-inline-block me-1">tidyBdE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -94,7 +94,7 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p><strong>tidyBdE</strong> is an <strong>R</strong> package that retrieves time series data from <a href="https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html" class="external-link">Banco de España</a> bulk CSV files and the <a href="https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html" class="external-link">Statistics web service (API)</a>. Data are returned as <a href="https://tibble.tidyverse.org/" class="external-link"><strong>tibble</strong></a> objects. The package infers date, character and numeric column types where possible. Bulk CSV functions use stable sequential numbers (<code>Numero_secuencial</code>), while Statistics web service functions use <code>Nombre_de_la_serie</code> API series codes.</p>
+<p><strong>tidyBdE</strong> is an <strong>R</strong> package that retrieves time series data from <a href="https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html" class="external-link">Banco de España</a> bulk CSV files and the <a href="https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html" class="external-link">Statistics web service (API)</a>. Data are returned as <a href="https://tibble.tidyverse.org/" class="external-link"><strong>tibble</strong></a> objects. The package infers date, character and numeric column types where possible. Bulk CSV functions use stable sequential numbers (<code>Numero_secuencial</code>), while API functions use <code>Nombre_de_la_serie</code> series codes.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -114,7 +114,7 @@ Important
 <p>Install <strong>tidyBdE</strong> from <a href="https://CRAN.R-project.org/package=tidyBdE" class="external-link">CRAN</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyBdE"</span><span class="op">)</span></span></code></pre></div>
-<p>Install the development version of <strong>tidyBdE</strong> from GitHub with:</p>
+<p>Install the development version of <strong>tidyBdE</strong> from GitHub:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"ropenspain/tidyBdE"</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, install <strong>tidyBdE</strong> from <a href="https://ropenspain.r-universe.dev/tidyBdE" class="external-link">r-universe</a>:</p>
@@ -178,7 +178,7 @@ Note
 <p>BdE catalog metadata is currently available in Spanish only, so search terms must be in Spanish to retrieve results.</p>
 </div>
 </div>
-<p>After finding a time series, you can load the GBP/EUR exchange rate from bulk CSV files using its stable sequential number (<code>Numero_secuencial</code>):</p>
+<p>After you find a time series, load the GBP/EUR exchange rate from bulk CSV files using its stable sequential number (<code>Numero_secuencial</code>):</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">seq_number</span> <span class="op">&lt;-</span> <span class="va">xr_gbp</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># Select the first record.</span></span>
@@ -211,7 +211,7 @@ Note
 <div class="section level3">
 <h3 id="plots">Plots<a class="anchor" aria-label="anchor" href="#plots"></a>
 </h3>
-<p>The package also provides a custom <strong>ggplot2</strong> theme based on BdE publications:</p>
+<p><strong>tidyBdE</strong> provides a custom <strong>ggplot2</strong> theme based on BdE publications:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">time_series</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">EUR_GBP_XR</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="fu"><a href="reference/bde_tidy_palettes.html">bde_tidy_palettes</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -233,7 +233,7 @@ Note
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html" class="external-link">coord_cartesian</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/theme_tidybde.html">theme_tidybde</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-chart-1.png" style="width:100.0%" alt="EUR/GBP exchange rate (2010-2020)"></p>
-<p>The package also provides convenience functions for selected Spanish macroeconomic indicators, so you do not need to search for them manually:</p>
+<p>Convenience functions retrieve selected Spanish macroeconomic indicators, so you do not need to search for them manually:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Data in long format.</span></span>
 <span></span>
@@ -262,12 +262,12 @@ Note
 <p>Apply these palettes to <strong>ggplot2</strong> plots with the scale functions provided by the package. See <code><a href="reference/scales_bde.html">help("scale_color_bde_d", package = "tidyBdE")</a></code>.</p>
 </div>
 <div class="section level3">
-<h3 id="a-note-on-caching">A note on caching<a class="anchor" aria-label="anchor" href="#a-note-on-caching"></a>
+<h3 id="caching">Caching<a class="anchor" aria-label="anchor" href="#caching"></a>
 </h3>
 <p>Set the <code>bde_cache_dir</code> option to create a local cache:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>bde_cache_dir <span class="op">=</span> <span class="st">"./path/to/location"</span><span class="op">)</span></span></code></pre></div>
-<p>When this option is set, <strong>tidyBdE</strong> looks for cached bulk CSV files in the <code>bde_cache_dir</code> directory and loads them to speed up data retrieval.</p>
+<p>When this option is set, <strong>tidyBdE</strong> uses bulk CSV files cached in the <code>bde_cache_dir</code> directory to speed up data retrieval.</p>
 <p>Update cached data after monthly or quarterly releases with the following commands:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/bde_catalogs.html">bde_catalog_update</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -289,7 +289,7 @@ H. Herrero D (2026). <em>tidyBdE: Retrieve Time Series Data from Banco de Españ
 <span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  doi <span class="ot">=</span> {<span class="fl">10.32614</span><span class="sc">/</span>CRAN.package.tidyBdE},</span>
 <span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>  author <span class="ot">=</span> {Diego {H. Herrero}},</span>
 <span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2026</span>},</span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="fl">7.0</span>},</span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="dv">7</span>.<span class="fl">0.9000</span>},</span>
 <span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>ropenspain.github.io<span class="sc">/</span>tidyBdE<span class="sc">/</span>},</span>
 <span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools <span class="cf">for</span> retrieving Banco de España (BdE) time series data as tibble objects from bulk CSV files and the Statistics web <span class="fu">service</span> (API). Bulk CSV functions use stable BdE sequential numbers, <span class="cf">while</span> API functions use API series codes. Catalog functions support discovery and local caching. Plotting helpers provide ggplot2 palettes, scales and themes. Banco de España is the national central bank and, within the framework of the Single Supervisory <span class="fu">Mechanism</span> (SSM), the supervisor of the Spanish banking system alongside the European Central Bank. This package is not sponsored, endorsed or administered by Banco de España.},</span>
 <span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>}</span></code></pre></div>

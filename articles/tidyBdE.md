@@ -8,8 +8,8 @@ bulk CSV files and the [Statistics web service
 Data are returned as [**tibble**](https://tibble.tidyverse.org/)
 objects. The package infers date, character and numeric column types
 where possible. Bulk CSV functions use stable sequential numbers
-(`Numero_secuencial`), while Statistics web service functions use
-`Nombre_de_la_serie` API series codes.
+(`Numero_secuencial`), while API functions use `Nombre_de_la_serie`
+series codes.
 
 ## Search for time series
 
@@ -17,7 +17,7 @@ Banco de España (**BdE**) publishes numerous time series produced by the
 institution or compiled from other sources, such as
 [Eurostat](https://ec.europa.eu/eurostat) or [INE](https://www.ine.es/).
 
-The basic entry point for discovering time series is catalog metadata.
+Catalog metadata is the main entry point for discovering time series.
 You can search for time series by name:
 
 ``` r
@@ -46,7 +46,7 @@ Table 1: Search results
 **Note:** BdE catalog metadata is currently available in Spanish only,
 so search terms must be in Spanish to retrieve results.
 
-After finding a time series, load the GBP/EUR exchange rate from bulk
+After you find a time series, load the GBP/EUR exchange rate from bulk
 CSV files using its stable sequential number (`Numero_secuencial`):
 
 ``` r
@@ -85,7 +85,7 @@ time_series
 
 ## Plot time series
 
-**tidyBdE** includes a custom **ggplot2** theme based on BdE
+**tidyBdE** provides a custom **ggplot2** theme based on BdE
 publications:
 
 ``` r
@@ -115,9 +115,8 @@ ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
 
 Figure 1: EUR/GBP exchange rate (2010-2020)
 
-The package also provides convenience functions for selected Spanish
-macroeconomic indicators, so you do not need to search for them
-manually:
+Convenience functions retrieve selected Spanish macroeconomic
+indicators, so you do not need to search for them manually:
 
 ``` r
 
@@ -146,7 +145,7 @@ ggplot(plotseries, aes(x = Date, y = serie_value)) +
 
 Figure 2: Spanish economic indicators (2010-2019)
 
-## A note on caching
+## Caching
 
 Set the `bde_cache_dir` option to create a local cache:
 
@@ -155,8 +154,8 @@ Set the `bde_cache_dir` option to create a local cache:
 options(bde_cache_dir = "./path/to/location")
 ```
 
-When this option is set, **tidyBdE** looks for cached bulk CSV files in
-the `bde_cache_dir` directory and loads them to speed up data retrieval.
+When this option is set, **tidyBdE** uses bulk CSV files cached in the
+`bde_cache_dir` directory to speed up data retrieval.
 
 Update cached data after monthly or quarterly releases with the
 following commands:

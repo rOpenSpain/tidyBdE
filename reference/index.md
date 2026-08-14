@@ -62,7 +62,7 @@ Apply BdE-inspired palettes, scales and themes to **ggplot2** plots.
 Parse date formats used in Banco de España datasets.
 
 - [`bde_parse_dates()`](https://ropenspain.github.io/tidyBdE/reference/bde_parse_dates.md)
-  : Parse dates from strings
+  : Parse date strings
 
 ## Package
 

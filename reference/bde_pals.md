@@ -2,7 +2,7 @@
 
 **\[superseded\]**
 
-These palettes are superseded. Use
+These palettes have been superseded. Use
 [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md)
 instead.
 

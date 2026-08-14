@@ -63,7 +63,7 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
 
 - ...:
 
-  Additional arguments passed by `bde_catalog_search()` to
+  Additional arguments passed from `bde_catalog_search()` to
   `bde_catalog_load()`.
 
 ## Value
@@ -124,11 +124,11 @@ expressions](https://rdrr.io/r/base/regex.html) to broaden the search.
 ``` r
 # \donttest{
 bde_catalog_load("TI", verbose = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmpG4OiKO.
+#> ℹ Using temporary cache directory /tmp/Rtmpa33oLZ.
 #> ℹ Downloading catalog "TI".
-#> ✔ Using cache directory /tmp/RtmpG4OiKO.
+#> ✔ Using cache directory /tmp/Rtmpa33oLZ.
 #> ℹ Updating 1 catalog file: "TI".
-#> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv>.
+#> ℹ Downloading catalogo_ti.csv.
 #> ℹ Parsing date columns.
 #> # A tibble: 49 × 17
 #>    Nombre_de_la_serie Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹
@@ -152,7 +152,7 @@ bde_catalog_load("TI", verbose = TRUE)
 #> #   Fecha_de_la_ultima_observacion <date>, Numero_de_observaciones <dbl>, …
 
 # Simple search. Search terms must be in Spanish.
-# PIB [es] == GDP [en].
+# PIB is the Spanish equivalent of GDP.
 bde_catalog_search("PIB")
 #> # A tibble: 417 × 17
 #>    Nombre_de_la_serie Numero_secuencial Alias_de_la_serie Nombre_del_archivo_c…¹
@@ -210,8 +210,8 @@ bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 #> #   Titulo_de_la_serie <chr>, Fuente <chr>, Notas <chr>
 
 bde_catalog_update("TI", verbose = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmpG4OiKO.
+#> ℹ Using temporary cache directory /tmp/Rtmpa33oLZ.
 #> ℹ Updating 1 catalog file: "TI".
-#> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/catalogo_ti.csv>.
+#> ℹ Downloading catalogo_ti.csv.
 # }
 ```

@@ -1,7 +1,7 @@
 # Selected Spanish macroeconomic indicators
 
-Retrieve selected Spanish macroeconomic indicators. Metadata is
-available in
+These functions retrieve selected Spanish macroeconomic indicators.
+Metadata is available in
 [bde_ind_db](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md).
 
 ## Usage

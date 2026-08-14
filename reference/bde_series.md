@@ -108,10 +108,10 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
   column with the name defined by `series_label`.
 
 - With `out_format = "long"`, the tibble has two additional columns:
-  `serie_name` contains the label of each series; `serie_value` contains
+  `serie_name` contains the label of each series. `serie_value` contains
   the corresponding value.
 
-`"wide"` format is more suitable for exporting to a CSV file; `"long"`
+`"wide"` format is more suitable for exporting to a CSV file. `"long"`
 format is more suitable for creating plots with
 [`ggplot2::ggplot()`](https://ggplot2.tidyverse.org/reference/ggplot.html).
 See also
@@ -184,7 +184,7 @@ Time series functions:
 # \donttest{
 # Show metadata.
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmpG4OiKO.
+#> ℹ Using temporary cache directory /tmp/Rtmpa33oLZ.
 #> ✔ Using cached catalog "BE".
 #> ✔ Using cached catalog "SI".
 #> ✔ Using cached catalog "TC".
@@ -193,8 +193,8 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> ℹ Parsing date columns.
 #> ℹ Extracting series 573234.
 #> ℹ Downloading series 573234 from file TC_1_1.csv (alias "TC_1_1.1").
-#> ℹ Using temporary cache directory /tmp/RtmpG4OiKO/TC.
-#> ℹ Downloading file from <https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv>.
+#> ℹ Using temporary cache directory /tmp/Rtmpa33oLZ/TC.
+#> ℹ Downloading tc_1_1.csv.
 #> # A tibble: 6 × 2
 #>   Date                        `573234`                                          
 #>   <chr>                       <chr>                                             

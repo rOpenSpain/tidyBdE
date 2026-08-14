@@ -37,7 +37,7 @@ bde_series_api_load(
 
   A character vector of API series codes from the `Nombre_de_la_serie`
   field of the corresponding catalog. These values are passed to the API
-  `series_list` parameter; they are not the stable sequential numbers
+  `series_list` parameter. They are not the stable sequential numbers
   used by
   [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md).
 

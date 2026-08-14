@@ -23,7 +23,7 @@ See vignette("csv_manual", package = "tidyBdE") for details.'><meta property="og
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyBdE logo" height="34" width="34" class="d-inline-block me-1">tidyBdE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -165,9 +165,9 @@ section.</p></dd>
     <p><code>bde_series_load()</code> returns a <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a> with a <code>Date</code> column:</p><ul><li><p>With <code>out_format = "wide"</code>, each series is presented in a separate column
 with the name defined by <code>series_label</code>.</p></li>
 <li><p>With <code>out_format = "long"</code>, the tibble has two additional columns:
-<code>serie_name</code> contains the label of each series; <code>serie_value</code> contains the
+<code>serie_name</code> contains the label of each series. <code>serie_value</code> contains the
 corresponding value.</p></li>
-</ul><p><code>"wide"</code> format is more suitable for exporting to a CSV file;
+</ul><p><code>"wide"</code> format is more suitable for exporting to a CSV file.
 <code>"long"</code> format is more suitable for creating plots with
 <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot2::ggplot()</a></code>. See also <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code> and
 <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">tidyr::pivot_wider()</a></code>.</p>
@@ -225,7 +225,7 @@ macroeconomic series.</p></li>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># Show metadata.</span></span></span>
 <span class="r-in"><span><span class="fu">bde_series_load</span><span class="op">(</span><span class="fl">573234</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>, extract_metadata <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/RtmpG4OiKO</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/Rtmpa33oLZ</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Using cached catalog "BE".</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Using cached catalog "SI".</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Using cached catalog "TC".</span>
@@ -234,8 +234,8 @@ macroeconomic series.</p></li>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Parsing date columns.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Extracting series <span style="color: #0000BB;">573234</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading series <span style="color: #0000BB;">573234</span> from file <span style="color: #0000BB;">TC_1_1.csv</span> (alias <span style="color: #0000BB;">"TC_1_1.1"</span>).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/RtmpG4OiKO/TC</span>.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading file from <span style="color: #0000BB; font-style: italic;">&lt;https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/tc_1_1.csv&gt;</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Using temporary cache directory <span style="color: #0000BB;">/tmp/Rtmpa33oLZ/TC</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Downloading <span style="color: #0000BB;">tc_1_1.csv</span>.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Date                        `573234`                                          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                             </span>

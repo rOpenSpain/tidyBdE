@@ -1,7 +1,7 @@
 # BdE color palettes
 
-Manually defined palettes based on BdE publications. Each palette
-contains at most six colors.
+These manually defined palettes are based on BdE publications. Each
+palette contains at most six colors.
 
 ## Usage
 

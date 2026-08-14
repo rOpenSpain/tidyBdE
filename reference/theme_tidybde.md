@@ -1,7 +1,7 @@
 # BdE theme for [ggplot2](https://CRAN.R-project.org/package=ggplot2)
 
-A custom [ggplot2](https://CRAN.R-project.org/package=ggplot2) theme
-based on BdE publications.
+This custom [ggplot2](https://CRAN.R-project.org/package=ggplot2) theme
+is based on BdE publications.
 
 ## Usage
 

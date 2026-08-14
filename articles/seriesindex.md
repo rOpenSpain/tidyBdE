@@ -1,12 +1,15 @@
 # Series index
 
-This article lists time series available in Banco de España catalog
+This article lists the time series described in Banco de España catalog
 metadata. Last updated: **14-August-2026**.
 
-Use the stable sequential number (`Numero_secuencial`) to load a time
-series from bulk CSV files, as shown in the example. Use
-`Nombre_de_la_serie` as the API series code for the Statistics web
-service (API) functions.
+Use the stable sequential number (`Numero_secuencial`) with
+[`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
+to load a time series from bulk CSV files, as shown in the example. Use
+`Nombre_de_la_serie` as the `series_code` argument to
+[`bde_series_api_latest()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
+or
+[`bde_series_api_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md).
 
 ## Summary
 
