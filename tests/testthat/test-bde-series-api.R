@@ -102,6 +102,15 @@ test_that("Latest API reports invalid JSON responses", {
   expect_snapshot(error = TRUE, bde_series_api_latest("D_TEST"))
 })
 
+test_that("Latest API reports unexpected response formats", {
+  local_mocked_bindings(bde_hlp_download = function(url, local_file, verbose) {
+    jsonlite::write_json("unexpected", local_file, auto_unbox = TRUE)
+    TRUE
+  })
+
+  expect_snapshot(error = TRUE, bde_series_api_latest("D_TEST"))
+})
+
 test_that("Series API load reports mismatched response counts", {
   local_mocked_bindings(bde_hlp_download = function(url, local_file, verbose) {
     write_test_api_response(local_file, test_api_series_result())

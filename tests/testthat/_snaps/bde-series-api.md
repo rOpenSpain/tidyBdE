@@ -90,6 +90,14 @@
       ! Could not parse the response from the BdE API.
       i Try the request again later.
 
+# Latest API reports unexpected response formats
+
+    Code
+      bde_series_api_latest("D_TEST")
+    Condition
+      Error in `bde_series_api_latest()`:
+      ! The BdE API returned an unexpected response format.
+
 # Series API load reports mismatched response counts
 
     Code
