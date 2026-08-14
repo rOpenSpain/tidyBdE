@@ -269,7 +269,9 @@ bde_catalog_update <- function(
   )
 
   if (!bde_check_access()) {
-    tbl <- bde_hlp_return_null()
+    tbl <- bde_hlp_return_null(
+      "BdE resources are unavailable. Returning an empty {.cls tbl_df}."
+    )
     return(tbl)
   }
 
@@ -346,7 +348,13 @@ bde_catalog_search <- function(pattern, ...) {
 
   search_results <- catalog_search[search_match_rows, ]
   if (nrow(search_results) == 0) {
-    cli::cli_abort("No matches found for {.arg pattern} {.str {pattern}}.")
+    cli::cli_abort(c(
+      "No catalog rows matched {.arg pattern} {.str {pattern}}.",
+      "i" = paste0(
+        "Search terms must match the metadata returned by ",
+        "{.fn bde_catalog_load}."
+      )
+    ))
   }
   search_results
 }

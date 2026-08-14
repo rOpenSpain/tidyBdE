@@ -1,3 +1,7 @@
+# tidyBdE (development version)
+
+- Empty-result and download messages are now more specific, avoid long query URLs and no longer always imply that BdE resources are unavailable.
+
 # tidyBdE 0.7.0
 
 - The package no longer imports **tibble** directly; **tibble** return types continue to be provided through **dplyr**.

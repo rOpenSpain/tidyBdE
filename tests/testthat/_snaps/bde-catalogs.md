@@ -43,7 +43,8 @@
       bde_catalog_search("GDP", catalog = "TI")
     Condition
       Error in `bde_catalog_search()`:
-      ! No matches found for `pattern` "GDP".
+      ! No catalog rows matched `pattern` "GDP".
+      i Search terms must match the metadata returned by `bde_catalog_load()`.
 
 # No results with malformed catalog data
 
@@ -67,7 +68,8 @@
       bde_catalog_search("not-found", catalog = "TC", cache_dir = dir)
     Condition
       Error in `bde_catalog_search()`:
-      ! No matches found for `pattern` "not-found".
+      ! No catalog rows matched `pattern` "not-found".
+      i Search terms must match the metadata returned by `bde_catalog_load()`.
 
 # Catalogs report unavailable updates offline
 
@@ -92,8 +94,6 @@
 
     Code
       empty <- bde_catalog_search("anything")
-    Message
-      i BdE resources are unavailable. Returning an empty <tbl_df>.
 
 # Catalog update reports verbose update plans
 

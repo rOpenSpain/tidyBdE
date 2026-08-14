@@ -3,23 +3,22 @@
     Code
       a <- bde_hlp_download("https://example.invalid/file.csv", tmp, TRUE)
     Message
-      i Downloading file from <https://example.invalid/file.csv>.
-      ! Download failed; trying again.
-      ! URL <https://example.invalid/file.csv> is not reachable. If this looks like a bug, please open an issue at <https://github.com/rOpenSpain/tidyBdE/issues>.
+      i Downloading 'file.csv'.
+      ! Download failed; trying once more.
+      ! Could not download 'file.csv'.
+      i If this looks like a bug, please open an issue at <https://github.com/rOpenSpain/tidyBdE/issues>.
 
 ---
 
     Code
       b <- bde_hlp_download("https://example.com/file.csv", tmp2, TRUE)
     Message
-      i Downloading file from <https://example.com/file.csv>.
+      i Downloading 'file.csv'.
 
 # Messages
 
     Code
       df <- bde_hlp_return_null()
-    Message
-      i BdE resources are unavailable. Returning an empty <tbl_df>.
 
 ---
 

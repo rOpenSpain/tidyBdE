@@ -157,7 +157,9 @@ bde_series_api_latest <- function(
           "The query returned error {.val {err_num}} for ",
           "{.arg series_code} {.str {series_code[i]}}."
         ))
-        cli::cli_alert_info("This series was omitted from the results.")
+        cli::cli_alert_info(
+          "{.arg series_code} {.str {series_code[i]}} was omitted."
+        )
         return(FALSE)
       }
 
@@ -167,7 +169,9 @@ bde_series_api_latest <- function(
   )
 
   if (!any(ok_results)) {
-    cli::cli_alert_warning("No valid results for query {.url {base_url}}.")
+    cli::cli_alert_warning(
+      "No valid results for {.arg series_code} {.val {series_code}}."
+    )
     s <- bde_hlp_return_null("Returning an empty {.cls tbl_df}.")
     return(s)
   }
@@ -227,7 +231,18 @@ bde_series_api_load <- function(
     cli::cli_abort("{.arg series_label} must not contain missing values.")
   }
 
-  series_label <- unique(as.character(series_label))
+  series_label <- as.character(series_label)
+  duplicated_label <- unique(series_label[duplicated(series_label)])
+
+  if (length(duplicated_label) > 0) {
+    cli::cli_abort(c(
+      "{.arg series_label} must contain unique values.",
+      "i" = paste0(
+        "{qty(length(duplicated_label))}Duplicated value{?s}: ",
+        "{.val {duplicated_label}}."
+      )
+    ))
+  }
 
   if (length(series_code) != length(series_label)) {
     cli::cli_abort(c(
@@ -401,10 +416,10 @@ bde_hlp_api_check_range <- function(
     cli::cli_abort(c(
       paste0(
         "{.arg time_range} {.str {time_range}} is not valid for ",
-        "{qty(length(invalid_frequency))}series frequenc{?y/ies}: ",
-        "{.str {invalid_frequency}}. ",
-        "Use one of {.or {.str {ok_ranges}}}."
+        "{qty(length(invalid_frequency))} series frequenc{?y/ies}: ",
+        "{.str {invalid_frequency}}."
       ),
+      "i" = "Use one of {.or {.str {ok_ranges}}}.",
       "i" = "Invalid series: {.val {invalid_series}}."
     ))
   }

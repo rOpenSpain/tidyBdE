@@ -3,7 +3,10 @@ test_that("Parse dates", {
   testdates <- c("2002", "MAR 2002", "01 MAR 2002", "---", NA, "-an,a")
   parsed <- bde_parse_dates(testdates)
 
-  expect_s3_class(parsed, "Date")
+  expect_identical(
+    parsed,
+    as.Date(c("2002-12-31", "2002-03-01", "2002-03-01", NA, NA, NA))
+  )
 
   would_parse <- c(
     "02 FEB2019",
@@ -17,7 +20,22 @@ test_that("Parse dates", {
   )
 
   parsed_ok <- bde_parse_dates(would_parse)
-  expect_false(anyNA(parsed_ok))
+  expect_identical(
+    parsed_ok,
+    as.Date(c(
+      "2019-02-02",
+      "2019-12-02",
+      "2020-03-01",
+      "2020-01-01",
+      "2020-12-31",
+      "1993-12-01",
+      "2014-02-01",
+      "2009-12-31"
+    ))
+  )
+
+  wont_parse <- c("JAN2001", "01 APR 2017", "01/31/1990")
+  expect_identical(bde_parse_dates(wont_parse), as.Date(rep(NA, 3)))
 })
 
 test_that("cache helper covers option, suffix and creation paths", {
@@ -114,6 +132,22 @@ test_that("Download helper can skip retry", {
     FALSE,
     retry = FALSE
   ))
+})
+
+test_that("Download helper falls back to the local file name", {
+  tmp <- file.path(withr::local_tempdir(), "downloaded-resource.csv")
+
+  local_mocked_bindings(download.file = function(url, destfile, ...) {
+    writeLines("ok", destfile)
+    0
+  })
+
+  expect_message(
+    ok <- bde_hlp_download("", tmp, TRUE),
+    "downloaded-resource.csv"
+  )
+  expect_true(ok)
+  expect_true(file.exists(tmp))
 })
 
 test_that("Help guess to double", {

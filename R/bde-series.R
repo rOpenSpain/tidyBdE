@@ -160,7 +160,18 @@ bde_series_load <- function(
     cli::cli_abort("{.arg series_label} must not contain missing values.")
   }
 
-  series_label <- unique(as.character(series_label))
+  series_label <- as.character(series_label)
+  duplicated_label <- unique(series_label[duplicated(series_label)])
+
+  if (length(duplicated_label) > 0) {
+    cli::cli_abort(c(
+      "{.arg series_label} must contain unique values.",
+      "i" = paste0(
+        "{qty(length(duplicated_label))}Duplicated value{?s}: ",
+        "{.val {duplicated_label}}."
+      )
+    ))
+  }
 
   if (length(series_code) != length(series_label)) {
     cli::cli_abort(c(
@@ -350,7 +361,9 @@ bde_series_full_load <- function(
   # Download the series if it is missing or must be refreshed.
   if (update_cache || isFALSE(file.exists(local_file))) {
     if (!bde_check_access()) {
-      tbl <- bde_hlp_return_null()
+      tbl <- bde_hlp_return_null(
+        "BdE resources are unavailable. Returning an empty {.cls tbl_df}."
+      )
       return(tbl)
     }
 

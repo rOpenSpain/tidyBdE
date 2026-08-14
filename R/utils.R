@@ -183,8 +183,13 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
 #'
 #' @noRd
 bde_hlp_download <- function(url, local_file, verbose, retry = TRUE) {
+  resource <- basename(sub("\\?.*$", "", url))
+  if (!nzchar(resource)) {
+    resource <- basename(local_file)
+  }
+
   if (verbose) {
-    cli::cli_alert_info("Downloading file from {.url {url}}.")
+    cli::cli_alert_info("Downloading {.file {resource}}.")
   }
 
   err_dwnload <- tryCatch(
@@ -197,16 +202,21 @@ bde_hlp_download <- function(url, local_file, verbose, retry = TRUE) {
   # Retry once because intermittent warnings are common for remote files.
   if (isTRUE(err_dwnload) && isTRUE(retry)) {
     if (verbose) {
-      cli::cli_alert_warning("Download failed; trying again.")
+      cli::cli_alert_warning("Download failed; trying once more.")
     }
 
     err_dwnload <- tryCatch(
       download.file(url, local_file, quiet = isFALSE(verbose), mode = "wb"),
       warning = function(e) {
-        cli::cli_alert_warning(paste0(
-          "URL {.url {url}} is not reachable. ",
+        issue_url <- "https://github.com/rOpenSpain/tidyBdE/issues"
+        cli::cli_alert_warning(
+          "Could not download {.file {resource}}."
+        )
+        cli::cli_alert_info(paste0(
           "If this looks like a bug, please open an issue at ",
-          "{.url https://github.com/rOpenSpain/tidyBdE/issues}."
+          "{.url ",
+          issue_url,
+          "}."
         ))
         TRUE
       }
@@ -270,17 +280,17 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
   tbl
 }
 
-#' Return an empty tibble with an informative message
+#' Return an empty tibble with an optional informative message
 #'
-#' @param msg Message to display before returning the empty tibble.
+#' @param msg Optional message to display before returning the empty tibble.
 #'
 #' @return A [tibble][dplyr::tibble].
 #'
 #' @noRd
-bde_hlp_return_null <- function(
-  msg = "BdE resources are unavailable. Returning an empty {.cls tbl_df}."
-) {
-  cli::cli_alert_info(msg)
+bde_hlp_return_null <- function(msg = NULL) {
+  if (!is.null(msg)) {
+    cli::cli_alert_info(msg)
+  }
   tbl <- dplyr::tibble(x = NULL)
   tbl
 }

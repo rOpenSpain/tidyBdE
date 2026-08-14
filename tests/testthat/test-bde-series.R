@@ -29,15 +29,15 @@ test_that("Indicators", {
       cache_dir = local_bde_cache(),
       verbose = TRUE
     ),
-    "Reading file .*ti_1_1.csv.* from cache\\.|Downloading file from"
+    "Reading file .*ti_1_1.csv.* from cache\\.|Downloading .*ti_1_1.csv"
   )
   expect_message(
     bde_series_full_load("TI_1_1.csv", cache_dir = NULL, verbose = TRUE),
-    "Reading file .*ti_1_1.csv.* from cache\\.|Downloading file from"
+    "Reading file .*ti_1_1.csv.* from cache\\.|Downloading .*ti_1_1.csv"
   )
   expect_message(
     bde_series_full_load("CF0101.csv", cache_dir = NULL, verbose = TRUE),
-    "Reading file .*cf0101.csv.* from cache\\.|Downloading file from"
+    "Reading file .*cf0101.csv.* from cache\\.|Downloading .*cf0101.csv"
   )
   expect_silent(bde_series_full_load("CF0101"))
 
@@ -55,7 +55,7 @@ test_that("Indicators", {
   )
   expect_error(
     bde_series_load(c(573234, 573214), series_label = c("1", "1")),
-    "`series_label` and `series_code` must have the same length\\."
+    "`series_label` must contain unique values\\."
   )
   expect_error(
     bde_series_load(573234, series_label = c("a", "b")),
@@ -161,14 +161,13 @@ test_that("Mock files series", {
     }
   )
 
-  expect_message(
+  expect_silent(
     long <- bde_series_load(
       c(573234, 573214),
       series_label = c("a", "b"),
       out_format = "long",
       extract_metadata = TRUE
-    ),
-    "BdE resources are unavailable"
+    )
   )
   local_mocked_bindings(bde_series_full_load = function(...) {
     dplyr::tibble(no_name = 1, another = 2, more = 2, and_more = 2)
@@ -180,7 +179,7 @@ test_that("Mock files series", {
       out_format = "long",
       verbose = TRUE
     ),
-    "BdE resources are unavailable"
+    "Series alias"
   )
 })
 

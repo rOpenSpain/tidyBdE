@@ -12,8 +12,8 @@
       bde_series_load(c(101, 102), series_label = c("same", "same"))
     Condition
       Error in `bde_series_load()`:
-      ! `series_label` and `series_code` must have the same length.
-      i `series_label` has length 1 and `series_code` has length 2.
+      ! `series_label` must contain unique values.
+      i Duplicated value: "same".
 
 # Series full load reads cached CSV variants offline
 
@@ -32,8 +32,6 @@
     Message
       i Extracting series 999.
       ! `series_code` 999 was not found in catalog metadata.
-      i BdE resources are unavailable. Returning an empty <tbl_df>.
-      i BdE resources are unavailable. Returning an empty <tbl_df>.
 
 # Series full load handles offline download branches
 

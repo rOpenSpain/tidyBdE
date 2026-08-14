@@ -20,6 +20,10 @@ test_that("Series API load checks inputs", {
   expect_snapshot(error = TRUE, bde_series_api_load("a", c("A", NA)))
 
   expect_snapshot(error = TRUE, bde_series_api_load("a", c("A", "B")))
+  expect_snapshot(
+    error = TRUE,
+    bde_series_api_load(c("a", "b"), c("same", "same"))
+  )
 })
 
 test_that("Series API load parses list results", {
