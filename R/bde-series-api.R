@@ -23,7 +23,7 @@
 #'
 #' @param series_code A character vector of API series codes from the
 #'   `Nombre_de_la_serie` field of the corresponding catalog. These values are
-#'   passed to the API `series_list` parameter; they are not the stable
+#'   passed to the API `series_list` parameter. They are not the stable
 #'   sequential numbers used by [bde_series_load()].
 #' @param language A string specifying the output language: `"es"` for Spanish
 #'   or `"en"` for English.
@@ -110,6 +110,7 @@ bde_series_api_latest <- function(
   if (missing(series_code)) {
     cli::cli_abort("{.arg series_code} cannot be missing.")
   }
+  call <- match.call()[1L]
   language <- match_arg_pretty(language)
 
   series_code <- trimws(as.character(series_code))
@@ -121,7 +122,6 @@ bde_series_api_latest <- function(
     return(dplyr::tibble())
   }
 
-  # Prepare query.
   base_url <- paste0(
     "https://app.bde.es/bierest/resources/srdatosapp/favoritas?",
     "idioma=",
@@ -132,19 +132,16 @@ bde_series_api_latest <- function(
 
   base_url <- utils::URLencode(base_url)
 
-  # Try download.
   tmpjson <- tempfile("bdeapi_", fileext = ".json")
   on.exit(unlink(tmpjson), add = TRUE)
   result <- bde_hlp_download(base_url, tmpjson, verbose)
   if (isFALSE(result)) {
-    s <- bde_hlp_return_null("Returning an empty {.cls tbl_df}.")
+    s <- bde_hlp_return_null("Returning an empty tibble.")
     return(s)
   }
 
-  # Read JSON.
-  api_res <- jsonlite::read_json(tmpjson)
+  api_res <- bde_hlp_api_read_response(tmpjson, series_code, call)
 
-  # Iterate over API errors.
   n_series <- seq_along(series_code)
 
   ok_results <- vapply(
@@ -154,12 +151,10 @@ bde_series_api_latest <- function(
 
       if (!is.null(err_num)) {
         cli::cli_alert_warning(paste0(
-          "The query returned error {.val {err_num}} for ",
-          "{.arg series_code} {.str {series_code[i]}}."
+          "The BdE API returned error {.val {err_num}} for ",
+          "{.arg series_code} {.val {series_code[i]}}, so the series was ",
+          "omitted from the results."
         ))
-        cli::cli_alert_info(
-          "{.arg series_code} {.str {series_code[i]}} was omitted."
-        )
         return(FALSE)
       }
 
@@ -170,16 +165,26 @@ bde_series_api_latest <- function(
 
   if (!any(ok_results)) {
     cli::cli_alert_warning(
-      "No valid results for {.arg series_code} {.val {series_code}}."
+      paste0(
+        "The BdE API returned no valid results for ",
+        "{.arg series_code} {.val {series_code}}."
+      )
     )
-    s <- bde_hlp_return_null("Returning an empty {.cls tbl_df}.")
+    s <- bde_hlp_return_null("Returning an empty tibble.")
     return(s)
   }
 
   api_res <- api_res[ok_results]
+  series_code <- series_code[ok_results]
+  bde_hlp_api_require_fields(
+    api_res,
+    series_code,
+    c("serie", "fechaValor"),
+    call
+  )
+  bde_hlp_api_match_series(api_res, series_code, call)
 
   end <- lapply(api_res, function(x) {
-    # Extract data.
     dplyr::as_tibble(x)
   })
 
@@ -206,6 +211,7 @@ bde_series_api_load <- function(
   if (missing(series_code)) {
     cli::cli_abort("{.arg series_code} cannot be missing.")
   }
+  call <- match.call()[1L]
   bde_hlp_abort_if_not(
     "{.arg verbose} must be a {.cls logical} vector." = is.logical(verbose),
     "{.arg extract_metadata} must be a {.cls logical} vector." = is.logical(
@@ -238,7 +244,7 @@ bde_series_api_load <- function(
     cli::cli_abort(c(
       "{.arg series_label} must contain unique values.",
       "i" = paste0(
-        "{qty(length(duplicated_label))}Duplicated value{?s}: ",
+        "{qty(length(duplicated_label))}Duplicate value{?s}: ",
         "{.val {duplicated_label}}."
       )
     ))
@@ -270,7 +276,6 @@ bde_series_api_load <- function(
     verbose = verbose
   )
 
-  # Prepare query.
   base_url <- paste0(
     "https://app.bde.es/bierest/resources/srdatosapp/listaSeries?",
     "idioma=",
@@ -285,19 +290,60 @@ bde_series_api_load <- function(
 
   base_url <- utils::URLencode(base_url)
 
-  # Try download.
   tmpjson <- tempfile("bdeapi_", fileext = ".json")
   on.exit(unlink(tmpjson), add = TRUE)
   result <- bde_hlp_download(base_url, tmpjson, verbose)
   if (isFALSE(result)) {
-    s <- bde_hlp_return_null("Returning an empty {.cls tbl_df}.")
+    s <- bde_hlp_return_null("Returning an empty tibble.")
     return(s)
   }
 
-  # Read JSON.
-  api_res <- jsonlite::read_json(tmpjson)
+  api_res <- bde_hlp_api_read_response(tmpjson, series_code, call)
+
+  iter <- seq_along(series_code)
+  ok_results <- vapply(
+    iter,
+    function(i) {
+      err_num <- api_res[[i]]$errNum
+
+      if (!is.null(err_num)) {
+        cli::cli_alert_warning(paste0(
+          "The BdE API returned error {.val {err_num}} for ",
+          "{.arg series_code} {.val {series_code[i]}}, so the series was ",
+          "omitted from the results."
+        ))
+        return(FALSE)
+      }
+
+      TRUE
+    },
+    FUN.VALUE = logical(1)
+  )
+
+  if (!any(ok_results)) {
+    cli::cli_alert_warning(
+      paste0(
+        "The BdE API returned no valid results for ",
+        "{.arg series_code} {.val {series_code}}."
+      )
+    )
+    s <- bde_hlp_return_null("Returning an empty tibble.")
+    return(s)
+  }
+
+  api_res <- api_res[ok_results]
+  series_code <- series_code[ok_results]
+  series_label <- series_label[ok_results]
 
   if (extract_metadata) {
+    bde_hlp_api_require_fields(
+      api_res,
+      series_code,
+      c("serie", "fechaInicio", "fechaFin", "informacion"),
+      call
+    )
+    bde_hlp_api_match_series(api_res, series_code, call)
+
     meta <- lapply(api_res, function(x) {
       no_list <- x[!vapply(x, is.list, FUN.VALUE = logical(1))]
       tb <- dplyr::as_tibble(no_list)
@@ -316,13 +362,36 @@ bde_series_api_load <- function(
     return(dplyr::as_tibble(meta))
   }
 
+  bde_hlp_api_require_fields(
+    api_res,
+    series_code,
+    c("serie", "fechas", "valores"),
+    call
+  )
+  bde_hlp_api_match_series(api_res, series_code, call)
+
+  matching_lengths <- vapply(
+    api_res,
+    function(x) length(x$fechas) == length(x$valores),
+    logical(1)
+  )
+  if (!all(matching_lengths)) {
+    invalid_series <- series_code[!matching_lengths] # nolint
+    cli::cli_abort(c(
+      "The BdE API returned mismatched dates and values.",
+      "i" = paste0(
+        "{qty(length(invalid_series))}Affected series code{?s}: ",
+        "{.val {invalid_series}}."
+      )
+    ))
+  }
+
   iter <- seq_along(series_code)
 
   df_list <- lapply(iter, function(i) {
     f <- api_res[[i]]$fechas
     v <- api_res[[i]]$valores
 
-    # Replace NULL with NA.
     v <- lapply(v, function(x) {
       if (!is.null(x)) {
         return(x)
@@ -339,7 +408,6 @@ bde_series_api_load <- function(
     tb_ind
   })
 
-  # Bind the successfully loaded series before final reshaping.
   end <- dplyr::bind_rows(df_list)
   end$Date <- as.Date(end$Date)
 
@@ -359,7 +427,113 @@ bde_series_api_load <- function(
   end
 }
 
-#' Validate the Series List time range against each series frequency
+# Read and validate a BdE API response.
+bde_hlp_api_read_response <- function(path, series_code, call) {
+  api_res <- tryCatch(
+    jsonlite::read_json(path),
+    error = function(error) error
+  )
+
+  if (inherits(api_res, "error")) {
+    cli::cli_abort(
+      c(
+        "Could not parse the response from the BdE API.",
+        "i" = "Try the request again later."
+      ),
+      call = call
+    )
+  }
+
+  if (!is.list(api_res)) {
+    cli::cli_abort(
+      "The BdE API returned an unexpected response format.",
+      call = call
+    )
+  }
+
+  n_requested <- length(series_code)
+  n_received <- length(api_res)
+  if (n_received != n_requested) {
+    cli::cli_abort(
+      c(
+        "The BdE API returned an unexpected number of results.",
+        "i" = paste0(
+          "Requested {.val {n_requested}}, but received ",
+          "{.val {n_received}}."
+        )
+      ),
+      call = call
+    )
+  }
+
+  object_results <- vapply(api_res, is.list, logical(1))
+  if (!all(object_results)) {
+    cli::cli_abort(
+      "Each result returned by the BdE API must be a JSON object.",
+      call = call
+    )
+  }
+
+  api_res
+}
+
+# Validate required fields in BdE API results.
+bde_hlp_api_require_fields <- function(
+  api_res,
+  series_code,
+  required_fields,
+  call
+) {
+  missing_fields <- lapply(api_res, function(result) {
+    setdiff(required_fields, names(result))
+  })
+  incomplete <- lengths(missing_fields) > 0
+
+  if (any(incomplete)) {
+    missing_fields <- unique(unlist(missing_fields[incomplete]))
+    invalid_series <- series_code[incomplete] # nolint
+    cli::cli_abort(
+      c(
+        "The BdE API returned an incomplete response.",
+        "x" = paste0(
+          "{qty(length(missing_fields))}Missing field{?s}: ",
+          "{.field {missing_fields}}."
+        ),
+        "i" = paste0(
+          "{qty(length(invalid_series))}Affected series code{?s}: ",
+          "{.val {invalid_series}}."
+        )
+      ),
+      call = call
+    )
+  }
+
+  invisible(api_res)
+}
+
+# Validate that API results preserve the requested series order.
+bde_hlp_api_match_series <- function(api_res, series_code, call) {
+  returned_series <- vapply(
+    api_res,
+    function(result) as.character(result$serie)[1],
+    character(1)
+  )
+
+  if (!identical(unname(returned_series), unname(series_code))) {
+    cli::cli_abort(
+      c(
+        "The BdE API returned unexpected series codes or order.",
+        "x" = "Requested: {.val {series_code}}.",
+        "x" = "Received: {.val {returned_series}}."
+      ),
+      call = call
+    )
+  }
+
+  invisible(api_res)
+}
+
+#' Validate Series List time ranges by frequency
 #'
 #' @param series_code Character vector of API series codes.
 #' @param language API language code.

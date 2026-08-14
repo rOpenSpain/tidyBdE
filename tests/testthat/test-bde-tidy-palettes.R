@@ -33,11 +33,11 @@ test_that("Palette requests above the maximum return all colors", {
 test_that("Palettes are distinct", {
   ok <- bde_tidy_palettes(n = 6)
   other <- bde_tidy_palettes(n = 6, palette = "bde_rose_pal")
-  expect_false(any(ok == other))
+  expect_length(intersect(ok, other), 0)
 
   other2 <- bde_tidy_palettes(n = 6, palette = "bde_qual_pal")
-  expect_false(any(ok == other2))
-  expect_false(any(other == other2))
+  expect_length(intersect(ok, other2), 0)
+  expect_length(intersect(other, other2), 0)
 })
 
 test_that("Palette size controls the returned prefix", {

@@ -1,11 +1,18 @@
-skip_if_bde_offline <- function() {
-  if (bde_check_access()) {
-    return(invisible(TRUE))
-  }
+skip_if_bde_offline <- local({
+  reachable <- NULL
 
-  testthat::skip("BdE API is not reachable.")
-  invisible()
-}
+  function() {
+    if (is.null(reachable)) {
+      reachable <<- bde_check_access()
+    }
+    if (reachable) {
+      return(invisible(TRUE))
+    }
+
+    testthat::skip("BdE API is not reachable.")
+    invisible()
+  }
+})
 
 local_bde_cache <- function() {
   cache_dir <- withr::local_tempdir()
@@ -115,6 +122,54 @@ mock_catalog <- function() {
       "tc_1_1.csv"
     )
   )
+}
+
+test_api_latest_result <- function(
+  series = "D_TEST",
+  frequency = "M",
+  decimals = 1,
+  value = 2.2
+) {
+  list(
+    serie = series,
+    descripcionCorta = "Test",
+    codFrecuencia = frequency,
+    decimales = decimals,
+    simbolo = "%",
+    tendencia = "=",
+    fechaValor = "2024-02-01T09:15:00Z",
+    valor = value
+  )
+}
+
+test_api_series_result <- function(
+  series = "D_TEST",
+  dates = list("2024-02-01T09:15:00Z"),
+  values = list(2.2)
+) {
+  list(
+    serie = series,
+    descripcion = "Test series",
+    descripcionCorta = "Test",
+    codFrecuencia = "M",
+    decimales = 1,
+    simbolo = "%",
+    informacion = list(list(titulo = "Name", descripcion = "Test")),
+    fechaInicio = "2024-01-01T09:15:00Z",
+    fechaFin = "2024-02-01T09:15:00Z",
+    fechas = dates,
+    valores = values
+  )
+}
+
+write_test_api_response <- function(local_file, ...) {
+  jsonlite::write_json(
+    list(...),
+    local_file,
+    auto_unbox = TRUE,
+    null = "null"
+  )
+  invisible(local_file)
 }
 
 scrub_test_paths <- function(

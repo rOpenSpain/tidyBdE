@@ -1,8 +1,8 @@
 #' BdE color palettes
 #'
 #' @description
-#' Manually defined palettes based on BdE publications. Each palette contains
-#' at most six colors.
+#' These manually defined palettes are based on BdE publications. Each palette
+#' contains at most six colors.
 #'
 #' @param n The number of colors to return. Must be at least `1`.
 #' @param palette A palette name: `"bde_vivid_pal"`, `"bde_rose_pal"` or
@@ -41,7 +41,6 @@ bde_tidy_palettes <- function(
   alpha = NULL,
   rev = FALSE
 ) {
-  # Validate input arguments.
   bde_hlp_abort_if_not(
     "{.arg n} must be a {.cls numeric} vector." = is.numeric(n),
     "{.arg n} must be greater than or equal to {.val 1}." = n >= 1,
@@ -87,7 +86,7 @@ bde_tidy_palettes <- function(
   n_col <- length(cols)
   if (n > n_col) {
     cli::cli_alert_warning(paste0(
-      "Palette {.str {palette}} contains {n_col} color{?s}; ",
+      "Palette {.str {palette}} contains {n_col} color{?s}, but ",
       "{.arg n} requested {.val {n}}. Returning all {n_col} color{?s}."
     ))
 
@@ -96,7 +95,6 @@ bde_tidy_palettes <- function(
 
   endcols <- cols[seq_len(n)]
 
-  # Apply palette options.
   if (rev) {
     endcols <- rev(endcols)
   }

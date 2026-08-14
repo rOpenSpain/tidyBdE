@@ -1,41 +1,46 @@
-test_that("Discrete scale", {
+test_that("Discrete scales apply BdE palettes to colour and fill", {
   d <- data.frame(x = 1:5, y = 1:5, z = 21:25, l = letters[1:5])
 
   p <- ggplot2::ggplot(d) +
     ggplot2::geom_point(ggplot2::aes(x, y, color = l))
 
-  init <- ggplot2::layer_data(p)$colour
   p2 <- p + scale_color_bde_d()
 
   mod <- ggplot2::layer_data(p2)$colour
-  expect_false(any(init %in% mod))
+  expect_identical(
+    mod,
+    c("#4180C2", "#D86E7B", "#F89E63", "#5FBD6A", "#62C8D0")
+  )
 
-  # Renamed
   p3 <- p + scale_colour_bde_d()
   mod3 <- ggplot2::layer_data(p3)$colour
   expect_identical(mod, mod3)
-
-  # Alpha
 
   p3 <- p + scale_colour_bde_d(alpha = 0.9)
 
   mod_alpha <- ggplot2::layer_data(p3)$colour
 
-  expect_true(all(ggplot2::alpha(mod, 0.9) == mod_alpha))
+  expect_identical(
+    mod_alpha,
+    c("#4180C2E6", "#D86E7BE6", "#F89E63E6", "#5FBD6AE6", "#62C8D0E6")
+  )
 
-  # Another pal
   p4 <- p + scale_color_bde_d(palette = "bde_rose_pal")
   mod4 <- ggplot2::layer_data(p4)$colour
 
-  expect_false(any(mod == mod4))
+  expect_identical(
+    mod4,
+    c("#b7365c", "#cb6e8a", "#db9aad", "#0a50a1", "#5385bd")
+  )
 
-  # Another pal
   p5 <- p + scale_color_bde_d(palette = "bde_qual_pal")
   mod5 <- ggplot2::layer_data(p5)$colour
 
-  expect_false(any(mod == mod5))
+  expect_identical(
+    mod5,
+    c("#b55b4a", "#2e76bc", "#fece64", "#68be57", "#858788")
+  )
 
-  # Another aes
   pf <- ggplot2::ggplot(d) +
     ggplot2::geom_point(ggplot2::aes(x, y, fill = l), shape = 21)
 
@@ -50,38 +55,39 @@ test_that("Discrete scale", {
   expect_identical(mod4, colfill2)
 })
 
-test_that("Continous scale", {
+test_that("Continuous scales apply BdE palettes to colour and fill", {
   d <- data.frame(x = 1:5, y = 1:5, z = 21:25, l = letters[1:5])
 
   p <- ggplot2::ggplot(d) +
     ggplot2::geom_point(ggplot2::aes(x, y, colour = z))
 
-  init <- ggplot2::layer_data(p)$colour
-  p2 <- p + scale_color_bde_c()
+  default_scale <- scale_color_bde_c()
+  expect_identical(
+    tolower(default_scale$palette(c(0, 1))),
+    c("#b7365c", "#0a50a1")
+  )
+  p2 <- p + default_scale
 
   mod <- ggplot2::layer_data(p2)$colour
-  expect_false(any(init %in% mod))
 
-  # Renamed
   p3 <- p + scale_colour_bde_c()
   mod3 <- ggplot2::layer_data(p3)$colour
   expect_identical(mod, mod3)
-
-  # Alpha
 
   p3 <- p + scale_colour_bde_c(alpha = 0.9)
 
   mod_alpha <- ggplot2::layer_data(p3)$colour
 
-  expect_true(all(ggplot2::alpha(mod, 0.9) == mod_alpha))
+  expect_identical(mod_alpha, ggplot2::alpha(mod, 0.9))
 
-  # Another pal
-  p4 <- p + scale_color_bde_c(palette = "bde_vivid_pal")
+  vivid_scale <- scale_color_bde_c(palette = "bde_vivid_pal")
+  expect_identical(
+    tolower(vivid_scale$palette(c(0, 1))),
+    c("#4180c2", "#ac8771")
+  )
+  p4 <- p + vivid_scale
   mod4 <- ggplot2::layer_data(p4)$colour
 
-  expect_false(any(mod == mod4))
-
-  # Another aes
   pf <- ggplot2::ggplot(d) +
     ggplot2::geom_point(ggplot2::aes(x, y, fill = z), shape = 21)
 
@@ -96,7 +102,7 @@ test_that("Continous scale", {
   expect_identical(mod4, colfill2)
 })
 
-test_that("Errors", {
+test_that("Scale helpers report invalid arguments", {
   expect_snapshot(error = TRUE, scale_fill_bde_c(alpha = "a"))
   expect_snapshot(error = TRUE, scale_color_bde_c(guide = TRUE))
   expect_snapshot(error = TRUE, scale_fill_bde_d(alpha = Inf))

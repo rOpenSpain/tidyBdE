@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{bde_parse_dates}
 \alias{bde_parse_dates}
-\title{Parse dates from strings}
+\title{Parse date strings}
 \usage{
 bde_parse_dates(dates_to_parse)
 }
@@ -14,7 +14,7 @@ bde_parse_dates(dates_to_parse)
 A vector of \code{\link[=as.Date]{Date}} values.
 }
 \description{
-Parse strings representing dates with \code{\link[=as.Date]{as.Date()}}. This function is tailored
+Parse date strings with \code{\link[=as.Date]{as.Date()}}. This function is tailored
 to date formats used in this package and may not parse other datasets. See
 \strong{Examples} for supported formats.
 }

@@ -1,4 +1,4 @@
-test_that("Parse dates", {
+test_that("Date parser accepts supported formats and rejects others", {
   # Test bde_parse_dates----
   testdates <- c("2002", "MAR 2002", "01 MAR 2002", "---", NA, "-an,a")
   parsed <- bde_parse_dates(testdates)
@@ -38,7 +38,7 @@ test_that("Parse dates", {
   expect_identical(bde_parse_dates(wont_parse), as.Date(rep(NA, 3)))
 })
 
-test_that("cache helper covers option, suffix and creation paths", {
+test_that("Cache helper resolves configured and temporary paths", {
   dir <- file.path(local_bde_cache(), "tidybde-cache-helper")
   unlink(dir, recursive = TRUE, force = TRUE)
 
@@ -70,7 +70,7 @@ test_that("cache helper covers option, suffix and creation paths", {
   expect_equal(basename(temp_cache), "SI")
 })
 
-test_that("Help guess", {
+test_that("Type guessing parses numeric columns", {
   df <- dplyr::tibble(a = "11", protect = "1.1", a2 = "1.000.000")
   all <- bde_hlp_guess(df)
   expect_type(all$a, "double")
@@ -83,7 +83,7 @@ test_that("Help guess", {
   expect_type(prot$a2, "character")
 })
 
-test_that("Help to char", {
+test_that("Character conversion preserves selected columns", {
   df <- dplyr::tibble(a = 1.1, protect = 1.1)
   all <- bde_hlp_tochar(df)
   expect_type(all$a, "character")
@@ -94,7 +94,7 @@ test_that("Help to char", {
   expect_type(prot$protect, "double")
 })
 
-test_that("Errors on download", {
+test_that("Download helper retries warnings and cleans failed files", {
   tmp <- withr::local_tempfile()
 
   local_mocked_bindings(download.file = function(...) {
@@ -150,7 +150,7 @@ test_that("Download helper falls back to the local file name", {
   expect_true(file.exists(tmp))
 })
 
-test_that("Help guess to double", {
+test_that("Double conversion preserves selected columns", {
   df <- dplyr::tibble(a = c("11", "..."), protect = c("1000000.23", "_"))
   all <- bde_hlp_todouble(df)
   expect_type(all$a, "double")
@@ -162,7 +162,7 @@ test_that("Help guess to double", {
   expect_identical(df$protect, prot$protect)
 })
 
-test_that("Messages", {
+test_that("Empty result helper reports optional messages", {
   expect_snapshot(df <- bde_hlp_return_null())
   expect_snapshot(df2 <- bde_hlp_return_null("An example message."))
   expect_identical(df, dplyr::tibble())
@@ -170,8 +170,7 @@ test_that("Messages", {
 })
 
 
-test_that("Pretty match", {
-  skip_on_cran()
+test_that("Argument matching handles defaults, exact and partial values", {
   my_fun <- function(arg_one = c(10, 1000, 3000, 5000)) {
     match_arg_pretty(arg_one)
   }
@@ -230,9 +229,7 @@ test_that("Argument matching reports invalid values", {
 })
 
 
-test_that("bde_hlp_abort_if_not", {
-  skip_on_cran()
-
+test_that("Validation helper reports the first failed condition", {
   expect_invisible(bde_hlp_abort_if_not())
   expect_snapshot(error = TRUE, bde_hlp_abort_if_not(isFALSE(TRUE)))
   expect_invisible(bde_hlp_abort_if_not("A" = is.character("a")))

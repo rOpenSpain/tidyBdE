@@ -1,4 +1,4 @@
-# Errors
+# Scale helpers report invalid arguments
 
     Code
       scale_fill_bde_c(alpha = "a")

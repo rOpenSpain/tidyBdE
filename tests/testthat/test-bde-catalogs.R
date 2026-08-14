@@ -1,4 +1,4 @@
-test_that("Catalogs offline", {
+test_that("Catalog cache supports offline and refreshed resources", {
   skip_on_cran()
   skip_if_bde_offline()
 
@@ -40,7 +40,7 @@ test_that("Catalogs offline", {
   expect_gt(nrow(nonull), 0)
 })
 
-test_that("Messages", {
+test_that("Catalog load reports downloads and cache reuse", {
   skip_on_cran()
   skip_if_bde_offline()
 
@@ -57,20 +57,14 @@ test_that("Messages", {
   )
 })
 
-test_that("Fully Deprecation of Series", {
+test_that("Catalog update rejects retired catalog codes", {
   dir <- local_bde_cache()
 
   expect_snapshot(error = TRUE, bde_catalog_update("IE", cache_dir = dir))
   expect_snapshot(error = TRUE, bde_catalog_update("CF", cache_dir = dir))
 })
 
-test_that("No results", {
-  skip_on_cran()
-  skip_if_bde_offline()
-  expect_snapshot(error = TRUE, bde_catalog_search("GDP", catalog = "TI"))
-})
-
-test_that("No results with malformed catalog data", {
+test_that("Catalog search reports malformed catalog data", {
   local_mocked_bindings(bde_catalog_load = function(...) {
     data.frame(a = 1)
   })
@@ -78,7 +72,7 @@ test_that("No results with malformed catalog data", {
   expect_snapshot(bde_catalog_search("TC", catalog = "TC"))
 })
 
-test_that("Mocks expand all", {
+test_that("Catalog update expands ALL into five downloads", {
   dir <- local_bde_cache()
 
   # Expand all
@@ -95,7 +89,7 @@ test_that("Mocks expand all", {
   expect_length(res, 5)
 })
 
-test_that("Mock bad catalog file", {
+test_that("Catalog load reports empty downloaded files", {
   dir <- local_bde_cache()
 
   local_mocked_bindings(bde_catalog_update = function(

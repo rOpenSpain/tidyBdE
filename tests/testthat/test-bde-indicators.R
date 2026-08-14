@@ -4,34 +4,34 @@ test_that("Smoke: indicators load from BdE resources", {
 
   # Test indicators----
   n <- expect_silent(bde_ind_gdp_var())
-  expect_true(nrow(n) > 10)
+  expect_gt(nrow(n), 10)
 
   n2 <- expect_silent(bde_ind_unemployment_rate())
-  expect_true(nrow(n2) > 10)
+  expect_gt(nrow(n2), 10)
 
   n3 <- expect_silent(bde_ind_euribor_12m_monthly())
-  expect_true(nrow(n3) > 10)
+  expect_gt(nrow(n3), 10)
 
   n4 <- expect_silent(bde_ind_euribor_12m_daily())
-  expect_true(nrow(n4) > 10)
+  expect_gt(nrow(n4), 10)
 
   n5 <- expect_silent(bde_ind_cpi_var())
-  expect_true(nrow(n5) > 10)
+  expect_gt(nrow(n5), 10)
 
   n6 <- expect_silent(bde_ind_ibex())
-  expect_true(nrow(n6) > 10)
+  expect_gt(nrow(n6), 10)
 
   n6b <- expect_silent(bde_ind_ibex_monthly())
   expect_identical(n6, n6b)
 
   n7 <- expect_silent(bde_ind_gdp_quarterly())
-  expect_true(nrow(n7) > 10)
+  expect_gt(nrow(n7), 10)
 
   n8 <- expect_silent(bde_ind_population())
-  expect_true(nrow(n8) > 10)
+  expect_gt(nrow(n8), 10)
 
   n9 <- expect_silent(bde_ind_ibex_daily())
-  expect_true(nrow(n9) > 10)
+  expect_gt(nrow(n9), 10)
 })
 
 test_that("Indicators pass configured series and labels", {

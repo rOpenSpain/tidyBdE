@@ -34,10 +34,10 @@
 #' - With `out_format = "wide"`, each series is presented in a separate column
 #'   with the name defined by `series_label`.
 #' - With `out_format = "long"`, the tibble has two additional columns:
-#'   `serie_name` contains the label of each series; `serie_value` contains the
+#'   `serie_name` contains the label of each series. `serie_value` contains the
 #'   corresponding value.
 #'
-#' `"wide"` format is more suitable for exporting to a CSV file;
+#' `"wide"` format is more suitable for exporting to a CSV file.
 #' `"long"` format is more suitable for creating plots with
 #' [ggplot2::ggplot()]. See also [tidyr::pivot_longer()] and
 #' [tidyr::pivot_wider()].
@@ -167,7 +167,7 @@ bde_series_load <- function(
     cli::cli_abort(c(
       "{.arg series_label} must contain unique values.",
       "i" = paste0(
-        "{qty(length(duplicated_label))}Duplicated value{?s}: ",
+        "{qty(length(duplicated_label))}Duplicate value{?s}: ",
         "{.val {duplicated_label}}."
       )
     ))
@@ -183,7 +183,6 @@ bde_series_load <- function(
     ))
   }
 
-  # Search catalog metadata.
   all_catalogs <- bde_catalog_load(
     catalog = "ALL",
     parse_dates = parse_dates,
@@ -226,7 +225,6 @@ bde_series_load <- function(
       ))
     }
 
-    # Download and extract the series.
     serie_file <- bde_series_full_load(
       csv_file_name,
       parse_dates = parse_dates,
@@ -249,7 +247,6 @@ bde_series_load <- function(
         ))
       }
 
-      # Return an empty tibble if the alias is not available.
       return(bde_hlp_return_null())
     } else {
       serie_file <- serie_file[c("Date", alias_serie)]
@@ -258,18 +255,15 @@ bde_series_load <- function(
     i <- match(x, series_code)
     names(serie_file) <- c("Date", "serie_value")
     serie_file$serie_name <- as.character(series_label[i])
-    # Place the date, label and value columns first.
     serie_file <- serie_file[c("Date", "serie_name", "serie_value")]
 
     serie_file
   })
 
-  # Keep non-empty results.
   nrows <- unlist(lapply(df_list, nrow)) > 0
 
   df_list <- df_list[nrows]
 
-  # Check that all data frames have a Date field.
   has_date <- vapply(
     df_list,
     function(x) {
@@ -285,7 +279,6 @@ bde_series_load <- function(
     return(bde_hlp_return_null())
   }
 
-  # Bind the successfully loaded series before final reshaping.
   end <- dplyr::bind_rows(df_list)
   # Preserve the requested series order in plots.
   end$serie_name <- factor(end$serie_name, levels = unique(end$serie_name))
@@ -362,7 +355,7 @@ bde_series_full_load <- function(
   if (update_cache || isFALSE(file.exists(local_file))) {
     if (!bde_check_access()) {
       tbl <- bde_hlp_return_null(
-        "BdE resources are unavailable. Returning an empty {.cls tbl_df}."
+        "BdE resources are unavailable. Returning an empty tibble."
       )
       return(tbl)
     }

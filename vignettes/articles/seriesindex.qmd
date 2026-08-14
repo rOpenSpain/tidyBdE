@@ -16,12 +16,14 @@ knitr:
     out.width: "100%"
 ---
 
-This article lists time series available in Banco de España catalog metadata.
+This article lists the time series described in Banco de España catalog
+metadata.
 Last updated: **`r format(Sys.Date(), "%d-%B-%Y")`**.
 
-Use the stable sequential number (`Numero_secuencial`) to load a time series
-from bulk CSV files, as shown in the example. Use `Nombre_de_la_serie` as the
-API series code for the Statistics web service (API) functions.
+Use the stable sequential number (`Numero_secuencial`) with `bde_series_load()`
+to load a time series from bulk CSV files, as shown in the example. Use
+`Nombre_de_la_serie` as the `series_code` argument to
+`bde_series_api_latest()` or `bde_series_api_load()`.
 
 ## Summary
 

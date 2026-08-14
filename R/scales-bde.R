@@ -1,8 +1,8 @@
 #' BdE color scales
 #'
 #' @description
-#' Color scales for \CRANpkg{ggplot2}. Discrete scales are named
-#' `scale_*_bde_d`; continuous scales are named `scale_*_bde_c`.
+#' These are color scales for \CRANpkg{ggplot2}. Discrete scales are named
+#' `scale_*_bde_d`. Continuous scales are named `scale_*_bde_c`.
 #'
 #' @param palette A BdE palette to apply. See [bde_tidy_palettes()] for details.
 #' @param ... Additional arguments passed to [ggplot2::discrete_scale()] or
@@ -143,7 +143,7 @@ scale_fill_bde_c <- function(
 #' @param aesthetics Scale aesthetics to map.
 #' @param palette BdE palette to apply.
 #' @param ... Additional arguments passed to [ggplot2::discrete_scale()].
-#' @param .envir Environment to evaluate the glue expressions in.
+#' @param .envir Environment in which to evaluate cli expressions.
 #' @inheritParams bde_tidy_palettes alpha rev
 #'
 #' @noRd
@@ -155,7 +155,6 @@ bde_scale_bde_d <- function(
   ...,
   .envir = parent.frame()
 ) {
-  # Validate input arguments.
   bde_hlp_abort_if_not(
     "{.arg alpha} must be a {.cls numeric} vector or {.val NULL}." = any(
       is.null(alpha),
@@ -182,7 +181,7 @@ bde_scale_bde_d <- function(
 #' @param aesthetics Scale aesthetics to map.
 #' @param palette BdE palette to apply.
 #' @param ... Additional arguments passed to [ggplot2::continuous_scale()].
-#' @param .envir Environment to evaluate the glue expressions in.
+#' @param .envir Environment in which to evaluate cli expressions.
 #' @inheritParams bde_tidy_palettes alpha rev
 #' @inheritParams ggplot2::continuous_scale
 #'
@@ -196,7 +195,6 @@ bde_scale_bde_c <- function(
   ...,
   .envir = parent.frame()
 ) {
-  # Validate input arguments.
   bde_hlp_abort_if_not(
     "{.arg alpha} must be a {.cls numeric} vector or {.val NULL}." = any(
       is.null(alpha),

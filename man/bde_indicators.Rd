@@ -62,8 +62,8 @@ with \code{options(bde_cache_dir = "path/to/dir")}.}
 A \link[dplyr:tibble]{tibble} with the requested indicator series.
 }
 \description{
-Retrieve selected Spanish macroeconomic indicators. Metadata is available in
-\link{bde_ind_db}.
+These functions retrieve selected Spanish macroeconomic indicators. Metadata
+is available in \link{bde_ind_db}.
 }
 \details{
 These functions are convenient wrappers for \code{\link[=bde_series_load]{bde_series_load()}} that

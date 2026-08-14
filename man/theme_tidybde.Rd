@@ -25,7 +25,7 @@ legend titles, the plot title and tag text.}
 A \CRANpkg{ggplot2} theme object.
 }
 \description{
-A custom \CRANpkg{ggplot2} theme based on BdE publications.
+This custom \CRANpkg{ggplot2} theme is based on BdE publications.
 }
 \details{
 This theme extends \code{\link[ggplot2:theme_classic]{ggplot2::theme_classic()}}.
