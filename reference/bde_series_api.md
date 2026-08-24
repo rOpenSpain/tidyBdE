@@ -2,9 +2,9 @@
 
 **\[experimental\]**
 
-These functions retrieve BdE time series using the[Statistics web
+These functions retrieve BdE time series using the [**Statistics web
 service
-(API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
+(API)**](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
 
 The API is a JSON web service that provides URL-based access to
 information available in the Statistics section of Banco de España and
