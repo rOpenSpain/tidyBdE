@@ -4,19 +4,19 @@
 #' These functions retrieve selected Spanish macroeconomic indicators. Metadata
 #' is available in [bde_ind_db].
 #'
-#' @inheritParams bde_series series_label
-#' @inheritDotParams bde_series -series_code -series_csv
-#'
 #' @details
 #' These functions are convenient wrappers for [bde_series_load()] that
 #' retrieve specific series. Use `verbose = TRUE, extract_metadata = TRUE` to
 #' inspect the metadata and source.
 #'
+#' @inheritParams bde_series series_label
+#' @inheritDotParams bde_series -series_code -series_csv
+#'
 #' @return A [tibble][dplyr::tibble] with the requested indicator series.
 #'
-#' @inherit bde_catalogs source
-#'
 #' @inherit bde_series note
+#'
+#' @inherit bde_catalogs source
 #'
 #' @seealso [bde_series_load()] for loading arbitrary bulk CSV series and
 #'   [bde_catalog_search()] for finding series in catalog metadata.
@@ -114,9 +114,9 @@ bde_ind_ibex <- bde_ind_ibex_monthly
 #' Load one indicator wrapper
 #'
 #' @param function_name Name used in `bde_ind_db$tidyBdE_fun`.
-#' @param series_label Series label passed to [bde_series_load()].
 #' @param ... Additional arguments passed to [bde_series_load()].
 #' @param .envir Environment in which to evaluate cli expressions.
+#' @inheritParams bde_series series_label
 #'
 #' @noRd
 bde_hlp_indicator <- function(

@@ -1,14 +1,14 @@
 #' BdE color scales
 #'
 #' @description
-#' These are color scales for \CRANpkg{ggplot2}. Discrete scales are named
-#' `scale_*_bde_d`. Continuous scales are named `scale_*_bde_c`.
+#' These functions provide color scales for \CRANpkg{ggplot2}. Discrete scales
+#' are named `scale_*_bde_d`. Continuous scales are named `scale_*_bde_c`.
 #'
 #' @param palette A BdE palette to apply. See [bde_tidy_palettes()] for details.
 #' @param ... Additional arguments passed to [ggplot2::discrete_scale()] or
 #'   [ggplot2::continuous_scale()].
 #' @inheritParams bde_tidy_palettes alpha rev
-#' @inheritParams ggplot2::continuous_scale
+#' @inheritParams ggplot2::continuous_scale guide
 #'
 #' @return A \CRANpkg{ggplot2} scale object.
 #'
@@ -141,9 +141,9 @@ scale_fill_bde_c <- function(
 #' Build a discrete BdE scale
 #'
 #' @param aesthetics Scale aesthetics to map.
-#' @param palette BdE palette to apply.
 #' @param ... Additional arguments passed to [ggplot2::discrete_scale()].
 #' @param .envir Environment in which to evaluate cli expressions.
+#' @inheritParams scales_bde palette
 #' @inheritParams bde_tidy_palettes alpha rev
 #'
 #' @noRd
@@ -156,11 +156,11 @@ bde_scale_bde_d <- function(
   .envir = parent.frame()
 ) {
   bde_hlp_abort_if_not(
-    "{.arg alpha} must be a {.cls numeric} vector or {.val NULL}." = any(
+    "{.arg alpha} must be a {.cls numeric} vector or {.code NULL}." = any(
       is.null(alpha),
       is.numeric(alpha)
     ),
-    "{.arg alpha} must contain values between {.val 0} and {.val 1}." = any(
+    "{.arg alpha} must contain values between {.val {0}} and {.val {1}}." = any(
       is.null(alpha),
       all(alpha >= 0 & alpha <= 1)
     ),
@@ -179,11 +179,11 @@ bde_scale_bde_d <- function(
 #' Build a continuous BdE scale
 #'
 #' @param aesthetics Scale aesthetics to map.
-#' @param palette BdE palette to apply.
 #' @param ... Additional arguments passed to [ggplot2::continuous_scale()].
 #' @param .envir Environment in which to evaluate cli expressions.
+#' @inheritParams scales_bde palette
 #' @inheritParams bde_tidy_palettes alpha rev
-#' @inheritParams ggplot2::continuous_scale
+#' @inheritParams ggplot2::continuous_scale guide
 #'
 #' @noRd
 bde_scale_bde_c <- function(
@@ -196,11 +196,11 @@ bde_scale_bde_c <- function(
   .envir = parent.frame()
 ) {
   bde_hlp_abort_if_not(
-    "{.arg alpha} must be a {.cls numeric} vector or {.val NULL}." = any(
+    "{.arg alpha} must be a {.cls numeric} vector or {.code NULL}." = any(
       is.null(alpha),
       is.numeric(alpha)
     ),
-    "{.arg alpha} must contain values between {.val 0} and {.val 1}." = any(
+    "{.arg alpha} must contain values between {.val {0}} and {.val {1}}." = any(
       is.null(alpha),
       all(alpha >= 0 & alpha <= 1)
     ),
@@ -220,7 +220,7 @@ bde_scale_bde_c <- function(
 
 #' Return colors for continuous BdE scales
 #'
-#' @param palette BdE palette to apply.
+#' @inheritParams scales_bde palette
 #' @inheritParams bde_tidy_palettes alpha rev
 #'
 #' @noRd

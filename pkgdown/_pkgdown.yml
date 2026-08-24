@@ -26,9 +26,12 @@ reference:
     (API) using stable sequential numbers or API series codes.
 - contents:
   - has_concept("series")
+  - -bde_catalogs
 
-- title: Selected indicators
-  desc: Retrieve commonly used Spanish macroeconomic indicators.
+- title: Selected indicators and metadata
+  desc: >
+    Retrieve commonly used Spanish macroeconomic indicators and inspect their
+    bundled series metadata.
 - contents:
   - has_concept("indicators")
 

@@ -1,4 +1,4 @@
-# Catalog load reports downloads and cache reuse
+# Live catalog load reports downloads and cache reuse
 
     Code
       names(s)
@@ -26,7 +26,7 @@
     Code
       bde_catalog_update("IE", cache_dir = dir)
     Condition
-      Error:
+      Error in `bde_catalog_update()`:
       ! `catalog` must be "ALL", "BE", "SI", "TC", "TI", or "PB", not "IE".
 
 ---
@@ -34,7 +34,7 @@
     Code
       bde_catalog_update("CF", cache_dir = dir)
     Condition
-      Error:
+      Error in `bde_catalog_update()`:
       ! `catalog` must be "ALL", "BE", "SI", "TC", "TI", or "PB", not "CF".
 
 # Catalog search reports malformed catalog data
@@ -77,9 +77,6 @@
       v Created cache directory '<tempdir>'.
       i Downloading catalog "TC".
       i BdE resources are unavailable. Returning an empty tibble.
-      ! Catalog "TC" is not available for download.
-      ! Could not load 1 catalog: "TC".
-      i Parsing date columns.
 
 # Catalog search returns an empty tibble when catalog data is empty
 

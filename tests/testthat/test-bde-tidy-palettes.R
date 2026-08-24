@@ -8,10 +8,7 @@ test_that("Palette inputs are validated", {
 })
 
 test_that("Palettes return expected colors", {
-  expect_identical(
-    bde_tidy_palettes(n = 3),
-    c("#4180C2", "#D86E7B", "#F89E63")
-  )
+  expect_identical(bde_tidy_palettes(n = 3), c("#4180C2", "#D86E7B", "#F89E63"))
   expect_identical(
     bde_tidy_palettes(n = 3, palette = "bde_rose_pal"),
     c("#b7365c", "#cb6e8a", "#db9aad")

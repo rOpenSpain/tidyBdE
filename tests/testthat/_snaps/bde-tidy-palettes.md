@@ -3,7 +3,7 @@
     Code
       bde_tidy_palettes(palette = "none")
     Condition
-      Error:
+      Error in `bde_tidy_palettes()`:
       ! `palette` must be "bde_vivid_pal", "bde_rose_pal", or "bde_qual_pal", not "none".
 
 ---
@@ -20,7 +20,7 @@
       bde_tidy_palettes(n = 0)
     Condition
       Error in `bde_tidy_palettes()`:
-      ! `n` must be greater than or equal to "1".
+      ! `n` must be greater than or equal to 1.
 
 ---
 
@@ -28,7 +28,7 @@
       bde_tidy_palettes(alpha = "3")
     Condition
       Error in `bde_tidy_palettes()`:
-      ! `alpha` must be a <numeric> vector or "NULL".
+      ! `alpha` must be a <numeric> vector or `NULL`.
 
 ---
 
@@ -36,7 +36,7 @@
       bde_tidy_palettes(alpha = 3)
     Condition
       Error in `bde_tidy_palettes()`:
-      ! `alpha` must contain values between "0" and "1".
+      ! `alpha` must contain values between 0 and 1.
 
 ---
 
@@ -50,6 +50,7 @@
 
     Code
       nmore <- bde_tidy_palettes(n = 23)
-    Message
+    Condition
+      Warning in `bde_tidy_palettes()`:
       ! Palette "bde_vivid_pal" contains 6 colors, but `n` requested 23. Returning all 6 colors.
 

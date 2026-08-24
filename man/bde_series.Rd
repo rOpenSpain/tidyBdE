@@ -175,14 +175,11 @@ bde_series_full_load("TI_1_1.csv")
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\itemize{
-\item \code{\link[=bde_catalog_load]{bde_catalog_load()}} and \code{\link[=bde_catalog_search]{bde_catalog_search()}} help find stable sequential
-numbers.
-\item \link[=bde_indicators]{Indicator wrappers} retrieve commonly used Spanish
+\link[=bde_indicators]{Indicator wrappers} retrieve commonly used Spanish
 macroeconomic series.
-}
 
 Time series functions:
+\code{\link{bde_catalogs}},
 \code{\link{bde_series_api}}
 }
 \concept{series}

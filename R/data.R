@@ -1,7 +1,7 @@
 #' Database of selected Spanish macroeconomic indicators
 #'
 #' @description
-#' This dataset contains minimal metadata for the selected Spanish macroeconomic
+#' This dataset contains metadata for the selected Spanish macroeconomic
 #' indicators available through the convenience functions in this package. See
 #' [indicator wrappers][bde_indicators].
 #' Full catalog metadata is available with [bde_catalog_load()].
@@ -34,12 +34,12 @@
 #' @seealso `vignette("csv_manual", package = "tidyBdE")`.
 #'
 #' @family indicators
+#' @concept datasets
 #'
 #' @name bde_ind_db
 #' @docType data
 #'
 #' @keywords datasets
-#' @concept datasets
 #'
 #' @encoding UTF-8
 #'

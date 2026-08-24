@@ -8,20 +8,6 @@
 #' `bde_catalog_update()` refreshes the cached catalog files and
 #' `bde_catalog_search()` searches catalog metadata for keywords.
 #'
-#' @param catalog A catalog identifier or `"ALL"` to load or update every
-#'   catalog. See **Details**.
-#' @param parse_dates Logical. If `TRUE`, date columns are parsed with
-#'   [bde_parse_dates()].
-#' @param update_cache Logical. If `TRUE`, the requested file is refreshed in
-#'   `cache_dir`.
-#' @param cache_dir Path to a cache directory. The directory can also be set
-#'   with `options(bde_cache_dir = "path/to/dir")`.
-#' @param verbose Logical. If `TRUE`, display informative messages.
-#' @param pattern Regular expression to search for. See **Details** and
-#'   **Examples**.
-#' @param ... Additional arguments passed from `bde_catalog_search()` to
-#'   [bde_catalog_load()].
-#'
 #' @details
 #' Accepted values for `catalog` are:
 #'
@@ -55,6 +41,20 @@
 #' metadata. You can pass [regular expressions][base::regex] to broaden the
 #' search.
 #'
+#' @param catalog A catalog identifier or `"ALL"` to load or update every
+#'   catalog. See **Details**.
+#' @param parse_dates Logical. If `TRUE`, date columns are parsed with
+#'   [bde_parse_dates()].
+#' @param update_cache Logical. If `TRUE`, the requested file is refreshed in
+#'   `cache_dir`.
+#' @param cache_dir Path to a cache directory. The directory can also be set
+#'   with `options(bde_cache_dir = "path/to/dir")`.
+#' @param verbose Logical. If `TRUE`, display informative messages.
+#' @param pattern Regular expression to search for. See **Details** and
+#'   **Examples**.
+#' @param ... Additional arguments passed from `bde_catalog_search()` to
+#'   [bde_catalog_load()].
+#'
 #' @return
 #' `bde_catalog_load()` returns a [tibble][dplyr::tibble] with the requested
 #' time series catalog metadata. See
@@ -74,15 +74,11 @@
 #' ))
 #' ```
 #'
-#' @seealso
-#' - [bde_series_load()] and [bde_series_full_load()] load bulk CSV series.
-#' - [bde_series_api_load()] and [bde_series_api_latest()] retrieve series
-#'   through the Statistics web service (API).
+#' @family series
+#' @concept catalog
 #'
 #' @rdname bde_catalogs
 #' @name bde_catalogs
-#'
-#' @concept catalog
 #'
 #' @export
 #' @encoding UTF-8
@@ -113,7 +109,7 @@ bde_catalog_load <- function(
   catalog <- match_arg_pretty(catalog)
   valid_catalogs <- c("BE", "SI", "TC", "TI", "PB", "ALL")
   bde_hlp_abort_if_not(
-    "{.arg cache_dir} must be a {.cls character} vector or {.val NULL}." = any(
+    "{.arg cache_dir} must be {.cls character} or {.code NULL}." = any(
       is.null(cache_dir),
       is.character(cache_dir)
     ),
@@ -153,10 +149,11 @@ bde_catalog_load <- function(
         verbose = verbose
       )
 
-      if (any(is.data.frame(result), isFALSE(result))) {
-        cli::cli_alert_warning(
-          "Catalog {.str {x}} is not available for download."
-        )
+      if (is.data.frame(result)) {
+        return(result)
+      }
+
+      if (isFALSE(result) || !all(unlist(result))) {
         return(NULL)
       }
     }
@@ -227,6 +224,10 @@ bde_catalog_load <- function(
   # Keep the public return type stable.
   final_catalog <- dplyr::as_tibble(final_catalog)
 
+  if (nrow(final_catalog) == 0) {
+    return(final_catalog)
+  }
+
   # Parse date columns after type inference.
   if (parse_dates) {
     if (verbose) {
@@ -258,7 +259,7 @@ bde_catalog_update <- function(
   catalog <- match_arg_pretty(catalog)
   valid_catalogs <- c("BE", "SI", "TC", "TI", "PB", "ALL")
   bde_hlp_abort_if_not(
-    "{.arg cache_dir} must be a {.cls character} vector or {.val NULL}." = any(
+    "{.arg cache_dir} must be {.cls character} or {.code NULL}." = any(
       is.null(cache_dir),
       is.character(cache_dir)
     ),

@@ -47,8 +47,6 @@
 #' metadata. See [bde_catalog_load()] and
 #' `vignette("csv_manual", package = "tidyBdE")` for details.
 #'
-#' @inherit bde_catalogs source
-#'
 #' @note
 #' These functions attempt to parse columns as double values. For some time
 #' series, a warning may be displayed if parsing fails. Set
@@ -77,10 +75,10 @@
 #' for API series codes. Use [bde_catalog_load()] or [bde_catalog_search()] to
 #' find both identifiers.
 #'
+#' @inherit bde_catalogs source
+#'
 #' @seealso
-#' - [bde_catalog_load()] and [bde_catalog_search()] help find stable sequential
-#'   numbers.
-#' - [Indicator wrappers][bde_indicators] retrieve commonly used Spanish
+#' [Indicator wrappers][bde_indicators] retrieve commonly used Spanish
 #'   macroeconomic series.
 #'
 #' @family series
@@ -310,7 +308,7 @@ bde_series_full_load <- function(
   extract_metadata = FALSE
 ) {
   bde_hlp_abort_if_not(
-    "{.arg cache_dir} must be a {.cls character} vector or {.val NULL}." = any(
+    "{.arg cache_dir} must be {.cls character} or {.code NULL}." = any(
       is.null(cache_dir),
       is.character(cache_dir)
     ),

@@ -1,4 +1,4 @@
-# Indicators validate labels and drop missing rows
+# Indicators validate labels
 
     Code
       bde_ind_gdp_var(series_label = 1)

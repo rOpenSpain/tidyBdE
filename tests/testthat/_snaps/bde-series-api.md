@@ -11,7 +11,7 @@
     Code
       bde_series_api_latest("An_example", language = "aaa")
     Condition
-      Error:
+      Error in `bde_series_api_latest()`:
       ! `language` must be "en" or "es", not "aaa".
 
 # Series API load validates required inputs
@@ -27,7 +27,7 @@
     Code
       bde_series_api_load("An_example", language = "aaa")
     Condition
-      Error:
+      Error in `bde_series_api_load()`:
       ! `language` must be "en" or "es", not "aaa".
 
 ---
@@ -70,14 +70,14 @@
       out <- bde_series_api_load(c("BAD", "D_TEST"), series_label = c("bad", "good"),
       language = "en")
     Message
-      ! The BdE API returned error "404" for `series_code` "BAD", so the series was omitted from the results.
+      ! The BdE API returned error code "404" for `series_code` "BAD", so the series was omitted from the results.
 
 # Series API load reports all-invalid mocked API responses
 
     Code
       empty <- bde_series_api_load("BAD", language = "en")
     Message
-      ! The BdE API returned error "404" for `series_code` "BAD", so the series was omitted from the results.
+      ! The BdE API returned error code "404" for `series_code` "BAD", so the series was omitted from the results.
       ! The BdE API returned no valid results for `series_code` "BAD".
       i Returning an empty tibble.
 
@@ -113,7 +113,7 @@
       bde_series_api_load(c("D_ONE", "D_TWO"))
     Condition
       Error in `bde_series_api_load()`:
-      ! The BdE API returned unexpected series codes or order.
+      ! The BdE API did not preserve the requested series codes and order.
       x Requested: "D_ONE" and "D_TWO".
       x Received: "D_TWO" and "D_ONE".
 
@@ -151,7 +151,7 @@
       bde_series_api_load("D_TEST")
     Condition
       Error in `bde_series_api_load()`:
-      ! The BdE API returned mismatched dates and values.
+      ! The BdE API returned different numbers of dates and values.
       i Affected series code: "D_TEST".
 
 # Series API metadata reports missing required fields
@@ -169,21 +169,21 @@
     Code
       bde_series_api_load("D_TEST", time_range = "30M")
     Condition
-      Error in `bde_hlp_api_check_range()`:
+      Error in `bde_series_api_load()`:
       ! `time_range` "30M" is not valid for series frequency: "D".
       i Use one of "3M", "12M", or "36M".
       i Invalid series: "D_TEST".
 
-# Smoke: latest API reports unknown series
+# Live latest API reports unknown series
 
     Code
       empty <- bde_series_api_latest("XXX")
     Message
-      ! The BdE API returned error XXX for `series_code` "XXX", so the series was omitted from the results.
+      ! The BdE API returned error code XXX for `series_code` "XXX", so the series was omitted from the results.
       ! The BdE API returned no valid results for `series_code` "XXX".
       i Returning an empty tibble.
 
-# Latest API handles empty codes and download failures
+# Latest API returns an empty tibble after download failure
 
     Code
       empty <- bde_series_api_latest("XXX")
@@ -195,36 +195,36 @@
     Code
       latest <- bde_series_api_latest(c("BAD", "D_TEST"), language = "en")
     Message
-      ! The BdE API returned error "404" for `series_code` "BAD", so the series was omitted from the results.
+      ! The BdE API returned error code "404" for `series_code` "BAD", so the series was omitted from the results.
 
 # Latest API reports all-invalid mocked responses
 
     Code
       empty <- bde_series_api_latest("BAD", language = "en")
     Message
-      ! The BdE API returned error "404" for `series_code` "BAD", so the series was omitted from the results.
+      ! The BdE API returned error code "404" for `series_code` "BAD", so the series was omitted from the results.
       ! The BdE API returned no valid results for `series_code` "BAD".
       i Returning an empty tibble.
 
-# Series API load handles download failures and null values
+# Series API load returns an empty tibble after download failure
 
     Code
       empty <- bde_series_api_load("D_TEST")
     Message
       i Returning an empty tibble.
 
-# Smoke: latest API loads multiple series and languages
+# Live latest API loads multiple series and languages
 
     Code
       tb_es_invalid <- bde_series_api_latest(sname_invalid, language = "es")
     Message
-      ! The BdE API returned error XXX for `series_code` "AN_ERROR", so the series was omitted from the results.
-      ! The BdE API returned error XXX for `series_code` "ANOTHER_ERROR", so the series was omitted from the results.
+      ! The BdE API returned error code XXX for `series_code` "AN_ERROR", so the series was omitted from the results.
+      ! The BdE API returned error code XXX for `series_code` "ANOTHER_ERROR", so the series was omitted from the results.
 
-# Smoke: series API loads data and metadata
+# Live series API fails gracefully for mixed codes
 
     Code
-      tb_es_invalid <- bde_series_api_load(sname_invalid, language = "es")
+      empty <- bde_series_api_load(sname_invalid, language = "es")
     Message
       ! Could not download 'listaSeries'.
       i If this looks like a bug, please open an issue at <https://github.com/rOpenSpain/tidyBdE/issues>.

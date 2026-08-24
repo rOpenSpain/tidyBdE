@@ -29,7 +29,7 @@ append opacity codes (\code{"FF"}) to individual color hex codes. See
 A character vector of hex color codes.
 }
 \description{
-These manually defined palettes are based on BdE publications. Each palette
+These palettes are manually defined based on BdE publications. Each palette
 contains at most six colors.
 }
 \examples{

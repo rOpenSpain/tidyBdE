@@ -110,10 +110,9 @@ bde_catalog_update("TI", verbose = TRUE)
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\itemize{
-\item \code{\link[=bde_series_load]{bde_series_load()}} and \code{\link[=bde_series_full_load]{bde_series_full_load()}} load bulk CSV series.
-\item \code{\link[=bde_series_api_load]{bde_series_api_load()}} and \code{\link[=bde_series_api_latest]{bde_series_api_latest()}} retrieve series
-through the Statistics web service (API).
-}
+Time series functions:
+\code{\link{bde_series}},
+\code{\link{bde_series_api}}
 }
 \concept{catalog}
+\concept{series}

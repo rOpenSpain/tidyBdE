@@ -128,12 +128,8 @@ xr |>
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\itemize{
-\item \code{\link[=bde_catalog_load]{bde_catalog_load()}} and \code{\link[=bde_catalog_search]{bde_catalog_search()}} help find API series codes.
-\item \code{\link[=bde_series_load]{bde_series_load()}} loads time series from bulk CSV files.
-}
-
 Time series functions:
+\code{\link{bde_catalogs}},
 \code{\link{bde_series}}
 }
 \concept{series}

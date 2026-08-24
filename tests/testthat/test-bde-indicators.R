@@ -1,37 +1,81 @@
-test_that("Smoke: indicators load from BdE resources", {
+test_that("Live GDP variation indicator returns data", {
   skip_on_cran()
   skip_if_bde_offline()
 
-  # Test indicators----
-  n <- expect_silent(bde_ind_gdp_var())
-  expect_gt(nrow(n), 10)
+  result <- expect_silent(bde_ind_gdp_var())
+  expect_gt(nrow(result), 10)
+})
 
-  n2 <- expect_silent(bde_ind_unemployment_rate())
-  expect_gt(nrow(n2), 10)
+test_that("Live unemployment indicator returns data", {
+  skip_on_cran()
+  skip_if_bde_offline()
 
-  n3 <- expect_silent(bde_ind_euribor_12m_monthly())
-  expect_gt(nrow(n3), 10)
+  result <- expect_silent(bde_ind_unemployment_rate())
+  expect_gt(nrow(result), 10)
+})
 
-  n4 <- expect_silent(bde_ind_euribor_12m_daily())
-  expect_gt(nrow(n4), 10)
+test_that("Live monthly Euribor indicator returns data", {
+  skip_on_cran()
+  skip_if_bde_offline()
 
-  n5 <- expect_silent(bde_ind_cpi_var())
-  expect_gt(nrow(n5), 10)
+  result <- expect_silent(bde_ind_euribor_12m_monthly())
+  expect_gt(nrow(result), 10)
+})
 
-  n6 <- expect_silent(bde_ind_ibex())
-  expect_gt(nrow(n6), 10)
+test_that("Live daily Euribor indicator returns data", {
+  skip_on_cran()
+  skip_if_bde_offline()
 
-  n6b <- expect_silent(bde_ind_ibex_monthly())
-  expect_identical(n6, n6b)
+  result <- expect_silent(bde_ind_euribor_12m_daily())
+  expect_gt(nrow(result), 10)
+})
 
-  n7 <- expect_silent(bde_ind_gdp_quarterly())
-  expect_gt(nrow(n7), 10)
+test_that("Live CPI variation indicator returns data", {
+  skip_on_cran()
+  skip_if_bde_offline()
 
-  n8 <- expect_silent(bde_ind_population())
-  expect_gt(nrow(n8), 10)
+  result <- expect_silent(bde_ind_cpi_var())
+  expect_gt(nrow(result), 10)
+})
 
-  n9 <- expect_silent(bde_ind_ibex_daily())
-  expect_gt(nrow(n9), 10)
+test_that("Live legacy IBEX indicator returns data", {
+  skip_on_cran()
+  skip_if_bde_offline()
+
+  result <- expect_silent(bde_ind_ibex())
+  expect_gt(nrow(result), 10)
+})
+
+test_that("Live monthly IBEX indicator returns data", {
+  skip_on_cran()
+  skip_if_bde_offline()
+
+  result <- expect_silent(bde_ind_ibex_monthly())
+  expect_gt(nrow(result), 10)
+})
+
+test_that("Live quarterly GDP indicator returns data", {
+  skip_on_cran()
+  skip_if_bde_offline()
+
+  result <- expect_silent(bde_ind_gdp_quarterly())
+  expect_gt(nrow(result), 10)
+})
+
+test_that("Live population indicator returns data", {
+  skip_on_cran()
+  skip_if_bde_offline()
+
+  result <- expect_silent(bde_ind_population())
+  expect_gt(nrow(result), 10)
+})
+
+test_that("Live daily IBEX indicator returns data", {
+  skip_on_cran()
+  skip_if_bde_offline()
+
+  result <- expect_silent(bde_ind_ibex_daily())
+  expect_gt(nrow(result), 10)
 })
 
 test_that("Indicators pass configured series and labels", {
@@ -72,34 +116,18 @@ test_that("Indicators pass configured series and labels", {
     })
   )
   expected <- data.frame(
-    series_code = as.character(c(
-      bde_ind_db$Numero_secuencial[bde_ind_db$tidyBdE_fun == "bde_ind_gdp_var"],
-      bde_ind_db$Numero_secuencial[
-        bde_ind_db$tidyBdE_fun == "bde_ind_unemployment_rate"
-      ],
-      bde_ind_db$Numero_secuencial[
-        bde_ind_db$tidyBdE_fun == "bde_ind_euribor_12m_monthly"
-      ],
-      bde_ind_db$Numero_secuencial[
-        bde_ind_db$tidyBdE_fun == "bde_ind_euribor_12m_daily"
-      ],
-      bde_ind_db$Numero_secuencial[bde_ind_db$tidyBdE_fun == "bde_ind_cpi_var"],
-      bde_ind_db$Numero_secuencial[
-        bde_ind_db$tidyBdE_fun == "bde_ind_ibex_monthly"
-      ],
-      bde_ind_db$Numero_secuencial[
-        bde_ind_db$tidyBdE_fun == "bde_ind_ibex_monthly"
-      ],
-      bde_ind_db$Numero_secuencial[
-        bde_ind_db$tidyBdE_fun == "bde_ind_ibex_daily"
-      ],
-      bde_ind_db$Numero_secuencial[
-        bde_ind_db$tidyBdE_fun == "bde_ind_gdp_quarterly"
-      ],
-      bde_ind_db$Numero_secuencial[
-        bde_ind_db$tidyBdE_fun == "bde_ind_population"
-      ]
-    )),
+    series_code = c(
+      "4663788",
+      "4635980",
+      "587853",
+      "905842",
+      "1489713",
+      "254433",
+      "254433",
+      "821340",
+      "4663160",
+      "4637737"
+    ),
     series_label = c(
       "GDP_YoY",
       "Unemployment_Rate",
@@ -117,7 +145,11 @@ test_that("Indicators pass configured series and labels", {
   expect_identical(calls, expected)
 })
 
-test_that("Indicators validate labels and drop missing rows", {
+test_that("Indicators validate labels", {
+  expect_snapshot(error = TRUE, bde_ind_gdp_var(series_label = 1))
+})
+
+test_that("Indicators drop rows with missing values", {
   local_mocked_bindings(bde_series_load = function(...) {
     dplyr::tibble(
       Date = as.Date(c("2024-01-01", "2024-01-02")),
@@ -125,6 +157,5 @@ test_that("Indicators validate labels and drop missing rows", {
     )
   })
 
-  expect_snapshot(error = TRUE, bde_ind_gdp_var(series_label = 1))
   expect_equal(nrow(bde_ind_gdp_var()), 1)
 })

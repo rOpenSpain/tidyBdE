@@ -23,7 +23,7 @@ indicator.}
 }
 }
 \description{
-This dataset contains minimal metadata for the selected Spanish macroeconomic
+This dataset contains metadata for the selected Spanish macroeconomic
 indicators available through the convenience functions in this package. See
 \link[=bde_indicators]{indicator wrappers}.
 Full catalog metadata is available with \code{\link[=bde_catalog_load]{bde_catalog_load()}}.

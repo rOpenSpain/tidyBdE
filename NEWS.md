@@ -11,9 +11,9 @@
 - **roxygen2** documentation was reviewed with AI assistance and tag order was made consistent across source files.
 - Tests were refactored and expanded with local fixtures, mocks and snapshot updates, reaching 100% line coverage in `devtools::test_coverage()`.
 - Added `vignette("csv_manual", package = "tidyBdE")`, which explains the structure of Banco de España bulk CSV files, catalog metadata and series identifiers (#64).
-- Added Statistics web service (API) functions (#65):
-  - `bde_series_api_latest()` added to query the Latest Data request of the Banco de España [Statistics web service (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
-  - `bde_series_api_load()` added to query the Series List request of the Banco de España Statistics web service (API), with support for wide and long output, metadata extraction and time-range validation.
+- Added **Statistics web service (API)** functions (#65):
+  - `bde_series_api_latest()` added to query the Latest Data request of the Banco de España [**Statistics web service (API)**](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
+  - `bde_series_api_load()` added to query the Series List request of the Banco de España **Statistics web service (API)**, with support for wide and long output, metadata extraction and time-range validation.
 - `?bde_ind_db` was updated to include the field `Nombre_de_la_serie` (API series code). See `?bde_series_api`.
 
 # tidyBdE 0.6.1
@@ -23,13 +23,13 @@
 
 # tidyBdE 0.6.0
 
-- Migrate vignettes to Quarto.
+- Migrate vignettes to **Quarto**.
 - Update the sequential number used by `bde_ind_cpi_var()` (see `?bde_ind_db`).
 
 # tidyBdE 0.5.0
 
 - Improve documentation with AI-assisted review.
-- Update the minimum required **R** version to `4.1.0`.
+- Update the minimum required **R** version to 4.1.0.
 
 # tidyBdE 0.4.0
 

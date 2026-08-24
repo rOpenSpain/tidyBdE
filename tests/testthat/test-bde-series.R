@@ -1,6 +1,6 @@
-test_that("Series load returns null when catalog is empty", {
+test_that("Series load returns empty tibble when catalog metadata is empty", {
   local_mocked_bindings(bde_catalog_load = function(...) dplyr::tibble())
-  expect_identical(bde_series_load(573234), bde_hlp_return_null())
+  expect_identical(bde_series_load(573234), dplyr::tibble())
 })
 
 test_that("Series load validates labels offline", {
@@ -36,7 +36,7 @@ test_that("Series load reports invalid and unavailable codes offline", {
   expect_identical(missing, dplyr::tibble())
 })
 
-test_that("Smoke: series load detects upstream BdE changes", {
+test_that("Live bulk series workflows remain compatible with BdE resources", {
   skip_on_cran()
   skip_if_bde_offline()
 
@@ -107,7 +107,7 @@ test_that("Smoke: series load detects upstream BdE changes", {
   expect_identical(wide, long)
 })
 
-test_that("Series full load smoke covers cache refresh paths", {
+test_that("Live series loading reuses and refreshes cached files", {
   skip_on_cran()
   skip_if_bde_offline()
   dir <- local_bde_cache()
@@ -197,11 +197,7 @@ test_that("Series full load reads cached files without downloading", {
     cli::cli_abort("A cached file must not be downloaded again.")
   })
 
-  cached <- bde_series_full_load(
-    "TI_1_1.csv",
-    cache_dir = dir,
-    verbose = FALSE
-  )
+  cached <- bde_series_full_load("TI_1_1.csv", cache_dir = dir, verbose = FALSE)
   expect_named(cached, c("Date", "A", "B"))
   expect_equal(nrow(cached), 2)
 })
@@ -220,11 +216,7 @@ test_that("Series full load removes failed mocked downloads", {
     }
   )
 
-  result <- bde_series_full_load(
-    "TI_1_1.csv",
-    cache_dir = dir,
-    verbose = FALSE
-  )
+  result <- bde_series_full_load("TI_1_1.csv", cache_dir = dir, verbose = FALSE)
   expect_null(result)
   expect_false(file.exists(downloaded_file))
 })
@@ -260,11 +252,7 @@ test_that("Series full load reads cached CSV variants offline", {
   write_test_series(dir, "tc_1_1.csv")
 
   expect_snapshot(
-    data <- bde_series_full_load(
-      "tc_1_1",
-      cache_dir = dir,
-      verbose = TRUE
-    ),
+    data <- bde_series_full_load("tc_1_1", cache_dir = dir, verbose = TRUE),
     transform = scrub_test_paths
   )
   expect_named(data, c("Date", "A", "B"))

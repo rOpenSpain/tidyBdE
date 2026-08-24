@@ -163,21 +163,13 @@ test_api_series_result <- function(
 }
 
 write_test_api_response <- function(local_file, ...) {
-  jsonlite::write_json(
-    list(...),
-    local_file,
-    auto_unbox = TRUE,
-    null = "null"
-  )
+  jsonlite::write_json(list(...), local_file, auto_unbox = TRUE, null = "null")
   invisible(local_file)
 }
 
 scrub_test_paths <- function(
   lines,
-  paths = getOption(
-    "tidyBdE_test_paths",
-    character()
-  )
+  paths = getOption("tidyBdE_test_paths", character())
 ) {
   paths <- unique(c(paths, tempdir()))
   paths <- paths[!is.na(paths) & nzchar(paths)]
@@ -203,18 +195,8 @@ scrub_test_paths <- function(
     lines <- gsub(path, "<tempdir>", lines, fixed = TRUE)
   }
 
-  lines <- gsub(
-    "('[^']*(Rtmp|file)[^']*')",
-    "'<tempdir>'",
-    lines,
-    perl = TRUE
-  )
-  gsub(
-    '("[^"]*(Rtmp|file)[^"]*")',
-    '"<tempdir>"',
-    lines,
-    perl = TRUE
-  )
+  lines <- gsub("('[^']*(Rtmp|file)[^']*')", "'<tempdir>'", lines, perl = TRUE)
+  gsub('("[^"]*(Rtmp|file)[^"]*")', '"<tempdir>"', lines, perl = TRUE)
 }
 
 path_test_variants <- function(path) {

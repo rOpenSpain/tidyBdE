@@ -1,7 +1,7 @@
 #' BdE color palettes
 #'
 #' @description
-#' These manually defined palettes are based on BdE publications. Each palette
+#' These palettes are manually defined based on BdE publications. Each palette
 #' contains at most six colors.
 #'
 #' @param n The number of colors to return. Must be at least `1`.
@@ -43,12 +43,12 @@ bde_tidy_palettes <- function(
 ) {
   bde_hlp_abort_if_not(
     "{.arg n} must be a {.cls numeric} vector." = is.numeric(n),
-    "{.arg n} must be greater than or equal to {.val 1}." = n >= 1,
-    "{.arg alpha} must be a {.cls numeric} vector or {.val NULL}." = any(
+    "{.arg n} must be greater than or equal to {.val {1}}." = n >= 1,
+    "{.arg alpha} must be a {.cls numeric} vector or {.code NULL}." = any(
       is.null(alpha),
       is.numeric(alpha)
     ),
-    "{.arg alpha} must contain values between {.val 0} and {.val 1}." = any(
+    "{.arg alpha} must contain values between {.val {0}} and {.val {1}}." = any(
       is.null(alpha),
       all(alpha >= 0 & alpha <= 1)
     ),
@@ -85,10 +85,15 @@ bde_tidy_palettes <- function(
 
   n_col <- length(cols)
   if (n > n_col) {
-    cli::cli_alert_warning(paste0(
-      "Palette {.str {palette}} contains {n_col} color{?s}, but ",
-      "{.arg n} requested {.val {n}}. Returning all {n_col} color{?s}."
-    ))
+    cli::cli_warn(
+      c(
+        "!" = paste0(
+          "Palette {.str {palette}} contains {n_col} color{?s}, but ",
+          "{.arg n} requested {.val {n}}. Returning all {n_col} color{?s}."
+        )
+      ),
+      call = match.call()[1L]
+    )
 
     n <- n_col
   }

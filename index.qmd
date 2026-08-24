@@ -38,8 +38,8 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 **tidyBdE** is an **R** package that retrieves time series data from [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html)
-bulk CSV files and the [Statistics web service
-(API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
+bulk CSV files and the [**Statistics web service
+(API)**](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
 Data are returned as [**tibble**](https://tibble.tidyverse.org/) objects. The
 package infers date, character and numeric column types where possible. Bulk CSV
 functions use stable sequential numbers (`Numero_secuencial`), while API
@@ -62,14 +62,14 @@ This package is not sponsored, endorsed or administered by Banco de España.
 
 ## Installation
 
-Install **tidyBdE** from [CRAN](https://CRAN.R-project.org/package=tidyBdE):
+Install **tidyBdE** from [**CRAN**](https://CRAN.R-project.org/package=tidyBdE):
 
 ```{r}
 #| eval: false
 install.packages("tidyBdE")
 ```
 
-Install the development version of **tidyBdE** from GitHub:
+Install the development version of **tidyBdE** from **GitHub**:
 
 ```{r}
 #| eval: false
@@ -77,7 +77,7 @@ pak::pak("ropenspain/tidyBdE")
 ```
 
 Alternatively, install **tidyBdE** from
-[r-universe](https://ropenspain.r-universe.dev/tidyBdE):
+[**r-universe**](https://ropenspain.r-universe.dev/tidyBdE):
 
 ```{r}
 #| eval: false
@@ -271,7 +271,7 @@ bde_series_load(573214, update_cache = TRUE)
 print(citation("tidyBdE"), style = "html")
 ```
 
-A BibTeX entry for LaTeX users is:
+A **BibTeX** entry for **LaTeX** users is:
 
 ```{r}
 #| echo: false

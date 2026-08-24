@@ -38,10 +38,7 @@ test_that("Series API load parses dates, values and query ranges", {
     write_test_api_response(
       local_file,
       test_api_series_result(
-        dates = list(
-          "2024-02-01T09:15:00Z",
-          "2024-01-01T09:15:00Z"
-        ),
+        dates = list("2024-02-01T09:15:00Z", "2024-01-01T09:15:00Z"),
         values = list(2.2, 1.1)
       )
     )
@@ -87,9 +84,7 @@ test_that("Series API load reports all-invalid mocked API responses", {
     TRUE
   })
 
-  expect_snapshot(
-    empty <- bde_series_api_load("BAD", language = "en")
-  )
+  expect_snapshot(empty <- bde_series_api_load("BAD", language = "en"))
   expect_identical(empty, dplyr::tibble())
 })
 
@@ -117,10 +112,7 @@ test_that("Series API load reports mismatched response counts", {
     TRUE
   })
 
-  expect_snapshot(
-    error = TRUE,
-    bde_series_api_load(c("D_ONE", "D_TWO"))
-  )
+  expect_snapshot(error = TRUE, bde_series_api_load(c("D_ONE", "D_TWO")))
 })
 
 test_that("Series API load reports reordered series results", {
@@ -133,10 +125,7 @@ test_that("Series API load reports reordered series results", {
     TRUE
   })
 
-  expect_snapshot(
-    error = TRUE,
-    bde_series_api_load(c("D_ONE", "D_TWO"))
-  )
+  expect_snapshot(error = TRUE, bde_series_api_load(c("D_ONE", "D_TWO")))
 })
 
 test_that("Latest API reports non-object results", {
@@ -173,10 +162,7 @@ test_that("Series API load reports missing observation fields", {
 test_that("Series API load reports mismatched dates and values", {
   local_mocked_bindings(bde_hlp_download = function(url, local_file, verbose) {
     result <- test_api_series_result(
-      dates = list(
-        "2024-02-01T09:15:00Z",
-        "2024-01-01T09:15:00Z"
-      ),
+      dates = list("2024-02-01T09:15:00Z", "2024-01-01T09:15:00Z"),
       values = list(2.2)
     )
     write_test_api_response(local_file, result)
@@ -202,10 +188,7 @@ test_that("Series API metadata reports missing required fields", {
 
 test_that("Series API load rejects ranges invalid for its frequency", {
   local_mocked_bindings(bde_hlp_download = function(url, local_file, verbose) {
-    write_test_api_response(
-      local_file,
-      test_api_latest_result(frequency = "D")
-    )
+    write_test_api_response(local_file, test_api_latest_result(frequency = "D"))
     TRUE
   })
 
@@ -214,7 +197,7 @@ test_that("Series API load rejects ranges invalid for its frequency", {
   })
 })
 
-test_that("Series API load supports long format and metadata", {
+test_that("Series API load returns long-form observations", {
   local_mocked_bindings(bde_hlp_download = function(url, local_file, verbose) {
     write_test_api_response(local_file, test_api_series_result())
     TRUE
@@ -227,6 +210,13 @@ test_that("Series API load supports long format and metadata", {
   )
   expect_named(long, c("Date", "serie_name", "serie_value"))
   expect_identical(as.character(long$serie_name), "test")
+})
+
+test_that("Series API load returns parsed metadata", {
+  local_mocked_bindings(bde_hlp_download = function(url, local_file, verbose) {
+    write_test_api_response(local_file, test_api_series_result())
+    TRUE
+  })
 
   meta <- bde_series_api_load("D_TEST", extract_metadata = TRUE)
   expect_equal(nrow(meta), 1)
@@ -239,22 +229,24 @@ test_that("Series API load handles empty codes", {
   expect_identical(bde_series_api_load(""), dplyr::tibble())
 })
 
-test_that("Smoke: latest API reports unknown series", {
+test_that("Live latest API reports unknown series", {
   skip_on_cran()
   skip_if_bde_offline()
 
   expect_snapshot(
     empty <- bde_series_api_latest("XXX"),
     transform = function(lines) {
-      gsub("(?<=error ).*?(?= for)", "XXX", lines, perl = TRUE)
+      gsub("(?<=error code ).*?(?= for)", "XXX", lines, perl = TRUE)
     }
   )
   expect_identical(empty, dplyr::tibble(x = NULL))
 })
 
-test_that("Latest API handles empty codes and download failures", {
+test_that("Latest API returns an empty tibble for empty codes", {
   expect_identical(bde_series_api_latest(""), dplyr::tibble())
+})
 
+test_that("Latest API returns an empty tibble after download failure", {
   local_mocked_bindings(bde_hlp_download = function(...) {
     FALSE
   })
@@ -302,11 +294,13 @@ test_that("Latest API reports all-invalid mocked responses", {
   expect_identical(empty, dplyr::tibble())
 })
 
-test_that("Series API load handles download failures and null values", {
+test_that("Series API load returns an empty tibble after download failure", {
   local_mocked_bindings(bde_hlp_download = function(...) FALSE)
   expect_snapshot(empty <- bde_series_api_load("D_TEST"))
   expect_identical(empty, dplyr::tibble())
+})
 
+test_that("Series API load converts API null values to NA", {
   local_mocked_bindings(bde_hlp_download = function(url, local_file, verbose) {
     write_test_api_response(
       local_file,
@@ -319,7 +313,7 @@ test_that("Series API load handles download failures and null values", {
   expect_equal(out$serie_value, NA)
 })
 
-test_that("Smoke: latest API loads multiple series and languages", {
+test_that("Live latest API loads multiple series and languages", {
   skip_on_cran()
   skip_if_bde_offline()
 
@@ -336,14 +330,14 @@ test_that("Smoke: latest API loads multiple series and languages", {
   expect_snapshot(
     tb_es_invalid <- bde_series_api_latest(sname_invalid, language = "es"),
     transform = function(lines) {
-      gsub("(?<=error ).*?(?= for)", "XXX", lines, perl = TRUE)
+      gsub("(?<=error code ).*?(?= for)", "XXX", lines, perl = TRUE)
     }
   )
 
   expect_identical(tb_es, tb_es_invalid)
 })
 
-test_that("Smoke: series API loads data and metadata", {
+test_that("Live series API loads data and metadata", {
   skip_on_cran()
   skip_if_bde_offline()
 
@@ -361,12 +355,6 @@ test_that("Smoke: series API loads data and metadata", {
   )
   expect_named(tb_nm, c("Date", "a", "b"))
   expect_identical(tb_es$DTCCBCEJPYEUR.B, tb_nm$b)
-
-  # With invalid series codes.
-  sname_invalid <- c("AN_ERROR", sname, "ANOTHER_ERROR")
-  expect_snapshot(
-    tb_es_invalid <- bde_series_api_load(sname_invalid, language = "es")
-  )
 
   expect_silent(
     meta_es <- bde_series_api_load(
@@ -386,6 +374,17 @@ test_that("Smoke: series API loads data and metadata", {
 
   expect_false(all(names(meta_en) == names(meta_es)))
   expect_identical(meta_en$fechaInicio, meta_es$fechaInicio)
+})
+
+test_that("Live series API fails gracefully for mixed codes", {
+  skip_on_cran()
+  skip_if_bde_offline()
+
+  sname <- c("DTCCBCEUSDEUR.B", "DTCCBCEJPYEUR.B")
+  sname_invalid <- c("AN_ERROR", sname, "ANOTHER_ERROR")
+
+  expect_snapshot(empty <- bde_series_api_load(sname_invalid, language = "es"))
+  expect_identical(empty, dplyr::tibble())
 })
 
 test_that("Time range validation bypasses missing and calendar-year ranges", {
@@ -456,7 +455,7 @@ test_that("Time range validation rejects invalid documented combinations", {
   )
 })
 
-test_that("Time range validation tolerates unavailable frequencies", {
+test_that("Time range validation skips empty or unknown frequency metadata", {
   local_mocked_bindings(bde_series_api_latest = function(...) {
     dplyr::tibble()
   })

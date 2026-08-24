@@ -10,17 +10,17 @@ test_that("CRAN detection falls back to interactivity when NOT_CRAN is unset", {
   expect_identical(!interactive(), on_cran())
 })
 
-test_that("Access check reaches BdE resources", {
+test_that("Live access check reaches BdE resources", {
   skip_on_cran()
   skip_if_bde_offline()
 
   expect_true(bde_check_access())
 })
 
-test_that("Access check reports unreachable resources", {
+test_that("Access check returns false when downloads fail", {
   withr::local_envvar(NOT_CRAN = "true")
-  local_mocked_bindings(bde_check_url = function(...) {
-    "http://ropenspain.github.io/tidyBdE/donotexist"
+  local_mocked_bindings(download.file = function(...) {
+    warning("offline")
   })
   expect_false(bde_check_access())
 })

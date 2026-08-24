@@ -106,7 +106,9 @@ test_that("Download helper retries warnings and cleans failed files", {
   )
   expect_false(a)
   expect_false(file.exists(tmp))
+})
 
+test_that("Download helper reports successful downloads", {
   tmp2 <- withr::local_tempfile()
   local_mocked_bindings(download.file = function(url, destfile, ...) {
     writeLines("ok", destfile)
@@ -170,43 +172,26 @@ test_that("Empty result helper reports optional messages", {
 })
 
 
-test_that("Argument matching handles defaults, exact and partial values", {
+test_that("Argument matching reports invalid and partial values", {
   my_fun <- function(arg_one = c(10, 1000, 3000, 5000)) {
     match_arg_pretty(arg_one)
   }
 
-  # OK, returns character
-  expect_identical(my_fun(1000), "1000")
-  expect_identical(my_fun("1000"), "1000")
-  expect_identical(my_fun(NULL), "10")
-  expect_identical(my_fun(), "10")
-  # Some errors here
-  # Single value no match
   expect_snapshot(my_fun("error here"), error = TRUE)
-
-  # Several values no match
   expect_snapshot(my_fun(c("an", "error")), error = TRUE)
-
-  # One value regex
   expect_snapshot(my_fun("5"), error = TRUE)
-  # Several value regex
   expect_snapshot(my_fun("00"), error = TRUE)
 
   my_fun2 <- function(year = 20) {
     match_arg_pretty(year)
   }
 
-  # Pass more options than expected
   expect_snapshot(my_fun2(c(1, 2)), error = TRUE)
 
-  # With custom options
   my_fun3 <- function(an_arg = 20) {
     match_arg_pretty(an_arg, c("30", "20"))
   }
-  expect_identical(my_fun3(), "20")
   expect_snapshot(my_fun3("3"), error = TRUE)
-  # Pass more options than expected
-  expect_snapshot(my_fun2(c(1, 2)), error = TRUE)
 })
 
 test_that("Argument matching returns defaults and exact values", {
@@ -217,15 +202,13 @@ test_that("Argument matching returns defaults and exact values", {
   expect_identical(match_year(), "2020")
   expect_identical(match_year(NULL), "2020")
   expect_identical(match_year(2024), "2024")
-})
+  expect_identical(match_year("2024"), "2024")
 
-test_that("Argument matching reports invalid values", {
-  match_year <- function(year = c(2020, 2024)) {
-    match_arg_pretty(year)
+  custom_choices <- function(value = 20) {
+    match_arg_pretty(value, c("30", "20"))
   }
-
-  expect_snapshot(error = TRUE, match_year(2030))
-  expect_snapshot(error = TRUE, match_year(c(2020, 2030)))
+  expect_identical(custom_choices(), "20")
+  expect_identical(custom_choices("30"), "30")
 })
 
 

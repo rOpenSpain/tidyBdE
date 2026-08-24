@@ -8,7 +8,7 @@
       ! Could not download 'file.csv'.
       i If this looks like a bug, please open an issue at <https://github.com/rOpenSpain/tidyBdE/issues>.
 
----
+# Download helper reports successful downloads
 
     Code
       b <- bde_hlp_download("https://example.com/file.csv", tmp2, TRUE)
@@ -27,12 +27,12 @@
     Message
       i An example message.
 
-# Argument matching handles defaults, exact and partial values
+# Argument matching reports invalid and partial values
 
     Code
       my_fun("error here")
     Condition
-      Error:
+      Error in `my_fun()`:
       ! `arg_one` must be "10", "1000", "3000", or "5000", not "error here".
 
 ---
@@ -40,7 +40,7 @@
     Code
       my_fun(c("an", "error"))
     Condition
-      Error:
+      Error in `my_fun()`:
       ! `arg_one` must be "10", "1000", "3000", or "5000", not "an" or "error".
 
 ---
@@ -48,7 +48,7 @@
     Code
       my_fun("5")
     Condition
-      Error:
+      Error in `my_fun()`:
       ! `arg_one` must be "10", "1000", "3000", or "5000", not "5".
       i Did you mean "5000"?
 
@@ -57,7 +57,7 @@
     Code
       my_fun("00")
     Condition
-      Error:
+      Error in `my_fun()`:
       ! `arg_one` must be "10", "1000", "3000", or "5000", not "00".
 
 ---
@@ -65,7 +65,7 @@
     Code
       my_fun2(c(1, 2))
     Condition
-      Error:
+      Error in `my_fun2()`:
       ! `year` must be "20", not "1" or "2".
 
 ---
@@ -73,33 +73,9 @@
     Code
       my_fun3("3")
     Condition
-      Error:
+      Error in `my_fun3()`:
       ! `an_arg` must be "30" or "20", not "3".
       i Did you mean "30"?
-
----
-
-    Code
-      my_fun2(c(1, 2))
-    Condition
-      Error:
-      ! `year` must be "20", not "1" or "2".
-
-# Argument matching reports invalid values
-
-    Code
-      match_year(2030)
-    Condition
-      Error:
-      ! `year` must be "2020" or "2024", not "2030".
-
----
-
-    Code
-      match_year(c(2020, 2030))
-    Condition
-      Error:
-      ! `year` must be "2020" or "2024", not "2020" or "2030".
 
 # Validation helper reports the first failed condition
 
@@ -115,7 +91,7 @@
       bde_catalog_load(cache_dir = 1)
     Condition
       Error in `bde_catalog_load()`:
-      ! `cache_dir` must be a <character> vector or "NULL".
+      ! `cache_dir` must be <character> or `NULL`.
 
 ---
 

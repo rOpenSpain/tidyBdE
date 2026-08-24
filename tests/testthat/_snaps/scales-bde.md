@@ -4,7 +4,7 @@
       scale_fill_bde_c(alpha = "a")
     Condition
       Error in `scale_fill_bde_c()`:
-      ! `alpha` must be a <numeric> vector or "NULL".
+      ! `alpha` must be a <numeric> vector or `NULL`.
 
 ---
 
@@ -20,7 +20,7 @@
       scale_fill_bde_d(alpha = Inf)
     Condition
       Error in `scale_fill_bde_d()`:
-      ! `alpha` must contain values between "0" and "1".
+      ! `alpha` must contain values between 0 and 1.
 
 ---
 

@@ -1,11 +1,9 @@
 #' Parse date strings
 #'
 #' @description
-#' Parse date strings with [as.Date()]. This function is tailored
-#' to date formats used in this package and may not parse other datasets. See
+#' Parses date strings with [as.Date()]. This function is tailored to the date
+#' formats used in this package and may not parse other datasets. See
 #' **Examples** for supported formats.
-#'
-#' @param dates_to_parse A character vector of date strings to parse.
 #'
 #' @details
 #' ## Date formats
@@ -36,6 +34,8 @@
 #' knitr::kable(dates)
 #' ```
 #' See `vignette("csv_manual", package = "tidyBdE")` for details.
+#'
+#' @param dates_to_parse A character vector of date strings to parse.
 #'
 #' @return A vector of [`Date`][as.Date()] values.
 #'
@@ -117,9 +117,8 @@ bde_parse_dates <- function(dates_to_parse) {
 
 #' Resolve a cache directory
 #'
-#' @param cache_dir Path to a cache directory.
-#' @param verbose Logical. If `TRUE`, display informative messages.
 #' @param suffix Optional suffix to append to the cache path.
+#' @inheritParams bde_catalogs cache_dir verbose
 #'
 #' @noRd
 bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
@@ -136,7 +135,7 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
 
       if (verbose) {
         cli::cli_alert_info(
-          "Using temporary cache directory {.file {cache_dir}}."
+          "Using temporary cache directory {.path {cache_dir}}."
         )
       }
       return(cache_dir)
@@ -144,7 +143,7 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
       if (verbose) {
         cli::cli_alert_info(paste0(
           "Using cache directory from option {.code bde_cache_dir}: ",
-          "{.file {cache_dir}}."
+          "{.path {cache_dir}}."
         ))
       }
     }
@@ -157,14 +156,14 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
 
   if (dir.exists(cache_dir)) {
     if (verbose) {
-      cli::cli_alert_success("Using cache directory {.file {cache_dir}}.")
+      cli::cli_alert_success("Using cache directory {.path {cache_dir}}.")
     }
     return(cache_dir)
   }
 
   dir.create(cache_dir, recursive = TRUE)
   if (verbose) {
-    cli::cli_alert_success("Created cache directory {.file {cache_dir}}.")
+    cli::cli_alert_success("Created cache directory {.path {cache_dir}}.")
   }
   cache_dir
 }
@@ -173,8 +172,8 @@ bde_hlp_cachedir <- function(cache_dir = NULL, verbose = FALSE, suffix = NULL) {
 #'
 #' @param url Resource URL.
 #' @param local_file Local file path to create or overwrite.
-#' @param verbose Logical. If `TRUE`, display informative messages.
 #' @param retry Logical. If `TRUE`, retry once after a failed download.
+#' @inheritParams bde_catalogs verbose
 #'
 #' @noRd
 bde_hlp_download <- function(url, local_file, verbose, retry = TRUE) {
@@ -204,9 +203,7 @@ bde_hlp_download <- function(url, local_file, verbose, retry = TRUE) {
       download.file(url, local_file, quiet = isFALSE(verbose), mode = "wb"),
       warning = function(e) {
         issue_url <- "https://github.com/rOpenSpain/tidyBdE/issues"
-        cli::cli_alert_warning(
-          "Could not download {.file {resource}}."
-        )
+        cli::cli_alert_warning("Could not download {.file {resource}}.")
         cli::cli_alert_info(paste0(
           "If this looks like a bug, please open an issue at ",
           "{.url ",
@@ -294,11 +291,12 @@ bde_hlp_return_null <- function(msg = NULL) {
 #'
 #' @param arg The argument to match.
 #' @param choices The valid choices for the argument.
+#' @param .call The call to display in the error message.
 #'
 #' @return The matched argument.
 #'
 #' @noRd
-match_arg_pretty <- function(arg, choices) {
+match_arg_pretty <- function(arg, choices, .call = parent.frame()) {
   arg_name <- as.character(substitute(arg)) # nolint
 
   if (missing(choices)) {
@@ -337,7 +335,7 @@ match_arg_pretty <- function(arg, choices) {
     }
   }
 
-  cli::cli_abort(c(msg, i = hint), call = NULL)
+  cli::cli_abort(c(msg, i = hint), call = .call)
 }
 
 #' Abort when a condition is false

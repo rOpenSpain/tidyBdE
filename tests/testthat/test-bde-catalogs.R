@@ -1,4 +1,4 @@
-test_that("Catalog cache supports offline and refreshed resources", {
+test_that("Live catalog cache supports unavailable and refreshed resources", {
   skip_on_cran()
   skip_if_bde_offline()
 
@@ -40,7 +40,7 @@ test_that("Catalog cache supports offline and refreshed resources", {
   expect_gt(nrow(nonull), 0)
 })
 
-test_that("Catalog load reports downloads and cache reuse", {
+test_that("Live catalog load reports downloads and cache reuse", {
   skip_on_cran()
   skip_if_bde_offline()
 
@@ -74,19 +74,24 @@ test_that("Catalog search reports malformed catalog data", {
 
 test_that("Catalog update expands ALL into five downloads", {
   dir <- local_bde_cache()
+  downloaded_files <- character()
 
-  # Expand all
   local_mocked_bindings(
     bde_check_access = function(...) {
       TRUE
     },
-    bde_hlp_download = function(...) {
+    bde_hlp_download = function(url, local_file, ...) {
+      downloaded_files <<- c(downloaded_files, local_file)
       TRUE
     }
   )
   res <- bde_catalog_update("ALL", cache_dir = dir)
   expect_all_true(unlist(res))
-  expect_length(res, 5)
+  expect_length(downloaded_files, 5)
+  expect_setequal(
+    basename(downloaded_files),
+    paste0("catalogo_", c("be", "si", "tc", "ti", "pb"), ".csv")
+  )
 })
 
 test_that("Catalog load reports empty downloaded files", {
@@ -101,11 +106,7 @@ test_that("Catalog load reports empty downloaded files", {
   })
 
   expect_message(
-    bde_catalog_load(
-      "TC",
-      verbose = FALSE,
-      cache_dir = dir
-    ),
+    bde_catalog_load("TC", verbose = FALSE, cache_dir = dir),
     "is empty"
   )
 })
