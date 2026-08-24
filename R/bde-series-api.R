@@ -6,7 +6,7 @@
 #' These functions retrieve BdE time series using the
 #' ```{r, echo=FALSE, results='asis'}
 #' cat(paste0(
-#'   "[Statistics web service (API)]",
+#'   " [**Statistics web service (API)**]",
 #'   "(https://www.bde.es/webbe/en/estadisticas/recursos/",
 #'   "api-estadisticas-bde.html)."
 #' ))
