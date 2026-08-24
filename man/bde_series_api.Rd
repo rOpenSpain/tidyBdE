@@ -61,7 +61,7 @@ series with fields returned by the Series List request, including
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
-These functions retrieve BdE time series using the\href{https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html}{Statistics web service (API)}.
+These functions retrieve BdE time series using the \href{https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html}{\strong{Statistics web service (API)}}.
 
 The API is a JSON web service that provides URL-based access to information
 available in the Statistics section of Banco de España and the BIEST
