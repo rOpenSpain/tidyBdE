@@ -22,9 +22,10 @@ Retrieve time series from bulk CSV files or the Statistics web service
   **\[experimental\]** : Load BdE time series from the Statistics web
   service (API)
 
-## Selected indicators
+## Selected indicators and metadata
 
-Retrieve commonly used Spanish macroeconomic indicators.
+Retrieve commonly used Spanish macroeconomic indicators and inspect
+their bundled series metadata.
 
 - [`bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md)
   : Database of selected Spanish macroeconomic indicators

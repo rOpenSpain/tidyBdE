@@ -1,9 +1,9 @@
 # Parse date strings
 
-Parse date strings with
+Parses date strings with
 [`as.Date()`](https://rdrr.io/r/base/as.Date.html). This function is
-tailored to date formats used in this package and may not parse other
-datasets. See **Examples** for supported formats.
+tailored to the date formats used in this package and may not parse
+other datasets. See **Examples** for supported formats.
 
 ## Usage
 

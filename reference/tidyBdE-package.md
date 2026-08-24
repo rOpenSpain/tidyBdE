@@ -11,6 +11,23 @@ supervisor of the Spanish banking system alongside the European Central
 Bank. This package is not sponsored, endorsed or administered by 'Banco
 de España'.
 
+## Start here
+
+- [Catalog
+  metadata](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
+
+- [Bulk CSV time
+  series](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
+
+- [API time
+  series](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
+
+- [Selected
+  indicators](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
+
+- [`bde_tidy_palettes()`](https://ropenspain.github.io/tidyBdE/reference/bde_tidy_palettes.md)
+  provides plotting helpers.
+
 ## See also
 
 Useful links:

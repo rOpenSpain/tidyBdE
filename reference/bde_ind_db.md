@@ -1,8 +1,8 @@
 # Database of selected Spanish macroeconomic indicators
 
-This dataset contains minimal metadata for the selected Spanish
-macroeconomic indicators available through the convenience functions in
-this package. See [indicator
+This dataset contains metadata for the selected Spanish macroeconomic
+indicators available through the convenience functions in this package.
+See [indicator
 wrappers](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md).
 Full catalog metadata is available with
 [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md).

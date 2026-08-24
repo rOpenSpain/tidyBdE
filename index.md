@@ -3,8 +3,8 @@
 **tidyBdE** is an **R** package that retrieves time series data from
 [Banco de
 España](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html)
-bulk CSV files and the [Statistics web service
-(API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
+bulk CSV files and the [**Statistics web service
+(API)**](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
 Data are returned as [**tibble**](https://tibble.tidyverse.org/)
 objects. The package infers date, character and numeric column types
 where possible. Bulk CSV functions use stable sequential numbers
@@ -19,14 +19,14 @@ España.
 ## Installation
 
 Install **tidyBdE** from
-[CRAN](https://CRAN.R-project.org/package=tidyBdE):
+[**CRAN**](https://CRAN.R-project.org/package=tidyBdE):
 
 ``` r
 
 install.packages("tidyBdE")
 ```
 
-Install the development version of **tidyBdE** from GitHub:
+Install the development version of **tidyBdE** from **GitHub**:
 
 ``` r
 
@@ -34,7 +34,7 @@ pak::pak("ropenspain/tidyBdE")
 ```
 
 Alternatively, install **tidyBdE** from
-[r-universe](https://ropenspain.r-universe.dev/tidyBdE):
+[**r-universe**](https://ropenspain.r-universe.dev/tidyBdE):
 
 ``` r
 
@@ -220,7 +220,7 @@ España*.
 [doi:10.32614/CRAN.package.tidyBdE](https://doi.org/10.32614/CRAN.package.tidyBdE).
 <https://ropenspain.github.io/tidyBdE/>.
 
-A BibTeX entry for LaTeX users is:
+A **BibTeX** entry for **LaTeX** users is:
 
 ``` R
 @Manual{R-tidyBdE,

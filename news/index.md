@@ -29,16 +29,16 @@ CRAN release: 2026-07-06
   which explains the structure of Banco de España bulk CSV files,
   catalog metadata and series identifiers
   ([\#64](https://github.com/rOpenSpain/tidyBdE/issues/64)).
-- Added Statistics web service (API) functions
+- Added **Statistics web service (API)** functions
   ([\#65](https://github.com/rOpenSpain/tidyBdE/issues/65)):
   - [`bde_series_api_latest()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
     added to query the Latest Data request of the Banco de España
-    [Statistics web service
-    (API)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
+    [**Statistics web service
+    (API)**](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html).
   - [`bde_series_api_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
     added to query the Series List request of the Banco de España
-    Statistics web service (API), with support for wide and long output,
-    metadata extraction and time-range validation.
+    **Statistics web service (API)**, with support for wide and long
+    output, metadata extraction and time-range validation.
 - [`?bde_ind_db`](https://ropenspain.github.io/tidyBdE/reference/bde_ind_db.md)
   was updated to include the field `Nombre_de_la_serie` (API series
   code). See
@@ -57,7 +57,7 @@ CRAN release: 2026-05-21
 
 CRAN release: 2026-03-23
 
-- Migrate vignettes to Quarto.
+- Migrate vignettes to **Quarto**.
 - Update the sequential number used by
   [`bde_ind_cpi_var()`](https://ropenspain.github.io/tidyBdE/reference/bde_indicators.md)
   (see
@@ -68,7 +68,7 @@ CRAN release: 2026-03-23
 CRAN release: 2026-01-13
 
 - Improve documentation with AI-assisted review.
-- Update the minimum required **R** version to `4.1.0`.
+- Update the minimum required **R** version to 4.1.0.
 
 ## tidyBdE 0.4.0
 

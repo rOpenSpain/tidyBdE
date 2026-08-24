@@ -1,6 +1,6 @@
 # BdE color scales
 
-These are color scales for
+These functions provide color scales for
 [ggplot2](https://CRAN.R-project.org/package=ggplot2). Discrete scales
 are named `scale_*_bde_d`. Continuous scales are named `scale_*_bde_c`.
 

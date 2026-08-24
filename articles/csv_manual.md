@@ -51,8 +51,8 @@ Two file types are available based on their content.
 
 **Catalog file**
 
-The catalog file contains a list of all series and metadata on the
-characteristics of each series included in statistical publications.
+The catalog file lists all series and describes the characteristics of
+each series included in statistical publications.
 
 For example, the file for all the Statistical Bulletin series is called
 `catalogo_be.csv`.
@@ -330,4 +330,4 @@ Banco de España statistical publications. {.table}
 
 Banco de España date formats. {.table}
 
-[^1]: Files are compressed with WinZip.
+[^1]: Files are compressed with **WinZip**.

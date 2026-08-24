@@ -122,15 +122,8 @@ to find both identifiers.
 
 ## See also
 
-- [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
-  and
-  [`bde_catalog_search()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
-  help find API series codes.
-
-- [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
-  loads time series from bulk CSV files.
-
 Time series functions:
+[`bde_catalogs`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md),
 [`bde_series`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
 
 ## Examples
@@ -161,9 +154,9 @@ xr |>
 #> $ codFrecuencia    <chr> "D", "D", "D"
 #> $ decimales        <int> 4, 4, 4
 #> $ simbolo          <chr> "USD", "JPY", "CHF"
-#> $ tendencia        <chr> "-", "+", "+"
-#> $ fechaValor       <date> 2026-08-13, 2026-08-13, 2026-08-13
-#> $ valor            <dbl> 1.1534, 183.7700, 0.9373
+#> $ tendencia        <chr> "+", "+", "+"
+#> $ fechaValor       <date> 2026-08-21, 2026-08-21, 2026-08-21
+#> $ valor            <dbl> 1.1699, 185.6600, 0.9353
 
 # Extract the last 12 months.
 xr |>
@@ -173,8 +166,8 @@ xr |>
   glimpse()
 #> Rows: 262
 #> Columns: 2
-#> $ Date            <date> 2026-08-13, 2026-08-12, 2026-08-11, 2026-08-10, 2026-…
-#> $ DTCCBCEUSDEUR.B <dbl> 1.1534, 1.1545, 1.1540, 1.1555, 1.1535, 1.1542, 1.1554…
+#> $ Date            <date> 2026-08-21, 2026-08-20, 2026-08-19, 2026-08-18, 2026-…
+#> $ DTCCBCEUSDEUR.B <dbl> 1.1699, 1.1681, 1.1605, 1.1576, 1.1593, 1.1567, 1.1534…
 
 # Extract metadata.
 xr |>
@@ -194,14 +187,14 @@ xr |>
 #> $ decimales                <int> 4
 #> $ simbolo                  <chr> "USD"
 #> $ fechaInicio              <date> 1999-01-04
-#> $ fechaFin                 <date> 2026-08-13
+#> $ fechaFin                 <date> 2026-08-21
 #> $ Name                     <chr> "Exchange rates. US dollars per euro (USD/EUR…
 #> $ Description              <chr> "Currency exchange rates. European Central Ba…
 #> $ Units                    <chr> "Dólares de Estados Unidos por Euro"
 #> $ Decimals                 <chr> "4"
-#> $ `Number of observations` <chr> "7.204"
-#> $ `First value`            <chr> "[04/01/1999] 1.1534 USD"
-#> $ `Last value`             <chr> "[13/08/2026] 1.1534 USD"
+#> $ `Number of observations` <chr> "7.210"
+#> $ `First value`            <chr> "[04/01/1999] 1.1699 USD"
+#> $ `Last value`             <chr> "[21/08/2026] 1.1699 USD"
 #> $ `Min value`              <chr> "[26/10/2000] 0.8252 USD"
 #> $ `Max value`              <chr> "[15/07/2008] 1.5990 USD"
 #> $ Source                   <chr> "BANCO CENTRAL EUROPEO"
