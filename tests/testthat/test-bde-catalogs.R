@@ -197,7 +197,7 @@ test_that("Catalog load handles partially failed catalog update", {
     list(TC = FALSE)
   })
 
-  expect_snapshot(res <- bde_catalog_load("TC", cache_dir = dir), )
+  expect_snapshot(res <- bde_catalog_load("TC", cache_dir = dir))
 
   expect_s3_class(res, "data.frame")
   expect_equal(nrow(res), 0)
