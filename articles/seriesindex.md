@@ -1,7 +1,7 @@
 # Series index
 
 This article lists the time series described in Banco de España catalog
-metadata. Last updated: **24-August-2026**.
+metadata. Last updated: **25-August-2026**.
 
 Use the stable sequential number (`Numero_secuencial`) with
 [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)

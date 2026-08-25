@@ -1,6 +1,6 @@
 # Changelog
 
-## tidyBdE (development version)
+## tidyBdE 0.7.1
 
 - Empty-result and download messages are now more specific, omit long
   query URLs and avoid implying that all BdE resources are unavailable.

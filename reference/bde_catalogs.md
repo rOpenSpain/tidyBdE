@@ -118,9 +118,9 @@ Time series functions:
 ``` r
 # \donttest{
 bde_catalog_load("TI", verbose = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmpyoG72O.
+#> ℹ Using temporary cache directory /tmp/RtmpgHLcjE.
 #> ℹ Downloading catalog "TI".
-#> ✔ Using cache directory /tmp/RtmpyoG72O.
+#> ✔ Using cache directory /tmp/RtmpgHLcjE.
 #> ℹ Updating 1 catalog file: "TI".
 #> ℹ Downloading catalogo_ti.csv.
 #> ℹ Parsing date columns.
@@ -204,7 +204,7 @@ bde_catalog_search("Francia(.*)PIB|Italia(.*)PIB|Alemania(.*)PIB")
 #> #   Titulo_de_la_serie <chr>, Fuente <chr>, Notas <chr>
 
 bde_catalog_update("TI", verbose = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmpyoG72O.
+#> ℹ Using temporary cache directory /tmp/RtmpgHLcjE.
 #> ℹ Updating 1 catalog file: "TI".
 #> ℹ Downloading catalogo_ti.csv.
 # }
