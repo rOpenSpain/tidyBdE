@@ -91,3 +91,17 @@
       v Created cache directory '<tempdir>'.
       i Updating 1 catalog file: "TC".
 
+# Catalog load handles failed catalog update
+
+    Code
+      res <- bde_catalog_load("TC", cache_dir = dir)
+    Message
+      ! Could not load 1 catalog: "TC".
+
+# Catalog load handles partially failed catalog update
+
+    Code
+      res <- bde_catalog_load("TC", cache_dir = dir)
+    Message
+      ! Could not load 1 catalog: "TC".
+

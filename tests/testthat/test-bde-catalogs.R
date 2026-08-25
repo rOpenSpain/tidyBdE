@@ -178,3 +178,27 @@ test_that("Catalog update reports verbose update plans", {
     transform = scrub_test_paths
   )
 })
+
+test_that("Catalog load handles failed catalog update", {
+  dir <- local_bde_cache()
+
+  local_mocked_bindings(bde_catalog_update = function(...) FALSE)
+
+  expect_snapshot(res <- bde_catalog_load("TC", cache_dir = dir))
+
+  expect_s3_class(res, "data.frame")
+  expect_equal(nrow(res), 0)
+})
+
+test_that("Catalog load handles partially failed catalog update", {
+  dir <- local_bde_cache()
+
+  local_mocked_bindings(bde_catalog_update = function(...) {
+    list(TC = FALSE)
+  })
+
+  expect_snapshot(res <- bde_catalog_load("TC", cache_dir = dir), )
+
+  expect_s3_class(res, "data.frame")
+  expect_equal(nrow(res), 0)
+})
