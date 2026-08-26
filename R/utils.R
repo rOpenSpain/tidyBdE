@@ -297,10 +297,13 @@ bde_hlp_return_null <- function(msg = NULL) {
 #'
 #' @noRd
 match_arg_pretty <- function(arg, choices, .call = parent.frame()) {
+  # jarl-ignore-start unused_object: Argument used on cli message
   arg_name <- as.character(substitute(arg)) # nolint
+  # jarl-ignore-end unused_object
 
   if (missing(choices)) {
-    formal_args <- formals(sys.function(sys_par <- sys.parent()))
+    sys_par <- sys.parent()
+    formal_args <- formals(sys.function(sys_par))
     choices <- eval(
       formal_args[[as.character(substitute(arg))]],
       envir = sys.frame(sys_par)

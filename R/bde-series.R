@@ -237,7 +237,9 @@ bde_series_load <- function(
       tbl <- bde_hlp_return_null()
       return(tbl)
     }
-    if (!(alias_serie %in% names(serie_file))) {
+    if ((alias_serie %in% names(serie_file))) {
+      serie_file <- serie_file[c("Date", alias_serie)]
+    } else {
       if (verbose) {
         cli::cli_alert_warning(paste0(
           "Series alias {.val {alias_serie}} is not available in ",
@@ -246,8 +248,6 @@ bde_series_load <- function(
       }
 
       return(bde_hlp_return_null())
-    } else {
-      serie_file <- serie_file[c("Date", alias_serie)]
     }
 
     i <- match(x, series_code)

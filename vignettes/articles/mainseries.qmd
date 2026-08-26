@@ -57,8 +57,6 @@ dataset <- dataset |>
   mutate(data = LastY) |>
   select(-LastY)
 
-l <- dataset[nrow(dataset), ]
-
 ggplot(dataset, aes(x = Date, y = data)) +
   geom_bar(fill = col, stat = "identity") +
   scale_y_continuous(labels = scales::label_number()) +
