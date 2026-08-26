@@ -2,6 +2,8 @@
 
 ## tidyBdE 0.7.1
 
+CRAN release: 2026-08-25
+
 - Empty-result and download messages are now more specific, omit long
   query URLs and avoid implying that all BdE resources are unavailable.
 - [`bde_series_api_latest()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
