@@ -42,6 +42,10 @@ br <- seq(nd, Sys.Date(), "6 months")
 #| label: fig-gdp_agg
 #| echo: false
 #| fig-cap: GDP of Spain — aggregated over the last four quarters
+#| fig-alt: >
+#|   Bar chart with dates on the horizontal axis and GDP in millions of euros on
+#|   the vertical axis. Each quarterly bar sums GDP over that quarter and the
+#|   preceding three quarters, showing the rolling annual total for Spain.
 dataset <- bde_ind_gdp_quarterly(series_label = "data") |>
   drop_na()
 
@@ -78,6 +82,11 @@ ggplot(dataset, aes(x = Date, y = data)) +
 #| label: fig-gdpyoy
 #| echo: false
 #| fig-cap: GDP of Spain — year-on-year variation
+#| fig-alt: >
+#|   Line chart with dates on the horizontal axis and year-on-year GDP change in
+#|   percent on the vertical axis. Positive values indicate growth and negative
+#|   values indicate contraction in Spain. The latest observation is labeled
+#|   with its value and date.
 dataset <- bde_ind_gdp_var(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
@@ -109,6 +118,11 @@ ggplot(dataset, aes(x = Date, y = data)) +
 #| label: fig-gdppercap
 #| echo: false
 #| fig-cap: GDP per capita of Spain
+#| fig-alt: >
+#|   Line chart with dates on the horizontal axis and GDP per person in euros on
+#|   the vertical axis. Values divide GDP summed over the last four quarters by
+#|   the population of Spain. The latest observation is labeled with its value
+#|   and date.
 pop <- bde_ind_population(series_label = "pop")
 pib <- bde_ind_gdp_quarterly(series_label = "data")
 
@@ -159,6 +173,11 @@ ggplot(dataset, aes(x = Date, y = data)) +
 #| label: fig-unempl
 #| echo: false
 #| fig-cap: Unemployment rate
+#| fig-alt: >
+#|   Line chart with dates on the horizontal axis and the unemployment rate in
+#|   percent on the vertical axis. The series tracks unemployment in Spain over
+#|   the selected period. The latest observation is labeled with its rate and
+#|   date.
 dataset <- bde_ind_unemployment_rate(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
@@ -190,6 +209,11 @@ ggplot(dataset, aes(x = Date, y = data)) +
 #| label: fig-cprix
 #| echo: false
 #| fig-cap: Consumer price index
+#| fig-alt: >
+#|   Line chart with dates on the horizontal axis and year-on-year consumer
+#|   price change in percent on the vertical axis. Positive values indicate
+#|   inflation and negative values indicate falling consumer prices in Spain.
+#|   The latest observation is labeled with its rate and date.
 dataset <- bde_ind_cpi_var(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
@@ -221,6 +245,11 @@ ggplot(dataset, aes(x = Date, y = data)) +
 #| label: fig-eur
 #| echo: false
 #| fig-cap: 12-month Euribor (monthly)
+#| fig-alt: >
+#|   Line chart with dates on the horizontal axis and the monthly 12-month
+#|   Euribor rate in percent on the vertical axis. The series tracks changes in
+#|   this interest rate over the selected period. The latest observation is
+#|   labeled with its rate and date.
 dataset <- bde_ind_euribor_12m_monthly(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()
@@ -252,6 +281,11 @@ ggplot(dataset, aes(x = Date, y = data)) +
 #| label: fig-pop
 #| echo: false
 #| fig-cap: Population (thousands)
+#| fig-alt: >
+#|   Line chart with dates on the horizontal axis and the population of Spain in
+#|   thousands on the vertical axis. The series tracks population over the
+#|   selected period. The latest observation is labeled with its population
+#|   value and date.
 dataset <- bde_ind_population(series_label = "data") |>
   filter(Date >= nd) |>
   drop_na()

@@ -8,7 +8,7 @@
 #'
 #' @inheritDotParams ggplot2::theme_classic
 #'
-#' @return A \CRANpkg{ggplot2} theme object.
+#' @returns A \CRANpkg{ggplot2} [theme][ggplot2::theme] object.
 #'
 #' @seealso [ggplot2::theme_classic()] for the base theme extended here.
 #'

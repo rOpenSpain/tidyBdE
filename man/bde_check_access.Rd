@@ -8,7 +8,8 @@
 bde_check_access()
 }
 \value{
-A logical value indicating whether BdE resources are reachable.
+A \link[base:logical]{logical} value indicating whether BdE resources
+are reachable.
 }
 \description{
 Checks whether \R can access BdE resources at

@@ -14,7 +14,7 @@ bde_rose_pal(...)
 \item{...}{Additional arguments.}
 }
 \value{
-A color palette function.
+A color palette \link[base:function]{function}.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#superseded}{\figure{lifecycle-superseded.svg}{options: alt='[Superseded]'}}}{\strong{[Superseded]}}

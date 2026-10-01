@@ -26,7 +26,7 @@ append opacity codes (\code{"FF"}) to individual color hex codes. See
 \item{rev}{Logical. If \code{TRUE}, reverse the color order.}
 }
 \value{
-A character vector of hex color codes.
+A \link[base:character]{character} vector of hex color codes.
 }
 \description{
 These palettes are manually defined based on BdE publications. Each palette

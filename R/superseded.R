@@ -7,7 +7,7 @@
 #'
 #' @param ... Additional arguments.
 #'
-#' @return A color palette function.
+#' @returns A color palette [function][base::function].
 #'
 #' @rdname bde_pals
 #' @name bde_vivid_pal

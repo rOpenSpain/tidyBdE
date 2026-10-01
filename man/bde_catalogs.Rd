@@ -49,13 +49,14 @@ with \code{options(bde_cache_dir = "path/to/dir")}.}
 \code{\link[=bde_catalog_load]{bde_catalog_load()}}.}
 }
 \value{
-\code{bde_catalog_load()} returns a \link[dplyr:tibble]{tibble} with the requested
+\code{bde_catalog_load()} returns a \link[tibble:tbl_df]{tibble} with the requested
 time series catalog metadata. See
 \code{vignette("csv_manual", package = "tidyBdE")} for details.
 
-\code{bde_catalog_update()} returns an invisible list of download results.
+\code{bde_catalog_update()} returns a \link[base:list]{list} of download results,
+invisibly.
 
-\code{bde_catalog_search()} returns a \link[dplyr:tibble]{tibble} with matching
+\code{bde_catalog_search()} returns a \link[tibble:tbl_df]{tibble} with matching
 catalog rows.
 }
 \description{

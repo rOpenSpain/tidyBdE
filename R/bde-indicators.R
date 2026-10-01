@@ -12,7 +12,7 @@
 #' @inheritParams bde_series series_label
 #' @inheritDotParams bde_series -series_code -series_csv
 #'
-#' @return A [tibble][dplyr::tibble] with the requested indicator series.
+#' @returns A [tibble][tibble::tbl_df] with the requested indicator series.
 #'
 #' @inherit bde_series note
 #'
@@ -115,7 +115,7 @@ bde_ind_ibex <- bde_ind_ibex_monthly
 #'
 #' @param function_name Name used in `bde_ind_db$tidyBdE_fun`.
 #' @param ... Additional arguments passed to [bde_series_load()].
-#' @param .envir Environment in which to evaluate cli expressions.
+#' @param .envir Environment in which to evaluate \CRANpkg{cli} expressions.
 #' @inheritParams bde_series series_label
 #'
 #' @noRd

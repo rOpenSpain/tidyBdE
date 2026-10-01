@@ -28,21 +28,19 @@
 #'   with the requested series.
 #' @inheritParams bde_catalogs parse_dates update_cache cache_dir verbose
 #'
-#' @return
-#' `bde_series_load()` returns a [tibble][dplyr::tibble] with a `Date` column:
+#' @returns
+#' `bde_series_load()` returns a [tibble][tibble::tbl_df] with a `Date` column.
+#' With `out_format = "wide"`, each series is presented in a separate column
+#' named according to `series_label`. With `out_format = "long"`, the tibble
+#' has two additional columns, `serie_name` for the series label and
+#' `serie_value` for the corresponding observation.
 #'
-#' - With `out_format = "wide"`, each series is presented in a separate column
-#'   with the name defined by `series_label`.
-#' - With `out_format = "long"`, the tibble has two additional columns:
-#'   `serie_name` contains the label of each series. `serie_value` contains the
-#'   corresponding value.
-#'
-#' `"wide"` format is more suitable for exporting to a CSV file.
-#' `"long"` format is more suitable for creating plots with
+#' Wide format is more suitable for exporting to a CSV file.
+#' Long format is more suitable for creating plots with
 #' [ggplot2::ggplot()]. See also [tidyr::pivot_longer()] and
 #' [tidyr::pivot_wider()].
 #'
-#' `bde_series_full_load()` returns a [tibble][dplyr::tibble] with a `Date`
+#' `bde_series_full_load()` returns a [tibble][tibble::tbl_df] with a `Date`
 #' column and the aliases of the time series columns as described in catalog
 #' metadata. See [bde_catalog_load()] and
 #' `vignette("csv_manual", package = "tidyBdE")` for details.

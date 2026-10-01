@@ -58,7 +58,7 @@ append opacity codes (\code{"FF"}) to individual color hex codes. See
 \code{\link[ggplot2:guides]{guides()}} for more information.}
 }
 \value{
-A \CRANpkg{ggplot2} scale object.
+A \CRANpkg{ggplot2} \link[ggplot2:Scale]{scale} object.
 }
 \description{
 These functions provide color scales for \CRANpkg{ggplot2}. Discrete scales

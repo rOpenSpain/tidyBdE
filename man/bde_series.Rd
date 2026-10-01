@@ -67,21 +67,18 @@ catalog. See \code{\link[=bde_catalog_load]{bde_catalog_load()}} and the \strong
 section.}
 }
 \value{
-\code{bde_series_load()} returns a \link[dplyr:tibble]{tibble} with a \code{Date} column:
-\itemize{
-\item With \code{out_format = "wide"}, each series is presented in a separate column
-with the name defined by \code{series_label}.
-\item With \code{out_format = "long"}, the tibble has two additional columns:
-\code{serie_name} contains the label of each series. \code{serie_value} contains the
-corresponding value.
-}
+\code{bde_series_load()} returns a \link[tibble:tbl_df]{tibble} with a \code{Date} column.
+With \code{out_format = "wide"}, each series is presented in a separate column
+named according to \code{series_label}. With \code{out_format = "long"}, the tibble
+has two additional columns, \code{serie_name} for the series label and
+\code{serie_value} for the corresponding observation.
 
-\code{"wide"} format is more suitable for exporting to a CSV file.
-\code{"long"} format is more suitable for creating plots with
+Wide format is more suitable for exporting to a CSV file.
+Long format is more suitable for creating plots with
 \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}. See also \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}} and
 \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.
 
-\code{bde_series_full_load()} returns a \link[dplyr:tibble]{tibble} with a \code{Date}
+\code{bde_series_full_load()} returns a \link[tibble:tbl_df]{tibble} with a \code{Date}
 column and the aliases of the time series columns as described in catalog
 metadata. See \code{\link[=bde_catalog_load]{bde_catalog_load()}} and
 \code{vignette("csv_manual", package = "tidyBdE")} for details.

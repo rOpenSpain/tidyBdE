@@ -37,10 +37,9 @@ classification. The Statistics section primarily uses the subject
 classification. Both classifications contain the same tables and download
 URLs.
 
-This document focuses on publications. The next section describes the available
-files, their format and their content. The section on loading CSV files
-summarizes the required delimiters and regional settings. The annexes list the
-statistical publications and date formats.
+The next section describes the available files, their format and their content.
+The section on loading CSV files summarizes the required delimiters and regional
+settings. The annexes list the statistical publications and date formats.
 
 The guidance in this manual applies to both classifications because they
 contain the same tables, organized differently.
@@ -138,7 +137,7 @@ In this pattern:
 - `pp`: publication code.
 - `c`: chapter number.
 - `a`: table number or code.
-- `o`: column number in vertical or double-entry tables, or row number in
+- `o`: column number in vertical or double-entry tables or row number in
   horizontal tables.
 - `f`: row number in double-entry tables.
 
@@ -215,7 +214,7 @@ file reports its frequency as monthly. The available frequencies are:
 - MENSUAL (monthly).
 - TRIMESTRAL (quarterly).
 - SEMESTRAL (half-yearly).
-- ANUAL (yearly).
+- ANUAL (annual).
 
 The `LABORABLE` frequency covers Monday through Friday. The `DIARIA` frequency
 also includes Saturdays and Sundays.
@@ -265,10 +264,10 @@ The six header lines contain:
 
 1.  Series aliases.
 2.  Sequential numbers.
-3.  API series code.
-4.  Series description.
-5.  Description of units.
-6.  Frequency.
+3.  API series codes.
+4.  Series descriptions.
+5.  Descriptions of units.
+6.  Frequencies.
 
 **Value lines**
 
@@ -326,7 +325,7 @@ The Banco de España manual uses OBSERVED here but does not define it.
 |  |  |  |
 |----|----|----|
 | Frequency | Format | Examples |
-| Daily / Business day | `DD MMMYYYY` | `02 FEB2019` |
+| Daily / business day | `DD MMMYYYY` | `02 FEB2019` |
 | Monthly | `MMM YYYY` | `MAR 2020` |
 | Quarterly | `MMM YYYY`, where `MMM` is the first or last month of the quarter, depending on the value of the `OBSERVED` variable | `ENE 2020` / `MAR 2020` |
 | Half-yearly | `MMM YYYY`, where `MMM` is the first or last month of the half-year period, depending on the value of its `OBSERVED` variable | `ENE 2020` / `JUN 2020` |

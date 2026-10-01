@@ -22,7 +22,7 @@ legend titles, the plot title and tag text.}
   }}
 }
 \value{
-A \CRANpkg{ggplot2} theme object.
+A \CRANpkg{ggplot2} \link[ggplot2:theme]{theme} object.
 }
 \description{
 This \CRANpkg{ggplot2} theme is based on BdE publications.

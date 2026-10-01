@@ -4,7 +4,8 @@
 #' Checks whether \R can access BdE resources at
 #' <https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.html>.
 #'
-#' @return A logical value indicating whether BdE resources are reachable.
+#' @returns A [logical][base::logical] value indicating whether BdE resources
+#'   are reachable.
 #'
 #' @keywords internal
 #' @export
@@ -36,7 +37,7 @@ bde_check_access <- function() {
 
 #' Check whether the current session is running on CRAN
 #'
-#' @return A logical value.
+#' @returns A [logical][base::logical] value.
 #'
 #' @noRd
 on_cran <- function() {

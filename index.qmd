@@ -16,7 +16,7 @@ knitr:
 
 <!-- index.md is generated from this file. Edit index.qmd. -->
 
-# tidyBdE <a href="https://ropenspain.github.io/tidyBdE/"><img src="man/figures/logo.png" alt="tidyBdE website" align="right" height="139"/></a>
+# tidyBdE <a href="https://ropenspain.github.io/tidyBdE/"><img src="man/figures/logo.png" alt="tidyBdE package hex logo with the package name above a time series chart." align="right" height="139"/></a>
 
 <!-- badges: start -->
 
@@ -43,7 +43,7 @@ bulk CSV files and the [**Statistics web service
 Data are returned as [**tibble**](https://tibble.tidyverse.org/) objects. The
 package infers date, character and numeric column types where possible. Bulk CSV
 functions use stable sequential numbers (`Numero_secuencial`), while API
-functions use `Nombre_de_la_serie` series codes.
+functions use API series codes (`Nombre_de_la_serie`).
 
 ```{=html}
 <div class="callout callout-style-default callout-important callout-titled">
@@ -155,7 +155,7 @@ must be in Spanish to retrieve results.
 </div>
 ```
 
-After you find a time series, load the GBP/EUR exchange rate from bulk CSV
+After you find a time series, load the EUR/GBP exchange rate from bulk CSV
 files using its stable sequential number (`Numero_secuencial`):
 
 ```{r}
@@ -184,6 +184,12 @@ time_series
 #| label: chart
 #| fig-asp: 0.7
 #| fig-cap: "EUR/GBP exchange rate (2010-2020)"
+#| fig-alt: >
+#|   Line chart with dates on the horizontal axis and pounds sterling per euro
+#|   on the vertical axis. The blue exchange-rate series falls to about 0.70 in
+#|   2015, then rises above 0.85 after mid-2016. A rose-colored smooth trend
+#|   with a shaded uncertainty band overlays the series. A dotted vertical line
+#|   marks the Brexit referendum on June 23, 2016.
 ggplot(time_series, aes(x = Date, y = EUR_GBP_XR)) +
   geom_line(colour = bde_tidy_palettes(n = 1)) +
   geom_smooth(method = "gam", colour = bde_tidy_palettes(n = 2)[2]) +
@@ -212,6 +218,12 @@ you do not need to search for them manually:
 #| label: macroseries
 #| fig-asp: 0.7
 #| fig-cap: "Spanish economic indicators (2010-2019)"
+#| fig-alt: >
+#|   Line chart with dates on the horizontal axis and percentages on the
+#|   vertical axis. The blue line represents year-on-year GDP growth and the
+#|   rose line represents the unemployment rate in Spain. Unemployment peaks
+#|   near 27% in 2013, then declines to about 14% by 2019. GDP growth turns
+#|   negative around 2011-2013 and returns to positive values from 2014.
 # Data in long format.
 
 plotseries <- bde_ind_gdp_var("GDP YoY", out_format = "long") |>

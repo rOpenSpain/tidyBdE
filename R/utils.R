@@ -37,7 +37,7 @@
 #'
 #' @param dates_to_parse A character vector of date strings to parse.
 #'
-#' @return A vector of [`Date`][as.Date()] values.
+#' @returns A vector of [`Date`][as.Date()] values.
 #'
 #' @seealso
 #' - [bde_catalog_load()] and [bde_series_load()] use this parser.
@@ -276,7 +276,7 @@ bde_hlp_todouble <- function(tbl, preserve = "") {
 #'
 #' @param msg Optional message to display before returning the empty tibble.
 #'
-#' @return A [tibble][dplyr::tibble].
+#' @returns A [tibble][tibble::tbl_df].
 #'
 #' @noRd
 bde_hlp_return_null <- function(msg = NULL) {
@@ -293,7 +293,7 @@ bde_hlp_return_null <- function(msg = NULL) {
 #' @param choices The valid choices for the argument.
 #' @param .call The call to display in the error message.
 #'
-#' @return The matched argument.
+#' @returns A [character][base::character] vector containing the matched value.
 #'
 #' @noRd
 match_arg_pretty <- function(arg, choices, .call = parent.frame()) {
@@ -346,10 +346,10 @@ match_arg_pretty <- function(arg, choices, .call = parent.frame()) {
 #' @param ... Named logical conditions. Each name is the error message emitted
 #'   when the condition is false.
 #' @param .call The call to display in the error message.
-#' @param .envir Environment in which to evaluate cli expressions.
+#' @param .envir Environment in which to evaluate \CRANpkg{cli} expressions.
 #' @param .frame The throwing context passed to [cli::cli_abort()].
 #'
-#' @returns `NULL`, invisibly, when every condition is true.
+#' @returns [`NULL`][base::NULL], invisibly, when every condition is true.
 #'
 #' @noRd
 bde_hlp_abort_if_not <- function(

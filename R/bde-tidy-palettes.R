@@ -13,7 +13,7 @@
 #'   [ggplot2::alpha()].
 #' @param rev Logical. If `TRUE`, reverse the color order.
 #'
-#' @return A character vector of hex color codes.
+#' @returns A [character][base::character] vector of hex color codes.
 #'
 #' @family bde_plot
 #'

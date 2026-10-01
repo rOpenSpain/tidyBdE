@@ -55,14 +55,15 @@
 #' @param ... Additional arguments passed from `bde_catalog_search()` to
 #'   [bde_catalog_load()].
 #'
-#' @return
-#' `bde_catalog_load()` returns a [tibble][dplyr::tibble] with the requested
+#' @returns
+#' `bde_catalog_load()` returns a [tibble][tibble::tbl_df] with the requested
 #' time series catalog metadata. See
 #' `vignette("csv_manual", package = "tidyBdE")` for details.
 #'
-#' `bde_catalog_update()` returns an invisible list of download results.
+#' `bde_catalog_update()` returns a [list][base::list] of download results,
+#' invisibly.
 #'
-#' `bde_catalog_search()` returns a [tibble][dplyr::tibble] with matching
+#' `bde_catalog_search()` returns a [tibble][tibble::tbl_df] with matching
 #' catalog rows.
 #'
 #' @source

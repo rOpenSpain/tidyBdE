@@ -10,7 +10,7 @@
 #' @inheritParams bde_tidy_palettes alpha rev
 #' @inheritParams ggplot2::continuous_scale guide
 #'
-#' @return A \CRANpkg{ggplot2} scale object.
+#' @returns A \CRANpkg{ggplot2} [scale][ggplot2::Scale] object.
 #'
 #' @seealso [ggplot2::discrete_scale()] and [ggplot2::continuous_scale()] for
 #'   the underlying scale constructors.
@@ -142,7 +142,7 @@ scale_fill_bde_c <- function(
 #'
 #' @param aesthetics Scale aesthetics to map.
 #' @param ... Additional arguments passed to [ggplot2::discrete_scale()].
-#' @param .envir Environment in which to evaluate cli expressions.
+#' @param .envir Environment in which to evaluate \CRANpkg{cli} expressions.
 #' @inheritParams scales_bde palette
 #' @inheritParams bde_tidy_palettes alpha rev
 #'
@@ -180,7 +180,7 @@ bde_scale_bde_d <- function(
 #'
 #' @param aesthetics Scale aesthetics to map.
 #' @param ... Additional arguments passed to [ggplot2::continuous_scale()].
-#' @param .envir Environment in which to evaluate cli expressions.
+#' @param .envir Environment in which to evaluate \CRANpkg{cli} expressions.
 #' @inheritParams scales_bde palette
 #' @inheritParams bde_tidy_palettes alpha rev
 #' @inheritParams ggplot2::continuous_scale guide
