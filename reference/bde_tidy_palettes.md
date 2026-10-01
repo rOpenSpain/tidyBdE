@@ -38,7 +38,8 @@ bde_tidy_palettes(
 
 ## Value
 
-A character vector of hex color codes.
+A [character](https://rdrr.io/r/base/character.html) vector of hex color
+codes.
 
 ## See also
 

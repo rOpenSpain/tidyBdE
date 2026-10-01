@@ -3,7 +3,7 @@
 This article presents selected Spanish macroeconomic indicators
 retrieved with **tidyBdE** from Banco de España bulk CSV files.
 
-Last updated: **15-September-2026**.
+Last updated: **01-October-2026**.
 
 ``` r
 
@@ -25,42 +25,67 @@ br <- seq(nd, Sys.Date(), "6 months")
 
 ### Aggregated over the last four quarters
 
-![](mainseries_files/figure-html/fig-gdp_agg-1.png)
+![Bar chart with dates on the horizontal axis and GDP in millions of
+euros on the vertical axis. Each quarterly bar sums GDP over that
+quarter and the preceding three quarters, showing the rolling annual
+total for Spain.](mainseries_files/figure-html/fig-gdp_agg-1.png)
 
 Figure 1: GDP of Spain — aggregated over the last four quarters
 
 ### Year-on-year variation
 
-![](mainseries_files/figure-html/fig-gdpyoy-1.png)
+![Line chart with dates on the horizontal axis and year-on-year GDP
+change in percent on the vertical axis. Positive values indicate growth
+and negative values indicate contraction in Spain. The latest
+observation is labeled with its value and
+date.](mainseries_files/figure-html/fig-gdpyoy-1.png)
 
 Figure 2: GDP of Spain — year-on-year variation
 
 ### GDP per capita
 
-![](mainseries_files/figure-html/fig-gdppercap-1.png)
+![Line chart with dates on the horizontal axis and GDP per person in
+euros on the vertical axis. Values divide GDP summed over the last four
+quarters by the population of Spain. The latest observation is labeled
+with its value and
+date.](mainseries_files/figure-html/fig-gdppercap-1.png)
 
 Figure 3: GDP per capita of Spain
 
 ## Unemployment rate
 
-![](mainseries_files/figure-html/fig-unempl-1.png)
+![Line chart with dates on the horizontal axis and the unemployment rate
+in percent on the vertical axis. The series tracks unemployment in Spain
+over the selected period. The latest observation is labeled with its
+rate and date.](mainseries_files/figure-html/fig-unempl-1.png)
 
 Figure 4: Unemployment rate
 
 ## Consumer price index
 
-![](mainseries_files/figure-html/fig-cprix-1.png)
+![Line chart with dates on the horizontal axis and year-on-year consumer
+price change in percent on the vertical axis. Positive values indicate
+inflation and negative values indicate falling consumer prices in Spain.
+The latest observation is labeled with its rate and
+date.](mainseries_files/figure-html/fig-cprix-1.png)
 
 Figure 5: Consumer price index
 
 ## Monthly Euribor
 
-![](mainseries_files/figure-html/fig-eur-1.png)
+![Line chart with dates on the horizontal axis and the monthly 12-month
+Euribor rate in percent on the vertical axis. The series tracks changes
+in this interest rate over the selected period. The latest observation
+is labeled with its rate and
+date.](mainseries_files/figure-html/fig-eur-1.png)
 
 Figure 6: 12-month Euribor (monthly)
 
 ## Population
 
-![](mainseries_files/figure-html/fig-pop-1.png)
+![Line chart with dates on the horizontal axis and the population of
+Spain in thousands on the vertical axis. The series tracks population
+over the selected period. The latest observation is labeled with its
+population value and date.](mainseries_files/figure-html/fig-pop-1.png)
 
 Figure 7: Population (thousands)

@@ -101,18 +101,15 @@ download](https://www.bde.es/webbe/en/estadisticas/recursos/descargas-completas.
 ## Value
 
 `bde_series_load()` returns a
-[tibble](https://tibble.tidyverse.org/reference/tibble.html) with a
-`Date` column:
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) with
+a `Date` column. With `out_format = "wide"`, each series is presented in
+a separate column named according to `series_label`. With
+`out_format = "long"`, the tibble has two additional columns,
+`serie_name` for the series label and `serie_value` for the
+corresponding observation.
 
-- With `out_format = "wide"`, each series is presented in a separate
-  column with the name defined by `series_label`.
-
-- With `out_format = "long"`, the tibble has two additional columns:
-  `serie_name` contains the label of each series. `serie_value` contains
-  the corresponding value.
-
-`"wide"` format is more suitable for exporting to a CSV file. `"long"`
-format is more suitable for creating plots with
+Wide format is more suitable for exporting to a CSV file. Long format is
+more suitable for creating plots with
 [`ggplot2::ggplot()`](https://ggplot2.tidyverse.org/reference/ggplot.html).
 See also
 [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)
@@ -120,9 +117,9 @@ and
 [`tidyr::pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html).
 
 `bde_series_full_load()` returns a
-[tibble](https://tibble.tidyverse.org/reference/tibble.html) with a
-`Date` column and the aliases of the time series columns as described in
-catalog metadata. See
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) with
+a `Date` column and the aliases of the time series columns as described
+in catalog metadata. See
 [`bde_catalog_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_catalogs.md)
 and
 [`vignette("csv_manual", package = "tidyBdE")`](https://ropenspain.github.io/tidyBdE/articles/csv_manual.md)
@@ -180,7 +177,7 @@ Time series functions:
 # \donttest{
 # Show metadata.
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmpFWQQdS.
+#> ℹ Using temporary cache directory /tmp/Rtmp1CRNrQ.
 #> ✔ Using cached catalog "BE".
 #> ✔ Using cached catalog "SI".
 #> ✔ Using cached catalog "TC".
@@ -189,7 +186,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> ℹ Parsing date columns.
 #> ℹ Extracting series 573234.
 #> ℹ Downloading series 573234 from file TC_1_1.csv (alias "TC_1_1.1").
-#> ℹ Using temporary cache directory /tmp/RtmpFWQQdS/TC.
+#> ℹ Using temporary cache directory /tmp/Rtmp1CRNrQ/TC.
 #> ℹ Downloading tc_1_1.csv.
 #> # A tibble: 6 × 2
 #>   Date                        `573234`                                          
@@ -203,7 +200,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 
 # Load data.
 bde_series_load(573234, extract_metadata = FALSE)
-#> # A tibble: 7,226 × 2
+#> # A tibble: 7,238 × 2
 #>    Date       `573234`
 #>    <date>        <dbl>
 #>  1 1999-01-04     1.18
@@ -216,7 +213,7 @@ bde_series_load(573234, extract_metadata = FALSE)
 #>  8 1999-01-13     1.17
 #>  9 1999-01-14     1.17
 #> 10 1999-01-15     1.16
-#> # ℹ 7,216 more rows
+#> # ℹ 7,228 more rows
 
 # Load multiple series.
 bde_series_load(c(573234, 573214),
@@ -239,7 +236,7 @@ wide <- bde_series_load(c(573234, 573214),
 
 # Show wide output.
 wide
-#> # A tibble: 7,226 × 3
+#> # A tibble: 7,238 × 3
 #>    Date       `US/EUR` `GBP/EUR`
 #>    <date>        <dbl>     <dbl>
 #>  1 1999-01-04     1.18     0.711
@@ -252,7 +249,7 @@ wide
 #>  8 1999-01-13     1.17     0.708
 #>  9 1999-01-14     1.17     0.706
 #> 10 1999-01-15     1.16     0.704
-#> # ℹ 7,216 more rows
+#> # ℹ 7,228 more rows
 
 # Show long output.
 long <- bde_series_load(c(573234, 573214),
@@ -261,7 +258,7 @@ long <- bde_series_load(c(573234, 573214),
 )
 
 long
-#> # A tibble: 14,452 × 3
+#> # A tibble: 14,476 × 3
 #>    Date       serie_name serie_value
 #>    <date>     <fct>            <dbl>
 #>  1 1999-01-04 US/EUR            1.18
@@ -274,7 +271,7 @@ long
 #>  8 1999-01-13 US/EUR            1.17
 #>  9 1999-01-14 US/EUR            1.17
 #> 10 1999-01-15 US/EUR            1.16
-#> # ℹ 14,442 more rows
+#> # ℹ 14,466 more rows
 
 # Use with ggplot2.
 library(ggplot2)
@@ -299,7 +296,7 @@ bde_series_full_load("TI_1_1.csv", extract_metadata = TRUE)
 
 # Load a complete bulk CSV file.
 bde_series_full_load("TI_1_1.csv")
-#> # A tibble: 7,227 × 5
+#> # A tibble: 7,239 × 5
 #>    Date       TI_1_1.1 TI_1_1.2 TI_1_1.3 TI_1_1.4
 #>    <date>        <dbl>    <dbl>    <dbl>    <dbl>
 #>  1 1999-01-01        3       NA     4.5      2   
@@ -312,6 +309,6 @@ bde_series_full_load("TI_1_1.csv")
 #>  8 1999-01-12        3       NA     3.25     2.75
 #>  9 1999-01-13        3       NA     3.25     2.75
 #> 10 1999-01-14        3       NA     3.25     2.75
-#> # ℹ 7,217 more rows
+#> # ℹ 7,229 more rows
 # }
 ```

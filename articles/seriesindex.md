@@ -1,12 +1,13 @@
 # Series index
 
 This article lists the time series described in Banco de España catalog
-metadata. Last updated: **15-September-2026**.
+metadata. Last updated: **01-October-2026**.
 
 Use the stable sequential number (`Numero_secuencial`) with
 [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
 to load a time series from bulk CSV files, as shown in the example. Use
-`Nombre_de_la_serie` as the `series_code` argument to
+the API series code (`Nombre_de_la_serie`) as the `series_code` argument
+to
 [`bde_series_api_latest()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md)
 or
 [`bde_series_api_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series_api.md).

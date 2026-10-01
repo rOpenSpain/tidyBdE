@@ -72,7 +72,8 @@ scale_fill_bde_c(
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) scale object.
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2)
+[scale](https://ggplot2.tidyverse.org/reference/Scale.html) object.
 
 ## See also
 

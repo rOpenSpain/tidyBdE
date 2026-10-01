@@ -8,8 +8,8 @@ bulk CSV files and the [**Statistics web service
 Data are returned as [**tibble**](https://tibble.tidyverse.org/)
 objects. The package infers date, character and numeric column types
 where possible. Bulk CSV functions use stable sequential numbers
-(`Numero_secuencial`), while API functions use `Nombre_de_la_serie`
-series codes.
+(`Numero_secuencial`), while API functions use API series codes
+(`Nombre_de_la_serie`).
 
 Important
 
@@ -86,7 +86,7 @@ Note
 BdE catalog metadata is currently available in Spanish only, so search
 terms must be in Spanish to retrieve results.
 
-After you find a time series, load the GBP/EUR exchange rate from bulk
+After you find a time series, load the EUR/GBP exchange rate from bulk
 CSV files using its stable sequential number (`Numero_secuencial`):
 
 ``` r

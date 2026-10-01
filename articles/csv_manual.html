@@ -112,7 +112,7 @@
 </ol>
 <p>The files are designed for both workflows.</p>
 <p>Banco de España organizes statistical charts and tables on its website by statistical publication or by subject. This document covers the publication classification. The Statistics section primarily uses the subject classification. Both classifications contain the same tables and download URLs.</p>
-<p>This document focuses on publications. The next section describes the available files, their format and their content. The section on loading CSV files summarizes the required delimiters and regional settings. The annexes list the statistical publications and date formats.</p>
+<p>The next section describes the available files, their format and their content. The section on loading CSV files summarizes the required delimiters and regional settings. The annexes list the statistical publications and date formats.</p>
 <p>The guidance in this manual applies to both classifications because they contain the same tables, organized differently.</p>
 </section><section class="level2"><h2 id="time-series-files">Time series files<a class="anchor" aria-label="anchor" href="#time-series-files"></a>
 </h2>
@@ -175,7 +175,7 @@ observaciones","Título de la serie","Fuente","Notas"
 <li>
 <code>a</code>: table number or code.</li>
 <li>
-<code>o</code>: column number in vertical or double-entry tables, or row number in horizontal tables.</li>
+<code>o</code>: column number in vertical or double-entry tables or row number in horizontal tables.</li>
 <li>
 <code>f</code>: row number in double-entry tables.</li>
 </ul>
@@ -235,7 +235,7 @@ observaciones","Título de la serie","Fuente","Notas"
 <li>MENSUAL (monthly).</li>
 <li>TRIMESTRAL (quarterly).</li>
 <li>SEMESTRAL (half-yearly).</li>
-<li>ANUAL (yearly).</li>
+<li>ANUAL (annual).</li>
 </ul>
 <p>The <code>LABORABLE</code> frequency covers Monday through Friday. The <code>DIARIA</code> frequency also includes Saturdays and Sundays.</p>
 <p><strong>Fecha de la primera observación (date of first observation)</strong></p>
@@ -258,10 +258,10 @@ observaciones","Título de la serie","Fuente","Notas"
 <ol type="1">
 <li>Series aliases.</li>
 <li>Sequential numbers.</li>
-<li>API series code.</li>
-<li>Series description.</li>
-<li>Description of units.</li>
-<li>Frequency.</li>
+<li>API series codes.</li>
+<li>Series descriptions.</li>
+<li>Descriptions of units.</li>
+<li>Frequencies.</li>
 </ol>
 <p><strong>Value lines</strong></p>
 <p>Each line contains values for one date of the sample period. Values are expressed using the number of decimals specified in the catalog file.</p>
@@ -355,7 +355,7 @@ The Banco de España manual uses OBSERVED here but does not define it.
 <td>Examples</td>
 </tr>
 <tr class="even">
-<td>Daily / Business day</td>
+<td>Daily / business day</td>
 <td><code>DD MMMYYYY</code></td>
 <td><code>02 FEB2019</code></td>
 </tr>

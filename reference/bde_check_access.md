@@ -11,7 +11,8 @@ bde_check_access()
 
 ## Value
 
-A logical value indicating whether BdE resources are reachable.
+A [logical](https://rdrr.io/r/base/logical.html) value indicating
+whether BdE resources are reachable.
 
 ## Examples
 
