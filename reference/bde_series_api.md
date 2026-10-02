@@ -154,9 +154,9 @@ xr |>
 #> $ codFrecuencia    <chr> "D", "D", "D"
 #> $ decimales        <int> 4, 4, 4
 #> $ simbolo          <chr> "USD", "JPY", "CHF"
-#> $ tendencia        <chr> "=", "-", "+"
-#> $ fechaValor       <date> 2026-09-30, 2026-09-30, 2026-09-30
-#> $ valor            <dbl> 1.1355, 178.2700, 0.9478
+#> $ tendencia        <chr> "-", "+", "-"
+#> $ fechaValor       <date> 2026-10-01, 2026-10-01, 2026-10-01
+#> $ valor            <dbl> 1.1298, 178.4900, 0.9437
 
 # Extract the last 12 months.
 xr |>
@@ -166,8 +166,8 @@ xr |>
   glimpse()
 #> Rows: 262
 #> Columns: 2
-#> $ Date            <date> 2026-09-30, 2026-09-29, 2026-09-28, 2026-09-25, 2026-…
-#> $ DTCCBCEUSDEUR.B <dbl> 1.1355, 1.1355, 1.1378, 1.1403, 1.1367, 1.1411, 1.1463…
+#> $ Date            <date> 2026-10-01, 2026-09-30, 2026-09-29, 2026-09-28, 2026-…
+#> $ DTCCBCEUSDEUR.B <dbl> 1.1298, 1.1355, 1.1355, 1.1378, 1.1403, 1.1367, 1.1411…
 
 # Extract metadata.
 xr |>
@@ -187,14 +187,14 @@ xr |>
 #> $ decimales                <int> 4
 #> $ simbolo                  <chr> "USD"
 #> $ fechaInicio              <date> 1999-01-04
-#> $ fechaFin                 <date> 2026-09-30
+#> $ fechaFin                 <date> 2026-10-01
 #> $ Name                     <chr> "Exchange rates. US dollars per euro (USD/EUR…
 #> $ Description              <chr> "Currency exchange rates. European Central Ba…
 #> $ Units                    <chr> "Dólares de Estados Unidos por Euro"
 #> $ Decimals                 <chr> "4"
-#> $ `Number of observations` <chr> "7.238"
-#> $ `First value`            <chr> "[04/01/1999] 1.1355 USD"
-#> $ `Last value`             <chr> "[30/09/2026] 1.1355 USD"
+#> $ `Number of observations` <chr> "7.239"
+#> $ `First value`            <chr> "[04/01/1999] 1.1298 USD"
+#> $ `Last value`             <chr> "[01/10/2026] 1.1298 USD"
 #> $ `Min value`              <chr> "[26/10/2000] 0.8252 USD"
 #> $ `Max value`              <chr> "[15/07/2008] 1.5990 USD"
 #> $ Source                   <chr> "BANCO CENTRAL EUROPEO"
