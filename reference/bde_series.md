@@ -177,7 +177,7 @@ Time series functions:
 # \donttest{
 # Show metadata.
 bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
-#> ℹ Using temporary cache directory /tmp/RtmpYEvrRA.
+#> ℹ Using temporary cache directory /tmp/Rtmp0sBPr3.
 #> ✔ Using cached catalog "BE".
 #> ✔ Using cached catalog "SI".
 #> ✔ Using cached catalog "TC".
@@ -186,7 +186,7 @@ bde_series_load(573234, verbose = TRUE, extract_metadata = TRUE)
 #> ℹ Parsing date columns.
 #> ℹ Extracting series 573234.
 #> ℹ Downloading series 573234 from file TC_1_1.csv (alias "TC_1_1.1").
-#> ℹ Using temporary cache directory /tmp/RtmpYEvrRA/TC.
+#> ℹ Using temporary cache directory /tmp/Rtmp0sBPr3/TC.
 #> ℹ Downloading tc_1_1.csv.
 #> # A tibble: 6 × 2
 #>   Date                        `573234`                                          
