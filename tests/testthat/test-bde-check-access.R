@@ -26,15 +26,16 @@ test_that("Access check returns false when downloads fail", {
 })
 
 test_that("Access check cleans up temporary downloads", {
+  state <- new.env(parent = emptyenv())
   withr::local_envvar(NOT_CRAN = "true")
-  downloaded_file <- NULL
+  state$downloaded_file <- NULL
 
   local_mocked_bindings(download.file = function(url, destfile, ...) {
-    downloaded_file <<- destfile
+    state$downloaded_file <- destfile
     writeLines("ok", destfile)
     0
   })
 
   expect_true(bde_check_access())
-  expect_false(file.exists(downloaded_file))
+  expect_false(file.exists(state$downloaded_file))
 })

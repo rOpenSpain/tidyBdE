@@ -79,14 +79,15 @@ test_that("Live daily IBEX indicator returns data", {
 })
 
 test_that("Indicators pass configured series and labels", {
-  calls <- list()
+  state <- new.env(parent = emptyenv())
+  state$calls <- list()
 
   local_mocked_bindings(bde_series_load = function(
     series_code,
     series_label,
     ...
   ) {
-    calls[[length(calls) + 1]] <<- list(
+    state$calls[[length(state$calls) + 1]] <- list(
       series_code = series_code,
       series_label = series_label
     )
@@ -104,10 +105,10 @@ test_that("Indicators pass configured series and labels", {
   expect_named(bde_ind_gdp_quarterly(), c("Date", "value"))
   expect_named(bde_ind_population(), c("Date", "value"))
 
-  expect_length(calls, 10)
-  calls <- do.call(
+  expect_length(state$calls, 10)
+  state$calls <- do.call(
     rbind,
-    lapply(calls, function(x) {
+    lapply(state$calls, function(x) {
       data.frame(
         series_code = x$series_code,
         series_label = x$series_label,
@@ -142,7 +143,7 @@ test_that("Indicators pass configured series and labels", {
     ),
     stringsAsFactors = FALSE
   )
-  expect_identical(calls, expected)
+  expect_identical(state$calls, expected)
 })
 
 test_that("Indicators validate labels", {

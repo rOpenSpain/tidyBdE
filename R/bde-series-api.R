@@ -255,14 +255,7 @@ bde_series_api_load <- function(
     ))
   }
 
-  if (!is.null(time_range)) {
-    time_range <- trimws(as.character(time_range))
-    if (length(time_range) != 1 || is.na(time_range) || !nzchar(time_range)) {
-      cli::cli_abort(
-        "{.arg time_range} must be a non-empty string or {.code NULL}."
-      )
-    }
-  }
+  time_range <- bde_hlp_api_time_range(time_range, call)
 
   bde_hlp_api_check_range(
     series_code = series_code,
@@ -299,20 +292,7 @@ bde_series_api_load <- function(
   iter <- seq_along(series_code)
   ok_results <- vapply(
     iter,
-    function(i) {
-      err_num <- api_res[[i]]$errNum
-
-      if (!is.null(err_num)) {
-        cli::cli_alert_warning(paste0(
-          "The BdE API returned error code {.val {err_num}} for ",
-          "{.arg series_code} {.val {series_code[i]}}, so the series was ",
-          "omitted from the results."
-        ))
-        return(FALSE)
-      }
-
-      TRUE
-    },
+    function(i) bde_hlp_api_result_ok(api_res, series_code, i),
     FUN.VALUE = logical(1)
   )
 
@@ -593,4 +573,32 @@ bde_hlp_api_check_range <- function(
   }
 
   invisible(TRUE)
+}
+
+bde_hlp_api_time_range <- function(time_range, call) {
+  if (!is.null(time_range)) {
+    time_range <- trimws(as.character(time_range))
+    if (length(time_range) != 1 || is.na(time_range) || !nzchar(time_range)) {
+      cli::cli_abort(
+        "{.arg time_range} must be a non-empty string or {.code NULL}.",
+        call = call
+      )
+    }
+  }
+  time_range
+}
+
+bde_hlp_api_result_ok <- function(api_res, series_code, i) {
+  err_num <- api_res[[i]]$errNum
+
+  if (!is.null(err_num)) {
+    cli::cli_alert_warning(paste0(
+      "The BdE API returned error code {.val {err_num}} for ",
+      "{.arg series_code} {.val {series_code[i]}}, so the series was ",
+      "omitted from the results."
+    ))
+    return(FALSE)
+  }
+
+  TRUE
 }

@@ -73,23 +73,24 @@ test_that("Catalog search reports malformed catalog data", {
 })
 
 test_that("Catalog update expands ALL into five downloads", {
+  state <- new.env(parent = emptyenv())
   dir <- local_bde_cache()
-  downloaded_files <- character()
+  state$downloaded_files <- character()
 
   local_mocked_bindings(
     bde_check_access = function(...) {
       TRUE
     },
     bde_hlp_download = function(url, local_file, ...) {
-      downloaded_files <<- c(downloaded_files, local_file)
+      state$downloaded_files <- c(state$downloaded_files, local_file)
       TRUE
     }
   )
   res <- bde_catalog_update("ALL", cache_dir = dir)
   expect_all_true(unlist(res))
-  expect_length(downloaded_files, 5)
+  expect_length(state$downloaded_files, 5)
   expect_setequal(
-    basename(downloaded_files),
+    basename(state$downloaded_files),
     paste0("catalogo_", c("be", "si", "tc", "ti", "pb"), ".csv")
   )
 })

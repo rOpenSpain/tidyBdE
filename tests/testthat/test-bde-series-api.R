@@ -26,11 +26,12 @@ test_that("Series API load validates required inputs", {
 })
 
 test_that("Series API load parses dates, values and query ranges", {
-  queried_url <- NULL
-  downloaded_file <- NULL
+  state <- new.env(parent = emptyenv())
+  state$queried_url <- NULL
+  state$downloaded_file <- NULL
   local_mocked_bindings(bde_hlp_download = function(url, local_file, verbose) {
-    queried_url <<- url
-    downloaded_file <<- local_file
+    state$queried_url <- url
+    state$downloaded_file <- local_file
     if (grepl("favoritas", url, fixed = TRUE)) {
       write_test_api_response(local_file, test_api_latest_result())
       return(TRUE)
@@ -51,9 +52,9 @@ test_that("Series API load parses dates, values and query ranges", {
   expect_named(tb, c("Date", "D_TEST"))
   expect_identical(tb$Date, as.Date(c("2024-02-01", "2024-01-01")))
   expect_identical(tb$D_TEST, c(2.2, 1.1))
-  expect_match(queried_url, "listaSeries")
-  expect_match(queried_url, "rango=30M")
-  expect_false(file.exists(downloaded_file))
+  expect_match(state$queried_url, "listaSeries")
+  expect_match(state$queried_url, "rango=30M")
+  expect_false(file.exists(state$downloaded_file))
 })
 
 test_that("Series API load parses valid and invalid mocked API responses", {

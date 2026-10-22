@@ -1,11 +1,12 @@
 skip_if_bde_offline <- local({
-  reachable <- NULL
+  state <- new.env(parent = emptyenv())
+  state$reachable <- NULL
 
   function() {
-    if (is.null(reachable)) {
-      reachable <<- bde_check_access()
+    if (is.null(state$reachable)) {
+      state$reachable <- bde_check_access()
     }
-    if (reachable) {
+    if (state$reachable) {
       return(invisible(TRUE))
     }
 

@@ -426,6 +426,15 @@ bde_series_full_load <- function(
   newnames_data <- as.character(meta_serie[4, ])
   newnames_data[1] <- "Date"
 
+  bde_hlp_parse_series(data_serie, parse_dates, parse_numeric, verbose)
+}
+
+bde_hlp_parse_series <- function(
+  data_serie,
+  parse_dates,
+  parse_numeric,
+  verbose
+) {
   # Parse date fields before numeric conversion.
   if (parse_dates) {
     if (verbose) {
