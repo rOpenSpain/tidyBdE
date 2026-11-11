@@ -1,7 +1,7 @@
 # Series index
 
 This article lists the time series described in Banco de España catalog
-metadata. Last updated: **29-October-2026**.
+metadata. Last updated: **11-November-2026**.
 
 Use the stable sequential number (`Numero_secuencial`) with
 [`bde_series_load()`](https://ropenspain.github.io/tidyBdE/reference/bde_series.md)
@@ -52,7 +52,7 @@ fr |>
   as.double() |>
   # Load the time series.
   bde_series_load()
-#> # A tibble: 122 × 2
+#> # A tibble: 123 × 2
 #>    Date       `2563958`
 #>    <date>         <dbl>
 #>  1 1995-12-01      -5.1
@@ -65,7 +65,7 @@ fr |>
 #>  8 1997-09-01      NA  
 #>  9 1997-12-01      -3.6
 #> 10 1998-03-01      NA  
-#> # ℹ 112 more rows
+#> # ℹ 113 more rows
 
 # Show the series metadata.
 fr |>
