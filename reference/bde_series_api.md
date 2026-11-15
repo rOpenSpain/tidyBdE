@@ -154,9 +154,9 @@ xr |>
 #> $ codFrecuencia    <chr> "D", "D", "D"
 #> $ decimales        <int> 4, 4, 4
 #> $ simbolo          <chr> "USD", "JPY", "CHF"
-#> $ tendencia        <chr> "+", "+", "+"
-#> $ fechaValor       <date> 2026-11-09, 2026-11-09, 2026-11-09
-#> $ valor            <dbl> 1.1193, 176.7900, 0.9164
+#> $ tendencia        <chr> "-", "-", "-"
+#> $ fechaValor       <date> 2026-11-12, 2026-11-12, 2026-11-12
+#> $ valor            <dbl> 1.1081, 176.9600, 0.9232
 
 # Extract the last 12 months.
 xr |>
@@ -164,10 +164,10 @@ xr |>
   pull(Nombre_de_la_serie) |>
   bde_series_api_load(language = "en", time_range = "12M") |>
   glimpse()
-#> Rows: 261
+#> Rows: 262
 #> Columns: 2
-#> $ Date            <date> 2026-11-09, 2026-11-06, 2026-11-05, 2026-11-04, 2026-…
-#> $ DTCCBCEUSDEUR.B <dbl> 1.1193, 1.1165, 1.1224, 1.1267, 1.1179, 1.1216, 1.1172…
+#> $ Date            <date> 2026-11-12, 2026-11-11, 2026-11-10, 2026-11-09, 2026-…
+#> $ DTCCBCEUSDEUR.B <dbl> 1.1081, 1.1127, 1.1214, 1.1193, 1.1165, 1.1224, 1.1267…
 
 # Extract metadata.
 xr |>
@@ -187,14 +187,14 @@ xr |>
 #> $ decimales                <int> 4
 #> $ simbolo                  <chr> "USD"
 #> $ fechaInicio              <date> 1999-01-04
-#> $ fechaFin                 <date> 2026-11-09
+#> $ fechaFin                 <date> 2026-11-12
 #> $ Name                     <chr> "Exchange rates. US dollars per euro (USD/EUR…
 #> $ Description              <chr> "Currency exchange rates. European Central Ba…
 #> $ Units                    <chr> "Dólares de Estados Unidos por Euro"
 #> $ Decimals                 <chr> "4"
-#> $ `Number of observations` <chr> "7.266"
-#> $ `First value`            <chr> "[04/01/1999] 1.1193 USD"
-#> $ `Last value`             <chr> "[09/11/2026] 1.1193 USD"
+#> $ `Number of observations` <chr> "7.269"
+#> $ `First value`            <chr> "[04/01/1999] 1.1081 USD"
+#> $ `Last value`             <chr> "[12/11/2026] 1.1081 USD"
 #> $ `Min value`              <chr> "[26/10/2000] 0.8252 USD"
 #> $ `Max value`              <chr> "[15/07/2008] 1.5990 USD"
 #> $ Source                   <chr> "BANCO CENTRAL EUROPEO"
