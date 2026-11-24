@@ -1,5 +1,10 @@
 # Changelog
 
+## tidyBdE (development version)
+
+- The minimum required **R** version is now 4.2.0 to support current
+  **ggplot2** dependencies.
+
 ## tidyBdE 0.7.1
 
 CRAN release: 2026-08-25
