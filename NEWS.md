@@ -1,3 +1,7 @@
+# tidyBdE (development version)
+
+- The minimum required **R** version is now 4.2.0 to support current **ggplot2** dependencies.
+
 # tidyBdE 0.7.1
 
 - Empty-result and download messages are now more specific, omit long query URLs and avoid implying that all BdE resources are unavailable.
